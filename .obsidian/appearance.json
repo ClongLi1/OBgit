@@ -1,21 +1,20 @@
 {
   "accentColor": "",
   "theme": "obsidian",
-  "cssTheme": "Minimal",
+  "cssTheme": "Dark Moss",
   "nativeMenus": false,
   "enabledCssSnippets": [
     "CSS",
     "白板卡片",
     "白板卡片文字居中",
-    "标题居中",
     "调整图片布局",
-    "列表动态导航线",
-    "Thino热力图",
-    "链接颜色",
     "引用框",
     "日记标签表情",
-    "背景图片",
-    "代码样式美化"
+    "标题居中",
+    "链接颜色",
+    "列表动态导航线",
+    "日历插件",
+    "Thino热力图"
   ],
   "showRibbon": true,
   "interfaceFontFamily": "Inter",
