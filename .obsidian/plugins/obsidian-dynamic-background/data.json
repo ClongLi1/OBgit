@@ -1,7 +1,7 @@
 {
-  "dynamicEffect": 5,
+  "dynamicEffect": 3,
   "digitalRainBrightness": 0.7,
   "enableDynamicEffect": true,
   "backgroundImageFile": "",
-  "blur": 0
+  "blur": 100
 }
