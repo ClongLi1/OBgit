@@ -18,19 +18,18 @@
       "name": "Enhancing Mindmap: 创建新思维导图",
       "mode": "any",
       "color": "#e252ff"
+    },
+    {
+      "id": "app:open-settings",
+      "icon": "lucide-settings",
+      "name": "打开设置",
+      "mode": "any",
+      "color": "#c8ff00"
     }
   ],
   "rightRibbon": [],
   "titleBar": [],
-  "statusBar": [
-    {
-      "id": "obsidian-tidy-footnotes:tidy-footnotes",
-      "icon": "lucide-layout-list",
-      "name": " Footnotes",
-      "mode": "any",
-      "color": "#ff0000"
-    }
-  ],
+  "statusBar": [],
   "pageHeader": [
     {
       "id": "automatic-table-of-contents:insert-automatic-table-of-contents",
