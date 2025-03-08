@@ -1,5 +1,5 @@
 {
-  "accentColor": "#00fbff",
+  "accentColor": "",
   "theme": "obsidian",
   "cssTheme": "Dark Moss",
   "nativeMenus": false,
@@ -12,10 +12,10 @@
     "列表动态导航线",
     "Thino热力图",
     "链接颜色",
-    "代码样式美化",
     "引用框",
     "日记标签表情",
-    "背景图片"
+    "背景图片",
+    "代码样式美化"
   ],
   "showRibbon": true,
   "interfaceFontFamily": "Inter",
