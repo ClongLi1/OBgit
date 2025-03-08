@@ -1,13 +1,13 @@
 {
   "palette": {
-    "seed": 7,
-    "selected": "adaptive-soft",
+    "seed": 2,
+    "selected": "adaptive-bright",
     "custom": "e12729-f37324-f8cc1b-72b043-007f4e"
   },
   "mixColors": true,
   "transition": true,
   "accessibility": {
-    "highTextContrast": false
+    "highTextContrast": true
   },
   "knownTags": {
     "科研相关": 1,
