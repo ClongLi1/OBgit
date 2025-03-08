@@ -5,24 +5,32 @@
       "path": "03软件网络/Obsidian（黑曜石）.md"
     },
     {
-      "basename": "词云测试",
-      "path": "000草稿收集箱/词云测试.md"
+      "basename": "材料类别",
+      "path": "02专业知识/材料类别.md"
+    },
+    {
+      "basename": "3D打印基础知识",
+      "path": "02专业知识/3D打印基础知识.md"
+    },
+    {
+      "basename": "02专业",
+      "path": "02专业知识/02专业.md"
     },
     {
       "basename": "Slides",
       "path": "000草稿收集箱/Slides.md"
     },
     {
-      "basename": "000",
-      "path": "000草稿收集箱/000.md"
+      "basename": "BBB",
+      "path": "000草稿收集箱/BBB.md"
+    },
+    {
+      "basename": "词云测试",
+      "path": "000草稿收集箱/词云测试.md"
     },
     {
       "basename": "目录插件（Automatic Table Of Contents）",
       "path": "000草稿收集箱/目录插件（Automatic Table Of Contents）.md"
-    },
-    {
-      "basename": "BBB",
-      "path": "000草稿收集箱/BBB.md"
     },
     {
       "basename": "dataview 测试文件",
@@ -35,6 +43,10 @@
     {
       "basename": "test- GIF ",
       "path": "000草稿收集箱/test- GIF .md"
+    },
+    {
+      "basename": "000",
+      "path": "000草稿收集箱/000.md"
     },
     {
       "basename": "毕业论文写作不规范与问题 1",
@@ -67,10 +79,6 @@
     {
       "basename": "专业理论",
       "path": "02专业知识/专业理论.md"
-    },
-    {
-      "basename": "02专业",
-      "path": "02专业知识/02专业.md"
     },
     {
       "basename": "热处理",
@@ -191,14 +199,6 @@
     {
       "basename": "行业规范标准",
       "path": "02专业知识/行业规范标准.md"
-    },
-    {
-      "basename": "04思维方法",
-      "path": "04方法思维/04思维方法.md"
-    },
-    {
-      "basename": "未命名思维导图",
-      "path": "02专业知识/未命名思维导图.md"
     }
   ],
   "omittedPaths": [],
