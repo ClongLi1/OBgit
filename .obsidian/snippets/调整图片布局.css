@@ -1,0 +1,66 @@
+
+/* 片段来自：pkmer知识管理交流群，@熊猫别熬夜*/
+/* 将所有图片默认居中 */
+body:not(.list-image-control-off)
+  :is(.HyperMD-list-line, ul)
+  .image-embed.image-embed
+  img:not([width]):not([class*="emoji"]),
+img:not([class*="emoji"]) {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  max-width: 90%;
+  margin: 0 auto; /* 设置左右间距为自适应，上下间距为零 */
+  object-fit: contain;
+  background-color: transparent;
+}
+
+/* 视频 */
+video {
+  display: block;
+  margin: 0 auto; /* 设置左右间距为自适应，上下间距为零 */
+  width: 90%;
+}
+
+/* === Image Float === */
+body {
+  --float-left-margin: 4px 12px 4px 12px;
+  --float-right-margin: 4px 12px 4px 12px;
+  --float-snw-display: none;
+}
+span[src$="O"] img {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+span[src$="OL"] img {
+  object-fit: cover;
+  border-radius: 50%;
+  float: left;
+  margin: var(--float-left-margin);
+  margin-block: unset;
+  display: inline !important;
+}
+
+span[src$="OR"] img {
+  object-fit: cover;
+  border-radius: 50%;
+  float: left;
+  margin: var(--float-right-margin);
+  margin-block: unset;
+  display: inline !important;
+}
+
+span[src$="L"] img {
+  float: left;
+  margin: var(--float-left-margin);
+  margin-block: unset;
+  display: inline !important;
+}
+
+span[src$="R"] img {
+  float: right;
+  margin: var(--float-right-margin);
+  margin-block: unset;
+  display: inline !important;
+}

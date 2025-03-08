@@ -1,0 +1,15 @@
+{
+    "manifest": {
+        "translationVersion": 1736151522530,
+        "pluginVersion": "1.5.0"
+    },
+    "description": {
+        "original": "Create a table of contents in a note, that updates itself when the note changes",
+        "translation": "Create a table of contents in a note, that updates itself when the note changes"
+    },
+    "dict": {
+        ".log(...[\n    `%cAutomatic Table Of Contents %c${type}:\\n`,\n    'color: orange; font-weight: bold',\n    'font-weight: bold',\n    data,\n  ])": ".log(...[\n    `%cAutomatic Table Of Contents %c${type}:\\n`,\n    'color: orange; font-weight: bold',\n    'font-weight: bold',\n    data,\n  ])",
+        "name: 'Insert table of contents'": "name: 'Insert table of contents'",
+        "name: 'Insert table of contents (documented)'": "name: 'Insert table of contents (documented)'"
+    }
+}

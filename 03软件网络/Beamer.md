@@ -1,0 +1,1 @@
+[30 分钟完全入门 beamer 教程 (qq.com)](https://mp.weixin.qq.com/s/xi2rYn5y1l8SqE_32oMSxQ)

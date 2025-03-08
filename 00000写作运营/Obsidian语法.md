@@ -1,0 +1,147 @@
+---
+aliases:
+  - OB语法
+  - Markdown语法
+  - obsidian元素
+---
+# 标题
+```
+# 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题
+```
+# 脚注
+长风破浪会有时，直挂云帆济沧海。[^1]
+你可以使用 `[^脚注标识]` 来插入脚注，然后在文档的任何地方使用 `[^脚注标识]: 脚注内容` 来定义脚注。例如，`这是一个脚注[^1]` 和 `[^1]: 这是脚注的内容` 会创建一个带有脚注的文本
+# 标签
+#标签1
+#标签1/a
+#标签1/b
+
+
+# 数学公式
+```
+$$
+\begin{aligned}
+\frac{\partial f}{\partial x} =0 \\
+\frac{\partial f}{\partial y} =0
+\end{aligned}
+$$
+```
+$$
+\begin{aligned}
+\frac{\partial f}{\partial x} =0 \\
+\frac{\partial f}{\partial y} =0
+\end{aligned}
+$$
+# 分割线
+```
+---
+***
+```
+***
+# 引用
+```
+> 这段是引用
+>>  嵌套引用
+```
+
+> 这是一段引用
+>>  嵌套引用
+
+
+
+
+# 内部链接
+```
+[[标题]] 
+[[标题 ]]
+[[标题|别名]]
+![[另一篇笔记]]
+[[标题#章节]]
+```
+-  [Obsidian新手全面入门09-共搭个人知识库-双向链接](https://mp.weixin.qq.com/s/JXRALuK48waWoh9Py285Og)
+# 外部链接
+```
+[百度](www.baidu.com）
+```
+# 文本
+```
+文本
+**加粗**
+*斜体*
+***粗斜***
+```
+
+# 视频
+```
+<iframe src="https://player.bilibili.com/player.html?aid=702374093&bvid=BV1Xm4y1n7bQ&cid=1232824646&page=1&autoplay=false" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="80%" height="500"> </iframe>
+```
+# 录音（自带）
+
+![[Recording 20250104145320.webm]]
+# 高亮块
+```
+> [!note] 这是主图 （note tip abstract warning example bug info ）
+> 正文吧啦吧啦...
+
+```
+
+> [!note] 这是高亮块
+> 这是一个高亮块
+
+# 列表
+```
+有序列表
+1. 
+2. 
+3. 
+```
+
+```
+无序列表
+- aaa
+- aaa
+-  
+```
+
+```
+任务列表
+- [] 任务1
+- [] 任务2
+```
+# 代码块
+```
+行间代码
+```
+
+`行内代码`
+
+# 注释内容
+```
+<!-- 注释内容 -->
+%% 这是注释内容 %%
+```
+<!-- 注释内容 -->
+%% 这是注释内容 %%
+
+# 图片
+直接复制粘贴
+图床超链接（类似一个网址）
+
+# 表格 (借助插件)
+```
+| 行/列 | 列名2 | 列明3 |
+| ----- | ----- | ----- |
+| 行名1 |       |       |
+| 行名2 |       |       |
+| 行名3 |       |       |
+```
+## REF
+
+[^1]: 源于李白《蜀道难》
+- [Markdown | 让文本更加精致【语法篇】](https://mp.weixin.qq.com/s/mxwDk2p0G_NycF6JMJRnew)
+- 

@@ -1,0 +1,330 @@
+{
+  "workspaces": {
+    "默认工作区": {
+      "main": {
+        "id": "5324373015726ba8",
+        "type": "split",
+        "children": [
+          {
+            "id": "3d8a3b54087ae7cc",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "85f7798bae8559ea",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "03软件网络/简睿学堂Obsidian合集.md",
+                    "mode": "source",
+                    "backlinks": true,
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "简睿学堂Obsidian合集"
+                },
+                "group": "b46fdf3cddf568b4"
+              }
+            ]
+          },
+          {
+            "id": "af55574e45b6977e",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "ef0f0ab39750436c",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "03软件网络/简睿学堂Obsidian合集.md",
+                    "mode": "preview",
+                    "backlinks": true,
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "简睿学堂Obsidian合集"
+                },
+                "group": "b46fdf3cddf568b4"
+              }
+            ]
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "36ab9a1c94f538f5",
+        "type": "split",
+        "children": [
+          {
+            "id": "8c9a0681fa248a9c",
+            "type": "tabs",
+            "dimension": 71.32043734230446,
+            "children": [
+              {
+                "id": "cc5fcda9053f12d5",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "轻研",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  },
+                  "icon": "lucide-search",
+                  "title": "搜索"
+                }
+              },
+              {
+                "id": "e165d2b52bfc6586",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {},
+                  "icon": "lucide-bookmark",
+                  "title": "书签"
+                }
+              },
+              {
+                "id": "319681fce0de3c36",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical"
+                  },
+                  "icon": "lucide-folder-closed",
+                  "title": "文件列表"
+                }
+              }
+            ],
+            "currentTab": 2
+          },
+          {
+            "id": "2cce8490a1546372",
+            "type": "tabs",
+            "dimension": 28.67956265769554,
+            "children": [
+              {
+                "id": "5ede9cb78658cd43",
+                "type": "leaf",
+                "state": {
+                  "type": "localgraph",
+                  "state": {
+                    "file": "03软件网络/简睿学堂Obsidian合集.md",
+                    "options": {
+                      "collapse-filter": true,
+                      "search": "",
+                      "localJumps": 1,
+                      "localBacklinks": true,
+                      "localForelinks": true,
+                      "localInterlinks": false,
+                      "showTags": false,
+                      "showAttachments": false,
+                      "hideUnresolved": false,
+                      "collapse-color-groups": true,
+                      "colorGroups": [],
+                      "collapse-display": true,
+                      "showArrow": false,
+                      "textFadeMultiplier": 0,
+                      "nodeSizeMultiplier": 1,
+                      "lineSizeMultiplier": 1,
+                      "collapse-forces": true,
+                      "centerStrength": 0.518713248970312,
+                      "repelStrength": 10,
+                      "linkStrength": 1,
+                      "linkDistance": 250,
+                      "scale": 0.40614967950967973,
+                      "close": true
+                    }
+                  },
+                  "icon": "lucide-git-fork",
+                  "title": "简睿学堂Obsidian合集 的关系图"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 200
+      },
+      "right": {
+        "id": "d1753082e938d706",
+        "type": "split",
+        "children": [
+          {
+            "id": "dbce0363b4e59864",
+            "type": "tabs",
+            "dimension": 31.087662337662337,
+            "children": [
+              {
+                "id": "56c0cb25d371e070",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "000草稿箱/000草稿汇总.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-coming-in",
+                  "title": "000草稿汇总 的反向链接列表"
+                }
+              },
+              {
+                "id": "a7436b6e2606c3ff",
+                "type": "leaf",
+                "state": {
+                  "type": "graph",
+                  "state": {},
+                  "icon": "lucide-git-fork",
+                  "title": "关系图谱"
+                }
+              },
+              {
+                "id": "4920760882fa8782",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": false
+                  },
+                  "icon": "links-going-out",
+                  "title": "出链"
+                }
+              },
+              {
+                "id": "b2f2d68419b4719b",
+                "type": "leaf",
+                "state": {
+                  "type": "all-properties",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-archive",
+                  "title": "添加笔记属性"
+                }
+              },
+              {
+                "id": "4fdcd5f95982e83b",
+                "type": "leaf",
+                "state": {
+                  "type": "graph",
+                  "state": {},
+                  "icon": "lucide-git-fork",
+                  "title": "关系图谱"
+                }
+              },
+              {
+                "id": "706577007b54093b",
+                "type": "leaf",
+                "state": {
+                  "type": "advanced-tables-toolbar",
+                  "state": {},
+                  "icon": "spreadsheet",
+                  "title": "Advanced Tables"
+                }
+              }
+            ],
+            "currentTab": 4
+          },
+          {
+            "id": "ee1bddffd106da3d",
+            "type": "tabs",
+            "dimension": 31.980519480519483,
+            "children": [
+              {
+                "id": "30dcb2b6b710eb1c",
+                "type": "leaf",
+                "state": {
+                  "type": "stats-tracker",
+                  "state": {},
+                  "icon": "bar-graph",
+                  "title": "Daily Stats"
+                }
+              },
+              {
+                "id": "41d9908ca58769a0",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "03软件网络/简睿学堂Obsidian合集.md"
+                  },
+                  "icon": "lucide-list",
+                  "title": "简睿学堂Obsidian合集 的大纲"
+                }
+              },
+              {
+                "id": "4104b206052cfe15",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": false
+                  },
+                  "icon": "lucide-tags",
+                  "title": "标签"
+                }
+              }
+            ],
+            "currentTab": 1
+          },
+          {
+            "id": "93fbc97fc765e5e9",
+            "type": "tabs",
+            "dimension": 36.93181818181818,
+            "children": [
+              {
+                "id": "c31b4b91006946d9",
+                "type": "leaf",
+                "state": {
+                  "type": "calendar-view",
+                  "state": {},
+                  "icon": "lucide-calendar-check",
+                  "title": "日历"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 333.5
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "daily-notes:打开/创建今天的日记": false,
+          "switcher:打开快速切换": false,
+          "canvas:新建白板": false,
+          "templates:插入模板": false,
+          "command-palette:打开命令面板": false,
+          "random-note:开始漫游笔记": false,
+          "audio-recorder:开始/结束录音": false,
+          "zk-prefixer:创建时间戳笔记": false,
+          "obsidian-kanban:创建新看板": false,
+          "surfing:surfing-bookmark-manager": false,
+          "obsidian-excalidraw-plugin:新建绘图文件": false,
+          "markdown-table-editor:Open Markdown Table Editor": false,
+          "table-editor-obsidian:Advanced Tables Toolbar": false,
+          "graph:查看关系图谱": false,
+          "workspaces:管理工作区布局": false
+        }
+      },
+      "active": "85f7798bae8559ea",
+      "mtime": "2024-11-03T20:46:41+08:00"
+    }
+  },
+  "active": "默认工作区"
+}

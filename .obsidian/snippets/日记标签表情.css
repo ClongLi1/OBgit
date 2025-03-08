@@ -1,0 +1,13 @@
+
+/* 当在日记的frontmatter区域添加标签的中如果有表情符号，会显示到日历中
+比如
+tags: 🎂 tag1 
+*/
+#calendar-container [data-emoji-tag]::after {
+    content: attr(data-emoji-tag);
+    position: absolute;
+    top: -4px;
+    right: 4px;
+    height: 8px;
+    width: 8px;
+  }

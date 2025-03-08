@@ -1,0 +1,14 @@
+{
+  "new-note-folder": "100附件文件/1001看板",
+  "lane-width": 250,
+  "date-colors": [
+    {
+      "isToday": false,
+      "distance": 1,
+      "unit": "days",
+      "direction": "after",
+      "backgroundColor": "rgba(252, 237, 237, 0)",
+      "color": "rgba(222, 222, 222, 1)"
+    }
+  ]
+}

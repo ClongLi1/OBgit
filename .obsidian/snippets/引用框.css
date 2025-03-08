@@ -1,0 +1,23 @@
+.theme-light {
+    --BlockqutoeColor_border-inline-start: rgb(177, 132, 255);
+    --BlockqutoeColor_background-color: rgb(221, 207, 245);
+  }
+  
+  .theme-dark {
+    --BlockqutoeColor_border-inline-start: rgb(59, 21, 121);
+    --BlockqutoeColor_background-color: rgb(66, 46, 85);
+  }
+  
+  /* PKMer网站的引用框 */
+  .markdown-rendered blockquote {
+    margin: 2rem 0 2rem 0;
+    padding: 0.8em 0.8rem;
+    border-inline-start: 0.5rem solid var(--BlockqutoeColor_border-inline-start);
+    background-color: var(--BlockqutoeColor_background-color);
+    border-radius: 0 0.25rem 0.25rem 0;
+    line-height: 1.2;
+    border-radius: 0.2rem;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.05),
+      0 0 0.05rem rgba(0, 0, 0, 0.1);
+    outline: 1px solid transparent;
+  }

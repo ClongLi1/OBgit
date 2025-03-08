@@ -1,0 +1,74 @@
+/* canvas一些参数设置  */
+body {
+  /* 调整卡片线型 */
+  /* 1. `none`: 没有边框 2. `dotted`: 点状边框 3. `dashed`: 虚线边框
+  4. `solid`: 实线边框 5. `double`: 双线边框 6. `groove`: 3D凹槽边框
+  7. `ridge`: 3D垄状边框 8. `inset`: 3D内凹边框 9. `outset`: 3D外凸边框 */
+  --canvas-card-border-style: solid;
+
+  /* 调整卡片的线宽 */
+  --canvas-card-border-width: 6px;
+
+  /* 调整卡片颜色背景的透明度 */
+  --canvas-card-opacity: 0;
+
+  /* 调整缩略卡片标签的放大倍数 */
+  --canvas-card-label-zoom:1.6;
+}
+
+/* 调整卡片的线宽 */
+.canvas-node-container {
+  border-width: var(--canvas-card-border-width);
+  border-style: var(--canvas-card-border-style);
+  border-radius: 0; /* 设置边框直角弧度为0 */
+}
+
+/* 卡片透明度 */
+/* 无色的卡片的卡片透明度 */
+.canvas-wrapper .canvas-node:not(.is-themed) .canvas-node-content {
+  background-color: rgba(var(--mono-rgb-0),var(--canvas-card-opacity));
+}
+
+/* 有色的卡片的卡片透明度 */
+.canvas-wrapper .canvas-node .canvas-node-content {
+  background-color: rgba(var(--canvas-color), var(--canvas-card-opacity));
+}
+
+/*卡片标签 */
+.canvas-node-label {
+  /* left: 10px; */
+  /* font-family: "Times New Roman","黑体" ; */
+  /* font-style: italic; */
+  font-weight: bolder;
+  font-size: 150%;
+  background-color: rgb(var(--canvas-color));
+  border-radius: 100px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  color: white;
+}
+
+/* 卡片连线之间的标签 */
+.canvas-path-label {
+  font-size: calc(var(--font-ui-large) * var(--zoom-multiplier)*1.2);
+  background-color: rgb(var(--canvas-color));
+  text-align: center;
+  max-width: calc(17em * var(--zoom-multiplier));
+  font-weight: bold;
+  color: black;
+}
+
+/* 降低卡片背景透明度的CSS设置 */
+.canvas-node-placeholder {
+  font-size: calc(var(--font-ui-large) * var(--zoom-multiplier)*var(--canvas-card-label-zoom));
+  font-weight: var(--font-semibold);
+}
+
+/* 未选择卡片时标签的颜色 */
+.canvas-node.is-themed .canvas-node-label {
+  color: white;
+}
+/* 选中卡片时标签的颜色 */
+.canvas-node.is-themed .canvas-node.is-selected .canvas-node-label, .canvas-node.is-focused .canvas-node-label {
+  color: white;
+}

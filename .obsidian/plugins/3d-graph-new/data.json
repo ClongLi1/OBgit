@@ -1,0 +1,258 @@
+{
+  "savedSettings": [
+    {
+      "title": "color",
+      "id": "e0f763a6-0cf5-4d00-9221-45e5c6d9ee46",
+      "setting": {
+        "filter": {
+          "searchQuery": "",
+          "showOrphans": true,
+          "showAttachments": true
+        },
+        "groups": [
+          {
+            "query": "path:00科研相关  ",
+            "color": "#ef0b17"
+          },
+          {
+            "query": "path:01生活常识  ",
+            "color": "#d79519"
+          },
+          {
+            "query": "path:03软件网络  ",
+            "color": "#13ee1f"
+          },
+          {
+            "query": "path:04方法思维技能  ",
+            "color": "#ca2544"
+          },
+          {
+            "query": "path:05工作职场  ",
+            "color": "#16ffe1"
+          },
+          {
+            "query": "path:06口才社交  ",
+            "color": "#a32efd"
+          },
+          {
+            "query": "path:10个人总结  ",
+            "color": "#843839"
+          },
+          {
+            "query": "path:13英语相关  ",
+            "color": "#008031"
+          },
+          {
+            "query": "path:100附件文件  ",
+            "color": "#f0ffdb"
+          },
+          {
+            "query": "path:10000写作运营  ",
+            "color": "#e294ff"
+          },
+          {
+            "query": "path:07文学历史  ",
+            "color": "#f05fbb"
+          }
+        ],
+        "display": {
+          "nodeSize": 2.4,
+          "linkThickness": 1,
+          "linkDistance": 59,
+          "nodeRepulsion": 2800,
+          "distanceFromFocal": 300,
+          "nodeHoverColor": "#ff0000",
+          "nodeHoverNeighbourColor": "#00ff00",
+          "linkHoverColor": "#00ff9d",
+          "showExtension": true,
+          "showFullPath": true,
+          "showCenterCoordinates": true,
+          "showLinkArrow": true,
+          "dontMoveWhenDrag": false,
+          "dagOrientation": "null"
+        }
+      },
+      "type": "global"
+    },
+    {
+      "title": "",
+      "id": "50b60c0f-8501-4ae8-95bd-fd1301c3daab",
+      "setting": {
+        "filter": {
+          "searchQuery": "",
+          "showOrphans": true,
+          "showAttachments": true
+        },
+        "groups": [
+          {
+            "query": "path:00科研相关  ",
+            "color": "#ef0b17"
+          },
+          {
+            "query": "path:01生活常识  ",
+            "color": "#d79519"
+          },
+          {
+            "query": "path:03软件网络  ",
+            "color": "#13ee1f"
+          },
+          {
+            "query": "path:04方法思维技能  ",
+            "color": "#ca2544"
+          },
+          {
+            "query": "path:05工作职场  ",
+            "color": "#16ffe1"
+          },
+          {
+            "query": "path:06口才社交  ",
+            "color": "#a32efd"
+          },
+          {
+            "query": "path:10个人总结  ",
+            "color": "#843839"
+          },
+          {
+            "query": "path:13英语相关  ",
+            "color": "#008031"
+          },
+          {
+            "query": "path:100附件文件  ",
+            "color": "#f0ffdb"
+          },
+          {
+            "query": "path:10000写作运营  ",
+            "color": "#e294ff"
+          },
+          {
+            "query": "path:07文学历史  ",
+            "color": "#f05fbb"
+          }
+        ],
+        "display": {
+          "nodeSize": 2.4,
+          "linkThickness": 1,
+          "linkDistance": 59,
+          "nodeRepulsion": 2800,
+          "distanceFromFocal": 300,
+          "nodeHoverColor": "#ff0000",
+          "nodeHoverNeighbourColor": "#00ff00",
+          "linkHoverColor": "#00ff9d",
+          "showExtension": true,
+          "showFullPath": true,
+          "showCenterCoordinates": true,
+          "showLinkArrow": true,
+          "dontMoveWhenDrag": false,
+          "dagOrientation": "null"
+        }
+      },
+      "type": "global"
+    }
+  ],
+  "temporaryLocalGraphSetting": {
+    "filter": {
+      "searchQuery": "",
+      "showOrphans": true,
+      "showAttachments": false,
+      "depth": 1,
+      "linkType": "both"
+    },
+    "groups": [],
+    "display": {
+      "nodeSize": 3,
+      "linkThickness": 2,
+      "linkDistance": 100,
+      "nodeRepulsion": 2800,
+      "distanceFromFocal": 300,
+      "nodeHoverColor": "#ff0000",
+      "nodeHoverNeighbourColor": "#00ff00",
+      "linkHoverColor": "#0000ff",
+      "showExtension": false,
+      "showFullPath": false,
+      "showCenterCoordinates": true,
+      "showLinkArrow": true,
+      "dontMoveWhenDrag": false,
+      "dagOrientation": "null"
+    }
+  },
+  "temporaryGlobalGraphSetting": {
+    "filter": {
+      "searchQuery": "",
+      "showOrphans": true,
+      "showAttachments": true
+    },
+    "groups": [
+      {
+        "query": "path:00科研相关  ",
+        "color": "#ef0b17"
+      },
+      {
+        "query": "path:01生活常识  ",
+        "color": "#d79519"
+      },
+      {
+        "query": "path:03软件网络  ",
+        "color": "#13ee1f"
+      },
+      {
+        "query": "path:04方法思维技能  ",
+        "color": "#ca2544"
+      },
+      {
+        "query": "path:05工作职场  ",
+        "color": "#16ffe1"
+      },
+      {
+        "query": "path:06口才社交  ",
+        "color": "#a32efd"
+      },
+      {
+        "query": "path:10个人总结  ",
+        "color": "#843839"
+      },
+      {
+        "query": "path:13英语相关  ",
+        "color": "#008031"
+      },
+      {
+        "query": "path:100附件文件  ",
+        "color": "#f0ffdb"
+      },
+      {
+        "query": "path:10000写作运营  ",
+        "color": "#e294ff"
+      },
+      {
+        "query": "path:07文学历史  ",
+        "color": "#f05fbb"
+      },
+      {
+        "query": "path:02专业知识  ",
+        "color": "#fafe16"
+      }
+    ],
+    "display": {
+      "nodeSize": 2.4,
+      "linkThickness": 1,
+      "linkDistance": 59,
+      "nodeRepulsion": 2800,
+      "distanceFromFocal": 300,
+      "nodeHoverColor": "#ff0000",
+      "nodeHoverNeighbourColor": "#00ff00",
+      "linkHoverColor": "#00ff9d",
+      "showExtension": true,
+      "showFullPath": true,
+      "showCenterCoordinates": false,
+      "showLinkArrow": true,
+      "dontMoveWhenDrag": false,
+      "dagOrientation": "null"
+    }
+  },
+  "pluginSetting": {
+    "maxNodeNumber": 1000,
+    "searchEngine": "default",
+    "rightClickToPan": true,
+    "commandLeftClickNode": "openNodeInNewTab",
+    "commandRightClickNode": "focusNode"
+  }
+}

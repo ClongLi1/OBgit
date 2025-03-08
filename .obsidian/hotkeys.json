@@ -1,0 +1,20 @@
+{
+  "cycle-through-panes:cycle-through-panes": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "Tab"
+    }
+  ],
+  "easy-typing-obsidian:easy-typing-format-switch": [],
+  "workspace:next-tab": [],
+  "cycle-through-panes:cycle-through-panes-reverse": [
+    {
+      "modifiers": [
+        "Shift"
+      ],
+      "key": "Tab"
+    }
+  ]
+}

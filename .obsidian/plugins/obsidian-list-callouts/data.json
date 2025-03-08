@@ -1,0 +1,37 @@
+[
+  {
+    "color": "255, 214, 0",
+    "char": "&",
+    "icon": "lucide-alarm-plus"
+  },
+  {
+    "color": "255, 145, 0",
+    "char": "?",
+    "icon": "lucide-arrow-down-circle"
+  },
+  {
+    "color": "255, 23, 68",
+    "char": "!",
+    "icon": "lucide-airplay"
+  },
+  {
+    "color": "124, 77, 255",
+    "char": "~",
+    "icon": "lucide-heart"
+  },
+  {
+    "color": "0, 184, 212",
+    "char": "@",
+    "icon": "lucide-concierge-bell"
+  },
+  {
+    "color": "0, 200, 83",
+    "char": "$",
+    "icon": "lucide-eye"
+  },
+  {
+    "color": "158, 158, 158",
+    "char": "%",
+    "icon": "lucide-book-check"
+  }
+]

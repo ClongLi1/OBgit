@@ -1,0 +1,23 @@
+{
+  "searches": [
+    {
+      "tags": [],
+      "query": "https://www.bing.com/search?&q={{query}}",
+      "name": "Bing",
+      "encode": true
+    },
+    {
+      "tags": [],
+      "query": "https://en.wikipedia.org/wiki/Special:Search/{{query}}",
+      "name": "Wikipedia",
+      "encode": true
+    },
+    {
+      "name": "Baidu",
+      "query": "`https://www.baidu.com/s?ie=UTF-8&wd={{title}}`",
+      "tags": [],
+      "encode": true
+    }
+  ],
+  "useIframe": true
+}

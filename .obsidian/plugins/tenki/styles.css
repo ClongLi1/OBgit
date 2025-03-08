@@ -1,0 +1,293 @@
+/* @settings
+
+name: Tenki
+id: tenki
+settings:
+    -
+        id: tenki-background
+        title: Background Color
+        description: Set the color of the timezone block background
+        type: variable-themed-color
+        opacity: true
+        format: hex
+        default-light: '#d7dff0'
+        default-dark: '#1c2732'
+
+    -
+        id: tenki-main-text
+        title: Main Text Color
+        description: Set the color of the main text 
+        type: variable-themed-color
+        opacity: true
+        format: hex
+        default-dark: '#aabed8'
+        default-light: '#497fa0'
+    -
+        id: tenki-secondary-text
+        title: Secondary Text Color
+        description: Set the color of the secondary text 
+        type: variable-themed-color
+        opacity: true
+        format: hex
+        default-dark: '#7b96b3'
+        default-light: '#9fabb3'
+
+    -
+        id: tenki-highlight
+        title: Highlight Color
+        description: Set the highlight color
+        type: variable-themed-color
+        opacity: true
+        format: hex
+        default-dark: '#6a85a3'
+        default-light: '#6a85a3'
+
+    -
+        id: tenki-border
+        title: Border Color
+        description: Set the border color 
+        type: variable-themed-color
+        opacity: true
+        format: hex
+        default-dark: '#3a4e58'
+        default-light: '#88a0b9'
+
+*/
+
+.theme-dark {
+	--tenki-background: #1c2732;
+	--tenki-main-text: #aabed8;
+	--tenki-secondary-text: #7b96b3;
+	--tenki-highlight: #427bbf;
+	--tenki-border: #3a4e58;
+}
+
+.theme-light {
+	--tenki-background: #e5e9f2;
+	--tenki-main-text: #497fa0;
+	--tenki-secondary-text: #9fabb3;
+	--tenki-highlight: #6a85a3;
+	--tenki-border: #88a0b9;
+}
+
+.weather-container {
+	display: column;
+
+}
+
+.tenki-refresh-button[data-app-id="tenki"] .clickable-icon {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+	opacity: var(--icon-opacity, 0.3);
+	--icon-opacity: 0.7;
+	--icon-size: 20px;
+	color: var(--tenki-main-text);
+	border: none;
+	background-color: transparent;
+	filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 1));
+}
+
+.tenki-refresh-button[data-app-id="tenki"] .clickable-icon:hover {
+	transform: rotate(45deg);
+	cursor: pointer;
+	--icon-opacity: 1;
+/*	--icon-color: var(--tenki-highlight) !important;*/
+/*	background-color: transparent !important;*/
+/*	border: none !important;*/
+	color: var(--tenki-highlight) !important;
+}
+
+.location {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	font-size: 1.8em;
+	color: var(--tenki-main-text);
+	text-shadow: 2px 2px 4px var(--tenki-secondary-text);
+}
+
+.current-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+}
+
+.current-icon {
+	width: 100px;
+	height: 100px;
+	filter: drop-shadow(0px 3px 3px var(--tenki-background));
+}
+
+.current-stats-container {
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 1em;
+	color: var(--tenki-main-text);
+}
+
+/* This setting doesn't look great on mobile */
+.current-stats-container > * {
+	/* margin: -0.2em; */
+}
+
+.current-temp-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.current-temp {
+}
+
+.current-feelslike {
+	font-weight: bold;
+	color: var(--tenki-secondary-text);
+}
+
+.current-humidity {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.current-humidity-value {
+	margin-left: 0.5em;
+	font-weight: bold;
+	color: var(--tenki-secondary-text);
+}
+
+.current-uv {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.current-uv-value {
+	margin-left: 0.5em;
+	font-weight: bold;
+	color: var(--tenki-secondary-text);
+}
+
+.current-aq {
+	display: flex;
+	align-items: center;
+}
+
+.current-aq-value {
+	margin-left: 0.5em;
+	font-weight: bold;
+	margin-right: 4px;
+	color: var(--tenki-secondary-text);
+}
+
+.current-aq-icon {
+	margin-left: 4px;
+}
+
+.current-conditions {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1em;
+	font-weight: bold;
+	padding: 5px;
+	color: var(--tenki-main-text);
+	text-align: center;
+}
+
+.forecast-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	padding: 0px;
+	gap: 10px;
+	padding: 5px;
+}
+
+.forecast-day-container {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: var(--tenki-background);
+	border: 2px solid var(--tenki-border);
+	border-radius: 5px;
+	backdrop-filter: blur(20px);
+	max-width: 25%;
+}
+
+.forecast-day {
+	font-weight: bold;
+	color: var(--tenki-main-text);
+}
+
+.forecast-icon {
+	width: 60px;
+	height: 60px;
+	filter: drop-shadow(0px 3px 3px var(--tenki-background));
+	padding: 2px;
+}
+
+.forecast-rain {
+	color: var(--tenki-main-text);
+}
+
+/* Styling for the forecast tooltip */
+.forecast-tooltip {
+	position: absolute;
+	background-color: var(--tenki-background);
+	border: 1px solid var(--tenki-border);
+	padding: 5px;
+	font-size: 0.7em;
+	visibility: hidden;
+	width: 50px;
+	text-align: center;
+}
+
+.forecast-day-container:hover {
+	border: 2px solid var(--tenki-highlight);
+}
+
+.forecast-day-container:hover .forecast-tooltip {
+	visibility: visible;
+}
+
+.last-updated {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	font-size: 0.7em;
+	color: var(--tenki-highlight);
+}
+
+/* Donation Styling */
+.tenki-donation {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.donate-text {
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+.donate-img {
+	width: 163px;
+	height: 45px;
+	border-radius: 10px;
+}
+
+.donate-img:hover {
+	border: 2px solid red;
+	border-radius: 10px;
+}

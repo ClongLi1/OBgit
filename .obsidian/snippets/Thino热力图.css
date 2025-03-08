@@ -1,0 +1,16 @@
+.theme-dark .heatmap-default,
+.theme-light .heatmap-default {
+  --memos-bg-lightgray: #caf0f84e;
+  --memos-stat-day-L1-bg: #90e0ef;
+  --memos-stat-day-L2-bg: #00b4d8;
+  --memos-stat-day-L3-bg: #0077b6;
+  --memos-stat-day-L4-bg: #03045e;
+}
+
+div[data-type=thino_view] .common-editor-wrapper>.common-tools-wrapper>.btns-container>.confirm-btn {
+  background-color: #0077b6;
+}
+
+div[data-type=thino_view] .tags-wrapper>.tags-container .tag-item-container.active>.tag-text-container>* {
+  color: #0077b6;
+}

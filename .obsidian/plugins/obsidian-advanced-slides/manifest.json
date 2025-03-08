@@ -1,0 +1,10 @@
+{
+    "id": "obsidian-advanced-slides",
+    "name": "Advanced Slides",
+    "version": "1.20.0",
+    "minAppVersion": "0.12.0",
+    "description": "在 Obsidian 中创建基于 Markdown 的演示文稿",
+    "author": "Matthäus Szturc",
+    "authorUrl": "https://github.com/MSzturc",
+    "isDesktopOnly": true
+}
