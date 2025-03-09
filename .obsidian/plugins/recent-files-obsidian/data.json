@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "Git命令学习",
-      "path": "03软件网络/Git命令学习.md"
+      "basename": "Dataview草稿",
+      "path": "03软件网络/Dataview草稿.md"
+    },
+    {
+      "basename": "Dateview",
+      "path": "03软件网络/Dateview.md"
+    },
+    {
+      "basename": "03软件电脑",
+      "path": "03软件网络/03软件电脑.md"
     },
     {
       "basename": "Git&GitHub",
       "path": "03软件网络/Git&GitHub.md"
     },
     {
-      "basename": "03软件电脑",
-      "path": "03软件网络/03软件电脑.md"
+      "basename": "Git命令学习",
+      "path": "03软件网络/Git命令学习.md"
     },
     {
       "basename": "03软件网络",
@@ -191,14 +199,6 @@
     {
       "basename": "拉压弯扭剪",
       "path": "02专业知识/拉压弯扭剪.md"
-    },
-    {
-      "basename": "扫描电镜&EDS",
-      "path": "02专业知识/扫描电镜&EDS.md"
-    },
-    {
-      "basename": "腐蚀",
-      "path": "02专业知识/腐蚀.md"
     }
   ],
   "omittedPaths": [],
