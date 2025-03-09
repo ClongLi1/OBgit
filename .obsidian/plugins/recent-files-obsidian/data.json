@@ -1,16 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "热处理",
-      "path": "02专业知识/热处理.md"
+      "basename": "选材设计",
+      "path": "02专业知识/选材设计.md"
     },
     {
       "basename": "02专业",
       "path": "02专业知识/02专业.md"
     },
     {
+      "basename": "XPS",
+      "path": "02专业知识/XPS.md"
+    },
+    {
       "basename": "钢铁",
       "path": "02专业知识/钢铁.md"
+    },
+    {
+      "basename": "专业理论",
+      "path": "02专业知识/专业理论.md"
+    },
+    {
+      "basename": "热处理",
+      "path": "02专业知识/热处理.md"
     },
     {
       "basename": "金相分析",
@@ -63,10 +75,6 @@
     {
       "basename": "疲劳试验",
       "path": "02专业知识/疲劳试验.md"
-    },
-    {
-      "basename": "专业理论",
-      "path": "02专业知识/专业理论.md"
     },
     {
       "basename": "镁合金",
@@ -191,14 +199,6 @@
     {
       "basename": "test- GIF ",
       "path": "000草稿收集箱/test- GIF .md"
-    },
-    {
-      "basename": "毕业论文写作不规范与问题 1",
-      "path": "100附件文件/毕业论文写作不规范与问题 1.pdf"
-    },
-    {
-      "basename": "00写作运营",
-      "path": "00000写作运营/00写作运营.md"
     }
   ],
   "omittedPaths": [],
