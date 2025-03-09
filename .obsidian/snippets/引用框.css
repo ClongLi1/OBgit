@@ -5,7 +5,7 @@
   
   .theme-dark {
     --BlockqutoeColor_border-inline-start: rgb(59, 21, 121);
-    --BlockqutoeColor_background-color: rgb(66, 46, 85);
+    --BlockqutoeColor_background-color: rgb(1, 77, 65);
   }
   
   /* PKMer网站的引用框 */
@@ -18,6 +18,6 @@
     line-height: 1.2;
     border-radius: 0.2rem;
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.05),
-      0 0 0.05rem rgba(0, 0, 0, 0.1);
+      0 0 0.05rem rgba(255, 174, 0, 0.1);
     outline: 1px solid transparent;
   }
