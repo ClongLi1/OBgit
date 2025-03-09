@@ -1,2 +1,5 @@
 -  `git init` 创建新仓库 
-- 
+- ` git clone ssh` 检出远程仓库 
+- 工作流（work document —— index —— HEAD）
+- `git add ` 
+- `git commit`
