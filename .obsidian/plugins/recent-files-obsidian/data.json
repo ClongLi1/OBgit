@@ -1,12 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "钢铁",
-      "path": "02专业知识/钢铁.md"
+      "basename": "硬度测试",
+      "path": "02专业知识/硬度测试.md"
     },
     {
       "basename": "02专业",
       "path": "02专业知识/02专业.md"
+    },
+    {
+      "basename": "断裂",
+      "path": "02专业知识/断裂.md"
+    },
+    {
+      "basename": "铝合金",
+      "path": "02专业知识/铝合金.md"
+    },
+    {
+      "basename": "钢铁",
+      "path": "02专业知识/钢铁.md"
     },
     {
       "basename": "材料力学",
@@ -187,18 +199,6 @@
     {
       "basename": "表面处理",
       "path": "02专业知识/表面处理.md"
-    },
-    {
-      "basename": "铝合金",
-      "path": "02专业知识/铝合金.md"
-    },
-    {
-      "basename": "机械设计",
-      "path": "02专业知识/机械设计.md"
-    },
-    {
-      "basename": "Origin(科研绘图)",
-      "path": "03软件网络/Origin(科研绘图).md"
     }
   ],
   "omittedPaths": [],
