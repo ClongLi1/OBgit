@@ -9,16 +9,20 @@
       "path": "02专业知识/02专业.md"
     },
     {
+      "basename": "材料力学",
+      "path": "02专业知识/材料力学.md"
+    },
+    {
+      "basename": "疲劳试验",
+      "path": "02专业知识/疲劳试验.md"
+    },
+    {
       "basename": "专业理论",
       "path": "02专业知识/专业理论.md"
     },
     {
       "basename": "拉压弯扭剪",
       "path": "02专业知识/拉压弯扭剪.md"
-    },
-    {
-      "basename": "材料力学",
-      "path": "02专业知识/材料力学.md"
     },
     {
       "basename": "行业规范标准",
@@ -195,10 +199,6 @@
     {
       "basename": "Origin(科研绘图)",
       "path": "03软件网络/Origin(科研绘图).md"
-    },
-    {
-      "basename": "腐蚀",
-      "path": "02专业知识/腐蚀.md"
     }
   ],
   "omittedPaths": [],
