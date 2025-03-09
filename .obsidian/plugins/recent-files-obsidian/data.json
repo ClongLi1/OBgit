@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "12亲子教育",
+      "path": "12亲子教育/12亲子教育.md"
+    },
+    {
+      "basename": "琐碎问题",
+      "path": "15-琐碎问题/琐碎问题.md"
+    },
+    {
       "basename": "Dateview",
       "path": "03软件网络/Dateview.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "钢铁",
       "path": "02专业知识/钢铁.md"
-    },
-    {
-      "basename": "专业理论",
-      "path": "02专业知识/专业理论.md"
-    },
-    {
-      "basename": "热处理",
-      "path": "02专业知识/热处理.md"
     }
   ],
   "omittedPaths": [],
