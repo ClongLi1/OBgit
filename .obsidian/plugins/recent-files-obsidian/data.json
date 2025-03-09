@@ -1,12 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "元素分析",
-      "path": "02专业知识/元素分析.md"
+      "basename": "扫描电镜&EDS",
+      "path": "02专业知识/扫描电镜&EDS.md"
     },
     {
       "basename": "02专业",
       "path": "02专业知识/02专业.md"
+    },
+    {
+      "basename": "腐蚀",
+      "path": "02专业知识/腐蚀.md"
+    },
+    {
+      "basename": "断裂",
+      "path": "02专业知识/断裂.md"
+    },
+    {
+      "basename": "XRD(物相分析)",
+      "path": "02专业知识/XRD(物相分析).md"
+    },
+    {
+      "basename": "元素分析",
+      "path": "02专业知识/元素分析.md"
     },
     {
       "basename": "机械设计",
@@ -23,10 +39,6 @@
     {
       "basename": "行业规范标准",
       "path": "02专业知识/行业规范标准.md"
-    },
-    {
-      "basename": "断裂",
-      "path": "02专业知识/断裂.md"
     },
     {
       "basename": "铝合金",
@@ -187,18 +199,6 @@
     {
       "basename": "00写作运营",
       "path": "00000写作运营/00写作运营.md"
-    },
-    {
-      "basename": "AI&ChatGPT",
-      "path": "00000写作运营/AI&ChatGPT.md"
-    },
-    {
-      "basename": "AI可以做什么？",
-      "path": "00000写作运营/AI可以做什么？.md"
-    },
-    {
-      "basename": "新材料、工艺、技术、设备",
-      "path": "02专业知识/新材料、工艺、技术、设备.md"
     }
   ],
   "omittedPaths": [],
