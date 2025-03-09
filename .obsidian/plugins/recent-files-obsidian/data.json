@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "材料力学",
-      "path": "02专业知识/材料力学.md"
+      "basename": "拉压弯扭剪",
+      "path": "02专业知识/拉压弯扭剪.md"
     },
     {
       "basename": "02专业",
       "path": "02专业知识/02专业.md"
+    },
+    {
+      "basename": "材料力学",
+      "path": "02专业知识/材料力学.md"
+    },
+    {
+      "basename": "行业规范标准",
+      "path": "02专业知识/行业规范标准.md"
     },
     {
       "basename": "金相分析",
@@ -189,16 +197,8 @@
       "path": "03软件网络/Origin(科研绘图).md"
     },
     {
-      "basename": "拉压弯扭剪",
-      "path": "02专业知识/拉压弯扭剪.md"
-    },
-    {
       "basename": "腐蚀",
       "path": "02专业知识/腐蚀.md"
-    },
-    {
-      "basename": "02专业知识",
-      "path": "02专业知识/02专业知识.md"
     }
   ],
   "omittedPaths": [],
