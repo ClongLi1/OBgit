@@ -1,24 +1,36 @@
 {
   "recentFiles": [
     {
-      "basename": "机械设计",
-      "path": "02专业知识/机械设计.md"
+      "basename": "热处理",
+      "path": "02专业知识/热处理.md"
     },
     {
       "basename": "02专业",
       "path": "02专业知识/02专业.md"
     },
     {
-      "basename": "热处理",
-      "path": "02专业知识/热处理.md"
+      "basename": "金相分析",
+      "path": "02专业知识/金相分析.md"
+    },
+    {
+      "basename": "表面处理",
+      "path": "02专业知识/表面处理.md"
+    },
+    {
+      "basename": "镁合金",
+      "path": "02专业知识/镁合金.md"
+    },
+    {
+      "basename": "行业规范标准",
+      "path": "02专业知识/行业规范标准.md"
+    },
+    {
+      "basename": "机械设计",
+      "path": "02专业知识/机械设计.md"
     },
     {
       "basename": "断裂",
       "path": "02专业知识/断裂.md"
-    },
-    {
-      "basename": "金相分析",
-      "path": "02专业知识/金相分析.md"
     },
     {
       "basename": "腐蚀",
@@ -57,10 +69,6 @@
       "path": "02专业知识/磨损.md"
     },
     {
-      "basename": "表面处理",
-      "path": "02专业知识/表面处理.md"
-    },
-    {
       "basename": "热分析",
       "path": "02专业知识/热分析.md"
     },
@@ -83,10 +91,6 @@
     {
       "basename": "钛合金",
       "path": "02专业知识/钛合金.md"
-    },
-    {
-      "basename": "镁合金",
-      "path": "02专业知识/镁合金.md"
     },
     {
       "basename": "铸造成型",
@@ -195,10 +199,6 @@
     {
       "basename": "上班通勤",
       "path": "05工作职场/上班通勤.md"
-    },
-    {
-      "basename": "下班如何学习？",
-      "path": "05工作职场/下班如何学习？.md"
     }
   ],
   "omittedPaths": [],
