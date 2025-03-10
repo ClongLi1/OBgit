@@ -1,12 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "断裂",
-      "path": "02专业知识/断裂.md"
+      "basename": "金相分析",
+      "path": "02专业知识/金相分析.md"
     },
     {
       "basename": "02专业",
       "path": "02专业知识/02专业.md"
+    },
+    {
+      "basename": "材料力学",
+      "path": "02专业知识/材料力学.md"
+    },
+    {
+      "basename": "生活百科",
+      "path": "02专业知识/生活百科.md"
+    },
+    {
+      "basename": "断裂",
+      "path": "02专业知识/断裂.md"
     },
     {
       "basename": "专业理论",
@@ -29,10 +41,6 @@
       "path": "02专业知识/热分析.md"
     },
     {
-      "basename": "金相分析",
-      "path": "02专业知识/金相分析.md"
-    },
-    {
       "basename": "扫描电镜&EDS",
       "path": "02专业知识/扫描电镜&EDS.md"
     },
@@ -43,10 +51,6 @@
     {
       "basename": "腐蚀",
       "path": "02专业知识/腐蚀.md"
-    },
-    {
-      "basename": "生活百科",
-      "path": "02专业知识/生活百科.md"
     },
     {
       "basename": "硬度测试",
@@ -195,10 +199,6 @@
     {
       "basename": "能力多面体",
       "path": "100附件文件/1004Excalidraw/能力多面体.md"
-    },
-    {
-      "basename": "个人能力",
-      "path": "04方法思维/个人能力.md"
     }
   ],
   "omittedPaths": [],
