@@ -1,20 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "腐蚀",
-      "path": "02专业知识/腐蚀.md"
+      "basename": "热处理",
+      "path": "02专业知识/热处理.md"
     },
     {
       "basename": "02专业知识",
       "path": "02专业知识/02专业知识.md"
     },
     {
-      "basename": "专业理论",
-      "path": "02专业知识/专业理论.md"
+      "basename": "钢铁",
+      "path": "02专业知识/钢铁.md"
     },
     {
-      "basename": "热处理",
-      "path": "02专业知识/热处理.md"
+      "basename": "增材制造",
+      "path": "02专业知识/增材制造.md"
+    },
+    {
+      "basename": "腐蚀",
+      "path": "02专业知识/腐蚀.md"
+    },
+    {
+      "basename": "专业理论",
+      "path": "02专业知识/专业理论.md"
     },
     {
       "basename": "无损检测技术",
@@ -109,10 +117,6 @@
       "path": "02专业知识/断裂.md"
     },
     {
-      "basename": "钢铁",
-      "path": "02专业知识/钢铁.md"
-    },
-    {
       "basename": "塑性变形",
       "path": "02专业知识/塑性变形.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "09心灵慰藉",
       "path": "09心灵慰藉/09心灵慰藉.md"
-    },
-    {
-      "basename": "11情感婚恋",
-      "path": "11情感婚恋/11情感婚恋.md"
     }
   ],
   "omittedPaths": [],
