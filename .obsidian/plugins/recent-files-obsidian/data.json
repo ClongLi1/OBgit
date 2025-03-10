@@ -1,12 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "表面处理",
-      "path": "02专业知识/表面处理.md"
+      "basename": "断裂",
+      "path": "02专业知识/断裂.md"
     },
     {
       "basename": "02专业",
       "path": "02专业知识/02专业.md"
+    },
+    {
+      "basename": "专业理论",
+      "path": "02专业知识/专业理论.md"
+    },
+    {
+      "basename": "热处理",
+      "path": "02专业知识/热处理.md"
+    },
+    {
+      "basename": "磨损",
+      "path": "02专业知识/磨损.md"
+    },
+    {
+      "basename": "表面处理",
+      "path": "02专业知识/表面处理.md"
     },
     {
       "basename": "热分析",
@@ -51,10 +67,6 @@
     {
       "basename": "焊接铆接胶接",
       "path": "02专业知识/焊接铆接胶接.md"
-    },
-    {
-      "basename": "专业理论",
-      "path": "02专业知识/专业理论.md"
     },
     {
       "basename": "塑性变形",
@@ -187,18 +199,6 @@
     {
       "basename": "个人能力",
       "path": "04方法思维/个人能力.md"
-    },
-    {
-      "basename": "高效利用时间",
-      "path": "04方法思维/高效利用时间.md"
-    },
-    {
-      "basename": "浪费时间的行为",
-      "path": "04方法思维/浪费时间的行为.md"
-    },
-    {
-      "basename": "个人观念",
-      "path": "04方法思维/个人观念.md"
     }
   ],
   "omittedPaths": [],
