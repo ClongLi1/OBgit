@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "专业理论",
-      "path": "02专业知识/专业理论.md"
+      "basename": "镁合金",
+      "path": "02专业知识/镁合金.md"
     },
     {
       "basename": "02专业",
       "path": "02专业知识/02专业.md"
+    },
+    {
+      "basename": "焊接铆接胶接",
+      "path": "02专业知识/焊接铆接胶接.md"
+    },
+    {
+      "basename": "专业理论",
+      "path": "02专业知识/专业理论.md"
     },
     {
       "basename": "塑性变形",
@@ -15,10 +23,6 @@
     {
       "basename": "铸造成型",
       "path": "02专业知识/铸造成型.md"
-    },
-    {
-      "basename": "镁合金",
-      "path": "02专业知识/镁合金.md"
     },
     {
       "basename": "03软件网络",
@@ -195,10 +199,6 @@
     {
       "basename": "未命名",
       "path": "100附件文件/1003 白板/未命名.canvas"
-    },
-    {
-      "basename": "14医学养生",
-      "path": "14医学养生/14医学养生.md"
     }
   ],
   "omittedPaths": [],
