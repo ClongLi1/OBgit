@@ -1,24 +1,44 @@
 {
   "recentFiles": [
     {
-      "basename": "轻研合金&空天院",
-      "path": "05工作职场/051-主业工作（轻研合金）/轻研合金&空天院.md"
+      "basename": "各类企业招聘",
+      "path": "05工作职场/各类企业招聘.md"
     },
     {
-      "basename": "轻研产品手册解读",
-      "path": "05工作职场/轻研产品手册解读.md"
+      "basename": "写作模板",
+      "path": "100附件文件/1005模板/写作模板.md"
     },
     {
-      "basename": "05工作职场",
-      "path": "05工作职场/05工作职场.md"
+      "basename": "年度总结模板",
+      "path": "100附件文件/1005模板/年度总结模板.md"
+    },
+    {
+      "basename": "日记模板",
+      "path": "100附件文件/1005模板/日记模板.md"
+    },
+    {
+      "basename": "阅读笔记",
+      "path": "100附件文件/1005模板/阅读笔记.md"
+    },
+    {
+      "basename": "自我总结模板",
+      "path": "100附件文件/1005模板/自我总结模板.md"
+    },
+    {
+      "basename": "Ref笔记模板",
+      "path": "100附件文件/1005模板/Ref笔记模板.md"
+    },
+    {
+      "basename": "05职场工作",
+      "path": "05工作职场/05职场工作.md"
     },
     {
       "basename": "职场心得",
       "path": "05工作职场/职场心得.md"
     },
     {
-      "basename": "05职场工作",
-      "path": "05工作职场/05职场工作.md"
+      "basename": "轻研合金&空天院",
+      "path": "05工作职场/051-主业工作（轻研合金）/轻研合金&空天院.md"
     },
     {
       "basename": "人力资源管理",
@@ -35,10 +55,6 @@
     {
       "basename": "招聘就业方法论",
       "path": "05工作职场/招聘就业方法论.md"
-    },
-    {
-      "basename": "各类企业招聘",
-      "path": "05工作职场/各类企业招聘.md"
     },
     {
       "basename": "五险一金",
@@ -183,22 +199,6 @@
     {
       "basename": "12亲子教育",
       "path": "12亲子教育/12亲子教育.md"
-    },
-    {
-      "basename": "琐碎问题",
-      "path": "15-琐碎问题/琐碎问题.md"
-    },
-    {
-      "basename": "Dateview",
-      "path": "03软件网络/Dateview.md"
-    },
-    {
-      "basename": "0000日记数据库",
-      "path": "998日记汇总/0000日记数据库.md"
-    },
-    {
-      "basename": "README",
-      "path": "export/Slides/plugin/chalkboard/README.md"
     }
   ],
   "omittedPaths": [],
