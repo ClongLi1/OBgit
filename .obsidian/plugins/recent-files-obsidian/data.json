@@ -1,20 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "05职场工作",
-      "path": "05工作职场/05职场工作.md"
+      "basename": "金相分析",
+      "path": "02专业知识/金相分析.md"
     },
     {
-      "basename": "镁合金",
-      "path": "02专业知识/镁合金.md"
+      "basename": "02专业",
+      "path": "02专业知识/02专业.md"
     },
     {
       "basename": "钛合金",
       "path": "02专业知识/钛合金.md"
     },
     {
-      "basename": "02专业",
-      "path": "02专业知识/02专业.md"
+      "basename": "05职场工作",
+      "path": "05工作职场/05职场工作.md"
+    },
+    {
+      "basename": "镁合金",
+      "path": "02专业知识/镁合金.md"
     },
     {
       "basename": "焊接铆接胶接",
@@ -195,10 +199,6 @@
     {
       "basename": "EBSD学习笔记",
       "path": "000草稿收集箱/EBSD学习笔记.md"
-    },
-    {
-      "basename": "BBB",
-      "path": "000草稿收集箱/BBB.md"
     }
   ],
   "omittedPaths": [],
