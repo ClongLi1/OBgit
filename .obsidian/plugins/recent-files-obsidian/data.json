@@ -1,6 +1,34 @@
 {
   "recentFiles": [
     {
+      "basename": "招聘就业注意事项",
+      "path": "05工作职场/招聘就业注意事项.md"
+    },
+    {
+      "basename": "招聘就业",
+      "path": "05工作职场/招聘就业.md"
+    },
+    {
+      "basename": "招聘就业方法论",
+      "path": "05工作职场/招聘就业方法论.md"
+    },
+    {
+      "basename": "05工作职场",
+      "path": "05工作职场/05工作职场.md"
+    },
+    {
+      "basename": "各类企业招聘",
+      "path": "05工作职场/各类企业招聘.md"
+    },
+    {
+      "basename": "五险一金",
+      "path": "05工作职场/五险一金.md"
+    },
+    {
+      "basename": "05职场工作",
+      "path": "05工作职场/05职场工作.md"
+    },
+    {
       "basename": "腐蚀",
       "path": "02专业知识/腐蚀.md"
     },
@@ -83,10 +111,6 @@
     {
       "basename": "硬度测试",
       "path": "02专业知识/硬度测试.md"
-    },
-    {
-      "basename": "05职场工作",
-      "path": "05工作职场/05职场工作.md"
     },
     {
       "basename": "钛合金",
@@ -175,30 +199,6 @@
     {
       "basename": "03软件电脑",
       "path": "03软件网络/03软件电脑.md"
-    },
-    {
-      "basename": "Git&GitHub",
-      "path": "03软件网络/Git&GitHub.md"
-    },
-    {
-      "basename": "Git命令学习",
-      "path": "03软件网络/Git命令学习.md"
-    },
-    {
-      "basename": "GitHub",
-      "path": "03软件网络/GitHub.md"
-    },
-    {
-      "basename": "职场心得",
-      "path": "05工作职场/职场心得.md"
-    },
-    {
-      "basename": "05工作职场",
-      "path": "05工作职场/05工作职场.md"
-    },
-    {
-      "basename": "上班通勤",
-      "path": "05工作职场/上班通勤.md"
     }
   ],
   "omittedPaths": [],
