@@ -1,16 +1,28 @@
 {
   "recentFiles": [
     {
+      "basename": "02专业",
+      "path": "02专业知识/02专业.md"
+    },
+    {
+      "basename": "腐蚀",
+      "path": "02专业知识/腐蚀.md"
+    },
+    {
+      "basename": "生活百科",
+      "path": "02专业知识/生活百科.md"
+    },
+    {
+      "basename": "硬度测试",
+      "path": "02专业知识/硬度测试.md"
+    },
+    {
       "basename": "金相分析",
       "path": "02专业知识/金相分析.md"
     },
     {
       "basename": "05职场工作",
       "path": "05工作职场/05职场工作.md"
-    },
-    {
-      "basename": "02专业",
-      "path": "02专业知识/02专业.md"
     },
     {
       "basename": "钛合金",
@@ -187,18 +199,6 @@
     {
       "basename": "07历史文学",
       "path": "07文学历史/07历史文学.md"
-    },
-    {
-      "basename": "镁锭铸造过程",
-      "path": "02专业知识/镁锭铸造过程.md"
-    },
-    {
-      "basename": "材料力学",
-      "path": "02专业知识/材料力学.md"
-    },
-    {
-      "basename": "EBSD学习笔记",
-      "path": "000草稿收集箱/EBSD学习笔记.md"
     }
   ],
   "omittedPaths": [],
