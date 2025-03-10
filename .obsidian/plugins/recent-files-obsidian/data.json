@@ -1,12 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "金相分析",
-      "path": "02专业知识/金相分析.md"
-    },
-    {
       "basename": "02专业",
       "path": "02专业知识/02专业.md"
+    },
+    {
+      "basename": "钢铁",
+      "path": "02专业知识/钢铁.md"
+    },
+    {
+      "basename": "热处理",
+      "path": "02专业知识/热处理.md"
+    },
+    {
+      "basename": "焊接铆接胶接",
+      "path": "02专业知识/焊接铆接胶接.md"
+    },
+    {
+      "basename": "金相分析",
+      "path": "02专业知识/金相分析.md"
     },
     {
       "basename": "材料力学",
@@ -23,10 +35,6 @@
     {
       "basename": "专业理论",
       "path": "02专业知识/专业理论.md"
-    },
-    {
-      "basename": "热处理",
-      "path": "02专业知识/热处理.md"
     },
     {
       "basename": "磨损",
@@ -67,10 +75,6 @@
     {
       "basename": "镁合金",
       "path": "02专业知识/镁合金.md"
-    },
-    {
-      "basename": "焊接铆接胶接",
-      "path": "02专业知识/焊接铆接胶接.md"
     },
     {
       "basename": "塑性变形",
@@ -195,10 +199,6 @@
     {
       "basename": "99-必备技能",
       "path": "99-必备技能/99-必备技能.md"
-    },
-    {
-      "basename": "能力多面体",
-      "path": "100附件文件/1004Excalidraw/能力多面体.md"
     }
   ],
   "omittedPaths": [],
