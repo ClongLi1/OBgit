@@ -5,6 +5,10 @@
       "path": "02专业知识/镁合金.md"
     },
     {
+      "basename": "钛合金",
+      "path": "02专业知识/钛合金.md"
+    },
+    {
       "basename": "02专业",
       "path": "02专业知识/02专业.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "BBB",
       "path": "000草稿收集箱/BBB.md"
-    },
-    {
-      "basename": "未命名",
-      "path": "100附件文件/1003 白板/未命名.canvas"
     }
   ],
   "omittedPaths": [],
