@@ -9,6 +9,10 @@
       "path": "02专业知识/02专业知识.md"
     },
     {
+      "basename": "行业常识术语",
+      "path": "02专业知识/行业常识术语.md"
+    },
+    {
       "basename": "专业理论",
       "path": "02专业知识/专业理论.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "科研素质",
       "path": "00科研相关/科研素质.md"
-    },
-    {
-      "basename": "README",
-      "path": "export/Slides/plugin/chart/README.md"
     }
   ],
   "omittedPaths": [],
