@@ -1,6 +1,6 @@
 ---
-banner: ![[homepage.png]]                                                                                                                   
+banner: "![[homepage.png]]"
 banner_x:   
-banner_y: 0.1  
+banner_y: 0.01
 ---
 
