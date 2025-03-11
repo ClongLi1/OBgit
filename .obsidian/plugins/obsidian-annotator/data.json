@@ -6,7 +6,7 @@
     "sepia": 0
   },
   "debugLogging": false,
-  "customDefaultPath": "100附件文件/1009Annotator",
+  "customDefaultPath": "",
   "epubSettings": {
     "readingMode": "scroll",
     "fontSize": 100

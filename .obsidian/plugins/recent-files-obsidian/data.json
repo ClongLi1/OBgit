@@ -5,6 +5,10 @@
       "path": "000草稿收集箱/000.md"
     },
     {
+      "basename": "PDF测试",
+      "path": "000草稿收集箱/PDF测试.md"
+    },
+    {
       "basename": "1",
       "path": "100附件文件/1.jpg"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "钛合金",
       "path": "02专业知识/钛合金.md"
-    },
-    {
-      "basename": "铸造成型",
-      "path": "02专业知识/铸造成型.md"
     }
   ],
   "omittedPaths": [],
