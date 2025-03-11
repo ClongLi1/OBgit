@@ -1,6 +1,6 @@
 {
   "apiKey": "a53f01110dd64163bc931939251101",
   "unit": "celsius",
-  "refreshInterval": 30,
+  "refreshInterval": 60,
   "location": "jiaozuo"
 }
