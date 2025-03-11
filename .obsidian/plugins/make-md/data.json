@@ -1,7 +1,7 @@
 {
   "newNotePlaceholder": "Untitled",
   "defaultInitialization": false,
-  "navigatorEnabled": true,
+  "navigatorEnabled": false,
   "filePreviewOnHover": false,
   "blinkEnabled": true,
   "imageThumbnails": false,
@@ -9,7 +9,7 @@
   "cacheIndex": true,
   "spacesRightSplit": false,
   "contextEnabled": true,
-  "spaceViewEnabled": true,
+  "spaceViewEnabled": false,
   "saveAllContextToFrontmatter": true,
   "autoOpenFileContext": false,
   "activeView": "/",
