@@ -17,7 +17,7 @@ dv.paragraph(
 	totalDays+totalMd+"、"+totalTag+""
 )
 ```
-![[时间作息表]]
+!![[时间作息表]]
 ```contributionGraph
 title: 🏳️‍🌈Obsidian热力图🔥
 graphType: default
