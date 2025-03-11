@@ -2,14 +2,14 @@
   "version": 4,
   "homepages": {
     "Main Homepage": {
-      "value": "1000Homepage/💗ClongLi💗(🧊个人主页🧊）",
+      "value": "100附件文件/HomePage",
       "kind": "File",
-      "openOnStartup": true,
+      "openOnStartup": false,
       "openMode": "Replace all open notes",
       "manualOpenMode": "Keep open notes",
       "view": "Default view",
       "revertView": true,
-      "openWhenEmpty": false,
+      "openWhenEmpty": true,
       "refreshDataview": false,
       "autoCreate": true,
       "autoScroll": false,

@@ -86,6 +86,13 @@
       "name": "分栏",
       "mode": "any",
       "color": "#00e1ff"
+    },
+    {
+      "id": "homepage:open-homepage",
+      "icon": "lucide-home",
+      "name": "Homepage: Open homepage",
+      "mode": "any",
+      "color": "#c547ff"
     }
   ],
   "macros": [],
