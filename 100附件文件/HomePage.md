@@ -3,6 +3,7 @@ banner: "![[homepage.png]]"
 banner_y: 0.886
 sticker: emoji//1f305
 ---
+![[时间作息表]]
 ```contributionGraph
 title: 🏳️‍🌈Obsidian热力图🔥
 graphType: default
@@ -30,8 +31,8 @@ let totalDays = " 您已使用 `Obsidian` "+total+" 天，"
 let nofold = '!"misc/templates"'
 let allFile = dv.pages(nofold).file
 let totalMd = "共创建 "+
-	allFile.length+" 篇笔记"
-let totalTag = allFile.etags.distinct().length+" 个标签"
+	allFile.length+" 篇📆笔记"
+let totalTag = allFile.etags.distinct().length+" 个🧰标签"
 
 dv.paragraph(
 	totalDays+totalMd+"、"+totalTag+""
