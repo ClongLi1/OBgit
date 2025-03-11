@@ -1,8 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "000",
-      "path": "000草稿收集箱/000.md"
+      "basename": "Obsidian（黑曜石）",
+      "path": "03软件网络/Obsidian（黑曜石）.md"
+    },
+    {
+      "basename": "03软件电脑",
+      "path": "03软件网络/03软件电脑.md"
+    },
+    {
+      "basename": "标签测试 ",
+      "path": "000草稿收集箱/标签测试 .md"
+    },
+    {
+      "basename": "词云测试",
+      "path": "000草稿收集箱/词云测试.md"
+    },
+    {
+      "basename": "Drawing 2025-03-11 13.08.55.excalidraw",
+      "path": "000草稿收集箱/Drawing 2025-03-11 13.08.55.excalidraw.md"
     },
     {
       "basename": "PDF测试",
@@ -183,22 +199,6 @@
     {
       "basename": "磨损",
       "path": "02专业知识/磨损.md"
-    },
-    {
-      "basename": "热分析",
-      "path": "02专业知识/热分析.md"
-    },
-    {
-      "basename": "扫描电镜&EDS",
-      "path": "02专业知识/扫描电镜&EDS.md"
-    },
-    {
-      "basename": "硬度测试",
-      "path": "02专业知识/硬度测试.md"
-    },
-    {
-      "basename": "钛合金",
-      "path": "02专业知识/钛合金.md"
     }
   ],
   "omittedPaths": [],
