@@ -50,7 +50,6 @@
   "convert-url-to-iframe",
   "cycle-through-panes",
   "obsidian-show-file-path",
-  "make-md",
   "cmdr",
   "obsidian-calibre-plugin",
   "templater-obsidian",
@@ -69,5 +68,6 @@
   "obsidian-annotator",
   "obsidian-checklist-plugin",
   "homepage",
-  "obsidian-banners"
+  "obsidian-banners",
+  "make-md"
 ]
