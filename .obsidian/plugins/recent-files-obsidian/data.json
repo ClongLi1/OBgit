@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "博士申请考核",
+      "path": "00科研相关/博士申请考核.md"
+    },
+    {
+      "basename": "00科研项目",
+      "path": "00科研相关/00科研项目.md"
+    },
+    {
       "basename": "2025-03-12",
       "path": "998日记汇总/2025-03-12.md"
     },
     {
       "basename": "如何做好学术汇报PPT",
       "path": "00科研相关/如何做好学术汇报PPT.md"
-    },
-    {
-      "basename": "00科研项目",
-      "path": "00科研相关/00科研项目.md"
     },
     {
       "basename": "发明专利",
@@ -195,10 +199,6 @@
     {
       "basename": "02专业知识",
       "path": "02专业知识/02专业知识.md"
-    },
-    {
-      "basename": "钢铁",
-      "path": "02专业知识/钢铁.md"
     }
   ],
   "omittedPaths": [],
