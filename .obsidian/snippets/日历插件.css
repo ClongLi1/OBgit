@@ -1,22 +1,78 @@
 /* obsidian-calendar-plugin */
 /* https://github.com/liamcain/obsidian-calendar-plugin */
 
+/* 设置日历容器的背景色和文字色 */
 #calendar-container {
-    --color-background-heading: transparent;
-    --color-background-day: transparent;
-    --color-background-weeknum: transparent;
-    --color-background-weekend: transparent;
-  
-    --color-dot: var(--text-muted);
-    --color-arrow: var(--text-muted);
-    --color-button: var(--text-muted);
-  
-    --color-text-title: var(--text-normal);
-    --color-text-heading: var(--text-muted);
-    --color-text-day: var(--text-normal);
-    --color-text-today: var(--interactive-accent);
-    --color-text-weeknum: var(--text-muted);
-  }
-  #calendar-container .year {
-    color: var(--text-normal);
-  }
+  --color-background-heading: #a41c01 !important; /* 设置标题背景色 */
+  --color-background-day: #34495e !important; /* 设置日期单元格背景色 */
+  --color-background-weeknum: #34495e !important; /* 设置周数背景色 */
+  --color-background-weekend: #c0392b !important; /* 设置周末背景色 */
+
+  --color-dot: #27ae60 !important; /* 设置实心点的颜色 */
+  --color-arrow: #3498db !important; /* 设置箭头的颜色 */
+  --color-button: #3498db !important; /* 设置按钮的颜色 */
+
+  --color-text-title: #3498db !important; /* 设置标题文字颜色 */
+  --color-text-heading: #7f8c8d !important; /* 设置标题文字颜色 */
+  --color-text-day: #ffffff !important; /* 设置日期文字颜色 */
+  --color-text-today: #f1c40f !important; /* 设置今天文字颜色 */
+  --color-text-weeknum: #7f8c8d !important; /* 设置周数文字颜色 */
+}
+
+/* 设置年份文字颜色 */
+#calendar-container .year {
+  color: #3498db !important;
+}
+
+/* 设置月份文字颜色 */
+#calendar-container .month {
+  color: #2980b9 !important;
+}
+
+/* 设置星期标题文字颜色 */
+#calendar-container .day-header {
+  color: #7f8c8d !important;
+}
+
+/* 设置日期单元格的背景色、文字颜色和边框 */
+#calendar-container .day-cell {
+  background-color: #34495e !important;
+  color: #ffffff !important;
+  border: 1px solid #2c3e50 !important;
+}
+
+/* 设置周末单元格的背景色和文字颜色 */
+#calendar-container .weekend-cell {
+  background-color: #c0392b !important;
+  color: #ffffff !important;
+}
+
+/* 设置今天单元格的背景色和文字颜色 */
+#calendar-container .today-cell {
+  background-color: #2c3e50 !important;
+  color: #f1c40f !important;
+}
+
+/* 设置实心点的背景色 */
+#calendar-container .dot {
+  background-color: #27ae60 !important;
+}
+
+/* 设置未完成任务的空心点的边框颜色 */
+#calendar-container .incomplete-dot {
+  border: 2px solid #e74c3c !important;
+}
+
+/* 设置按钮的背景色、文字颜色、边框和圆角 */
+#calendar-container .button {
+  background-color: #3498db !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 4px 8px !important;
+}
+
+/* 设置箭头的颜色 */
+#calendar-container .arrow {
+  color: #3498db !important;
+}
