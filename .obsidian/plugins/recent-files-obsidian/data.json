@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "发明专利",
+      "path": "00科研相关/发明专利.md"
+    },
+    {
+      "basename": "00科研项目",
+      "path": "00科研相关/00科研项目.md"
+    },
+    {
       "basename": "HomePage",
       "path": "100附件文件/HomePage.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "专业理论",
       "path": "02专业知识/专业理论.md"
-    },
-    {
-      "basename": "机械设计",
-      "path": "02专业知识/机械设计.md"
-    },
-    {
-      "basename": "焊接铆接胶接",
-      "path": "02专业知识/焊接铆接胶接.md"
     }
   ],
   "omittedPaths": [],
