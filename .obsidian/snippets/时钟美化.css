@@ -1,0 +1,36 @@
+/* Tokei Clock Beautification */
+/* https://github.com/liamcain/obsidian-calendar-plugin */
+
+/* 设置时钟容器的背景色和圆角 */
+#tokei-clock-container {
+    background-color: rgba(10, 10, 10, 0.8) !important;
+    border-radius: 10px !important;
+    padding: 20px !important;
+    margin: 10px !important;
+    box-shadow: 0 0 15px rgba(0, 94, 195, 0.3) !important;
+}
+
+/* 设置时钟文字的样式 */
+#tokei-clock {
+    font-family: 'Arial', sans-serif !important;
+    font-size: 48px !important;
+    color: #00b8ff !important;
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.5) !important;
+    letter-spacing: 2px !important;
+}
+
+/* 设置日期文字的样式 */
+#tokei-date {
+    font-family: 'Arial', sans-serif !important;
+    font-size: 24px !important;
+    color: #ffffff !important;
+    text-shadow: 0 0 5px rgba(0, 123, 255, 0.3) !important;
+    margin-top: 5px !important;
+}
+
+/* 设置时钟图标的样式 */
+#tokei-icon {
+    color: #00b8ff !important;
+    font-size: 24px !important;
+    margin-right: 10px !important;
+}
