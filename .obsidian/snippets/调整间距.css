@@ -1,0 +1,62 @@
+/* 完整的CSS代码用于调整红色方框部分的间距 */
+.red-box {
+    /* 减小红色方框的外边距 */
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    
+    /* 减小红色方框的内边距 */
+    padding: 5px !important;
+    
+    /* 调整红色方框的边框样式 */
+    border: 2px solid red !important;
+    border-radius: 5px !important;
+}
+
+/* 调整红色方框的父容器布局 */
+.red-box-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 5px !important; /* 设置子元素之间的间距 */
+    width: 100% !important;
+}
+
+/* 调整整个页面的布局 */
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: Arial, sans-serif !important;
+}
+
+/* 调整特定元素的样式 */
+.notes-info {
+    margin-top: 10px !important;
+    font-size: 14px !important;
+    color: #ccc !important;
+}
+
+.weather-info {
+    margin-top: 5px !important;
+    font-size: 14px !important;
+    color: #888 !important;
+}
+
+/* 调整贡献图的样式 */
+.contribution-graph {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+/* 调整标题的样式 */
+h1 {
+    margin: 0 !important;
+    padding: 10px !important;
+    color: white !important;
+    text-align: center !important;
+}
+
+/* 调整笔记属性的标签样式 */
+.note-label {
+    color: #aaa !important;
+    font-size: 14px !important;
+    margin-left: 10px !important;
+}
