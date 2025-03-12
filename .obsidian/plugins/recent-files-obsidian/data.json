@@ -1,8 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "03软件电脑",
+      "path": "03软件网络/03软件电脑.md"
+    },
+    {
+      "basename": "Allen Explorer",
+      "path": "03软件网络/Allen Explorer.md"
+    },
+    {
       "basename": "2025-03-12",
       "path": "998日记汇总/2025-03-12.md"
+    },
+    {
+      "basename": "轻研写作",
+      "path": "轻研企业写作/轻研写作.md"
     },
     {
       "basename": "日记模板",
@@ -81,10 +93,6 @@
       "path": "998日记汇总/2025-03-11.md"
     },
     {
-      "basename": "轻研写作",
-      "path": "轻研企业写作/轻研写作.md"
-    },
-    {
       "basename": "11情感婚恋",
       "path": "11情感婚恋/11情感婚恋.md"
     },
@@ -95,10 +103,6 @@
     {
       "basename": "电脑知识",
       "path": "03软件网络/电脑知识.md"
-    },
-    {
-      "basename": "03软件电脑",
-      "path": "03软件网络/03软件电脑.md"
     },
     {
       "basename": "16-时政现实",
@@ -195,10 +199,6 @@
     {
       "basename": "金相分析",
       "path": "02专业知识/金相分析.md"
-    },
-    {
-      "basename": "行业规范标准",
-      "path": "02专业知识/行业规范标准.md"
     }
   ],
   "omittedPaths": [],
