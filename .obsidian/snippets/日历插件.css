@@ -3,76 +3,19 @@
 
 /* 设置日历容器的背景色和文字色 */
 #calendar-container {
-  --color-background-heading: #ff8400 !important; /* 设置标题背景色 */
-  --color-background-day: #016a7c !important; /* 设置日期单元格背景色 */
-  --color-background-weeknum: #546f00 !important; /* 设置周数背景色 */
+  --color-background-heading: #00cd8c !important; /* 设置标题背景色 */
+  --color-background-day: #1a0c4f ; /* 设置日期单元格背景色 */
+  --color-background-weeknum: #076b00 !important; /* 设置周数背景色 */
   --color-background-weekend: #bb9f00 !important; /* 设置周末背景色 */
 
-  --color-dot: #27ae60 !important; /* 设置实心点的颜色 */
+  --color-dot: #ea00ff !important; /* 设置实心点的颜色 */
   --color-arrow: #3498db !important; /* 设置箭头的颜色 */
-  --color-button: #3498db !important; /* 设置按钮的颜色 */
+  --color-button: #216a00 !important; /* 设置按钮的颜色 */
 
-  --color-text-title: #ffa0a0 !important; /* 设置标题文字颜色 */
-  --color-text-heading: #ffffff !important; /* 设置标题文字颜色 */
-  --color-text-day: #ffffff !important; /* 设置日期文字颜色 */
-  --color-text-today: #ff00d4; /* 设置今天文字颜色 */
-  --color-text-weeknum: #ffffff !important; /* 设置周数文字颜色 */
+  --color-text-title: #19fe00 !important; /* 设置标题文字颜色 */
+  --color-text-heading: #111111 !important; /* 设置标题文字颜色 */
+  --color-text-day: #ffd000 !important; /* 设置日期文字颜色 */
+  --color-text-today: #00f2ff; /* 设置今天文字颜色 */
+  --color-text-weeknum: #fafafa !important; /* 设置周数文字颜色 */
 }
 
-/* 设置年份文字颜色 */
-#calendar-container .year {
-  color: #6fff00 !important;
-}
-
-/* 设置月份文字颜色 */
-#calendar-container .month {
-  color: #00ffd5 !important;
-}
-
-/* 设置星期标题文字颜色 */
-#calendar-container .day-header {
-  color: #0fa4af !important;
-}
-
-/* 设置日期单元格的背景色、文字颜色和边框 */
-#calendar-container .day-cell {
-  background-color: #34495e !important;
-  color: #ffffff !important;
-  border: 1px solid #2c3e50 !important;
-}
-
-/* 设置周末单元格的背景色和文字颜色 */
-#calendar-container .weekend-cell {
-  background-color: #c0392b !important;
-  color: #ffffff !important;
-}
-
-/* 设置今天单元格的背景色和文字颜色 */
-#calendar-container .today-cell {
-  background-color: #000000 !important;
-  color: #f1c40f !important;
-}
-
-/* 设置实心点的背景色 */
-#calendar-container .dot {
-  background-color: #27ae60 !important;
-}
-
-/* 设置未完成任务的空心点的边框颜色 */
-#calendar-container .incomplete-dot {
-  border: 2px solid #e74c3c !important;
-}
-
-/* 设置按钮的背景色、文字颜色、边框和圆角 */
-#calendar-container .button {
-  background-color: #3498db !important;
-  color: #1b0909 !important;
-  border: none !important;
-  border-radius: 4px !important;
-  padding: 4px 8px !important;
-}
-
-/* 设置箭头的颜色 */
-#calendar-container .arrow {
-  color: #3498db !important;
-}

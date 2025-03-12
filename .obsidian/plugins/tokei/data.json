@@ -1,8 +1,8 @@
 {
-  "timeFormat": "HH:mm:ss",
-  "showDate": true,
+  "timeFormat": "⏱️HH:mm:ss",
+  "showDate": false,
   "dateFormat": "DDD",
-  "showTimeZone": true,
+  "showTimeZone": false,
   "timeZonePairs": [
     {
       "name": "",
