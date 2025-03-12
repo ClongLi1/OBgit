@@ -10,7 +10,7 @@
       "view": "Reading view",
       "revertView": true,
       "openWhenEmpty": false,
-      "refreshDataview": true,
+      "refreshDataview": false,
       "autoCreate": true,
       "autoScroll": false,
       "pin": false,
