@@ -20,7 +20,7 @@ dv.paragraph(
 
 ```contributionGraph
 graphType: default
-dateRangeValue: 800
+dateRangeValue: 654
 dateRangeType: LATEST_DAYS
 startOfWeek: 1
 showCellRuleIndicators: true
