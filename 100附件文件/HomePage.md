@@ -1,7 +1,6 @@
 ---
 banner: "![[homepage.png]]"
 banner_y: 0.886
-sticker: emoji//1f305
 ---
 
 
