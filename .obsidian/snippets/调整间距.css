@@ -16,7 +16,7 @@
 .red-box-container {
     display: flex !important;
     flex-direction: column !important;
-    gap: 5px !important; /* 设置子元素之间的间距 */
+    gap: 50px !important; /* 设置子元素之间的间距 */
     width: 100% !important;
 }
 
