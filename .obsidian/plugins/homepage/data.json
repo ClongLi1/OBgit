@@ -14,7 +14,12 @@
       "autoCreate": true,
       "autoScroll": false,
       "pin": false,
-      "commands": [],
+      "commands": [
+        {
+          "id": "editor:save-file",
+          "period": "Both"
+        }
+      ],
       "alwaysApply": false,
       "hideReleaseNotes": false
     }
