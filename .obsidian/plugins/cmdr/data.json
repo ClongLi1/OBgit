@@ -93,6 +93,13 @@
       "name": "Homepage: Open homepage",
       "mode": "any",
       "color": "#c547ff"
+    },
+    {
+      "id": "buttons:button-maker",
+      "icon": "lucide-alert-circle",
+      "name": "按钮",
+      "mode": "any",
+      "color": "#8066ff"
     }
   ],
   "macros": [],
