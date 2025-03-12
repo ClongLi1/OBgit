@@ -69,5 +69,6 @@
   "obsidian-checklist-plugin",
   "homepage",
   "obsidian-banners",
-  "make-md"
+  "make-md",
+  "buttons"
 ]

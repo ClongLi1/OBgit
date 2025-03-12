@@ -1,0 +1,6 @@
+Div. Mod-header: has (+ div. Obsidian-banner-wrapper) {
+	Margin-top: var (--banner-height) !Important;
+}
+.obsidian-banner-wrapper {
+	Margin-top: unset;
+}
