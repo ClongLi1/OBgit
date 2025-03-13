@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "铸造成型",
+      "path": "02专业知识/铸造成型.md"
+    },
+    {
+      "basename": "02专业知识",
+      "path": "02专业知识/02专业知识.md"
+    },
+    {
       "basename": "HomePage",
       "path": "100附件文件/HomePage.md"
     },
@@ -149,10 +157,6 @@
       "path": "02专业知识/盐雾试验.md"
     },
     {
-      "basename": "02专业知识",
-      "path": "02专业知识/02专业知识.md"
-    },
-    {
       "basename": "02专业-知识",
       "path": "02专业知识/02专业-知识.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "轻研写作",
       "path": "轻研企业写作/轻研写作.md"
-    },
-    {
-      "basename": "日记模板",
-      "path": "100附件文件/1005模板/日记模板.md"
     }
   ],
   "omittedPaths": [],
