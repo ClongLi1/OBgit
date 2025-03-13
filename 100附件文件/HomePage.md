@@ -87,7 +87,7 @@ cellStyleRules:
 </div>
   <!-- 右侧栏 -->
   <div style="width: 48%;">
-  <div style=" width: 100%;  height:680px;transform: scale(0.7); margin-top:-160px;;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/Space?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>
+  <div style=" width: 90%;  height:680px;transform: scale(0.5); margin-top:-160px;;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/Space?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 50%; width: 80%;"></iframe></div>
   
   </div>
 </div>
