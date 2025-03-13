@@ -1,7 +1,7 @@
 ---
 banner: "![[homepage.png]]"
 Banner_y: 0.886
-banner_y: 0.968
+banner_y: 0.9
 ---
 
   ```dataviewjs
