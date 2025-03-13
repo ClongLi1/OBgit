@@ -18,38 +18,53 @@ dv.paragraph(
 ``` 
 
 ```contributionGraph
+title: ""
 graphType: default
-dateRangeValue: 654
+dateRangeValue: 750
 dateRangeType: LATEST_DAYS
 startOfWeek: 1
 showCellRuleIndicators: true
 titleStyle:
   textAlign: left
-  fontSize: 10px
+  fontSize: 20px
   fontWeight: normal
 dataSource:
   type: PAGE
   value: ""
-  dateField: {}
-fillTheScreen: false
+  dateField:
+    format: yyyy-mm-dd-tt
+fillTheScreen: true
 enableMainContainerShadow: false
+mainContainerStyle: {}
+cellStyle:
+  borderRadius: ""
 cellStyleRules:
-  - id: Lovely_a
-    color: "#fedcdc"
-    min: 1
-    max: 2
-  - id: Lovely_b
-    color: "#fdb8bf"
-    min: 2
-    max: 3
-  - id: Lovely_c
-    color: "#f892a9"
-    min: 3
-    max: 5
-  - id: Lovely_d
-    color: "#ec6a97"
-    min: 5
-    max: 9999
+  - id: default_b
+    color: "#ffffccff"
+    min: "1"
+    max: "2"
+  - id: default_c
+    color: "#ffeb99ff"
+    min: "2"
+    max: "4"
+  - id: default_d
+    color: "#ffd700ff"
+    min: "4"
+    max: "6"
+  - id: default_e
+    color: "#ffa500ff"
+    min: "6"
+    max: "8"
+  - id: 1740749878263
+    min: "8"
+    max: "10"
+    color: "#ff4500ff"
+    text: ""
+  - id: 1740749904057
+    min: "10"
+    max: "99"
+    color: "#ff0000ff"
+    text: ""
 
 ```
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
@@ -67,22 +82,15 @@ cellStyleRules:
     <div style=" width: 100%; height:100;overflow: hidden; margin-top: 10px;">
       <iframe src="https://widget.pkmer.cn/free/miniTianqi?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&select-theme=ta&theme=%E6%A0%B7%E5%BC%8F4&input-text=&theme-color=%2350F9FFFF&select-icon=durian" allow="fullscreen" style=" height: 200%; width: 200%;"></iframe>
     </div>
-    <!-- 时钟 -->
-    <div style="width: 100%; height:220px;overflow: hidden; margin-bottom: 20px;">
-      <iframe src="https://widget.pkmer.cn/free/ColorfulClock?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&font-color=%2300FFD0FF&ring-color-1=%2330F503FF&ring-color-2=%23FF2A87FF&ring-color-3=%230008FFFF&ring-color-4=%23FFEE00FF&lang=zh-cn" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe>
-    </div>
+    
     
 </div>
   <!-- 右侧栏 -->
   <div style="width: 48%;">
   <div style=" width: 100%;  height:680px;transform: scale(0.7); margin-top:-160px;;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/Space?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>
-    
-    <!-- 时间进度条 -->
-    
-	<div style=" width: 100%; height:180;overflow: hidden; ">
-	<iframe src="https://widget.pkmer.cn/free/TimeProgressBar?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&theme-color=%2300F7FFFF&select-theme=Default&date-picker=946310400000" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe>
-	</div>
-  
   
   </div>
 </div>
+
+
+<div style=" width: 100%; height:280;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/Carousel?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>
