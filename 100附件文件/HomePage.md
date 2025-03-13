@@ -72,7 +72,7 @@ cellStyleRules:
 ```
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
   <!-- 左侧栏 -->
-  <div style="width: 48%; margin-bottom: 20px;">
+  <div style="width: 48%; margin-bottom: 1px;">
     <!-- Obsidian logo 和欢迎语 -->
     <div style="display: flex; align-items: center; margin-bottom: 20px;">
       <img src="Obsidian logo.png" alt="Obsidian Logo" style="width: 230px; height: 320px; margin-right: 20px;">
@@ -83,15 +83,14 @@ cellStyleRules:
     </div>
     <!-- 天气信息 -->
     <div style=" width: 100%; height:100;overflow: hidden; margin-top: 10px;">
-      <iframe src="https://widget.pkmer.cn/free/miniTianqi?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&select-theme=ta&theme=%E6%A0%B7%E5%BC%8F4&input-text=&theme-color=%2350F9FFFF&select-icon=durian" allow="fullscreen" style=" height: 200%; width: 200%;"></iframe>
+      <iframe src="https://widget.pkmer.cn/free/miniTianqi?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&select-theme=ta&theme=%E6%A0%B7%E5%BC%8F4&input-text=&theme-color=%2350F9FFFF&select-icon=durian" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe>
     </div>
-    
-    
-</div>
+  </div>
   <!-- 右侧栏 -->
   <div style="width: 48%;">
-  <div style=" width: 90%;  height:680px;transform: scale(0.5); margin-top:-160px;;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/Space?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>
-  
+    <div style=" width: 90%;  height:680px;transform: scale(0.5); margin-top:-160px;;overflow: hidden; ">
+      <iframe src="https://widget.pkmer.cn/free/Space?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe>
+    </div>
   </div>
 </div>
 
