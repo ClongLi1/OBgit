@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "Git&GitHub",
+      "path": "03软件网络/Git&GitHub.md"
+    },
+    {
+      "basename": "03软件电脑",
+      "path": "03软件网络/03软件电脑.md"
+    },
+    {
+      "basename": "03软件网络",
+      "path": "03软件网络/03软件网络.md"
+    },
+    {
       "basename": "HomePage",
       "path": "100附件文件/HomePage.md"
     },
@@ -187,18 +199,6 @@
     {
       "basename": "盐雾试验",
       "path": "02专业知识/盐雾试验.md"
-    },
-    {
-      "basename": "02专业-知识",
-      "path": "02专业知识/02专业-知识.md"
-    },
-    {
-      "basename": "Time⏱️",
-      "path": "000草稿收集箱/Time⏱️.md"
-    },
-    {
-      "basename": "OB",
-      "path": "100附件文件/OB.jpg"
     }
   ],
   "omittedPaths": [],
