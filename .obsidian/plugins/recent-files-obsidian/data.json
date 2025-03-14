@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "03软件电脑",
-      "path": "03软件网络/03软件电脑.md"
-    },
-    {
-      "basename": "奇淫技巧",
-      "path": "03软件网络/奇淫技巧.md"
+      "basename": "钢铁",
+      "path": "02专业知识/钢铁.md"
     },
     {
       "basename": "02专业知识",
       "path": "02专业知识/02专业知识.md"
+    },
+    {
+      "basename": "03软件电脑",
+      "path": "03软件网络/03软件电脑.md"
+    },
+    {
+      "basename": "AI工具和模型",
+      "path": "03软件网络/AI工具和模型.md"
+    },
+    {
+      "basename": "奇淫技巧",
+      "path": "03软件网络/奇淫技巧.md"
     },
     {
       "basename": "铝合金",
@@ -191,14 +199,6 @@
     {
       "basename": "test- GIF ",
       "path": "000草稿收集箱/test- GIF .md"
-    },
-    {
-      "basename": "2025-03-12",
-      "path": "998日记汇总/2025-03-12.md"
-    },
-    {
-      "basename": "SEM样品制备",
-      "path": "02专业知识/SEM样品制备.md"
     }
   ],
   "omittedPaths": [],
