@@ -16,6 +16,7 @@
 
 ## 1.3 参考资料 
 - [MatAi | AI 大模型赋能智能知识库，开启高效知识管理新时代](https://mp.weixin.qq.com/s/1Mr_93ZK3DM0vW0C_UA3RQ)
+- [MatAi | AI赋能材料知识管理，从查资料到会思考的变革](https://mp.weixin.qq.com/s/wlACMacjmgX1y30jIXGa6Q)
 
 
 
