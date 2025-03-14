@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "科研绘图",
+      "path": "00科研相关/科研绘图.md"
+    },
+    {
+      "basename": "00科研项目",
+      "path": "00科研相关/00科研项目.md"
+    },
+    {
+      "basename": "HomePage",
+      "path": "100附件文件/HomePage.md"
+    },
+    {
       "basename": "生活百科",
       "path": "02专业知识/生活百科.md"
     },
@@ -83,10 +95,6 @@
     {
       "basename": "02专业-知识",
       "path": "02专业知识/02专业-知识.md"
-    },
-    {
-      "basename": "HomePage",
-      "path": "100附件文件/HomePage.md"
     },
     {
       "basename": "Git&GitHub",
@@ -191,14 +199,6 @@
     {
       "basename": "开支面板",
       "path": "01生活方面/开支面板.md"
-    },
-    {
-      "basename": "待办目标",
-      "path": "08灵感梦想任务/待办目标.md"
-    },
-    {
-      "basename": "TEST HOMEPAGE",
-      "path": "000草稿收集箱/TEST HOMEPAGE.md"
     }
   ],
   "omittedPaths": [],
