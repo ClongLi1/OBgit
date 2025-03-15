@@ -4,7 +4,7 @@
   "wordsPerDot": 250,
   "showWeeklyNote": true,
   "weeklyNoteFormat": "gggg-[W]ww",
-  "weeklyNoteTemplate": "100附件文件/1005模板/两周一记（月结）",
+  "weeklyNoteTemplate": "100附件文件/1005模板/周记模板",
   "weeklyNoteFolder": "998日记汇总",
   "localeOverride": "zh-cn"
 }
