@@ -12,5 +12,6 @@
   },
   "showLineNumber": true,
   "rightToLeft": false,
-  "propertiesInDocument": "hidden"
+  "propertiesInDocument": "hidden",
+  "promptDelete": false
 }
