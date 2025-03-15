@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "晚间学习",
-      "path": "04方法思维/晚间学习.md"
-    },
-    {
       "basename": "2025-03-15",
       "path": "998日记汇总/2025-03-15.md"
+    },
+    {
+      "basename": "Deepssek从入门到精通《阅读摘要》",
+      "path": "03软件网络/Deepssek从入门到精通《阅读摘要》.md"
+    },
+    {
+      "basename": "晚间学习",
+      "path": "04方法思维/晚间学习.md"
     },
     {
       "basename": "周记模板",
@@ -195,10 +199,6 @@
     {
       "basename": "Git&GitHub",
       "path": "03软件网络/Git&GitHub.md"
-    },
-    {
-      "basename": "Pasted image 20240807171235",
-      "path": "100附件文件/Pasted image 20240807171235.png"
     }
   ],
   "omittedPaths": [],
