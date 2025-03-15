@@ -46,19 +46,7 @@
     ],
     "defaultFilterType": "tree"
   },
-  "treeData": [
-    {
-      "id": "f03e28ed161eb96c",
-      "parent": 0,
-      "droppable": true,
-      "text": "程序员盒子 coderutil 编程导航，助力200万程序员编程学习提效【官网】",
-      "data": {
-        "fileType": "site",
-        "fileSize": "",
-        "icon": {}
-      }
-    }
-  ],
+  "treeData": [],
   "enableHtmlPreview": true,
   "supportLivePreviewInlineUrl": false,
   "enableTreeView": true,
