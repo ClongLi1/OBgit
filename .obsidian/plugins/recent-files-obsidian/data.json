@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "机械制图",
+      "path": "02专业知识/机械制图.md"
+    },
+    {
+      "basename": "02专业知识",
+      "path": "02专业知识/02专业知识.md"
+    },
+    {
       "basename": "HomePage",
       "path": "100附件文件/HomePage.md"
     },
@@ -27,10 +35,6 @@
     {
       "basename": "2025-03-15",
       "path": "998日记汇总/2025-03-15.md"
-    },
-    {
-      "basename": "02专业知识",
-      "path": "02专业知识/02专业知识.md"
     },
     {
       "basename": "高温合金",
@@ -195,10 +199,6 @@
     {
       "basename": "铝合金",
       "path": "02专业知识/铝合金.md"
-    },
-    {
-      "basename": "AI工具和模型",
-      "path": "03软件网络/AI工具和模型.md"
     }
   ],
   "omittedPaths": [],
