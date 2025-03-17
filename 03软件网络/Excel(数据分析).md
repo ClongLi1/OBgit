@@ -18,7 +18,7 @@
 >- & 公式函数（半角=）
 ## 2.1 学习笔记 
 1. [[王佩丰EXCEL24讲]]
-2. [[30天Excel从入门到精通]]
+2. [[30天Excel从入门到精通]] [06 不为人知的排序和筛选的高级用](https://www.bilibili.com/video/BV1KU4y1U7cA/?spm_id_from=333.788.player.switch&vd_source=d1167fc706d8bb4a356a82d19d9d3304&p=6)
 3. [12个常用Excel文本函数](https://mp.weixin.qq.com/s/KIUN0iFjl9UHVUDZcpX7pw)
 ## 2.2 技巧经验 
 4. `互换两列`：按住 shift, 并拖拽➕
