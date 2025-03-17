@@ -1,11 +1,11 @@
 {
   "apikey": "ad948380610fa1bd8db50844ef819c9b",
-  "savedFolder": "/",
-  "filenameRule": "",
-  "conflictFileRule": "",
+  "savedFolder": "08灵感梦想任务",
+  "filenameRule": "yyyy-mm-dd",
+  "conflictFileRule": "new",
   "refreshInterval": "",
   "fixedTitle": "",
-  "insertPosition": "",
+  "insertPosition": "ending",
   "contentSuffix": "",
   "contentPrefix": ""
 }
