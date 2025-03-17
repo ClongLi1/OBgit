@@ -70,5 +70,6 @@
   "homepage",
   "obsidian-banners",
   "make-md",
-  "buttons"
+  "buttons",
+  "messager"
 ]
