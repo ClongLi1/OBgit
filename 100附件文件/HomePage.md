@@ -20,7 +20,7 @@ dv.paragraph(
 ```contributionGraph
 title: ""
 graphType: default
-dateRangeValue: 750
+dateRangeValue: 800
 dateRangeType: LATEST_DAYS
 startOfWeek: 1
 showCellRuleIndicators: true
@@ -37,7 +37,7 @@ fillTheScreen: true
 enableMainContainerShadow: false
 mainContainerStyle: {}
 cellStyle:
-  borderRadius: ""
+  borderRadius: 50%
 cellStyleRules:
   - id: default_b
     color: "#ffffccff"
