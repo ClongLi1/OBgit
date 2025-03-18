@@ -25,7 +25,7 @@ dateRangeType: LATEST_DAYS
 startOfWeek: 1
 showCellRuleIndicators: true
 titleStyle:
-  textAlign: left
+  textAlign: center
   fontSize: 20px
   fontWeight: normal
 dataSource:
@@ -37,7 +37,9 @@ fillTheScreen: true
 enableMainContainerShadow: false
 mainContainerStyle: {}
 cellStyle:
-  borderRadius: 50%
+  borderRadius: ""
+  minWidth: 8px
+  minHeight: 8px
 cellStyleRules:
   - id: default_b
     color: "#ffffccff"
