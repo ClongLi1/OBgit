@@ -39,7 +39,8 @@
 
 [^2]: [Obsidian插件-Dataview：强大的数据查询和展示工具](https://mp.weixin.qq.com/s/hsUEtKiLf2sTSlmEEqSFxA)
 
-[^3]: [术语 - 模板器 --- Terminology - Templater                                                                                                                                                                                                                                  ](https://silentvoid13.github.io/Templater/terminology.html)
+[^3]: [术语 - 模板器 --- Terminology - Templater  ](https://silentvoid13.github.io/Templater/terminology.html)
+	https://silentvoid13.github.io/Templater/
 
 [^4]: [Obsidian插件：Tag Wrangler - 为标签提供更专业的面板](https://mp.weixin.qq.com/s/VKSUAWTOuqmXqTBLPYcQ0Q)
 
