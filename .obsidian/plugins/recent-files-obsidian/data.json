@@ -5,6 +5,10 @@
       "path": "03软件网络/Excel经验技巧总结.md"
     },
     {
+      "basename": "Excel 快捷键汇总",
+      "path": "03软件网络/Excel 快捷键汇总.md"
+    },
+    {
       "basename": "Excel(数据分析)",
       "path": "03软件网络/Excel(数据分析).md"
     },
@@ -155,10 +159,6 @@
     {
       "basename": "镁合金",
       "path": "02专业知识/镁合金.md"
-    },
-    {
-      "basename": "Excel 快捷键汇总",
-      "path": "03软件网络/Excel 快捷键汇总.md"
     },
     {
       "basename": "30天Excel从入门到精通",
