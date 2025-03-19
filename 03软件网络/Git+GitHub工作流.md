@@ -24,5 +24,6 @@ Git 版本控制“版本”、“文件名”、“修改时间”、“修改�
 1. `git push origin mian` (同步到远程)
 2. `git pull origin master` (拉取远程)
 ![image.png|400](https://fig-1321973591.cos.ap-nanjing.myqcloud.com/20250319184848.png)
+![image.png|800](https://fig-1321973591.cos.ap-nanjing.myqcloud.com/20250319185327.png)
 
 
