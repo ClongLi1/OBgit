@@ -16,6 +16,8 @@ Git 版本控制“版本”、“文件名”、“修改时间”、“修改�
 7. Git 完成提交的三个内容：==修改文件内容、Git add、Git commit==
 8. Git 可视化工具 
 9. `git branch` 
-10. `git checkout -b 分支`
-11. 
+10. `git checkout -b 分支` （创建分支）
+11. `git checkout 分支名` （切换分支）
+12. `git merge` (合并分支)
+13. 
 
