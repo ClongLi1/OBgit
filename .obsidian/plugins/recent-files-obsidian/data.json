@@ -5,16 +5,16 @@
       "path": "03软件网络/Git+GitHub工作流.md"
     },
     {
+      "basename": "HomePage",
+      "path": "100附件文件/HomePage.md"
+    },
+    {
       "basename": "Git&GitHub",
       "path": "03软件网络/Git&GitHub.md"
     },
     {
       "basename": "03软件电脑",
       "path": "03软件网络/03软件电脑.md"
-    },
-    {
-      "basename": "HomePage",
-      "path": "100附件文件/HomePage.md"
     },
     {
       "basename": "Templater（Test)",

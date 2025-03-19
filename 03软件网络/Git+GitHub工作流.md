@@ -10,6 +10,7 @@ Git 版本控制“版本”、“文件名”、“修改时间”、“修改�
 5. `git commit` (提交到仓库)、`git commit -m "备注信息"`
 6. `git log` (查看节点)
 	1. `git log --stat`（查看具体修改内容、关注 `commit`）
+	2. `git diff`
 7. Git 完成提交的三个内容：==修改文件内容、Git add、Git commit==
 8. 
 
