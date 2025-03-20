@@ -35,8 +35,7 @@
   "showRibbon": true,
   "deleteFileOption": "trash",
   "expandedSpaces": [
-    "//05工作职场",
-    "//99-必备技能"
+    "/"
   ],
   "expandFolderOnClick": true,
   "spacesFolder": "Tags",
@@ -57,7 +56,7 @@
   "inlineContextSectionsExpanded": true,
   "banners": true,
   "dataviewInlineContext": false,
-  "inlineContextNameLayout": "horizontal",
+  "inlineContextNameLayout": "vertical",
   "spacesUseAlias": false,
   "fmKeyAlias": "aliases",
   "fmKeyBanner": "banner",
@@ -77,25 +76,11 @@
   "selectedKit": "default",
   "actionMaxSteps": 100,
   "contextPagination": 25,
-  "searchWorker": true,
+  "searchWorker": false,
   "skipFolderNames": [],
   "skipFolders": [],
   "enhancedLogs": false,
   "basics": true,
   "basicsSettings": null,
-  "firstLaunch": true,
-  "flowMenuEnabled": true,
-  "markSans": false,
-  "makeMenuPlaceholder": true,
-  "mobileMakeBar": true,
-  "inlineStyler": true,
-  "inlineStylerColors": false,
-  "editorFlow": true,
-  "internalLinkClickFlow": true,
-  "internalLinkSticker": true,
-  "editorFlowStyle": "minimal",
-  "menuTriggerChar": "/",
-  "inlineStickerMenu": true,
-  "emojiTriggerChar": ":",
-  "flowState": false
+  "firstLaunch": true
 }
