@@ -1,6 +1,6 @@
 ![image.png|600](https://fig-1321973591.cos.ap-nanjing.myqcloud.com/20250321220024.png)
 ![image.png|600](https://fig-1321973591.cos.ap-nanjing.myqcloud.com/20250321220816.png)
 
-
+a 唉唉（e、æ） b卜卜（b） c 渴渴（k）〈s〉 d 得得（d） e 诶诶（i、ε） f 扶扶（f） g 隔隔（g） h 喝喝（h） i 衣衣（a1、1） j 锯锯（dξ） k 渴渴（k） ☐ l（ l ） 前：勒勒 ；l 后：哦哦 ☐ m (m) 前：么么；m后：恩恩（鼻音） ☐ n (n) 前：呢呢；n 后：嗯嗯（半开） o 啊啊（o、a、Þ半开 o、Λ） p 泼泼 (p) q 扩扩（kw） r (r) 前：弱弱；rr 后：耳耳 s 丝丝 (s)〈z〉 t 特特 (t) u 啊啊 (ju、Λ）（半开） v 呜呜 (v) w 巫巫 (w) x 咳死（ks） y 耶耶 (j)〈I〉 z 日日 (z) -------------------- 黑色的是子音 A E I O U 是母音 规则： 1、 单音节： e 在后面不发音，母音在前面就发本身的音 （desk、pen、pencil：c 读 s，i 不发音） 2、AEIOU碰到 r 第一次发 〈ξ〉ar、er、ir、or、ur， 第二次碰到发 〈a〉末尾的例： worker（读红色部分） 3、oo 相连 读〔U午〕例（foot）或 〔u雾〕例（room）；au、ou、aw、ow 相连 读〔aU嗷~〕 4、th 〈θ、ξ〉相连 轻轻咬住舌尖不发音 读撕θ~ 和日ξ~（this、that、thank） ch〈tf，f 没有-〉相连 取（chair：ai 读ε） sh〈f，f 没有-〉 相连 嘘~ ph〈f〉 相连 符~ ng〈η、ηg〉 相连在尾巴 嗯η~ 有时候都发 嗯割ηg~ nk〈ηk〉 相连 嗯克ηk（thank
 
 [周育如KK音标2h](https://www.bilibili.com/video/BV1Vb4y1679U?spm_id_from=333.788.recommend_more_video.0&vd_source=d1167fc706d8bb4a356a82d19d9d3304)
