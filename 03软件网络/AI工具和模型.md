@@ -8,8 +8,8 @@
 ----
 # 1. AI&ChatGPT
 ## 1.1 AI 工具 
-- DeepSeek 
-- Kimi. Ai 
+- DeepSeek ——**推理模型**
+- Kimi. Ai ——**通用模型**
 - 
 
 ## 1.2 AI 使用技巧 
