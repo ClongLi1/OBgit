@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "Inkscape",
+      "path": "03软件网络/Inkscape.md"
+    },
+    {
+      "basename": "AutoCAD",
+      "path": "03软件网络/AutoCAD.md"
+    },
+    {
       "basename": "音标学习和自然拼读法",
       "path": "13英语相关/音标学习和自然拼读法.md"
     },
@@ -47,10 +55,6 @@
     {
       "basename": "2.5HCAD入门课",
       "path": "03软件网络/2.5HCAD入门课.md"
-    },
-    {
-      "basename": "AutoCAD",
-      "path": "03软件网络/AutoCAD.md"
     },
     {
       "basename": "03软件电脑",
@@ -195,10 +199,6 @@
     {
       "basename": "30天Excel从入门到精通",
       "path": "03软件网络/30天Excel从入门到精通.md"
-    },
-    {
-      "basename": "王佩丰EXCEL24讲",
-      "path": "03软件网络/王佩丰EXCEL24讲.md"
     }
   ],
   "omittedPaths": [],
