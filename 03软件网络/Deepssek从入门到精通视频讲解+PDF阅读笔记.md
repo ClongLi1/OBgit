@@ -10,4 +10,6 @@
 - %  [《DeepSeek从入门到精通》不愧是清华教授！3小时](https://www.bilibili.com/video/BV1sAPTefEaB/?spm_id_from=333.1007.tianma.1-3-3.click)
 - % [【DeepSeek教程】清华大学带你从入门到精通（6h）](https://www.bilibili.com/video/BV1b8AkePEw4?spm_id_from=333.788.recommend_more_video.0&vd_source=d1167fc706d8bb4a356a82d19d9d3304)
 # 2. 阅读笔记 
-- De'e
+- DeepSeek 模型（$R_1$: 推理模型深度思考、$V_3$: 普通模型、联网模式）
+- 能力图谱
+- 

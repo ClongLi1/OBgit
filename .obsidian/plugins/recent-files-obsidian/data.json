@@ -1,8 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "未命名思维导图",
+      "path": "未命名思维导图.md"
+    },
+    {
       "basename": "Deepssek从入门到精通视频讲解+PDF阅读笔记",
       "path": "03软件网络/Deepssek从入门到精通视频讲解+PDF阅读笔记.md"
+    },
+    {
+      "basename": "DeepSeek从入门到精通（清华大学）",
+      "path": "100附件文件/DeepSeek从入门到精通（清华大学）.pdf"
     },
     {
       "basename": "AI工具和模型",
@@ -11,10 +19,6 @@
     {
       "basename": "2025-W12",
       "path": "998日记汇总/2025-W12.md"
-    },
-    {
-      "basename": "DeepSeek从入门到精通（清华大学）",
-      "path": "100附件文件/DeepSeek从入门到精通（清华大学）.pdf"
     },
     {
       "basename": "HomePage",
@@ -195,10 +199,6 @@
     {
       "basename": "2025-03-18",
       "path": "998日记汇总/2025-03-18.md"
-    },
-    {
-      "basename": "英语兔精华",
-      "path": "13英语相关/英语兔精华.md"
     }
   ],
   "omittedPaths": [],
