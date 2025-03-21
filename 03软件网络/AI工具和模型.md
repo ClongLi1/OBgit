@@ -8,10 +8,12 @@
 ----
 # 1. AI&ChatGPT
 ## 1.1 AI 工具 
-
+- DeepSeek 
+- Kimi. Ai 
+- 
 
 ## 1.2 AI 使用技巧 
-
+- [[Deepssek从入门到精通视频讲解+PDF阅读笔记]] [[DeepSeek从入门到精通（清华大学）.pdf]]
 
 
 ## 1.3 参考资料 
