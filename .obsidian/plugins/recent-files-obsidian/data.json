@@ -1,20 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "HomePage",
-      "path": "100附件文件/HomePage.md"
-    },
-    {
-      "basename": "CAD各个功能选项卡使用技巧和场景",
-      "path": "03软件网络/CAD各个功能选项卡使用技巧和场景.md"
+      "basename": "CAD快捷键汇集",
+      "path": "03软件网络/CAD快捷键汇集.md"
     },
     {
       "basename": "AutoCAD",
       "path": "03软件网络/AutoCAD.md"
     },
     {
+      "basename": "CAD各个功能选项卡使用技巧和场景",
+      "path": "03软件网络/CAD各个功能选项卡使用技巧和场景.md"
+    },
+    {
       "basename": "03软件电脑",
       "path": "03软件网络/03软件电脑.md"
+    },
+    {
+      "basename": "HomePage",
+      "path": "100附件文件/HomePage.md"
     },
     {
       "basename": "Inkscape",
@@ -195,10 +199,6 @@
     {
       "basename": "02专业知识",
       "path": "02专业知识/02专业知识.md"
-    },
-    {
-      "basename": "镁合金",
-      "path": "02专业知识/镁合金.md"
     }
   ],
   "omittedPaths": [],
