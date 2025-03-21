@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
+      "basename": "HomePage",
+      "path": "100附件文件/HomePage.md"
+    },
+    {
+      "basename": "CAD各个功能选项卡使用技巧和场景",
+      "path": "03软件网络/CAD各个功能选项卡使用技巧和场景.md"
+    },
+    {
+      "basename": "AutoCAD",
+      "path": "03软件网络/AutoCAD.md"
+    },
+    {
       "basename": "03软件电脑",
       "path": "03软件网络/03软件电脑.md"
     },
     {
       "basename": "Inkscape",
       "path": "03软件网络/Inkscape.md"
-    },
-    {
-      "basename": "AutoCAD",
-      "path": "03软件网络/AutoCAD.md"
     },
     {
       "basename": "2.5HCAD入门课",
@@ -55,10 +63,6 @@
     {
       "basename": "🌅每日一言🌅",
       "path": "000草稿收集箱/🌅每日一言🌅.md"
-    },
-    {
-      "basename": "HomePage",
-      "path": "100附件文件/HomePage.md"
     },
     {
       "basename": "Blender",
@@ -195,10 +199,6 @@
     {
       "basename": "镁合金",
       "path": "02专业知识/镁合金.md"
-    },
-    {
-      "basename": "30天Excel从入门到精通",
-      "path": "03软件网络/30天Excel从入门到精通.md"
     }
   ],
   "omittedPaths": [],
