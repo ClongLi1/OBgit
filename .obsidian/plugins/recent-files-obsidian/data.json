@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "Git+GitHub工作流",
+      "path": "03软件网络/Git+GitHub工作流.md"
+    },
+    {
+      "basename": "Git&GitHub",
+      "path": "03软件网络/Git&GitHub.md"
+    },
+    {
+      "basename": "Git命令学习",
+      "path": "03软件网络/Git命令学习.md"
+    },
+    {
+      "basename": "03软件电脑",
+      "path": "03软件网络/03软件电脑.md"
+    },
+    {
       "basename": "焊铆胶接",
       "path": "02专业知识/焊铆胶接.md"
     },
@@ -55,10 +71,6 @@
     {
       "basename": "HomePage",
       "path": "100附件文件/HomePage.md"
-    },
-    {
-      "basename": "03软件电脑",
-      "path": "03软件网络/03软件电脑.md"
     },
     {
       "basename": "HTML",
@@ -181,24 +193,12 @@
       "path": "998日记汇总/2025-03-19.md"
     },
     {
-      "basename": "Git+GitHub工作流",
-      "path": "03软件网络/Git+GitHub工作流.md"
-    },
-    {
-      "basename": "Git&GitHub",
-      "path": "03软件网络/Git&GitHub.md"
-    },
-    {
       "basename": "周记模板",
       "path": "100附件文件/1005模板/周记模板.md"
     },
     {
       "basename": "TP",
       "path": "000草稿收集箱/TP.md"
-    },
-    {
-      "basename": "自我总结模板",
-      "path": "100附件文件/1005模板/自我总结模板.md"
     }
   ],
   "omittedPaths": [],
