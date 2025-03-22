@@ -5,7 +5,7 @@
   
   .theme-dark {
     --BlockqutoeColor_border-inline-start: rgb(0, 255, 26);
-    --BlockqutoeColor_background-color: rgb(0, 70, 73);
+    --BlockqutoeColor_background-color: rgb(236, 254, 255);
   }
   
   /* PKMer网站的引用框 */
@@ -21,3 +21,24 @@
       0 0 0.05rem rgba(0, 0, 0, 0.1);
     outline: 1px solid transparent;
   }
+  /* 引用块样式 */
+.cm-formatting blockquote {
+  margin: 10px 0;
+  padding: 8px 15px;
+  border-left: 4px solid var(--blockquote-border-color);
+  background-color: var(--blockquote-bg-color);
+  border-radius: 3px;
+  line-height: 1.4;
+}
+
+/* 浅色主题下的引用块颜色 */
+.theme-light {
+  --blockquote-border-color: rgb(0, 0, 0);
+  --blockquote-bg-color: rgb(221, 207, 245);
+}
+
+/* 深色主题下的引用块颜色 */
+.theme-dark {
+  --blockquote-border-color: rgb(255, 0, 0);
+  --blockquote-bg-color: rgb(40, 3, 0);
+}
