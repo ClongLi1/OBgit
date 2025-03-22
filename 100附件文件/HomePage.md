@@ -3,6 +3,7 @@ banner: "![[homepage.png]]"
 Banner_y: 0.886
 banner_y: 0.9
 ---
+<div style=" width: 100%; height: auto;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/YearTimeline?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>
 
   ```dataviewjs
 let ftMd = dv.pages("").file.sort(t => t.cday)[0]
@@ -17,8 +18,6 @@ dv.paragraph(
 	totalDays+totalMd+"、"+totalTag+""
 )
 ``` 
-
-<div style=" width: 100%; height: auto;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/YearTimeline?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>
 
 ```contributionGraph
 title: ""
@@ -41,8 +40,8 @@ enableMainContainerShadow: false
 mainContainerStyle: {}
 cellStyle:
   borderRadius: ""
-  minWidth: 8px
-  minHeight: 8px
+  minWidth: 10px
+  minHeight: 10px
 cellStyleRules:
   - id: default_b
     color: "#ffffccff"
