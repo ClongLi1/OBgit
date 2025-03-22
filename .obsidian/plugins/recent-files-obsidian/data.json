@@ -5,16 +5,12 @@
       "path": "09心灵慰藉/09心理慰藉.md"
     },
     {
-      "basename": "心理学",
-      "path": "09心灵慰藉/心理学.md"
+      "basename": "09心灵慰藉",
+      "path": "09心灵慰藉/09心灵慰藉.md"
     },
     {
-      "basename": "人生哲理",
-      "path": "09心灵慰藉/人生哲理.md"
-    },
-    {
-      "basename": "生活态度",
-      "path": "09心灵慰藉/生活态度.md"
+      "basename": "万恶情感之源",
+      "path": "09心灵慰藉/万恶情感之源.md"
     },
     {
       "basename": "心态调节方法技巧",
@@ -25,8 +21,16 @@
       "path": "09心灵慰藉/心态调整.md"
     },
     {
-      "basename": "09心灵慰藉",
-      "path": "09心灵慰藉/09心灵慰藉.md"
+      "basename": "心理学",
+      "path": "09心灵慰藉/心理学.md"
+    },
+    {
+      "basename": "人生哲理",
+      "path": "09心灵慰藉/人生哲理.md"
+    },
+    {
+      "basename": "生活态度",
+      "path": "09心灵慰藉/生活态度.md"
     },
     {
       "basename": "HomePage",
@@ -195,10 +199,6 @@
     {
       "basename": "2025-03-20",
       "path": "998日记汇总/2025-03-20.md"
-    },
-    {
-      "basename": "Blender",
-      "path": "03软件网络/Blender.md"
     }
   ],
   "omittedPaths": [],
