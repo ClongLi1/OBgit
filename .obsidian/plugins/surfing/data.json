@@ -46,19 +46,7 @@
     ],
     "defaultFilterType": "tree"
   },
-  "treeData": [
-    {
-      "id": "af841fb41de23478",
-      "parent": 0,
-      "droppable": true,
-      "text": "英语音标表",
-      "data": {
-        "fileType": "site",
-        "fileSize": "",
-        "icon": {}
-      }
-    }
-  ],
+  "treeData": [],
   "enableHtmlPreview": true,
   "supportLivePreviewInlineUrl": false,
   "enableTreeView": true,

@@ -5,7 +5,18 @@ banner_y: 0.664
 ---
 <div style=" width: 100%; height: auto;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/YearTimeline?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>
 
-
+  ```dataviewjs
+let ftMd = dv.pages("").file.sort(t => t.cday)[0];
+  let total = parseInt([new Date() - ftMd.ctime] / (60*60*24*1000));
+  let totalDays = " <span style='color:#00FFD7'>🌅我已在`Obsidian`的知识宇宙中穿行"+total+"</span> <span style='color:#00FFD7'>天💥，</span>";
+  let nofold = '!"misc/templates"';
+  let allFile = dv.pages(nofold).file;
+  let totalMd = "<span style='color:#00FF55'>已成功点亮 </span><span style='color:#00FF55'>"+allFile.length+"</span><span style='color:#00FF55'> 颗璀璨✨星辰笔记</span>";
+  let tagDescription = "<span style='color:#FC54F1'>它们宛如纽带，串联起不同星体🌈，让整个星系紧密相连🎆</span>";
+  let totalTag = "<span style='color:#FFFF00'>精心打造了"+allFile.etags.distinct().length+"</span><span style='color:#FFFF00'> 个标签🫧轨道，</span>"+tagDescription;
+  dv.paragraph(totalDays+totalMd+"、"+totalTag+"");
+  
+``` 
 ```contributionGraph
 title: ""
 graphType: default
@@ -58,18 +69,6 @@ cellStyleRules:
     text: ""
 
 ```
-  ```dataviewjs
-let ftMd = dv.pages("").file.sort(t => t.cday)[0];
-  let total = parseInt([new Date() - ftMd.ctime] / (60*60*24*1000));
-  let totalDays = " <span style='color:#00FFD7'>🌅我已在`Obsidian`的知识宇宙中穿行"+total+"</span> <span style='color:#00FFD7'>天💥，</span>";
-  let nofold = '!"misc/templates"';
-  let allFile = dv.pages(nofold).file;
-  let totalMd = "<span style='color:#00FF55'>已成功点亮 </span><span style='color:#00FF55'>"+allFile.length+"</span><span style='color:#00FF55'> 颗璀璨✨星辰笔记</span>";
-  let tagDescription = "<span style='color:#FFA933'>它们宛如纽带，串联起不同星体🌈，让整个星系紧密相连🎆</span>";
-  let totalTag = "<span style='color:#FFFF00'>精心打造了"+allFile.etags.distinct().length+"</span><span style='color:#FFFF00'> 个标签🫧轨道，</span>"+tagDescription;
-  dv.paragraph(totalDays+totalMd+"、"+totalTag+"");
-  
-``` 
 <div style=" width: 100%; height:280;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/Carousel?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
   <!-- 左侧栏 -->
