@@ -8,7 +8,7 @@ banner_y: 0.664
   ```dataviewjs
 let ftMd = dv.pages("").file.sort(t => t.cday)[0];
   let total = parseInt([new Date() - ftMd.ctime] / (60*60*24*1000));
-  let totalDays = " <span style='color:#00FFD7'>🌅我已在`Obsidian`的知识宇宙中穿行"+total+"</span> <span style='color:#00FFD7'>天💥，</span>";
+  let totalDays = " <span style='color:#00FFD7'>🌅我已在**[[Obsidian]]**的知识宇宙中穿行"+total+"</span> <span style='color:#00FFD7'>天💥，</span>";
   let nofold = '!"misc/templates"';
   let allFile = dv.pages(nofold).file;
   let totalMd = "<span style='color:#00FF55'>已成功点亮 </span><span style='color:#00FF55'>"+allFile.length+"</span><span style='color:#00FF55'> 颗璀璨✨星辰笔记</span>";
