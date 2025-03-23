@@ -12,7 +12,7 @@ let ftMd = dv.pages("").file.sort(t => t.cday)[0];
   let nofold = '!"misc/templates"';
   let allFile = dv.pages(nofold).file;
   let totalMd = "<span style='color:#00FF55'>已成功点亮 </span><span style='color:#00FF55'>"+allFile.length+"</span><span style='color:#00FF55'> 颗璀璨✨星辰笔记</span>";
-  let tagDescription = "<span style='color:#FC54F1'>它们宛如纽带，串联起不同星体🌈，让整个星系紧密相连🎆</span>";
+  let tagDescription = "<span style='color:#FFA933'>它们宛如纽带，串联起不同星体🌈，让整个星系紧密相连🎆</span>";
   let totalTag = "<span style='color:#FFFF00'>精心打造了"+allFile.etags.distinct().length+"</span><span style='color:#FFFF00'> 个标签🫧轨道，</span>"+tagDescription;
   dv.paragraph(totalDays+totalMd+"、"+totalTag+"");
   
