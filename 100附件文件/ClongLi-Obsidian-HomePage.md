@@ -1,14 +1,14 @@
 ---
 banner: "![[a.webp]]"
 Banner_y: 0.886
-banner_y: 0.58
+banner_y: 0.664
 ---
 <div style=" width: 100%; height: auto;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/YearTimeline?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>
 
   ```dataviewjs
 let ftMd = dv.pages("").file.sort(t => t.cday)[0];
   let total = parseInt([new Date() - ftMd.ctime] / (60*60*24*1000));
-  let totalDays = " <span style='color:#00FFD7'>🌅我已使用</span> <span style='color:#00FFD7'>**Obsidian**</span> <span style='color:#00FFD7'>"+total+"</span> <span style='color:#00FFD7'>天，</span>";
+  let totalDays = " <span style='color:#00FFD7'>🌅我已在Obsidian知识宇宙中穿行"+total+"</span> <span style='color:#00FFD7'>天，</span>";
   let nofold = '!"misc/templates"';
   let allFile = dv.pages(nofold).file;
   let totalMd = "<span style='color:#00FF55'>共创建 </span><span style='color:#00FF55'>"+allFile.length+"</span><span style='color:#00FF55'> 篇笔记</span>";
