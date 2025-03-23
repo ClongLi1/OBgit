@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "HomePage",
-      "path": "100附件文件/HomePage.md"
-    },
-    {
-      "basename": "日记模板",
-      "path": "100附件文件/1005模板/日记模板.md"
+      "basename": "ClongLi-Obsidian-HomePage",
+      "path": "100附件文件/ClongLi-Obsidian-HomePage.md"
     },
     {
       "basename": "⌛倒计时⌛",
       "path": "000草稿收集箱/🧰收纳箱/⌛倒计时⌛.md"
+    },
+    {
+      "basename": "homepage",
+      "path": "100附件文件/homepage.png"
+    },
+    {
+      "basename": "OB",
+      "path": "100附件文件/OB.jpg"
+    },
+    {
+      "basename": "日记模板",
+      "path": "100附件文件/1005模板/日记模板.md"
     },
     {
       "basename": "🏳️‍🌈动彩时钟🏳️‍🌈",
@@ -191,14 +199,6 @@
     {
       "basename": "AutoCAD",
       "path": "03软件网络/AutoCAD.md"
-    },
-    {
-      "basename": "CAD各个功能选项卡使用技巧和场景",
-      "path": "03软件网络/CAD各个功能选项卡使用技巧和场景.md"
-    },
-    {
-      "basename": "2.5HCAD入门课",
-      "path": "03软件网络/2.5HCAD入门课.md"
     }
   ],
   "omittedPaths": [],
