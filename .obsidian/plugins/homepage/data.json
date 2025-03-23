@@ -4,10 +4,10 @@
     "Main Homepage": {
       "value": "100附件文件/ClongLi-Obsidian-HomePage",
       "kind": "File",
-      "openOnStartup": false,
+      "openOnStartup": true,
       "openMode": "Replace all open notes",
       "manualOpenMode": "Keep open notes",
-      "view": "Reading view",
+      "view": "Editing view (Live Preview)",
       "revertView": true,
       "openWhenEmpty": true,
       "refreshDataview": true,
