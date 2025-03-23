@@ -18,6 +18,17 @@ dv.paragraph(
 	totalDays+totalMd+"、"+totalTag+""
 )
 ``` 
+```dataviewjs
+let ftMd = dv.pages("").file.sort(t => t.cday)[0];
+let total = parseInt([new Date() - ftMd.ctime] / (60*60*24*1000));
+let totalDays = " <span style='color:#FF5733'>🌅我已使用</span> <span style='color:#00FFEC'>**Obsidian**</span> <span style='color:#FF5733'>"+total+"</span> <span style='color:#FF5733'>天，</span>";
+let nofold = '!"misc/templates"';
+let allFile = dv.pages(nofold).file;
+let totalMd = "<span style='color:#3498DB'>共创建 </span><span style='color:#3498DB'>"+allFile.length+"</span><span style='color:#3498DB'> 篇笔记</span>";
+let totalTag = "<span style='color:#9B59B6'>"+allFile.etags.distinct().length+"</span><span style='color:#9B59B6'> 个标签</span>";
+dv.paragraph(totalDays+totalMd+"、"+totalTag+"");
+```
+
 
 ```contributionGraph
 title: ""
