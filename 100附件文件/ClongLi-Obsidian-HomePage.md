@@ -6,29 +6,15 @@ banner_y: 0.9
 <div style=" width: 100%; height: auto;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/YearTimeline?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>
 
   ```dataviewjs
-let ftMd = dv.pages("").file.sort(t => t.cday)[0]
-let total = parseInt([new Date() - ftMd.ctime] / (60*60*24*1000))
-let totalDays = " 🌅我已使用 **Obsidian** "+total+" 天，"
-let nofold = '!"misc/templates"'
-let allFile = dv.pages(nofold).file
-let totalMd = "共创建 "+
-	allFile.length+" 篇笔记"
-let totalTag = allFile.etags.distinct().length+" 个标签"
-dv.paragraph(
-	totalDays+totalMd+"、"+totalTag+""
-)
-``` 
-```dataviewjs
 let ftMd = dv.pages("").file.sort(t => t.cday)[0];
-let total = parseInt([new Date() - ftMd.ctime] / (60*60*24*1000));
-let totalDays = " <span style='color:#FF5733'>🌅我已使用</span> <span style='color:#00FFEC'>**Obsidian**</span> <span style='color:#FF5733'>"+total+"</span> <span style='color:#FF5733'>天，</span>";
-let nofold = '!"misc/templates"';
-let allFile = dv.pages(nofold).file;
-let totalMd = "<span style='color:#3498DB'>共创建 </span><span style='color:#3498DB'>"+allFile.length+"</span><span style='color:#3498DB'> 篇笔记</span>";
-let totalTag = "<span style='color:#9B59B6'>"+allFile.etags.distinct().length+"</span><span style='color:#9B59B6'> 个标签</span>";
-dv.paragraph(totalDays+totalMd+"、"+totalTag+"");
-```
-
+  let total = parseInt([new Date() - ftMd.ctime] / (60*60*24*1000));
+  let totalDays = " <span style='color:#00FFD7'>🌅我已使用</span> <span style='color:#00FFD7'>**Obsidian**</span> <span style='color:#00FFD7'>"+total+"</span> <span style='color:#00FFD7'>天，</span>";
+  let nofold = '!"misc/templates"';
+  let allFile = dv.pages(nofold).file;
+  let totalMd = "<span style='color:#00FF55'>共创建 </span><span style='color:#00FF55'>"+allFile.length+"</span><span style='color:#00FF55'> 篇笔记</span>";
+  let totalTag = "<span style='color:#FFFF00'>"+allFile.etags.distinct().length+"</span><span style='color:#FFFF00'> 个标签</span>";
+  dv.paragraph(totalDays+totalMd+"、"+totalTag+"");
+``` 
 
 ```contributionGraph
 title: ""
