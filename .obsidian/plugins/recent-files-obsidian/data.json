@@ -1,16 +1,48 @@
 {
   "recentFiles": [
     {
+      "basename": "02专业知识",
+      "path": "02专业知识/02专业知识.md"
+    },
+    {
+      "basename": "行业经验",
+      "path": "02专业知识/行业经验.md"
+    },
+    {
+      "basename": "扫描电镜&EDS",
+      "path": "02专业知识/扫描电镜&EDS.md"
+    },
+    {
+      "basename": "铝合金",
+      "path": "02专业知识/铝合金.md"
+    },
+    {
+      "basename": "AI工具和模型",
+      "path": "03软件网络/AI工具和模型.md"
+    },
+    {
+      "basename": "03软件电脑",
+      "path": "03软件网络/03软件电脑.md"
+    },
+    {
+      "basename": "03软件网络",
+      "path": "03软件网络/03软件网络.md"
+    },
+    {
+      "basename": "02专业-知识",
+      "path": "02专业知识/02专业-知识.md"
+    },
+    {
+      "basename": "2025-03-23",
+      "path": "998日记汇总/2025-03-23.md"
+    },
+    {
       "basename": "ClongLi-Obsidian-HomePage",
       "path": "100附件文件/ClongLi-Obsidian-HomePage.md"
     },
     {
       "basename": "00科研项目",
       "path": "00科研相关/00科研项目.md"
-    },
-    {
-      "basename": "2025-03-23",
-      "path": "998日记汇总/2025-03-23.md"
     },
     {
       "basename": "如何读书？",
@@ -113,10 +145,6 @@
       "path": "02专业知识/机械制图.md"
     },
     {
-      "basename": "02专业知识",
-      "path": "02专业知识/02专业知识.md"
-    },
-    {
       "basename": "homepage",
       "path": "100附件文件/homepage.png"
     },
@@ -171,34 +199,6 @@
     {
       "basename": "心态调整",
       "path": "09心灵慰藉/心态调整.md"
-    },
-    {
-      "basename": "心理学",
-      "path": "09心灵慰藉/心理学.md"
-    },
-    {
-      "basename": "test- GIF ",
-      "path": "000草稿收集箱/test- GIF .md"
-    },
-    {
-      "basename": "2025-03-14",
-      "path": "998日记汇总/2025-03-14.md"
-    },
-    {
-      "basename": "焊铆胶接",
-      "path": "02专业知识/焊铆胶接.md"
-    },
-    {
-      "basename": "Deepssek从入门到精通视频讲解+PDF阅读笔记",
-      "path": "03软件网络/Deepssek从入门到精通视频讲解+PDF阅读笔记.md"
-    },
-    {
-      "basename": "DeepSeek从入门到精通（清华大学）",
-      "path": "100附件文件/DeepSeek从入门到精通（清华大学）.pdf"
-    },
-    {
-      "basename": "Git+GitHub工作流",
-      "path": "03软件网络/Git+GitHub工作流.md"
     }
   ],
   "omittedPaths": [],

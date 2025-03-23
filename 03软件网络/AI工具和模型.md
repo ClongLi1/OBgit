@@ -14,7 +14,7 @@
 
 ## 1.2 AI 使用技巧 
 - [[Deepssek从入门到精通视频讲解+PDF阅读笔记]] [[DeepSeek从入门到精通（清华大学）.pdf]]
-
+- [💥100个常用的DeepSeek指令](https://mp.weixin.qq.com/s/okxaFXEYvML-GRmRX6tVEA)
 
 ## 1.3 参考资料 
 - [MatAi | AI 大模型赋能智能知识库，开启高效知识管理新时代](https://mp.weixin.qq.com/s/1Mr_93ZK3DM0vW0C_UA3RQ)
