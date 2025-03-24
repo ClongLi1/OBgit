@@ -31,7 +31,6 @@
   "obsidian-memos",
   "obsidian-linter",
   "nldates-obsidian",
-  "obsidian-dynamic-background",
   "various-complements",
   "tokei",
   "tag-word-cloud",
@@ -70,5 +69,6 @@
   "obsidian-banners",
   "make-md",
   "buttons",
-  "messager"
+  "messager",
+  "obsidian-dynamic-background"
 ]
