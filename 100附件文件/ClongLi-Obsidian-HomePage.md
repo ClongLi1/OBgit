@@ -102,7 +102,7 @@ setting.key = "e432e1a280d344cd89befe667f366400";
 
 setting.city = "山阳";//城市名
 setting.days = 7;//天气预报天数
-setting.headerLevel = 1;//添加标题的等级
+setting.headerLevel = 3;//添加标题的等级
 setting.addDesc = true;//是否添加描述
 setting.onlyToday = false;//是否只在当天显示
 setting.anotherCity = "内乡";//添加另外一个城市
