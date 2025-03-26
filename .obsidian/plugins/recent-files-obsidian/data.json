@@ -5,6 +5,18 @@
       "path": "10个人总结/硕士毕业论文（预答辩）总结反思.md"
     },
     {
+      "basename": "每日英语",
+      "path": "13英语相关/每日英语.md"
+    },
+    {
+      "basename": "短期待办网页和事项",
+      "path": "08灵感梦想任务/短期待办网页和事项.md"
+    },
+    {
+      "basename": "个人问题总结和反思改进汇集",
+      "path": "10个人总结/个人问题总结和反思改进汇集.md"
+    },
+    {
       "basename": "ClongLi-Obsidian-HomePage",
       "path": "100附件文件/ClongLi-Obsidian-HomePage.md"
     },
@@ -187,18 +199,6 @@
     {
       "basename": "铝合金",
       "path": "02专业知识/铝合金.md"
-    },
-    {
-      "basename": "AI工具和模型",
-      "path": "03软件网络/AI工具和模型.md"
-    },
-    {
-      "basename": "行业经验",
-      "path": "02专业知识/行业经验.md"
-    },
-    {
-      "basename": "扫描电镜&EDS",
-      "path": "02专业知识/扫描电镜&EDS.md"
     }
   ],
   "omittedPaths": [],
