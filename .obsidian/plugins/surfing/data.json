@@ -11,8 +11,8 @@
     "notion",
     "craft"
   ],
-  "alwaysShowCustomSearch": false,
-  "showOtherSearchEngines": false,
+  "alwaysShowCustomSearch": true,
+  "showOtherSearchEngines": true,
   "showSearchBarInPage": true,
   "markdownPath": "/",
   "customHighlightFormat": false,
@@ -22,7 +22,7 @@
   "showRefreshButton": true,
   "openInObsidianWeb": false,
   "useCustomIcons": false,
-  "useWebview": false,
+  "useWebview": true,
   "useIconList": true,
   "darkMode": true,
   "randomBackground": true,
@@ -44,11 +44,11 @@
       "modified",
       "action"
     ],
-    "defaultFilterType": "tree"
+    "defaultFilterType": "menu"
   },
   "treeData": [],
   "enableHtmlPreview": true,
-  "supportLivePreviewInlineUrl": false,
+  "supportLivePreviewInlineUrl": true,
   "enableTreeView": true,
   "focusSearchBarViaKeyboard": true
 }
