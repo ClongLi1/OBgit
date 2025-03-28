@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "LaTeX",
+      "path": "03软件网络/LaTeX.md"
+    },
+    {
+      "basename": "03软件电脑",
+      "path": "03软件网络/03软件电脑.md"
+    },
+    {
       "basename": "ClongLi-Obsidian-HomePage",
       "path": "100附件文件/ClongLi-Obsidian-HomePage.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "中期检查",
       "path": "00科研相关/中期检查.md"
-    },
-    {
-      "basename": "论文提交前校对",
-      "path": "00科研相关/论文提交前校对.md"
-    },
-    {
-      "basename": "复试或者面试注意事项",
-      "path": "00科研相关/复试或者面试注意事项.md"
     }
   ],
   "omittedPaths": [],
