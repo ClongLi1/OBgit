@@ -14,6 +14,7 @@
 
 ## 1.2 AI 使用技巧 
 - [[Deepssek从入门到精通视频讲解+PDF阅读笔记]] [[DeepSeek从入门到精通（清华大学）.pdf]]
+- [[DeepSeek案例]]  [[DeepSeek从入门到精通（7大场景 50大案例 全套提示词） (DeepSeek从入门到精通（7大场景 50大案例 全套提示词）) (Z-Library).pdf]]
 - [💥100个常用的DeepSeek指令](https://mp.weixin.qq.com/s/okxaFXEYvML-GRmRX6tVEA)
 
 ## 1.3 参考资料 
