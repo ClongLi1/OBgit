@@ -28,6 +28,22 @@
 > 2. 制定旅游攻略（抵达时间+入驻酒店名称+离开时间+离开方式+行程要求）
 > 3. 制定饮食计划、运动减肥计划、储蓄方案、产品对比方案（**购物**）
 > 4. 家庭教育（解题、出题、修改、润色）
-> 5. [[05职场工作]]（会议纪要）
+> 5. [[05职场工作]]（会议纪要、写代码、数据分析、数据报表、简历制作、报告框架）
+
+
+
+--- start-multi-column: ID_a5g8
+```column-settings
+Number of Columns: 2
+Largest Column: standard
+```
+
 ![image.png|600](https://fig-1321973591.cos.ap-nanjing.myqcloud.com/20250329174253.png)
+
+--- column-break ---
+
+![image.png|600](https://fig-1321973591.cos.ap-nanjing.myqcloud.com/20250329174847.png)
+
+
+--- end-multi-column
 
