@@ -10,7 +10,7 @@
 ---
 
 
-# 3. 拓展篇 （三维绘图）
+# 3. 拓展篇 （三维基础、三维建模）
 ![image.png|800](https://fig-1321973591.cos.ap-nanjing.myqcloud.com/20250330103233.png)
 
 ---
