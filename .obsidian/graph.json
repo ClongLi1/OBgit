@@ -57,7 +57,7 @@
       }
     },
     {
-      "query": "path:10个人总结  ",
+      "query": "path:10总结反思  ",
       "color": {
         "a": 1,
         "rgb": 11293524
@@ -106,7 +106,7 @@
       }
     }
   ],
-  "collapse-display": false,
+  "collapse-display": true,
   "showArrow": true,
   "textFadeMultiplier": -1.6,
   "nodeSizeMultiplier": 1.03840182323196,
@@ -116,6 +116,6 @@
   "repelStrength": 13.5368996485748,
   "linkStrength": 0.716829363529871,
   "linkDistance": 137,
-  "scale": 0.06791151054018184,
-  "close": true
+  "scale": 0.20022581521278296,
+  "close": false
 }

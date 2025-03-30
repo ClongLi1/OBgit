@@ -1,8 +1,24 @@
 {
   "recentFiles": [
     {
+      "basename": "16时政现实",
+      "path": "16-时政现实/16时政现实.md"
+    },
+    {
+      "basename": "远离色情",
+      "path": "01生活方面/远离色情.md"
+    },
+    {
       "basename": "心理学理论",
       "path": "09心灵慰藉/心理学理论.md"
+    },
+    {
+      "basename": "14运动健康 ",
+      "path": "14运动医学/14运动健康 .md"
+    },
+    {
+      "basename": "01生活常识",
+      "path": "01生活方面/01生活常识.md"
     },
     {
       "basename": "14运动医学养生",
@@ -27,10 +43,6 @@
     {
       "basename": "11情感婚恋",
       "path": "11情感婚恋/11情感婚恋.md"
-    },
-    {
-      "basename": "14运动健康 ",
-      "path": "14运动医学/14运动健康 .md"
     },
     {
       "basename": "04思维方法",
@@ -187,18 +199,6 @@
     {
       "basename": "30天Excel从入门到精通",
       "path": "03软件网络/30天Excel从入门到精通.md"
-    },
-    {
-      "basename": "DeepSeek案例",
-      "path": "03软件网络/DeepSeek案例.md"
-    },
-    {
-      "basename": "AI工具和模型",
-      "path": "03软件网络/AI工具和模型.md"
-    },
-    {
-      "basename": "DeepSeek从入门到精通（7大场景 50大案例 全套提示词） (DeepSeek从入门到精通（7大场景 50大案例 全套提示词）) (Z-Library)",
-      "path": "100附件文件/DeepSeek从入门到精通（7大场景 50大案例 全套提示词） (DeepSeek从入门到精通（7大场景 50大案例 全套提示词）) (Z-Library).pdf"
     }
   ],
   "omittedPaths": [],
