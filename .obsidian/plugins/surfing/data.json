@@ -46,7 +46,19 @@
     ],
     "defaultFilterType": "menu"
   },
-  "treeData": [],
+  "treeData": [
+    {
+      "id": "d1188a2690d0c7f4",
+      "parent": 0,
+      "droppable": true,
+      "text": "HTML AI 编程助手 | 菜鸟教程",
+      "data": {
+        "fileType": "site",
+        "fileSize": "",
+        "icon": {}
+      }
+    }
+  ],
   "enableHtmlPreview": true,
   "supportLivePreviewInlineUrl": true,
   "enableTreeView": true,

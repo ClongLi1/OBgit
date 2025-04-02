@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "ClongLi-Obsidian-HomePage",
-      "path": "100附件文件/ClongLi-Obsidian-HomePage.md"
-    },
-    {
       "basename": "2025-04-02",
       "path": "998日记汇总/2025-04-02.md"
+    },
+    {
+      "basename": "VS code",
+      "path": "03软件网络/VS code.md"
+    },
+    {
+      "basename": "03软件电脑",
+      "path": "03软件网络/03软件电脑.md"
+    },
+    {
+      "basename": "ClongLi-Obsidian-HomePage",
+      "path": "100附件文件/ClongLi-Obsidian-HomePage.md"
     },
     {
       "basename": "HTML",
@@ -161,10 +169,6 @@
       "path": "02专业知识/02专业-知识.md"
     },
     {
-      "basename": "03软件电脑",
-      "path": "03软件网络/03软件电脑.md"
-    },
-    {
       "basename": "OBS Studio",
       "path": "03软件网络/OBS Studio.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "六级语法（新东方）",
       "path": "13英语相关/六级语法（新东方）.md"
-    },
-    {
-      "basename": "AutoCAD",
-      "path": "03软件网络/AutoCAD.md"
     }
   ],
   "omittedPaths": [],
