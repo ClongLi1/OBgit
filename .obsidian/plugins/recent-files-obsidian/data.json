@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "999知识管理",
-      "path": "999知识管理/999知识管理.md"
+      "basename": "ClongLi-Obsidian-HomePage",
+      "path": "100附件文件/ClongLi-Obsidian-HomePage.md"
     },
     {
       "basename": "2025-04-02",
       "path": "998日记汇总/2025-04-02.md"
+    },
+    {
+      "basename": "HTML",
+      "path": "03软件网络/HTML.md"
+    },
+    {
+      "basename": "999知识管理",
+      "path": "999知识管理/999知识管理.md"
     },
     {
       "basename": "README",
@@ -39,10 +47,6 @@
     {
       "basename": "阅读篇",
       "path": "13英语相关/阅读篇.md"
-    },
-    {
-      "basename": "ClongLi-Obsidian-HomePage",
-      "path": "100附件文件/ClongLi-Obsidian-HomePage.md"
     },
     {
       "basename": "个人问题总结和反思改进汇集",
@@ -195,10 +199,6 @@
     {
       "basename": "AutoCAD",
       "path": "03软件网络/AutoCAD.md"
-    },
-    {
-      "basename": "专业理论",
-      "path": "02专业知识/专业理论.md"
     }
   ],
   "omittedPaths": [],
