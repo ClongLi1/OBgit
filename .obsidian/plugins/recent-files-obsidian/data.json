@@ -9,12 +9,16 @@
       "path": "998日记汇总/2025-04-02.md"
     },
     {
-      "basename": "VS code",
-      "path": "03软件网络/VS code.md"
-    },
-    {
       "basename": "03软件电脑",
       "path": "03软件网络/03软件电脑.md"
+    },
+    {
+      "basename": "JavaScript",
+      "path": "03软件网络/JavaScript.md"
+    },
+    {
+      "basename": "VS code",
+      "path": "03软件网络/VS code.md"
     },
     {
       "basename": "HTML",
@@ -195,10 +199,6 @@
     {
       "basename": "16时政现实",
       "path": "16-时政现实/16时政现实.md"
-    },
-    {
-      "basename": "六级语法（新东方）",
-      "path": "13英语相关/六级语法（新东方）.md"
     }
   ],
   "omittedPaths": [],
