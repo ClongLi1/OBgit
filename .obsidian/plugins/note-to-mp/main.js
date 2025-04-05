@@ -5603,6 +5603,571 @@ var require_postcss = __commonJS({
   }
 });
 
+// src/wasm/wasm_exec.js
+var require_wasm_exec = __commonJS({
+  "src/wasm/wasm_exec.js"() {
+    "use strict";
+    (() => {
+      const enosys = () => {
+        const err = new Error("not implemented");
+        err.code = "ENOSYS";
+        return err;
+      };
+      if (!globalThis.fs) {
+        let outputBuf = "";
+        globalThis.fs = {
+          constants: { O_WRONLY: -1, O_RDWR: -1, O_CREAT: -1, O_TRUNC: -1, O_APPEND: -1, O_EXCL: -1 },
+          // unused
+          writeSync(fd, buf) {
+            outputBuf += decoder.decode(buf);
+            const nl = outputBuf.lastIndexOf("\n");
+            if (nl != -1) {
+              console.log(outputBuf.substring(0, nl));
+              outputBuf = outputBuf.substring(nl + 1);
+            }
+            return buf.length;
+          },
+          write(fd, buf, offset, length, position, callback) {
+            if (offset !== 0 || length !== buf.length || position !== null) {
+              callback(enosys());
+              return;
+            }
+            const n = this.writeSync(fd, buf);
+            callback(null, n);
+          },
+          chmod(path, mode2, callback) {
+            callback(enosys());
+          },
+          chown(path, uid, gid, callback) {
+            callback(enosys());
+          },
+          close(fd, callback) {
+            callback(enosys());
+          },
+          fchmod(fd, mode2, callback) {
+            callback(enosys());
+          },
+          fchown(fd, uid, gid, callback) {
+            callback(enosys());
+          },
+          fstat(fd, callback) {
+            callback(enosys());
+          },
+          fsync(fd, callback) {
+            callback(null);
+          },
+          ftruncate(fd, length, callback) {
+            callback(enosys());
+          },
+          lchown(path, uid, gid, callback) {
+            callback(enosys());
+          },
+          link(path, link2, callback) {
+            callback(enosys());
+          },
+          lstat(path, callback) {
+            callback(enosys());
+          },
+          mkdir(path, perm, callback) {
+            callback(enosys());
+          },
+          open(path, flags, mode2, callback) {
+            callback(enosys());
+          },
+          read(fd, buffer, offset, length, position, callback) {
+            callback(enosys());
+          },
+          readdir(path, callback) {
+            callback(enosys());
+          },
+          readlink(path, callback) {
+            callback(enosys());
+          },
+          rename(from, to, callback) {
+            callback(enosys());
+          },
+          rmdir(path, callback) {
+            callback(enosys());
+          },
+          stat(path, callback) {
+            callback(enosys());
+          },
+          symlink(path, link2, callback) {
+            callback(enosys());
+          },
+          truncate(path, length, callback) {
+            callback(enosys());
+          },
+          unlink(path, callback) {
+            callback(enosys());
+          },
+          utimes(path, atime, mtime, callback) {
+            callback(enosys());
+          }
+        };
+      }
+      if (!globalThis.process) {
+        globalThis.process = {
+          getuid() {
+            return -1;
+          },
+          getgid() {
+            return -1;
+          },
+          geteuid() {
+            return -1;
+          },
+          getegid() {
+            return -1;
+          },
+          getgroups() {
+            throw enosys();
+          },
+          pid: -1,
+          ppid: -1,
+          umask() {
+            throw enosys();
+          },
+          cwd() {
+            throw enosys();
+          },
+          chdir() {
+            throw enosys();
+          }
+        };
+      }
+      if (!globalThis.crypto) {
+        throw new Error("globalThis.crypto is not available, polyfill required (crypto.getRandomValues only)");
+      }
+      if (!globalThis.performance) {
+        throw new Error("globalThis.performance is not available, polyfill required (performance.now only)");
+      }
+      if (!globalThis.TextEncoder) {
+        throw new Error("globalThis.TextEncoder is not available, polyfill required");
+      }
+      if (!globalThis.TextDecoder) {
+        throw new Error("globalThis.TextDecoder is not available, polyfill required");
+      }
+      const encoder = new TextEncoder("utf-8");
+      const decoder = new TextDecoder("utf-8");
+      globalThis.Go = class {
+        constructor() {
+          this.argv = ["js"];
+          this.env = {};
+          this.exit = (code) => {
+            if (code !== 0) {
+              console.warn("exit code:", code);
+            }
+          };
+          this._exitPromise = new Promise((resolve) => {
+            this._resolveExitPromise = resolve;
+          });
+          this._pendingEvent = null;
+          this._scheduledTimeouts = /* @__PURE__ */ new Map();
+          this._nextCallbackTimeoutID = 1;
+          const setInt64 = (addr, v) => {
+            this.mem.setUint32(addr + 0, v, true);
+            this.mem.setUint32(addr + 4, Math.floor(v / 4294967296), true);
+          };
+          const setInt32 = (addr, v) => {
+            this.mem.setUint32(addr + 0, v, true);
+          };
+          const getInt64 = (addr) => {
+            const low = this.mem.getUint32(addr + 0, true);
+            const high = this.mem.getInt32(addr + 4, true);
+            return low + high * 4294967296;
+          };
+          const loadValue = (addr) => {
+            const f = this.mem.getFloat64(addr, true);
+            if (f === 0) {
+              return void 0;
+            }
+            if (!isNaN(f)) {
+              return f;
+            }
+            const id = this.mem.getUint32(addr, true);
+            return this._values[id];
+          };
+          const storeValue = (addr, v) => {
+            const nanHead = 2146959360;
+            if (typeof v === "number" && v !== 0) {
+              if (isNaN(v)) {
+                this.mem.setUint32(addr + 4, nanHead, true);
+                this.mem.setUint32(addr, 0, true);
+                return;
+              }
+              this.mem.setFloat64(addr, v, true);
+              return;
+            }
+            if (v === void 0) {
+              this.mem.setFloat64(addr, 0, true);
+              return;
+            }
+            let id = this._ids.get(v);
+            if (id === void 0) {
+              id = this._idPool.pop();
+              if (id === void 0) {
+                id = this._values.length;
+              }
+              this._values[id] = v;
+              this._goRefCounts[id] = 0;
+              this._ids.set(v, id);
+            }
+            this._goRefCounts[id]++;
+            let typeFlag = 0;
+            switch (typeof v) {
+              case "object":
+                if (v !== null) {
+                  typeFlag = 1;
+                }
+                break;
+              case "string":
+                typeFlag = 2;
+                break;
+              case "symbol":
+                typeFlag = 3;
+                break;
+              case "function":
+                typeFlag = 4;
+                break;
+            }
+            this.mem.setUint32(addr + 4, nanHead | typeFlag, true);
+            this.mem.setUint32(addr, id, true);
+          };
+          const loadSlice = (addr) => {
+            const array = getInt64(addr + 0);
+            const len = getInt64(addr + 8);
+            return new Uint8Array(this._inst.exports.mem.buffer, array, len);
+          };
+          const loadSliceOfValues = (addr) => {
+            const array = getInt64(addr + 0);
+            const len = getInt64(addr + 8);
+            const a = new Array(len);
+            for (let i = 0; i < len; i++) {
+              a[i] = loadValue(array + i * 8);
+            }
+            return a;
+          };
+          const loadString = (addr) => {
+            const saddr = getInt64(addr + 0);
+            const len = getInt64(addr + 8);
+            return decoder.decode(new DataView(this._inst.exports.mem.buffer, saddr, len));
+          };
+          const timeOrigin = Date.now() - performance.now();
+          this.importObject = {
+            _gotest: {
+              add: (a, b) => a + b
+            },
+            gojs: {
+              // Go's SP does not change as long as no Go code is running. Some operations (e.g. calls, getters and setters)
+              // may synchronously trigger a Go event handler. This makes Go code get executed in the middle of the imported
+              // function. A goroutine can switch to a new stack if the current stack is too small (see morestack function).
+              // This changes the SP, thus we have to update the SP used by the imported function.
+              // func wasmExit(code int32)
+              "runtime.wasmExit": (sp) => {
+                sp >>>= 0;
+                const code = this.mem.getInt32(sp + 8, true);
+                this.exited = true;
+                delete this._inst;
+                delete this._values;
+                delete this._goRefCounts;
+                delete this._ids;
+                delete this._idPool;
+                this.exit(code);
+              },
+              // func wasmWrite(fd uintptr, p unsafe.Pointer, n int32)
+              "runtime.wasmWrite": (sp) => {
+                sp >>>= 0;
+                const fd = getInt64(sp + 8);
+                const p = getInt64(sp + 16);
+                const n = this.mem.getInt32(sp + 24, true);
+                fs.writeSync(fd, new Uint8Array(this._inst.exports.mem.buffer, p, n));
+              },
+              // func resetMemoryDataView()
+              "runtime.resetMemoryDataView": (sp) => {
+                sp >>>= 0;
+                this.mem = new DataView(this._inst.exports.mem.buffer);
+              },
+              // func nanotime1() int64
+              "runtime.nanotime1": (sp) => {
+                sp >>>= 0;
+                setInt64(sp + 8, (timeOrigin + performance.now()) * 1e6);
+              },
+              // func walltime() (sec int64, nsec int32)
+              "runtime.walltime": (sp) => {
+                sp >>>= 0;
+                const msec = new Date().getTime();
+                setInt64(sp + 8, msec / 1e3);
+                this.mem.setInt32(sp + 16, msec % 1e3 * 1e6, true);
+              },
+              // func scheduleTimeoutEvent(delay int64) int32
+              "runtime.scheduleTimeoutEvent": (sp) => {
+                sp >>>= 0;
+                const id = this._nextCallbackTimeoutID;
+                this._nextCallbackTimeoutID++;
+                this._scheduledTimeouts.set(id, setTimeout(
+                  () => {
+                    this._resume();
+                    while (this._scheduledTimeouts.has(id)) {
+                      console.warn("scheduleTimeoutEvent: missed timeout event");
+                      this._resume();
+                    }
+                  },
+                  getInt64(sp + 8)
+                ));
+                this.mem.setInt32(sp + 16, id, true);
+              },
+              // func clearTimeoutEvent(id int32)
+              "runtime.clearTimeoutEvent": (sp) => {
+                sp >>>= 0;
+                const id = this.mem.getInt32(sp + 8, true);
+                clearTimeout(this._scheduledTimeouts.get(id));
+                this._scheduledTimeouts.delete(id);
+              },
+              // func getRandomData(r []byte)
+              "runtime.getRandomData": (sp) => {
+                sp >>>= 0;
+                crypto.getRandomValues(loadSlice(sp + 8));
+              },
+              // func finalizeRef(v ref)
+              "syscall/js.finalizeRef": (sp) => {
+                sp >>>= 0;
+                const id = this.mem.getUint32(sp + 8, true);
+                this._goRefCounts[id]--;
+                if (this._goRefCounts[id] === 0) {
+                  const v = this._values[id];
+                  this._values[id] = null;
+                  this._ids.delete(v);
+                  this._idPool.push(id);
+                }
+              },
+              // func stringVal(value string) ref
+              "syscall/js.stringVal": (sp) => {
+                sp >>>= 0;
+                storeValue(sp + 24, loadString(sp + 8));
+              },
+              // func valueGet(v ref, p string) ref
+              "syscall/js.valueGet": (sp) => {
+                sp >>>= 0;
+                const result = Reflect.get(loadValue(sp + 8), loadString(sp + 16));
+                sp = this._inst.exports.getsp() >>> 0;
+                storeValue(sp + 32, result);
+              },
+              // func valueSet(v ref, p string, x ref)
+              "syscall/js.valueSet": (sp) => {
+                sp >>>= 0;
+                Reflect.set(loadValue(sp + 8), loadString(sp + 16), loadValue(sp + 32));
+              },
+              // func valueDelete(v ref, p string)
+              "syscall/js.valueDelete": (sp) => {
+                sp >>>= 0;
+                Reflect.deleteProperty(loadValue(sp + 8), loadString(sp + 16));
+              },
+              // func valueIndex(v ref, i int) ref
+              "syscall/js.valueIndex": (sp) => {
+                sp >>>= 0;
+                storeValue(sp + 24, Reflect.get(loadValue(sp + 8), getInt64(sp + 16)));
+              },
+              // valueSetIndex(v ref, i int, x ref)
+              "syscall/js.valueSetIndex": (sp) => {
+                sp >>>= 0;
+                Reflect.set(loadValue(sp + 8), getInt64(sp + 16), loadValue(sp + 24));
+              },
+              // func valueCall(v ref, m string, args []ref) (ref, bool)
+              "syscall/js.valueCall": (sp) => {
+                sp >>>= 0;
+                try {
+                  const v = loadValue(sp + 8);
+                  const m = Reflect.get(v, loadString(sp + 16));
+                  const args = loadSliceOfValues(sp + 32);
+                  const result = Reflect.apply(m, v, args);
+                  sp = this._inst.exports.getsp() >>> 0;
+                  storeValue(sp + 56, result);
+                  this.mem.setUint8(sp + 64, 1);
+                } catch (err) {
+                  sp = this._inst.exports.getsp() >>> 0;
+                  storeValue(sp + 56, err);
+                  this.mem.setUint8(sp + 64, 0);
+                }
+              },
+              // func valueInvoke(v ref, args []ref) (ref, bool)
+              "syscall/js.valueInvoke": (sp) => {
+                sp >>>= 0;
+                try {
+                  const v = loadValue(sp + 8);
+                  const args = loadSliceOfValues(sp + 16);
+                  const result = Reflect.apply(v, void 0, args);
+                  sp = this._inst.exports.getsp() >>> 0;
+                  storeValue(sp + 40, result);
+                  this.mem.setUint8(sp + 48, 1);
+                } catch (err) {
+                  sp = this._inst.exports.getsp() >>> 0;
+                  storeValue(sp + 40, err);
+                  this.mem.setUint8(sp + 48, 0);
+                }
+              },
+              // func valueNew(v ref, args []ref) (ref, bool)
+              "syscall/js.valueNew": (sp) => {
+                sp >>>= 0;
+                try {
+                  const v = loadValue(sp + 8);
+                  const args = loadSliceOfValues(sp + 16);
+                  const result = Reflect.construct(v, args);
+                  sp = this._inst.exports.getsp() >>> 0;
+                  storeValue(sp + 40, result);
+                  this.mem.setUint8(sp + 48, 1);
+                } catch (err) {
+                  sp = this._inst.exports.getsp() >>> 0;
+                  storeValue(sp + 40, err);
+                  this.mem.setUint8(sp + 48, 0);
+                }
+              },
+              // func valueLength(v ref) int
+              "syscall/js.valueLength": (sp) => {
+                sp >>>= 0;
+                setInt64(sp + 16, parseInt(loadValue(sp + 8).length));
+              },
+              // valuePrepareString(v ref) (ref, int)
+              "syscall/js.valuePrepareString": (sp) => {
+                sp >>>= 0;
+                const str = encoder.encode(String(loadValue(sp + 8)));
+                storeValue(sp + 16, str);
+                setInt64(sp + 24, str.length);
+              },
+              // valueLoadString(v ref, b []byte)
+              "syscall/js.valueLoadString": (sp) => {
+                sp >>>= 0;
+                const str = loadValue(sp + 8);
+                loadSlice(sp + 16).set(str);
+              },
+              // func valueInstanceOf(v ref, t ref) bool
+              "syscall/js.valueInstanceOf": (sp) => {
+                sp >>>= 0;
+                this.mem.setUint8(sp + 24, loadValue(sp + 8) instanceof loadValue(sp + 16) ? 1 : 0);
+              },
+              // func copyBytesToGo(dst []byte, src ref) (int, bool)
+              "syscall/js.copyBytesToGo": (sp) => {
+                sp >>>= 0;
+                const dst = loadSlice(sp + 8);
+                const src = loadValue(sp + 32);
+                if (!(src instanceof Uint8Array || src instanceof Uint8ClampedArray)) {
+                  this.mem.setUint8(sp + 48, 0);
+                  return;
+                }
+                const toCopy = src.subarray(0, dst.length);
+                dst.set(toCopy);
+                setInt64(sp + 40, toCopy.length);
+                this.mem.setUint8(sp + 48, 1);
+              },
+              // func copyBytesToJS(dst ref, src []byte) (int, bool)
+              "syscall/js.copyBytesToJS": (sp) => {
+                sp >>>= 0;
+                const dst = loadValue(sp + 8);
+                const src = loadSlice(sp + 16);
+                if (!(dst instanceof Uint8Array || dst instanceof Uint8ClampedArray)) {
+                  this.mem.setUint8(sp + 48, 0);
+                  return;
+                }
+                const toCopy = src.subarray(0, dst.length);
+                dst.set(toCopy);
+                setInt64(sp + 40, toCopy.length);
+                this.mem.setUint8(sp + 48, 1);
+              },
+              "debug": (value) => {
+                console.log(value);
+              }
+            }
+          };
+        }
+        async run(instance) {
+          if (!(instance instanceof WebAssembly.Instance)) {
+            throw new Error("Go.run: WebAssembly.Instance expected");
+          }
+          this._inst = instance;
+          this.mem = new DataView(this._inst.exports.mem.buffer);
+          this._values = [
+            // JS values that Go currently has references to, indexed by reference id
+            NaN,
+            0,
+            null,
+            true,
+            false,
+            globalThis,
+            this
+          ];
+          this._goRefCounts = new Array(this._values.length).fill(Infinity);
+          this._ids = /* @__PURE__ */ new Map([
+            // mapping from JS values to reference ids
+            [0, 1],
+            [null, 2],
+            [true, 3],
+            [false, 4],
+            [globalThis, 5],
+            [this, 6]
+          ]);
+          this._idPool = [];
+          this.exited = false;
+          let offset = 4096;
+          const strPtr = (str) => {
+            const ptr = offset;
+            const bytes = encoder.encode(str + "\0");
+            new Uint8Array(this.mem.buffer, offset, bytes.length).set(bytes);
+            offset += bytes.length;
+            if (offset % 8 !== 0) {
+              offset += 8 - offset % 8;
+            }
+            return ptr;
+          };
+          const argc = this.argv.length;
+          const argvPtrs = [];
+          this.argv.forEach((arg) => {
+            argvPtrs.push(strPtr(arg));
+          });
+          argvPtrs.push(0);
+          const keys = Object.keys(this.env).sort();
+          keys.forEach((key) => {
+            argvPtrs.push(strPtr(`${key}=${this.env[key]}`));
+          });
+          argvPtrs.push(0);
+          const argv = offset;
+          argvPtrs.forEach((ptr) => {
+            this.mem.setUint32(offset, ptr, true);
+            this.mem.setUint32(offset + 4, 0, true);
+            offset += 8;
+          });
+          const wasmMinDataAddr = 4096 + 8192;
+          if (offset >= wasmMinDataAddr) {
+            throw new Error("total length of command line and environment variables exceeds limit");
+          }
+          this._inst.exports.run(argc, argv);
+          if (this.exited) {
+            this._resolveExitPromise();
+          }
+          await this._exitPromise;
+        }
+        _resume() {
+          if (this.exited) {
+            throw new Error("Go program has already exited");
+          }
+          this._inst.exports.resume();
+          if (this.exited) {
+            this._resolveExitPromise();
+          }
+        }
+        _makeFuncWrapper(id) {
+          const go = this;
+          return function() {
+            const event = { id, this: this, args: arguments };
+            go._pendingEvent = event;
+            go._resume();
+            return event.result;
+          };
+        }
+      };
+    })();
+  }
+});
+
 // node_modules/highlight.js/lib/core.js
 var require_core = __commonJS({
   "node_modules/highlight.js/lib/core.js"(exports, module2) {
@@ -55475,571 +56040,6 @@ var require_lib = __commonJS({
   }
 });
 
-// src/wasm/wasm_exec.js
-var require_wasm_exec = __commonJS({
-  "src/wasm/wasm_exec.js"() {
-    "use strict";
-    (() => {
-      const enosys = () => {
-        const err = new Error("not implemented");
-        err.code = "ENOSYS";
-        return err;
-      };
-      if (!globalThis.fs) {
-        let outputBuf = "";
-        globalThis.fs = {
-          constants: { O_WRONLY: -1, O_RDWR: -1, O_CREAT: -1, O_TRUNC: -1, O_APPEND: -1, O_EXCL: -1 },
-          // unused
-          writeSync(fd, buf) {
-            outputBuf += decoder.decode(buf);
-            const nl = outputBuf.lastIndexOf("\n");
-            if (nl != -1) {
-              console.log(outputBuf.substring(0, nl));
-              outputBuf = outputBuf.substring(nl + 1);
-            }
-            return buf.length;
-          },
-          write(fd, buf, offset, length, position, callback) {
-            if (offset !== 0 || length !== buf.length || position !== null) {
-              callback(enosys());
-              return;
-            }
-            const n = this.writeSync(fd, buf);
-            callback(null, n);
-          },
-          chmod(path, mode2, callback) {
-            callback(enosys());
-          },
-          chown(path, uid, gid, callback) {
-            callback(enosys());
-          },
-          close(fd, callback) {
-            callback(enosys());
-          },
-          fchmod(fd, mode2, callback) {
-            callback(enosys());
-          },
-          fchown(fd, uid, gid, callback) {
-            callback(enosys());
-          },
-          fstat(fd, callback) {
-            callback(enosys());
-          },
-          fsync(fd, callback) {
-            callback(null);
-          },
-          ftruncate(fd, length, callback) {
-            callback(enosys());
-          },
-          lchown(path, uid, gid, callback) {
-            callback(enosys());
-          },
-          link(path, link2, callback) {
-            callback(enosys());
-          },
-          lstat(path, callback) {
-            callback(enosys());
-          },
-          mkdir(path, perm, callback) {
-            callback(enosys());
-          },
-          open(path, flags, mode2, callback) {
-            callback(enosys());
-          },
-          read(fd, buffer, offset, length, position, callback) {
-            callback(enosys());
-          },
-          readdir(path, callback) {
-            callback(enosys());
-          },
-          readlink(path, callback) {
-            callback(enosys());
-          },
-          rename(from, to, callback) {
-            callback(enosys());
-          },
-          rmdir(path, callback) {
-            callback(enosys());
-          },
-          stat(path, callback) {
-            callback(enosys());
-          },
-          symlink(path, link2, callback) {
-            callback(enosys());
-          },
-          truncate(path, length, callback) {
-            callback(enosys());
-          },
-          unlink(path, callback) {
-            callback(enosys());
-          },
-          utimes(path, atime, mtime, callback) {
-            callback(enosys());
-          }
-        };
-      }
-      if (!globalThis.process) {
-        globalThis.process = {
-          getuid() {
-            return -1;
-          },
-          getgid() {
-            return -1;
-          },
-          geteuid() {
-            return -1;
-          },
-          getegid() {
-            return -1;
-          },
-          getgroups() {
-            throw enosys();
-          },
-          pid: -1,
-          ppid: -1,
-          umask() {
-            throw enosys();
-          },
-          cwd() {
-            throw enosys();
-          },
-          chdir() {
-            throw enosys();
-          }
-        };
-      }
-      if (!globalThis.crypto) {
-        throw new Error("globalThis.crypto is not available, polyfill required (crypto.getRandomValues only)");
-      }
-      if (!globalThis.performance) {
-        throw new Error("globalThis.performance is not available, polyfill required (performance.now only)");
-      }
-      if (!globalThis.TextEncoder) {
-        throw new Error("globalThis.TextEncoder is not available, polyfill required");
-      }
-      if (!globalThis.TextDecoder) {
-        throw new Error("globalThis.TextDecoder is not available, polyfill required");
-      }
-      const encoder = new TextEncoder("utf-8");
-      const decoder = new TextDecoder("utf-8");
-      globalThis.Go = class {
-        constructor() {
-          this.argv = ["js"];
-          this.env = {};
-          this.exit = (code) => {
-            if (code !== 0) {
-              console.warn("exit code:", code);
-            }
-          };
-          this._exitPromise = new Promise((resolve) => {
-            this._resolveExitPromise = resolve;
-          });
-          this._pendingEvent = null;
-          this._scheduledTimeouts = /* @__PURE__ */ new Map();
-          this._nextCallbackTimeoutID = 1;
-          const setInt64 = (addr, v) => {
-            this.mem.setUint32(addr + 0, v, true);
-            this.mem.setUint32(addr + 4, Math.floor(v / 4294967296), true);
-          };
-          const setInt32 = (addr, v) => {
-            this.mem.setUint32(addr + 0, v, true);
-          };
-          const getInt64 = (addr) => {
-            const low = this.mem.getUint32(addr + 0, true);
-            const high = this.mem.getInt32(addr + 4, true);
-            return low + high * 4294967296;
-          };
-          const loadValue = (addr) => {
-            const f = this.mem.getFloat64(addr, true);
-            if (f === 0) {
-              return void 0;
-            }
-            if (!isNaN(f)) {
-              return f;
-            }
-            const id = this.mem.getUint32(addr, true);
-            return this._values[id];
-          };
-          const storeValue = (addr, v) => {
-            const nanHead = 2146959360;
-            if (typeof v === "number" && v !== 0) {
-              if (isNaN(v)) {
-                this.mem.setUint32(addr + 4, nanHead, true);
-                this.mem.setUint32(addr, 0, true);
-                return;
-              }
-              this.mem.setFloat64(addr, v, true);
-              return;
-            }
-            if (v === void 0) {
-              this.mem.setFloat64(addr, 0, true);
-              return;
-            }
-            let id = this._ids.get(v);
-            if (id === void 0) {
-              id = this._idPool.pop();
-              if (id === void 0) {
-                id = this._values.length;
-              }
-              this._values[id] = v;
-              this._goRefCounts[id] = 0;
-              this._ids.set(v, id);
-            }
-            this._goRefCounts[id]++;
-            let typeFlag = 0;
-            switch (typeof v) {
-              case "object":
-                if (v !== null) {
-                  typeFlag = 1;
-                }
-                break;
-              case "string":
-                typeFlag = 2;
-                break;
-              case "symbol":
-                typeFlag = 3;
-                break;
-              case "function":
-                typeFlag = 4;
-                break;
-            }
-            this.mem.setUint32(addr + 4, nanHead | typeFlag, true);
-            this.mem.setUint32(addr, id, true);
-          };
-          const loadSlice = (addr) => {
-            const array = getInt64(addr + 0);
-            const len = getInt64(addr + 8);
-            return new Uint8Array(this._inst.exports.mem.buffer, array, len);
-          };
-          const loadSliceOfValues = (addr) => {
-            const array = getInt64(addr + 0);
-            const len = getInt64(addr + 8);
-            const a = new Array(len);
-            for (let i = 0; i < len; i++) {
-              a[i] = loadValue(array + i * 8);
-            }
-            return a;
-          };
-          const loadString = (addr) => {
-            const saddr = getInt64(addr + 0);
-            const len = getInt64(addr + 8);
-            return decoder.decode(new DataView(this._inst.exports.mem.buffer, saddr, len));
-          };
-          const timeOrigin = Date.now() - performance.now();
-          this.importObject = {
-            _gotest: {
-              add: (a, b) => a + b
-            },
-            gojs: {
-              // Go's SP does not change as long as no Go code is running. Some operations (e.g. calls, getters and setters)
-              // may synchronously trigger a Go event handler. This makes Go code get executed in the middle of the imported
-              // function. A goroutine can switch to a new stack if the current stack is too small (see morestack function).
-              // This changes the SP, thus we have to update the SP used by the imported function.
-              // func wasmExit(code int32)
-              "runtime.wasmExit": (sp) => {
-                sp >>>= 0;
-                const code = this.mem.getInt32(sp + 8, true);
-                this.exited = true;
-                delete this._inst;
-                delete this._values;
-                delete this._goRefCounts;
-                delete this._ids;
-                delete this._idPool;
-                this.exit(code);
-              },
-              // func wasmWrite(fd uintptr, p unsafe.Pointer, n int32)
-              "runtime.wasmWrite": (sp) => {
-                sp >>>= 0;
-                const fd = getInt64(sp + 8);
-                const p = getInt64(sp + 16);
-                const n = this.mem.getInt32(sp + 24, true);
-                fs.writeSync(fd, new Uint8Array(this._inst.exports.mem.buffer, p, n));
-              },
-              // func resetMemoryDataView()
-              "runtime.resetMemoryDataView": (sp) => {
-                sp >>>= 0;
-                this.mem = new DataView(this._inst.exports.mem.buffer);
-              },
-              // func nanotime1() int64
-              "runtime.nanotime1": (sp) => {
-                sp >>>= 0;
-                setInt64(sp + 8, (timeOrigin + performance.now()) * 1e6);
-              },
-              // func walltime() (sec int64, nsec int32)
-              "runtime.walltime": (sp) => {
-                sp >>>= 0;
-                const msec = new Date().getTime();
-                setInt64(sp + 8, msec / 1e3);
-                this.mem.setInt32(sp + 16, msec % 1e3 * 1e6, true);
-              },
-              // func scheduleTimeoutEvent(delay int64) int32
-              "runtime.scheduleTimeoutEvent": (sp) => {
-                sp >>>= 0;
-                const id = this._nextCallbackTimeoutID;
-                this._nextCallbackTimeoutID++;
-                this._scheduledTimeouts.set(id, setTimeout(
-                  () => {
-                    this._resume();
-                    while (this._scheduledTimeouts.has(id)) {
-                      console.warn("scheduleTimeoutEvent: missed timeout event");
-                      this._resume();
-                    }
-                  },
-                  getInt64(sp + 8)
-                ));
-                this.mem.setInt32(sp + 16, id, true);
-              },
-              // func clearTimeoutEvent(id int32)
-              "runtime.clearTimeoutEvent": (sp) => {
-                sp >>>= 0;
-                const id = this.mem.getInt32(sp + 8, true);
-                clearTimeout(this._scheduledTimeouts.get(id));
-                this._scheduledTimeouts.delete(id);
-              },
-              // func getRandomData(r []byte)
-              "runtime.getRandomData": (sp) => {
-                sp >>>= 0;
-                crypto.getRandomValues(loadSlice(sp + 8));
-              },
-              // func finalizeRef(v ref)
-              "syscall/js.finalizeRef": (sp) => {
-                sp >>>= 0;
-                const id = this.mem.getUint32(sp + 8, true);
-                this._goRefCounts[id]--;
-                if (this._goRefCounts[id] === 0) {
-                  const v = this._values[id];
-                  this._values[id] = null;
-                  this._ids.delete(v);
-                  this._idPool.push(id);
-                }
-              },
-              // func stringVal(value string) ref
-              "syscall/js.stringVal": (sp) => {
-                sp >>>= 0;
-                storeValue(sp + 24, loadString(sp + 8));
-              },
-              // func valueGet(v ref, p string) ref
-              "syscall/js.valueGet": (sp) => {
-                sp >>>= 0;
-                const result = Reflect.get(loadValue(sp + 8), loadString(sp + 16));
-                sp = this._inst.exports.getsp() >>> 0;
-                storeValue(sp + 32, result);
-              },
-              // func valueSet(v ref, p string, x ref)
-              "syscall/js.valueSet": (sp) => {
-                sp >>>= 0;
-                Reflect.set(loadValue(sp + 8), loadString(sp + 16), loadValue(sp + 32));
-              },
-              // func valueDelete(v ref, p string)
-              "syscall/js.valueDelete": (sp) => {
-                sp >>>= 0;
-                Reflect.deleteProperty(loadValue(sp + 8), loadString(sp + 16));
-              },
-              // func valueIndex(v ref, i int) ref
-              "syscall/js.valueIndex": (sp) => {
-                sp >>>= 0;
-                storeValue(sp + 24, Reflect.get(loadValue(sp + 8), getInt64(sp + 16)));
-              },
-              // valueSetIndex(v ref, i int, x ref)
-              "syscall/js.valueSetIndex": (sp) => {
-                sp >>>= 0;
-                Reflect.set(loadValue(sp + 8), getInt64(sp + 16), loadValue(sp + 24));
-              },
-              // func valueCall(v ref, m string, args []ref) (ref, bool)
-              "syscall/js.valueCall": (sp) => {
-                sp >>>= 0;
-                try {
-                  const v = loadValue(sp + 8);
-                  const m = Reflect.get(v, loadString(sp + 16));
-                  const args = loadSliceOfValues(sp + 32);
-                  const result = Reflect.apply(m, v, args);
-                  sp = this._inst.exports.getsp() >>> 0;
-                  storeValue(sp + 56, result);
-                  this.mem.setUint8(sp + 64, 1);
-                } catch (err) {
-                  sp = this._inst.exports.getsp() >>> 0;
-                  storeValue(sp + 56, err);
-                  this.mem.setUint8(sp + 64, 0);
-                }
-              },
-              // func valueInvoke(v ref, args []ref) (ref, bool)
-              "syscall/js.valueInvoke": (sp) => {
-                sp >>>= 0;
-                try {
-                  const v = loadValue(sp + 8);
-                  const args = loadSliceOfValues(sp + 16);
-                  const result = Reflect.apply(v, void 0, args);
-                  sp = this._inst.exports.getsp() >>> 0;
-                  storeValue(sp + 40, result);
-                  this.mem.setUint8(sp + 48, 1);
-                } catch (err) {
-                  sp = this._inst.exports.getsp() >>> 0;
-                  storeValue(sp + 40, err);
-                  this.mem.setUint8(sp + 48, 0);
-                }
-              },
-              // func valueNew(v ref, args []ref) (ref, bool)
-              "syscall/js.valueNew": (sp) => {
-                sp >>>= 0;
-                try {
-                  const v = loadValue(sp + 8);
-                  const args = loadSliceOfValues(sp + 16);
-                  const result = Reflect.construct(v, args);
-                  sp = this._inst.exports.getsp() >>> 0;
-                  storeValue(sp + 40, result);
-                  this.mem.setUint8(sp + 48, 1);
-                } catch (err) {
-                  sp = this._inst.exports.getsp() >>> 0;
-                  storeValue(sp + 40, err);
-                  this.mem.setUint8(sp + 48, 0);
-                }
-              },
-              // func valueLength(v ref) int
-              "syscall/js.valueLength": (sp) => {
-                sp >>>= 0;
-                setInt64(sp + 16, parseInt(loadValue(sp + 8).length));
-              },
-              // valuePrepareString(v ref) (ref, int)
-              "syscall/js.valuePrepareString": (sp) => {
-                sp >>>= 0;
-                const str = encoder.encode(String(loadValue(sp + 8)));
-                storeValue(sp + 16, str);
-                setInt64(sp + 24, str.length);
-              },
-              // valueLoadString(v ref, b []byte)
-              "syscall/js.valueLoadString": (sp) => {
-                sp >>>= 0;
-                const str = loadValue(sp + 8);
-                loadSlice(sp + 16).set(str);
-              },
-              // func valueInstanceOf(v ref, t ref) bool
-              "syscall/js.valueInstanceOf": (sp) => {
-                sp >>>= 0;
-                this.mem.setUint8(sp + 24, loadValue(sp + 8) instanceof loadValue(sp + 16) ? 1 : 0);
-              },
-              // func copyBytesToGo(dst []byte, src ref) (int, bool)
-              "syscall/js.copyBytesToGo": (sp) => {
-                sp >>>= 0;
-                const dst = loadSlice(sp + 8);
-                const src = loadValue(sp + 32);
-                if (!(src instanceof Uint8Array || src instanceof Uint8ClampedArray)) {
-                  this.mem.setUint8(sp + 48, 0);
-                  return;
-                }
-                const toCopy = src.subarray(0, dst.length);
-                dst.set(toCopy);
-                setInt64(sp + 40, toCopy.length);
-                this.mem.setUint8(sp + 48, 1);
-              },
-              // func copyBytesToJS(dst ref, src []byte) (int, bool)
-              "syscall/js.copyBytesToJS": (sp) => {
-                sp >>>= 0;
-                const dst = loadValue(sp + 8);
-                const src = loadSlice(sp + 16);
-                if (!(dst instanceof Uint8Array || dst instanceof Uint8ClampedArray)) {
-                  this.mem.setUint8(sp + 48, 0);
-                  return;
-                }
-                const toCopy = src.subarray(0, dst.length);
-                dst.set(toCopy);
-                setInt64(sp + 40, toCopy.length);
-                this.mem.setUint8(sp + 48, 1);
-              },
-              "debug": (value) => {
-                console.log(value);
-              }
-            }
-          };
-        }
-        async run(instance) {
-          if (!(instance instanceof WebAssembly.Instance)) {
-            throw new Error("Go.run: WebAssembly.Instance expected");
-          }
-          this._inst = instance;
-          this.mem = new DataView(this._inst.exports.mem.buffer);
-          this._values = [
-            // JS values that Go currently has references to, indexed by reference id
-            NaN,
-            0,
-            null,
-            true,
-            false,
-            globalThis,
-            this
-          ];
-          this._goRefCounts = new Array(this._values.length).fill(Infinity);
-          this._ids = /* @__PURE__ */ new Map([
-            // mapping from JS values to reference ids
-            [0, 1],
-            [null, 2],
-            [true, 3],
-            [false, 4],
-            [globalThis, 5],
-            [this, 6]
-          ]);
-          this._idPool = [];
-          this.exited = false;
-          let offset = 4096;
-          const strPtr = (str) => {
-            const ptr = offset;
-            const bytes = encoder.encode(str + "\0");
-            new Uint8Array(this.mem.buffer, offset, bytes.length).set(bytes);
-            offset += bytes.length;
-            if (offset % 8 !== 0) {
-              offset += 8 - offset % 8;
-            }
-            return ptr;
-          };
-          const argc = this.argv.length;
-          const argvPtrs = [];
-          this.argv.forEach((arg) => {
-            argvPtrs.push(strPtr(arg));
-          });
-          argvPtrs.push(0);
-          const keys = Object.keys(this.env).sort();
-          keys.forEach((key) => {
-            argvPtrs.push(strPtr(`${key}=${this.env[key]}`));
-          });
-          argvPtrs.push(0);
-          const argv = offset;
-          argvPtrs.forEach((ptr) => {
-            this.mem.setUint32(offset, ptr, true);
-            this.mem.setUint32(offset + 4, 0, true);
-            offset += 8;
-          });
-          const wasmMinDataAddr = 4096 + 8192;
-          if (offset >= wasmMinDataAddr) {
-            throw new Error("total length of command line and environment variables exceeds limit");
-          }
-          this._inst.exports.run(argc, argv);
-          if (this.exited) {
-            this._resolveExitPromise();
-          }
-          await this._exitPromise;
-        }
-        _resume() {
-          if (this.exited) {
-            throw new Error("Go program has already exited");
-          }
-          this._inst.exports.resume();
-          if (this.exited) {
-            this._resolveExitPromise();
-          }
-        }
-        _makeFuncWrapper(id) {
-          const go = this;
-          return function() {
-            const event = { id, this: this, args: arguments };
-            go._pendingEvent = event;
-            go._resume();
-            return event.result;
-          };
-        }
-      };
-    })();
-  }
-});
-
 // src/main.ts
 var main_exports = {};
 __export(main_exports, {
@@ -56117,6 +56117,14 @@ function debounce(func, wait) {
     }
     timeout = setTimeout(later, wait);
   };
+}
+function cleanUrl(href) {
+  try {
+    href = encodeURI(href).replace(/%25/g, "%");
+  } catch (e2) {
+    return null;
+  }
+  return href;
 }
 
 // src/weixin-api.ts
@@ -56218,6 +56226,17 @@ async function wxAddDraft(token, data) {
   });
   return res;
 }
+async function wxAddDraftImages(token, data) {
+  const url = "https://api.weixin.qq.com/cgi-bin/draft/add?access_token=" + token;
+  const body = { articles: [data] };
+  const res = await (0, import_obsidian2.requestUrl)({
+    method: "POST",
+    url,
+    throw: false,
+    body: JSON.stringify(body)
+  });
+  return res;
+}
 async function wxBatchGetMaterial(token, type, offset = 0, count = 10) {
   const url = "https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=" + token;
   const body = {
@@ -56249,6 +56268,8 @@ var NMPSettings = class {
     this.wxInfo = [];
     this.math = "latex";
     this.baseCSS = "";
+    this.watermark = "";
+    this.useFigcaption = false;
   }
   // 静态方法，用于获取实例
   static getInstance() {
@@ -56276,7 +56297,9 @@ var NMPSettings = class {
       wxInfo,
       math,
       useCustomCss,
-      baseCSS
+      baseCSS,
+      watermark,
+      useFigcaption
     } = data;
     const settings = NMPSettings.getInstance();
     if (defaultStyle) {
@@ -56312,6 +56335,12 @@ var NMPSettings = class {
     if (baseCSS) {
       settings.baseCSS = baseCSS;
     }
+    if (watermark) {
+      settings.watermark = watermark;
+    }
+    if (useFigcaption !== void 0) {
+      settings.useFigcaption = useFigcaption;
+    }
     settings.getExpiredDate();
   }
   static allSettings() {
@@ -56327,7 +56356,9 @@ var NMPSettings = class {
       "wxInfo": settings.wxInfo,
       "math": settings.math,
       "useCustomCss": settings.useCustomCss,
-      "baseCSS": settings.baseCSS
+      "baseCSS": settings.baseCSS,
+      "watermark": settings.watermark,
+      "useFigcaption": settings.useFigcaption
     };
   }
   getExpiredDate() {
@@ -66340,6 +66371,14 @@ var AssetsManager = class {
     }
     return null;
   }
+  getResourcePath(path) {
+    const file = this.searchFile(path);
+    if (file == null) {
+      return null;
+    }
+    const resUrl = this.app.vault.getResourcePath(file);
+    return { resUrl, filePath: file.path };
+  }
   resolvePath(relativePath) {
     const basePath = this.getActiveFileDir();
     if (!relativePath.includes("/")) {
@@ -66370,7 +66409,66 @@ var AssetsManager = class {
     }
     return parts.join("/");
   }
+  async readFileBinary(path) {
+    const vault = this.app.vault;
+    const file = this.searchFile(path);
+    if (file == null) {
+      return null;
+    }
+    return await vault.readBinary(file);
+  }
 };
+
+// src/wasm/wasm.ts
+require_wasm_exec();
+var WasmLoaded = false;
+function IsWasmReady() {
+  return WasmLoaded;
+}
+async function LoadWasm() {
+  if (WasmLoaded) {
+    return;
+  }
+  const assets = AssetsManager.getInstance();
+  const wasmContent = await assets.loadWasm();
+  if (!wasmContent) {
+    console.error("WASM content not found");
+    return;
+  }
+  const go = new Go();
+  const ret = await WebAssembly.instantiate(wasmContent, go.importObject);
+  go.run(ret.instance);
+  WasmLoaded = true;
+}
+
+// src/imagelib.ts
+function IsImageLibReady() {
+  return IsWasmReady();
+}
+async function PrepareImageLib() {
+  await LoadWasm();
+}
+function WebpToJPG(data) {
+  return GoWebpToJPG(new Uint8Array(data));
+}
+function AddWatermark(img, watermark) {
+  return GoAddWatermark(new Uint8Array(img), new Uint8Array(watermark));
+}
+async function UploadImageToWx(data, filename, token, type) {
+  if (!IsImageLibReady()) {
+    await PrepareImageLib();
+  }
+  const watermark = NMPSettings.getInstance().watermark;
+  if (watermark != null && watermark != "") {
+    const watermarkData = await AssetsManager.getInstance().readFileBinary(watermark);
+    if (watermarkData == null) {
+      throw new Error("\u6C34\u5370\u56FE\u7247\u4E0D\u5B58\u5728: " + watermark);
+    }
+    const watermarkImg = AddWatermark(await data.arrayBuffer(), watermarkData);
+    data = new Blob([watermarkImg], { type: data.type });
+  }
+  return await wxUploadImage(data, filename, token, type);
+}
 
 // src/inline-css.ts
 var inline_css_default = `
@@ -66612,7 +66710,7 @@ function edit(regex, opt) {
   };
   return obj;
 }
-function cleanUrl(href) {
+function cleanUrl2(href) {
   try {
     href = encodeURI(href).replace(/%25/g, "%");
   } catch (e2) {
@@ -67917,7 +68015,7 @@ ${content}</tr>
     return `<del>${text}</del>`;
   }
   link(href, title, text) {
-    const cleanHref = cleanUrl(href);
+    const cleanHref = cleanUrl2(href);
     if (cleanHref === null) {
       return text;
     }
@@ -67930,7 +68028,7 @@ ${content}</tr>
     return out;
   }
   image(href, title, text) {
-    const cleanHref = cleanUrl(href);
+    const cleanHref = cleanUrl2(href);
     if (cleanHref === null) {
       return text;
     }
@@ -70066,7 +70164,7 @@ var CodeRenderer = class extends Extension {
         continue;
       const blob = CodeRenderer.srcToBlob(img.getAttribute("src"));
       const name = img.id + ".png";
-      const res = await wxUploadImage(blob, name, token);
+      const res = await UploadImageToWx(blob, name, token);
       if (res.errcode != 0) {
         const msg = `\u4E0A\u4F20\u56FE\u7247\u5931\u8D25: ${res.errcode} ${res.errmsg}`;
         new import_obsidian6.Notice(msg);
@@ -70174,26 +70272,28 @@ var CodeRenderer = class extends Extension {
     }
   }
   markedExtension() {
-    return { extensions: [{
-      name: "code",
-      level: "block",
-      renderer: (token) => {
-        var _a;
-        if (this.settings.isAuthKeyVaild()) {
-          const type = CodeRenderer.getMathType((_a = token.lang) != null ? _a : "");
-          if (type) {
-            return MathRendererQueue.getInstance().render(token, false, type, this.callback);
+    return {
+      extensions: [{
+        name: "code",
+        level: "block",
+        renderer: (token) => {
+          var _a;
+          if (this.settings.isAuthKeyVaild()) {
+            const type = CodeRenderer.getMathType((_a = token.lang) != null ? _a : "");
+            if (type) {
+              return MathRendererQueue.getInstance().render(token, false, type, this.callback);
+            }
+            if (token.lang && token.lang.trim().toLocaleLowerCase() == "mermaid") {
+              return this.renderMermaid(token);
+            }
           }
-          if (token.lang && token.lang.trim().toLocaleLowerCase() == "mermaid") {
-            return this.renderMermaid(token);
+          if (token.lang && token.lang.trim().toLocaleLowerCase() == "mpcard") {
+            return this.renderCard(token);
           }
+          return this.codeRenderer(token.text, token.lang);
         }
-        if (token.lang && token.lang.trim().toLocaleLowerCase() == "mpcard") {
-          return this.renderCard(token);
-        }
-        return this.codeRenderer(token.text, token.lang);
-      }
-    }] };
+      }]
+    };
   }
 };
 
@@ -70400,33 +70500,6 @@ var LinkRenderer = class extends Extension {
 
 // src/markdown/local-file.ts
 var import_obsidian7 = require("obsidian");
-
-// src/wasm/wasm.ts
-require_wasm_exec();
-var WasmLoaded = false;
-function IsWasmReady() {
-  return WasmLoaded;
-}
-async function LoadWasm() {
-  if (WasmLoaded) {
-    return;
-  }
-  const assets = AssetsManager.getInstance();
-  const wasmContent = await assets.loadWasm();
-  if (!wasmContent) {
-    console.error("WASM content not found");
-    return;
-  }
-  const go = new Go();
-  const ret = await WebAssembly.instantiate(wasmContent, go.importObject);
-  go.run(ret.instance);
-  WasmLoaded = true;
-}
-function WebpToJPG(data) {
-  return GoWebpToJPG(new Uint8Array(data));
-}
-
-// src/markdown/local-file.ts
 var LocalFileRegex = /^!\[\[(.*?)\]\]/;
 var LocalImageManager = class {
   constructor() {
@@ -70451,9 +70524,10 @@ var LocalImageManager = class {
     const name = file.toLowerCase();
     return name.endsWith(".webp");
   }
-  async uploadLocalImage(token, vault) {
+  async uploadLocalImage(token, vault, type = "") {
     const keys = this.images.keys();
-    await LoadWasm();
+    await PrepareImageLib();
+    const result = [];
     for (let key of keys) {
       const value = this.images.get(key);
       if (value == null)
@@ -70466,21 +70540,23 @@ var LocalImageManager = class {
       let fileData = await vault.readBinary(file);
       let name = file.name;
       if (this.isWebp(file)) {
-        if (IsWasmReady()) {
+        if (IsImageLibReady()) {
           fileData = WebpToJPG(fileData);
           name = name.toLowerCase().replace(".webp", ".jpg");
         } else {
           console.error("wasm not ready for webp");
         }
       }
-      const res = await wxUploadImage(new Blob([fileData]), name, token);
+      const res = await UploadImageToWx(new Blob([fileData]), name, token, type);
       if (res.errcode != 0) {
         const msg = `\u4E0A\u4F20\u56FE\u7247\u5931\u8D25: ${res.errcode} ${res.errmsg}`;
         new import_obsidian7.Notice(msg);
         console.error(msg);
       }
       value.url = res.url;
+      result.push(res);
     }
+    return result;
   }
   checkImageExt(filename) {
     const name = filename.toLowerCase();
@@ -70523,6 +70599,7 @@ var LocalImageManager = class {
   }
   async uploadImageFromUrl(url, token, type = "") {
     const rep = await (0, import_obsidian7.requestUrl)(url);
+    await PrepareImageLib();
     let data = rep.arrayBuffer;
     let blob = new Blob([data]);
     let filename = this.getImageNameFromUrl(url, rep.headers["content-type"]);
@@ -70530,7 +70607,7 @@ var LocalImageManager = class {
       filename = "remote_img" + this.getImageExtFromBlob(blob);
     }
     if (this.isWebp(filename)) {
-      if (IsWasmReady()) {
+      if (IsImageLibReady()) {
         data = WebpToJPG(data);
         blob = new Blob([data]);
         filename = filename.toLowerCase().replace(".webp", ".jpg");
@@ -70538,7 +70615,7 @@ var LocalImageManager = class {
         console.error("wasm not ready for webp");
       }
     }
-    return await wxUploadImage(blob, filename, token, type);
+    return await UploadImageToWx(blob, filename, token, type);
   }
   getImageExt(type) {
     const mimeToExt = {
@@ -70553,8 +70630,9 @@ var LocalImageManager = class {
     };
     return mimeToExt[type] || ".jpg";
   }
-  async uploadRemoteImage(root, token) {
+  async uploadRemoteImage(root, token, type = "") {
     const images = root.getElementsByTagName("img");
+    const result = [];
     for (let i = 0; i < images.length; i++) {
       const img = images[i];
       if (!img.src.startsWith("http"))
@@ -70564,7 +70642,7 @@ var LocalImageManager = class {
       if (img.src.startsWith("http://localhost/") && import_obsidian7.Platform.isMobileApp) {
         continue;
       }
-      const res = await this.uploadImageFromUrl(img.src, token);
+      const res = await this.uploadImageFromUrl(img.src, token, type);
       if (res.errcode != 0) {
         const msg = `\u4E0A\u4F20\u56FE\u7247\u5931\u8D25: ${img.src} ${res.errcode} ${res.errmsg}`;
         new import_obsidian7.Notice(msg);
@@ -70576,7 +70654,9 @@ var LocalImageManager = class {
         url: res.url
       };
       this.images.set(img.src, info);
+      result.push(res);
     }
+    return result;
   }
   replaceImages(root) {
     const images = root.getElementsByTagName("img");
@@ -70604,19 +70684,18 @@ var _LocalFile = class extends Extension {
     return `fid-${this.index}`;
   }
   getImagePath(path) {
-    const file = this.assetsManager.searchFile(path);
-    if (file == null) {
+    const res = this.assetsManager.getResourcePath(path);
+    if (res == null) {
       console.error("\u627E\u4E0D\u5230\u6587\u4EF6\uFF1A" + path);
       return "";
     }
-    const resPath = this.app.vault.getResourcePath(file);
     const info = {
-      resUrl: resPath,
-      filePath: file.path,
+      resUrl: res.resUrl,
+      filePath: res.filePath,
       url: null
     };
-    LocalImageManager.getInstance().setImage(resPath, info);
-    return resPath;
+    LocalImageManager.getInstance().setImage(res.resUrl, info);
+    return res.resUrl;
   }
   isImage(file) {
     file = file.toLowerCase();
@@ -71002,6 +71081,44 @@ var customRenderer = {
   },
   listitem(text, task, checked) {
     return `<li>${text}</li>`;
+  },
+  image(href, title, text) {
+    const cleanHref = cleanUrl(href);
+    if (cleanHref === null) {
+      return text;
+    }
+    href = cleanHref;
+    if (!href.startsWith("http")) {
+      const res = AssetsManager.getInstance().getResourcePath(href);
+      if (res) {
+        href = res.resUrl;
+        const info = {
+          resUrl: res.resUrl,
+          filePath: res.filePath,
+          url: null
+        };
+        LocalImageManager.getInstance().setImage(res.resUrl, info);
+      }
+    }
+    let out = "";
+    if (NMPSettings.getInstance().useFigcaption) {
+      out = `<figure style="display: flex; flex-direction: column; align-items: center;"><img src="${href}" alt="${text}"`;
+      if (title) {
+        out += ` title="${title}"`;
+      }
+      if (text.length > 0) {
+        out += `><figcaption>${text}</figcaption></figure>`;
+      } else {
+        out += "></figure>";
+      }
+    } else {
+      out = `<img src="${href}" alt="${text}"`;
+      if (title) {
+        out += ` title="${title}"`;
+      }
+      out += ">";
+    }
+    return out;
   }
 };
 var MarkedParser = class {
@@ -71247,6 +71364,9 @@ var NotePreview = class extends import_obsidian8.ItemView {
     const html2 = applyCSS(content, this.getCSS());
     return CardDataManager.getInstance().restoreCard(html2);
   }
+  getArticleText() {
+    return this.articleDiv.innerText.trimStart();
+  }
   getCSS() {
     try {
       const theme = this.assetsManager.getTheme(this.currentTheme);
@@ -71352,6 +71472,13 @@ ${customCSS}`;
     postBtn.onclick = async () => {
       await this.postArticle();
       uevent("pub");
+    };
+    const imagesBtn = lineDiv.createEl("button", { cls: "copy-button" }, async (button) => {
+      button.setText("\u56FE\u7247/\u6587\u5B57");
+    });
+    imagesBtn.onclick = async () => {
+      await this.postImages();
+      uevent("pub-images");
     };
     const refreshBtn = lineDiv.createEl("button", { cls: "refresh-button" }, async (button) => {
       button.setText("\u5237\u65B0");
@@ -71524,7 +71651,7 @@ ${customCSS}`;
     return await this.uploadCover(file, file.name, token);
   }
   async uploadCover(data, filename, token) {
-    const res = await wxUploadImage(data, filename, token, "image");
+    const res = await UploadImageToWx(data, filename, token, "image");
     if (res.media_id) {
       return res.media_id;
     }
@@ -71644,6 +71771,70 @@ ${customCSS}`;
       if (res.status != 200) {
         console.error(res.text);
         this.showMsg(`\u521B\u5EFA\u8349\u7A3F\u5931\u8D25, https\u72B6\u6001\u7801: ${res.status} \u53EF\u80FD\u662F\u6587\u7AE0\u5305\u542B\u5F02\u5E38\u5185\u5BB9\uFF0C\u8BF7\u5C1D\u8BD5\u624B\u52A8\u590D\u5236\u5230\u516C\u4F17\u53F7\u7F16\u8F91\u5668\uFF01`);
+        return;
+      }
+      const draft = res.json;
+      if (draft.media_id) {
+        this.showMsg("\u53D1\u5E03\u6210\u529F!");
+      } else {
+        console.error(JSON.stringify(draft));
+        this.showMsg("\u53D1\u5E03\u5931\u8D25!" + draft.errmsg);
+      }
+    } catch (error) {
+      console.error(error);
+      this.showMsg("\u53D1\u5E03\u5931\u8D25!" + error.message);
+    }
+  }
+  async postImages() {
+    if (!this.settings.authKey) {
+      this.showMsg("\u8BF7\u5148\u8BBE\u7F6E\u6CE8\u518C\u7801\uFF08AuthKey\uFF09");
+      return;
+    }
+    if (this.currentAppId === "") {
+      this.showMsg("\u8BF7\u5148\u9009\u62E9\u516C\u4F17\u53F7");
+      return;
+    }
+    this.showLoading("\u4E0A\u4F20\u4E2D...");
+    try {
+      const token = await this.getToken();
+      if (token === "") {
+        this.showMsg("\u83B7\u53D6token\u5931\u8D25,\u8BF7\u68C0\u67E5\u7F51\u7EDC\u94FE\u63A5!");
+        return;
+      }
+      let metadata = this.getMetadata();
+      const imageList = [];
+      const lm = LocalImageManager.getInstance();
+      const localImages = await lm.uploadLocalImage(token, this.app.vault, "image");
+      for (const image of localImages) {
+        imageList.push({
+          image_media_id: image.media_id
+        });
+      }
+      const remoteImages = await lm.uploadRemoteImage(this.articleDiv, token, "image");
+      for (const image of remoteImages) {
+        imageList.push({
+          image_media_id: image.media_id
+        });
+      }
+      const content = this.getArticleText();
+      if (imageList.length === 0) {
+        this.showMsg("\u6CA1\u6709\u56FE\u7247\u9700\u8981\u53D1\u5E03!");
+        return;
+      }
+      const imagesData = {
+        article_type: "newspic",
+        title: metadata.title || this.title,
+        content,
+        need_open_commnet: metadata.need_open_comment || 0,
+        only_fans_can_comment: metadata.only_fans_can_comment || 0,
+        image_info: {
+          image_list: imageList
+        }
+      };
+      const res = await wxAddDraftImages(token, imagesData);
+      if (res.status != 200) {
+        console.error(res.text);
+        this.showMsg(`\u521B\u5EFA\u56FE\u7247/\u6587\u5B57\u5931\u8D25, https\u72B6\u6001\u7801: ${res.status}  ${res.text}\uFF01`);
         return;
       }
       const draft = res.json;
@@ -71859,6 +72050,19 @@ var NoteToMpSettingTab = class extends import_obsidian9.PluginSettingTab {
         this.settings.lineNumber = value;
         await this.plugin.saveSettings();
       });
+    });
+    new import_obsidian9.Setting(containerEl).setName("\u6E32\u67D3\u56FE\u7247\u6807\u9898").addToggle((toggle) => {
+      toggle.setValue(this.settings.useFigcaption);
+      toggle.onChange(async (value) => {
+        this.settings.useFigcaption = value;
+        await this.plugin.saveSettings();
+      });
+    });
+    new import_obsidian9.Setting(containerEl).setName("\u6C34\u5370\u56FE\u7247").addText((text) => {
+      text.setPlaceholder("\u8BF7\u8F93\u5165\u56FE\u7247\u540D\u79F0").setValue(this.settings.watermark).onChange(async (value) => {
+        this.settings.watermark = value.trim();
+        await this.plugin.saveSettings();
+      }).inputEl.setAttr("style", "width: 320px;");
     });
     new import_obsidian9.Setting(containerEl).setName("\u83B7\u53D6\u66F4\u591A\u4E3B\u9898").addButton((button) => {
       button.setButtonText("\u4E0B\u8F7D");
