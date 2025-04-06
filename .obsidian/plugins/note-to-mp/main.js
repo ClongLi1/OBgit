@@ -64745,7 +64745,6 @@ function e(e2) {
 
 // node_modules/@zip.js/zip.js/lib/core/io.js
 var ERR_ITERATOR_COMPLETED_TOO_SOON = "Writer iterator completed too soon";
-var HTTP_HEADER_CONTENT_TYPE = "Content-Type";
 var DEFAULT_CHUNK_SIZE = 64 * 1024;
 var PROPERTY_NAME_WRITABLE = "writable";
 var Stream = class {
@@ -64778,6 +64777,24 @@ var Reader = class extends Stream {
     return readable;
   }
 };
+var Writer = class extends Stream {
+  constructor() {
+    super();
+    const writer = this;
+    const writable = new WritableStream({
+      write(chunk) {
+        return writer.writeUint8Array(chunk);
+      }
+    });
+    Object.defineProperty(writer, PROPERTY_NAME_WRITABLE, {
+      get() {
+        return writable;
+      }
+    });
+  }
+  writeUint8Array() {
+  }
+};
 var BlobReader = class extends Reader {
   constructor(blob) {
     super();
@@ -64797,52 +64814,26 @@ var BlobReader = class extends Reader {
     return new Uint8Array(arrayBuffer);
   }
 };
-var BlobWriter = class extends Stream {
-  constructor(contentType) {
-    super();
-    const writer = this;
-    const transformStream = new TransformStream();
-    const headers = [];
-    if (contentType) {
-      headers.push([HTTP_HEADER_CONTENT_TYPE, contentType]);
-    }
-    Object.defineProperty(writer, PROPERTY_NAME_WRITABLE, {
-      get() {
-        return transformStream.writable;
-      }
+var Uint8ArrayWriter = class extends Writer {
+  init(initSize = 0) {
+    Object.assign(this, {
+      offset: 0,
+      array: new Uint8Array(initSize)
     });
-    writer.blob = new Response(transformStream.readable, { headers }).blob();
+    super.init();
+  }
+  writeUint8Array(array) {
+    const writer = this;
+    if (writer.offset + array.length > writer.array.length) {
+      const previousArray = writer.array;
+      writer.array = new Uint8Array(previousArray.length + array.length);
+      writer.array.set(previousArray);
+    }
+    writer.array.set(array, writer.offset);
+    writer.offset += array.length;
   }
   getData() {
-    return this.blob;
-  }
-};
-var TextWriter = class extends BlobWriter {
-  constructor(encoding) {
-    super(encoding);
-    Object.assign(this, {
-      encoding,
-      utf8: !encoding || encoding.toLowerCase() == "utf-8"
-    });
-  }
-  async getData() {
-    const {
-      encoding,
-      utf8
-    } = this;
-    const blob = await super.getData();
-    if (blob.text && utf8) {
-      return blob.text();
-    } else {
-      const reader = new FileReader();
-      return new Promise((resolve, reject) => {
-        Object.assign(reader, {
-          onload: ({ target }) => resolve(target.result),
-          onerror: () => reject(reader.error)
-        });
-        reader.readAsText(blob, encoding);
-      });
-    }
+    return this.array;
   }
 };
 var SplitDataReader = class extends Reader {
@@ -66286,18 +66277,18 @@ var AssetsManager = class {
     const zipReader = new ZipReader(zipFileReader);
     const entries = await zipReader.getEntries();
     if (!await this.app.vault.adapter.exists(this.assetsPath)) {
-      this.app.vault.adapter.mkdir(this.assetsPath);
+      await this.app.vault.adapter.mkdir(this.assetsPath);
     }
     for (const entry of entries) {
       if (entry.directory) {
         const dirPath = this.assetsPath + entry.filename;
-        this.app.vault.adapter.mkdir(dirPath);
+        await this.app.vault.adapter.mkdir(dirPath);
       } else {
         const filePath = this.assetsPath + entry.filename;
-        const textWriter = new TextWriter();
+        const blobWriter = new Uint8ArrayWriter();
         if (entry.getData) {
-          const data2 = await entry.getData(textWriter);
-          await this.app.vault.adapter.write(filePath, data2);
+          const data2 = await entry.getData(blobWriter);
+          await this.app.vault.adapter.writeBinary(filePath, data2);
         }
       }
     }
@@ -71089,7 +71080,7 @@ var customRenderer = {
     }
     href = cleanHref;
     if (!href.startsWith("http")) {
-      const res = AssetsManager.getInstance().getResourcePath(href);
+      const res = AssetsManager.getInstance().getResourcePath(decodeURI(href));
       if (res) {
         href = res.resUrl;
         const info = {
@@ -71651,6 +71642,13 @@ ${customCSS}`;
     return await this.uploadCover(file, file.name, token);
   }
   async uploadCover(data, filename, token) {
+    if (filename.toLowerCase().endsWith(".webp")) {
+      await PrepareImageLib();
+      if (IsImageLibReady()) {
+        data = new Blob([WebpToJPG(await data.arrayBuffer())]);
+        filename = filename.toLowerCase().replace(".webp", ".jpg");
+      }
+    }
     const res = await UploadImageToWx(data, filename, token, "image");
     if (res.media_id) {
       return res.media_id;
