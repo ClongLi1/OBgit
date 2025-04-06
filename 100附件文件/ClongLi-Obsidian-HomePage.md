@@ -20,7 +20,7 @@ let ftMd = dv.pages("").file.sort(t => t.cday)[0];
 ```contributionGraph
 title: ""
 graphType: default
-dateRangeValue: 800
+dateRangeValue: 810
 dateRangeType: LATEST_DAYS
 startOfWeek: 1
 showCellRuleIndicators: true
