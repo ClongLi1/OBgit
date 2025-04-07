@@ -1,6 +1,6 @@
 ---
-banner: "100附件文件/标题.gif"
-banner_y: "70.5"
+banner: [[星河.gif]]
+banner_y: 0.524
 ---
 ```contributionGraph
 title: ""
