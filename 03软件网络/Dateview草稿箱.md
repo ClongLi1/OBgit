@@ -48,3 +48,65 @@ let totalTask = `<span style='color:#E610FF'>还有${allFile.tasks.length}</span
 dv.paragraph(totalDays + totalMd + "、" + totalTag + "、" + totalTask);
 ```
 
+```dataviewjs
+dv.header(2, "时间轴");
+dv.paragraph("以下是2024年的时间轴，标记了今天的日期：");
+
+// 获取当前日期
+const today = new Date();
+const currentMonth = today.getMonth(); // 0 = January, 11 = December
+const currentDay = today.getDate();
+
+// 计算当前日期在一年中的位置（百分比）
+const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+let totalDays = 0;
+for (let i = 0; i < currentMonth; i++) {
+  totalDays += daysInMonth[i];
+}
+totalDays += currentDay;
+
+const totalYearDays = 365; // 非闰年
+const positionPercentage = (totalDays / totalYearDays) * 100;
+
+// 创建时间轴
+let timeline = "";
+timeline += `<div style="display: flex; height: 20px; margin: 20px 0;">`;
+timeline += `<div style="flex: 1; background-color: #3498db; height: 100%;"></div>`;
+timeline += `<div style="flex: 1; background-color: #2ecc71; height: 100%;"></div>`;
+timeline += `<div style="flex: 1; background-color: #27ae60; height: 100%;"></div>`;
+timeline += `<div style="flex: 1; background-color: #16a085; height: 100%; position: relative;">`;
+timeline += `<div style="position: absolute; width: 2px; height: 100%; background-color: red; left: 50%;"></div>`;
+timeline += `</div>`;
+timeline += `<div style="flex: 1; background-color: #1abc9c; height: 100%;"></div>`;
+timeline += `<div style="flex: 1; background-color: #f1c40f; height: 100%;"></div>`;
+timeline += `<div style="flex: 1; background-color: #e67e22; height: 100%;"></div>`;
+timeline += `<div style="flex: 1; background-color: #e74c3c; height: 100%;"></div>`;
+timeline += `<div style="flex: 1; background-color: #9b59b6; height: 100%;"></div>`;
+timeline += `<div style="flex: 1; background-color: #34495e; height: 100%;"></div>`;
+timeline += `<div style="flex: 1; background-color: #c0392b; height: 100%;"></div>`;
+timeline += `<div style="flex: 1; background-color: #7f8c8d; height: 100%;"></div>`;
+timeline += `</div>`;
+
+// 添加动态标记点
+timeline += `<div style="position: relative; height: 20px; margin-top: -20px;">`;
+timeline += `<div style="position: absolute; width: 10px; height: 10px; background-color: red; border-radius: 50%; top: -5px; left: ${positionPercentage}%; transform: translateX(-50%);"></div>`;
+timeline += `</div>`;
+
+// 添加月份标签
+timeline += `<div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 12px; color: #888;">`;
+timeline += `<div>January</div>`;
+timeline += `<div>February</div>`;
+timeline += `<div>March</div>`;
+timeline += `<div>April</div>`;
+timeline += `<div>May</div>`;
+timeline += `<div>June</div>`;
+timeline += `<div>July</div>`;
+timeline += `<div>August</div>`;
+timeline += `<div>September</div>`;
+timeline += `<div>October</div>`;
+timeline += `<div>November</div>`;
+timeline += `<div>December</div>`;
+timeline += `</div>`;
+
+dv.el("div", timeline);
+```
