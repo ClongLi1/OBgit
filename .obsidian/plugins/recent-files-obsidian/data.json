@@ -1,8 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "论文提交前校对",
+      "path": "00科研相关/论文提交前校对.md"
+    },
+    {
       "basename": "00科研项目",
       "path": "00科研相关/00科研项目.md"
+    },
+    {
+      "basename": "中期检查PPT大纲",
+      "path": "00科研相关/中期检查PPT大纲.md"
+    },
+    {
+      "basename": "毕业答辩注意事项",
+      "path": "00科研相关/毕业答辩注意事项.md"
     },
     {
       "basename": "03软件电脑",
@@ -187,18 +199,6 @@
     {
       "basename": "AI工具和模型",
       "path": "03软件网络/AI工具和模型.md"
-    },
-    {
-      "basename": "2024-11-03",
-      "path": "998日记汇总/2024-11-03.md"
-    },
-    {
-      "basename": "手机APP",
-      "path": "00000写作运营/手机APP.md"
-    },
-    {
-      "basename": "词云测试",
-      "path": "000草稿收集箱/词云测试.md"
     }
   ],
   "omittedPaths": [],
