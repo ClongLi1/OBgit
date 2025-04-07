@@ -1,7 +1,8 @@
 ---
-banner: [[星河.gif]]
-banner_y: 0.524
+Banner:""标题.gif]]
+Banner_y: "68.5"
 ---
+
 ```contributionGraph
 title: ""
 graphType: default

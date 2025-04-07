@@ -65,11 +65,11 @@
   "obsidian-annotator",
   "obsidian-checklist-plugin",
   "obsidian-banners",
-  "make-md",
   "buttons",
   "messager",
   "obsidian-dynamic-background",
-  "homepage",
   "obsidian-toggl-integration",
-  "quickadd"
+  "quickadd",
+  "make-md",
+  "homepage"
 ]
