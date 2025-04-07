@@ -12,10 +12,10 @@ let totalDays = `<span style='color:#00FFD7'>🌅我已在**[[Obsidian]]**的知
 let nofold = '!"misc/templates"';
 let allFile = dv.pages(nofold).file;
 let totalMd = `<span style='color:#00FF55'>已成功点亮</span> <span style='color:#00FF55'>${allFile.length}</span> <span style='color:#00FF55'>颗璀璨✨星辰笔记</span>`;
-let tagDescription = `<span style='color:#FFA933'>它们宛如纽带，串联起不同星体🌈，让整个星系紧密相连🎆</span>`;
+let tagDescription = `<span style='color:#FFA933'></span>`;
 let totalTag = `<span style='color:#FFFF00'>精心打造了${allFile.etags.distinct().length}</span> <span style='color:#FFFF00'>个标签🫧轨道，</span> ${tagDescription}`;
-let taskDescription = `<span style='color:#E610FF'>待办任务等待点亮✨</span>`;
-let totalTask = `<span style='color:#E610FF'>还有${allFile.tasks.length}</span> <span style='color:#FF8C00'>个待办。</span> ${taskDescription}`;
+let taskDescription = `<span style='color:#E610FF'>待办任务等待点亮✨它们宛如纽带，串联起不同星体🌈，让整个星系紧密相连🎆</span>`;
+let totalTask = `<span style='color:#E610FF'>还有${allFile.tasks.length}</span> <span style='color:#FF8C00'>个</span> ${taskDescription}`;
 
 dv.paragraph(totalDays + totalMd + "、" + totalTag + "、" + totalTask);
 ```
