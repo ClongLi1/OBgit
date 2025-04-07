@@ -1,8 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "Dateview草稿箱",
+      "path": "03软件网络/Dateview草稿箱.md"
+    },
+    {
       "basename": "Dateview官方文档阅读笔记",
       "path": "03软件网络/Dateview官方文档阅读笔记.md"
+    },
+    {
+      "basename": "DATAVIEW",
+      "path": "000草稿收集箱/DATAVIEW.md"
     },
     {
       "basename": "Dateview",
@@ -19,10 +27,6 @@
     {
       "basename": "03软件网络",
       "path": "03软件网络/03软件网络.md"
-    },
-    {
-      "basename": "DATAVIEW",
-      "path": "000草稿收集箱/DATAVIEW.md"
     },
     {
       "basename": "ClongLi-Obsidian-HomePage",
@@ -195,10 +199,6 @@
     {
       "basename": "99-必备技能",
       "path": "99-必备技能/99-必备技能.md"
-    },
-    {
-      "basename": "⌛牛马-倒计时⌛",
-      "path": "000草稿收集箱/🧰收纳箱/⌛牛马-倒计时⌛.md"
     }
   ],
   "omittedPaths": [],
