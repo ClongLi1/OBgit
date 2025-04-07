@@ -49,13 +49,14 @@ dv.paragraph(totalDays + totalMd + "、" + totalTag + "、" + totalTask);
 ```
 
 ```dataviewjs
-dv.header(2, "时间轴");
-dv.paragraph("以下是2024年的时间轴，标记了今天的日期：");
+dv.paragraph("以下是2025年的时间轴，标记了今天的日期：");
 
 // 获取当前日期
 const today = new Date();
 const currentMonth = today.getMonth(); // 0 = January, 11 = December
 const currentDay = today.getDate();
+const currentMonthName = today.toLocaleString('default', { month: 'long' });
+const currentDayName = today.toLocaleDateString('zh-CN', { weekday: 'long' });
 
 // 计算当前日期在一年中的位置（百分比）
 const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -87,9 +88,14 @@ timeline += `<div style="flex: 1; background-color: #c0392b; height: 100%;"></di
 timeline += `<div style="flex: 1; background-color: #7f8c8d; height: 100%;"></div>`;
 timeline += `</div>`;
 
-// 添加动态标记点
-timeline += `<div style="position: relative; height: 20px; margin-top: -20px;">`;
-timeline += `<div style="position: absolute; width: 10px; height: 10px; background-color: red; border-radius: 50%; top: -5px; left: ${positionPercentage}%; transform: translateX(-50%);"></div>`;
+// 添加动态标记点（表情符号）
+timeline += `<div style="position: relative; height: 20px; margin-top: -20px; display: flex; justify-content: center;">`;
+timeline += `<div style="position: relative; font-size: 24px;">💎</div>`;
+timeline += `</div>`;
+
+// 添加日期和星期信息
+timeline += `<div style="text-align: center; margin-top: 5px; font-size: 12px; color: #888;">`;
+timeline += `${currentMonthName} ${currentDay}日，${currentDayName}`;
 timeline += `</div>`;
 
 // 添加月份标签
@@ -110,3 +116,94 @@ timeline += `</div>`;
 
 dv.el("div", timeline);
 ```
+
+
+```dataviewjs
+dv.header(2, "时间轴");
+dv.paragraph("以下是2025年的时间轴，标记了今天的日期：");
+
+// 获取当前日期
+const today = new Date();
+const currentMonth = today.getMonth(); // 0 = January, 11 = December
+const currentDay = today.getDate();
+const currentMonthName = today.toLocaleString('default', { month: 'long' });
+const currentDayName = today.toLocaleDateString('zh-CN', { weekday: 'long' });
+
+// 检查是否为闰年
+const isLeapYear = (year) => {
+    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+};
+const year = 2025;
+const daysInMonth = isLeapYear(year) ? 
+    [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] : 
+    [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+const totalYearDays = isLeapYear(year) ? 366 : 365;
+
+// 计算当前日期在一年中的位置（百分比）
+let totalDays = 0;
+for (let i = 0; i < currentMonth; i++) {
+    totalDays += daysInMonth[i];
+}
+totalDays += currentDay;
+const positionPercentage = (totalDays / totalYearDays) * 100;
+
+// 创建时间轴
+let timeline = "";
+timeline += `<div style="display: flex; height: 20px; margin: 20px 0;">`;
+
+// 季节颜色（由浅到深）
+const seasonColors = [
+    { name: "冬季", colors: ["#AED6F1", "#85C1E9", "#5DADE2"] }, // Winter (Dec-Feb)
+    { name: "春季", colors: ["#ABEBC6", "#82E0AA", "#58D68D"] }, // Spring (Mar-May)
+    { name: "夏季", colors: ["#F9E79F", "#F8C471", "#F39C12"] }, // Summer (Jun-Aug)
+    { name: "秋季", colors: ["#FADBD8", "#F5B7B1", "#E59866"] }  // Autumn (Sep-Nov)
+];
+
+// 设置每个月的季节颜色
+const monthColors = [
+    seasonColors[0].colors[0], seasonColors[0].colors[1], seasonColors[0].colors[2], // Dec, Jan, Feb
+    seasonColors[1].colors[0], seasonColors[1].colors[1], seasonColors[1].colors[2], // Mar, Apr, May
+    seasonColors[2].colors[0], seasonColors[2].colors[1], seasonColors[2].colors[2], // Jun, Jul, Aug
+    seasonColors[3].colors[0], seasonColors[3].colors[1], seasonColors[3].colors[2], seasonColors[3].colors[1] // Sep, Oct, Nov, Dec
+];
+
+for (let i = 0; i < 12; i++) {
+    timeline += `<div style="flex: 1; background-color: ${monthColors[i]}; height: 100%; position: relative;"></div>`;
+}
+
+timeline += `</div>`;
+
+// 添加动态标记点（表情符号）
+timeline += `<div style="position: relative; height: 20px; margin-top: -20px; display: flex; justify-content: center;">`;
+timeline += `<div style="position: relative; font-size: 24px;">💎</div>`;
+timeline += `</div>`;
+
+// 添加日期和星期信息
+timeline += `<div style="text-align: center; margin-top: 5px; font-size: 12px; color: #888;">`;
+timeline += `${currentMonthName} ${currentDay}日，${currentDayName}`;
+timeline += `</div>`;
+
+// 添加月份标签
+timeline += `<div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 12px; color: #888;">`;
+timeline += `<div>January</div>`;
+timeline += `<div>February</div>`;
+timeline += `<div>March</div>`;
+timeline += `<div>April</div>`;
+timeline += `<div>May</div>`;
+timeline += `<div>June</div>`;
+timeline += `<div>July</div>`;
+timeline += `<div>August</div>`;
+timeline += `<div>September</div>`;
+timeline += `<div>October</div>`;
+timeline += `<div>November</div>`;
+timeline += `<div>December</div>`;
+timeline += `</div>`;
+
+// 添加红旗标记
+timeline += `<div style="position: relative; height: 20px; margin-top: -40px; display: flex; justify-content: center;">`;
+timeline += `<div style="position: relative; font-size: 24px;">🚩</div>`;
+timeline += `</div>`;
+
+dv.el("div", timeline);
+```
+
