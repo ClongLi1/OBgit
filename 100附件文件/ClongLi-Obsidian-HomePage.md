@@ -19,7 +19,77 @@ let totalTask = `<span style='color:#E610FF'>还有${allFile.tasks.length}</span
 
 dv.paragraph(totalDays + totalMd + "、" + totalTag + "、" + totalTask);
 ```
+```dataviewjs
+dv.paragraph("**“2025年彩虹指针动态时间轴**，标记了今天的日期：");
 
+// 获取当前日期
+const today = new Date();
+const currentMonth = today.getMonth(); // 0 = January, 11 = December
+const currentDay = today.getDate();
+const currentMonthName = today.toLocaleString('default', { month: 'long' });
+const currentDayName = today.toLocaleDateString('zh-CN', { weekday: 'long' });
+
+// 计算当前日期在一年中的位置（百分比）
+const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+let totalDays = 0;
+for (let i = 0; i < currentMonth; i++) {
+  totalDays += daysInMonth[i];
+}
+totalDays += currentDay;
+
+const totalYearDays = 365; // 非闰年
+const positionPercentage = (totalDays / totalYearDays) * 100;
+
+// 创建时间轴
+let timeline = "";
+timeline += `<div style="display: flex; height: 20px; margin: 20px 0; position: relative;">`;
+
+// 为每个月创建一个div
+const monthColors = [
+  "#FF0000", "#FF7F00", "#FFFF00", "#00FF00", 
+  "#0000FF", "#4B0082", "#8B00FF", "#FFC0CB", 
+  "#00FFFF", "#FFD700", "#800080", "#A52A2A"
+];
+
+for (let i = 0; i < 12; i++) {
+  timeline += `<div class="month-segment" style="flex: 1; background-color: ${monthColors[i]}; height: 100%;"></div>`;
+}
+
+timeline += `</div>`;
+
+// 添加指针标记
+timeline += `<div style="position: absolute; top: 50%; transform: translate(-50%, -50%); 
+  left: ${positionPercentage}%; z-index: 10; display: flex; flex-direction: column; align-items: center;">`;
+timeline += `<div style="width: 0; height: 0; border-left: 10px solid transparent; 
+  border-right: 10px solid transparent; border-top: 20px solid ${monthColors[currentMonth]};"></div>`;
+timeline += `<div style="margin-top: 5px; font-size: 12px; color: #333; white-space: nowrap;">`;
+timeline += `${currentMonthName} ${currentDay}日，${currentDayName}`;
+timeline += `</div>`;
+timeline += `</div>`;
+
+// 添加月份标签
+timeline += `<div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 12px; color: #888;">`;
+timeline += `<div>January</div>`;
+timeline += `<div>February</div>`;
+timeline += `<div>March</div>`;
+timeline += `<div>April</div>`;
+timeline += `<div>May</div>`;
+timeline += `<div>June</div>`;
+timeline += `<div>July</div>`;
+timeline += `<div>August</div>`;
+timeline += `<div>September</div>`;
+timeline += `<div>October</div>`;
+timeline += `<div>November</div>`;
+timeline += `<div>December</div>`;
+timeline += `</div>`;
+
+dv.el("div", timeline);
+
+// 每天自动更新
+setInterval(() => {
+  location.reload();
+}, 24 * 60 * 60 * 1000); // 每24小时刷新一次
+```
 ```contributionGraph
 title: ""
 graphType: default
@@ -72,7 +142,7 @@ cellStyleRules:
     text: ""
 
 ```
-<div style=" width: 100%; height: auto;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/YearTimeline?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>  
+
 <div style=" width: 100%; height:280;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/Carousel?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
   <!-- 左侧栏 -->

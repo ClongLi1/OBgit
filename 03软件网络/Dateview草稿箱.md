@@ -145,9 +145,9 @@ timeline += `<div style="display: flex; height: 20px; margin: 20px 0; position: 
 
 // 为每个月创建一个div
 const monthColors = [
-  "#3498db", "#2ecc71", "#27ae60", "#16a085", 
-  "#1abc9c", "#f1c40f", "#e67e22", "#e74c3c", 
-  "#9b59b6", "#34495e", "#c0392b", "#7f8c8d"
+  "#FF0000", "#FF7F00", "#FFFF00", "#00FF00", 
+  "#0000FF", "#4B0082", "#8B00FF", "#FFC0CB", 
+  "#00FFFF", "#FFD700", "#800080", "#A52A2A"
 ];
 
 for (let i = 0; i < 12; i++) {
@@ -157,10 +157,95 @@ for (let i = 0; i < 12; i++) {
 timeline += `</div>`;
 
 // 添加指针标记
-timeline += `<div style="position: absolute; top: 0; transform: translateY(-50%); 
-  left: calc(${positionPercentage}% - 10px); z-index: 10; display: flex; flex-direction: column; align-items: center;">`;
+timeline += `<div style="position: absolute; top: 50%; transform: translate(-50%, -50%); 
+  left: ${positionPercentage}%; z-index: 10; display: flex; flex-direction: column; align-items: center;">`;
 timeline += `<div style="width: 0; height: 0; border-left: 10px solid transparent; 
-  border-right: 10px solid transparent; border-bottom: 20px solid red;"></div>`;
+  border-right: 10px solid transparent; border-top: 20px solid ${monthColors[currentMonth]};"></div>`;
+timeline += `<div style="margin-top: 5px; font-size: 12px; color: #333; white-space: nowrap;">`;
+timeline += `${currentMonthName} ${currentDay}日，${currentDayName}`;
+timeline += `</div>`;
+timeline += `</div>`;
+
+// 添加月份标签
+timeline += `<div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 12px; color: #888;">`;
+timeline += `<div>January</div>`;
+timeline += `<div>February</div>`;
+timeline += `<div>March</div>`;
+timeline += `<div>April</div>`;
+timeline += `<div>May</div>`;
+timeline += `<div>June</div>`;
+timeline += `<div>July</div>`;
+timeline += `<div>August</div>`;
+timeline += `<div>September</div>`;
+timeline += `<div>October</div>`;
+timeline += `<div>November</div>`;
+timeline += `<div>December</div>`;
+timeline += `</div>`;
+
+dv.el("div", timeline);
+
+// 每天00:00自动更新
+function scheduleUpdate() {
+  const now = new Date();
+  const tomorrow = new Date(now);
+  tomorrow.setDate(now.getDate() + 1);
+  tomorrow.setHours(0, 0, 0, 0);
+
+  const timeUntilTomorrow = tomorrow.getTime() - now.getTime();
+
+  setTimeout(() => {
+    location.reload();
+    scheduleUpdate(); // 设置下一次更新
+  }, timeUntilTomorrow);
+}
+
+scheduleUpdate();
+```
+
+
+```dataviewjs
+dv.paragraph("2025年的时间轴，标记了今天的日期：");
+
+// 获取当前日期
+const today = new Date();
+const currentMonth = today.getMonth(); // 0 = January, 11 = December
+const currentDay = today.getDate();
+const currentMonthName = today.toLocaleString('default', { month: 'long' });
+const currentDayName = today.toLocaleDateString('zh-CN', { weekday: 'long' });
+
+// 计算当前日期在一年中的位置（百分比）
+const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+let totalDays = 0;
+for (let i = 0; i < currentMonth; i++) {
+  totalDays += daysInMonth[i];
+}
+totalDays += currentDay;
+
+const totalYearDays = 365; // 非闰年
+const positionPercentage = (totalDays / totalYearDays) * 100;
+
+// 创建时间轴
+let timeline = "";
+timeline += `<div style="display: flex; height: 20px; margin: 20px 0; position: relative;">`;
+
+// 为每个月创建一个div
+const monthColors = [
+  "#FF0000", "#FF7F00", "#FFFF00", "#00FF00", 
+  "#0000FF", "#4B0082", "#8B00FF", "#FFC0CB", 
+  "#00FFFF", "#FFD700", "#800080", "#A52A2A"
+];
+
+for (let i = 0; i < 12; i++) {
+  timeline += `<div class="month-segment" style="flex: 1; background-color: ${monthColors[i]}; height: 100%;"></div>`;
+}
+
+timeline += `</div>`;
+
+// 添加指针标记
+timeline += `<div style="position: absolute; top: 50%; transform: translate(-50%, -50%); 
+  left: ${positionPercentage}%; z-index: 10; display: flex; flex-direction: column; align-items: center;">`;
+timeline += `<div style="width: 0; height: 0; border-left: 10px solid transparent; 
+  border-right: 10px solid transparent; border-top: 20px solid ${monthColors[currentMonth]};"></div>`;
 timeline += `<div style="margin-top: 5px; font-size: 12px; color: #333; white-space: nowrap;">`;
 timeline += `${currentMonthName} ${currentDay}日，${currentDayName}`;
 timeline += `</div>`;

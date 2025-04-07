@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "Dateview草稿箱",
-      "path": "03软件网络/Dateview草稿箱.md"
-    },
-    {
       "basename": "ClongLi-Obsidian-HomePage",
       "path": "100附件文件/ClongLi-Obsidian-HomePage.md"
+    },
+    {
+      "basename": "时间轴",
+      "path": "000草稿收集箱/🧰收纳箱/时间轴.md"
+    },
+    {
+      "basename": "Dateview草稿箱",
+      "path": "03软件网络/Dateview草稿箱.md"
     },
     {
       "basename": "Dataview",
@@ -195,10 +199,6 @@
     {
       "basename": "2025-04-01",
       "path": "998日记汇总/2025-04-01.md"
-    },
-    {
-      "basename": "2025-03-31",
-      "path": "998日记汇总/2025-03-31.md"
     }
   ],
   "omittedPaths": [],
