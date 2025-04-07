@@ -71,7 +71,7 @@ dv.paragraph(totalDays + totalMd + "、" + totalTag + "、" + totalTask);
   <!-- 左侧栏 -->
   <div style="width: 48%; margin-bottom: 1px;">
     <!-- Obsidian logo 和欢迎语 -->
-    <div style="display: flex; align-items: center; margin-bottom: 20px;">
+    <div style="display: flex; align-items: center; margin-bottom: 1px;">
       <img src="Obsidian logo.png" alt="Obsidian Logo" style="width: 230px; height: 320px; margin-right: 20px;">
       <div>
         <h3>✨ 欢迎来到我的 Obsidian 知识库🌟</h3>
@@ -80,7 +80,7 @@ dv.paragraph(totalDays + totalMd + "、" + totalTag + "、" + totalTask);
     </div>
     <!-- 天气信息 -->
     <div style=" width: 100%; height:100;overflow: hidden; margin-top: 10px;">
-      <iframe src="https://widget.pkmer.cn/free/miniTianqi?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&select-theme=ta&theme=%E6%A0%B7%E5%BC%8F5&input-text=&theme-color=%2320F8FFFF&select-icon=gif" allow="fullscreen" style=" height: 150%; width: 150%;"></iframe>
+      <iframe src="https://widget.pkmer.cn/free/miniTianqi?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&select-theme=ta&theme=%E6%A0%B7%E5%BC%8F5&input-text=&theme-color=%2320F8FFFF&select-icon=gif" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe>
     </div>
   </div>
   <!-- 右侧栏 -->
