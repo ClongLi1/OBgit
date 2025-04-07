@@ -219,6 +219,13 @@ function children(element2) {
 function set_input_value(input, value) {
   input.value = value == null ? "" : value;
 }
+function set_style(node, key, value, important) {
+  if (value === null) {
+    node.style.removeProperty(key);
+  } else {
+    node.style.setProperty(key, value, important ? "important" : "");
+  }
+}
 function toggle_class(element2, name, toggle) {
   element2.classList[toggle ? "add" : "remove"](name);
 }
@@ -829,7 +836,7 @@ function fuzzyStrToFragment(str, matches) {
 
 // src/components/AvatarView.svelte
 function add_css2(target) {
-  append_styles(target, "svelte-okpkt8", ".flex.svelte-okpkt8{display:flex;gap:1.4em;flex-wrap:wrap;justify-content:center}@media(min-width: 992px){.flex.svelte-okpkt8{flex-wrap:nowrap}}.relative.svelte-okpkt8{position:relative}.avatar.svelte-okpkt8{flex:0 0 auto;width:240px;height:240px;object-fit:cover;border-radius:6px}.description.svelte-okpkt8{flex:1 1 auto;word-break:break-word;padding:6px;border-radius:6px}.textarea.svelte-okpkt8{width:100%;height:100%;resize:none}.with-placeholder.svelte-okpkt8:empty:before{content:attr(data-placeholder);color:var(--text-faint);font-style:italic}");
+  append_styles(target, "svelte-1v59h7c", ".flex.svelte-1v59h7c{display:flex;gap:1.4em;flex-wrap:wrap;justify-content:center}.flex.reverse.svelte-1v59h7c{flex-direction:row-reverse}@media(min-width: 992px){.flex.svelte-1v59h7c{flex-wrap:nowrap}}.relative.svelte-1v59h7c{position:relative}.avatar-container.svelte-1v59h7c{flex:0 0 auto}.avatar.svelte-1v59h7c{object-fit:cover;border-radius:6px}.description.svelte-1v59h7c{flex:1 1 auto;word-break:break-word;border-radius:6px}.description.editmode.svelte-1v59h7c{padding:6px}.textarea.svelte-1v59h7c{width:100%;height:100%;resize:none}.with-placeholder.svelte-1v59h7c:empty:before{content:attr(data-placeholder);color:var(--text-faint);font-style:italic}");
 }
 function create_if_block_1(ctx) {
   let fab;
@@ -903,7 +910,7 @@ function create_if_block(ctx) {
   fab.$on(
     "click",
     /*updateDescription*/
-    ctx[8]
+    ctx[9]
   );
   return {
     c() {
@@ -916,7 +923,7 @@ function create_if_block(ctx) {
     p(ctx2, dirty) {
       const fab_changes = {};
       if (dirty & /*$$scope*/
-      16777216) {
+      33554432) {
         fab_changes.$$scope = { dirty, ctx: ctx2 };
       }
       fab.$set(fab_changes);
@@ -1006,28 +1013,43 @@ function create_fragment3(ctx) {
       t3 = space();
       if (if_block1)
         if_block1.c();
-      attr(img, "class", "avatar svelte-okpkt8");
+      attr(img, "class", "avatar svelte-1v59h7c");
       attr(img, "alt", "Avatar");
-      if (!src_url_equal(img.src, img_src_value = /*normalizeImgPath*/
-      (_b = ctx[10](
-        /*state*/
-        (_a = ctx[0]) == null ? void 0 : _a.image
-      )) != null ? _b : (
+      if (!src_url_equal(img.src, img_src_value = /*state*/
+      ctx[0].image ? (
+        /*normalizeImgPath*/
+        ctx[11](
+          /*state*/
+          (_a = ctx[0]) == null ? void 0 : _a.image
+        )
+      ) : (
         /*fallbackImage*/
-        ctx[6]
+        ctx[7]
       )))
         attr(img, "src", img_src_value);
-      attr(div0, "class", "avatar relative svelte-okpkt8");
-      attr(textarea, "class", "textarea svelte-okpkt8");
+      set_style(img, "width", `${/*avatarSize*/
+      ctx[6]}px`);
+      set_style(img, "height", `${/*avatarSize*/
+      ctx[6]}px`);
+      attr(div0, "class", "avatar-container relative svelte-1v59h7c");
+      attr(textarea, "class", "textarea svelte-1v59h7c");
       textarea.hidden = textarea_hidden_value = !/*editMode*/
       ctx[3];
       attr(textarea, "placeholder", "Write your story...");
-      attr(span, "class", "avatar-plugin--md-preview with-placeholder svelte-okpkt8");
+      attr(span, "class", "avatar-plugin--md with-placeholder svelte-1v59h7c");
       span.hidden = /*editMode*/
       ctx[3];
       attr(span, "data-placeholder", "Write your story...");
-      attr(div1, "class", "description svelte-okpkt8");
-      attr(div2, "class", "flex svelte-okpkt8");
+      attr(div1, "class", "description relative svelte-1v59h7c");
+      toggle_class(div1, "editmode", !!/*editMode*/
+      ctx[3]);
+      attr(div2, "class", "avatar-view flex svelte-1v59h7c");
+      toggle_class(
+        div2,
+        "reverse",
+        /*state*/
+        ((_b = ctx[0]) == null ? void 0 : _b.side) === "right"
+      );
     },
     m(target, anchor) {
       insert(target, div2, anchor);
@@ -1039,7 +1061,7 @@ function create_fragment3(ctx) {
       append(div2, t1);
       append(div2, div1);
       append(div1, textarea);
-      ctx[19](textarea);
+      ctx[20](textarea);
       set_input_value(
         textarea,
         /*state*/
@@ -1047,7 +1069,7 @@ function create_fragment3(ctx) {
       );
       append(div1, t2);
       append(div1, span);
-      ctx[21](span);
+      ctx[22](span);
       append(div1, t3);
       if (if_block1)
         if_block1.m(div1, null);
@@ -1058,31 +1080,31 @@ function create_fragment3(ctx) {
             div0,
             "click",
             /*updateImage*/
-            ctx[9]
+            ctx[10]
           ),
           listen(
             div0,
             "mouseenter",
             /*mouseenter_handler*/
-            ctx[17]
+            ctx[18]
           ),
           listen(
             div0,
             "mouseleave",
             /*mouseleave_handler*/
-            ctx[18]
+            ctx[19]
           ),
           listen(
             textarea,
             "input",
             /*textarea_input_handler*/
-            ctx[20]
+            ctx[21]
           ),
           listen(
             div1,
             "click",
             /*enterEditMode*/
-            ctx[7]
+            ctx[8]
           )
         ];
         mounted = true;
@@ -1091,15 +1113,28 @@ function create_fragment3(ctx) {
     p(ctx2, [dirty]) {
       var _a, _b;
       if (!current || dirty & /*state, fallbackImage*/
-      65 && !src_url_equal(img.src, img_src_value = /*normalizeImgPath*/
-      (_b = ctx2[10](
-        /*state*/
-        (_a = ctx2[0]) == null ? void 0 : _a.image
-      )) != null ? _b : (
+      129 && !src_url_equal(img.src, img_src_value = /*state*/
+      ctx2[0].image ? (
+        /*normalizeImgPath*/
+        ctx2[11](
+          /*state*/
+          (_a = ctx2[0]) == null ? void 0 : _a.image
+        )
+      ) : (
         /*fallbackImage*/
-        ctx2[6]
+        ctx2[7]
       ))) {
         attr(img, "src", img_src_value);
+      }
+      if (dirty & /*avatarSize*/
+      64) {
+        set_style(img, "width", `${/*avatarSize*/
+        ctx2[6]}px`);
+      }
+      if (dirty & /*avatarSize*/
+      64) {
+        set_style(img, "height", `${/*avatarSize*/
+        ctx2[6]}px`);
       }
       if (
         /*inSourceMode*/
@@ -1165,6 +1200,20 @@ function create_fragment3(ctx) {
         });
         check_outros();
       }
+      if (!current || dirty & /*editMode*/
+      8) {
+        toggle_class(div1, "editmode", !!/*editMode*/
+        ctx2[3]);
+      }
+      if (!current || dirty & /*state*/
+      1) {
+        toggle_class(
+          div2,
+          "reverse",
+          /*state*/
+          ((_b = ctx2[0]) == null ? void 0 : _b.side) === "right"
+        );
+      }
     },
     i(local) {
       if (current)
@@ -1183,8 +1232,8 @@ function create_fragment3(ctx) {
         detach(div2);
       if (if_block0)
         if_block0.d();
-      ctx[19](null);
-      ctx[21](null);
+      ctx[20](null);
+      ctx[22](null);
       if (if_block1)
         if_block1.d();
       mounted = false;
@@ -1194,6 +1243,7 @@ function create_fragment3(ctx) {
 }
 function instance3($$self, $$props, $$invalidate) {
   let fallbackImage;
+  let avatarSize;
   var _a, _b;
   let { app: app2 } = $$props;
   let { plugin } = $$props;
@@ -1268,36 +1318,41 @@ function instance3($$self, $$props, $$invalidate) {
   function span_binding($$value) {
     binding_callbacks[$$value ? "unshift" : "push"](() => {
       descriptionPreviewEl = $$value;
-      $$invalidate(1, descriptionPreviewEl), $$invalidate(12, plugin), $$invalidate(0, state), $$invalidate(13, ctx), $$invalidate(16, _b);
+      $$invalidate(1, descriptionPreviewEl), $$invalidate(13, plugin), $$invalidate(0, state), $$invalidate(14, ctx), $$invalidate(17, _b);
     });
   }
   $$self.$$set = ($$props2) => {
     if ("app" in $$props2)
-      $$invalidate(11, app2 = $$props2.app);
+      $$invalidate(12, app2 = $$props2.app);
     if ("plugin" in $$props2)
-      $$invalidate(12, plugin = $$props2.plugin);
+      $$invalidate(13, plugin = $$props2.plugin);
     if ("ctx" in $$props2)
-      $$invalidate(13, ctx = $$props2.ctx);
+      $$invalidate(14, ctx = $$props2.ctx);
     if ("state" in $$props2)
       $$invalidate(0, state = $$props2.state);
     if ("setState" in $$props2)
-      $$invalidate(14, setState = $$props2.setState);
+      $$invalidate(15, setState = $$props2.setState);
   };
   $$self.$$.update = () => {
     if ($$self.$$.dirty & /*ctx, _a*/
-    40960) {
+    81920) {
       $:
-        $$invalidate(6, fallbackImage = `https://ui-avatars.com/api/?name=${$$invalidate(15, _a = ctx === null || ctx === void 0 ? void 0 : ctx.sourcePath.split("/").at(-1)) !== null && _a !== void 0 ? _a : "::"}&size=240`);
+        $$invalidate(7, fallbackImage = `https://ui-avatars.com/api/?name=${$$invalidate(16, _a = ctx === null || ctx === void 0 ? void 0 : ctx.sourcePath.split("/").at(-1)) !== null && _a !== void 0 ? _a : "::"}&size=240`);
+    }
+    if ($$self.$$.dirty & /*state*/
+    1) {
+      $:
+        $$invalidate(6, avatarSize = state.size ? typeof state.size === "string" ? { small: 180, medium: 240, large: 300 }[state.size] : state.size : 240);
     }
     if ($$self.$$.dirty & /*descriptionPreviewEl, plugin, state, ctx, _b*/
-    77827) {
+    155651) {
       $:
         if (descriptionPreviewEl && plugin && state && (state === null || state === void 0 ? void 0 : state.description)) {
           $$invalidate(1, descriptionPreviewEl.innerHTML = "", descriptionPreviewEl);
           import_obsidian4.MarkdownRenderer.renderMarkdown(
             state.description,
             descriptionPreviewEl,
-            $$invalidate(16, _b = ctx === null || ctx === void 0 ? void 0 : ctx.sourcePath) !== null && _b !== void 0 ? _b : "",
+            $$invalidate(17, _b = ctx === null || ctx === void 0 ? void 0 : ctx.sourcePath) !== null && _b !== void 0 ? _b : "",
             plugin
           );
         }
@@ -1310,6 +1365,7 @@ function instance3($$self, $$props, $$invalidate) {
     editMode,
     descriptionEditEl,
     inSourceMode,
+    avatarSize,
     fallbackImage,
     enterEditMode,
     updateDescription,
@@ -1338,11 +1394,11 @@ var AvatarView = class extends SvelteComponent {
       create_fragment3,
       safe_not_equal,
       {
-        app: 11,
-        plugin: 12,
-        ctx: 13,
+        app: 12,
+        plugin: 13,
+        ctx: 14,
         state: 0,
-        setState: 14
+        setState: 15
       },
       add_css2
     );
@@ -1362,7 +1418,7 @@ function withCodeblockState() {
     }
     const setState = (stateSetter) => {
       var _a2, _b;
-      let newState = { ...state };
+      const newState = { ...state };
       stateSetter(newState);
       const newStateStr = (0, import_obsidian5.stringifyYaml)(newState);
       const info = ctx.getSectionInfo(node);

@@ -2,6 +2,15 @@
 	float: right;
 }
 
-.avatar-plugin--md-preview > * {
-	margin-top: 0;
+.markdown-preview-view .avatar-view {
+	margin-block-start: var(--p-spacing);
+	margin-block-end: var(--p-spacing);
+}
+
+.avatar-plugin--md > *:first-child {
+	margin-block-start: 0;
+}
+
+.avatar-plugin--md > *:last-child {
+	margin-block-end: 0;
 }

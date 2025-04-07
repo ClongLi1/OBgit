@@ -1,7 +1,4 @@
----
-Banner:""标题.gif]]
-Banner_y: "68.5"
----
+<div style=" width: 100%; height:280;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/Carousel?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>
 
 ```contributionGraph
 title: ""
@@ -70,7 +67,11 @@ let totalTask = `<span style='color:#E610FF'>还有${allFile.tasks.length}</span
 dv.paragraph(totalDays + totalMd + "、" + totalTag + "、" + totalTask);
 ```
  ![[炫彩时间轴]]
-<div style=" width: 100%; height:280;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/Carousel?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>
+`·` avatar
+image: Obsidian logo.png
+description: This will be displayed as the description!
+
+```
 
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
   <!-- 左侧栏 -->
