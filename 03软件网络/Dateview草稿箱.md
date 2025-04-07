@@ -14,7 +14,11 @@ list
 from #Dataview 
 where key = "Value"
 ```
-
+```dataview 
+table 
+from #Dataview 
+where 作者 = "李成龙"
+```
 ```
 let ftMd = dv.pages("").file.sort(t => t.cday)[0]
 let total = parseInt([new Date() - ftMd.ctime] / (60*60*24*1000))

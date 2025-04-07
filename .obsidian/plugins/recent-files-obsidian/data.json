@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "Dateview官方文档阅读笔记",
-      "path": "03软件网络/Dateview官方文档阅读笔记.md"
+      "basename": "Dataview",
+      "path": "03软件网络/Dataview.md"
     },
     {
       "basename": "Dateview草稿箱",
       "path": "03软件网络/Dateview草稿箱.md"
+    },
+    {
+      "basename": "Dateview官方文档阅读笔记",
+      "path": "03软件网络/Dateview官方文档阅读笔记.md"
+    },
+    {
+      "basename": "常用的内敛语句",
+      "path": "03软件网络/常用的内敛语句.md"
     },
     {
       "basename": "ClongLi-Obsidian-HomePage",
@@ -137,10 +145,6 @@
       "path": "00科研相关/科研现象.md"
     },
     {
-      "basename": "Dataview",
-      "path": "03软件网络/Dataview.md"
-    },
-    {
       "basename": "如何学习计算软件电脑？",
       "path": "03软件网络/如何学习计算软件电脑？.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "2025-03-31",
       "path": "998日记汇总/2025-03-31.md"
-    },
-    {
-      "basename": "99-必备技能",
-      "path": "99-必备技能/99-必备技能.md"
     }
   ],
   "omittedPaths": [],

@@ -11,6 +11,7 @@
 
 `[key:: Value]`
 - <font color="#00ffdc">内敛语句</font>：今天是 `= date(today)` 
-- [[常用的nei'l]]
+- [[常用的内敛语句]]
 
+作者:: 李成龙 
 
