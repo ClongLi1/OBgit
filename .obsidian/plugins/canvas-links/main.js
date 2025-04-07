@@ -31,17 +31,24 @@ var import_obsidian = require("obsidian");
 var VIEW_TYPE = "canvas-links";
 var CanvasLinksPlugin = class extends import_obsidian.Plugin {
   async onload() {
-    var _a;
     this.registerView(VIEW_TYPE, (leaf) => new CanvasLinksView(leaf));
-    const leafs = this.app.workspace.getLeavesOfType(VIEW_TYPE);
-    if (isEmpty(leafs)) {
-      (_a = this.app.workspace.getRightLeaf(false)) == null ? void 0 : _a.setViewState({
-        type: VIEW_TYPE,
-        active: true
-      });
-    } else {
-      this.app.workspace.revealLeaf(leafs[0]);
-    }
+    this.addCommand({
+      id: "canvas-links-open",
+      name: "Open",
+      callback: async () => {
+        let leaf;
+        [leaf] = this.app.workspace.getLeavesOfType(
+          VIEW_TYPE
+        );
+        if (!leaf) {
+          leaf = this.app.workspace.getRightLeaf(false);
+          await (leaf == null ? void 0 : leaf.setViewState({ type: VIEW_TYPE }));
+        }
+        if (leaf) {
+          this.app.workspace.revealLeaf(leaf);
+        }
+      }
+    });
   }
 };
 var CanvasLinksView = class extends import_obsidian.ItemView {

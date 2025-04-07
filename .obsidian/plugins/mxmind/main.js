@@ -45,8 +45,18 @@ function getLanguage() {
   return arr.join("-");
 }
 var getUrl = () => {
-  return "https://mxmind.com/mindmap/new?utm_source=obsidian&utm_medium=plugin&theme=" + getTheme() + "&lng=" + getLanguage();
+  const base = "https://mxmind.com";
+  return base + "/mindmap/new?utm_source=obsidian&utm_medium=plugin&theme=" + getTheme() + "&lng=" + getLanguage();
 };
+async function file2mindmap(file, update = false) {
+  const content = await this.app.vault.cachedRead(file);
+  const post = async () => {
+    postIframeMessage(update ? "updateFromMarkdown" : "loadFromMd", [
+      content
+    ]);
+  };
+  waitEditor().then(post).catch(post);
+}
 var MxmindPlugin = class extends import_obsidian.Plugin {
   //settings: MyPluginSettings;
   async onload() {
@@ -57,8 +67,13 @@ var MxmindPlugin = class extends import_obsidian.Plugin {
     const ribbonIconEl = this.addRibbonIcon(
       "network",
       "Mxmind",
-      (evt) => {
+      async (evt) => {
         this.toggleView();
+        const activeFile = this.app.workspace.getActiveFile();
+        if (activeFile && activeFile.extension == "md") {
+          await this.activateView();
+          await file2mindmap(activeFile);
+        }
       }
     );
     this.registerEvent(
@@ -69,15 +84,9 @@ var MxmindPlugin = class extends import_obsidian.Plugin {
         if (!(file instanceof import_obsidian.TFile))
           return;
         menu.addItem((item) => {
-          item.setTitle("Open as mindmap").setIcon("document").onClick(async () => {
-            const content = await this.app.vault.cachedRead(
-              file
-            );
-            const post = async () => {
-              postIframeMessage("loadFromMd", [content]);
-            };
+          item.setTitle(trans("Open as mindmap")).setIcon("document").onClick(async () => {
             await this.activateView();
-            waitEditor().then(post).catch(post);
+            await file2mindmap(file);
           });
         });
       })
@@ -85,6 +94,26 @@ var MxmindPlugin = class extends import_obsidian.Plugin {
     this.registerEvent(
       this.app.workspace.on("css-change", () => {
         postIframeMessage("setTheme", [getTheme()]);
+      })
+    );
+    this.registerEvent(
+      this.app.vault.on("modify", async (file) => {
+        if (!ready)
+          return;
+        const activeView = this.app.workspace.getActiveViewOfType(import_obsidian.MarkdownView);
+        if (activeView && activeView.file === file) {
+          setTimeout(async () => {
+            await file2mindmap(file, true);
+          }, 10);
+          setTimeout(() => {
+            if (activeView) {
+              console.log("\u5C1D\u8BD5\u6062\u590D\u7126\u70B9");
+              activeView.editor.focus();
+              const cursor = activeView.editor.getCursor();
+              activeView.editor.setCursor(cursor);
+            }
+          }, 100);
+        }
       })
     );
   }
@@ -98,7 +127,6 @@ var MxmindPlugin = class extends import_obsidian.Plugin {
     const existingLeaf = workspace.getLeavesOfType(VIEW_TYPE_EXAMPLE).first();
     if (existingLeaf) {
       workspace.revealLeaf(existingLeaf);
-      this.isIframeOpen = true;
     } else {
       const leaf = workspace.getRightLeaf(false);
       if (leaf) {
@@ -106,7 +134,6 @@ var MxmindPlugin = class extends import_obsidian.Plugin {
           type: VIEW_TYPE_EXAMPLE
         });
         workspace.revealLeaf(leaf);
-        this.isIframeOpen = true;
       }
     }
   }
@@ -126,6 +153,14 @@ var MxmindPlugin = class extends import_obsidian.Plugin {
   toggleCollapseRight() {
     const rightSplit = this.app.workspace.rightSplit;
     rightSplit.collapsed ? rightSplit.expand() : rightSplit.collapse();
+  }
+  activeLeafPath(workspace) {
+    var _a;
+    return (_a = workspace.activeLeaf) == null ? void 0 : _a.view.getState().file;
+  }
+  activeLeafName(workspace) {
+    var _a;
+    return (_a = workspace.activeLeaf) == null ? void 0 : _a.getDisplayText();
   }
 };
 var MxmindIframeView = class extends import_obsidian.ItemView {
@@ -162,20 +197,42 @@ var MxmindIframeView = class extends import_obsidian.ItemView {
         attr: {
           style: "width:100%;height:100%;",
           src: getUrl(),
-          frameborder: "0"
+          frameborder: "0",
+          allow: "accelerometer;gyroscope"
         }
       },
       (el) => {
         iframe = el;
       }
     );
-    container.win.onmessage = (event) => {
+    container.win.onmessage = async (event) => {
       if (event.data.event && event.data.event == "editor-ready") {
         ready = true;
+      }
+      if (event.data.method == "exportDataUrl") {
+        const rsp = await fetch(event.data.result);
+        const item = new ClipboardItem({ "image/png": rsp.blob() });
+        navigator.clipboard.write([item]);
+        new import_obsidian.Notice(trans("Image copied to the clipboard."));
       }
     };
   }
   async onClose() {
+    ready = false;
+  }
+  onPaneMenu(menu, source) {
+    menu.addItem(
+      (item) => item.setIcon("image-file").setTitle(trans("Copy image")).onClick(() => {
+        var _a;
+        (_a = iframe == null ? void 0 : iframe.contentWindow) == null ? void 0 : _a.postMessage(
+          {
+            method: "exportDataUrl",
+            params: []
+          },
+          "*"
+        );
+      })
+    );
   }
 };
 function waitEditor() {
@@ -210,6 +267,16 @@ function postIframeMessage(method, params) {
     "*"
   );
 }
-
+function trans(str) {
+  const cn = {
+    "Copy image": "\u590D\u5236\u56FE\u7247",
+    "Open as mindmap": "\u8F6C\u4E3A\u601D\u7EF4\u5BFC\u56FE",
+    "Image copied to the clipboard.": "\u56FE\u7247\u5DF2\u7ECF\u590D\u5236\u5230\u526A\u5207\u677F\u3002"
+  };
+  if (import_obsidian.moment.locale().includes("zh")) {
+    return cn[str] || str;
+  }
+  return str;
+}
 
 /* nosourcemap */
