@@ -7,7 +7,7 @@
       "openOnStartup": true,
       "openMode": "Replace last note",
       "manualOpenMode": "Keep open notes",
-      "view": "Reading view",
+      "view": "Editing view (Live Preview)",
       "revertView": true,
       "openWhenEmpty": true,
       "refreshDataview": true,
