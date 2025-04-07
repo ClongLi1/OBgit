@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "03软件网络",
-      "path": "03软件网络/03软件网络.md"
-    },
-    {
       "basename": "ClongLi-Obsidian-HomePage",
       "path": "100附件文件/ClongLi-Obsidian-HomePage.md"
+    },
+    {
+      "basename": "如何学习计算软件电脑？",
+      "path": "03软件网络/如何学习计算软件电脑？.md"
+    },
+    {
+      "basename": "03软件电脑",
+      "path": "03软件网络/03软件电脑.md"
+    },
+    {
+      "basename": "03软件网络",
+      "path": "03软件网络/03软件网络.md"
     },
     {
       "basename": "11情感婚恋",
@@ -191,14 +199,6 @@
     {
       "basename": "招聘就业注意事项",
       "path": "05工作职场/招聘就业注意事项.md"
-    },
-    {
-      "basename": "03软件电脑",
-      "path": "03软件网络/03软件电脑.md"
-    },
-    {
-      "basename": "购物清单",
-      "path": "100附件文件/1001看板/购物清单.md"
     }
   ],
   "omittedPaths": [],
