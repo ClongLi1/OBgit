@@ -14,7 +14,7 @@ Modified: 20240111112952
 
 ## 概述
 
-Templater 号称 Obsidian 四大金刚之一 ([[quickadd]], [[dataview]], [[obsidian-excalidraw-plugin]]), 模板插件当之无愧，但因为模板插件用法很极客基本靠命令代码，很多新手只能用别人写好的模板实现自己需求，入坑门槛比较高。注意此模板插件并非 Obsidian 官方自带的核心模板插件。
+Templater 号称 Obsidian 四大金刚之一 ([[quickadd]], [[03软件网络/Dataview]], [[obsidian-excalidraw-plugin]]), 模板插件当之无愧，但因为模板插件用法很极客基本靠命令代码，很多新手只能用别人写好的模板实现自己需求，入坑门槛比较高。注意此模板插件并非 Obsidian 官方自带的核心模板插件。
 
 > [!Note] 插件名片
 > - 插件名称：Templater

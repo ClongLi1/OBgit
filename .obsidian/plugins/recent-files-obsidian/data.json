@@ -1,8 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "DATAVIEW",
+      "path": "000草稿收集箱/DATAVIEW.md"
+    },
+    {
       "basename": "ClongLi-Obsidian-HomePage",
       "path": "100附件文件/ClongLi-Obsidian-HomePage.md"
+    },
+    {
+      "basename": "Tags(dataviewjs)",
+      "path": "100附件文件/Tags(dataviewjs).md"
     },
     {
       "basename": "03软件电脑",
@@ -191,10 +199,6 @@
     {
       "basename": "如何提高打字速度？",
       "path": "10001AI写作/如何提高打字速度？.md"
-    },
-    {
-      "basename": "AI写作",
-      "path": "10001AI写作/AI写作.md"
     }
   ],
   "omittedPaths": [],
