@@ -5,16 +5,20 @@
       "path": "100附件文件/ClongLi-Obsidian-HomePage.md"
     },
     {
+      "basename": "Dataview",
+      "path": "03软件网络/Dataview.md"
+    },
+    {
+      "basename": "03软件网络",
+      "path": "03软件网络/03软件网络.md"
+    },
+    {
       "basename": "如何学习计算软件电脑？",
       "path": "03软件网络/如何学习计算软件电脑？.md"
     },
     {
       "basename": "03软件电脑",
       "path": "03软件网络/03软件电脑.md"
-    },
-    {
-      "basename": "03软件网络",
-      "path": "03软件网络/03软件网络.md"
     },
     {
       "basename": "11情感婚恋",
@@ -195,10 +199,6 @@
     {
       "basename": "如何提升可信度？",
       "path": "04方法思维/如何提升可信度？.md"
-    },
-    {
-      "basename": "招聘就业注意事项",
-      "path": "05工作职场/招聘就业注意事项.md"
     }
   ],
   "omittedPaths": [],
