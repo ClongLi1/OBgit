@@ -18,39 +18,24 @@ dataSource:
 fillTheScreen: false
 enableMainContainerShadow: true
 cellStyleRules:
-  - id: 1744114615907
+  - id: Wine_a
+    color: "#d8b0b3"
     min: 1
-    max: 2
-    color: "#ffb6caff"
-    text: ""
-  - id: 1744114617203
-    min: "2"
     max: "3"
-    color: "#ff6b6bff"
-    text: ""
-  - id: 1744114618115
+  - id: Wine_b
+    color: "#e76975ff"
     min: "3"
-    max: "4"
-    color: "#ff4500ff"
-    text: ""
-  - id: 1744114618861
-    min: "4"
-    max: "6"
-    color: "#ff0000ff"
-    text: ""
-  - id: 1744114619659
-    min: "6"
-    max: "8"
-    color: "#800020ff"
-    text: ""
-  - id: 1744114745124
-    min: "8"
+    max: "5"
+  - id: Wine_c
+    color: "#f91e4eff"
+    min: "5"
+    max: "7"
+  - id: Wine_d
+    color: "#ff183cff"
+    min: "7"
     max: "99"
-    color: "#8b0000ff"
-    text: ""
 
 ```
-
 
 ```dataviewjs  
 let ftMd = dv.pages("").file.sort(t => t.cday)[0];  
