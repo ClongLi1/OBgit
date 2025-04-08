@@ -5,8 +5,16 @@
       "path": "11情感婚恋/11感情婚恋.md"
     },
     {
+      "basename": "恋爱技巧",
+      "path": "11情感婚恋/恋爱技巧.md"
+    },
+    {
       "basename": "11情感婚恋",
       "path": "11情感婚恋/11情感婚恋.md"
+    },
+    {
+      "basename": "两人共同干的事儿",
+      "path": "11情感婚恋/两人共同干的事儿.md"
     },
     {
       "basename": "结婚的意义",
@@ -191,14 +199,6 @@
     {
       "basename": "Dateview",
       "path": "03软件网络/Dateview.md"
-    },
-    {
-      "basename": "Dataview草稿",
-      "path": "03软件网络/Dataview草稿.md"
-    },
-    {
-      "basename": "03软件电脑",
-      "path": "03软件网络/03软件电脑.md"
     }
   ],
   "omittedPaths": [],
