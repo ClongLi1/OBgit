@@ -282,3 +282,10 @@ setInterval(() => {
 #tag1 #tag2 #tag3 
 
 
+```dataviewjs
+const setTime = new Date("2024/6/15 08:00:00");
+const nowTime = new Date();
+const restSec = setTime.getTime() - nowTime.getTime();
+const day = parseInt(restSec / (60 * 60 * 24 * 1000));
+dv.paragraph(day + "天");
+```
