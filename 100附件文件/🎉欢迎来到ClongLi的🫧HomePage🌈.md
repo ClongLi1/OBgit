@@ -3,7 +3,7 @@
 ```contributionGraph
 title: ""
 graphType: default
-dateRangeValue: 830
+dateRangeValue: 365
 dateRangeType: LATEST_DAYS
 startOfWeek: 1
 showCellRuleIndicators: true
@@ -18,22 +18,22 @@ dataSource:
 fillTheScreen: false
 enableMainContainerShadow: true
 cellStyleRules:
-  - id: Wine_a
-    color: "#d8b0b3"
+  - id: Lovely_a
+    color: "#fedcdc"
     min: 1
-    max: "3"
-  - id: Wine_b
-    color: "#e76975ff"
-    min: "3"
-    max: "5"
-  - id: Wine_c
-    color: "#f91e4eff"
-    min: "5"
-    max: "7"
-  - id: Wine_d
-    color: "#ff183cff"
-    min: "7"
-    max: "99"
+    max: 2
+  - id: Lovely_b
+    color: "#fdb8bf"
+    min: 2
+    max: 3
+  - id: Lovely_c
+    color: "#f892a9"
+    min: 3
+    max: 5
+  - id: Lovely_d
+    color: "#ec6a97"
+    min: 5
+    max: 9999
 
 ```
 

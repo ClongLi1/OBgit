@@ -6,7 +6,7 @@
 > 3. Dataview 包含：**数据索引**、**数据查询**- 
 > 4. 查询方式：Dataview 查询语言、内敛语句、JavaScript 查询
 
-[author:: ClongLi] #Dataview                         
+[author:: ClongLi]                      
 [[Dateview草稿箱]]
 
 `[key:: Value]`

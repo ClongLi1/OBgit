@@ -1,8 +1,7 @@
 ---
 aliases:
   - Dataview语法
-tags:
-  - Dataview
+tags: []
 等级: ⭐⭐⭐
 ---
 
