@@ -1,75 +1,155 @@
-<div style=" width: 100%; height:280;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/Carousel?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>
+<div style=" width: 100%; height:280;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/Carousel?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>                  
 
-```contributionGraph
-title: ""
-graphType: default
-dateRangeValue: 810
-dateRangeType: LATEST_DAYS
-startOfWeek: 1
-showCellRuleIndicators: true
-titleStyle:
-  textAlign: center
-  fontSize: 18px
-  fontWeight: normal
-dataSource:
-  type: PAGE
-  value: ""
-  dateField:
-    format: yyyy-mm-dd-tt
-fillTheScreen: true
-enableMainContainerShadow: false
-mainContainerStyle: {}
-cellStyle:
-  borderRadius: ""
-  minWidth: 8px
-  minHeight: 8px
-cellStyleRules:
-  - id: default_b
-    color: "#ffffccff"
-    min: "1"
-    max: "2"
-  - id: default_c
-    color: "#ffeb99ff"
-    min: "2"
-    max: "4"
-  - id: default_d
-    color: "#ffd700ff"
-    min: "4"
-    max: "6"
-  - id: default_e
-    color: "#ffa500ff"
-    min: "6"
-    max: "8"
-  - id: 1740749878263
-    min: "8"
-    max: "10"
-    color: "#ff4500ff"
-    text: ""
-  - id: 1740749904057
-    min: "10"
-    max: "99"
-    color: "#ff0000ff"
-    text: ""
+```contributionGraph  
+  "title": "",
+  "graphType": "default",
+  "dateRangeValue": 810,
+  "dateRangeType": "LATEST_DAYS",
+  "startOfWeek": 1,
+  "showCellRuleIndicators": true,
+  "titleStyle": {
+    "textAlign": "center",
+    "fontSize": "18px",
+    "fontWeight": "normal"
+  },
+  "dataSource": {
+    "type": "PAGE",
+    "value": "",
+    "dateField": {
+      "format": "yyyy-mm-dd-tt"
+    }
+  },
+  "fillTheScreen": true,
+  "enableMainContainerShadow": false,
+  "mainContainerStyle": {},
+  "cellStyle": {
+    "borderRadius": "",
+    "minWidth": "8px",
+    "minHeight": "8px"
+  },
+  "cellStyleRules": [
+    {
+      "id": "default_b",
+      "color": "#ffffccff",
+      "min": "1",
+      "max": "2"
+    },
+    {
+      "id": "default_c",
+      "color": "#ffeb99ff",
+      "min": "2",
+      "max": "4"
+    },
+    {
+      "id": "default_d",
+      "color": "#ffd700ff",
+      "min": "4",
+      "max": "6"
+    },
+    {
+      "id": "default_e",
+      "color": "#ffa500ff",
+      "min": "6",
+      "max": "8"
+    },
+    {
+      "id": "1740749878263",
+      "min": "8",
+      "max": "10",
+      "color": "#ff4500ff",
+      "text": ""
+    },
+    {
+      "id": "1740749904057",
+      "min": "10",
+      "max": "99",
+      "color": "#ff0000ff",
+      "text": ""
+    }
+  ],
+  "monthLabels": [
+    {
+      "text": "2月",
+      "color": "#ff0000"  // 红色
+    },
+    {
+      "text": "3月",
+      "color": "#ffa500"  // 橙色
+    },
+    {
+      "text": "4月",
+      "color": "#ffff00"  // 黄色
+    },
+    {
+      "text": "5月",
+      "color": "#00ff00"  // 绿色
+    },
+    {
+      "text": "6月",
+      "color": "#0000ff"  // 蓝色
+    },
+    {
+      "text": "7月",
+      "color": "#4b0082"  // 靛蓝
+    },
+    {
+      "text": "8月",
+      "color": "#9400d3"  // 紫色
+    },
+    {
+      "text": "9月",
+      "color": "#ff0000"  // 红色
+    },
+    {
+      "text": "10月",
+      "color": "#ffa500"  // 橙色
+    },
+    {
+      "text": "11月",
+      "color": "#ffff00"  // 黄色
+    },
+    {
+      "text": "12月",
+      "color": "#00ff00"  // 绿色
+    },
+    {
+      "text": "1月",
+      "color": "#0000ff"  // 蓝色
+    },
+    {
+      "text": "2月",
+      "color": "#4b0082"  // 靛蓝
+    },
+    {
+      "text": "3月",
+      "color": "#9400d3"  // 紫色
+    },
+    {
+      "text": "4月",
+      "color": "#ff0000"  // 红色
+    }
+  ]
 ```
-```dataviewjs
-let ftMd = dv.pages("").file.sort(t => t.cday)[0];
-let total = parseInt([new Date() - ftMd.ctime] / (60 * 60 * 24 * 1000));
-let rainbowStyle = "color: #FFFFFF; background: linear-gradient(90deg, #4169E1, #00BFFF, #32CD32, #FFD700, #FF6347, #9932CC); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;";
-let totalDays = `<span style="${rainbowStyle}"> 我在 **[[Obsidian]]** 的世界中已探索 ${total} 天 ，</span>`;
-let nofold = '!"misc/templates"';
-let allFile = dv.pages(nofold).file;
-let totalMd = `<span style="${rainbowStyle}">已发现 ${allFile.length} 颗闪耀的笔记星星 </span>`;
-let tagDescription = `<span style="${rainbowStyle}">它们被精心分类在 ${allFile.etags.distinct().length} 个彩虹标签中 </span>`;
-let totalTag = `<span style="${rainbowStyle}">，${tagDescription}</span>`;
-let taskDescription = `<span style="${rainbowStyle}">还有 ${allFile.tasks.length} 个待办任务等待我去完成，它们如同彩虹的纽带，连接着不同的知识领域 </span>`;
-let totalTask = `<span style="${rainbowStyle}">，${taskDescription}</span>`;
 
-dv.paragraph(totalDays + " " + totalMd + " " + totalTag + " " + totalTask);
+```dataviewjs  
+let ftMd = dv.pages("").file.sort(t => t.cday)[0];  
+let total = parseInt([new Date() - ftMd.ctime] / (60 * 60 * 24 * 1000));  
+let rainbowStyle = "color: #FFFFFF; background: linear-gradient(90deg, #4169E1, #00BFFF, #32CD32, #FFD700, #FF6347, #9932CC); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;";  
+let totalDays = `<span style="${rainbowStyle}"> 我在 **[[Obsidian]]** 的世界中已探索 ${total} 天 ，</span>`;  
+let nofold = '!"misc/templates"';  
+let allFile = dv.pages(nofold).file;  
+let totalMd = `<span style="${rainbowStyle}">已发现 ${allFile.length} 颗闪耀的笔记星星 </span>`;  
+let tagDescription = `<span style="${rainbowStyle}">它们被精心分类在 ${allFile.etags.distinct().length} 个彩虹标签中 </span>`;  
+let totalTag = `<span style="${rainbowStyle}">，${tagDescription}</span>`;  
+let taskDescription = `<span style="${rainbowStyle}">还有 ${allFile.tasks.length} 个待办任务等待我去完成，它们如同彩虹的纽带，连接着不同的知识领域 </span>`;
+let totalTask = `<span style="${rainbowStyle}">，${taskDescription}</span>`;  
+
+dv.paragraph(totalDays + " " + totalMd + " " + totalTag + " " + totalTask);  
 ```
 ![[🌈炫彩时间轴🌈（时间流逝🫧在这一刻被具象化💥）]]
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between;">  
   <!-- 左侧栏 -->
-  <div style="width: 48%; margin-bottom: 1px;">
+    <div style="width: 48%; margin-bottom: 1px;">  
     <!-- Obsidian logo 和欢迎语 -->
     <div style="display: flex; align-items: center; margin-bottom: 1px;">
       <img src="Obsidian logo.png" alt="Obsidian Logo" style="width: 230px; height: 320px; margin-right: 20px;">
