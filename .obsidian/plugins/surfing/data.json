@@ -46,7 +46,19 @@
     ],
     "defaultFilterType": "menu"
   },
-  "treeData": [],
+  "treeData": [
+    {
+      "id": "cccda2facc5ff0b0",
+      "parent": 0,
+      "droppable": true,
+      "text": "工作十年的焊接工程师月薪八千，问我该不该转行？",
+      "data": {
+        "fileType": "site",
+        "fileSize": "",
+        "icon": {}
+      }
+    }
+  ],
   "enableHtmlPreview": true,
   "supportLivePreviewInlineUrl": true,
   "enableTreeView": true,
