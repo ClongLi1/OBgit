@@ -281,10 +281,4 @@ setInterval(() => {
 
 #tag1 #tag2 #tag3 
 
-```dataview
-table tags
-where file = this.file 
-```
-```dataview
-table file.cday,file.mday,file.tags
-```
+
