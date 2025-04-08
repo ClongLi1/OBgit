@@ -9,7 +9,7 @@ startOfWeek: 1
 showCellRuleIndicators: true
 titleStyle:
   textAlign: center
-  fontSize: 20px
+  fontSize: 18px
   fontWeight: normal
 dataSource:
   type: PAGE
@@ -21,8 +21,8 @@ enableMainContainerShadow: false
 mainContainerStyle: {}
 cellStyle:
   borderRadius: ""
-  minWidth: 10px
-  minHeight: 10px
+  minWidth: 8px
+  minHeight: 8px
 cellStyleRules:
   - id: default_b
     color: "#ffffccff"
