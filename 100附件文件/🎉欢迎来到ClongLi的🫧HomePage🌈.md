@@ -1,42 +1,56 @@
-<div style=" width: 100%; height:280;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/Carousel?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>                  
+<div style=" width: 100%; height:280;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/Carousel?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>   
+
 ```contributionGraph
-title:
+title: ""
 graphType: default
-dateRangeValue: 810
+dateRangeValue: 830
 dateRangeType: LATEST_DAYS
 startOfWeek: 1
 showCellRuleIndicators: true
 titleStyle:
   textAlign: left
-  fontSize: 1px
+  fontSize: 15px
   fontWeight: normal
 dataSource:
   type: PAGE
   value: ""
   dateField: {}
 fillTheScreen: false
-enableMainContainerShadow: false
+enableMainContainerShadow: true
 cellStyleRules:
-  - id: Halloween_a
-    color: "#ff000"
+  - id: 1744114615907
     min: 1
     max: 2
-  - id: Halloween_b
-    color: "#ff6666"
-    min: 2
-    max: 3
-  - id: Halloween_c
-    color: "#ffccc"
-    min: 3
-    max: 5
-  - id: Halloween_d
-    color: "#ff"
-    min: 5
-    max: 9999
-cellStyle:
-  borderRadius: ""
+    color: "#ffb6caff"
+    text: ""
+  - id: 1744114617203
+    min: "2"
+    max: "3"
+    color: "#ff6b6bff"
+    text: ""
+  - id: 1744114618115
+    min: "3"
+    max: "4"
+    color: "#ff4500ff"
+    text: ""
+  - id: 1744114618861
+    min: "4"
+    max: "6"
+    color: "#ff0000ff"
+    text: ""
+  - id: 1744114619659
+    min: "6"
+    max: "8"
+    color: "#800020ff"
+    text: ""
+  - id: 1744114745124
+    min: "8"
+    max: "99"
+    color: "#8b0000ff"
+    text: ""
 
 ```
+
 
 ```dataviewjs  
 let ftMd = dv.pages("").file.sort(t => t.cday)[0];  
