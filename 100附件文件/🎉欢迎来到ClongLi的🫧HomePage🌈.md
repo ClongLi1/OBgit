@@ -1,134 +1,41 @@
 <div style=" width: 100%; height:280;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/Carousel?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>                  
+```contributionGraph
+title:
+graphType: default
+dateRangeValue: 810
+dateRangeType: LATEST_DAYS
+startOfWeek: 1
+showCellRuleIndicators: true
+titleStyle:
+  textAlign: left
+  fontSize: 1px
+  fontWeight: normal
+dataSource:
+  type: PAGE
+  value: ""
+  dateField: {}
+fillTheScreen: false
+enableMainContainerShadow: false
+cellStyleRules:
+  - id: Halloween_a
+    color: "#ff000"
+    min: 1
+    max: 2
+  - id: Halloween_b
+    color: "#ff6666"
+    min: 2
+    max: 3
+  - id: Halloween_c
+    color: "#ffccc"
+    min: 3
+    max: 5
+  - id: Halloween_d
+    color: "#ff"
+    min: 5
+    max: 9999
+cellStyle:
+  borderRadius: ""
 
-```contributionGraph  
-  "title": "",
-  "graphType": "default",
-  "dateRangeValue": 810,
-  "dateRangeType": "LATEST_DAYS",
-  "startOfWeek": 1,
-  "showCellRuleIndicators": true,
-  "titleStyle": {
-    "textAlign": "center",
-    "fontSize": "18px",
-    "fontWeight": "normal"
-  },
-  "dataSource": {
-    "type": "PAGE",
-    "value": "",
-    "dateField": {
-      "format": "yyyy-mm-dd-tt"
-    }
-  },
-  "fillTheScreen": true,
-  "enableMainContainerShadow": false,
-  "mainContainerStyle": {},
-  "cellStyle": {
-    "borderRadius": "",
-    "minWidth": "8px",
-    "minHeight": "8px"
-  },
-  "cellStyleRules": [
-    {
-      "id": "default_b",
-      "color": "#ffffccff",
-      "min": "1",
-      "max": "2"
-    },
-    {
-      "id": "default_c",
-      "color": "#ffeb99ff",
-      "min": "2",
-      "max": "4"
-    },
-    {
-      "id": "default_d",
-      "color": "#ffd700ff",
-      "min": "4",
-      "max": "6"
-    },
-    {
-      "id": "default_e",
-      "color": "#ffa500ff",
-      "min": "6",
-      "max": "8"
-    },
-    {
-      "id": "1740749878263",
-      "min": "8",
-      "max": "10",
-      "color": "#ff4500ff",
-      "text": ""
-    },
-    {
-      "id": "1740749904057",
-      "min": "10",
-      "max": "99",
-      "color": "#ff0000ff",
-      "text": ""
-    }
-  ],
-  "monthLabels": [
-    {
-      "text": "2月",
-      "color": "#ff0000"  // 红色
-    },
-    {
-      "text": "3月",
-      "color": "#ffa500"  // 橙色
-    },
-    {
-      "text": "4月",
-      "color": "#ffff00"  // 黄色
-    },
-    {
-      "text": "5月",
-      "color": "#00ff00"  // 绿色
-    },
-    {
-      "text": "6月",
-      "color": "#0000ff"  // 蓝色
-    },
-    {
-      "text": "7月",
-      "color": "#4b0082"  // 靛蓝
-    },
-    {
-      "text": "8月",
-      "color": "#9400d3"  // 紫色
-    },
-    {
-      "text": "9月",
-      "color": "#ff0000"  // 红色
-    },
-    {
-      "text": "10月",
-      "color": "#ffa500"  // 橙色
-    },
-    {
-      "text": "11月",
-      "color": "#ffff00"  // 黄色
-    },
-    {
-      "text": "12月",
-      "color": "#00ff00"  // 绿色
-    },
-    {
-      "text": "1月",
-      "color": "#0000ff"  // 蓝色
-    },
-    {
-      "text": "2月",
-      "color": "#4b0082"  // 靛蓝
-    },
-    {
-      "text": "3月",
-      "color": "#9400d3"  // 紫色
-    },
-    {
-      "text": "4月",
-      "color": "#ff0000"  // 红色
-    }
-  ]
 ```
 
 ```dataviewjs  
