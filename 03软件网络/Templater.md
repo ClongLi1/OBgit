@@ -1,7 +1,7 @@
 ---
 Uid: 20230507013346
 Title: Obsidian 插件：Templater 可以替代核心模板插件的效率神器
-Tags: [obsidian, 插件, 模板, 自动化, 效率]
+tags: []
 Description: Obsidian 插件：Templater, Obsidian 的效率神器
 Author: cuman
 Type: other

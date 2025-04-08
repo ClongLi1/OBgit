@@ -1,9 +1,5 @@
 ---
-tags:
-  - Dataview
-  - obsidian
-  - OB
-  - 代码
+tags: []
 aliases:
   - dataview
 rating: "4"
