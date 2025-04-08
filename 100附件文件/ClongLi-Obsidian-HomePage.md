@@ -66,7 +66,7 @@ let totalTask = `<span style='color:#E610FF'>还有${allFile.tasks.length}</span
 
 dv.paragraph(totalDays + totalMd + "、" + totalTag + "、" + totalTask);
 ```
- ![[炫彩时间轴]]
+ ![[🌈炫彩时间轴🌈（时间流逝🫧在这一刻被具象化💥）]]
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
   <!-- 左侧栏 -->
   <div style="width: 48%; margin-bottom: 1px;">
