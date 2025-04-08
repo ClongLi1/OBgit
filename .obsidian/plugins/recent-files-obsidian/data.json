@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "琐碎问题",
+      "path": "15-琐碎问题/琐碎问题.md"
+    },
+    {
       "basename": "Dataview全局总览",
       "path": "100附件文件/Dataview全局总览.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "毕业答辩注意事项",
       "path": "00科研相关/毕业答辩注意事项.md"
-    },
-    {
-      "basename": "Beamer",
-      "path": "03软件网络/Beamer.md"
     }
   ],
   "omittedPaths": [],
