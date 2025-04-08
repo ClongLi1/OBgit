@@ -1,7 +1,5 @@
 ---
-tags:
-  - Dataview
-  - obsidian
+tags: []
 date: "\n"
 ---
 ```dataview

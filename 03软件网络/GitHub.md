@@ -1,7 +1,5 @@
 ---
-tags:
-  - Git
-  - Github
+tags: []
 ---
 # 1. 引言
 > [!note] Github全球最受欢迎的源代码管理平台

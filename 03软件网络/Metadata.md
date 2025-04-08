@@ -1,8 +1,6 @@
 ---
 等级: ⭐⭐⭐
-tags:
-  - metadata
-  - 软件网络/metadata
+tags: []
 date: 2024年12月28日
 cssclasses:
   - red

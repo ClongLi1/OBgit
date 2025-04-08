@@ -1,7 +1,7 @@
 ---
 Uid: 20230518204621
 Title: Mermaid 语法
-Tags: [Mermaid, 语法]
+tags: []
 Description: Mermaid 语法
 Author: cuman, OS
 Type: awesome

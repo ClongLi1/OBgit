@@ -1,6 +1,5 @@
 ---
-tags:
-  - a
+tags: []
 ---
 ```
 ```dataview
@@ -279,7 +278,6 @@ setInterval(() => {
 }, 24 * 60 * 60 * 1000); // 每24小时刷新一次
 ```
 
-#tag1 #tag2 #tag3 
 
 
 ```dataviewjs

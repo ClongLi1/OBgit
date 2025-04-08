@@ -1,7 +1,5 @@
 ---
-tags:
-  - md
-  - Markdown
+tags: []
 ---
 # 1. 引言
 

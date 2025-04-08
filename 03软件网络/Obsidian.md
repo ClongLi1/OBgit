@@ -1,7 +1,5 @@
 ---
-tags:
-  - obsidian
-  - OB
+tags: []
 ---
 # 1. 入门知识
 1. [[简睿学堂Obsidian合集]]

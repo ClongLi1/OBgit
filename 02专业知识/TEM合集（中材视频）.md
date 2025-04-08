@@ -1,7 +1,5 @@
 ---
-tags:
-  - TEM
-  - 组织表征
+tags: []
 ---
 # 1. TEM样品制备简介
 ![image.png|700](https://fig-1321973591.cos.ap-nanjing.myqcloud.com/20241128163803.png)

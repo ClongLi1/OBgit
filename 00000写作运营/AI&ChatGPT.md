@@ -1,11 +1,10 @@
 ---
-aliases:
-  - ChatGPT
+aliases: []
 ---
 ```table-of-contents
 ```
 
-#写作内容/AI #写作内容/ChatGPT
+
 # 1. 引言
 
 # 2. 正文 
