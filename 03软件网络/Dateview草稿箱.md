@@ -1,5 +1,6 @@
 ---
 tags:
+  - a
 ---
 ```
 ```dataview
@@ -281,6 +282,9 @@ setInterval(() => {
 #tag1 #tag2 #tag3 
 
 ```dataview
-table 
-where file = this file 
+table tags
+where file = this.file 
+```
+```dataview
+table file.cday,file.mday,file.tags
 ```
