@@ -289,3 +289,33 @@ const restSec = setTime.getTime() - nowTime.getTime();
 const day = parseInt(restSec / (60 * 60 * 24 * 1000));
 dv.paragraph(day + "天");
 ```
+
+```dataviewjs
+let ftMd = dv.pages("").file.sort(t => t.cday)[0];
+let total = parseInt([new Date() - ftMd.ctime] / (60 * 60 * 24 * 1000));
+let totalDays = "使用 *Obsidian* " + "**" + total + "**天，";
+dv.paragraph(totalDays);
+```
+
+```dataviewjs
+let ftMd = dv.pages("").file.sort(t => t.cday)[0];
+let total = parseInt([new Date() - ftMd.ctime] / (60 * 60 * 24 * 1000));
+let totalDays = "使用 *Obsidian* " + "**" + total + "**天，";
+dv.paragraph(totalDays);
+```
+
+```dataviewjs
+let ftMd = dv.pages("").file.sort(t => t.cday)[0];
+let total = parseInt([new Date() - ftMd.ctime] / (60 * 60 * 24 * 1000));
+let rainbowStyle = "background: linear-gradient(90deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #9400D3); -webkit-background-clip: text; -webkit-text-fill-color: transparent;";
+let totalDays = `<span style="${rainbowStyle}">🌅我在**[[Obsidian]]**的世界中已探索 ${total} 天 🌈，</span>`;
+let nofold = '!"misc/templates"';
+let allFile = dv.pages(nofold).file;
+let totalMd = `<span style="${rainbowStyle}">已发现 ${allFile.length} 颗闪耀的笔记星星 ✨</span>`;
+let tagDescription = `<span style="${rainbowStyle}">它们被精心分类在 ${allFile.etags.distinct().length} 个彩虹标签中 🌈</span>`;
+let totalTag = `<span style="${rainbowStyle}">，${tagDescription}</span>`;
+let taskDescription = `<span style="${rainbowStyle}">还有 ${allFile.tasks.length} 个待办任务等待我去完成，它们如同彩虹的纽带，连接着不同的知识领域 🌈</span>`;
+let totalTask = `<span style="${rainbowStyle}">，${taskDescription}</span>`;
+
+dv.paragraph(totalDays + " " + totalMd + " " + totalTag + " " + totalTask);
+```

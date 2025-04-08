@@ -50,23 +50,23 @@ cellStyleRules:
     max: "99"
     color: "#ff0000ff"
     text: ""
-
 ```
 ```dataviewjs
 let ftMd = dv.pages("").file.sort(t => t.cday)[0];
 let total = parseInt([new Date() - ftMd.ctime] / (60 * 60 * 24 * 1000));
-let totalDays = `<span style='color:#00FFD7'>🌅我已在**[[Obsidian]]**的知识宇宙中穿行</span> <span style='color:#00FFD7'>${total}天💥，</span>`;
+let rainbowStyle = "color: #FFFFFF; background: linear-gradient(90deg, #4169E1, #00BFFF, #32CD32, #FFD700, #FF6347, #9932CC); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;";
+let totalDays = `<span style="${rainbowStyle}"> 我在 **[[Obsidian]]** 的世界中已探索 ${total} 天 ，</span>`;
 let nofold = '!"misc/templates"';
 let allFile = dv.pages(nofold).file;
-let totalMd = `<span style='color:#00FF55'>已成功点亮</span> <span style='color:#00FF55'>${allFile.length}</span> <span style='color:#00FF55'>颗璀璨✨星辰笔记</span>`;
-let tagDescription = `<span style='color:#FFA933'></span>`;
-let totalTag = `<span style='color:#FFFF00'>精心打造了${allFile.etags.distinct().length}</span> <span style='color:#FFFF00'>个标签🫧轨道，</span> ${tagDescription}`;
-let taskDescription = `<span style='color:#E610FF'>待办任务等待点亮✨它们宛如纽带，串联起不同星体🌈，让整个星系紧密相连🎆</span>`;
-let totalTask = `<span style='color:#E610FF'>还有${allFile.tasks.length}</span> <span style='color:#FF8C00'>个</span> ${taskDescription}`;
+let totalMd = `<span style="${rainbowStyle}">已发现 ${allFile.length} 颗闪耀的笔记星星 </span>`;
+let tagDescription = `<span style="${rainbowStyle}">它们被精心分类在 ${allFile.etags.distinct().length} 个彩虹标签中 </span>`;
+let totalTag = `<span style="${rainbowStyle}">，${tagDescription}</span>`;
+let taskDescription = `<span style="${rainbowStyle}">还有 ${allFile.tasks.length} 个待办任务等待我去完成，它们如同彩虹的纽带，连接着不同的知识领域 </span>`;
+let totalTask = `<span style="${rainbowStyle}">，${taskDescription}</span>`;
 
-dv.paragraph(totalDays + totalMd + "、" + totalTag + "、" + totalTask);
+dv.paragraph(totalDays + " " + totalMd + " " + totalTag + " " + totalTask);
 ```
- ![[🌈炫彩时间轴🌈（时间流逝🫧在这一刻被具象化💥）]]
+![[🌈炫彩时间轴🌈（时间流逝🫧在这一刻被具象化💥）]]
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
   <!-- 左侧栏 -->
   <div style="width: 48%; margin-bottom: 1px;">
