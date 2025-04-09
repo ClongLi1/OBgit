@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "日历Dataview",
+      "path": "100附件文件/1010Dataview/日历Dataview.md"
+    },
+    {
+      "basename": "test1",
+      "path": "00-闪念笔记/test1.md"
+    },
+    {
       "basename": "任务Dataview",
       "path": "100附件文件/1010Dataview/任务Dataview.md"
     },
@@ -191,10 +199,6 @@
     {
       "basename": "美文励志语录",
       "path": "07文学历史/美文励志语录.md"
-    },
-    {
-      "basename": "如何成为优秀的专业人士？",
-      "path": "02专业知识/如何成为优秀的专业人士？.md"
     }
   ],
   "omittedPaths": [],
