@@ -3,37 +3,51 @@
 ```contributionGraph
 title: ""
 graphType: default
-dateRangeValue: 859
+dateRangeValue: 860
 dateRangeType: LATEST_DAYS
 startOfWeek: 1
 showCellRuleIndicators: true
 titleStyle:
   textAlign: left
-  fontSize: 15px
+  fontSize: 20px
   fontWeight: normal
 dataSource:
   type: PAGE
   value: ""
-  dateField: {}
-fillTheScreen: false
-enableMainContainerShadow: true
+  dateField:
+    format: yyyy-mm-dd-tt
+fillTheScreen: true
+enableMainContainerShadow: false
+mainContainerStyle: {}
+cellStyle:
+  borderRadius: ""
 cellStyleRules:
-  - id: Lovely_a
-    color: "#fedcdc"
-    min: 1
-    max: 2
-  - id: Lovely_b
-    color: "#fdb8bf"
-    min: 2
-    max: 4
-  - id: Lovely_c
-    color: "#f892a9"
-    min: 4
-    max: 7
-  - id: Lovely_d
-    color: "#ec6a97"
-    min: 7
-    max: 99
+  - id: default_b
+    color: "#ffffccff"
+    min: "1"
+    max: "2"
+  - id: default_c
+    color: "#ffeb99ff"
+    min: "2"
+    max: "4"
+  - id: default_d
+    color: "#ffd700ff"
+    min: "4"
+    max: "6"
+  - id: default_e
+    color: "#ffa500ff"
+    min: "6"
+    max: "8"
+  - id: 1740749878263
+    min: "8"
+    max: "10"
+    color: "#ff4500ff"
+    text: ""
+  - id: 1740749904057
+    min: "10"
+    max: "99"
+    color: "#ff0000ff"
+    text: ""
 
 ```
 
