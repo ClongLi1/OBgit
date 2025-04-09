@@ -1,9 +1,9 @@
-<div style=" width: 100%; height:280;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/Carousel?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>   
+<div style=" width: 100%; height:250;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/Carousel?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>   
 
 ```contributionGraph
 title: ""
 graphType: default
-dateRangeValue: 365
+dateRangeValue: 859
 dateRangeType: LATEST_DAYS
 startOfWeek: 1
 showCellRuleIndicators: true
@@ -25,15 +25,15 @@ cellStyleRules:
   - id: Lovely_b
     color: "#fdb8bf"
     min: 2
-    max: 3
+    max: 4
   - id: Lovely_c
     color: "#f892a9"
-    min: 3
-    max: 5
+    min: 4
+    max: 7
   - id: Lovely_d
     color: "#ec6a97"
-    min: 5
-    max: 9999
+    min: 7
+    max: 99
 
 ```
 
