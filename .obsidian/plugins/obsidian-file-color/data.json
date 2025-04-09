@@ -1,6 +1,182 @@
 {
   "cascadeColors": false,
   "colorBackground": false,
-  "palette": [],
-  "fileColors": []
+  "palette": [
+    {
+      "id": "HjyPgxCD1PLIDWKWzAKeI",
+      "name": "亮黄色",
+      "value": "#ffff00"
+    },
+    {
+      "id": "3EmczHd9JHq9KcReShroO",
+      "name": "亮红色",
+      "value": "#ff0000"
+    },
+    {
+      "id": "Ie6b3OnQrilYMUgvgBpDf",
+      "name": "亮蓝色",
+      "value": "#0000ff"
+    },
+    {
+      "id": "jNqArjUcWJ6SV0u2jnYkH",
+      "name": "亮绿色",
+      "value": "#00ff00"
+    },
+    {
+      "id": "5N2TngF-Si26zzqPmeyEn",
+      "name": "亮紫色",
+      "value": "#9400d3"
+    },
+    {
+      "id": "iie63uQELFUsYg3NDXIl9",
+      "name": "亮橙色",
+      "value": "#ff8800"
+    },
+    {
+      "id": "1EC0i9xu-dvPhCBh3-vKk",
+      "name": "亮粉色",
+      "value": "#f55c75"
+    },
+    {
+      "id": "UsnwdcWuSOoTowjrVt7Wy",
+      "name": "亮青色",
+      "value": "#00ffff"
+    },
+    {
+      "id": "QqFM-N_jph3sMBDuB46AS",
+      "name": "亮棕色",
+      "value": "#9b5727"
+    },
+    {
+      "id": "KXThRb0xS_KAvMTO-M9Z6",
+      "name": "亮金色",
+      "value": "#ffd700"
+    },
+    {
+      "id": "UQbYztKzFhx_z6CWl8o1M",
+      "name": "亮银色",
+      "value": "#ffffff"
+    },
+    {
+      "id": "yVEfvU-889cMhWXxT1nOm",
+      "name": "天蓝色",
+      "value": "#34b1fe"
+    },
+    {
+      "id": "i5Dv6DOwSoODubvoVPLFp",
+      "name": "",
+      "value": "#787878"
+    },
+    {
+      "id": "AdZZubskpPs5SgL33Jvk9",
+      "name": "",
+      "value": "#00e0b4"
+    },
+    {
+      "id": "ubfRT4Wg1pfDo1E5RQCia",
+      "name": "",
+      "value": "#a2e123"
+    },
+    {
+      "id": "cWq3rjYaLdbOtO65BQXO_",
+      "name": "",
+      "value": "#ff00bb"
+    },
+    {
+      "id": "E7WMlhUVwa_SjaIFHp_1A",
+      "name": "",
+      "value": "#fce8b0"
+    },
+    {
+      "id": "ANnZejdMnpLdurKa2hrEf",
+      "name": "",
+      "value": "#802000"
+    }
+  ],
+  "fileColors": [
+    {
+      "path": "00科研相关",
+      "color": "HjyPgxCD1PLIDWKWzAKeI"
+    },
+    {
+      "path": "01生活方面",
+      "color": "3EmczHd9JHq9KcReShroO"
+    },
+    {
+      "path": "02专业知识",
+      "color": "Ie6b3OnQrilYMUgvgBpDf"
+    },
+    {
+      "path": "03软件网络",
+      "color": "jNqArjUcWJ6SV0u2jnYkH"
+    },
+    {
+      "path": "04方法思维",
+      "color": "5N2TngF-Si26zzqPmeyEn"
+    },
+    {
+      "path": "05工作职场",
+      "color": "iie63uQELFUsYg3NDXIl9"
+    },
+    {
+      "path": "06口才社交",
+      "color": "1EC0i9xu-dvPhCBh3-vKk"
+    },
+    {
+      "path": "07文学历史",
+      "color": "UsnwdcWuSOoTowjrVt7Wy"
+    },
+    {
+      "path": "08灵感梦想",
+      "color": "QqFM-N_jph3sMBDuB46AS"
+    },
+    {
+      "path": "09心灵慰藉",
+      "color": "KXThRb0xS_KAvMTO-M9Z6"
+    },
+    {
+      "path": "10总结反思",
+      "color": "UQbYztKzFhx_z6CWl8o1M"
+    },
+    {
+      "path": "11情感婚恋",
+      "color": "yVEfvU-889cMhWXxT1nOm"
+    },
+    {
+      "path": "12亲子教育",
+      "color": "AdZZubskpPs5SgL33Jvk9"
+    },
+    {
+      "path": "13英语相关",
+      "color": "i5Dv6DOwSoODubvoVPLFp"
+    },
+    {
+      "path": "14运动医学",
+      "color": "ubfRT4Wg1pfDo1E5RQCia"
+    },
+    {
+      "path": "15-琐碎问题",
+      "color": "E7WMlhUVwa_SjaIFHp_1A"
+    },
+    {
+      "path": "16-时政现实",
+      "color": "ANnZejdMnpLdurKa2hrEf"
+    },
+    {
+      "path": "0000-闪念笔记",
+      "color": "jNqArjUcWJ6SV0u2jnYkH"
+    },
+    {
+      "path": "000草稿收集",
+      "color": "UQbYztKzFhx_z6CWl8o1M"
+    },
+    {
+      "path": "00000写作运营",
+      "color": "QqFM-N_jph3sMBDuB46AS"
+    },
+    {
+      "path": "100附件文件",
+      "color": "UQbYztKzFhx_z6CWl8o1M"
+    }
+  ]
 }
