@@ -1,8 +1,8 @@
 {
   "collapse-filter": false,
   "search": "",
-  "showTags": true,
-  "showAttachments": true,
+  "showTags": false,
+  "showAttachments": false,
   "hideUnresolved": true,
   "showOrphans": true,
   "collapse-color-groups": false,
@@ -11,98 +11,28 @@
       "query": "path:00科研相关  ",
       "color": {
         "a": 1,
-        "rgb": 16649754
-      }
-    },
-    {
-      "query": "path:02专业知识  ",
-      "color": {
-        "a": 1,
-        "rgb": 16578081
-      }
-    },
-    {
-      "query": "path:03软件网络  ",
-      "color": {
-        "a": 1,
-        "rgb": 61215
-      }
-    },
-    {
-      "query": "path:04方法思维  ",
-      "color": {
-        "a": 1,
-        "rgb": 1114612
-      }
-    },
-    {
-      "query": "path:05工作职场  ",
-      "color": {
-        "a": 1,
-        "rgb": 1703918
-      }
-    },
-    {
-      "query": "path:07文学历史  ",
-      "color": {
-        "a": 1,
-        "rgb": 10693573
-      }
-    },
-    {
-      "query": "path:08灵感梦想  ",
-      "color": {
-        "a": 1,
-        "rgb": 16777215
-      }
-    },
-    {
-      "query": "path:10总结反思  ",
-      "color": {
-        "a": 1,
-        "rgb": 11293524
-      }
-    },
-    {
-      "query": "path:13英语相关  ",
-      "color": {
-        "a": 1,
-        "rgb": 4235292
+        "rgb": 14343460
       }
     },
     {
       "query": "path:01生活方面  ",
       "color": {
         "a": 1,
-        "rgb": 16755789
+        "rgb": 13438227
       }
     },
     {
-      "query": "path:998日记汇总  ",
+      "query": "path:02专业知识  ",
       "color": {
         "a": 1,
-        "rgb": 16777215
+        "rgb": 2036371
       }
     },
     {
-      "query": "path:09心灵慰藉  ",
+      "query": "path:03软件网络  ",
       "color": {
         "a": 1,
-        "rgb": 16711901
-      }
-    },
-    {
-      "query": "path:00000写作运营  ",
-      "color": {
-        "a": 1,
-        "rgb": 12083711
-      }
-    },
-    {
-      "query": "path:99-必备技能  ",
-      "color": {
-        "a": 1,
-        "rgb": 5431473
+        "rgb": 126495
       }
     }
   ],
@@ -116,6 +46,6 @@
   "repelStrength": 13.5368996485748,
   "linkStrength": 0.716829363529871,
   "linkDistance": 137,
-  "scale": 0.06791151054018237,
-  "close": true
+  "scale": 0.16720808944798,
+  "close": false
 }
