@@ -2,7 +2,7 @@
   "collapse-filter": false,
   "search": "",
   "showTags": false,
-  "showAttachments": false,
+  "showAttachments": true,
   "hideUnresolved": true,
   "showOrphans": true,
   "collapse-color-groups": false,
@@ -81,62 +81,20 @@
       "query": "path:10总结反思  ",
       "color": {
         "a": 1,
-        "rgb": 16711422
-      }
-    },
-    {
-      "query": "path:11情感婚恋  ",
-      "color": {
-        "a": 1,
-        "rgb": 3253483
-      }
-    },
-    {
-      "query": "path:12亲子教育  ",
-      "color": {
-        "a": 1,
-        "rgb": 3252711
-      }
-    },
-    {
-      "query": "path:13英语相关  ",
-      "color": {
-        "a": 1,
-        "rgb": 7105901
-      }
-    },
-    {
-      "query": "path:14运动医学  ",
-      "color": {
-        "a": 1,
-        "rgb": 9488675
-      }
-    },
-    {
-      "query": "path:15-琐碎问题  ",
-      "color": {
-        "a": 1,
-        "rgb": 15785384
-      }
-    },
-    {
-      "query": "path:100附件文件  ",
-      "color": {
-        "a": 1,
-        "rgb": 5395168
+        "rgb": 14725458
       }
     }
   ],
-  "collapse-display": true,
+  "collapse-display": false,
   "showArrow": true,
-  "textFadeMultiplier": -1.6,
-  "nodeSizeMultiplier": 1.03840182323196,
-  "lineSizeMultiplier": 0.458051420838972,
+  "textFadeMultiplier": -3,
+  "nodeSizeMultiplier": 1.30806716126513,
+  "lineSizeMultiplier": 0.744787192502929,
   "collapse-forces": false,
-  "centerStrength": 0.71183131589223,
+  "centerStrength": 0.62741116751269,
   "repelStrength": 13.5368996485748,
-  "linkStrength": 0.716829363529871,
-  "linkDistance": 137,
-  "scale": 0.16720808944797996,
+  "linkStrength": 0.607418976962124,
+  "linkDistance": 308,
+  "scale": 0.16720808944797985,
   "close": false
 }
