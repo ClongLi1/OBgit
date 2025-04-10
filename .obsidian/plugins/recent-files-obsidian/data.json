@@ -1,10 +1,6 @@
 {
   "recentFiles": [
     {
-      "basename": "chart view",
-      "path": "100附件文件/chart view.md"
-    },
-    {
       "basename": "test1",
       "path": "00-闪念笔记/test1.md"
     },
@@ -15,6 +11,18 @@
     {
       "basename": "任务Dataview",
       "path": "100附件文件/1010Dataview/任务Dataview.md"
+    },
+    {
+      "basename": "Tracker",
+      "path": "100附件文件/1011Tracker/Tracker.md"
+    },
+    {
+      "basename": "Obsidian（黑曜石）",
+      "path": "03软件网络/Obsidian（黑曜石）.md"
+    },
+    {
+      "basename": "chart view",
+      "path": "100附件文件/chart view.md"
     },
     {
       "basename": "短期待办网页和事项",
@@ -31,10 +39,6 @@
     {
       "basename": "02专业知识",
       "path": "02专业知识/02专业知识.md"
-    },
-    {
-      "basename": "Obsidian（黑曜石）",
-      "path": "03软件网络/Obsidian（黑曜石）.md"
     },
     {
       "basename": "03软件电脑",
@@ -195,10 +199,6 @@
     {
       "basename": "敬伟PS入门教程",
       "path": "03软件网络/敬伟PS入门教程.md"
-    },
-    {
-      "basename": "招聘就业方法论",
-      "path": "05工作职场/招聘就业方法论.md"
     }
   ],
   "omittedPaths": [],

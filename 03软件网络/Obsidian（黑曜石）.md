@@ -21,6 +21,8 @@
 - Slises[^7]    
 - Checklist[^8]  
 - Charts[^9]
+- Chart view 
+- Tracker[^10]
 ### 1.2.2 主题 
 
 
@@ -55,3 +57,5 @@
 [^8]: [Obsidian插件:Checklist优雅地管理任务](https://mp.weixin.qq.com/s/rskeTs72G0oFRqBpqhX43Q)
 
 [^9]: [Charts Documentation - Charts Plugin](https://charts.phib.ro/Meta/Charts/Charts+Documentation)
+
+[^10]: [PKMer_Obsidian 插件：Tracker 图形化笔记的维护状态](https://pkmer.cn/Pkmer-Docs/10-obsidian/obsidian%E7%A4%BE%E5%8C%BA%E6%8F%92%E4%BB%B6/obsidian-tracker/)

@@ -72,5 +72,6 @@
   "quickadd",
   "homepage",
   "obsidian-charts",
-  "obsidian-chartsview-plugin"
+  "obsidian-chartsview-plugin",
+  "obsidian-tracker"
 ]
