@@ -41,25 +41,4 @@ dv.list(folders.map(folder => {
 }), "unordered");
 ```
 
-```dataviewjs
-let la = Array()
-let da = Array()
-for(let i of dv.pages().groupBy(p=>p.file.folder.split("/")[0]))
-{
-	la.push(i.key);
-	let n = dv.pages(`"${i.key}"`).length;
-	da.push(n);
-}
-
-dv.paragraph(`\`\`\`chart
-type: pie
-labels: [${la}]
-series:
-- title: 
-  data: [${da}]
-width: 50%
-legendPosition: left
-labelColors: true
-\`\`\``);
-```
 

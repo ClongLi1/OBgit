@@ -1,8 +1,32 @@
 {
   "recentFiles": [
     {
+      "basename": "Dataview（饼图可视化分类笔记)",
+      "path": "100附件文件/1010Dataview/Dataview（饼图可视化分类笔记).md"
+    },
+    {
+      "basename": "Dataview（文件夹笔记数量汇总）",
+      "path": "100附件文件/1010Dataview/Dataview（文件夹笔记数量汇总）.md"
+    },
+    {
+      "basename": "DataView（事件倒计时⌛）",
+      "path": "100附件文件/1010Dataview/DataView（事件倒计时⌛）.md"
+    },
+    {
+      "basename": "Dataview（日历视图）",
+      "path": "100附件文件/1010Dataview/Dataview（日历视图）.md"
+    },
+    {
+      "basename": "Dataview（任务管理）",
+      "path": "100附件文件/1010Dataview/Dataview（任务管理）.md"
+    },
+    {
       "basename": "Dataview全局总览",
       "path": "100附件文件/Dataview全局总览.md"
+    },
+    {
+      "basename": "Dataview插件——充分释放Obsidian性能",
+      "path": "00写作运营/Dataview插件——充分释放Obsidian性能.md"
     },
     {
       "basename": "🏳️‍🌈动彩时钟🏳️‍🌈",
@@ -37,28 +61,12 @@
       "path": "03软件网络/Dateview.md"
     },
     {
-      "basename": "日历Dataview",
-      "path": "100附件文件/1010Dataview/日历Dataview.md"
-    },
-    {
-      "basename": "Dataview饼图统计文件夹笔记数量",
-      "path": "100附件文件/1010Dataview/Dataview饼图统计文件夹笔记数量.md"
-    },
-    {
       "basename": "个人月结",
       "path": "100附件文件/1005模板/个人月结.md"
     },
     {
-      "basename": "DataView事件倒计时⌛",
-      "path": "100附件文件/1010Dataview/DataView事件倒计时⌛.md"
-    },
-    {
       "basename": "🌤️天气预报🌦️",
       "path": "00草稿收集/🧰收纳箱/🌤️天气预报🌦️.md"
-    },
-    {
-      "basename": "Dataview文件标签数量统计",
-      "path": "100附件文件/1010Dataview/Dataview文件标签数量统计.md"
     },
     {
       "basename": "YAML",
@@ -123,10 +131,6 @@
     {
       "basename": "Tags(dataviewjs)",
       "path": "100附件文件/Tags(dataviewjs).md"
-    },
-    {
-      "basename": "任务Dataview",
-      "path": "100附件文件/1010Dataview/任务Dataview.md"
     },
     {
       "basename": "Tracker",
@@ -195,10 +199,6 @@
     {
       "basename": "开支面板",
       "path": "01生活方面/开支面板.md"
-    },
-    {
-      "basename": "自律",
-      "path": "01生活方面/自律.md"
     }
   ],
   "omittedPaths": [],
