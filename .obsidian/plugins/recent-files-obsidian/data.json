@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "⏱️时钟⏱️",
+      "path": "00草稿收集/⏱️时钟⏱️.md"
+    },
+    {
       "basename": "Dateview",
       "path": "03软件网络/Dateview.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Obsidian",
       "path": "03软件网络/Obsidian.md"
-    },
-    {
-      "basename": "MarkDown",
-      "path": "03软件网络/MarkDown.md"
     }
   ],
   "omittedPaths": [],
