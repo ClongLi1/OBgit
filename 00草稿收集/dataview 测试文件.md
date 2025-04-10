@@ -13,5 +13,6 @@ contains(file.name,"总结")
 ```dataview
 list
 from "03软件网络"
+limit 20
 
 ```
