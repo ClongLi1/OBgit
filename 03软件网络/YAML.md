@@ -15,8 +15,9 @@
 > - dv 检索时，原关键字的值的格式必须正确，否则 dv 会报错，但这种情况下不是代码写错了，而是代码检索的对象有问题；
 
 # 1. 学习笔记
-## 1. [[YAML语言教程（BILIBILI）]]
-## 2. [[一个YAML实例]]
+ 1. [[YAML语言教程（BILIBILI）]]
+ 2. [[一个YAML实例]]
+ 3. [一文看懂 YAML - 知乎](https://zhuanlan.zhihu.com/p/145173920)
 
 
 
@@ -25,4 +26,4 @@
 ### Ref
 1. [轻松掌握YAML语言、语法_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1yd4y1X75D/?spm_id_from=333.337.search-card.all.click&vd_source=d1167fc706d8bb4a356a82d19d9d3304)
 2. https://www.runoob.com/w3cnote/yaml-intro.html
-3. 
+3. [一文看懂 YAML - 知乎](https://zhuanlan.zhihu.com/p/145173920)

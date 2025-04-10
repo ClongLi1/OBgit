@@ -11,6 +11,7 @@
 1. `Dataview` 定义、功能、使用方法[^1]
 2. `Dataview` 入门简明教程 [^2]
 3. [Dataview官方文档](https://blacksmithgu.github.io/obsidian-dataview/) [[Dateview官方文档阅读笔记]]
+4. [obsidian插件dataview官方文档翻译 - 知乎](https://zhuanlan.zhihu.com/p/393550306)
 ### Test 
 [[Dataview草稿]]
 [[Tags(dataviewjs)]]

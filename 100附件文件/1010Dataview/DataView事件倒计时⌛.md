@@ -1,4 +1,20 @@
+```dataviewjs
+// 获取今天的日期
+const today = new Date();
+const todayStr = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()} 星期${'日一二三四五六'[today.getDay()]}`;
 
+
+
+// 获取当前日期
+const currentDate = new Date().getTime();
+
+
+
+// 输出今天的日期
+dv.paragraph(`**今天的日期： **<span style="color: pink;">${todayStr}</span>`);
+
+
+```
 ```dataviewjs
 // 设置事件名称和目标日期
 const event = "硕士毕业";
@@ -37,20 +53,4 @@ dv.paragraph(`
 2. 距离**<span style="color: cyan;">${event}</span>**还有：**<span style="color: yellow;">${days}</span>**天
 `);
 ```
-```dataviewjs
-// 获取今天的日期
-const today = new Date();
-const todayStr = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()} 星期${'日一二三四五六'[today.getDay()]}`;
 
-
-
-// 获取当前日期
-const currentDate = new Date().getTime();
-
-
-
-// 输出今天的日期
-dv.paragraph(`**今天的日期： **<span style="color: #36A2EB;">${todayStr}</span>**`);
-
-
-```
