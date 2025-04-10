@@ -107,6 +107,13 @@
       "name": "Charts: Insert new Chart",
       "mode": "any",
       "color": "#00cddb"
+    },
+    {
+      "id": "obsidian-chartsview-plugin:chartsview-wizard",
+      "icon": "lucide-chart-line",
+      "name": "Charts View: Wizard",
+      "mode": "any",
+      "color": "#feeb8b"
     }
   ],
   "macros": [],

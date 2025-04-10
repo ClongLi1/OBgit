@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "chart view",
+      "path": "100附件文件/chart view.md"
+    },
+    {
       "basename": "test1",
       "path": "00-闪念笔记/test1.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "招聘就业方法论",
       "path": "05工作职场/招聘就业方法论.md"
-    },
-    {
-      "basename": "Dateview草稿箱",
-      "path": "03软件网络/Dateview草稿箱.md"
     }
   ],
   "omittedPaths": [],
