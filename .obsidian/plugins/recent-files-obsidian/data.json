@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "Dataview（标签可视化）",
+      "path": "100附件文件/1010Dataview/Dataview（标签可视化）.md"
+    },
+    {
+      "basename": "Dateview",
+      "path": "03软件网络/Dateview.md"
+    },
+    {
+      "basename": "Obsidian（黑曜石）",
+      "path": "03软件网络/Obsidian（黑曜石）.md"
+    },
+    {
       "basename": "Dataview插件——充分释放Obsidian性能",
       "path": "00写作运营/Dataview插件——充分释放Obsidian性能.md"
     },
@@ -57,16 +69,8 @@
       "path": "11情感婚恋/夫妻同心，齐力断金.md"
     },
     {
-      "basename": "Obsidian（黑曜石）",
-      "path": "03软件网络/Obsidian（黑曜石）.md"
-    },
-    {
       "basename": "03软件电脑",
       "path": "03软件网络/03软件电脑.md"
-    },
-    {
-      "basename": "Dateview",
-      "path": "03软件网络/Dateview.md"
     },
     {
       "basename": "个人月结",
@@ -195,10 +199,6 @@
     {
       "basename": "Beamer",
       "path": "03软件网络/Beamer.md"
-    },
-    {
-      "basename": "01生活常识",
-      "path": "01生活方面/01生活常识.md"
     }
   ],
   "omittedPaths": [],
