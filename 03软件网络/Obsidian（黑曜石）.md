@@ -20,6 +20,7 @@
 - Tasks [^6]                                                                                                                           
 - Slises[^7]    
 - Checklist[^8]  
+- Charts[^9]
 ### 1.2.2 主题 
 
 
@@ -52,3 +53,5 @@
 [^7]: [mp.weixin.qq.com/s/7yvUrdDsBaaovfXWA1BVpw](https://mp.weixin.qq.com/s/7yvUrdDsBaaovfXWA1BVpw)     
 
 [^8]: [Obsidian插件:Checklist优雅地管理任务](https://mp.weixin.qq.com/s/rskeTs72G0oFRqBpqhX43Q)
+
+[^9]: [Charts Documentation - Charts Plugin](https://charts.phib.ro/Meta/Charts/Charts+Documentation)

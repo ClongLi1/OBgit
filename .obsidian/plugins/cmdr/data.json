@@ -100,6 +100,13 @@
       "name": "按钮",
       "mode": "any",
       "color": "#8066ff"
+    },
+    {
+      "id": "obsidian-charts:creation-helper",
+      "icon": "lucide-a-arrow-down",
+      "name": "Charts: Insert new Chart",
+      "mode": "any",
+      "color": "#00cddb"
     }
   ],
   "macros": [],
