@@ -9,6 +9,7 @@
 # 1. 正文
 ## 1.1 学习资源 
 1. [Obsidian Help(官方帮助文档)](https://help.obsidian.md/properties) 
+2. [Obsidian 插件之 Dataview - 知乎](https://zhuanlan.zhihu.com/p/373623264)
 - [ ] 阅读 Obsidian 官方帮助文档➕ 2025-04-10 
 ## 1.2 插件主题
 ### 1.2.1 插件 

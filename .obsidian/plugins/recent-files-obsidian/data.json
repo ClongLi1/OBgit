@@ -5,12 +5,16 @@
       "path": "100附件文件/1010Dataview/DataView事件倒计时⌛.md"
     },
     {
-      "basename": "日历Dataview",
-      "path": "100附件文件/1010Dataview/日历Dataview.md"
+      "basename": "日记模板",
+      "path": "100附件文件/1005模板/日记模板.md"
     },
     {
       "basename": "Obsidian（黑曜石）",
       "path": "03软件网络/Obsidian（黑曜石）.md"
+    },
+    {
+      "basename": "日历Dataview",
+      "path": "100附件文件/1010Dataview/日历Dataview.md"
     },
     {
       "basename": "⌛牛马-倒计时⌛",
@@ -195,10 +199,6 @@
     {
       "basename": "如何提高团队协作能力？",
       "path": "04方法思维/如何提高团队协作能力？.md"
-    },
-    {
-      "basename": "轻研公众号",
-      "path": "05工作职场/轻研公众号.md"
     }
   ],
   "omittedPaths": [],
