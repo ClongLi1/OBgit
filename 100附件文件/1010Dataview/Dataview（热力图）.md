@@ -1,5 +1,5 @@
 ```contributionGraph
-title: Git样式热力图
+title: ""
 graphType: default
 dateRangeValue: 300
 dateRangeType: LATEST_DAYS
@@ -35,7 +35,7 @@ cellStyleRules:
 
 ```
 ```contributionGraph
-title: 月追踪样式热力图
+title: ""
 graphType: month-track
 dateRangeValue: 180
 dateRangeType: LATEST_DAYS
@@ -71,7 +71,7 @@ cellStyleRules:
 
 ```
 ```contributionGraph
-title: 日历样式热力图
+title: ""
 graphType: calendar
 dateRangeValue: 100
 dateRangeType: LATEST_DAYS

@@ -1,12 +1,24 @@
 {
   "recentFiles": [
     {
+      "basename": "Dataview插件——充分释放Obsidian性能",
+      "path": "00写作运营/Dataview插件——充分释放Obsidian性能.md"
+    },
+    {
+      "basename": "Dataview（热力图）",
+      "path": "100附件文件/1010Dataview/Dataview（热力图）.md"
+    },
+    {
       "basename": "Dataview（简单表格查询实例）",
       "path": "100附件文件/1010Dataview/Dataview（简单表格查询实例）.md"
     },
     {
-      "basename": "Dataview插件——充分释放Obsidian性能",
-      "path": "00写作运营/Dataview插件——充分释放Obsidian性能.md"
+      "basename": "Dataview（列表查询实例）",
+      "path": "100附件文件/1010Dataview/Dataview（列表查询实例）.md"
+    },
+    {
+      "basename": "Dataview全局总览",
+      "path": "100附件文件/Dataview全局总览.md"
     },
     {
       "basename": "Dataview（标签可视化）",
@@ -45,16 +57,8 @@
       "path": "03软件网络/Obsidian（黑曜石）.md"
     },
     {
-      "basename": "Dataview全局总览",
-      "path": "100附件文件/Dataview全局总览.md"
-    },
-    {
       "basename": "Dataview（饼图可视化分类笔记)",
       "path": "100附件文件/1010Dataview/Dataview（饼图可视化分类笔记).md"
-    },
-    {
-      "basename": "Dataview（热力图）",
-      "path": "100附件文件/1010Dataview/Dataview（热力图）.md"
     },
     {
       "basename": "Dataview（文件夹笔记数量汇总）",
@@ -195,10 +199,6 @@
     {
       "basename": "分手顶多一次",
       "path": "11情感婚恋/分手顶多一次.md"
-    },
-    {
-      "basename": "谈恋爱一定要报备",
-      "path": "11情感婚恋/谈恋爱一定要报备.md"
     }
   ],
   "omittedPaths": [],
