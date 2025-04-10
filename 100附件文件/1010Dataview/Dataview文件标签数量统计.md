@@ -1,9 +1,8 @@
-
 ```dataviewjs
 // 获取今天的日期
 const today = new Date();
 const todayStr = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
-const daysUsed = Math.floor((today - new Date("2024-07-")) / (1000 * 60 * 60 * 24));
+const daysUsed = Math.floor((today - new Date("2024-07-01")) / (1000 * 60 * 60 * 24));
 
 // 获取文件夹名称和颜色
 const folders = [
@@ -35,12 +34,32 @@ const totalTags = dv.pages().file.etags.distinct().length;
 // 输出使用天数、总笔记数和总标签数
 dv.paragraph(`我已经使用Obsidian：**<span style="color: #FF6384;">${daysUsed}</span>**天，总笔记数：**<span style="color: #36A2EB;">${totalNotes}</span>**篇，总标签数：**<span style="color: #FFCE56;">${totalTags}</span>**个`);
 
-// 统计每个文件夹中的笔记数量
-folders.forEach(folder => {
+// 创建一个列表来展示文件夹统计信息
+dv.list(folders.map(folder => {
     const count = dv.pages(`"${folder.name}"`).length;
-    dv.paragraph(`**<span style="color: ${folder.color};">${folder.name}</span>**：**${count}**篇`);
-});
+    return `**<span style="color: ${folder.color};">${folder.name}</span>**：**${count}**篇`;
+}), "unordered");
 ```
 
-```a
+```dataviewjs
+let la = Array()
+let da = Array()
+for(let i of dv.pages().groupBy(p=>p.file.folder.split("/")[0]))
+{
+	la.push(i.key);
+	let n = dv.pages(`"${i.key}"`).length;
+	da.push(n);
+}
+
+dv.paragraph(`\`\`\`chart
+type: pie
+labels: [${la}]
+series:
+- title: 
+  data: [${da}]
+width: 50%
+legendPosition: left
+labelColors: true
+\`\`\``);
 ```
+
