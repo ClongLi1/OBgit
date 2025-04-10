@@ -5,7 +5,7 @@
   
   .theme-dark {
     --BlockqutoeColor_border-inline-start: rgb(0, 255, 26);
-    --BlockqutoeColor_background-color: rgb(236, 254, 255);
+    --BlockqutoeColor_background-color: rgb(29, 0, 51);
   }
   
   /* PKMer网站的引用框 */
@@ -34,7 +34,7 @@
 /* 浅色主题下的引用块颜色 */
 .theme-light {
   --blockquote-border-color: rgb(0, 0, 0);
-  --blockquote-bg-color: rgb(221, 207, 245);
+  --blockquote-bg-color: rgb(55, 186, 38);
 }
 
 /* 深色主题下的引用块颜色 */
