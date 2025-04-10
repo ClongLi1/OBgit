@@ -13,6 +13,4 @@ bestFit: false
 bestFitTitle: undefined
 bestFitNumber: 0
 ```
-```dataview
-table file.day
-```
+
