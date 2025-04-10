@@ -103,7 +103,7 @@
     },
     {
       "id": "obsidian-charts:creation-helper",
-      "icon": "lucide-a-arrow-down",
+      "icon": "lucide-square-library",
       "name": "Charts: Insert new Chart",
       "mode": "any",
       "color": "#00cddb"
