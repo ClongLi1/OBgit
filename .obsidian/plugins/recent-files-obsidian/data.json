@@ -5,8 +5,16 @@
       "path": "07文学历史/07文学历史.md"
     },
     {
+      "basename": "名人传记",
+      "path": "07文学历史/名人传记.md"
+    },
+    {
       "basename": "07历史文学",
       "path": "07文学历史/07历史文学.md"
+    },
+    {
+      "basename": "美文语录",
+      "path": "07文学历史/美文语录.md"
     },
     {
       "basename": "琐碎问题",
@@ -191,14 +199,6 @@
     {
       "basename": "YAML",
       "path": "03软件网络/YAML.md"
-    },
-    {
-      "basename": "日记模板",
-      "path": "100附件文件/1005模板/日记模板.md"
-    },
-    {
-      "basename": "词云测试",
-      "path": "00草稿收集/词云测试.md"
     }
   ],
   "omittedPaths": [],
