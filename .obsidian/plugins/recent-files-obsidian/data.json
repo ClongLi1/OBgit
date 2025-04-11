@@ -1,16 +1,40 @@
 {
   "recentFiles": [
     {
+      "basename": "工作职场",
+      "path": "07文学历史/工作职场.md"
+    },
+    {
       "basename": "07历史文学",
       "path": "07文学历史/07历史文学.md"
     },
     {
-      "basename": "杂碎笔记",
-      "path": "07文学历史/杂碎笔记.md"
-    },
-    {
       "basename": "07文学历史",
       "path": "07文学历史/07文学历史.md"
+    },
+    {
+      "basename": "成语典故",
+      "path": "07文学历史/成语典故.md"
+    },
+    {
+      "basename": "口才社交礼仪",
+      "path": "07文学历史/口才社交礼仪.md"
+    },
+    {
+      "basename": "语录热评",
+      "path": "07文学历史/语录热评.md"
+    },
+    {
+      "basename": "影视影音",
+      "path": "100附件文件/1001看板/影视影音.md"
+    },
+    {
+      "basename": "历史更迭",
+      "path": "07文学历史/历史更迭.md"
+    },
+    {
+      "basename": "杂碎笔记",
+      "path": "07文学历史/杂碎笔记.md"
     },
     {
       "basename": "小品相声戏曲",
@@ -19,10 +43,6 @@
     {
       "basename": "名人传记",
       "path": "07文学历史/名人传记.md"
-    },
-    {
-      "basename": "美文语录",
-      "path": "07文学历史/美文语录.md"
     },
     {
       "basename": "琐碎问题",
@@ -179,26 +199,6 @@
     {
       "basename": "居家布置",
       "path": "100附件文件/1004Excalidraw/居家布置.md"
-    },
-    {
-      "basename": "Dateview",
-      "path": "03软件网络/Dateview.md"
-    },
-    {
-      "basename": "Obsidian（黑曜石）",
-      "path": "03软件网络/Obsidian（黑曜石）.md"
-    },
-    {
-      "basename": "11感情婚恋",
-      "path": "11情感婚恋/11感情婚恋.md"
-    },
-    {
-      "basename": "夫妻同心，齐力断金",
-      "path": "11情感婚恋/夫妻同心，齐力断金.md"
-    },
-    {
-      "basename": "03软件电脑",
-      "path": "03软件网络/03软件电脑.md"
     }
   ],
   "omittedPaths": [],
