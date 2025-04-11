@@ -7,3 +7,6 @@
 
 
 # 3. 参考资料 
+1. [Python 基础教程 | 菜鸟教程](https://www.runoob.com/python/python-tutorial.html)
+2. [Python Documentation（Python官方文档）](https://docs.python.org/zh-cn/3/)
+3. 
