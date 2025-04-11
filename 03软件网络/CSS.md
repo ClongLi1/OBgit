@@ -3,6 +3,7 @@
 # 2. 学习笔记 
 1. Ctrl+shift+I (Obsidian 开发者工具)
 2. CSS 编辑器—— [[VS code]]
+3. [[]] 和 CSS 中的排版和 [[LaTeX]] 比较相像（异曲同工）
 
 # 3. 学习资源 
 -  [CSS入门必备基础（适合小白) - 知乎](https://zhuanlan.zhihu.com/p/268723171)
