@@ -94,13 +94,21 @@ dv.paragraph(totalDays + " " + totalMd + " " + totalTag + " " + totalTask); 
 
 --- start-multi-column: ID_5fg3
 ```column-settings
-Number of Columns: 2
+Number of Columns: 3
 Largest Column: standard
 ```
+
 
 ![[个人时间表#日常时间管理]]
 
 --- column-break ---
+
+
+![[Dataview（🌤️天气预报🌦️）#天气预报]] >
+
+
+--- column-break ---
+
 
 ```dataview
 table file.mtime
@@ -108,7 +116,6 @@ SORT file.mtime DESC 
 limit 15
 ```
 
+
 --- end-multi-column
-
-
 
