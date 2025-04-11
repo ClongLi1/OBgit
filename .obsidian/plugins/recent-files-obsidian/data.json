@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
+      "basename": "07历史文学",
+      "path": "07文学历史/07历史文学.md"
+    },
+    {
+      "basename": "杂碎笔记",
+      "path": "07文学历史/杂碎笔记.md"
+    },
+    {
       "basename": "07文学历史",
       "path": "07文学历史/07文学历史.md"
     },
     {
-      "basename": "名人传记",
-      "path": "07文学历史/名人传记.md"
+      "basename": "小品相声戏曲",
+      "path": "07文学历史/小品相声戏曲.md"
     },
     {
-      "basename": "07历史文学",
-      "path": "07文学历史/07历史文学.md"
+      "basename": "名人传记",
+      "path": "07文学历史/名人传记.md"
     },
     {
       "basename": "美文语录",
@@ -191,14 +199,6 @@
     {
       "basename": "03软件电脑",
       "path": "03软件网络/03软件电脑.md"
-    },
-    {
-      "basename": "个人月结",
-      "path": "100附件文件/1005模板/个人月结.md"
-    },
-    {
-      "basename": "YAML",
-      "path": "03软件网络/YAML.md"
     }
   ],
   "omittedPaths": [],
