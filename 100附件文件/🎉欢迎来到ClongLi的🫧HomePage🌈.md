@@ -101,21 +101,22 @@ Largest Column: standard
 
 ![[个人时间表#日常时间管理]]
 
+
+--- column-break ---
+
+
+
+```dataview
+table file.mday
+SORT file.mtime DESC 
+limit 21
+```
+
+
 --- column-break ---
 
 
 ![[Dataview（🌤️天气预报🌦️）#天气预报]] >
 
 
---- column-break ---
-
-
-```dataview
-table file.mtime
-SORT file.mtime DESC 
-limit 15
-```
-
-
 --- end-multi-column
-
