@@ -5,12 +5,20 @@
       "path": "03软件网络/Obsidian（黑曜石）.md"
     },
     {
+      "basename": "03软件电脑",
+      "path": "03软件网络/03软件电脑.md"
+    },
+    {
       "basename": "Obsidian",
       "path": "03软件网络/Obsidian.md"
     },
     {
-      "basename": "03软件电脑",
-      "path": "03软件网络/03软件电脑.md"
+      "basename": "Dateview",
+      "path": "03软件网络/Dateview.md"
+    },
+    {
+      "basename": "Dataview",
+      "path": "03软件网络/Dataview.md"
     },
     {
       "basename": "03软件网络",
@@ -191,14 +199,6 @@
     {
       "basename": "如何读书？",
       "path": "04方法思维/如何读书？.md"
-    },
-    {
-      "basename": "读书的重要性",
-      "path": "07文学历史/读书的重要性.md"
-    },
-    {
-      "basename": "Dataview插件——充分释放Obsidian性能",
-      "path": "00写作运营/Dataview插件——充分释放Obsidian性能.md"
     }
   ],
   "omittedPaths": [],

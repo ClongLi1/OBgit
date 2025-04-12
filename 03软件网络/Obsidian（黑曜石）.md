@@ -10,12 +10,12 @@
 ## 1.1 学习资源 
 1. [Obsidian Help(官方帮助文档)](https://help.obsidian.md/properties) 
 2. [Obsidian 插件之 Dataview - 知乎](https://zhuanlan.zhihu.com/p/373623264)
-- [ ] 阅读 Obsidian 官方帮助文档➕ 2025-04-10 
+- [ ] 阅读 Obsidian 官方帮助文档➕ 2025-04-10  
 ## 1.2 插件主题
 ### 1.2.1 插件 
 -  **obsidian Git** [^1]                                                                         
-- **DateView**[^2]      
-- **Templater**插件[^3][Obsidian 达人成长之路 5：使用 Templater 减少重复工作，提高效率 - 知乎](https://zhuanlan.zhihu.com/p/703459656)          
+- **DateView**[^2]—— `数据查询和筛选、创建和展示笔记的动态内容、自定义模板和样式` [[Dateview]]
+- **Templater**插件[^3][Obsidian 达人成长之路 5：使用 Templater 减少重复工作，提高效率 - 知乎](https://zhuanlan.zhihu.com/p/703459656)   [[Templater]]       
 - **Tag Wrangler**[^4]              
 - Spanced Repatition [^5]            
 - Tasks [^6]                          
@@ -23,12 +23,14 @@
 - Checklist[^8]      
 - Charts[^9]    
 - Chart view     
-- Tracker[^10]                                                                                                                                                                                                                                                                  
+- Tracker[^10]                                          
 ### 1.2.2 主题 
 
 
 ## 1.3 使用心得技巧 
-
+- % Iframe: width= "80%" height"500"   
+```<iframe src="https://player.bilibili.com/player.html?aid=702374093&bvid=BV1Xm4y1n7bQ&cid=1232824646&page=1&autoplay=false" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="80%" height="500"> </iframe>
+```
 
 
 
@@ -36,8 +38,7 @@
 
 ---
 ---
-## Reference                                                                                                                                                                   
-
+## Reference 
 
 [^1]: [4.1_obsidian插件（利用obsidian-git自动同步仓库）_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1jkNUeTEMW/?spm_id_from=333.337.search-card.all.click&vd_source=d1167fc706d8bb4a356a82d19d9d3304)
 
