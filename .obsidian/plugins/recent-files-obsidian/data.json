@@ -1,16 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "03软件网络",
-      "path": "03软件网络/03软件网络.md"
+      "basename": "03软件电脑",
+      "path": "03软件网络/03软件电脑.md"
+    },
+    {
+      "basename": "如何搭建个人网站",
+      "path": "03软件网络/如何搭建个人网站.md"
     },
     {
       "basename": "OBS Studio",
       "path": "03软件网络/OBS Studio.md"
-    },
-    {
-      "basename": "03软件电脑",
-      "path": "03软件网络/03软件电脑.md"
     },
     {
       "basename": "AI工具和模型",
@@ -195,10 +195,6 @@
     {
       "basename": "阅读笔记",
       "path": "07文学历史/阅读笔记.md"
-    },
-    {
-      "basename": "成语典故",
-      "path": "07文学历史/成语典故.md"
     }
   ],
   "omittedPaths": [],
