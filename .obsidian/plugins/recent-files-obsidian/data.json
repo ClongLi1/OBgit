@@ -1,12 +1,28 @@
 {
   "recentFiles": [
     {
+      "basename": "03软件网络",
+      "path": "03软件网络/03软件网络.md"
+    },
+    {
+      "basename": "Git&GitHub",
+      "path": "03软件网络/Git&GitHub.md"
+    },
+    {
       "basename": "03软件电脑",
       "path": "03软件网络/03软件电脑.md"
     },
     {
-      "basename": "03软件网络",
-      "path": "03软件网络/03软件网络.md"
+      "basename": "LaTeXBeamer",
+      "path": "03软件网络/LaTeXBeamer.md"
+    },
+    {
+      "basename": "剪映专业版",
+      "path": "03软件网络/剪映专业版.md"
+    },
+    {
+      "basename": "PhotoShop",
+      "path": "03软件网络/PhotoShop.md"
     },
     {
       "basename": "PowerPoint（讲演展示）",
@@ -179,18 +195,6 @@
     {
       "basename": "杂碎笔记",
       "path": "07文学历史/杂碎笔记.md"
-    },
-    {
-      "basename": "名人传记",
-      "path": "07文学历史/名人传记.md"
-    },
-    {
-      "basename": "琐碎问题",
-      "path": "15-琐碎问题/琐碎问题.md"
-    },
-    {
-      "basename": "读书的意义",
-      "path": "07文学历史/读书的意义.md"
     }
   ],
   "omittedPaths": [],
