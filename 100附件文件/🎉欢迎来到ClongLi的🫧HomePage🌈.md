@@ -55,7 +55,7 @@ cellStyleRules:
 let ftMd = dv.pages("").file.sort(t => t.cday)[0];  
 let total = parseInt([new Date() - ftMd.ctime] / (60 * 60 * 24 * 1000));  
 let rainbowStyle = "color: #FFFFFF; background: linear-gradient(90deg, #4169E1, #00BFFF, #32CD32, #FFD700, #FF6347, #9932CC); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;";  
-let totalDays = `<span style="${rainbowStyle}"> 我在 **[[Obsidian]]** 的世界中已探索 ${total} 天 ，</span>`;  
+let totalDays = `<span style="${rainbowStyle}"> 我在 Obsidian的世界中已探索 ${total} 天 ，</span>`;  
 let nofold = '!"misc/templates"';  
 let allFile = dv.pages(nofold).file;  
 let totalMd = `<span style="${rainbowStyle}">已发现 ${allFile.length} 颗闪耀的笔记星星 </span>`;  
