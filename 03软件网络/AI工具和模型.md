@@ -11,7 +11,7 @@
 - DeepSeek ——**推理模型**
 - Kimi. Ai ——**通用模型**
 - Manus——**通用模型**
-
+- [[ChatGPT]]
 ## 1.2 AI 使用技巧 
 - [[Deepssek从入门到精通视频讲解+PDF阅读笔记]] [[DeepSeek从入门到精通（清华大学）.pdf]]
 - [[DeepSeek案例]]  [[DeepSeek从入门到精通（7大场景 50大案例 全套提示词） (DeepSeek从入门到精通（7大场景 50大案例 全套提示词）) (Z-Library).pdf]]

@@ -1,1 +1,2 @@
 [OBS Studio 桌面录屏教程：自动字幕 + 背景音乐](https://mp.weixin.qq.com/s/OImYUiD4T8koS0v1Ns7PpQ)
+ [OBS保姆级攻略](https://www.bilibili.com/video/BV1kV1jYMEbg/?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&vd_source=d1167fc706d8bb4a356a82d19d9d3304)

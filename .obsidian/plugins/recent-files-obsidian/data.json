@@ -5,8 +5,24 @@
       "path": "03软件网络/03软件网络.md"
     },
     {
+      "basename": "OBS Studio",
+      "path": "03软件网络/OBS Studio.md"
+    },
+    {
       "basename": "03软件电脑",
       "path": "03软件网络/03软件电脑.md"
+    },
+    {
+      "basename": "AI工具和模型",
+      "path": "03软件网络/AI工具和模型.md"
+    },
+    {
+      "basename": "Microsoft Edge",
+      "path": "03软件网络/Microsoft Edge.md"
+    },
+    {
+      "basename": "Xmind",
+      "path": "03软件网络/Xmind.md"
     },
     {
       "basename": "Dateview",
@@ -183,22 +199,6 @@
     {
       "basename": "成语典故",
       "path": "07文学历史/成语典故.md"
-    },
-    {
-      "basename": "语录热评",
-      "path": "07文学历史/语录热评.md"
-    },
-    {
-      "basename": "影视影音",
-      "path": "100附件文件/1001看板/影视影音.md"
-    },
-    {
-      "basename": "历史更迭",
-      "path": "07文学历史/历史更迭.md"
-    },
-    {
-      "basename": "杂碎笔记",
-      "path": "07文学历史/杂碎笔记.md"
     }
   ],
   "omittedPaths": [],
