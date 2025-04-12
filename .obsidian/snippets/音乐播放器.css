@@ -1,0 +1,19 @@
+<style>
+  .music-player-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .music-player-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  @media (max-width: 768px) {
+    .music-player-container {
+      height: 80vh; /* 在小屏幕上设置高度为视口高度的80% */
+    }
+  }
+</style>
