@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "Obsidian（黑曜石）",
-      "path": "03软件网络/Obsidian（黑曜石）.md"
-    },
-    {
       "basename": "03软件电脑",
       "path": "03软件网络/03软件电脑.md"
     },
     {
-      "basename": "Obsidian",
-      "path": "03软件网络/Obsidian.md"
+      "basename": "03软件网络",
+      "path": "03软件网络/03软件网络.md"
+    },
+    {
+      "basename": "PowerPoint（讲演展示）",
+      "path": "03软件网络/PowerPoint（讲演展示）.md"
+    },
+    {
+      "basename": "Obsidian（黑曜石）",
+      "path": "03软件网络/Obsidian（黑曜石）.md"
     },
     {
       "basename": "Dateview",
@@ -19,10 +23,6 @@
     {
       "basename": "Dataview",
       "path": "03软件网络/Dataview.md"
-    },
-    {
-      "basename": "03软件网络",
-      "path": "03软件网络/03软件网络.md"
     },
     {
       "basename": "电脑知识",
@@ -191,14 +191,6 @@
     {
       "basename": "读书的意义",
       "path": "07文学历史/读书的意义.md"
-    },
-    {
-      "basename": "读那些书？",
-      "path": "07文学历史/读那些书？.md"
-    },
-    {
-      "basename": "如何读书？",
-      "path": "04方法思维/如何读书？.md"
     }
   ],
   "omittedPaths": [],

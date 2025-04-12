@@ -6,7 +6,7 @@
 ## 3.1 [[PPT软件入门基本课程]]  
  - $ REF: [PPT软件全套教程（小白从入门到精通）/零基础PPT制作教程/PPT制作技巧/PPT教程教学/PPT素材_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV16v411i7yF/?spm_id_from=333.337.search-card.all.click&vd_source=d1167fc706d8bb4a356a82d19d9d3304)
 
-> [!tip] PPT制作技巧
+> [!tip] PPT 制作技巧
 > 1. 母版功能
 > 2. 布局合理（看别人的优秀作品、逻辑排版）
 > 3. 色系合理（常用色系）
@@ -24,4 +24,3 @@
 6. [😭 哭了！学PPT前这些技巧我咋不知道！](https://mp.weixin.qq.com/s/QKB03T4It-S_7a7rSd46Kw)
 7. [PPT制作效率翻倍：10个必备技巧](https://mp.weixin.qq.com/s/1kgWi-OmN1ASDwJd2nnKXg)
 8. [成为PPT高手：15个逻辑技巧全解析（排版）](https://mp.weixin.qq.com/s/IAtDrZSLYIVW_zaxL-9T7w)
-9. 
