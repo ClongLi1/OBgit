@@ -13,7 +13,7 @@
 - [ ] 阅读 Obsidian 官方帮助文档➕ 2025-04-10 
 ## 1.2 插件主题
 ### 1.2.1 插件 
--  **obsidian Git** [^1]                                                                                                                                                                                                                                                                 
+-  **obsidian Git** [^1]                                                                         
 - **DateView**[^2]      
 - **Templater**插件[^3][Obsidian 达人成长之路 5：使用 Templater 减少重复工作，提高效率 - 知乎](https://zhuanlan.zhihu.com/p/703459656)          
 - **Tag Wrangler**[^4]              
