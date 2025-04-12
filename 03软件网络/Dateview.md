@@ -19,6 +19,7 @@
 [[Dataview草稿]]
 [[Tags(dataviewjs)]]
 [[03软件网络/Dataview|Dataview]]
+[[Dataview基本语法学习指南]]
 
 
 ## 1.2 经验总结 

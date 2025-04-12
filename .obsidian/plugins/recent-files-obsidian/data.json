@@ -5,12 +5,20 @@
       "path": "03软件网络/03软件网络.md"
     },
     {
-      "basename": "Git&GitHub",
-      "path": "03软件网络/Git&GitHub.md"
-    },
-    {
       "basename": "03软件电脑",
       "path": "03软件网络/03软件电脑.md"
+    },
+    {
+      "basename": "Dateview",
+      "path": "03软件网络/Dateview.md"
+    },
+    {
+      "basename": "YAML",
+      "path": "03软件网络/YAML.md"
+    },
+    {
+      "basename": "Git&GitHub",
+      "path": "03软件网络/Git&GitHub.md"
     },
     {
       "basename": "LaTeXBeamer",
@@ -31,10 +39,6 @@
     {
       "basename": "Obsidian（黑曜石）",
       "path": "03软件网络/Obsidian（黑曜石）.md"
-    },
-    {
-      "basename": "Dateview",
-      "path": "03软件网络/Dateview.md"
     },
     {
       "basename": "Dataview",
