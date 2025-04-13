@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "aaa",
+      "path": "00草稿收集/aaa.md"
+    },
+    {
+      "basename": "BBB",
+      "path": "00草稿收集/BBB.md"
+    },
+    {
       "basename": "Dataview（文件夹笔记数量汇总）",
       "path": "100附件文件/1010Dataview/Dataview（文件夹笔记数量汇总）.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "13英语水平 ",
       "path": "13英语相关/13英语水平 .md"
-    },
-    {
-      "basename": "小品相声戏曲",
-      "path": "07文学历史/小品相声戏曲.md"
-    },
-    {
-      "basename": "06社交口才",
-      "path": "06口才社交/06社交口才.md"
     }
   ],
   "omittedPaths": [],
