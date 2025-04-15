@@ -10,6 +10,7 @@
 ## 1.1 Git 
 - [[Git命令学习]]
 - [Git与Github远程仓库使用](https://mp.weixin.qq.com/s/u7gn79bhXeAM3F0rXBTlpQ)
+- [Git教程 - 廖雪峰](https://liaoxuefeng.com/books/git/introduction/index.html)
 
 ## 1.2 GitHub & Gitee 
 > [!note] Github 全球最受欢迎的源代码管理平台
