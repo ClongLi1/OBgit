@@ -5,7 +5,7 @@
   "showAttachments": true,
   "hideUnresolved": true,
   "showOrphans": true,
-  "collapse-color-groups": true,
+  "collapse-color-groups": false,
   "colorGroups": [
     {
       "query": "path:00科研相关  ",
@@ -85,16 +85,16 @@
       }
     }
   ],
-  "collapse-display": false,
+  "collapse-display": true,
   "showArrow": true,
   "textFadeMultiplier": -1.6,
-  "nodeSizeMultiplier": 1.27690935046395,
+  "nodeSizeMultiplier": 1.03840182323196,
   "lineSizeMultiplier": 0.458051420838972,
   "collapse-forces": false,
   "centerStrength": 0.62741116751269,
   "repelStrength": 13.5368996485748,
-  "linkStrength": 1,
+  "linkStrength": 0.607418976962124,
   "linkDistance": 308,
-  "scale": 0.152175063436615,
+  "scale": 0.05671273665127866,
   "close": true
 }
