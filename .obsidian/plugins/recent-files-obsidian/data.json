@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "Excel中的通配符",
+      "path": "03软件网络/Excel中的通配符.md"
+    },
+    {
       "basename": "03软件电脑",
       "path": "03软件网络/03软件电脑.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "购物清单",
       "path": "100附件文件/1001看板/购物清单.md"
-    },
-    {
-      "basename": "Obsidian（黑曜石）",
-      "path": "03软件网络/Obsidian（黑曜石）.md"
     }
   ],
   "omittedPaths": [],
