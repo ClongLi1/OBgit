@@ -83,6 +83,20 @@
         "a": 1,
         "rgb": 14725458
       }
+    },
+    {
+      "query": "path:11情感婚恋  ",
+      "color": {
+        "a": 1,
+        "rgb": 16751081
+      }
+    },
+    {
+      "query": "path:12亲子教育  ",
+      "color": {
+        "a": 1,
+        "rgb": 8245504
+      }
     }
   ],
   "collapse-display": true,
@@ -95,6 +109,6 @@
   "repelStrength": 13.5368996485748,
   "linkStrength": 0.86290150274197,
   "linkDistance": 308,
-  "scale": 0.15217506980598636,
-  "close": false
+  "scale": 0.05671273665127865,
+  "close": true
 }

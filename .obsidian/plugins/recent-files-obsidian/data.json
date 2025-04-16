@@ -5,6 +5,34 @@
       "path": "998日记汇总/2025-04-16.md"
     },
     {
+      "basename": "听力篇",
+      "path": "13英语相关/听力篇.md"
+    },
+    {
+      "basename": "男人爆发魅力的特点",
+      "path": "10总结反思/男人爆发魅力的特点.md"
+    },
+    {
+      "basename": "安全",
+      "path": "01生活方面/安全.md"
+    },
+    {
+      "basename": "Dataview（热力图）",
+      "path": "100附件文件/1010Dataview/Dataview（热力图）.md"
+    },
+    {
+      "basename": "发明专利",
+      "path": "00科研相关/发明专利.md"
+    },
+    {
+      "basename": "国家自然基金申请注意事项",
+      "path": "00科研相关/国家自然基金申请注意事项.md"
+    },
+    {
+      "basename": "知识管理流程图",
+      "path": "999知识管理/知识管理流程图.md"
+    },
+    {
       "basename": "04思维方法",
       "path": "04方法思维/04思维方法.md"
     },
@@ -171,34 +199,6 @@
     {
       "basename": "Python",
       "path": "03软件网络/Python.md"
-    },
-    {
-      "basename": "14运动健康 ",
-      "path": "14运动医学/14运动健康 .md"
-    },
-    {
-      "basename": "运动技巧",
-      "path": "14运动医学/运动技巧.md"
-    },
-    {
-      "basename": "武器装备",
-      "path": "07文学历史/武器装备.md"
-    },
-    {
-      "basename": "旅游打卡时间线",
-      "path": "07文学历史/旅游打卡时间线.md"
-    },
-    {
-      "basename": "➗个人大事件（TimeLine)",
-      "path": "100附件文件/➗个人大事件（TimeLine).md"
-    },
-    {
-      "basename": "地图形貌",
-      "path": "07文学历史/地图形貌.md"
-    },
-    {
-      "basename": "钱氏家训",
-      "path": "07文学历史/钱氏家训.md"
     }
   ],
   "omittedPaths": [],
