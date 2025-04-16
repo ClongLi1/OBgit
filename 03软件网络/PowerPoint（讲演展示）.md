@@ -1,7 +1,7 @@
 # 1. 引言
 
 # 2. 学习资源
-
+- [[曹将PPT资源]]
 # 3. 课程笔记
 ## 3.1 [[PPT软件入门基本课程]]  
  - $ REF: [PPT软件全套教程（小白从入门到精通）/零基础PPT制作教程/PPT制作技巧/PPT教程教学/PPT素材_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV16v411i7yF/?spm_id_from=333.337.search-card.all.click&vd_source=d1167fc706d8bb4a356a82d19d9d3304)
@@ -15,6 +15,10 @@
 > 6. 优化段落
 > 7. 巧取颜色
 > 8. 快速配图
+
+- [[8步法制作PPT]]
+- [[PPT技巧汇总]]
+- [[PPT思维]]
 ## 3.2 经验技巧
 1. [PPT标题这样写真的很Low！](https://mp.weixin.qq.com/s/rydtsjBOFGzQR0crkiqv5Q)
 2. [那些职场中最常用的20个PPT小技巧](https://mp.weixin.qq.com/s/K3K5RZvAejr7HF-HOyLImw)

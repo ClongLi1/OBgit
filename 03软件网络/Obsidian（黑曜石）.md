@@ -12,7 +12,7 @@
 2. [Obsidian 插件之 Dataview - 知乎](https://zhuanlan.zhihu.com/p/373623264)
 3. [Obsidian Emo Uploader](https://lestua.eu.org/notes/2022/10/16/172318/) emo 
 - [ ] 阅读 Obsidian 官方帮助文档➕ 2025-04-10  
-## 1.2 插件主题
+## 1.2 插件主题语法
 ### 1.2.1 插件 
 -  **obsidian Git** [^1]                                                                         
 - **DateView**[^2]—— `数据查询和筛选、创建和展示笔记的动态内容、自定义模板和样式` [[Dateview]]
@@ -27,6 +27,9 @@
 - Tracker[^10]                                          
 ### 1.2.2 主题 
 
+
+### 1.2.3 语法
+- [[Obsidian语法]]
 
 ## 1.3 使用心得技巧 
 - % Iframe: width= "80%" height"500"   

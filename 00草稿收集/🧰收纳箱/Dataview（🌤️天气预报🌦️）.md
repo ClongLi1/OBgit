@@ -1,3 +1,7 @@
+---
+cssclass:
+  - cards
+---
 # 天气预报
 ```dataviewjs     
 let setting = {};      
