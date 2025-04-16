@@ -30,5 +30,7 @@
 1. [nice-front-end-tutorial/tutorial/git-tutorial.md at master · nicejade/nice-front-end-tutorial](https://github.com/nicejade/nice-front-end-tutorial/blob/master/tutorial/git-tutorial.md)
 2. [robotze/GithubDesktopZhTool: Github Desktop 汉化工具 支持 Windows Mac Linux](https://github.com/robotze/GithubDesktopZhTool)
 3. [Git-BOOK(最好的学习资源)](https://git-scm.com/book/zh/v2)
+4. [Git 大全 - Gitee.com](https://gitee.com/all-about-git)
+5. 
 
 
