@@ -33,18 +33,18 @@ cellStyleRules:
   - id: default_d
     color: "#ffd700ff"
     min: "4"
-    max: "6"
+    max: "7"
   - id: default_e
     color: "#ffa500ff"
-    min: "6"
-    max: "8"
+    min: "7"
+    max: "9"
   - id: 1740749878263
-    min: "8"
-    max: "10"
+    min: "9"
+    max: "12"
     color: "#ff4500ff"
     text: ""
   - id: 1740749904057
-    min: "10"
+    min: "12"
     max: "99"
     color: "#ff0000ff"
     text: ""
