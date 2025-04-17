@@ -431,8 +431,8 @@
           "alternativeHighlights": {}
         },
         "inline": {
-          "backgroundColour": "#002b36",
-          "textColour": "#bababa",
+          "backgroundColour": "#370092",
+          "textColour": "#FFFFFF",
           "activeTextColour": "#bababa",
           "titleTextColour": "#000000"
         },

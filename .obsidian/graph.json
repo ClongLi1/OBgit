@@ -1,5 +1,5 @@
 {
-  "collapse-filter": false,
+  "collapse-filter": true,
   "search": "",
   "showTags": false,
   "showAttachments": true,
@@ -97,6 +97,20 @@
         "a": 1,
         "rgb": 8245504
       }
+    },
+    {
+      "query": "path:00写作运营  ",
+      "color": {
+        "a": 1,
+        "rgb": 6750156
+      }
+    },
+    {
+      "query": "path:13英语相关 ",
+      "color": {
+        "a": 1,
+        "rgb": 6119888
+      }
     }
   ],
   "collapse-display": true,
@@ -109,6 +123,6 @@
   "repelStrength": 13.5368996485748,
   "linkStrength": 0.86290150274197,
   "linkDistance": 308,
-  "scale": 0.05671273665127865,
+  "scale": 0.15217506980598636,
   "close": true
 }
