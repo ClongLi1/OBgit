@@ -39,8 +39,8 @@ const currentYear = new Date().getFullYear();
 
 const option = {
     backgroundColor: "rgba(0, 0, 0, 0)",
-    width: 800,
-    height: 250,
+    width: 1000,
+    height: 400,
     tooltip: {
         position: "top",
         trigger: "item",
@@ -86,7 +86,7 @@ const option = {
         itemStyle: {
             normal: {
                 color: "rgba(0, 0, 0, 0)",
-                borderWidth: 2,
+                borderWidth: 1,
             },
         },
     },
@@ -101,4 +101,5 @@ const option = {
 
 app.plugins.plugins["obsidian-echarts"].render(option, this.container);
 ```
+
 
