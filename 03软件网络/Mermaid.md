@@ -22,9 +22,10 @@ Start --> Stop
 ## 图表类型
 
 [[Mermaid图表类型举例]]
+[官方教程 | Mermaid](https://mermaid.js.org/syntax/userJourney.html)
+[Obsidian-功能-甘特图原来这么好用，手把手教程！ - 知乎](https://zhuanlan.zhihu.com/p/706453097)
 
-
-## Mermaid 和 PlantUML 异同
+## Mermaid 和 PlantUML 异同                                                                                                                                                                
 
 Mermaid 和 PlantUML 是两种用于生成图表和流程图的工具。它们之间有一些主要的区别：
 
@@ -38,7 +39,7 @@ Mermaid 和 PlantUML 是两种用于生成图表和流程图的工具。它们�
 
 这里简单介绍一些常用的画架构图流程图的软件
 
-### Draw. Io
+### Draw. Io    
 
  是。
 
@@ -46,7 +47,7 @@ Mermaid 和 PlantUML 是两种用于生成图表和流程图的工具。它们�
 
 - 实时协作；
 - 支撑在线离线版别；
-- 存储支持多种方式：Google Drive, OneDrive, GitHub, GitLab, Dropbox 等；
+- 存储支持多种方式：Google Drive, OneDrive, GitHub, GitLab, Dropbox 等；                                                                                                                                                                       
 - 许多丰厚的图标库。
 
 ![image.png](https://cdn.pkmer.cn/images/20230518155116.png!pkmer)
@@ -69,13 +70,13 @@ OmniGraffle 是一款在苹果体系上的画图软件。支撑 Mac/iPad/iPhone�
 
 ![image.png](https://cdn.pkmer.cn/images/20230518155248.png!pkmer)
 
-### PlantUML
+### PlantUML  
 
 PlantUML 开源的画图东西，可以用代码来画图。
 
 ![image.png](https://cdn.pkmer.cn/images/20230518155309.png!pkmer)
 
-### Visio
+### Visio  
 
 微软出品，以前仍是非常常用的。
 

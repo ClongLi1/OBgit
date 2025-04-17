@@ -1,0 +1,108 @@
+{
+  "edges": [
+    {
+      "color": "5",
+      "fromNode": "5de005a620b5f0f9",
+      "fromSide": "top",
+      "id": "0f20a6ac7410f32d",
+      "styleAttributes": {
+      },
+      "toNode": "d2e2e8f262905ceb",
+      "toSide": "top"
+    },
+    {
+      "color": "5",
+      "fromNode": "5de005a620b5f0f9",
+      "fromSide": "bottom",
+      "id": "8e8bf42531f77145",
+      "styleAttributes": {
+      },
+      "toNode": "d65356c3411c95cb",
+      "toSide": "top"
+    },
+    {
+      "color": "5",
+      "fromNode": "5de005a620b5f0f9",
+      "fromSide": "right",
+      "id": "3a2dfa9b324c039f",
+      "styleAttributes": {
+      },
+      "toNode": "dda22ba7b34a0f47",
+      "toSide": "left"
+    },
+    {
+      "color": "5",
+      "fromNode": "5de005a620b5f0f9",
+      "fromSide": "top",
+      "id": "edae652b51ecf875",
+      "styleAttributes": {
+      },
+      "toNode": "053389b99b2ddb9d",
+      "toSide": "bottom"
+    }
+  ],
+  "nodes": [
+    {
+      "color": "5",
+      "height": 60,
+      "id": "5de005a620b5f0f9",
+      "styleAttributes": {
+        "border": "dashed"
+      },
+      "text": "[知识管理神器 Obsidian，终于有了白板功能！ - 少数派](https://sspai.com/post/77463#!#)",
+      "type": "text",
+      "width": 560,
+      "x": -300,
+      "y": 280
+    },
+    {
+      "color": "6",
+      "height": 400,
+      "id": "d65356c3411c95cb",
+      "styleAttributes": {
+        "shape": "pill"
+      },
+      "text": "这是一个视频\n<iframe src=\"https://player.bilibili.com/player.html?isOutside=true&aid=114267034489490&bvid=BV1vofPY4EdN&cid=29195633266&p=1\" scrolling=\"no\" border=\"0\" frameborder=\"no\" framespacing=\"0\" allowfullscreen=\"true\"  width= \"80%\" height=\"300\"   ></iframe>",
+      "type": "text",
+      "width": 605,
+      "x": -125,
+      "y": 500
+    },
+    {
+      "color": "2",
+      "file": "100附件文件/这是图片.png",
+      "height": 400,
+      "id": "d2e2e8f262905ceb",
+      "styleAttributes": {
+        "border": "dotted"
+      },
+      "type": "file",
+      "width": 640,
+      "x": -860,
+      "y": 520
+    },
+    {
+      "file": "03软件网络/Obsidian（黑曜石）.md",
+      "height": 400,
+      "id": "dda22ba7b34a0f47",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 400,
+      "x": 560,
+      "y": 110
+    },
+    {
+      "color": "1",
+      "height": 60,
+      "id": "053389b99b2ddb9d",
+      "styleAttributes": {
+      },
+      "text": "**这是一个卡片**",
+      "type": "text",
+      "width": 260,
+      "x": -300,
+      "y": 40
+    }
+  ]
+}

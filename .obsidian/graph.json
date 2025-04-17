@@ -1,6 +1,6 @@
 {
-  "collapse-filter": true,
-  "search": "",
+  "collapse-filter": false,
+  "search": "obsidian",
   "showTags": false,
   "showAttachments": true,
   "hideUnresolved": true,
@@ -113,7 +113,7 @@
       }
     }
   ],
-  "collapse-display": true,
+  "collapse-display": false,
   "showArrow": true,
   "textFadeMultiplier": -1.6,
   "nodeSizeMultiplier": 1.03840182323196,
@@ -123,6 +123,6 @@
   "repelStrength": 13.5368996485748,
   "linkStrength": 0.86290150274197,
   "linkDistance": 308,
-  "scale": 0.15217506980598636,
+  "scale": 0.4083254174956961,
   "close": true
 }

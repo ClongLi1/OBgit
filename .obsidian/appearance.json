@@ -21,7 +21,12 @@
     "日历插件",
     "时钟美化",
     "音乐播放器",
-    "引用框"
+    "引用框",
+    "kanpan四象限",
+    "callout彩色",
+    "Ob-graph-search",
+    "设置界面卡片网格",
+    "网址前自动加logo"
   ],
   "showRibbon": true,
   "interfaceFontFamily": "Inter",

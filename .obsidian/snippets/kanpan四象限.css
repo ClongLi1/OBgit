@@ -1,0 +1,368 @@
+/* https://github.com/mgmeyers/obsidian-style-settings */
+/* @settings
+
+name: Kanban Styles
+id: kanban-styles
+settings:
+  - id: kanban-fold
+    title: 折叠Kanban子项目
+    type: class-toggle
+    addCommand: true
+  - id: kanban-card-items
+    title: Kanban卡片子项目
+    type: class-toggle
+    addCommand: true
+*/
+
+/* !折叠模式 */
+.kanban-fold .kanban-plugin__lane-wrapper .kanban-plugin__item-title-wrapper:not(:hover) {
+    .kanban-plugin__markdown-preview-view>:not(:first-child) {
+      display: none;
+    }
+  }
+  
+  /* !在左右侧边栏中不显示工具栏 */
+  .workspace-split.mod-horizontal.mod-right-split,
+  .workspace-split.mod-horizontal.mod-left-split {
+    .workspace-leaf-content[data-type="kanban"]>.view-header {
+      display: none !important;
+    }
+  
+    .workspace-leaf-content[data-type="kanban"] {
+      .markdown-preview-view>*, .cm-content>* {
+        font-size: 16px !important;
+      }
+    }
+  }
+  
+  /* ! 堆叠模式 */
+  .kanban-stack.kanban-plugin {
+    background-color: var(--background-primary);
+  
+    .kanban-plugin__board>div {
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 10px 10px;
+      overflow: auto;
+    }
+  
+    .kanban-plugin__lane-wrapper {
+      &.collapse-horizontal {
+        max-width: fit-content;
+      }
+  
+      &:not(.collapse-horizontal) {
+        min-width: 100%;
+        max-height: 300px;
+      }
+    }
+  
+    .kanban-plugin__lane-placeholder.kanban-plugin__placeholder {
+      display: none;
+    }
+  }
+  
+  /*  !Kanban：四象限模式*/
+  .kanban-four-quadrants.kanban-plugin {
+    background-color: var(--background-primary);
+  
+    .kanban-plugin__board>div {
+      display: flex;
+      justify-content: flex-start;
+      flex-flow: row wrap;
+      align-items: flex-start;
+      width: 100%;
+      gap: 20px 15px;
+      overflow: auto;
+    }
+  
+  
+    .kanban-plugin__lane-placeholder.kanban-plugin__placeholder {
+      display: none;
+    }
+  
+    .kanban-plugin__lane-wrapper:not(.collapse-horizontal) {
+      flex: 0 0 calc(50% - 20px);
+      height: calc(50% - 20px);
+      overflow: auto;
+    }
+  }
+  
+  
+  
+  /* !Kanban： 康奈尔笔记 */
+  .kanban-cornell-note.kanban-plugin {
+    background-color: var(--background-primary);
+  
+    .kanban-plugin__board>div {
+      display: grid;
+      width: 100%;
+  
+      grid-template-columns: 3fr 7fr;
+      grid-template-rows: 7fr 3fr;
+      grid-template-areas:
+        "cue note"
+        "cue summary";
+      gap: 20px;
+    }
+  
+    .kanban-plugin__lane-wrapper:not(.collapse-horizontal) {
+      min-width: 100%;
+      min-height: 100%;
+      /* overflow: auto; */
+  
+      &:nth-child(1) {
+        grid-area: cue;
+      }
+  
+      &:nth-child(2) {
+        grid-area: note;
+      }
+  
+      &:nth-child(3) {
+        grid-area: summary;
+      }
+    }
+  
+    /* 隐藏按钮 */
+    .kanban-plugin__lane-collapse,
+    .kanban-plugin__item-prefix-button-wrapper,
+    /* 隐藏占位符 */
+    .kanban-plugin__lane-placeholder.kanban-plugin__placeholder {
+      display: none;
+    }
+  
+    /* 字体大小设置 */
+    .kanban-plugin__item-content-wrapper {
+      .markdown-preview-view>*, .cm-content>* {
+        font-size: 22px !important;
+      }
+    }
+  }
+  
+  
+  /* !Kanban： 康奈尔笔记2 */
+  .kanban-cornell-note2.kanban-plugin {
+    background-color: var(--background-primary);
+  
+    .kanban-plugin__board>div {
+      display: grid;
+      width: 100%;
+  
+      grid-template-columns: 2fr 8fr;
+      grid-template-rows: 3fr 3fr 2fr;
+      grid-template-areas:
+        "cue note"
+        "cue note"
+        "summary summary";
+      gap: 20px;
+    }
+  
+    .kanban-plugin__lane-wrapper:not(.collapse-horizontal) {
+      min-width: 100%;
+      min-height: 100%;
+  
+      &:nth-child(1) {
+        grid-area: cue;
+      }
+  
+      &:nth-child(2) {
+        grid-area: note;
+      }
+  
+      &:nth-child(3) {
+        grid-area: summary;
+      }
+    }
+  
+    /* 隐藏按钮 */
+    .kanban-plugin__lane-collapse,
+    .kanban-plugin__item-prefix-button-wrapper,
+    /* 隐藏占位符 */
+    .kanban-plugin__lane-placeholder.kanban-plugin__placeholder {
+      display: none;
+    }
+  
+    /* 字体大小设置 */
+    .kanban-plugin__item-content-wrapper {
+      .markdown-preview-view>*, .cm-content>* {
+        font-size: 22px !important;
+      }
+    }
+  }
+  
+  /* !Kanban： 四象限任务板模式2 */
+  .kanban-four-quadrants2.kanban-plugin {
+    background-color: var(--background-primary);
+  
+    .kanban-plugin__board>div {
+      display: grid;
+      width: 100%;
+  
+      grid-template-columns: 1fr 2fr 2fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas:
+        "area0 area1 area2"
+        "area0 area3 area4";
+      gap: 20px;
+    }
+  
+    .kanban-plugin__lane-wrapper:not(.collapse-horizontal) {
+      min-width: 100%;
+      min-height: 100%;
+      overflow: auto;
+  
+      &:nth-child(1) {
+        grid-area: area0;
+      }
+  
+      &:nth-child(2) {
+        grid-area: area1;
+      }
+  
+      &:nth-child(3) {
+        grid-area: area2;
+      }
+  
+      &:nth-child(4) {
+        grid-area: area3;
+      }
+  
+      &:nth-child(5) {
+        grid-area: area4;
+      }
+    }
+  
+    /* 隐藏按钮 */
+    .kanban-plugin__lane-collapse,
+    /* 隐藏占位符 */
+    .kanban-plugin__lane-placeholder.kanban-plugin__placeholder {
+      display: none;
+    }
+  }
+  
+  
+  /* !Kanban： 每周任务周报 */
+  .kanban-weekly-report.kanban-plugin {
+    background-color: var(--background-primary);
+  
+    .kanban-plugin__board>div {
+      display: grid;
+      width: 100%;
+      max-width: 100%;
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: 2fr 1fr;
+      gap: 10px;
+    }
+  
+    .kanban-plugin__lane-wrapper:not(.collapse-horizontal) {
+      min-width: 100%;
+      min-height: 100%;
+      grid-column: span 2;
+  
+      &:nth-child(6) {
+        grid-column: span 5;
+      }
+  
+      &:nth-child(7) {
+        grid-column: span 5;
+      }
+    }
+  
+  
+    /* 隐藏占位符 */
+    .kanban-plugin__lane-placeholder.kanban-plugin__placeholder {
+      display: none;
+    }
+  
+    .kanban-plugin__item-prefix-button-wrapper {
+      visibility: hidden;
+      width: 0.8rem;
+    }
+  }
+  
+  /* ! Kanban：卡片子项目模式 */
+  .kanban-card-items .kanban-plugin,
+  .kanban-card-items.kanban-plugin {
+    background-color: var(--background-primary);
+  
+    /* 只当标题有标签是才启用子项目卡片模式 */
+    /* .kanban-plugin__lane:has(.kanban-plugin__lane-title-text a.tag) */
+    .kanban-plugin__lane-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 10px;
+      height: calc(100% - 40px);
+      overflow-y: auto;
+      overflow-x: hidden;
+  
+      align-content: flex-start;
+      justify-items: stretch;
+      align-items: stretch;
+  
+      .kanban-plugin__item-wrapper {
+  
+        /* border: 2px solid #ee0000; */
+  
+        .kanban-plugin__item {
+          height: 100%;
+          display: grid;
+  
+          .kanban-plugin__item-title-wrapper {
+            /* justify-self: stretch;
+            align-self: stretch; */
+            /* min-height: 150px; */
+            overflow: auto;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+          }
+        }
+  
+      }
+    }
+  }
+  
+  /* ! Kanban：子项目分栏模式 */
+  .kanban-col-items.kanban-plugin {
+    background-color: var(--background-primary);
+  
+    .kanban-plugin__lane-items {
+      display: block;
+      column-width: 280px;
+      column-gap: 0.5rem;
+      overflow-y: auto;
+      overflow-x: hidden;
+  
+      .kanban-plugin__item-wrapper {
+        max-width: 100%;
+  
+        .kanban-plugin__item {
+          display: grid;
+  
+          .kanban-plugin__item-title-wrapper {
+            overflow: auto;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+          }
+        }
+  
+      }
+    }
+  }
+  
+  /* !补丁 */
+  .kanban-plugin__lane {
+    padding-bottom: 10px;
+  }
+  
+  
+  .kanban-plugin__lane-wrapper.collapse-horizontal {
+    max-width: fit-content !important;
+  }
+  
+  .kanban-plugin__item-input {
+    min-height: 100px;
+  }

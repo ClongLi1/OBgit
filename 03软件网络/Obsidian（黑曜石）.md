@@ -32,9 +32,12 @@
 - [[Obsidian语法]]
 
 ## 1.3 使用心得技巧 
+
 - % Iframe: width= "80%" height"500"   
-```<iframe src="https://player.bilibili.com/player.html?aid=702374093&bvid=BV1Xm4y1n7bQ&cid=1232824646&page=1&autoplay=false" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="80%" height="500"> </iframe>
 ```
+<iframe src="https://player.bilibili.com/player.html?aid=702374093&bvid=BV1Xm4y1n7bQ&cid=1232824646&page=1&autoplay=false" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="80%" height="500"> </iframe>
+```
+1. 
 
 
 

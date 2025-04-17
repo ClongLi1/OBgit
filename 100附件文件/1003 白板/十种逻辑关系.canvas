@@ -1,6 +1,17 @@
 {
-	"nodes":[
-		{"id":"b797a891783cb073","x":-640,"y":-280,"width":1299,"height":640,"type":"file","file":"100附件文件/Pasted image 20250417105751.png"}
-	],
-	"edges":[]
+  "edges": [
+  ],
+  "nodes": [
+    {
+      "file": "100附件文件/Pasted image 20250417105751.png",
+      "height": 640,
+      "id": "b797a891783cb073",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 1299,
+      "x": -640,
+      "y": -280
+    }
+  ]
 }
