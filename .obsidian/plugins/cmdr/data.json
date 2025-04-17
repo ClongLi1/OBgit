@@ -114,6 +114,13 @@
       "name": "Charts View: Wizard",
       "mode": "any",
       "color": "#feeb8b"
+    },
+    {
+      "id": "zen:toggle",
+      "icon": "lucide-eye-off",
+      "name": "Zen: Toggle",
+      "mode": "any",
+      "color": "#b3ff75"
     }
   ],
   "macros": [],
