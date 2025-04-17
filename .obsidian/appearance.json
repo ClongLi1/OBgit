@@ -26,7 +26,9 @@
     "callout彩色",
     "Ob-graph-search",
     "设置界面卡片网格",
-    "网址前自动加logo"
+    "网址前自动加logo",
+    "链接图标",
+    "CSS片段多栏布局"
   ],
   "showRibbon": true,
   "interfaceFontFamily": "Inter",

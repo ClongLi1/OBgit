@@ -77,5 +77,6 @@
   "graph-analysis",
   "zen",
   "lazy-plugins",
-  "obsidian-admonition"
+  "obsidian-admonition",
+  "obsidian-echarts"
 ]

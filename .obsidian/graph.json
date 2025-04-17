@@ -1,6 +1,6 @@
 {
   "collapse-filter": false,
-  "search": "obsidian",
+  "search": "",
   "showTags": false,
   "showAttachments": true,
   "hideUnresolved": true,
@@ -119,10 +119,10 @@
   "nodeSizeMultiplier": 1.03840182323196,
   "lineSizeMultiplier": 0.458051420838972,
   "collapse-forces": false,
-  "centerStrength": 0.62741116751269,
-  "repelStrength": 13.5368996485748,
+  "centerStrength": 0.743186686439282,
+  "repelStrength": 16.5088152908222,
   "linkStrength": 0.86290150274197,
-  "linkDistance": 308,
-  "scale": 0.4083254174956961,
+  "linkDistance": 320,
+  "scale": 0.05671273665127865,
   "close": true
 }

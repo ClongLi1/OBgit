@@ -1,6 +1,6 @@
 {
   "lastVersion": "3.1.13",
-  "aestheticStyle": "glass",
+  "aestheticStyle": "custom",
   "positionStyle": "top",
   "menuCommands": [
     {
@@ -316,7 +316,7 @@
   "formatBrushes": {},
   "customCommands": [],
   "viewTypeSettings": {},
-  "toolbarBackgroundColor": "rgba(var(--background-secondary-rgb), 0.7)",
-  "toolbarIconColor": "var(--text-normal)",
-  "toolbarIconSize": 18
+  "toolbarBackgroundColor": "#000454",
+  "toolbarIconColor": "#5CFFDE",
+  "toolbarIconSize": 15
 }
