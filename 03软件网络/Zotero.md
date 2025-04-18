@@ -13,11 +13,11 @@
 4. 条目确认归类、条目移动、条目删除
 5. 定时管理文献库（分类、整理、删除）
 6. 参考文献样式 [zotero-chinese/styles: 中文 CSL 样式 - Zotero 中文社区](https://github.com/zotero-chinese/styles)
-7. 
+7. [阅读流程使用 zotero 来阅读一本书](https://pkmer.cn/Pkmer-Docs/11-zotero/zotero%E6%8F%92%E4%BB%B6/%E9%98%85%E8%AF%BB%E6%B5%81%E7%A8%8B%E4%BD%BF%E7%94%A8zotero%E6%9D%A5%E9%98%85%E8%AF%BB%E4%B8%80%E6%9C%AC%E4%B9%A6/) #待办 
 # 3. 插件汇集
-1. **Better Notes**：更方便地在 Zotero 中做笔记，支持双链、支持模板、支持多种导出方式。
-2. 
-
+1. **Better Notes**：更方便地在 Zotero 中做笔记，支持双链、支持模板、支持多种导出方式。[0 文档简介/About](https://zotero.yuque.com/staff-gkhviy/better-notes/biigg4?)
+2. **PDF Translate**：[PDF Translate 插件](https://pkmer.cn/Pkmer-Docs/11-zotero/zotero%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/8_%E6%8F%92%E4%BB%B6%E4%B8%8E%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/8_3_%E9%98%85%E8%AF%BB%E7%BF%BB%E8%AF%91-pdf-translate%E6%8F%92%E4%BB%B6/)
+3. 
 
 
 
