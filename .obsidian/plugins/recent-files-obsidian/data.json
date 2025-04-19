@@ -1,12 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "MarkDown",
-      "path": "03软件网络/MarkDown.md"
+      "basename": "00科研项目",
+      "path": "00科研相关/00科研项目.md"
+    },
+    {
+      "basename": "03软件电脑",
+      "path": "03软件网络/03软件电脑.md"
+    },
+    {
+      "basename": "高效利用空闲时间",
+      "path": "高效利用空闲时间.md"
     },
     {
       "basename": "05职场工作",
       "path": "05工作职场/05职场工作.md"
+    },
+    {
+      "basename": "Dataview（每日字数统计）",
+      "path": "00-闪念笔记/Dataview（每日字数统计）.md"
+    },
+    {
+      "basename": "MarkDown",
+      "path": "03软件网络/MarkDown.md"
     },
     {
       "basename": "招聘就业",
@@ -17,20 +33,12 @@
       "path": "05工作职场/企业-待遇.md"
     },
     {
-      "basename": "高效利用空闲时间",
-      "path": "高效利用空闲时间.md"
-    },
-    {
       "basename": "金属材料专业必备技能",
       "path": "17AI写作咨询/金属材料专业必备技能.md"
     },
     {
       "basename": "17AI写作咨询",
       "path": "17AI写作咨询/17AI写作咨询.md"
-    },
-    {
-      "basename": "03软件电脑",
-      "path": "03软件网络/03软件电脑.md"
     },
     {
       "basename": "琐碎问题",
@@ -99,10 +107,6 @@
     {
       "basename": "Quicker",
       "path": "03软件网络/Quicker.md"
-    },
-    {
-      "basename": "00科研项目",
-      "path": "00科研相关/00科研项目.md"
     },
     {
       "basename": "英文文章写作",
@@ -195,10 +199,6 @@
     {
       "basename": "人际交往",
       "path": "06口才社交/人际交往.md"
-    },
-    {
-      "basename": "敢于乐于合作和麻烦别人",
-      "path": "06口才社交/敢于乐于合作和麻烦别人.md"
     }
   ],
   "omittedPaths": [],
