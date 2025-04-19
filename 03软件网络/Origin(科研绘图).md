@@ -6,6 +6,7 @@
 ## 2.2 Origin 教程 
 1. 中科大 Origin 科研绘图 PPT [^1]
 2.  [Origin绘图和使用技巧短视频集合](https://www.xiaohongshu.com/collection/item/6378aab6ae00000000000001?xhsshare=QQ&appuid=63a62bd9000000002702bc54&apptime=1698065397)
+3. [[Origin(爱问吱吱)]]
 
 
 ---

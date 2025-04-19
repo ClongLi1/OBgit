@@ -78,5 +78,6 @@
   "zen",
   "lazy-plugins",
   "obsidian-admonition",
-  "obsidian-echarts"
+  "obsidian-echarts",
+  "auto-card-link"
 ]

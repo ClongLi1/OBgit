@@ -335,6 +335,12 @@
       },
       "obsidoom": {
         "startupType": "disabled"
+      },
+      "auto-card-link": {
+        "startupType": "instant"
+      },
+      "obsidian-auto-link-title": {
+        "startupType": "disabled"
       }
     },
     "loadOrder": []
