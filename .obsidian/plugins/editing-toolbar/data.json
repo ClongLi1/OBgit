@@ -316,7 +316,7 @@
   "formatBrushes": {},
   "customCommands": [],
   "viewTypeSettings": {},
-  "toolbarBackgroundColor": "#6C00DA",
-  "toolbarIconColor": "#FFFFFF",
-  "toolbarIconSize": 15
+  "toolbarBackgroundColor": "#000000",
+  "toolbarIconColor": "#B287FF",
+  "toolbarIconSize": 18
 }

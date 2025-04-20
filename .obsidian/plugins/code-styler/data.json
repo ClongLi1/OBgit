@@ -339,7 +339,7 @@
       "inline": {
         "syntaxHighlight": true,
         "style": true,
-        "fontWeight": 7,
+        "fontWeight": 3,
         "curvature": 6,
         "paddingVertical": 5,
         "paddingHorizontal": 5,
@@ -431,8 +431,8 @@
           "alternativeHighlights": {}
         },
         "inline": {
-          "backgroundColour": "#5714B3",
-          "textColour": "#00CFFF",
+          "backgroundColour": "#7300C5",
+          "textColour": "#FFFF00",
           "activeTextColour": "#bababa",
           "titleTextColour": "#000000"
         },
