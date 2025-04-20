@@ -15,7 +15,7 @@ setting.onlyToday = false;//是否只在当天显示
 setting.anotherCity = "内乡";//添加另外一个城市
 
 //脚本文件 weatherView.js 所在路径
-dv.view("100附件文件/weatherView",setting)
+dv.view("100附件文件/1000附件/weatherView",setting)
 ```
 
 # 动态天气

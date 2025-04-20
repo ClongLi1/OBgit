@@ -301,8 +301,8 @@
       "codeblock": {
         "lineNumbers": true,
         "unwrapLines": true,
-        "wrapLinesActive": false,
-        "curvature": 4
+        "wrapLinesActive": true,
+        "curvature": 5
       },
       "gutter": {
         "highlight": true,
@@ -333,24 +333,24 @@
         "foldPlaceholder": ""
       },
       "highlights": {
-        "activeCodeblockLine": false,
+        "activeCodeblockLine": true,
         "activeEditorLine": false
       },
       "inline": {
         "syntaxHighlight": true,
         "style": true,
-        "fontWeight": 4,
+        "fontWeight": 7,
         "curvature": 6,
         "paddingVertical": 5,
         "paddingHorizontal": 5,
         "marginHorizontal": 0,
-        "titleFontWeight": 8
+        "titleFontWeight": 6
       },
       "advanced": {
         "gradientHighlights": false,
         "gradientHighlightsColourStop": "70%",
-        "languageBorderColour": false,
-        "languageBorderWidth": 5,
+        "languageBorderColour": true,
+        "languageBorderWidth": 2,
         "iconSize": 28
       }
     },
@@ -400,16 +400,16 @@
       },
       "dark": {
         "codeblock": {
-          "backgroundColour": "#6A00FF",
-          "textColour": "#FF0000"
+          "backgroundColour": "#000000",
+          "textColour": "#FF5959"
         },
         "gutter": {
-          "backgroundColour": "#073642",
-          "textColour": "#6c6c6c",
+          "backgroundColour": "#00E8FF",
+          "textColour": "#010101",
           "activeTextColour": "#4c4c4c"
         },
         "header": {
-          "backgroundColour": "#0a4554",
+          "backgroundColour": "#001052",
           "title": {
             "textColour": "#dadada"
           },
@@ -425,20 +425,20 @@
           "lineColour": "#46cced"
         },
         "highlights": {
-          "activeCodeblockLineColour": "#073642",
+          "activeCodeblockLineColour": "#470049",
           "activeEditorLineColour": "#468eeb33",
-          "defaultColour": "#054b5c",
+          "defaultColour": "#FF0090",
           "alternativeHighlights": {}
         },
         "inline": {
-          "backgroundColour": "#370092",
-          "textColour": "#FFFFFF",
+          "backgroundColour": "#5714B3",
+          "textColour": "#00CFFF",
           "activeTextColour": "#bababa",
           "titleTextColour": "#000000"
         },
         "advanced": {
-          "buttonColour": "--text-muted",
-          "buttonActiveColour": "--text-normal"
+          "buttonColour": "#F8FF00",
+          "buttonActiveColour": "#11FF00"
         }
       }
     }

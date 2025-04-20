@@ -1,5 +1,5 @@
 {
-  "accentColor": "#2bff00",
+  "accentColor": "#4dfee9",
   "theme": "obsidian",
   "cssTheme": "Dark Moss",
   "nativeMenus": false,
@@ -30,7 +30,6 @@
     "链接图标",
     "CSS片段多栏布局",
     "多标签堆叠",
-    "标题等级",
     "选中文本高亮",
     "两条分割线全局分栏",
     "名人名言",
@@ -38,5 +37,6 @@
   ],
   "showRibbon": true,
   "interfaceFontFamily": "Inter",
-  "textFontFamily": "Microsoft YaHei"
+  "textFontFamily": "Microsoft YaHei",
+  "monospaceFontFamily": "Arial"
 }

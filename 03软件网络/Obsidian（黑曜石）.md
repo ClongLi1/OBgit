@@ -43,7 +43,8 @@
 
 ## 1.4 学习笔记
 - [[简睿学堂Obsidian合集]]
-
+- [ Obsidian 中文帮助文档](https://publish.obsidian.md/help-zh/%E7%94%B1%E6%AD%A4%E5%BC%80%E5%A7%8B)
+**
 ---
 
 ## Reference 
@@ -69,3 +70,4 @@
 [^9]: [Charts Documentation - Charts Plugin](https://charts.phib.ro/Meta/Charts/Charts+Documentation)
 
 [^10]: [PKMer_Obsidian 插件：Tracker 图形化笔记的维护状态](https://pkmer.cn/Pkmer-Docs/10-obsidian/obsidian%E7%A4%BE%E5%8C%BA%E6%8F%92%E4%BB%B6/obsidian-tracker/)
+

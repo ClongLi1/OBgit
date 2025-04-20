@@ -1,7 +1,7 @@
 {
   "newFileLocation": "current",
   "showUnsupportedFiles": true,
-  "attachmentFolderPath": "100附件文件",
+  "attachmentFolderPath": "100附件文件/1000附件",
   "readableLineLength": false,
   "alwaysUpdateLinks": true,
   "pdfExportSettings": {
@@ -13,5 +13,6 @@
   "showLineNumber": true,
   "rightToLeft": false,
   "propertiesInDocument": "visible",
-  "promptDelete": false
+  "promptDelete": false,
+  "foldIndent": true
 }
