@@ -25,7 +25,7 @@
       "query": "path:02专业知识  ",
       "color": {
         "a": 1,
-        "rgb": 2036371
+        "rgb": 3482828
       }
     },
     {
@@ -123,6 +123,6 @@
   "repelStrength": 16.5088152908222,
   "linkStrength": 0.86290150274197,
   "linkDistance": 320,
-  "scale": 0.05671273665127861,
+  "scale": 0.056712736651278614,
   "close": true
 }
