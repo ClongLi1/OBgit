@@ -165,6 +165,26 @@ Callout 语法格式
 - quote, cite
 ```
 [[Callout]]
+
+```
+ad-tip
+
+```
+```ad-bug
+这是bug
+```
+```
+> [!quote|cite] 正所谓
+> 一句名人名言
+> 
+> 谁说的
+
+```
+
+> [!tip|cite] 
+>  长风破浪会有时，直挂云帆济沧海。
+>  
+> 李成龙
 # 2. YAML
 - `title`: 这定义了笔记的标题，有时这个标题会在图表视图或链接的预览中替代文件名显示。
 - `tags`: 这是笔记相关的标签列表，标签通常用于组织和搜索笔记。
@@ -184,9 +204,10 @@ Callout 语法格式
 # 4. Iframe 嵌入语法
 ## 4.1 嵌入音频
 1. 录音功能
-![[Recording 20240116092813.webm]]
 
-## 4.2 嵌入视频
+![[Recording 20250420123514.m4a]]
+
+## 4.2 嵌入
 ```
 <video width="600" height="420" controls> 
 <source src="movie.mp4" type="video/mp4"> 

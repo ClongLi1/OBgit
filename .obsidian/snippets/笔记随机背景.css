@@ -1,0 +1,52 @@
+body {
+    --blur-depth: 0px;
+    --blur-depth-cp: 10px;
+    --saturate-4-bg: 1;
+    --saturate-4-bg-cp: 1;
+    --brightness-4-bg: 0.01;
+    --brightness-4-bg-cp: 0.01;
+    --opacity-cp: 0.5;
+    --darktheme-background-image: url(https://source.unsplash.com/random?);
+    --lighttheme-background-image: url(https://source.unsplash.com/random?);    
+}
+body.theme-dark {
+    background-image: var(--darktheme-background-image);
+    background-size: cover;
+    z-index: -1;
+}
+body.theme-light {
+    background-image: var(--lighttheme-background-image);
+    background-size: cover;
+    z-index: -1;
+}
+.theme-light .workspace::before,
+.theme-dark .workspace::before {
+    background-size: cover;
+    filter: blur(var(--blur-depth)) brightness(var(--brightness-4-bg)) saturate(var(--saturate-4-bg));
+}
+:is(.theme-light,.theme-dark) .workspace-tab-header-inner {
+    background-color: transparent;
+    filter: blur(var(--blur-depth)) brightness(var(--brightness-4-bg)) saturate(var(--saturate-4-bg));
+}
+/*编辑器*/
+.theme-light .workspace-tabs .workspace-tab-container {
+    opacity: 0.6;
+    filter: blur(var(--blur-depth)+1) brightness(var(--brightness-4-bg)) saturate(var(--saturate-4-bg));
+}
+.theme-dark .workspace-tabs .workspace-tab-container {
+    opacity: 0.6;
+    filter: blur(var(--blur-depth)+1) brightness(var(--brightness-4-bg)) saturate(var(--saturate-4-bg));
+}
+/*面板*/
+.theme-light .workspace-split.mod-left-split .workspace-tab-container {
+    opacity: 7.999;
+    z-index: 2;
+}
+.theme-dark .workspace-split.mod-left-split .workspace-tab-container {
+    opacity: 0.999;
+    z-index: 2;
+}
+.workspace-split.mod-right-split .workspace-tab-container {
+    opacity: 0.999;
+    background-color: transparent;
+}
