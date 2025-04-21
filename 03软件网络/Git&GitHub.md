@@ -11,6 +11,7 @@
 - [[Git命令学习]]
 - [Git与Github远程仓库使用](https://mp.weixin.qq.com/s/u7gn79bhXeAM3F0rXBTlpQ)
 - [Git教程 - 廖雪峰](https://liaoxuefeng.com/books/git/introduction/index.html)
+- [VSCode 版本控制 Git](https://www.runoob.com/vscode/vscode-source-control.html)
 
 ## 1.2 GitHub & Gitee 
 > [!note] Github 全球最受欢迎的源代码管理平台
