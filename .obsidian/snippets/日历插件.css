@@ -4,18 +4,18 @@
 /* 设置日历容器的背景色和文字色 */
 #calendar-container {
   --color-background-heading: #00cd8c !important; /* 设置标题背景色 */
-  --color-background-day: #1a0c4f ; /* 设置日期单元格背景色 */
-  --color-background-weeknum: #076b00 !important; /* 设置周数背景色 */
-  --color-background-weekend: #bb9f00 !important; /* 设置周末背景色 */
+  --color-background-day: #9072ff ; /* 设置日期单元格背景色 */
+  --color-background-weeknum: #6265ff !important; /* 设置周数背景色 */
+  --color-background-weekend: #3bff73 !important; /* 设置周末背景色 */
 
   --color-dot: #ea00ff !important; /* 设置实心点的颜色 */
   --color-arrow: #3498db !important; /* 设置箭头的颜色 */
-  --color-button: #216a00 !important; /* 设置按钮的颜色 */
+  --color-button: #eeff00 !important; /* 设置按钮的颜色 */
 
   --color-text-title: #19fe00 !important; /* 设置标题文字颜色 */
-  --color-text-heading: #111111 !important; /* 设置标题文字颜色 */
-  --color-text-day: #ffd000 !important; /* 设置日期文字颜色 */
+  --color-text-heading: #ffffff !important; /* 设置标题文字颜色 */
+  --color-text-day: #ffffff !important; /* 设置日期文字颜色 */
   --color-text-today: #00f2ff; /* 设置今天文字颜色 */
-  --color-text-weeknum: #fafafa !important; /* 设置周数文字颜色 */
+  --color-text-weeknum: #4afcff !important; /* 设置周数文字颜色 */
 }
 
