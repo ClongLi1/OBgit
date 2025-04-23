@@ -341,6 +341,9 @@
       },
       "obsidian-auto-link-title": {
         "startupType": "disabled"
+      },
+      "color-folders-files": {
+        "startupType": "instant"
       }
     },
     "loadOrder": []
