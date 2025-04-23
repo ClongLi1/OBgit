@@ -25,7 +25,7 @@
       "query": "path:02专业知识  ",
       "color": {
         "a": 1,
-        "rgb": 3482828
+        "rgb": 4797949
       }
     },
     {
@@ -111,6 +111,13 @@
         "a": 1,
         "rgb": 6119888
       }
+    },
+    {
+      "query": "path:17AI写作咨询  ",
+      "color": {
+        "a": 1,
+        "rgb": 10412031
+      }
     }
   ],
   "collapse-display": false,
@@ -123,6 +130,6 @@
   "repelStrength": 16.5088152908222,
   "linkStrength": 0.86290150274197,
   "linkDistance": 320,
-  "scale": 0.056712736651278614,
+  "scale": 0.15217506980598627,
   "close": true
 }
