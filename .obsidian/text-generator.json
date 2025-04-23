@@ -26,13 +26,14 @@
     "huggingface": {
       "packageId": "huggingface",
       "name": "Huggingface Prompts Package",
-      "version": "0.0.4",
-      "minTextGeneratorVersion": "0.5.0",
+      "version": "0.0.1",
+      "minTextGeneratorVersion": "0.1.0",
       "description": "Huggingface Prompts comes with Text Generator plugin in Obsidian",
       "author": "Noureddine Haouari",
       "tags": "writing, brainstorming, huggingface",
       "authorUrl": "https://www.buymeacoffee.com/haouarine",
-      "repo": "text-gen/huggingface"
+      "repo": "text-gen/huggingface",
+      "installed": false
     },
     "awesomePrompts": {
       "packageId": "awesomePrompts",
@@ -81,13 +82,14 @@
     "Experimental": {
       "packageId": "Experimental",
       "name": "Experimental Package",
-      "version": "0.0.2",
+      "version": "0.0.1",
       "minTextGeneratorVersion": "0.6.6",
       "description": "Contains experimental templates",
       "author": "Noureddine",
       "tags": "experiments",
       "authorUrl": "https://www.buymeacoffee.com/haouarine",
-      "repo": "text-gen/experimental-package"
+      "repo": "text-gen/experimental-package",
+      "installed": false
     },
     "testExtension": {
       "core": true,
