@@ -5,6 +5,8 @@
     {
       "height": 400,
       "id": "314b51af3f7bfa9f",
+      "styleAttributes": {
+      },
       "type": "link",
       "url": "https://www.bilibili.com/video/BV1FC4y117Yv/?spm_id_from=333.337.search-card.all.click&vd_source=9a0482de2445393b86e86889f16ccf5f",
       "width": 400,
@@ -15,6 +17,8 @@
       "file": "03软件网络/03软件电脑.md",
       "height": 420,
       "id": "e6b230906dc829b7",
+      "styleAttributes": {
+      },
       "type": "file",
       "width": 420,
       "x": -2840,
@@ -46,6 +50,8 @@
       "file": "100附件文件/1000附件/赛博.png",
       "height": 216,
       "id": "c230a6aaf98692ed",
+      "styleAttributes": {
+      },
       "type": "file",
       "width": 400,
       "x": -3420,
