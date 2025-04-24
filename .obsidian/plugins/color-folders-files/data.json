@@ -2,6 +2,9 @@
   "styles": {
     "17AI写作咨询": {
       "textColor": "#fe8686"
+    },
+    "13英语相关": {
+      "textColor": "#eaff80"
     }
   },
   "presets": {},
