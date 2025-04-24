@@ -23,6 +23,8 @@
 - [Git 如何和 GitHub、GitLab 交互？团队如何用 Git 协作开发？小白也能看懂的Git教程！](https://www.bilibili.com/video/BV1d6XVYqEuy/?spm_id_from=333.1007.tianma.1-3-3.click&vd_source=d1167fc706d8bb4a356a82d19d9d3304)
 - 
 
+![image.png|600](https://fig-1321973591.cos.ap-nanjing.myqcloud.com/20250424204855.png)
+
 
 
 ---
