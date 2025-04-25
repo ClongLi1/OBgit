@@ -8,6 +8,9 @@
     },
     "99-必备技能": {
       "textColor": "#f2fe43"
+    },
+    "04方法思维": {
+      "textColor": "#cd42ff"
     }
   },
   "presets": {},
