@@ -5,6 +5,9 @@
     },
     "13英语相关": {
       "textColor": "#eaff80"
+    },
+    "99-必备技能": {
+      "textColor": "#f2fe43"
     }
   },
   "presets": {},
