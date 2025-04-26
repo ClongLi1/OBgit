@@ -1,8 +1,5 @@
 ---
-aliases:
-  - OB语法
-  - Markdown语法
-  - obsidian元素
+aliases: []
 ---
 ### 1. 标题
 ```
@@ -159,7 +156,6 @@ $$
 
 # 1. Callout 
 
- #01-软件网络/Obsidian/语法
 
 ```
 Callout 语法格式
