@@ -72,7 +72,7 @@ dv.paragraph(totalDays + " " + totalMd + " " + totalTag + " " + totalTask); 
     <div style="width: 48%; margin-bottom: 1px;">  
     <!-- Obsidian logo 和欢迎语 -->
     <div style="display: flex; align-items: center; margin-bottom: 1px;">
-      <img src="Obsidian logo.png" alt="Obsidian Logo" style="width: 230px; height: 320px; margin-right: 20px;">
+      <img src="https://fig-1321973591.cos.ap-nanjing.myqcloud.com/20250429095847.png" alt="Obsidian Logo" style="width: 250px; height: 320px; margin-right: 20px;">
       <div>
         <h3>✨ 欢迎来到我的 Obsidian 知识库🌟</h3>
         <p>🔥这里是我的个人数字花园，更是我精心打造的知识宝库。在这个库里，你可以发现各种各样的笔记，💗从工作中的项目规划、行业动态分析，到个人成长中的读书心得、技能学习总结，应有尽有。  🌱我将每一个灵感瞬间、每一次深入思考都记录在此，并通过黑曜石强大的双向链接功能，让这些知识相互交织，形成独一无二的知识网络。💡这个库不仅帮助我高效整理思绪、回顾过往经验，还能助力我快速找到解决问题的灵感。它见证了我一路以来的成长与进步，相信也会成为你探索知识、激发创意的好帮手。 🚀快来一起探索吧！✨</p>
