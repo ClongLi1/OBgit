@@ -3,7 +3,7 @@
 ``` contributionGraph
 title: ""
 graphType: default
-dateRangeValue: 800
+dateRangeValue: 730
 dateRangeType: LATEST_DAYS
 startOfWeek: 1
 showCellRuleIndicators: true
@@ -55,13 +55,13 @@ cellStyleRules:
 let ftMd = dv.pages("").file.sort(t => t.cday)[0];  
 let total = parseInt([new Date() - ftMd.ctime] / (60 * 60 * 24 * 1000));  
 let rainbowStyle = "color: #FFFFFF; background: linear-gradient(90deg, #4169E1, #00BFFF, #32CD32, #FFD700, #FF6347, #9932CC); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;";  
-let totalDays = `<span style="${rainbowStyle}"> 我在 Obsidian的世界中已探索 ${total} 天 ，</span>`;  
+let totalDays = `<span style="${rainbowStyle}"> 我在 Obsidian中已探索 ${total} 天 ，</span>`;  
 let nofold = '!"misc/templates"';  
 let allFile = dv.pages(nofold).file;  
 let totalMd = `<span style="${rainbowStyle}">已发现 ${allFile.length} 颗闪耀的笔记星星 </span>`;  
-let tagDescription = `<span style="${rainbowStyle}">它们被精心分类在 ${allFile.etags.distinct().length} 个彩虹标签中 </span>`;  
+let tagDescription = `<span style="${rainbowStyle}">它们被分类在 ${allFile.etags.distinct().length} 个标签中 </span>`;  
 let totalTag = `<span style="${rainbowStyle}">，${tagDescription}</span>`;  
-let taskDescription = `<span style="${rainbowStyle}">还有 ${allFile.tasks.length} 个待办任务等待我去完成，它们如同彩虹的纽带，连接着不同的知识领域 </span>`;
+let taskDescription = `<span style="${rainbowStyle}">还有 ${allFile.tasks.length} 个任务等待我去完成，它们如同纽带连接着不同的知识领域 </span>`;
 let totalTask = `<span style="${rainbowStyle}">，${taskDescription}</span>`;  
 
 dv.paragraph(totalDays + " " + totalMd + " " + totalTag + " " + totalTask);  
