@@ -54,7 +54,7 @@
   "inlineBacklinks": false,
   "inlineContext": true,
   "inlineBacklinksExpanded": false,
-  "inlineContextExpanded": false,
+  "inlineContextExpanded": true,
   "inlineContextProperties": true,
   "inlineContextSectionsExpanded": true,
   "banners": true,
@@ -73,12 +73,11 @@
   "enableDefaultSpaces": true,
   "showSpacePinIcon": true,
   "experimental": false,
-  "systemName": "知识体系",
+  "systemName": "Vault",
   "defaultSpaceTemplate": "",
   "selectedKit": "default",
   "actionMaxSteps": 100,
   "contextPagination": 25,
-  "searchWorker": false,
   "skipFolderNames": [],
   "skipFolders": [],
   "enhancedLogs": false,
@@ -87,6 +86,5 @@
   "firstLaunch": true,
   "notesPreview": false,
   "editStickerInSidebar": true,
-  "overrideNativeMenu": false,
-  "dataviewInlineContext": false
+  "overrideNativeMenu": false
 }
