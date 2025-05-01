@@ -22,12 +22,12 @@
   {
     "color": "0, 184, 212",
     "char": "@",
-    "icon": "lucide-concierge-bell"
+    "icon": "lucide-circle-stop"
   },
   {
     "color": "0, 200, 83",
     "char": "$",
-    "icon": "lucide-eye"
+    "icon": "lucide-bell"
   },
   {
     "color": "158, 158, 158",
