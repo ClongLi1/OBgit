@@ -22,7 +22,7 @@
 - Tasks [^6]                          
 - Slises[^7]        
 - Checklist[^8]      
-- Charts[^9]    
+- Charts[^9]    [Obsidian数据分析应用场景：如何使用Charts插件创建图表？](https://mp.weixin.qq.com/s/pQFveijAqUAuAa0N-uToxw)
 - Chart view     
 - Tracker[^10]                                          
 ### 1.2.2 主题 
