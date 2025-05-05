@@ -12,7 +12,6 @@
   "obsidian-image-auto-upload-plugin",
   "obsidian-file-color",
   "file-explorer-note-count",
-  "recent-files-obsidian",
   "obsidian-mind-map",
   "calendar",
   "obsidian-rich-links",
@@ -80,5 +79,6 @@
   "obsidian-sakana-widget",
   "tray",
   "tenki",
-  "color-folders-files"
+  "color-folders-files",
+  "recent-files-obsidian"
 ]
