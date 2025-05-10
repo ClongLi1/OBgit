@@ -17,6 +17,9 @@
     },
     "00ZK卡片": {
       "textColor": "#70fff5"
+    },
+    "00-Clippings": {
+      "textColor": "#fea4a4"
     }
   },
   "presets": {},

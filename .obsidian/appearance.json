@@ -31,7 +31,8 @@
     "标题居中"
   ],
   "showRibbon": true,
-  "interfaceFontFamily": "Inter",
-  "textFontFamily": "Microsoft YaHei",
-  "monospaceFontFamily": "Arial"
+  "interfaceFontFamily": "ChillRoundGothic_Heavy",
+  "textFontFamily": "ChillRoundGothic_Heavy",
+  "monospaceFontFamily": "Arial",
+  "baseFontSize": 16
 }
