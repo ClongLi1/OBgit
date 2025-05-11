@@ -344,6 +344,9 @@
       },
       "color-folders-files": {
         "startupType": "instant"
+      },
+      "obsidian-outliner": {
+        "startupType": "disabled"
       }
     },
     "loadOrder": []
