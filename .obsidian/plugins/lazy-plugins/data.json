@@ -347,6 +347,12 @@
       },
       "obsidian-outliner": {
         "startupType": "disabled"
+      },
+      "obsidian-export-image": {
+        "startupType": "instant"
+      },
+      "url-into-selection": {
+        "startupType": "instant"
       }
     },
     "loadOrder": []

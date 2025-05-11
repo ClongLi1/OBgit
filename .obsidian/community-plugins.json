@@ -51,7 +51,6 @@
   "nl-syntax-highlighting",
   "obsidian-annotator",
   "obsidian-checklist-plugin",
-  "obsidian-banners",
   "buttons",
   "messager",
   "obsidian-dynamic-background",
@@ -80,5 +79,8 @@
   "tray",
   "tenki",
   "color-folders-files",
-  "recent-files-obsidian"
+  "recent-files-obsidian",
+  "obsidian-export-image",
+  "url-into-selection",
+  "obsidian-banners"
 ]
