@@ -27,6 +27,8 @@
       "height": 460,
       "id": "017b73ef0a82c4a7",
       "label": "内容管理层",
+      "styleAttributes": {
+      },
       "type": "group",
       "width": 980,
       "x": -400,
@@ -228,18 +230,6 @@
     {
       "color": "2",
       "height": 60,
-      "id": "d2c03a8bdac20dd7",
-      "styleAttributes": {
-      },
-      "text": "信息输入",
-      "type": "text",
-      "width": 260,
-      "x": -40,
-      "y": -30
-    },
-    {
-      "color": "2",
-      "height": 60,
       "id": "d2d09fefe941d962",
       "styleAttributes": {
       },
@@ -281,6 +271,18 @@
       "width": 260,
       "x": 280,
       "y": 340
+    },
+    {
+      "color": "2",
+      "height": 60,
+      "id": "d2c03a8bdac20dd7",
+      "styleAttributes": {
+      },
+      "text": "信息输入",
+      "type": "text",
+      "width": 260,
+      "x": -40,
+      "y": -30
     },
     {
       "color": "6",
