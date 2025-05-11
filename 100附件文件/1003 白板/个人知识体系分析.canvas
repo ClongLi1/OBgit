@@ -23,20 +23,34 @@
   ],
   "nodes": [
     {
+      "color": "#ee00ff",
+      "height": 460,
+      "id": "017b73ef0a82c4a7",
+      "label": "内容管理层",
+      "type": "group",
+      "width": 980,
+      "x": -400,
+      "y": -200
+    },
+    {
       "color": "3",
-      "height": 320,
+      "height": 300,
       "id": "14d9bd75fc5be70b",
       "label": "数据展示层",
+      "styleAttributes": {
+      },
       "type": "group",
       "width": 940,
       "x": -380,
-      "y": -540
+      "y": -560
     },
     {
       "color": "5",
       "height": 380,
       "id": "74d53af6c7168c8e",
       "label": "记事本子",
+      "styleAttributes": {
+      },
       "type": "group",
       "width": 300,
       "x": -380,
@@ -47,6 +61,8 @@
       "height": 380,
       "id": "b403996aa64a4657",
       "label": "知识管理",
+      "styleAttributes": {
+      },
       "type": "group",
       "width": 300,
       "x": -60,
@@ -57,6 +73,8 @@
       "height": 380,
       "id": "ffc71dab7ead1df5",
       "label": "任务管理",
+      "styleAttributes": {
+      },
       "type": "group",
       "width": 300,
       "x": 260,
@@ -66,30 +84,36 @@
       "height": 100,
       "id": "fa05830ab11e6531",
       "label": "基础服务层",
+      "styleAttributes": {
+      },
       "type": "group",
       "width": 940,
       "x": -380,
-      "y": 300
+      "y": 320
     },
     {
       "color": "1",
       "height": 240,
       "id": "1047c0ea26513f56",
       "label": "知识管理分析",
+      "styleAttributes": {
+      },
       "type": "group",
       "width": 300,
       "x": -340,
-      "y": -480
+      "y": -520
     },
     {
       "color": "4",
       "height": 240,
       "id": "9587753d30758676",
       "label": "任务管理分析",
+      "styleAttributes": {
+      },
       "type": "group",
       "width": 300,
       "x": 240,
-      "y": -480
+      "y": -520
     },
     {
       "color": "1",
@@ -102,7 +126,7 @@
       "type": "text",
       "width": 260,
       "x": -320,
-      "y": -460
+      "y": -500
     },
     {
       "color": "1",
@@ -115,7 +139,7 @@
       "type": "text",
       "width": 260,
       "x": -320,
-      "y": -320
+      "y": -360
     },
     {
       "color": "5",
@@ -128,6 +152,30 @@
       "width": 260,
       "x": -360,
       "y": -120
+    },
+    {
+      "color": "4",
+      "height": 60,
+      "id": "f5f3b77ec613c69b",
+      "styleAttributes": {
+      },
+      "text": "Canvas 数据看板",
+      "type": "text",
+      "width": 260,
+      "x": 260,
+      "y": -500
+    },
+    {
+      "color": "4",
+      "height": 60,
+      "id": "e0758cac78b1f441",
+      "styleAttributes": {
+      },
+      "text": "Dataview 数据查询",
+      "type": "text",
+      "width": 260,
+      "x": 260,
+      "y": -360
     },
     {
       "color": "5",
@@ -164,6 +212,75 @@
       "width": 260,
       "x": -360,
       "y": 160
+    },
+    {
+      "color": "2",
+      "height": 60,
+      "id": "a1e76bd4a63879df",
+      "styleAttributes": {
+      },
+      "text": "知识沉淀",
+      "type": "text",
+      "width": 260,
+      "x": -40,
+      "y": 60
+    },
+    {
+      "color": "2",
+      "height": 60,
+      "id": "d2c03a8bdac20dd7",
+      "styleAttributes": {
+      },
+      "text": "信息输入",
+      "type": "text",
+      "width": 260,
+      "x": -40,
+      "y": -30
+    },
+    {
+      "color": "2",
+      "height": 60,
+      "id": "d2d09fefe941d962",
+      "styleAttributes": {
+      },
+      "text": "灵感时刻",
+      "type": "text",
+      "width": 260,
+      "x": -40,
+      "y": -120
+    },
+    {
+      "height": 60,
+      "id": "4c94efa0c0b095d8",
+      "styleAttributes": {
+      },
+      "text": "笔记模板",
+      "type": "text",
+      "width": 260,
+      "x": -360,
+      "y": 340
+    },
+    {
+      "height": 60,
+      "id": "b5c17a937debbd04",
+      "styleAttributes": {
+      },
+      "text": "笔记结构",
+      "type": "text",
+      "width": 260,
+      "x": -40,
+      "y": 340
+    },
+    {
+      "height": 60,
+      "id": "a18fa7029eae8009",
+      "styleAttributes": {
+      },
+      "text": "使用技巧",
+      "type": "text",
+      "width": 260,
+      "x": 280,
+      "y": 340
     },
     {
       "color": "6",
@@ -216,18 +333,6 @@
     {
       "color": "2",
       "height": 60,
-      "id": "a1e76bd4a63879df",
-      "styleAttributes": {
-      },
-      "text": "知识沉淀",
-      "type": "text",
-      "width": 260,
-      "x": -40,
-      "y": 60
-    },
-    {
-      "color": "2",
-      "height": 60,
       "id": "8051e481893a9e9f",
       "styleAttributes": {
       },
@@ -236,87 +341,6 @@
       "width": 260,
       "x": -40,
       "y": 160
-    },
-    {
-      "color": "2",
-      "height": 60,
-      "id": "d2c03a8bdac20dd7",
-      "styleAttributes": {
-      },
-      "text": "信息输入",
-      "type": "text",
-      "width": 260,
-      "x": -40,
-      "y": -30
-    },
-    {
-      "color": "2",
-      "height": 60,
-      "id": "d2d09fefe941d962",
-      "styleAttributes": {
-      },
-      "text": "灵感时刻",
-      "type": "text",
-      "width": 260,
-      "x": -40,
-      "y": -120
-    },
-    {
-      "color": "4",
-      "height": 60,
-      "id": "f5f3b77ec613c69b",
-      "styleAttributes": {
-      },
-      "text": "Canvas 数据看板",
-      "type": "text",
-      "width": 260,
-      "x": 260,
-      "y": -460
-    },
-    {
-      "color": "4",
-      "height": 60,
-      "id": "e0758cac78b1f441",
-      "styleAttributes": {
-      },
-      "text": "Dataview 数据查询",
-      "type": "text",
-      "width": 260,
-      "x": 260,
-      "y": -320
-    },
-    {
-      "height": 60,
-      "id": "4c94efa0c0b095d8",
-      "styleAttributes": {
-      },
-      "text": "笔记模板",
-      "type": "text",
-      "width": 260,
-      "x": -360,
-      "y": 320
-    },
-    {
-      "height": 60,
-      "id": "b5c17a937debbd04",
-      "styleAttributes": {
-      },
-      "text": "笔记结构",
-      "type": "text",
-      "width": 260,
-      "x": -40,
-      "y": 320
-    },
-    {
-      "height": 60,
-      "id": "a18fa7029eae8009",
-      "styleAttributes": {
-      },
-      "text": "使用技巧",
-      "type": "text",
-      "width": 260,
-      "x": 280,
-      "y": 320
     }
   ]
 }
