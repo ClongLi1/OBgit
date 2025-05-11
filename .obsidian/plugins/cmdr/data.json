@@ -121,6 +121,13 @@
       "name": "Zen: Toggle",
       "mode": "any",
       "color": "#b3ff75"
+    },
+    {
+      "id": "obsidian-quiet-outline:quiet-outline",
+      "icon": "lucide-table-of-contents",
+      "name": "Quiet Outline: Quiet Outline",
+      "mode": "any",
+      "color": "#ff5c5c"
     }
   ],
   "macros": [],
