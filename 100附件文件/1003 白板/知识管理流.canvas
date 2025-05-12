@@ -1,0 +1,240 @@
+{
+  "edges": [
+    {
+      "color": "4",
+      "fromNode": "d4f478f661ac6de8",
+      "fromSide": "right",
+      "id": "22a0bd3387091df9",
+      "styleAttributes": {
+      },
+      "toNode": "8a6310840a0ab1b0",
+      "toSide": "left"
+    },
+    {
+      "color": "3",
+      "fromNode": "e29ca3d658d6007f",
+      "fromSide": "right",
+      "id": "274338fdcc1d5b20",
+      "styleAttributes": {
+      },
+      "toNode": "d4f478f661ac6de8",
+      "toSide": "left"
+    },
+    {
+      "color": "5",
+      "fromNode": "8a6310840a0ab1b0",
+      "fromSide": "right",
+      "id": "aa257aaa32a2120d",
+      "styleAttributes": {
+      },
+      "toNode": "984677df2524c3bf",
+      "toSide": "left"
+    }
+  ],
+  "nodes": [
+    {
+      "color": "3",
+      "height": 300,
+      "id": "e29ca3d658d6007f",
+      "label": "知识获取",
+      "styleAttributes": {
+      },
+      "type": "group",
+      "width": 200,
+      "x": -640,
+      "y": -140
+    },
+    {
+      "color": "4",
+      "height": 300,
+      "id": "d4f478f661ac6de8",
+      "label": "知识整理",
+      "styleAttributes": {
+      },
+      "type": "group",
+      "width": 200,
+      "x": -340,
+      "y": -140
+    },
+    {
+      "color": "1",
+      "height": 300,
+      "id": "8a6310840a0ab1b0",
+      "label": "知识链接",
+      "styleAttributes": {
+      },
+      "type": "group",
+      "width": 200,
+      "x": -80,
+      "y": -140
+    },
+    {
+      "color": "5",
+      "height": 300,
+      "id": "984677df2524c3bf",
+      "label": "知识输出",
+      "styleAttributes": {
+      },
+      "type": "group",
+      "width": 200,
+      "x": 180,
+      "y": -140
+    },
+    {
+      "color": "3",
+      "height": 60,
+      "id": "60aba9bbef66f5ba",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "text": "系统阅读",
+      "type": "text",
+      "width": 160,
+      "x": -620,
+      "y": -120
+    },
+    {
+      "color": "3",
+      "height": 60,
+      "id": "8d1b45fa57ef539c",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "text": "碎片阅读",
+      "type": "text",
+      "width": 160,
+      "x": -620,
+      "y": -20
+    },
+    {
+      "color": "3",
+      "height": 60,
+      "id": "3bfb719e1a884362",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "text": "个人思考",
+      "type": "text",
+      "width": 160,
+      "x": -620,
+      "y": 80
+    },
+    {
+      "color": "4",
+      "height": 60,
+      "id": "070e6b6b59accad3",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "text": "创建笔记",
+      "type": "text",
+      "width": 160,
+      "x": -320,
+      "y": -120
+    },
+    {
+      "color": "4",
+      "height": 60,
+      "id": "a3db1197fc04d340",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "text": "结构模块",
+      "type": "text",
+      "width": 160,
+      "x": -320,
+      "y": -20
+    },
+    {
+      "color": "4",
+      "height": 60,
+      "id": "aee9648c58d651ea",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "text": "分类整理",
+      "type": "text",
+      "width": 160,
+      "x": -320,
+      "y": 80
+    },
+    {
+      "color": "1",
+      "height": 60,
+      "id": "87672110fc698ee2",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "text": "双向链接",
+      "type": "text",
+      "width": 160,
+      "x": -60,
+      "y": -120
+    },
+    {
+      "color": "1",
+      "height": 60,
+      "id": "bc0e13a9d4becb50",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "text": "图谱探索",
+      "type": "text",
+      "width": 160,
+      "x": -60,
+      "y": -20
+    },
+    {
+      "color": "1",
+      "height": 60,
+      "id": "a1053aa90f3ba840",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "text": "交叉领域",
+      "type": "text",
+      "width": 160,
+      "x": -60,
+      "y": 80
+    },
+    {
+      "color": "5",
+      "height": 60,
+      "id": "9bb69d9cd683fa02",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "text": "实践应用",
+      "type": "text",
+      "width": 160,
+      "x": 200,
+      "y": -120
+    },
+    {
+      "color": "5",
+      "height": 60,
+      "id": "8c0527b0813497f4",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "text": "迭代更新",
+      "type": "text",
+      "width": 160,
+      "x": 200,
+      "y": -20
+    },
+    {
+      "color": "5",
+      "height": 60,
+      "id": "6f034cfcd0270ea6",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "text": "反馈改进",
+      "type": "text",
+      "width": 160,
+      "x": 200,
+      "y": 80
+    }
+  ]
+}
