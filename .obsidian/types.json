@@ -43,6 +43,11 @@
     "TQ_show_tags": "checkbox",
     "TQ_show_task_count": "checkbox",
     "TQ_show_tree": "checkbox",
-    "TQ_show_urgency": "checkbox"
+    "TQ_show_urgency": "checkbox",
+    "评分": "number",
+    "Modified": "date",
+    "创建日期": "date",
+    "修改日期": "datetime",
+    "评分10": "number"
   }
 }

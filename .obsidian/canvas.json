@@ -4,5 +4,5 @@
   "newFileLocation": "folder",
   "newFileFolderPath": "100附件文件/1003 白板",
   "defaultWheelBehavior": "pan",
-  "cardLabelVisibility": "hover"
+  "cardLabelVisibility": "always"
 }

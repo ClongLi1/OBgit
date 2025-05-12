@@ -353,6 +353,9 @@
       },
       "url-into-selection": {
         "startupType": "instant"
+      },
+      "note-to-red": {
+        "startupType": "instant"
       }
     },
     "loadOrder": []
