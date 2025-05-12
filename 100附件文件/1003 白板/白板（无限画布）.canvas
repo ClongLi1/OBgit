@@ -1,50 +1,6 @@
 {
   "edges": [
-    {
-      "color": "1",
-      "fromNode": "0897105ad33fa804",
-      "fromSide": "top",
-      "id": "5803d4c5db54ab96",
-      "label": "辣辣辣",
-      "styleAttributes": {
-      },
-      "toNode": "b0749c03c5bbfc3d",
-      "toSide": "bottom"
-    }
   ],
   "nodes": [
-    {
-      "height": 60,
-      "id": "b0749c03c5bbfc3d",
-      "styleAttributes": {
-      },
-      "text": "猪八戒",
-      "type": "text",
-      "width": 260,
-      "x": -120,
-      "y": -20
-    },
-    {
-      "height": 60,
-      "id": "0897105ad33fa804",
-      "styleAttributes": {
-      },
-      "text": "孙悟空",
-      "type": "text",
-      "width": 260,
-      "x": -250,
-      "y": 180
-    },
-    {
-      "height": 60,
-      "id": "09065696b329ecad",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 260,
-      "x": -440,
-      "y": 280
-    }
   ]
 }
