@@ -15,5 +15,7 @@
   "propertiesInDocument": "visible",
   "promptDelete": false,
   "foldIndent": true,
-  "focusNewTab": false
+  "focusNewTab": false,
+  "strictLineBreaks": false,
+  "foldHeading": true
 }

@@ -1,0 +1,19 @@
+{
+  "lineWidth": 2,
+  "lineColor": "#00fbff",
+  "itemSpacing": 30,
+  "cardBackground": "#ff5252",
+  "cardTextColor": "#ffffff",
+  "cardBorderColor": "#8cff00",
+  "milestoneCardBackground": "#ffffcc",
+  "milestoneCardTextColor": "var(--text-normal)",
+  "milestoneCardBorderColor": "#f0e68c",
+  "animationDuration": 200,
+  "dateAttribute": "created",
+  "fileNamePrefix": "gene-时间轴",
+  "fileNameSuffix": "",
+  "defaultPosition": "right",
+  "language": "zh-CN",
+  "milestoneAttribute": "",
+  "milestoneValue": ""
+}

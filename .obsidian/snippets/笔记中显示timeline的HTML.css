@@ -1,0 +1,12 @@
+/* Render the ob-timelines span or div elements as inline blocks that use an italic font */
+.ob-timelines {
+    display: inline-block !important;
+    font-style: italic;
+  }
+  
+  /* Use the before pseudo element to display attributes of the span or div */
+  .ob-timelines::before {
+    content: "🔖 " attr(data-start-date) ": " attr(data-title) ".";
+    color: lilac;
+    font-weight: 500;
+  }
