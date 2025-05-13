@@ -356,6 +356,12 @@
       },
       "note-to-red": {
         "startupType": "instant"
+      },
+      "timelines-revamped": {
+        "startupType": "instant"
+      },
+      "workspaces-plus": {
+        "startupType": "instant"
       }
     },
     "loadOrder": []

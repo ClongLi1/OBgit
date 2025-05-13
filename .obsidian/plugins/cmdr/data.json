@@ -123,11 +123,11 @@
       "color": "#b3ff75"
     },
     {
-      "id": "obsidian-quiet-outline:quiet-outline",
-      "icon": "lucide-table-of-contents",
-      "name": "Quiet Outline: Quiet Outline",
+      "id": "timelines-revamped:insert-timeline-event",
+      "icon": "lucide-arrow-down-from-line",
+      "name": "Timelines (Revamped): Insert timeline event",
       "mode": "any",
-      "color": "#ff5c5c"
+      "color": "#ffbdbd"
     }
   ],
   "macros": [],
