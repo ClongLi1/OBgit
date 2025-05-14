@@ -1,7 +1,7 @@
 {
   "palette": {
-    "seed": 2,
-    "selected": "adaptive-bright",
+    "seed": 0,
+    "selected": "custom",
     "custom": "e12729-f37324-f8cc1b-72b043-007f4e"
   },
   "mixColors": true,
@@ -623,7 +623,8 @@
     "建议策略": 408,
     "心得体会": 409,
     "论文写作": 410,
-    "目标": 411
+    "目标": 411,
+    "金相分析": 412
   },
   "_version": 3
 }

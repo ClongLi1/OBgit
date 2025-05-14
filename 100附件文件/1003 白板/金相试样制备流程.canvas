@@ -1,0 +1,164 @@
+{
+  "edges": [
+    {
+      "fromNode": "36f56294a4e4c950",
+      "fromSide": "right",
+      "id": "692d0d19e1ad7d3d",
+      "styleAttributes": {
+      },
+      "toNode": "1090ac4743ef6f6a",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "1090ac4743ef6f6a",
+      "fromSide": "right",
+      "id": "dadcba6a9a485879",
+      "styleAttributes": {
+      },
+      "toNode": "7d834d46c43572e9",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "7d834d46c43572e9",
+      "fromSide": "right",
+      "id": "83de9546910f71e3",
+      "styleAttributes": {
+      },
+      "toNode": "2e928105c3897686",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "2e928105c3897686",
+      "fromSide": "right",
+      "id": "9d602ba7d30da73d",
+      "styleAttributes": {
+      },
+      "toNode": "fc87ea18f13baad7",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "fc87ea18f13baad7",
+      "fromSide": "right",
+      "id": "e65a95d5fc33d5b4",
+      "styleAttributes": {
+      },
+      "toNode": "c558079bbb8ba8c1",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "c558079bbb8ba8c1",
+      "fromSide": "right",
+      "id": "005b2888f0a3a5ea",
+      "styleAttributes": {
+      },
+      "toNode": "8e56e447eeb85060",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "733e064cbf4e5b1c",
+      "fromSide": "top",
+      "id": "56c48edc89a38c8c",
+      "styleAttributes": {
+      },
+      "toNode": "36f56294a4e4c950",
+      "toSide": "bottom"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 60,
+      "id": "36f56294a4e4c950",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "text": "取样",
+      "type": "text",
+      "width": 120,
+      "x": -560,
+      "y": -300
+    },
+    {
+      "height": 60,
+      "id": "1090ac4743ef6f6a",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "text": "镶嵌",
+      "type": "text",
+      "width": 120,
+      "x": -400,
+      "y": -300
+    },
+    {
+      "height": 60,
+      "id": "7d834d46c43572e9",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "text": "磨制",
+      "type": "text",
+      "width": 120,
+      "x": -240,
+      "y": -300
+    },
+    {
+      "height": 60,
+      "id": "2e928105c3897686",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "text": "抛光",
+      "type": "text",
+      "width": 120,
+      "x": -80,
+      "y": -300
+    },
+    {
+      "height": 60,
+      "id": "fc87ea18f13baad7",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "text": "腐蚀",
+      "type": "text",
+      "width": 120,
+      "x": 80,
+      "y": -300
+    },
+    {
+      "height": 60,
+      "id": "c558079bbb8ba8c1",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "text": "观察",
+      "type": "text",
+      "width": 120,
+      "x": 240,
+      "y": -300
+    },
+    {
+      "height": 60,
+      "id": "8e56e447eeb85060",
+      "styleAttributes": {
+        "textAlign": "center"
+      },
+      "text": "分析",
+      "type": "text",
+      "width": 120,
+      "x": 400,
+      "y": -300
+    },
+    {
+      "height": 120,
+      "id": "733e064cbf4e5b1c",
+      "styleAttributes": {
+      },
+      "text": "1. 位置合理\n2. 有代表性\n3. 有方向性",
+      "type": "text",
+      "width": 200,
+      "x": -600,
+      "y": -200
+    }
+  ]
+}
