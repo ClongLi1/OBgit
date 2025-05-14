@@ -46,19 +46,7 @@
     ],
     "defaultFilterType": "menu"
   },
-  "treeData": [
-    {
-      "id": "43dc3a97cdea98ea",
-      "parent": 0,
-      "droppable": true,
-      "text": "tag:日记 - 搜索",
-      "data": {
-        "fileType": "site",
-        "fileSize": "",
-        "icon": {}
-      }
-    }
-  ],
+  "treeData": [],
   "enableHtmlPreview": true,
   "supportLivePreviewInlineUrl": true,
   "enableTreeView": true,
