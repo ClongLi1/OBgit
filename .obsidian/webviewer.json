@@ -1,5 +1,5 @@
 {
-  "openExternalURLs": true,
+  "openExternalURLs": false,
   "enableAdblocking": true,
   "searchEngine": "bing",
   "markdownPath": "100附件文件/1008Viewer"
