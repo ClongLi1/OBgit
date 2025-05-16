@@ -15,4 +15,6 @@ Syncthing一个非常好用的同步工具，使用它，可以将你手机和�
 - 下载安装
 在保证隐私、免费的情况下同步、备份文件。
 
-<iframe src="http://player.bilibili.com/player.html?isOutside=true&aid=583109440&bvid=BV1mz4y1R7fD&cid=186679824&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe src="http://player.bilibili.com/player.html?isOutside=true&aid=583109440&bvid=BV1mz4y1R7fD&cid=186679824&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="800" height="500"></iframe>
+
+[Site Unreachable](https://zhuanlan.zhihu.com/p/69267020?from_voters_page=true)
