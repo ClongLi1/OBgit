@@ -1,12 +1,80 @@
 {
   "recentFiles": [
     {
-      "basename": "2025-05-15",
-      "path": "998日记汇总/2025-05-15.md"
+      "basename": "Vim入门建议",
+      "path": "17AI写作咨询/Vim入门建议.md"
+    },
+    {
+      "basename": "17AI写作咨询",
+      "path": "17AI写作咨询/17AI写作咨询.md"
+    },
+    {
+      "basename": "YearLine",
+      "path": "00闪念笔记/YearLine.md"
+    },
+    {
+      "basename": "TimeLine",
+      "path": "00闪念笔记/TimeLine.md"
+    },
+    {
+      "basename": "积累和提高自己",
+      "path": "00闪念笔记/积累和提高自己.md"
+    },
+    {
+      "basename": "2024-2025寒假",
+      "path": "00闪念笔记/2024-2025寒假.md"
+    },
+    {
+      "basename": "00闪念笔记",
+      "path": "00闪念笔记/00闪念笔记.md"
+    },
+    {
+      "basename": "模板-4网课笔记",
+      "path": "100附件文件/1005模板/模板-4网课笔记.md"
+    },
+    {
+      "basename": "年度总结模板",
+      "path": "100附件文件/1005模板/年度总结模板.md"
+    },
+    {
+      "basename": "模块-事件-时间线",
+      "path": "100附件文件/1005模板/模块-事件-时间线.md"
+    },
+    {
+      "basename": "模块-卡片-时间线",
+      "path": "100附件文件/1005模板/模块-卡片-时间线.md"
+    },
+    {
+      "basename": "模板-3会议记录",
+      "path": "100附件文件/1005模板/模板-3会议记录.md"
+    },
+    {
+      "basename": "模板-2反思总结（问题解决）",
+      "path": "100附件文件/1005模板/模板-2反思总结（问题解决）.md"
+    },
+    {
+      "basename": "模板-1读书笔记",
+      "path": "100附件文件/1005模板/模板-1读书笔记.md"
+    },
+    {
+      "basename": "06口才社交",
+      "path": "06口才社交/06口才社交.md"
     },
     {
       "basename": "高熵合金",
       "path": "02专业知识/高熵合金.md"
+    },
+    {
+      "basename": "11感情婚恋",
+      "path": "11情感婚恋/11感情婚恋.md"
+    },
+    {
+      "basename": "14运动健康 ",
+      "path": "14运动医学/14运动健康 .md"
+    },
+    {
+      "basename": "2025-05-15",
+      "path": "998日记汇总/2025-05-15.md"
     },
     {
       "basename": "酒桌上如何敬酒？注意事项？敬酒祝福语",
@@ -25,10 +93,6 @@
       "path": "06口才社交/礼仪常识.md"
     },
     {
-      "basename": "17AI写作咨询",
-      "path": "17AI写作咨询/17AI写作咨询.md"
-    },
-    {
       "basename": "群聊名称",
       "path": "17AI写作咨询/群聊名称.md"
     },
@@ -43,14 +107,6 @@
     {
       "basename": "读书的意义",
       "path": "07文学历史/读书的意义.md"
-    },
-    {
-      "basename": "14运动健康 ",
-      "path": "14运动医学/14运动健康 .md"
-    },
-    {
-      "basename": "11感情婚恋",
-      "path": "11情感婚恋/11感情婚恋.md"
     },
     {
       "basename": "女生在意或偏爱男生不是外貌和金钱",
@@ -75,10 +131,6 @@
     {
       "basename": "夫妻同心，齐力断金",
       "path": "11情感婚恋/夫妻同心，齐力断金.md"
-    },
-    {
-      "basename": "06口才社交",
-      "path": "06口才社交/06口才社交.md"
     },
     {
       "basename": "评审论文的策略和建议",
@@ -147,58 +199,6 @@
     {
       "basename": "Dataview（任务管理）",
       "path": "100附件文件/1010Dataview/Dataview（任务管理）.md"
-    },
-    {
-      "basename": "认知体系",
-      "path": "999知识管理/认知体系.md"
-    },
-    {
-      "basename": "个人知识库管理原则",
-      "path": "999知识管理/个人知识库管理原则.md"
-    },
-    {
-      "basename": "Dataview（热力图）",
-      "path": "100附件文件/1010Dataview/Dataview（热力图）.md"
-    },
-    {
-      "basename": "Dataview（列表查询实例）",
-      "path": "100附件文件/1010Dataview/Dataview（列表查询实例）.md"
-    },
-    {
-      "basename": "Dataview（饼图可视化分类笔记)",
-      "path": "100附件文件/1010Dataview/Dataview（饼图可视化分类笔记).md"
-    },
-    {
-      "basename": "待办任务事项汇集",
-      "path": "08灵感梦想/待办任务事项汇集.md"
-    },
-    {
-      "basename": "2025-05-14",
-      "path": "998日记汇总/2025-05-14.md"
-    },
-    {
-      "basename": "自我重启",
-      "path": "09心灵慰藉/自我重启.md"
-    },
-    {
-      "basename": "沉得住气，好的人生，需要慢慢来",
-      "path": "09心灵慰藉/沉得住气，好的人生，需要慢慢来.md"
-    },
-    {
-      "basename": "焦虑源",
-      "path": "09心灵慰藉/焦虑源.md"
-    },
-    {
-      "basename": "ChatGPT",
-      "path": "03软件网络/ChatGPT.md"
-    },
-    {
-      "basename": "2025-04-19",
-      "path": "998日记汇总/2025-04-19.md"
-    },
-    {
-      "basename": "Templater",
-      "path": "03软件网络/Templater.md"
     }
   ],
   "omittedPaths": [],
