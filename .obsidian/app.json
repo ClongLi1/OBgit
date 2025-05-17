@@ -17,5 +17,6 @@
   "foldIndent": true,
   "focusNewTab": false,
   "strictLineBreaks": false,
-  "foldHeading": true
+  "foldHeading": true,
+  "uriCallbacks": true
 }
