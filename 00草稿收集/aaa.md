@@ -17,3 +17,4 @@ al
 	- Vvv 
 
 
+[笔记原则](obsidian://open?vault=%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB&file=999%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%2F%E4%B8%AA%E4%BA%BA%E7%9F%A5%E8%AF%86%E5%BA%93%E7%AE%A1%E7%90%86%E5%8E%9F%E5%88%99)
