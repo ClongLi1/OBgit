@@ -32,6 +32,13 @@
       "name": "打开设置",
       "mode": "any",
       "color": "#c8ff00"
+    },
+    {
+      "id": "bookmarks:open",
+      "icon": "lucide-bookmark",
+      "name": "书签: 显示书签列表",
+      "mode": "any",
+      "color": "#dea6a6"
     }
   ],
   "rightRibbon": [],
