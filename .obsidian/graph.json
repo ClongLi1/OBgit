@@ -111,25 +111,18 @@
         "a": 1,
         "rgb": 6119888
       }
-    },
-    {
-      "query": "path:17AI写作咨询  ",
-      "color": {
-        "a": 1,
-        "rgb": 10412031
-      }
     }
   ],
   "collapse-display": false,
   "showArrow": true,
   "textFadeMultiplier": -3,
-  "nodeSizeMultiplier": 1.21625268211078,
+  "nodeSizeMultiplier": 1.02822919895497,
   "lineSizeMultiplier": 1.20023148148148,
-  "collapse-forces": false,
-  "centerStrength": 0.651159838796687,
-  "repelStrength": 12.8607241455907,
+  "collapse-forces": true,
+  "centerStrength": 0.71655670194394,
+  "repelStrength": 11.7805428862419,
   "linkStrength": 0.608510773331641,
-  "linkDistance": 220,
-  "scale": 0.061300619408543526,
+  "linkDistance": 167,
+  "scale": 0.06130061940854349,
   "close": true
 }
