@@ -40,7 +40,6 @@
   "cmdr",
   "templater-obsidian",
   "obsidian-enhancing-mindmap",
-  "obsidian-git",
   "obsidian-icon-folder",
   "nl-syntax-highlighting",
   "obsidian-checklist-plugin",
@@ -79,5 +78,6 @@
   "obsidian-admonition",
   "obsidian-pangu",
   "obsidian-advanced-uri",
-  "obsidian-advanced-slides"
+  "obsidian-advanced-slides",
+  "obsidian-git"
 ]
