@@ -122,6 +122,18 @@ var Helper = class {
   now() {
     return Math.floor(Date.now() / 1e3);
   }
+  // get all available templates 
+  getAllTemplates(app) {
+    const templatePlugin = app.internalPlugins.plugins.templates;
+    if (templatePlugin && templatePlugin.instance) {
+      const templateFolder = templatePlugin.instance.options.folder;
+      const t = app.vault.getFiles().filter(
+        (file) => file.path.startsWith(templateFolder + "/")
+      );
+      return t;
+    }
+    return [];
+  }
 };
 
 // src/lang.ts
@@ -170,11 +182,13 @@ Supports date variables (must be enclosed in curly braces), prefix/suffix suppor
     this.ERROR = "Messager error:";
     this.API_ERROR = "Messager server response error:";
     this.API_USERERR = "API key not found, user not exist.";
+    this.CHOOSE_TEMPLATE = "Choose Template(Only first message will use)";
+    this.CHOOSE_TEMPLATE_DESC = "Only first message of new file will use";
     this.LATEST_UPDATE = `
 UpdateNotes:
-    (v1.1.2@25-01-20): Fix bugs.
-    (v1.1.0@24-09-09): Fix bugs.
-    (v1.0.9@24-09-07): Support date variables for fixed title.
+    (v1.1.5@25-05-18): Fix Save Email's attach
+    (v1.1.4@25-05-15): Save Email's attach
+    (v1.1.3@25-05-13): Support template
 `;
     let lang = window.localStorage.getItem("language");
     if (lang == "zh" || lang == "zh-cn" || lang == "zh-TW") {
@@ -225,11 +239,13 @@ UpdateNotes:
     this.ERROR = "Messager \u9519\u8BEF:";
     this.API_ERROR = "Messager \u670D\u52A1\u5668\u9519\u8BEF:";
     this.API_USERERR = "\u7528\u6237\u4E0D\u5B58\u5728\u3002";
+    this.CHOOSE_TEMPLATE = "\u9009\u62E9\u8981\u4F7F\u7528\u7684\u6A21\u677F";
+    this.CHOOSE_TEMPLATE_DESC = "\u540C\u4E00\u4E2A\u6587\u4EF6\u53EA\u6709\u9996\u6761\u4FE1\u606F\u4F1A\u4F7F\u7528\u6A21\u677F";
     this.LATEST_UPDATE = `
 \u66F4\u65B0\u8BB0\u5F55\uFF1A
-(v1.1.2@25-01-20): Fix bugs \u8BBE\u7F6E\u6807\u9898\u7684Bug 
-(v1.1.0@24-09-09): Fix bugs.
-(v1.0.9@24-09-07): \u56FA\u5B9A\u6807\u9898\u652F\u6301\u4F7F\u7528\u65F6\u95F4\u6233\u53D8\u91CF\u3002
+(v1.1.5@25-05-15): Fix Email\u591A\u4E2A\u9644\u4EF6\u5185\u5BB9\u4E0B\u8F7D
+(v1.1.4@25-05-15): Email\u9644\u4EF6\u5185\u5BB9\u652F\u6301\u4E0B\u8F7D
+(v1.1.3@25-05-13): \u652F\u6301\u6A21\u677F\u6D88\u606F\uFF1B\u652F\u6301Email\u5185\u5D4C\u56FE\u7247\u4E0B\u8F7D
 `;
   }
 };
@@ -307,8 +323,9 @@ var Note = class {
         }
         let content = msg["content"];
         if (this.judgeImageMessage(content)) {
-          content = await this.saveImage(this.plugin.settings, content);
+          content = await this.parseImageOnly(content);
         }
+        content = await this.parseEmailContent(content);
         let title = msg["title"];
         if (title != null && title.length > 1) {
           title = this.filterTitle(title) + ".md";
@@ -326,6 +343,7 @@ var Note = class {
     if (title == null || title.length < 1) {
       title = this.getTitle(setting, note, created);
     }
+    console.log("\u51C6\u5907addNote", title);
     note = this.dealPrefixOrSuffix(note, created);
     let savedFolder = (_a = setting.savedFolder) != null ? _a : "/";
     let fullpath = "";
@@ -359,11 +377,21 @@ var Note = class {
             return;
           }
         } else {
-          await this.app.vault.create(fullpath, note);
+          let newFile = await this.app.vault.create(fullpath, note);
+          const leaf = this.app.workspace.getLeaf(true);
+          await leaf.openFile(newFile);
+          if (this.plugin.settings.templateName != null && this.plugin.settings.templateName.length > 1) {
+            await this.insertTemplate();
+          }
           return;
         }
       } else {
-        await this.app.vault.create(fullpath, note);
+        let newFile = await this.app.vault.create(fullpath, note);
+        const leaf = this.app.workspace.getLeaf(true);
+        await leaf.openFile(newFile);
+        if (this.plugin.settings.templateName != null && this.plugin.settings.templateName.length > 1) {
+          await this.insertTemplate();
+        }
       }
       this.helper.addStatus("new message to note:" + fullpath, this.plugin);
     } catch (err) {
@@ -468,7 +496,7 @@ var Note = class {
       return false;
     }
     let url = match[1];
-    if (url.indexOf("mmbiz.qpic.cn") > 0) {
+    if (url.indexOf("qpic.cn") > 0) {
       return true;
     }
     let suffix = url.substr(-3, 3);
@@ -481,38 +509,49 @@ var Note = class {
     }
     return false;
   }
-  // save image to local 
+  // parse imageOnly message and save image to local 
   // @return localfile note, eg:  ![[somgpic.png]]
-  async saveImage(setting, msg) {
+  async parseImageOnly(msg) {
     const urlRegex = /\]\((https?:\/\/[^\s)]+)\)/;
     const match = msg.match(urlRegex);
     if (match == null || match.length < 2) {
       return msg;
     }
     let url = match[1];
+    let localPath = await this.saveUrlToLocal(url);
+    if (localPath != "") {
+      let localMsg = "![[" + localPath + "|400]]";
+      return localMsg;
+    }
+    return "";
+  }
+  // save image's url to local
+  // return local path, eg: localFolder/media/somgPic.jpg
+  async saveUrlToLocal(url) {
+    let settings = this.plugin.settings;
     let resp = await (0, import_obsidian3.requestUrl)(url);
     if (resp.status != 200 || resp.arrayBuffer.byteLength < 1) {
-      return msg;
+      console.error("saveUrlToLocal err,url:", url, "resp err:", resp);
+      return "";
     }
     let imgData = new Uint8Array(resp.arrayBuffer);
-    let imgInfo = this.checkImageExistence(await this.getImageSavedPath(setting, url));
+    let imgInfo = this.checkImageExistence(await this.getImageSavedPath(settings, url));
     let imgPath = imgInfo[0];
     let imgName = imgInfo[1];
     if (imgPath == null || imgPath == "" || imgName == null || imgName == "") {
-      console.error("save image to local err, imgPath or imgName empty:", imgPath, imgName);
-      return msg;
+      console.error("saveUrlToLocal err, imgPath or imgName empty:", imgPath, imgName);
+      return "";
     }
     try {
       const file = await this.app.vault.createBinary(imgPath, imgData);
       if (file == null || typeof file.basename == "undefined" || file.basename.length < 1) {
-        console.error("vault.createBinary err,file not saved.");
-        return msg;
+        console.error("saveUrlToLocal vault.createBinary err,file not saved.");
+        return "";
       }
-      let localMsg = "![[" + imgPath + "|400]]";
-      return localMsg;
+      return imgPath;
     } catch (err) {
-      console.error("saveImage createBinary err:", err);
-      return msg;
+      console.error("saveUrlToLocal createBinary err:", err);
+      return "";
     }
   }
   // get image saved path
@@ -525,7 +564,7 @@ var Note = class {
     if (urlPath == null || urlPath.length < 1) {
       fileName = this.helper.now().toString() + ".jpg";
     } else {
-      fileName = urlPath.substring(urlPath.lastIndexOf("/") + 1);
+      fileName = this.helper.now().toString() + urlPath.substring(urlPath.lastIndexOf("/") + 1);
     }
     if (fileName.indexOf(".") < 0) {
       fileName = fileName + ".jpg";
@@ -581,7 +620,84 @@ var Note = class {
     if (exist) {
       return;
     }
-    let tf = await this.app.vault.createFolder(folder);
+    await this.app.vault.createFolder(folder);
+  }
+  // insert template to current opening file
+  async insertTemplate() {
+    var _a, _b, _c;
+    let configTmpName = this.plugin.settings.templateName;
+    if (configTmpName.length < 1) {
+      console.error("no configTmpName err.");
+      return;
+    }
+    const templatePlugin = (_c = (_b = (_a = this.app.internalPlugins) == null ? void 0 : _a.plugins) == null ? void 0 : _b.templates) == null ? void 0 : _c.instance;
+    if (!templatePlugin) {
+      console.log("template plugin not available.");
+      return;
+    }
+    const templates = this.helper.getAllTemplates(this.app);
+    let tmpFile = null;
+    for (let k in templates) {
+      if (templates[k].name == configTmpName) {
+        tmpFile = templates[k];
+      }
+    }
+    if (tmpFile == null || tmpFile.path == null || tmpFile.path.length < 1) {
+      console.error("parse template err, template may not exist,path empty.");
+      return;
+    }
+    const templateContent = await this.app.vault.read(tmpFile);
+    if (templateContent.length < 1) {
+      console.error("template content empty.", tmpFile.path);
+      return;
+    }
+    await templatePlugin.insertTemplate(tmpFile);
+  }
+  // parse email's content, save embended file && attach file to local
+  async parseEmailContent(content) {
+    console.log("\u5F00\u59CB\u89E3\u6790email", content);
+    let emailAttachApi = "https://wechatobsidian.com/api/email_attach";
+    let settings = this.plugin.settings;
+    let apiKey = settings.apikey;
+    let matches = [];
+    let match;
+    const regex = /<img[^>]+src=\"(.*?)\"/gi;
+    while ((match = regex.exec(content)) !== null) {
+      matches.push(match[1]);
+    }
+    console.log("\u5339\u914D\u4E86matches", matches);
+    for (let k in matches) {
+      let url = matches[k];
+      if (url.substring(0, 8) == "https://") {
+        let localPath = await this.saveUrlToLocal(url);
+        if (localPath.length > 0) {
+          content = content.replace(url, localPath);
+        }
+      } else if (url.substring(0, 4) == "cid:") {
+        let filename = url.substring(4);
+        let req = emailAttachApi + "?apikey=" + apiKey + "&filename=" + filename;
+        let localPath = await this.saveUrlToLocal(req);
+        if (localPath.length > 0) {
+          content = content.replace(url, localPath);
+        }
+      }
+    }
+    const attRegex = /!\[\[#Attachment#([^\]]+)\]\]/g;
+    while ((match = attRegex.exec(content)) !== null) {
+      if (match.length != 2) {
+        console.error("attachment regex match result not 2");
+        continue;
+      }
+      let req = emailAttachApi + "?apikey=" + apiKey + "&filename=" + match[1];
+      let localPath = await this.saveUrlToLocal(req);
+      if (localPath.length < 1) {
+        console.error("save attachment:" + match[1] + "-failed.." + req);
+        continue;
+      }
+      let replaced = "![[" + localPath + "|400]]";
+      content = content.replace(match[0], replaced);
+    }
+    return content;
   }
 };
 
@@ -708,6 +824,19 @@ var AppendSettingTab = class extends import_obsidian4.PluginSettingTab {
         await this.plugin.saveSettings();
       });
     });
+    const templates = this.helper.getAllTemplates(this.app);
+    new import_obsidian4.Setting(containerEl).setName(this.lang.CHOOSE_TEMPLATE).setDesc(this.lang.CHOOSE_TEMPLATE_DESC).addDropdown((dropdown) => {
+      dropdown.addOption("", "");
+      for (const k in templates) {
+        let option = templates[k];
+        dropdown.addOption(option.name, option.name);
+      }
+      dropdown.setValue(this.plugin.settings.templateName);
+      dropdown.onChange(async (value) => {
+        this.plugin.settings.templateName = value;
+        await this.plugin.saveSettings();
+      });
+    });
     new import_obsidian4.Setting(containerEl).setName(this.lang.NAME_VERIFYBTN).setDesc(this.lang.DESC_VERIFYBTN).addButton((button) => {
       button.setButtonText(this.lang.NAME_VERIFYBTN).setCta().onClick(async () => {
         await this.plugin.saveSettings();
@@ -763,7 +892,13 @@ var AppendPlugin = class extends import_obsidian5.Plugin {
   async onload() {
     await this.loadSettings();
     this.addSettingTab(new AppendSettingTab(this.app, this));
-    this.intervalRefresh();
+    if (true) {
+      this.intervalRefresh();
+    } else {
+      setTimeout(() => {
+        this.intervalRefresh();
+      }, 3e4);
+    }
   }
   onunload() {
   }
@@ -781,7 +916,8 @@ var AppendPlugin = class extends import_obsidian5.Plugin {
         fixedTitle: "",
         insertPosition: "",
         contentSuffix: "",
-        contentPrefix: ""
+        contentPrefix: "",
+        templateName: ""
       };
       this.settings = defaultConf;
     }

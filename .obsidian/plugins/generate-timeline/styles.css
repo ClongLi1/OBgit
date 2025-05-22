@@ -1,0 +1,152 @@
+/*
+
+This CSS file will be included with your plugin, and
+available in the app when your plugin is enabled.
+
+If your plugin does not need CSS, delete this file.
+
+*/
+
+.timeline-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* 移除原来的时间轴线 */
+.timeline-container::before {
+    display: none;
+}
+
+/* 时间轴线 */
+.timeline-line {
+    position: absolute;
+    left: 10%;
+    top: 60px; /* 从第一个项目开始 */
+    bottom: 30px; /* 到最后一个项目结束 */
+    width: 2px;
+    background: var(--interactive-accent);
+}
+
+/* 时间段分隔 */
+.timeline-era {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-era-title {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    margin-left: 20%;
+    margin-right:10%;
+}
+
+.timeline-era-date {
+    font-size: 0.8em;
+    color: var(--text-muted);
+}
+
+/* 时间轴项目 */
+.timeline-item {
+    position: relative;
+}
+
+/* 连接到主时间轴的横线 */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    left: 10%;
+    width: 15%; 
+    top: 50%;
+    height: 2px;
+    background: var(--interactive-accent);
+    transform: translateY(-50%);
+}
+
+/* 内容卡片 */
+.timeline-card {
+    position: relative;
+    z-index: 2;             /* 确保卡片在横线上方 */
+    background: var(--background-primary-alt);
+    margin-left: 20%;
+    margin-right: 10%;
+    border-radius: 8px;
+    padding : 15px 15px 15px 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.timeline-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-title {
+    font-size: 1.2em;
+    margin-bottom: 8px;
+    color: var(--text-normal);
+    cursor: pointer;
+}
+
+.timeline-title:hover {
+    color: var(--text-accent);
+    text-decoration: underline;
+}
+
+.timeline-date {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.timeline-preview {
+    font-size: 0.9em;
+    color: var(--text-normal);
+    line-height: 1.5;
+    border-left: 3px solid var(--timeline-line-color);
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+/* 图片预览 */
+.timeline-image {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.timeline-export-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.timeline-export-button {
+    background-color: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.timeline-export-button:hover {
+    background-color: var(--interactive-accent-hover);
+}
+
+.timeline-header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.timeline-header h2 {
+    margin: 0;
+    color: var(--text-normal);
+    font-size: 1.5em;
+}

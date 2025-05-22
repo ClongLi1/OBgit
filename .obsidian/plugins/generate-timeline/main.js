@@ -29,6 +29,7 @@ var __publicField = (obj, key, value) => {
 // src/main.ts
 var main_exports = {};
 __export(main_exports, {
+  MetadataInputModal: () => MetadataInputModal,
   default: () => TimelinePlugin
 });
 module.exports = __toCommonJS(main_exports);
@@ -85,7 +86,18 @@ var zhCN = {
     generateFromTag: "\u4ECE\u6807\u7B7E\u751F\u6210\u65F6\u95F4\u8F74\u89C6\u56FE",
     generateFileFromTag: "\u4ECE\u6807\u7B7E\u751F\u6210\u65F6\u95F4\u8F74\u6587\u4EF6",
     generateFromFileLinks: "\u4ECE\u6587\u4EF6\u94FE\u63A5\u751F\u6210\u65F6\u95F4\u8F74\u89C6\u56FE",
-    generateFileFromFileLinks: "\u4ECE\u6587\u4EF6\u94FE\u63A5\u751F\u6210\u65F6\u95F4\u8F74\u6587\u4EF6"
+    generateFileFromFileLinks: "\u4ECE\u6587\u4EF6\u94FE\u63A5\u751F\u6210\u65F6\u95F4\u8F74\u6587\u4EF6",
+    generateFromMetadata: "\u4ECE\u5143\u6570\u636E\u751F\u6210\u65F6\u95F4\u8F74\u89C6\u56FE",
+    generateFileFromMetadata: "\u4ECE\u5143\u6570\u636E\u751F\u6210\u65F6\u95F4\u8F74\u6587\u4EF6"
+  },
+  modal: {
+    metadataInputTitle: "\u8F93\u5165\u5143\u6570\u636E\u5B57\u7B26\u4E32",
+    metadataQueryName: "\u5143\u6570\u636E\u67E5\u8BE2",
+    metadataQueryDesc: "\u4F8B\u5982\uFF1Aauthor: - \u6211  \u6216  status: ongoing",
+    metadataInputPlaceholder: "\u8F93\u5165\u5143\u6570\u636E...",
+    submitButton: "\u786E\u5B9A",
+    cancelButton: "\u53D6\u6D88",
+    emptyInputNotice: "\u8BF7\u8F93\u5165\u5143\u6570\u636E\u5B57\u7B26\u4E32"
   },
   errors: {
     renderFailed: "\u65F6\u95F4\u8F74\u89C6\u56FE\u6E32\u67D3\u5931\u8D25",
@@ -94,7 +106,9 @@ var zhCN = {
     generateFileFailed: "\u4ECE\u6587\u4EF6\u94FE\u63A5\u751F\u6210\u65F6\u95F4\u8F74\u89C6\u56FE\u65F6\u51FA\u9519",
     noTaggedFiles: "\u6CA1\u6709\u627E\u5230\u5305\u542B\u6807\u7B7E #{tag} \u53CA\u5176\u5B50\u6807\u7B7E\u7684\u6587\u4EF6",
     noFileLinks: "\u6587\u4EF6 {filename} \u4E2D\u6CA1\u6709\u627E\u5230\u53EF\u7528\u7684\u94FE\u63A5\u6216\u65E5\u671F\u4FE1\u606F",
-    createViewFailed: "\u65E0\u6CD5\u521B\u5EFA\u65F6\u95F4\u8F74\u89C6\u56FE\uFF1A\u8BF7\u68C0\u67E5\u4FA7\u8FB9\u680F\u7A7A\u95F4"
+    createViewFailed: "\u65E0\u6CD5\u521B\u5EFA\u65F6\u95F4\u8F74\u89C6\u56FE\uFF1A\u8BF7\u68C0\u67E5\u4FA7\u8FB9\u680F\u7A7A\u95F4",
+    noMetadataFiles: "\u6CA1\u6709\u627E\u5230\u4E0E\u5143\u6570\u636E\u67E5\u8BE2 \u201C{query}\u201D \u5339\u914D\u7684\u6587\u4EF6",
+    generateMetadataFailed: "\u4ECE\u5143\u6570\u636E\u751F\u6210\u65F6\u95F4\u8F74\u5931\u8D25"
   }
 };
 var enUS = {
@@ -142,12 +156,23 @@ var enUS = {
   },
   commands: {
     openTimelineView: "Open Timeline View",
-    generateFromFolder: "Generate Timeline View from Folder",
-    generateFileFromFolder: "Generate Timeline File from Folder",
-    generateFromTag: "Generate Timeline View from Tag",
-    generateFileFromTag: "Generate Timeline File from Tag",
+    generateFromFolder: "Generate Timeline View from any Folder",
+    generateFileFromFolder: "Generate Timeline File from any Folder",
+    generateFromTag: "Generate Timeline View from any Tag",
+    generateFileFromTag: "Generate Timeline File from any Tag",
     generateFromFileLinks: "Generate Timeline View from File Links",
-    generateFileFromFileLinks: "Generate Timeline File from File Links"
+    generateFileFromFileLinks: "Generate Timeline File from File Links",
+    generateFromMetadata: "Generate Timeline View from any Metadata",
+    generateFileFromMetadata: "Generate Timeline File from any Metadata"
+  },
+  modal: {
+    metadataInputTitle: "Enter Metadata String",
+    metadataQueryName: "Metadata Query",
+    metadataQueryDesc: "e.g., author: - Me  or  status: ongoing",
+    metadataInputPlaceholder: "Enter metadata...",
+    submitButton: "Submit",
+    cancelButton: "Cancel",
+    emptyInputNotice: "Please enter a metadata string"
   },
   errors: {
     renderFailed: "Failed to render timeline view",
@@ -156,7 +181,9 @@ var enUS = {
     generateFileFailed: "Error generating file links timeline view",
     noTaggedFiles: "No files found with tag #{tag} or its subtags",
     noFileLinks: "No usable links or date information found in file {filename}",
-    createViewFailed: "Cannot create timeline view: Please check sidebar space"
+    createViewFailed: "Cannot create timeline view: Please check sidebar space",
+    noMetadataFiles: 'No files found matching metadata query "{query}"',
+    generateMetadataFailed: "Failed to generate timeline from metadata"
   }
 };
 
@@ -186,7 +213,7 @@ var Timeline = class {
     const previewContent = content.replace(/^---[\s\S]*?---/, "").trim();
     return previewContent.slice(0, 50) + (previewContent.length > 50 ? "..." : "");
   }
-  async createTimelineItem(file, tag) {
+  async createTimelineItem(file, tag, metadataQuery) {
     var _a;
     const metadata = this.app.metadataCache.getFileCache(file);
     const dateValue = (_a = metadata == null ? void 0 : metadata.frontmatter) == null ? void 0 : _a[this.settings.dateAttribute];
@@ -244,6 +271,44 @@ var Timeline = class {
     }
     return this.sortItemsByDate(items);
   }
+  async generateFromMetadata(metadataQuery) {
+    const allFiles = this.app.vault.getMarkdownFiles();
+    const items = [];
+    const queryParts = metadataQuery.split(":").map((p) => p.trim());
+    const queryKey = queryParts[0];
+    const queryValue = queryParts.length > 1 ? queryParts.slice(1).join(":").trim() : null;
+    for (const file of allFiles) {
+      const cache = this.app.metadataCache.getFileCache(file);
+      if (!cache || !cache.frontmatter)
+        continue;
+      const frontmatter = cache.frontmatter;
+      let match = false;
+      if (queryValue !== null) {
+        const fmValue = frontmatter[queryKey];
+        if (fmValue !== void 0) {
+          if (Array.isArray(fmValue)) {
+            const cleanedQueryValue = queryValue.startsWith("- ") ? queryValue.substring(2) : queryValue;
+            if (fmValue.map(String).map((v) => v.trim()).includes(cleanedQueryValue)) {
+              match = true;
+            }
+          } else if (String(fmValue).trim() === queryValue) {
+            match = true;
+          }
+        }
+      } else {
+        if (frontmatter.hasOwnProperty(queryKey)) {
+          match = true;
+        }
+      }
+      if (match) {
+        const item = await this.createTimelineItem(file, void 0, metadataQuery);
+        if (item) {
+          items.push(item);
+        }
+      }
+    }
+    return this.sortItemsByDate(items);
+  }
   async generateFromFolder(folder) {
     if (folder.path === "timelines") {
       return [];
@@ -260,7 +325,8 @@ var Timeline = class {
               date: new Date(dateValue),
               title: item.basename,
               path: item.path,
-              preview: await this.getFilePreview(item, "")
+              preview: await this.getFilePreview(item, ""),
+              isMilestone: this.checkMilestone(metadata == null ? void 0 : metadata.frontmatter)
             });
           }
         } else if (item instanceof import_obsidian.TFolder && item.path !== "timelines") {
@@ -301,8 +367,15 @@ var Timeline = class {
     return this.sortItemsByDate(items);
   }
   async generateTimelineMarkdown(items, title, source) {
+    let generatedFromValue = source.value;
+    if (source.type === "metadata") {
+      const parts = source.value.split(":");
+      const key = parts[0].trim();
+      const value = parts.slice(1).join(":").trim();
+      generatedFromValue = `${key}:${value}`;
+    }
     let markdown = `---
-generated_from: ${source.type}:${source.value}
+generated_from: ${source.type}:${generatedFromValue}
 ---
 
 `;
@@ -324,13 +397,15 @@ generated_from: ${source.type}:${source.value}
         currentMonth = null;
       }
       if (currentMonth !== month) {
+        const monthName = this.settings.language === "zh-CN" ? date.toLocaleString("zh-CN", { month: "long" }) : date.toLocaleString("en-US", { month: "long" });
         markdown += `
-### ${date.toLocaleString("default", { month: "long" })}
+### ${monthName}
 
 `;
         currentMonth = month;
       }
-      markdown += `#### ${date.toLocaleDateString("zh-CN")} - [[${item.title}]]
+      const dateFormat = this.settings.language === "zh-CN" ? date.toLocaleDateString("zh-CN") : date.toLocaleDateString("en-US");
+      markdown += `#### ${dateFormat} - [[${item.title}]]
 
 `;
     }
@@ -373,6 +448,20 @@ var TimelineView = class extends import_obsidian2.ItemView {
       await this.render();
     } catch (error) {
       new import_obsidian2.Notice(this.i18n.errors.renderFailed);
+    }
+  }
+  async updateFromMetadata(metadataQuery) {
+    try {
+      this.currentTitle = `\u{1F50D} ${metadataQuery}`;
+      this.items = await this.timeline.generateFromMetadata(metadataQuery);
+      if (this.items.length === 0) {
+        new import_obsidian2.Notice(this.i18n.errors.noMetadataFiles.replace("{query}", metadataQuery));
+        return;
+      }
+      await this.render();
+    } catch (error) {
+      new import_obsidian2.Notice(this.i18n.errors.generateMetadataFailed);
+      console.error("Error generating timeline from metadata:", error);
     }
   }
   renderTitle(container) {
@@ -492,10 +581,11 @@ var TimelineView = class extends import_obsidian2.ItemView {
 // src/FolderSuggest.ts
 var import_obsidian3 = require("obsidian");
 var FolderSuggestModal = class extends import_obsidian3.FuzzySuggestModal {
-  constructor(app) {
+  constructor(app, settings) {
     super(app);
+    this.settings = settings;
     __publicField(this, "resolve");
-    this.setPlaceholder("\u9009\u62E9\u4E00\u4E2A\u6587\u4EF6\u5939");
+    this.setPlaceholder(this.settings.language === "zh-CN" ? "\u9009\u62E9\u4E00\u4E2A\u6587\u4EF6\u5939" : "Select a folder");
   }
   getItems() {
     const folders = [];
@@ -530,10 +620,11 @@ var FolderSuggestModal = class extends import_obsidian3.FuzzySuggestModal {
 // src/TagSuggest.ts
 var import_obsidian4 = require("obsidian");
 var TagSuggestModal = class extends import_obsidian4.FuzzySuggestModal {
-  constructor(app) {
+  constructor(app, settings) {
     super(app);
+    this.settings = settings;
     __publicField(this, "resolve");
-    this.setPlaceholder("\u9009\u62E9\u4E00\u4E2A\u6807\u7B7E");
+    this.setPlaceholder(this.settings.language === "zh-CN" ? "\u9009\u62E9\u4E00\u4E2A\u6807\u7B7E" : "Select a tag");
   }
   getItems() {
     const tags = /* @__PURE__ */ new Set();
@@ -578,10 +669,11 @@ var TagSuggestModal = class extends import_obsidian4.FuzzySuggestModal {
 // src/FileSuggest.ts
 var import_obsidian5 = require("obsidian");
 var FileSuggestModal = class extends import_obsidian5.FuzzySuggestModal {
-  constructor(app) {
+  constructor(app, settings) {
     super(app);
+    this.settings = settings;
     __publicField(this, "resolve");
-    this.setPlaceholder("\u9009\u62E9\u4E00\u4E2AMarkdown\u6587\u4EF6");
+    this.setPlaceholder(this.settings.language === "zh-CN" ? "\u9009\u62E9\u4E00\u4E2AMarkdown\u6587\u4EF6" : "Select a Markdown file");
   }
   getItems() {
     return this.app.vault.getMarkdownFiles();
@@ -655,7 +747,8 @@ var TimelinePlugin = class extends import_obsidian6.Plugin {
             const cache = this.app.metadataCache.getFileCache(abstractFile);
             const generatedFrom = (_a = cache == null ? void 0 : cache.frontmatter) == null ? void 0 : _a.generated_from;
             if (generatedFrom) {
-              const [type, value] = generatedFrom.split(":");
+              const [type, ...valueParts] = generatedFrom.split(":");
+              const value = valueParts.join(":");
               menu.addItem((item) => {
                 item.setTitle(this.i18n.commands.openTimelineView).setIcon("clock").onClick(async () => {
                   await this.activateView(this.settings.defaultPosition);
@@ -667,6 +760,8 @@ var TimelinePlugin = class extends import_obsidian6.Plugin {
                       await view.updateFromTag(value);
                     } else if (type === "file") {
                       await view.updateFromFile(value);
+                    } else if (type === "metadata") {
+                      await view.updateFromMetadata(value);
                     }
                   }
                 });
@@ -805,20 +900,74 @@ var TimelinePlugin = class extends import_obsidian6.Plugin {
           }
         }
       });
+      this.addCommand({
+        id: "generate-timeline-view-from-metadata",
+        name: this.i18n.commands.generateFromMetadata,
+        callback: async () => {
+          try {
+            const metadataQuery = await this.selectMetadataString();
+            if (metadataQuery) {
+              await this.activateView(this.settings.defaultPosition);
+              const view = this.getTimelineView();
+              if (view) {
+                await view.updateFromMetadata(metadataQuery);
+              }
+            }
+          } catch (error) {
+            console.error("\u4ECE\u5143\u6570\u636E\u751F\u6210\u65F6\u95F4\u8F74\u89C6\u56FE\u65F6\u51FA\u9519:", error);
+            new import_obsidian6.Notice(this.i18n.errors.generateMetadataFailed);
+          }
+        }
+      });
+      this.addCommand({
+        id: "generate-timeline-file-from-metadata",
+        name: this.i18n.commands.generateFileFromMetadata,
+        callback: async () => {
+          try {
+            const metadataQuery = await this.selectMetadataString();
+            if (metadataQuery) {
+              const timeline = new Timeline(this.app, this.settings);
+              const items = await timeline.generateFromMetadata(metadataQuery);
+              const content = await timeline.generateTimelineMarkdown(
+                items,
+                `Timeline - Metadata: ${metadataQuery}`,
+                { type: "metadata", value: metadataQuery }
+              );
+              const { folderPath } = await this.createNestedFolders("metadata-search");
+              const safeBaseName = metadataQuery.substring(0, 30).replace(/[^a-zA-Z0-9_\-]+/g, "_") || "metadata_query";
+              const finalFileName = this.generateFileName(safeBaseName);
+              const filePath = `${folderPath}/${finalFileName}.md`;
+              const existingFile = this.app.vault.getAbstractFileByPath(filePath);
+              if (existingFile) {
+                await this.app.vault.delete(existingFile);
+              }
+              const newFile = await this.app.vault.create(filePath, content);
+              await this.app.workspace.getLeaf().openFile(newFile);
+            }
+          } catch (error) {
+            console.error("\u4ECE\u5143\u6570\u636E\u751F\u6210\u65F6\u95F4\u8F74\u6587\u4EF6\u65F6\u51FA\u9519:", error);
+            new import_obsidian6.Notice(this.i18n.errors.generateMetadataFailed);
+          }
+        }
+      });
     } catch (error) {
       console.error("\u63D2\u4EF6\u52A0\u8F7D\u65F6\u51FA\u9519:", error);
     }
   }
   async selectFolder() {
-    const modal = new FolderSuggestModal(this.app);
+    const modal = new FolderSuggestModal(this.app, this.settings);
     return await modal.openAndGetValue();
   }
   async selectFile() {
-    const modal = new FileSuggestModal(this.app);
+    const modal = new FileSuggestModal(this.app, this.settings);
     return await modal.openAndGetValue();
   }
   async selectTag() {
-    const modal = new TagSuggestModal(this.app);
+    const modal = new TagSuggestModal(this.app, this.settings);
+    return await modal.openAndGetValue();
+  }
+  async selectMetadataString() {
+    const modal = new MetadataInputModal(this.app, this);
     return await modal.openAndGetValue();
   }
   async activateView(position = this.settings.defaultPosition) {
@@ -948,6 +1097,63 @@ var TimelinePlugin = class extends import_obsidian6.Plugin {
       console.error("\u751F\u6210\u6807\u7B7E\u65F6\u95F4\u8F74\u6587\u4EF6\u65F6\u51FA\u9519:", error);
       throw error;
     }
+  }
+};
+var MetadataInputModal = class extends import_obsidian6.Modal {
+  constructor(app, plugin) {
+    super(app);
+    __publicField(this, "plugin");
+    // Add plugin reference
+    __publicField(this, "value", "");
+    __publicField(this, "resolvePromise");
+    __publicField(this, "inputEl");
+    this.plugin = plugin;
+  }
+  async openAndGetValue() {
+    return new Promise((resolve) => {
+      this.resolvePromise = resolve;
+      this.open();
+    });
+  }
+  onOpen() {
+    const { contentEl } = this;
+    contentEl.empty();
+    contentEl.addClass("metadata-input-modal");
+    contentEl.createEl("h2", { text: this.plugin.i18n.modal.metadataInputTitle });
+    new import_obsidian6.Setting(contentEl).setName(this.plugin.i18n.modal.metadataQueryName).setDesc(this.plugin.i18n.modal.metadataQueryDesc).addText((text) => {
+      this.inputEl = text;
+      text.setPlaceholder(this.plugin.i18n.modal.metadataInputPlaceholder).onChange((value) => this.value = value.trim());
+      text.inputEl.style.width = "100%";
+      text.inputEl.addEventListener("keydown", (evt) => {
+        if (evt.key === "Enter") {
+          evt.preventDefault();
+          this.submit();
+        }
+      });
+    });
+    new import_obsidian6.Setting(contentEl).addButton((button) => button.setButtonText(this.plugin.i18n.modal.submitButton).setCta().onClick(() => this.submit())).addButton((button) => button.setButtonText(this.plugin.i18n.modal.cancelButton).onClick(() => this.closeAndResolve(null)));
+    setTimeout(() => {
+      if (this.inputEl && this.inputEl.inputEl) {
+        this.inputEl.inputEl.focus();
+      }
+    }, 50);
+  }
+  submit() {
+    if (this.value) {
+      this.closeAndResolve(this.value);
+    } else {
+      new import_obsidian6.Notice(this.plugin.i18n.modal.emptyInputNotice);
+    }
+  }
+  closeAndResolve(value) {
+    if (this.resolvePromise) {
+      this.resolvePromise(value);
+    }
+    this.close();
+  }
+  onClose() {
+    const { contentEl } = this;
+    contentEl.empty();
   }
 };
 var TimelineSettingTab = class extends import_obsidian6.PluginSettingTab {
