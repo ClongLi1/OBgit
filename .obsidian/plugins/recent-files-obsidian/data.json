@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "未命名 1",
+      "path": "00草稿收集/未命名 1.base"
+    },
+    {
+      "basename": "未命名",
+      "path": "00草稿收集/未命名.base"
+    },
+    {
       "basename": "利用二手平台",
       "path": "01生活方面/利用二手平台.md"
     },
@@ -59,10 +67,6 @@
     {
       "basename": "02材料专业",
       "path": "02专业知识/02材料专业.md"
-    },
-    {
-      "basename": "未命名",
-      "path": "00草稿收集/未命名.base"
     },
     {
       "basename": "bases",
@@ -195,10 +199,6 @@
     {
       "basename": "扫描电镜&EDS",
       "path": "02专业知识/扫描电镜&EDS.md"
-    },
-    {
-      "basename": "机械设计学习的顺序",
-      "path": "02专业知识/机械设计学习的顺序.md"
     }
   ],
   "omittedPaths": [],
