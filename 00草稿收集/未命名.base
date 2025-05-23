@@ -1,0 +1,21 @@
+formulas:
+  Untitled: ""
+views:
+  - type: table
+    name: Table
+  - type: table
+    name: View
+    order:
+      - file.name
+      - file.folder
+      - file.ext
+      - file.ctime
+      - file.mtime
+      - file.path
+      - file.size
+      - formula.Untitled
+    columnSize:
+      file.ctime: 187
+      file.mtime: 195
+      file.path: 333
+      file.size: 110
