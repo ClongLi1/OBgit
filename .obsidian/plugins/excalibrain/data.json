@@ -1,0 +1,263 @@
+{
+  "compactView": false,
+  "compactingFactor": 1.5,
+  "minLinkLength": 18,
+  "excalibrainFilepath": "excalibrain.md",
+  "indexUpdateInterval": 5000,
+  "hierarchy": {
+    "exclusions": [
+      "excalidraw-border-color",
+      "excalidraw-css",
+      "excalidraw-default-mode",
+      "excalidraw-export-dark",
+      "excalidraw-export-pngscale",
+      "excalidraw-export-svgpadding",
+      "excalidraw-export-transparent",
+      "excalidraw-font",
+      "excalidraw-font-color",
+      "excalidraw-link-brackets",
+      "excalidraw-link-prefix",
+      "excalidraw-linkbutton-opacity",
+      "excalidraw-onload-script",
+      "excalidraw-plugin",
+      "excalidraw-url-prefix",
+      "kanban-plugin"
+    ],
+    "parents": [
+      "inception",
+      "North",
+      "origin",
+      "Parent",
+      "parent domain",
+      "Parents",
+      "source",
+      "u",
+      "up"
+    ],
+    "children": [
+      "Child",
+      "Children",
+      "contributes to",
+      "d",
+      "down",
+      "leads to",
+      "nurtures",
+      "South"
+    ],
+    "leftFriends": [
+      "advantages",
+      "alternatives",
+      "Friend",
+      "Friends",
+      "j",
+      "Jump",
+      "Jumps",
+      "pros",
+      "similar",
+      "supports"
+    ],
+    "rightFriends": [
+      "cons",
+      "disadvantages",
+      "missing",
+      "opposes"
+    ],
+    "previous": [
+      "Before",
+      "Prev",
+      "Previous",
+      "w",
+      "West"
+    ],
+    "next": [
+      "After",
+      "e",
+      "East",
+      "n",
+      "Next"
+    ],
+    "hidden": [
+      "hidden"
+    ]
+  },
+  "inferAllLinksAsFriends": false,
+  "inverseInfer": false,
+  "inverseArrowDirection": true,
+  "renderAlias": true,
+  "nodeTitleScript": "",
+  "backgroundColor": "#0c3e6aff",
+  "excludeFilepaths": [],
+  "autoOpenCentralDocument": true,
+  "toggleEmbedTogglesAutoOpen": true,
+  "showInferredNodes": true,
+  "showAttachments": true,
+  "showURLNodes": true,
+  "showVirtualNodes": true,
+  "showFolderNodes": false,
+  "showTagNodes": false,
+  "showPageNodes": true,
+  "showNeighborCount": true,
+  "showFullTagName": false,
+  "maxItemCount": 30,
+  "renderSiblings": false,
+  "applyPowerFilter": false,
+  "baseNodeStyle": {
+    "prefix": "",
+    "backgroundColor": "#00000066",
+    "fillStyle": "solid",
+    "textColor": "#ffffffff",
+    "borderColor": "#00000000",
+    "fontSize": 20,
+    "fontFamily": 3,
+    "maxLabelLength": 30,
+    "roughness": 0,
+    "strokeShaprness": "round",
+    "strokeWidth": 1,
+    "strokeStyle": "solid",
+    "padding": 10,
+    "gateRadius": 5,
+    "gateOffset": 15,
+    "gateStrokeColor": "#ffffffff",
+    "gateBackgroundColor": "#ffffffff",
+    "gateFillStyle": "solid"
+  },
+  "centralNodeStyle": {
+    "fontSize": 30,
+    "backgroundColor": "#B5B5B5",
+    "textColor": "#000000ff"
+  },
+  "inferredNodeStyle": {
+    "backgroundColor": "#000005b3",
+    "textColor": "#95c7f3ff"
+  },
+  "urlNodeStyle": {
+    "prefix": "🌐 "
+  },
+  "virtualNodeStyle": {
+    "backgroundColor": "#ff000066",
+    "fillStyle": "hachure",
+    "textColor": "#ffffffff"
+  },
+  "siblingNodeStyle": {
+    "fontSize": 15
+  },
+  "attachmentNodeStyle": {
+    "prefix": "📎 "
+  },
+  "folderNodeStyle": {
+    "prefix": "📂 ",
+    "strokeShaprness": "sharp",
+    "borderColor": "#ffd700ff",
+    "textColor": "#ffd700ff"
+  },
+  "tagNodeStyle": {
+    "prefix": "#",
+    "strokeShaprness": "sharp",
+    "borderColor": "#4682b4ff",
+    "textColor": "#4682b4ff"
+  },
+  "tagNodeStyles": {},
+  "tagStyleList": [],
+  "primaryTagField": "Note type",
+  "primaryTagFieldLowerCase": "note-type",
+  "displayAllStylePrefixes": true,
+  "baseLinkStyle": {
+    "strokeColor": "#696969FF",
+    "strokeWidth": 1,
+    "strokeStyle": "solid",
+    "roughness": 0,
+    "startArrowHead": "none",
+    "endArrowHead": "none",
+    "showLabel": false,
+    "fontSize": 10,
+    "fontFamily": 3,
+    "textColor": "#ffffffff"
+  },
+  "inferredLinkStyle": {
+    "strokeStyle": "dashed"
+  },
+  "folderLinkStyle": {
+    "strokeColor": "#ffd700ff"
+  },
+  "tagLinkStyle": {
+    "strokeColor": "#4682b4ff"
+  },
+  "hierarchyLinkStyles": {
+    "hidden": {},
+    "inception": {},
+    "North": {},
+    "origin": {},
+    "Parent": {},
+    "parent domain": {},
+    "Parents": {},
+    "source": {},
+    "u": {},
+    "up": {},
+    "Child": {},
+    "Children": {},
+    "contributes to": {},
+    "d": {},
+    "down": {},
+    "leads to": {},
+    "nurtures": {},
+    "South": {},
+    "advantages": {},
+    "alternatives": {},
+    "Friend": {},
+    "Friends": {},
+    "j": {},
+    "Jump": {},
+    "Jumps": {},
+    "pros": {},
+    "similar": {},
+    "supports": {},
+    "cons": {},
+    "disadvantages": {},
+    "missing": {},
+    "opposes": {},
+    "Before": {},
+    "Prev": {},
+    "Previous": {},
+    "w": {},
+    "West": {},
+    "After": {},
+    "e": {},
+    "East": {},
+    "n": {},
+    "Next": {}
+  },
+  "navigationHistory": [
+    "999知识管理/999知识管理.md",
+    "01生活方面/开支面板.md",
+    "03软件网络/Allen Explorer.md",
+    "https://www.allenxiang.com/index.html",
+    "05工作职场/招聘就业方法技巧.md",
+    "02专业知识/金属专业需要掌握的技能.md",
+    "03软件网络/03软件电脑.md",
+    "05工作职场/05工作职场.md",
+    "99-必备技能/99必备技能.md",
+    "02专业知识/02材料专业.md",
+    "04方法思维/04思维方法.md",
+    "999知识管理/思维可视化.md",
+    "03软件网络/AutoCAD.md",
+    "100附件文件/1004Excalidraw/ExcaliBrain Snapshot - 02材料专业.excalidraw.md",
+    "04方法思维/素质冰山模型：知识、技能、能力、个性、价值、动机.md"
+  ],
+  "allowOntologySuggester": true,
+  "ontologySuggesterParentTrigger": "::p",
+  "ontologySuggesterChildTrigger": "::c",
+  "ontologySuggesterLeftFriendTrigger": "::l",
+  "ontologySuggesterRightFriendTrigger": "::r",
+  "ontologySuggesterPreviousTrigger": "::e",
+  "ontologySuggesterNextTrigger": "::n",
+  "ontologySuggesterTrigger": ":::",
+  "ontologySuggesterMidSentenceTrigger": "(",
+  "boldFields": false,
+  "allowAutozoom": true,
+  "maxZoom": 1,
+  "allowAutofocuOnSearch": true,
+  "defaultAlwaysOnTop": false,
+  "embedCentralNode": false,
+  "centerEmbedWidth": 550,
+  "centerEmbedHeight": 700
+}
