@@ -29,7 +29,7 @@
 ---
 ## 2.2 进阶篇
 ### Obsidian 常用插件推荐 
-1.  [[03软件网络/Obsidian#2. 常用插件]]
+1.  [[Obsidian语法]]
 
 - [Excalidraw绘画白板完美解决痛点。](https://mp.weixin.qq.com/s/Hyy2WBFB58UpH61EvAMWeg)
 -  **Editing Toolbar**是一个插件，提供了类似于MS-Word的工具栏，并添加了一个简洁、用户友好的文本编辑器模态框，以获得更流畅的写作/编辑体验。
