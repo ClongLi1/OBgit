@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "2025-05-26_Web of Science",
+      "path": "00ZK卡片/2025-05-26_Web of Science.md"
+    },
+    {
+      "basename": "05工作职场",
+      "path": "05工作职场/05工作职场.md"
+    },
+    {
+      "basename": "2025-05-25_",
+      "path": "00ZK卡片/2025-05-25_.md"
+    },
+    {
       "basename": "2025-05-24_材料人（金属断裂失效分析讲座）",
       "path": "00ZK卡片/2025-05-24_材料人（金属断裂失效分析讲座）.md"
     },
@@ -23,10 +35,6 @@
     {
       "basename": "待办任务事项汇集",
       "path": "08灵感梦想/待办任务事项汇集.md"
-    },
-    {
-      "basename": "05工作职场",
-      "path": "06口才社交/05工作职场/05工作职场.md"
     },
     {
       "basename": "06口才社交",
@@ -66,7 +74,7 @@
     },
     {
       "basename": "专业前沿",
-      "path": "06口才社交/05工作职场/051-主业工作（轻研合金）/专业前沿.md"
+      "path": "05工作职场/051-主业工作（轻研合金）/专业前沿.md"
     },
     {
       "basename": "男人如何保持年轻",
@@ -130,7 +138,7 @@
     },
     {
       "basename": "03软件电脑",
-      "path": "03软件网络/03软件电脑.md"
+      "path": "05工作职场/03软件电脑.md"
     },
     {
       "basename": "透射电镜",
@@ -191,14 +199,6 @@
     {
       "basename": "如何成为行业专家？",
       "path": "02专业知识/如何成为行业专家？.md"
-    },
-    {
-      "basename": "Xmind",
-      "path": "03软件网络/Xmind.md"
-    },
-    {
-      "basename": "Allen Explorer",
-      "path": "03软件网络/Allen Explorer.md"
     }
   ],
   "omittedPaths": [],
