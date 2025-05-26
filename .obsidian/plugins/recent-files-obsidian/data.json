@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "Obsidian笔记中元素",
-      "path": "00写作运营/02卡片/Obsidian笔记中元素.md"
+      "basename": "工作生活规划（导图）",
+      "path": "工作生活规划（导图）.md"
+    },
+    {
+      "basename": "Mermaid图表类型举例",
+      "path": "03软件网络/Mermaid图表类型举例.md"
+    },
+    {
+      "basename": "Obsidian笔记中元素（Markdown语法）",
+      "path": "00写作运营/02卡片/Obsidian笔记中元素（Markdown语法）.md"
     },
     {
       "basename": "Obsidian语法",
       "path": "00写作运营/Obsidian语法.md"
-    },
-    {
-      "basename": "工作生活规划（导图）",
-      "path": "工作生活规划（导图）.md"
     },
     {
       "basename": "Aconvert.com——全能在线免费格式转换工具",
@@ -195,10 +199,6 @@
     {
       "basename": "2023总结2024展望",
       "path": "10总结反思/2023总结2024展望.md"
-    },
-    {
-      "basename": "06口才社交",
-      "path": "06口才社交/06口才社交.md"
     }
   ],
   "omittedPaths": [],

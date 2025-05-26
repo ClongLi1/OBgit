@@ -161,8 +161,7 @@ $$
 Callout 语法格式
 >[!字符]
 > 内容 BaLaBaLa......
-```
- ```
+ 
  字符内容：
 - note
 - abstract, summary, tldr
