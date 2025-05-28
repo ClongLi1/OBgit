@@ -2,7 +2,7 @@
   "logLevel": "INFO",
   "citationEditorSuggester": true,
   "showCitekeyInSuggester": false,
-  "literatureNoteFolder": "LiteratureNotes",
+  "literatureNoteFolder": "1000Zotero-Obsidian",
   "enableServer": true,
   "serverPort": 9091,
   "serverHostname": "127.0.0.1",

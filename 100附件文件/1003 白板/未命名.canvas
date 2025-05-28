@@ -1,0 +1,201 @@
+{
+  "edges": [
+    {
+      "color": "5",
+      "fromNode": "344d0230a1c63c70",
+      "fromSide": "right",
+      "id": "41ead221eea9e932",
+      "label": "联动跳转",
+      "styleAttributes": {
+      },
+      "toNode": "4a81c862e686993a",
+      "toSide": "left"
+    },
+    {
+      "color": "4",
+      "fromNode": "e93139ba1d061b08",
+      "fromSide": "top",
+      "id": "b81b5c6d1362c51e",
+      "styleAttributes": {
+      },
+      "toNode": "344d0230a1c63c70",
+      "toSide": "top"
+    },
+    {
+      "color": "4",
+      "fromNode": "e93139ba1d061b08",
+      "fromSide": "top",
+      "id": "70a976a5586630c3",
+      "styleAttributes": {
+      },
+      "toNode": "4a81c862e686993a",
+      "toSide": "top"
+    },
+    {
+      "color": "3",
+      "fromNode": "d4b00309ba57d813",
+      "fromSide": "bottom",
+      "id": "d470f45043290edc",
+      "styleAttributes": {
+      },
+      "toNode": "4a81c862e686993a",
+      "toSide": "bottom"
+    },
+    {
+      "color": "3",
+      "fromNode": "d4b00309ba57d813",
+      "fromSide": "bottom",
+      "id": "43aac724f77968eb",
+      "styleAttributes": {
+      },
+      "toNode": "344d0230a1c63c70",
+      "toSide": "bottom"
+    }
+  ],
+  "nodes": [
+    {
+      "color": "4",
+      "height": 280,
+      "id": "eaaf6bc8929e6b46",
+      "label": "zotero(阅读批注）",
+      "styleAttributes": {
+      },
+      "type": "group",
+      "width": 300,
+      "x": -1000,
+      "y": -360
+    },
+    {
+      "color": "2",
+      "height": 280,
+      "id": "9fe193fbff2cf0ff",
+      "label": "Obsidian（知识管理）",
+      "styleAttributes": {
+      },
+      "type": "group",
+      "width": 300,
+      "x": 480,
+      "y": -360
+    },
+    {
+      "color": "1",
+      "file": "100附件文件/1000附件/Zotero.png",
+      "height": 480,
+      "id": "344d0230a1c63c70",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 795,
+      "x": -1100,
+      "y": -880
+    },
+    {
+      "color": "6",
+      "file": "100附件文件/1000附件/Obsidian.png",
+      "height": 480,
+      "id": "4a81c862e686993a",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 787,
+      "x": 80,
+      "y": -880
+    },
+    {
+      "color": "4",
+      "height": 60,
+      "id": "e93139ba1d061b08",
+      "styleAttributes": {
+      },
+      "text": "Zotlit 插件",
+      "type": "text",
+      "width": 280,
+      "x": -240,
+      "y": -800
+    },
+    {
+      "color": "3",
+      "height": 60,
+      "id": "d4b00309ba57d813",
+      "styleAttributes": {
+      },
+      "text": "Obsidian-zotero-note 插件",
+      "type": "text",
+      "width": 280,
+      "x": -240,
+      "y": -520
+    },
+    {
+      "color": "4",
+      "height": 60,
+      "id": "d9221fe2cea5be3e",
+      "styleAttributes": {
+      },
+      "text": "文献书籍管理",
+      "type": "text",
+      "width": 260,
+      "x": -982,
+      "y": -340
+    },
+    {
+      "color": "4",
+      "height": 60,
+      "id": "7625708f854da740",
+      "styleAttributes": {
+      },
+      "text": "笔记批注标记",
+      "type": "text",
+      "width": 260,
+      "x": -982,
+      "y": -240
+    },
+    {
+      "color": "4",
+      "height": 60,
+      "id": "6b8aa72ebd3b0cb8",
+      "styleAttributes": {
+      },
+      "text": "数据显示追踪",
+      "type": "text",
+      "width": 260,
+      "x": -982,
+      "y": -160
+    },
+    {
+      "color": "2",
+      "height": 60,
+      "id": "e13b364a5d670bc8",
+      "styleAttributes": {
+      },
+      "text": "知识管理升华",
+      "type": "text",
+      "width": 260,
+      "x": 504,
+      "y": -340
+    },
+    {
+      "color": "2",
+      "height": 60,
+      "id": "9db99dd3b8068e89",
+      "styleAttributes": {
+      },
+      "text": "免费功能强大",
+      "type": "text",
+      "width": 260,
+      "x": 504,
+      "y": -240
+    },
+    {
+      "color": "2",
+      "height": 60,
+      "id": "9189e1ba409dcde0",
+      "styleAttributes": {
+      },
+      "text": "数据显示追踪",
+      "type": "text",
+      "width": 260,
+      "x": 504,
+      "y": -160
+    }
+  ]
+}
