@@ -1,0 +1,59 @@
+{
+  "edges": [
+    {
+      "fromNode": "fd285408e4d5dcb2",
+      "fromSide": "right",
+      "id": "666c97fd957c8769",
+      "styleAttributes": {
+      },
+      "toNode": "5b2aaa63515241c0",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "fd285408e4d5dcb2",
+      "fromSide": "bottom",
+      "id": "c0728c46ba4f2552",
+      "styleAttributes": {
+      },
+      "toNode": "8c8d680606d1f655",
+      "toSide": "top"
+    }
+  ],
+  "nodes": [
+    {
+      "color": "6",
+      "file": "100附件文件/1000附件/Obsidian（知识管理、思维升华）.png",
+      "height": 328,
+      "id": "5b2aaa63515241c0",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 584,
+      "x": -1100,
+      "y": -2348
+    },
+    {
+      "color": "1",
+      "file": "100附件文件/1000附件/Zotero 书籍、网页的阅读、笔记与标注.png",
+      "height": 88,
+      "id": "fd285408e4d5dcb2",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 339,
+      "x": -2260,
+      "y": -2262
+    },
+    {
+      "height": 60,
+      "id": "8c8d680606d1f655",
+      "styleAttributes": {
+      },
+      "text": "文献阅读",
+      "type": "text",
+      "width": 260,
+      "x": -2100,
+      "y": -2000
+    }
+  ]
+}
