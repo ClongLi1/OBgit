@@ -10,16 +10,70 @@
       "textColor": "#f2fe43"
     },
     "04方法思维": {
-      "textColor": "#cd42ff"
+      "textColor": "#0aefff"
     },
     "998日记汇总": {
       "textColor": "#ffa55c"
     },
     "00ZK卡片": {
-      "textColor": "#70fff5"
+      "textColor": "#ed94ff"
     },
     "00-Clippings": {
       "textColor": "#fea4a4"
+    },
+    "00草稿收集": {
+      "textColor": "#34ff1a"
+    },
+    "00科研相关": {
+      "textColor": "#eeff00"
+    },
+    "00闪念笔记": {
+      "textColor": "#9784f5"
+    },
+    "00写作运营": {
+      "textColor": "#90fecb"
+    },
+    "01生活方面": {
+      "textColor": "#ef6b6b"
+    },
+    "02专业知识": {
+      "textColor": "#3884ff"
+    },
+    "03软件网络": {
+      "textColor": "#ffa200"
+    },
+    "05工作职场": {
+      "textColor": "#8f8f8f"
+    },
+    "06口才社交": {
+      "textColor": "#ff0000"
+    },
+    "07文学历史": {
+      "textColor": "#fdcb5d"
+    },
+    "08灵感梦想": {
+      "textColor": "#2effcb"
+    },
+    "09心灵慰藉": {
+      "textColor": "#f139fe"
+    },
+    "10总结反思": {
+      "textColor": "#ffffff"
+    },
+    "11情感婚恋": {
+      "textColor": "#ff00c8"
+    },
+    "12亲子教育": {
+      "textColor": "#ff4000"
+    },
+    "14运动医学": {
+      "textColor": "#a1fe16"
+    },
+    "16时政现实": {
+      "textColor": "#8b4dfe"
+    },
+    "999知识管理": {
+      "textColor": "#bcfe86"
     }
   },
   "presets": {},

@@ -18,63 +18,63 @@
       "query": "path:00草稿收集  ",
       "color": {
         "a": 1,
-        "rgb": 14725458
+        "rgb": 3406362
       }
     },
     {
       "query": "path:00写作运营  ",
       "color": {
         "a": 1,
-        "rgb": 11657298
+        "rgb": 9502411
       }
     },
     {
       "query": "path:00科研相关  ",
       "color": {
         "a": 1,
-        "rgb": 5431378
+        "rgb": 14347011
       }
     },
     {
       "query": "path:00闪念笔记  ",
       "color": {
         "a": 1,
-        "rgb": 5431473
+        "rgb": 9732593
       }
     },
     {
       "query": "path:01生活方面  ",
       "color": {
         "a": 1,
-        "rgb": 5419488
+        "rgb": 15099751
       }
     },
     {
       "query": "path:02专业知识  ",
       "color": {
         "a": 1,
-        "rgb": 11621088
+        "rgb": 3637237
       }
     },
     {
       "query": "path:03软件网络  ",
       "color": {
         "a": 1,
-        "rgb": 14701233
+        "rgb": 14125829
       }
     },
     {
       "query": "path:05工作职场  ",
       "color": {
         "a": 1,
-        "rgb": 14701233
+        "rgb": 9408399
       }
     },
     {
       "query": "path:06口才社交  ",
       "color": {
         "a": 1,
-        "rgb": 14701138
+        "rgb": 16711680
       }
     },
     {
@@ -88,35 +88,35 @@
       "query": "path:08灵感梦想  ",
       "color": {
         "a": 1,
-        "rgb": 11657298
+        "rgb": 65471
       }
     },
     {
       "query": "path:09心灵慰藉  ",
       "color": {
         "a": 1,
-        "rgb": 5431378
+        "rgb": 15809022
       }
     },
     {
       "query": "path:10总结反思  ",
       "color": {
         "a": 1,
-        "rgb": 5431473
+        "rgb": 16777215
       }
     },
     {
       "query": "path:11情感婚恋  ",
       "color": {
         "a": 1,
-        "rgb": 5419488
+        "rgb": 15139511
       }
     },
     {
       "query": "path:12亲子教育  ",
       "color": {
         "a": 1,
-        "rgb": 5395168
+        "rgb": 16465664
       }
     },
     {
@@ -130,28 +130,28 @@
       "query": "path:14运动医学  ",
       "color": {
         "a": 1,
-        "rgb": 5395121
+        "rgb": 15400832
       }
     },
     {
       "query": "path:15琐碎问题  ",
       "color": {
         "a": 1,
-        "rgb": 5395026
+        "rgb": 10352662
       }
     },
     {
       "query": "path:16时政现实  ",
       "color": {
         "a": 1,
-        "rgb": 15508130
+        "rgb": 8998139
       }
     },
     {
       "query": "path:17AI写作咨询  ",
       "color": {
         "a": 1,
-        "rgb": 5978425
+        "rgb": 16680582
       }
     },
     {
@@ -165,27 +165,34 @@
       "query": "path:999知识管理  ",
       "color": {
         "a": 1,
-        "rgb": 9760255
+        "rgb": 11397757
       }
     },
     {
-      "query": "",
+      "query": "path:00ZK卡片  ",
       "color": {
         "a": 1,
-        "rgb": 5395026
+        "rgb": 13468125
+      }
+    },
+    {
+      "query": "path:04方法思维  ",
+      "color": {
+        "a": 1,
+        "rgb": 716799
       }
     }
   ],
   "collapse-display": false,
-  "showArrow": false,
-  "textFadeMultiplier": 0.1,
-  "nodeSizeMultiplier": 0.906066225165563,
-  "lineSizeMultiplier": 0.532238410596027,
-  "collapse-forces": false,
-  "centerStrength": 0.713377483443709,
-  "repelStrength": 8.29692307692308,
-  "linkStrength": 0.721854304635762,
-  "linkDistance": 175,
-  "scale": 0.34866088769758513,
+  "showArrow": true,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1.08259602649007,
+  "lineSizeMultiplier": 2.61944370860927,
+  "collapse-forces": true,
+  "centerStrength": 0.465723029839327,
+  "repelStrength": 9.47360367253252,
+  "linkStrength": 0.522647283856159,
+  "linkDistance": 145,
+  "scale": 0.03590927825037274,
   "close": true
 }
