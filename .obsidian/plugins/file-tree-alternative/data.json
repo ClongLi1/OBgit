@@ -16,7 +16,7 @@
   "evernoteView": "Vertical",
   "filePreviewOnHover": false,
   "iconBeforeFileName": true,
-  "sortFilesBy": "name",
+  "sortFilesBy": "last-update",
   "sortReverse": false,
   "sortFoldersBy": "name",
   "fixedHeaderInFileList": true,

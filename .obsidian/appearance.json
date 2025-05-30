@@ -25,7 +25,8 @@
     "日历插件",
     "引用框",
     "kanpan四象限",
-    "callout彩色"
+    "callout彩色",
+    "表格美化"
   ],
   "showRibbon": true,
   "interfaceFontFamily": "Inter",
