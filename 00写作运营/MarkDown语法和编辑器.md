@@ -1,13 +1,10 @@
-
-
-
-
-
-
-
-
-
-
+---
+tags:
+  - Markdown
+aliases:
+  - markdown
+  - Md
+---
 
 -  [花半小时掌握Markdown，开启高效写作之旅！](https://mp.weixin.qq.com/s/beT02sQI5cylnljM3TxsGQ)
 - [PicGo + 阿里云OSS，最详细的图床配置教程！](https://mp.weixin.qq.com/s?__biz=MzAxNzgyMDg0MQ==&mid=2650465902&idx=1&sn=50c39a2043888f865ab0fd20466540be&chksm=83d1fba8b4a672be53010644f7c1d93406e1a9338c9e7360c82387d98b6ede25cb56b0b4aaee&scene=178&cur_album_id=1363955324344172545#rd)

@@ -20,4 +20,4 @@ dv.view("100附件文件/1000附件/weatherView",setting)
 
 # 动态天气
 
-<iframe width="1700" height="1000" src="https://embed.windy.com/embed2.html?lat=29.344&lon=112.017&detailLat=25.040&detailLon=121.469&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
+<iframe width="1400" height="1000" src="https://embed.windy.com/embed2.html?lat=29.344&lon=112.017&detailLat=25.040&detailLon=121.469&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
