@@ -362,6 +362,18 @@
       },
       "workspaces-plus": {
         "startupType": "instant"
+      },
+      "excalibrain": {
+        "startupType": "instant"
+      },
+      "generate-timeline": {
+        "startupType": "disabled"
+      },
+      "obsidian-zotero-desktop-connector": {
+        "startupType": "disabled"
+      },
+      "zotlit": {
+        "startupType": "instant"
       }
     },
     "loadOrder": []

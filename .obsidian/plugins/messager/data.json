@@ -1,11 +1,11 @@
 {
   "apikey": "ad948380610fa1bd8db50844ef819c9b",
-  "savedFolder": "08灵感梦想任务/WeChat✨",
-  "filenameRule": "mm-dd",
-  "conflictFileRule": "new",
+  "savedFolder": "08灵感梦想/WeChat✨",
+  "filenameRule": "fixed",
+  "conflictFileRule": "append",
   "refreshInterval": "",
-  "fixedTitle": "",
+  "fixedTitle": "WeChat",
   "insertPosition": "ending",
-  "contentSuffix": "",
-  "contentPrefix": ""
+  "contentSuffix": "【日期@{y-m-d-h:i}】",
+  "contentPrefix": "- "
 }
