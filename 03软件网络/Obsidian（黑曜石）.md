@@ -1,5 +1,12 @@
-```table-of-contents
-```
+---
+tags:
+  - Obsidian
+  - 黑曜石
+  - 知识管理
+aliases:
+  - 黑曜石
+---
+
 ---
 # 0. 引言
 > [!tip]- 资料来源
