@@ -1,0 +1,17 @@
+filters:
+  and:
+    - contains(file.path, "阅读笔记")
+formulas:
+  author: ""
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - formula.author
+      - file.folder
+      - file.mtime
+      - file.ctime
+      - file.ext
+    columnSize:
+      file.name: 287

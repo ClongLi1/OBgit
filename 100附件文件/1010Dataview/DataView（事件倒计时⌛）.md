@@ -1,3 +1,11 @@
+---
+tags:
+  - 倒计时
+  - 清单
+  - 节假日
+  - dataview
+---
+#### 1. 个人重要事件
 ```dataviewjs
 // 获取今天的日期
 const today = new Date();
@@ -70,5 +78,140 @@ const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
 // 输出倒计时，使用不同颜色和加粗
 dv.paragraph(`
 3. 距离**<span style="color: cyan;">${event}</span>**还有：**<span style="color: yellow;">${days}</span>**天
+`);
+```
+
+#### 2. 年度节假日
+```dataviewjs
+// 设置事件名称和目标日期
+const event = "国庆8天";
+const targetDate = new Date("2025-09-28").getTime();
+
+// 获取当前日期
+const currentDate = new Date().getTime();
+
+// 计算剩余时间（毫秒）
+const timeRemaining = targetDate - currentDate;
+
+// 将毫秒转换为天
+const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+
+// 输出倒计时，使用不同颜色和加粗
+dv.paragraph(`
+1.  距离**<span style="color: cyan;">${event}</span>**还有：**<span style="color: yellow;">${days}</span>**天
+`);
+```
+```dataviewjs
+// 设置事件名称和目标日期
+const event = "元旦3天";
+const targetDate = new Date("2026-01-01").getTime();
+
+// 获取当前日期
+const currentDate = new Date().getTime();
+
+// 计算剩余时间（毫秒）
+const timeRemaining = targetDate - currentDate;
+
+// 将毫秒转换为天
+const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+
+// 输出倒计时，使用不同颜色和加粗
+dv.paragraph(`
+2.  距离**<span style="color: cyan;">${event}</span>**还有：**<span style="color: yellow;">${days}</span>**天
+`);
+```
+```dataviewjs
+// 设置事件名称和目标日期
+const event = "春节8天";
+const targetDate = new Date("2026-02-16").getTime();
+
+// 获取当前日期
+const currentDate = new Date().getTime();
+
+// 计算剩余时间（毫秒）
+const timeRemaining = targetDate - currentDate;
+
+// 将毫秒转换为天
+const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+
+// 输出倒计时，使用不同颜色和加粗
+dv.paragraph(`
+3.  距离**<span style="color: cyan;">${event}</span>**还有：**<span style="color: yellow;">${days}</span>**天
+`);
+```
+```dataviewjs
+// 设置事件名称和目标日期
+const event = "清明3天";
+const targetDate = new Date("2026-04-04").getTime();
+
+// 获取当前日期
+const currentDate = new Date().getTime();
+
+// 计算剩余时间（毫秒）
+const timeRemaining = targetDate - currentDate;
+
+// 将毫秒转换为天
+const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+
+// 输出倒计时，使用不同颜色和加粗
+dv.paragraph(`
+4.  距离**<span style="color: cyan;">${event}</span>**还有：**<span style="color: yellow;">${days}</span>**天
+`);
+```
+```dataviewjs
+// 设置事件名称和目标日期
+const event = "劳动3天";
+const targetDate = new Date("2026-05-01").getTime();
+
+// 获取当前日期
+const currentDate = new Date().getTime();
+
+// 计算剩余时间（毫秒）
+const timeRemaining = targetDate - currentDate;
+
+// 将毫秒转换为天
+const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+
+// 输出倒计时，使用不同颜色和加粗
+dv.paragraph(`
+5.  距离**<span style="color: cyan;">${event}</span>**还有：**<span style="color: yellow;">${days}</span>**天
+`);
+```
+```dataviewjs
+// 设置事件名称和目标日期
+const event = "端午3天";
+const targetDate = new Date("2026-05-30").getTime();
+
+// 获取当前日期
+const currentDate = new Date().getTime();
+
+// 计算剩余时间（毫秒）
+const timeRemaining = targetDate - currentDate;
+
+// 将毫秒转换为天
+const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+
+// 输出倒计时，使用不同颜色和加粗
+dv.paragraph(`
+6.  距离**<span style="color: cyan;">${event}</span>**还有：**<span style="color: yellow;">${days}</span>**天
+`);
+```
+```dataviewjs
+// 设置事件名称和目标日期
+const event = "中秋3天";
+const targetDate = new Date("2026-09-26").getTime();
+
+// 获取当前日期
+const currentDate = new Date().getTime();
+
+// 计算剩余时间（毫秒）
+const timeRemaining = targetDate - currentDate;
+
+// 将毫秒转换为天
+const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+
+// 输出倒计时，使用不同颜色和加粗
+dv.paragraph(`
+2.  距离**<span style="color: cyan;">${event}</span>**还有：**<span style="color: yellow;">${days}</span>**天
 `);
 ```
