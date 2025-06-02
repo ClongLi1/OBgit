@@ -51,7 +51,7 @@
     "MemoDefaultSingleFilePath": "basic.thino.md"
   },
   "MemoDailyTarget": 5,
-  "HeatmapColorScheme": "magenta",
+  "HeatmapColorScheme": "flame",
   "EnabledHttpApi": false,
   "HttpApiIpType": "127.0.0.1",
   "HttpApiPort": "43999",
