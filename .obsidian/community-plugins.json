@@ -69,7 +69,6 @@
   "obsidian42-brat",
   "timelines-revamped",
   "avatar",
-  "obsidian-admonition",
   "obsidian-advanced-uri",
   "obsidian-git",
   "obsidian-enhancing-mindmap",
@@ -87,5 +86,6 @@
   "messager",
   "obsidian-relation-pane",
   "obsidian-sakana-widget",
-  "obsidian-annotator"
+  "obsidian-annotator",
+  "obsidian-admonition"
 ]
