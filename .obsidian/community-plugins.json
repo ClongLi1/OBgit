@@ -80,12 +80,12 @@
   "obsidian-echarts",
   "lazy-plugins",
   "buttons",
-  "obsidian-timeline",
   "card-board",
   "obsidian-file-color",
   "messager",
   "obsidian-relation-pane",
   "obsidian-sakana-widget",
   "obsidian-annotator",
-  "obsidian-admonition"
+  "obsidian-admonition",
+  "obsidian-timeline"
 ]

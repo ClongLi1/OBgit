@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "OB-Timeline",
+      "path": "00草稿收集/OB-Timeline.md"
+    },
+    {
+      "basename": "timeline事件一",
+      "path": "00草稿收集/测试箱/timeline事件一.md"
+    },
+    {
       "basename": "大学生需要熟悉的办公软件有哪些？",
       "path": "17AI写作咨询/大学生需要熟悉的办公软件有哪些？.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "03软件电脑",
       "path": "03软件网络/03软件电脑.md"
-    },
-    {
-      "basename": "Mermaid",
-      "path": "03软件网络/Mermaid.md"
-    },
-    {
-      "basename": "个人知识库管理原则",
-      "path": "999知识管理/个人知识库管理原则.md"
     }
   ],
   "omittedPaths": [],
