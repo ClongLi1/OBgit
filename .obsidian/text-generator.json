@@ -37,26 +37,24 @@
     "awesomePrompts": {
       "packageId": "awesomePrompts",
       "name": "Awesome Prompts",
-      "version": "0.0.2",
+      "version": "0.0.3",
       "minTextGeneratorVersion": "0.5.7",
       "description": "This repo includes ChatGPT prompt curation to use ChatGPT better.",
       "author": "f",
       "tags": "writing, brainstorming, awesome",
       "authorUrl": "https://github.com/f/awesome-chatgpt-prompts",
-      "repo": "text-gen/awesome-tg-package",
-      "installed": false
+      "repo": "text-gen/awesome-tg-package"
     },
     "tts": {
       "packageId": "tts",
       "name": "Text To Speech Package",
-      "version": "0.0.2",
+      "version": "0.0.3",
       "minTextGeneratorVersion": "0.6.0",
       "description": "Contains Text To Speech Templates and support for TTS for other templates",
       "author": "Noureddine",
       "tags": "TTS, Speak",
       "authorUrl": "https://www.buymeacoffee.com/haouarine",
-      "repo": "text-gen/TTS",
-      "installed": false
+      "repo": "text-gen/TTS"
     },
     "vision": {
       "packageId": "vision",
