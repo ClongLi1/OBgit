@@ -1,6 +1,8 @@
 ---
-tags: []
-date: "\n"
+tags:
+  - "#标签"
+  - 词云
+date:
 ---
 ```dataview
 table tags 
