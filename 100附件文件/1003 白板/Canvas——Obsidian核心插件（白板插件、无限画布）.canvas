@@ -183,28 +183,6 @@
       "y": -700
     },
     {
-      "height": 60,
-      "id": "01a92460716c9a1a",
-      "styleAttributes": {
-      },
-      "text": "1. 随意拖拽",
-      "type": "text",
-      "width": 191,
-      "x": -705,
-      "y": -340
-    },
-    {
-      "height": 60,
-      "id": "2793266d9576afe4",
-      "styleAttributes": {
-      },
-      "text": "2. 形状大小",
-      "type": "text",
-      "width": 191,
-      "x": -705,
-      "y": -260
-    },
-    {
       "color": "6",
       "height": 60,
       "id": "f3b28a4bcad2348f",
@@ -239,6 +217,17 @@
       "width": 400,
       "x": -1600,
       "y": 340
+    },
+    {
+      "file": "00-Clippings/白板 - Obsidian 中文帮助 - Obsidian Publish.md",
+      "height": 400,
+      "id": "21cf5010fd840cd4",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 400,
+      "x": 180,
+      "y": -420
     },
     {
       "height": 60,
@@ -288,18 +277,6 @@
     {
       "color": "3",
       "height": 60,
-      "id": "704ca5d440f528f7",
-      "styleAttributes": {
-      },
-      "text": "2. 构建知识框架",
-      "type": "text",
-      "width": 260,
-      "x": -440,
-      "y": -260
-    },
-    {
-      "color": "3",
-      "height": 60,
       "id": "bae314cd66c7417d",
       "styleAttributes": {
       },
@@ -308,18 +285,6 @@
       "width": 260,
       "x": -440,
       "y": -180
-    },
-    {
-      "color": "3",
-      "height": 60,
-      "id": "b799bbc49def83f7",
-      "styleAttributes": {
-      },
-      "text": "1. 创建思维导图",
-      "type": "text",
-      "width": 260,
-      "x": -440,
-      "y": -340
     },
     {
       "color": "3",
@@ -334,17 +299,6 @@
       "y": -100
     },
     {
-      "file": "00-Clippings/白板 - Obsidian 中文帮助 - Obsidian Publish.md",
-      "height": 400,
-      "id": "21cf5010fd840cd4",
-      "styleAttributes": {
-      },
-      "type": "file",
-      "width": 400,
-      "x": 180,
-      "y": -420
-    },
-    {
       "height": 60,
       "id": "bbd1f5018b63e7f4",
       "styleAttributes": {
@@ -353,6 +307,64 @@
       "type": "text",
       "width": 130,
       "x": -930,
+      "y": -340
+    },
+    {
+      "color": "#bbff00",
+      "height": 60,
+      "id": "f9c0ef5c4f067d14",
+      "styleAttributes": {
+      },
+      "text": "免费强大——可添加笔记、文本、图片等元素，连线展示关系，用于知识管理、项目规划、头脑风暴等场景",
+      "type": "text",
+      "width": 864,
+      "x": -946,
+      "y": -490
+    },
+    {
+      "height": 60,
+      "id": "01a92460716c9a1a",
+      "styleAttributes": {
+      },
+      "text": "1. 随意拖拽",
+      "type": "text",
+      "width": 191,
+      "x": -705,
+      "y": -340
+    },
+    {
+      "height": 60,
+      "id": "2793266d9576afe4",
+      "styleAttributes": {
+      },
+      "text": "2. 形状大小",
+      "type": "text",
+      "width": 191,
+      "x": -705,
+      "y": -260
+    },
+    {
+      "color": "3",
+      "height": 60,
+      "id": "704ca5d440f528f7",
+      "styleAttributes": {
+      },
+      "text": "2. 构建知识框架",
+      "type": "text",
+      "width": 260,
+      "x": -440,
+      "y": -260
+    },
+    {
+      "color": "3",
+      "height": 60,
+      "id": "b799bbc49def83f7",
+      "styleAttributes": {
+      },
+      "text": "1. 创建思维导图",
+      "type": "text",
+      "width": 260,
+      "x": -440,
       "y": -340
     },
     {
@@ -398,18 +410,6 @@
       "width": 130,
       "x": -930,
       "y": -180
-    },
-    {
-      "color": "#bbff00",
-      "height": 60,
-      "id": "f9c0ef5c4f067d14",
-      "styleAttributes": {
-      },
-      "text": "免费强大——可添加笔记、文本、图片等元素，连线展示关系，用于知识管理、项目规划、头脑风暴等场景",
-      "type": "text",
-      "width": 864,
-      "x": -946,
-      "y": -490
     }
   ]
 }
