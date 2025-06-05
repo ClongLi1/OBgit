@@ -13,3 +13,6 @@
 5. `ctrl+T` ——新建标签页
 6. `ctrl+N` ——新建窗口
 ![Uploading file...o3x9z]()
+
+# 4. 技巧 
+1. [Edge越用越卡顿? Edge浏览器十大常见问题一次性解决_浏览下载_软件教程_脚本之家](https://www.jb51.net/softjc/961861.html)
