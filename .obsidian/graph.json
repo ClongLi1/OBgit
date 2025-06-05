@@ -5,7 +5,7 @@
   "showAttachments": true,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": true,
+  "collapse-color-groups": false,
   "colorGroups": [
     {
       "query": "path:00-Clippings  ",
@@ -67,7 +67,7 @@
       "query": "path:05工作职场  ",
       "color": {
         "a": 1,
-        "rgb": 9408399
+        "rgb": 8714296
       }
     },
     {
@@ -187,7 +187,7 @@
   "showArrow": true,
   "textFadeMultiplier": 0.5,
   "nodeSizeMultiplier": 1.09298013245033,
-  "lineSizeMultiplier": 2.48445033112583,
+  "lineSizeMultiplier": 1.89547445255474,
   "collapse-forces": false,
   "centerStrength": 0.643443708609272,
   "repelStrength": 10.0715231788079,
