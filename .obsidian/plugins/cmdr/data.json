@@ -46,13 +46,6 @@
   "statusBar": [],
   "pageHeader": [
     {
-      "id": "automatic-table-of-contents:insert-automatic-table-of-contents",
-      "icon": "lucide-align-center",
-      "name": "目录",
-      "mode": "any",
-      "color": "#fa0000"
-    },
-    {
       "id": "convert-url-to-iframe:url-to-iframe",
       "icon": "lucide-airplay",
       "name": "Iframe",
@@ -74,6 +67,13 @@
       "color": "#00ff2a"
     },
     {
+      "id": "multi-column-markdown:insert-multi-column-region",
+      "icon": "rectangle-vertical-double",
+      "name": "分栏",
+      "mode": "any",
+      "color": "#00e1ff"
+    },
+    {
       "id": "obsidian-tidy-footnotes:tidy-footnotes",
       "icon": "lucide-arrow-down-10",
       "name": " Footnotes",
@@ -81,11 +81,11 @@
       "color": "#0033ff"
     },
     {
-      "id": "multi-column-markdown:insert-multi-column-region",
-      "icon": "rectangle-vertical-double",
-      "name": "分栏",
+      "id": "obsidian-charts:creation-helper",
+      "icon": "lucide-square-library",
+      "name": "Charts: Insert new Chart",
       "mode": "any",
-      "color": "#00e1ff"
+      "color": "#00cddb"
     },
     {
       "id": "homepage:open-homepage",
@@ -102,13 +102,6 @@
       "color": "#8066ff"
     },
     {
-      "id": "obsidian-charts:creation-helper",
-      "icon": "lucide-square-library",
-      "name": "Charts: Insert new Chart",
-      "mode": "any",
-      "color": "#00cddb"
-    },
-    {
       "id": "obsidian-chartsview-plugin:chartsview-wizard",
       "icon": "lucide-chart-line",
       "name": "Charts View: Wizard",
@@ -116,18 +109,11 @@
       "color": "#feeb8b"
     },
     {
-      "id": "obsidian-enhancing-mindmap:Create New MindMap",
-      "icon": "lucide-list",
-      "name": "Enhancing Mindmap: 创建新思维导图",
+      "id": "automatic-table-of-contents:insert-automatic-table-of-contents",
+      "icon": "lucide-align-center",
+      "name": "目录",
       "mode": "any",
-      "color": "#bbb3ff"
-    },
-    {
-      "id": "timelines-revamped:insert-timeline-event",
-      "icon": "lucide-arrow-down-from-line",
-      "name": "Timelines (Revamped): Insert timeline event",
-      "mode": "any",
-      "color": "#ffbdbd"
+      "color": "#fa0000"
     },
     {
       "id": "zen:toggle",
@@ -135,6 +121,13 @@
       "name": "Zen: Toggle",
       "mode": "any",
       "color": "#b3ff75"
+    },
+    {
+      "id": "timelines-revamped:insert-timeline-event",
+      "icon": "lucide-arrow-down-from-line",
+      "name": "Timelines (Revamped): Insert timeline event",
+      "mode": "any",
+      "color": "#ffbdbd"
     }
   ],
   "macros": [],
