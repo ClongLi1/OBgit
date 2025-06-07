@@ -81,13 +81,6 @@
       "color": "#0033ff"
     },
     {
-      "id": "contribution-graph:create-graph",
-      "icon": "lucide-file-spreadsheet",
-      "name": "热力图",
-      "mode": "any",
-      "color": "#ff7b00"
-    },
-    {
       "id": "multi-column-markdown:insert-multi-column-region",
       "icon": "rectangle-vertical-double",
       "name": "分栏",
@@ -123,11 +116,11 @@
       "color": "#feeb8b"
     },
     {
-      "id": "zen:toggle",
-      "icon": "lucide-eye-off",
-      "name": "Zen: Toggle",
+      "id": "obsidian-enhancing-mindmap:Create New MindMap",
+      "icon": "lucide-list",
+      "name": "Enhancing Mindmap: 创建新思维导图",
       "mode": "any",
-      "color": "#b3ff75"
+      "color": "#bbb3ff"
     },
     {
       "id": "timelines-revamped:insert-timeline-event",
@@ -135,6 +128,13 @@
       "name": "Timelines (Revamped): Insert timeline event",
       "mode": "any",
       "color": "#ffbdbd"
+    },
+    {
+      "id": "zen:toggle",
+      "icon": "lucide-eye-off",
+      "name": "Zen: Toggle",
+      "mode": "any",
+      "color": "#b3ff75"
     }
   ],
   "macros": [],

@@ -35,7 +35,6 @@
   "colored-tags",
   "convert-url-to-iframe",
   "cycle-through-panes",
-  "cmdr",
   "templater-obsidian",
   "obsidian-icon-folder",
   "nl-syntax-highlighting",
@@ -87,5 +86,6 @@
   "obsidian-sakana-widget",
   "obsidian-annotator",
   "obsidian-admonition",
-  "obsidian-timeline"
+  "obsidian-timeline",
+  "cmdr"
 ]
