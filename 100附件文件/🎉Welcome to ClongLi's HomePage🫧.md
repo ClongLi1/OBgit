@@ -90,6 +90,7 @@ dv.paragraph(totalDays + " " + totalMd + " " + totalTag + " " + totalTask); 
   </div>
 </div>
 
+![[⏲️时间进度仪表板]]
 
 --- start-multi-column: ID_5 fg 3
 ```column-settings
