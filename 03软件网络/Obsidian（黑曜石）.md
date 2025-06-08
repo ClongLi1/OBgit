@@ -33,6 +33,8 @@ aliases:
 - Chart view     
 - Tracker[^10]       
 - **ExcaliBrain** [Fetching Title#3mub](https://mp.weixin.qq.com/s/OZaw466SAt0v2Zy5fZkAtg?poc_token=HGM9MWijWvniyOOMtD7KulhjMOS_mIIwiS1Hu9Dp)
+- [任务管理插件（Task Genius插件）](https://mp.weixin.qq.com/s/Jle04PgKpALQcSu_hOwAow)
+- 
 ### 1.2.2 主题 
 
 

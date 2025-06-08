@@ -10,10 +10,12 @@
 1. 整理网页、书籍、文献
 2. 合理使用标签（标签分类、指派颜色、）
 3. 同步方案 [【Zotero 终极指南】告别 300M 限制！免费大容量文献同步方案，一篇搞定（Windows/Mac/iOS 全平台丝滑同步） - 知乎](https://zhuanlan.zhihu.com/p/1895954545772827673)
-4. 条目确认归类、条目移动、条目删除
-5. 定时管理文献库（分类、整理、删除）
-6. 参考文献样式 [zotero-chinese/styles: 中文 CSL 样式 - Zotero 中文社区](https://github.com/zotero-chinese/styles)
-7. [阅读流程使用 zotero 来阅读一本书](https://pkmer.cn/Pkmer-Docs/11-zotero/zotero%E6%8F%92%E4%BB%B6/%E9%98%85%E8%AF%BB%E6%B5%81%E7%A8%8B%E4%BD%BF%E7%94%A8zotero%E6%9D%A5%E9%98%85%E8%AF%BB%E4%B8%80%E6%9C%AC%E4%B9%A6/) #待办
+4. [重磅更新！坚果云内嵌Zotero扩容插件，非常强大！](https://mp.weixin.qq.com/s?__biz=MzA5MTQ4Nzc5MQ==&mid=2247514511&idx=1&sn=a31e828ec5050fc7b6aa750ceab40c0f&scene=21#wechat_redirect) #待办
+5. [重磅更新！坚果云内嵌Zotero扩容插件，非常强大！](https://mp.weixin.qq.com/s?__biz=MzA5MTQ4Nzc5MQ==&mid=2247514511&idx=1&sn=a31e828ec5050fc7b6aa750ceab40c0f&scene=21#wechat_redirect)
+6. 条目确认归类、条目移动、条目删除
+7. 定时管理文献库（分类、整理、删除）
+8. 参考文献样式 [zotero-chinese/styles: 中文 CSL 样式 - Zotero 中文社区](https://github.com/zotero-chinese/styles)
+9. [阅读流程使用 zotero 来阅读一本书](https://pkmer.cn/Pkmer-Docs/11-zotero/zotero%E6%8F%92%E4%BB%B6/%E9%98%85%E8%AF%BB%E6%B5%81%E7%A8%8B%E4%BD%BF%E7%94%A8zotero%E6%9D%A5%E9%98%85%E8%AF%BB%E4%B8%80%E6%9C%AC%E4%B9%A6/) #待办
 # 3. 插件汇集
 1. **Better Notes**：更方便地在 Zotero 中做笔记，支持双链、支持模板、支持多种导出方式。[0 文档简介/About](https://zotero.yuque.com/staff-gkhviy/better-notes/biigg4?)
 2. **PDF Translate**：[PDF Translate 插件](https://pkmer.cn/Pkmer-Docs/11-zotero/zotero%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/8_%E6%8F%92%E4%BB%B6%E4%B8%8E%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/8_3_%E9%98%85%E8%AF%BB%E7%BF%BB%E8%AF%91-pdf-translate%E6%8F%92%E4%BB%B6/)
