@@ -374,6 +374,9 @@
       },
       "zotlit": {
         "startupType": "instant"
+      },
+      "outliner-md": {
+        "startupType": "disabled"
       }
     },
     "loadOrder": []
