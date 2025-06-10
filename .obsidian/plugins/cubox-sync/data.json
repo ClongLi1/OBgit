@@ -1,0 +1,37 @@
+{
+  "domain": "cubox.pro",
+  "apiKey": "agXtqT4moNm",
+  "folderFilter": [
+    "7331916714101182274",
+    "7331927754658548184"
+  ],
+  "typeFilter": [
+    "Article",
+    "Snippet"
+  ],
+  "statusFilter": [
+    "all"
+  ],
+  "isRead": false,
+  "isStarred": false,
+  "isAnnotated": false,
+  "tagsFilter": [
+    "all_items"
+  ],
+  "syncFrequency": 30,
+  "targetFolder": "00-Cubox",
+  "filenameTemplate": "{{{title}}}-{{{create_time}}}",
+  "frontMatterVariables": [
+    "id",
+    "cubox_url",
+    "url",
+    "tags"
+  ],
+  "contentTemplate": "# {{{title}}}\n\n{{{description}}}\n\n[Read in Cubox]({{{cubox_url}}})  \n[Read Original]({{{url}}})  \n\n---\n\n{{#highlights.length}}\n## Annotations  \n\n{{#highlights}}\n> {{{text}}}  \n\n{{#note}}\n{{{note}}}\n{{/note}}\n[Link️]({{{cubox_url}}})  \n\n{{/highlights}}\n{{/highlights.length}}",
+  "highlightInContent": true,
+  "dateFormat": "yyyy-MM-dd",
+  "lastSyncTime": 1749528010323,
+  "lastSyncCardId": "7331944402358634165",
+  "lastCardUpdateTime": "2025-06-10T10:42:32.659+0800",
+  "syncing": false
+}

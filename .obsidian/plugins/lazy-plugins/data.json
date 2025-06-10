@@ -377,6 +377,9 @@
       },
       "outliner-md": {
         "startupType": "disabled"
+      },
+      "cubox-sync": {
+        "startupType": "instant"
       }
     },
     "loadOrder": []
