@@ -147,6 +147,136 @@
         }
       },
       "type": "global"
+    },
+    {
+      "id": "9d199217-33cb-42e9-a026-08b03ae4fdc1",
+      "title": "New",
+      "setting": {
+        "filter": {
+          "searchQuery": "",
+          "showOrphans": true,
+          "showAttachments": false
+        },
+        "groups": [
+          {
+            "query": "path:00科研相关  ",
+            "color": "#33f71a"
+          },
+          {
+            "query": "path:03软件网络  ",
+            "color": "#13ee1f"
+          },
+          {
+            "query": "path:05工作职场  ",
+            "color": "#16ffe1"
+          },
+          {
+            "query": "path:10个人总结  ",
+            "color": "#843839"
+          },
+          {
+            "query": "path:100附件文件  ",
+            "color": "#f0ffdb"
+          },
+          {
+            "query": "path:07文学历史  ",
+            "color": "#f05fbb"
+          },
+          {
+            "query": "path:00科研相关  ",
+            "color": "#e8fa01"
+          },
+          {
+            "query": "path:00写作运营  ",
+            "color": "#89f0c1"
+          },
+          {
+            "query": "path:00ZK卡片  ",
+            "color": "#ed94ff"
+          },
+          {
+            "query": "path:02专业知识  ",
+            "color": "#3782fb"
+          },
+          {
+            "query": "path:03软件网络  ",
+            "color": "#ffa200"
+          },
+          {
+            "query": "path:04方法思维  ",
+            "color": "#0bd8e7"
+          },
+          {
+            "query": "path:05工作职场  ",
+            "color": "#88fe39"
+          },
+          {
+            "query": "path:06口才社交  ",
+            "color": "#cc0506"
+          },
+          {
+            "query": "path:07文学历史  ",
+            "color": "#eb9053"
+          },
+          {
+            "query": "path:09心灵慰藉  ",
+            "color": "#ee38fb"
+          },
+          {
+            "query": "path:10总结反思  ",
+            "color": "#00ff33"
+          },
+          {
+            "query": "path:11情感婚恋  ",
+            "color": "#e702b7"
+          },
+          {
+            "query": "path:12亲子教育  ",
+            "color": "#d03706"
+          },
+          {
+            "query": "path:13英语相关  ",
+            "color": "#e4fa7e"
+          },
+          {
+            "query": "path:14运动医学  ",
+            "color": "#97ee16"
+          },
+          {
+            "query": "path:17AI写作咨询  ",
+            "color": "#fe8686"
+          },
+          {
+            "query": "path:100附件文件  ",
+            "color": "#ffffff"
+          },
+          {
+            "query": "path:998日记汇总  ",
+            "color": "#e99756"
+          },
+          {
+            "query": "path:999知识管理  ",
+            "color": "#aae57b"
+          }
+        ],
+        "display": {
+          "nodeSize": 2.9,
+          "linkThickness": 1,
+          "linkDistance": 56,
+          "nodeRepulsion": 2800,
+          "distanceFromFocal": 260,
+          "nodeHoverColor": "#ff0000",
+          "nodeHoverNeighbourColor": "#00ff00",
+          "linkHoverColor": "#00ff9d",
+          "showExtension": true,
+          "showFullPath": true,
+          "showCenterCoordinates": true,
+          "showLinkArrow": true,
+          "dontMoveWhenDrag": false,
+          "dagOrientation": "null"
+        }
+      },
+      "type": "global"
     }
   ],
   "temporaryLocalGraphSetting": {
@@ -179,70 +309,122 @@
     "filter": {
       "searchQuery": "",
       "showOrphans": true,
-      "showAttachments": true
+      "showAttachments": false
     },
     "groups": [
       {
         "query": "path:00科研相关  ",
-        "color": "#ef0b17"
-      },
-      {
-        "query": "path:01生活常识  ",
-        "color": "#d79519"
+        "color": "#33f71a"
       },
       {
         "query": "path:03软件网络  ",
         "color": "#13ee1f"
       },
       {
-        "query": "path:04方法思维技能  ",
-        "color": "#ca2544"
-      },
-      {
         "query": "path:05工作职场  ",
         "color": "#16ffe1"
-      },
-      {
-        "query": "path:06口才社交  ",
-        "color": "#a32efd"
       },
       {
         "query": "path:10个人总结  ",
         "color": "#843839"
       },
       {
-        "query": "path:13英语相关  ",
-        "color": "#008031"
-      },
-      {
         "query": "path:100附件文件  ",
         "color": "#f0ffdb"
-      },
-      {
-        "query": "path:10000写作运营  ",
-        "color": "#e294ff"
       },
       {
         "query": "path:07文学历史  ",
         "color": "#f05fbb"
       },
       {
+        "query": "path:00科研相关  ",
+        "color": "#e8fa01"
+      },
+      {
+        "query": "path:00写作运营  ",
+        "color": "#89f0c1"
+      },
+      {
+        "query": "path:00ZK卡片  ",
+        "color": "#ed94ff"
+      },
+      {
         "query": "path:02专业知识  ",
-        "color": "#fafe16"
+        "color": "#3782fb"
+      },
+      {
+        "query": "path:03软件网络  ",
+        "color": "#ffa200"
+      },
+      {
+        "query": "path:04方法思维  ",
+        "color": "#0bd8e7"
+      },
+      {
+        "query": "path:05工作职场  ",
+        "color": "#88fe39"
+      },
+      {
+        "query": "path:06口才社交  ",
+        "color": "#cc0506"
+      },
+      {
+        "query": "path:07文学历史  ",
+        "color": "#eb9053"
+      },
+      {
+        "query": "path:09心灵慰藉  ",
+        "color": "#ee38fb"
+      },
+      {
+        "query": "path:10总结反思  ",
+        "color": "#00ff33"
+      },
+      {
+        "query": "path:11情感婚恋  ",
+        "color": "#e702b7"
+      },
+      {
+        "query": "path:12亲子教育  ",
+        "color": "#d03706"
+      },
+      {
+        "query": "path:13英语相关  ",
+        "color": "#e4fa7e"
+      },
+      {
+        "query": "path:14运动医学  ",
+        "color": "#97ee16"
+      },
+      {
+        "query": "path:17AI写作咨询  ",
+        "color": "#fe8686"
+      },
+      {
+        "query": "path:100附件文件  ",
+        "color": "#ffffff"
+      },
+      {
+        "query": "path:998日记汇总  ",
+        "color": "#e99756"
+      },
+      {
+        "query": "path:999知识管理  ",
+        "color": "#aae57b"
       }
     ],
     "display": {
-      "nodeSize": 2.4,
+      "nodeSize": 2.9,
       "linkThickness": 1,
-      "linkDistance": 59,
+      "linkDistance": 56,
       "nodeRepulsion": 2800,
-      "distanceFromFocal": 300,
+      "distanceFromFocal": 260,
       "nodeHoverColor": "#ff0000",
       "nodeHoverNeighbourColor": "#00ff00",
       "linkHoverColor": "#00ff9d",
       "showExtension": true,
       "showFullPath": true,
-      "showCenterCoordinates": false,
+      "showCenterCoordinates": true,
       "showLinkArrow": true,
       "dontMoveWhenDrag": false,
       "dagOrientation": "null"
