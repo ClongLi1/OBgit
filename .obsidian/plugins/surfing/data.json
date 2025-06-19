@@ -46,19 +46,7 @@
     ],
     "defaultFilterType": "menu"
   },
-  "treeData": [
-    {
-      "id": "415b178f09eb4d78",
-      "parent": 0,
-      "droppable": true,
-      "text": "菜鸟工具 - 不止于工具",
-      "data": {
-        "fileType": "site",
-        "fileSize": "",
-        "icon": {}
-      }
-    }
-  ],
+  "treeData": [],
   "enableHtmlPreview": true,
   "supportLivePreviewInlineUrl": true,
   "enableTreeView": true,
