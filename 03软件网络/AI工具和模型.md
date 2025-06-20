@@ -16,6 +16,7 @@
 - [[Deepssek从入门到精通视频讲解+PDF阅读笔记]] [[DeepSeek从入门到精通（清华大学）.pdf]]
 - [[DeepSeek案例]]  [[DeepSeek从入门到精通（7大场景 50大案例 全套提示词） (DeepSeek从入门到精通（7大场景 50大案例 全套提示词）) (Z-Library).pdf]]
 - [💥100个常用的DeepSeek指令](https://mp.weixin.qq.com/s/okxaFXEYvML-GRmRX6tVEA)
+- [[精选DeepSeek指令100个]]
 
 ## 1.3 功能技巧 
 1.  `AI编程助手`：智能补全、AI 问答、生成代码、代码翻译、解释代码、注释代码、生成测试、检查 BUG、编辑代码 
