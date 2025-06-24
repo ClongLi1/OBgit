@@ -2,7 +2,6 @@
 tags:
   - Cursor
   - 教程
-  - AI写作
 ---
 # Cursor IDE 使用教程
 
