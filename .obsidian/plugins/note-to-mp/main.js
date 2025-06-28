@@ -56275,6 +56275,7 @@ var NMPSettings = class {
     this.watermark = "";
     this.useFigcaption = false;
     this.customCSSNote = "";
+    this.excalidrawToPNG = false;
   }
   // 静态方法，用于获取实例
   static getInstance() {
@@ -56305,7 +56306,8 @@ var NMPSettings = class {
       baseCSS,
       watermark,
       useFigcaption,
-      customCSSNote
+      customCSSNote,
+      excalidrawToPNG
     } = data;
     const settings = NMPSettings.getInstance();
     if (defaultStyle) {
@@ -56350,6 +56352,9 @@ var NMPSettings = class {
     if (customCSSNote) {
       settings.customCSSNote = customCSSNote;
     }
+    if (excalidrawToPNG !== void 0) {
+      settings.excalidrawToPNG = excalidrawToPNG;
+    }
     settings.getExpiredDate();
   }
   static allSettings() {
@@ -56368,7 +56373,8 @@ var NMPSettings = class {
       "baseCSS": settings.baseCSS,
       "watermark": settings.watermark,
       "useFigcaption": settings.useFigcaption,
-      "customCSSNote": settings.customCSSNote
+      "customCSSNote": settings.customCSSNote,
+      "excalidrawToPNG": settings.excalidrawToPNG
     };
   }
   getExpiredDate() {
@@ -66613,8 +66619,9 @@ ul {
 }
 
 .note-embed-excalidraw-left {
-  display: inline-block;
-  vertical-align: middle;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 .note-embed-excalidraw-center {
@@ -66633,6 +66640,11 @@ ul {
 
 .note-embed-excalidraw {
   display: inline-block;
+}
+
+.note-embed-excalidraw p {
+  line-height: 0 !important;
+  margin: 0 !important;
 }
 
 /*
@@ -69206,6 +69218,1439 @@ var es_default = import_lib.default;
 // src/markdown/code.ts
 var import_obsidian6 = require("obsidian");
 
+// src/markdown/math.ts
+var import_obsidian5 = require("obsidian");
+var inlineRule = /^(\${1,2})(?!\$)((?:\\.|[^\\\n])*?(?:\\.|[^\\\n\$]))\1/;
+var blockRule = /^(\${1,2})\n((?:\\[^]|[^\\])+?)\n\1(?:\n|$)/;
+var svgCache = /* @__PURE__ */ new Map();
+function cleanMathCache() {
+  svgCache.clear();
+}
+var MathRendererQueue = class {
+  constructor() {
+    this.queue = [];
+    this.isProcessing = false;
+    this.host = "https://obplugin.sunboshi.tech";
+    this.mathIndex = 0;
+  }
+  // 静态方法，用于获取实例
+  static getInstance() {
+    if (!MathRendererQueue.instance) {
+      MathRendererQueue.instance = new MathRendererQueue();
+    }
+    return MathRendererQueue.instance;
+  }
+  getMathSVG(expression, inline2, type, callback) {
+    const req = () => {
+      return new Promise((resolve, reject) => {
+        let path = "";
+        if (type === "asciimath") {
+          path = "/math/am";
+        } else {
+          path = "/math/tex";
+        }
+        const url = `${this.host}${path}`;
+        (0, import_obsidian5.requestUrl)({
+          url,
+          method: "POST",
+          contentType: "application/json",
+          headers: {
+            authkey: NMPSettings.getInstance().authKey
+          },
+          body: JSON.stringify({
+            expression,
+            inline: inline2
+          })
+        }).then((res) => {
+          let svg = "";
+          if (res.status === 200) {
+            svg = res.text;
+          } else {
+            console.error("render error: " + res.json.msg);
+            svg = "\u6E32\u67D3\u5931\u8D25";
+          }
+          callback(svg);
+          resolve();
+        }).catch((err) => {
+          console.log(err.msg);
+          const svg = "\u6E32\u67D3\u5931\u8D25";
+          callback(svg);
+          resolve();
+        });
+      });
+    };
+    this.enqueue(req);
+  }
+  // 添加请求到队列
+  enqueue(request) {
+    this.queue.push(request);
+    this.processQueue();
+  }
+  // 处理队列中的请求
+  async processQueue() {
+    if (this.isProcessing) {
+      return;
+    }
+    this.isProcessing = true;
+    while (this.queue.length > 0) {
+      const request = this.queue.shift();
+      if (request) {
+        try {
+          await request();
+        } catch (error) {
+          console.error("Request failed:", error);
+        }
+      }
+    }
+    this.isProcessing = false;
+  }
+  generateId() {
+    this.mathIndex += 1;
+    return `math-id-${this.mathIndex}`;
+  }
+  render(token, inline2, type, callback) {
+    if (!NMPSettings.getInstance().isAuthKeyVaild()) {
+      return "<span>\u6CE8\u518C\u7801\u65E0\u6548\u6216\u5DF2\u8FC7\u671F</span>";
+    }
+    const id = this.generateId();
+    let svg = "\u6E32\u67D3\u4E2D";
+    const expression = token.text;
+    if (svgCache.has(token.text)) {
+      svg = svgCache.get(expression);
+    } else {
+      this.getMathSVG(expression, inline2, type, (svg2) => {
+        svgCache.set(expression, svg2);
+        callback.updateElementByID(id, svg2);
+      });
+    }
+    let className = inline2 ? "inline-math-svg" : "block-math-svg";
+    return `<span id="${id}" class="${className}">${svg}</span>`;
+  }
+};
+var MathRenderer = class extends Extension {
+  renderer(token, inline2, type = "") {
+    if (type === "") {
+      type = this.settings.math;
+    }
+    return MathRendererQueue.getInstance().render(token, inline2, type, this.callback);
+  }
+  markedExtension() {
+    return {
+      extensions: [
+        this.inlineMath(),
+        this.blockMath()
+      ]
+    };
+  }
+  inlineMath() {
+    return {
+      name: "InlineMath",
+      level: "inline",
+      start(src) {
+        let index;
+        let indexSrc = src;
+        while (indexSrc) {
+          index = indexSrc.indexOf("$");
+          if (index === -1) {
+            return;
+          }
+          const possibleKatex = indexSrc.substring(index);
+          if (possibleKatex.match(inlineRule)) {
+            return index;
+          }
+          indexSrc = indexSrc.substring(index + 1).replace(/^\$+/, "");
+        }
+      },
+      tokenizer(src, tokens) {
+        const match = src.match(inlineRule);
+        if (match) {
+          return {
+            type: "InlineMath",
+            raw: match[0],
+            text: match[2].trim(),
+            displayMode: match[1].length === 2
+          };
+        }
+      },
+      renderer: (token) => {
+        return this.renderer(token, true);
+      }
+    };
+  }
+  blockMath() {
+    return {
+      name: "BlockMath",
+      level: "block",
+      tokenizer(src) {
+        const match = src.match(blockRule);
+        if (match) {
+          return {
+            type: "BlockMath",
+            raw: match[0],
+            text: match[2].trim(),
+            displayMode: match[1].length === 2
+          };
+        }
+      },
+      renderer: (token) => {
+        return this.renderer(token, false);
+      }
+    };
+  }
+};
+
+// src/markdown/code.ts
+var CardDataManager = class {
+  constructor() {
+    this.cardData = /* @__PURE__ */ new Map();
+  }
+  // 静态方法，用于获取实例
+  static getInstance() {
+    if (!CardDataManager.instance) {
+      CardDataManager.instance = new CardDataManager();
+    }
+    return CardDataManager.instance;
+  }
+  setCardData(id, cardData) {
+    this.cardData.set(id, cardData);
+  }
+  cleanup() {
+    this.cardData.clear();
+  }
+  restoreCard(html2) {
+    for (const [key, value] of this.cardData.entries()) {
+      const exp = `<section[^>]*\\sdata-id="${key}"[^>]*>(.*?)<\\/section>`;
+      const regex = new RegExp(exp, "gs");
+      if (!regex.test(html2)) {
+        console.error("\u672A\u80FD\u6B63\u786E\u66FF\u6362\u516C\u4F17\u53F7\u5361\u7247");
+      }
+      html2 = html2.replace(regex, value);
+    }
+    return html2;
+  }
+};
+var MermaidSectionClassName = "note-mermaid";
+var MermaidImgClassName = "note-mermaid-img";
+var CodeRenderer = class extends Extension {
+  async prepare() {
+    this.mermaidIndex = 0;
+  }
+  static srcToBlob(src) {
+    const base64 = src.split(",")[1];
+    const byteCharacters = atob(base64);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    return new Blob([byteArray], { type: "image/png" });
+  }
+  static async uploadMermaidImages(root, token) {
+    const imgs = root.querySelectorAll("." + MermaidImgClassName);
+    for (let img of imgs) {
+      const src = img.getAttribute("src");
+      if (!src)
+        continue;
+      if (src.startsWith("http"))
+        continue;
+      const blob = CodeRenderer.srcToBlob(img.getAttribute("src"));
+      const name = img.id + ".png";
+      const res = await UploadImageToWx(blob, name, token);
+      if (res.errcode != 0) {
+        const msg = `\u4E0A\u4F20\u56FE\u7247\u5931\u8D25: ${res.errcode} ${res.errmsg}`;
+        new import_obsidian6.Notice(msg);
+        console.error(msg);
+        continue;
+      }
+      const url = res.url;
+      img.setAttribute("src", url);
+    }
+  }
+  codeRenderer(code, infostring) {
+    var _a;
+    const lang = (_a = (infostring || "").match(/^\S*/)) == null ? void 0 : _a[0];
+    code = code.replace(/\n$/, "") + "\n";
+    let codeSection = "";
+    if (this.settings.lineNumber) {
+      const lines = code.split("\n");
+      let liItems = "";
+      let count = 1;
+      while (count < lines.length) {
+        liItems = liItems + `<li>${count}</li>`;
+        count = count + 1;
+      }
+      codeSection = '<section class="code-section"><ul>' + liItems + "</ul>";
+    } else {
+      codeSection = '<section class="code-section">';
+    }
+    if (!lang) {
+      return codeSection + "<pre><code>" + code + "</code></pre></section>\n";
+    }
+    return codeSection + '<pre><code class="hljs language-' + lang + '">' + code + "</code></pre></section>\n";
+  }
+  static getMathType(lang) {
+    if (!lang)
+      return null;
+    let l = lang.toLowerCase();
+    l = l.trim();
+    if (l === "am" || l === "asciimath")
+      return "asciimath";
+    if (l === "latex" || l === "tex")
+      return "latex";
+    return null;
+  }
+  parseCard(htmlString) {
+    const id = /data-id="([^"]+)"/;
+    const headimgRegex = /data-headimg="([^"]+)"/;
+    const nicknameRegex = /data-nickname="([^"]+)"/;
+    const signatureRegex = /data-signature="([^"]+)"/;
+    const idMatch = htmlString.match(id);
+    const headimgMatch = htmlString.match(headimgRegex);
+    const nicknameMatch = htmlString.match(nicknameRegex);
+    const signatureMatch = htmlString.match(signatureRegex);
+    return {
+      id: idMatch ? idMatch[1] : "",
+      headimg: headimgMatch ? headimgMatch[1] : "",
+      nickname: nicknameMatch ? nicknameMatch[1] : "\u516C\u4F17\u53F7\u540D\u79F0",
+      signature: signatureMatch ? signatureMatch[1] : "\u516C\u4F17\u53F7\u4ECB\u7ECD"
+    };
+  }
+  renderCard(token) {
+    const { id, headimg, nickname, signature } = this.parseCard(token.text);
+    if (id === "") {
+      return "<span>\u516C\u4F17\u53F7\u5361\u7247\u6570\u636E\u9519\u8BEF\uFF0C\u6CA1\u6709id</span>";
+    }
+    CardDataManager.getInstance().setCardData(id, token.text);
+    return `<section data-id="${id}" class="note-mpcard-wrapper"><div class="note-mpcard-content"><img class="note-mpcard-headimg" width="54" height="54" src="${headimg}"></img><div class="note-mpcard-info"><div class="note-mpcard-nickname">${nickname}</div><div class="note-mpcard-signature">${signature}</div></div></div><div class="note-mpcard-foot">\u516C\u4F17\u53F7</div></section>`;
+  }
+  renderMermaid(token) {
+    try {
+      const meraidIndex = this.mermaidIndex;
+      const containerId = `mermaid-${meraidIndex}`;
+      this.callback.cacheElement("mermaid", containerId, token.raw);
+      this.mermaidIndex += 1;
+      return `<section id="${containerId}" class="${MermaidSectionClassName}"></section>`;
+    } catch (error) {
+      console.error(error.message);
+      return "<span>mermaid\u6E32\u67D3\u5931\u8D25</span>";
+    }
+  }
+  markedExtension() {
+    return {
+      extensions: [{
+        name: "code",
+        level: "block",
+        renderer: (token) => {
+          var _a;
+          if (this.settings.isAuthKeyVaild()) {
+            const type = CodeRenderer.getMathType((_a = token.lang) != null ? _a : "");
+            if (type) {
+              return MathRendererQueue.getInstance().render(token, false, type, this.callback);
+            }
+            if (token.lang && token.lang.trim().toLocaleLowerCase() == "mermaid") {
+              return this.renderMermaid(token);
+            }
+          }
+          if (token.lang && token.lang.trim().toLocaleLowerCase() == "mpcard") {
+            return this.renderCard(token);
+          }
+          return this.codeRenderer(token.text, token.lang);
+        }
+      }]
+    };
+  }
+};
+
+// src/markdown/code-highlight.ts
+var CodeHighlight = class extends Extension {
+  markedExtension() {
+    return markedHighlight({
+      langPrefix: "hljs language-",
+      highlight(code, lang, info) {
+        const type = CodeRenderer.getMathType(lang);
+        if (type)
+          return code;
+        if (lang && lang.trim().toLocaleLowerCase() == "mpcard")
+          return code;
+        if (lang && lang.trim().toLocaleLowerCase() == "mermaid")
+          return code;
+        if (lang && es_default.getLanguage(lang)) {
+          try {
+            const result = es_default.highlight(code, { language: lang });
+            return result.value;
+          } catch (err) {
+          }
+        }
+        try {
+          const result = es_default.highlightAuto(code);
+          return result.value;
+        } catch (err) {
+        }
+        return "";
+      }
+    });
+  }
+};
+
+// src/markdown/embed-block-mark.ts
+var BlockMarkRegex = /^\^[0-9A-Za-z-]+$/;
+var EmbedBlockMark = class extends Extension {
+  constructor() {
+    super(...arguments);
+    this.allLinks = [];
+  }
+  async prepare() {
+    this.allLinks = [];
+  }
+  markedExtension() {
+    return {
+      extensions: [{
+        name: "EmbedBlockMark",
+        level: "inline",
+        start(src) {
+          let index = src.indexOf("^");
+          if (index === -1) {
+            return;
+          }
+          return index;
+        },
+        tokenizer(src) {
+          const match = src.match(BlockMarkRegex);
+          if (match) {
+            return {
+              type: "EmbedBlockMark",
+              raw: match[0],
+              text: match[0]
+            };
+          }
+        },
+        renderer: (token) => {
+          return `<span data-txt="${token.text}"></span}`;
+        }
+      }]
+    };
+  }
+};
+
+// src/markdown/icons.ts
+var iconsRegex = /^\[:(.*?):\]/;
+var SVGIcon = class extends Extension {
+  isNumeric(str) {
+    return !isNaN(Number(str)) && str.trim() !== "";
+  }
+  getSize(size) {
+    const items = size.split("x");
+    let width, height;
+    if (items.length == 2) {
+      width = items[0];
+      height = items[1];
+    } else {
+      width = items[0];
+      height = items[0];
+    }
+    width = this.isNumeric(width) ? width + "px" : width;
+    height = this.isNumeric(height) ? height + "px" : height;
+    return { width, height };
+  }
+  renderStyle(items) {
+    let size = "";
+    let color = "";
+    if (items.length == 3) {
+      size = items[1];
+      color = items[2];
+    } else if (items.length == 2) {
+      if (items[1].startsWith("#")) {
+        color = items[1];
+      } else {
+        size = items[1];
+      }
+    }
+    let style = "";
+    if (size.length > 0) {
+      const { width, height } = this.getSize(size);
+      style += `width:${width};height:${height};`;
+    }
+    if (color.length > 0) {
+      style += `color:${color};`;
+    }
+    return style.length > 0 ? `style="${style}"` : "";
+  }
+  async render(text) {
+    const items = text.split("|");
+    const name = items[0];
+    const svg = await this.assetsManager.loadIcon(name);
+    const body = svg === "" ? "\u672A\u627E\u5230\u56FE\u6807" + name : svg;
+    const style = this.renderStyle(items);
+    return `<span class="note-svg-icon" ${style}>${body}</span>`;
+  }
+  markedExtension() {
+    return {
+      async: true,
+      walkTokens: async (token) => {
+        if (token.type !== "SVGIcon") {
+          return;
+        }
+        token.html = await this.render(token.text);
+      },
+      extensions: [{
+        name: "SVGIcon",
+        level: "inline",
+        start(src) {
+          let index;
+          let indexSrc = src;
+          while (indexSrc) {
+            index = indexSrc.indexOf("[:");
+            if (index === -1)
+              return;
+            return index;
+          }
+        },
+        tokenizer(src) {
+          const match = src.match(iconsRegex);
+          if (match) {
+            return {
+              type: "SVGIcon",
+              raw: match[0],
+              text: match[1]
+            };
+          }
+        },
+        renderer(token) {
+          return token.html;
+        }
+      }]
+    };
+  }
+};
+
+// src/markdown/link.ts
+var LinkRenderer = class extends Extension {
+  constructor() {
+    super(...arguments);
+    this.allLinks = [];
+  }
+  async prepare() {
+    this.allLinks = [];
+  }
+  async postprocess(html2) {
+    if (this.settings.linkStyle !== "footnote" || this.allLinks.length == 0) {
+      return html2;
+    }
+    const links = this.allLinks.map((href, i) => {
+      return `<li>${href}&nbsp;\u21A9</li>`;
+    });
+    return `${html2}<seciton class="footnotes"><hr><ol>${links.join("")}</ol></section>`;
+  }
+  markedExtension() {
+    return {
+      extensions: [{
+        name: "link",
+        level: "inline",
+        renderer: (token) => {
+          if (token.href.startsWith("mailto:")) {
+            return token.text;
+          }
+          if (token.text.indexOf(token.href) === 0 || token.href.indexOf("https://mp.weixin.qq.com/mp") === 0 || token.href.indexOf("https://mp.weixin.qq.com/s") === 0) {
+            return `<a href="${token.href}">${token.text}</a>`;
+          }
+          this.allLinks.push(token.href);
+          if (this.settings.linkStyle == "footnote") {
+            return `<a>${token.text}<sup>[${this.allLinks.length}]</sup></a>`;
+          } else {
+            return `<a>${token.text}[${token.href}]</a>`;
+          }
+        }
+      }]
+    };
+  }
+};
+
+// src/markdown/local-file.ts
+var import_obsidian7 = require("obsidian");
+var LocalFileRegex = /^!\[\[(.*?)\]\]/;
+var LocalImageManager = class {
+  constructor() {
+    this.images = /* @__PURE__ */ new Map();
+  }
+  // 静态方法，用于获取实例
+  static getInstance() {
+    if (!LocalImageManager.instance) {
+      LocalImageManager.instance = new LocalImageManager();
+    }
+    return LocalImageManager.instance;
+  }
+  setImage(path, info) {
+    if (!this.images.has(path)) {
+      this.images.set(path, info);
+    }
+  }
+  isWebp(file) {
+    if (file instanceof import_obsidian7.TFile) {
+      return file.extension.toLowerCase() === "webp";
+    }
+    const name = file.toLowerCase();
+    return name.endsWith(".webp");
+  }
+  async uploadLocalImage(token, vault, type = "") {
+    const keys = this.images.keys();
+    await PrepareImageLib();
+    const result = [];
+    for (let key of keys) {
+      const value = this.images.get(key);
+      if (value == null)
+        continue;
+      if (value.url != null)
+        continue;
+      const file = vault.getFileByPath(value.filePath);
+      if (file == null)
+        continue;
+      let fileData = await vault.readBinary(file);
+      let name = file.name;
+      if (this.isWebp(file)) {
+        if (IsImageLibReady()) {
+          fileData = WebpToJPG(fileData);
+          name = name.toLowerCase().replace(".webp", ".jpg");
+        } else {
+          console.error("wasm not ready for webp");
+        }
+      }
+      const res = await UploadImageToWx(new Blob([fileData]), name, token, type);
+      if (res.errcode != 0) {
+        const msg = `\u4E0A\u4F20\u56FE\u7247\u5931\u8D25: ${res.errcode} ${res.errmsg}`;
+        new import_obsidian7.Notice(msg);
+        console.error(msg);
+      }
+      value.url = res.url;
+      result.push(res);
+    }
+    return result;
+  }
+  checkImageExt(filename) {
+    const name = filename.toLowerCase();
+    if (name.endsWith(".jpg") || name.endsWith(".jpeg") || name.endsWith(".png") || name.endsWith(".gif") || name.endsWith(".bmp") || name.endsWith(".tiff") || name.endsWith(".svg") || name.endsWith(".webp")) {
+      return true;
+    }
+    return false;
+  }
+  getImageNameFromUrl(url, type) {
+    try {
+      const urlObj = new URL(url);
+      const pathname = urlObj.pathname;
+      let filename = pathname.split("/").pop() || "";
+      filename = decodeURIComponent(filename);
+      if (!this.checkImageExt(filename)) {
+        filename = filename + this.getImageExt(type);
+      }
+      return filename;
+    } catch (e2) {
+      const queryIndex = url.indexOf("?");
+      if (queryIndex !== -1) {
+        url = url.substring(0, queryIndex);
+      }
+      return url.split("/").pop() || "";
+    }
+  }
+  getImageExtFromBlob(blob) {
+    const mimeToExt = {
+      "image/jpeg": ".jpg",
+      "image/jpg": ".jpg",
+      "image/png": ".png",
+      "image/gif": ".gif",
+      "image/bmp": ".bmp",
+      "image/webp": ".webp",
+      "image/svg+xml": ".svg",
+      "image/tiff": ".tiff"
+    };
+    const mimeType = blob.type.toLowerCase();
+    return mimeToExt[mimeType] || "";
+  }
+  base64ToBlob(src) {
+    const items = src.split(",");
+    if (items.length != 2) {
+      throw new Error("base64\u683C\u5F0F\u9519\u8BEF");
+    }
+    const mineType = items[0].replace("data:", "");
+    const base64 = items[1];
+    const byteCharacters = atob(base64);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    return { blob: new Blob([byteArray], { type: mineType }), ext: this.getImageExt(mineType) };
+  }
+  async uploadImageFromUrl(url, token, type = "") {
+    try {
+      const rep = await (0, import_obsidian7.requestUrl)(url);
+      await PrepareImageLib();
+      let data = rep.arrayBuffer;
+      let blob = new Blob([data]);
+      let filename = this.getImageNameFromUrl(url, rep.headers["content-type"]);
+      if (filename == "" || filename == null) {
+        filename = "remote_img" + this.getImageExtFromBlob(blob);
+      }
+      if (this.isWebp(filename)) {
+        if (IsImageLibReady()) {
+          data = WebpToJPG(data);
+          blob = new Blob([data]);
+          filename = filename.toLowerCase().replace(".webp", ".jpg");
+        } else {
+          console.error("wasm not ready for webp");
+        }
+      }
+      return await UploadImageToWx(blob, filename, token, type);
+    } catch (e2) {
+      console.error(e2);
+      throw new Error("\u4E0A\u4F20\u56FE\u7247\u5931\u8D25:" + e2.message + "|" + url);
+    }
+  }
+  getImageExt(type) {
+    const mimeToExt = {
+      "image/jpeg": ".jpg",
+      "image/jpg": ".jpg",
+      "image/png": ".png",
+      "image/gif": ".gif",
+      "image/bmp": ".bmp",
+      "image/webp": ".webp",
+      "image/svg+xml": ".svg",
+      "image/tiff": ".tiff"
+    };
+    return mimeToExt[type] || ".jpg";
+  }
+  getMimeType(ext) {
+    const extToMime = {
+      ".jpg": "image/jpeg",
+      ".jpeg": "image/jpeg",
+      ".png": "image/png",
+      ".gif": "image/gif",
+      ".bmp": "image/bmp",
+      ".webp": "image/webp",
+      ".svg": "image/svg+xml",
+      ".tiff": "image/tiff"
+    };
+    return extToMime[ext.toLowerCase()] || "image/jpeg";
+  }
+  async uploadRemoteImage(root, token, type = "") {
+    const images = root.getElementsByTagName("img");
+    const result = [];
+    for (let i = 0; i < images.length; i++) {
+      const img = images[i];
+      if (img.src.includes("mmbiz.qpic.cn"))
+        continue;
+      if (img.src.startsWith("http://localhost/") && import_obsidian7.Platform.isMobileApp) {
+        continue;
+      }
+      if (img.src.startsWith("http")) {
+        const res = await this.uploadImageFromUrl(img.src, token, type);
+        if (res.errcode != 0) {
+          const msg = `\u4E0A\u4F20\u56FE\u7247\u5931\u8D25: ${img.src} ${res.errcode} ${res.errmsg}`;
+          new import_obsidian7.Notice(msg);
+          console.error(msg);
+        }
+        const info = {
+          resUrl: img.src,
+          filePath: "",
+          url: res.url
+        };
+        this.images.set(img.src, info);
+        result.push(res);
+      } else if (img.src.startsWith("data:image/")) {
+        const { blob, ext } = this.base64ToBlob(img.src);
+        if (!img.id) {
+          img.id = `local-img-${i}`;
+        }
+        const name = img.id + ext;
+        const res = await UploadImageToWx(blob, name, token);
+        if (res.errcode != 0) {
+          const msg = `\u4E0A\u4F20\u56FE\u7247\u5931\u8D25: ${res.errcode} ${res.errmsg}`;
+          new import_obsidian7.Notice(msg);
+          console.error(msg);
+          continue;
+        }
+        const info = {
+          resUrl: "#" + img.id,
+          filePath: "",
+          url: res.url
+        };
+        this.images.set("#" + img.id, info);
+        result.push(res);
+      }
+    }
+    return result;
+  }
+  replaceImages(root) {
+    const images = root.getElementsByTagName("img");
+    for (let i = 0; i < images.length; i++) {
+      const img = images[i];
+      let value = this.images.get(img.src);
+      if (value == null) {
+        if (!img.id) {
+          console.error("miss image id, " + img.src);
+          continue;
+        }
+        value = this.images.get("#" + img.id);
+      }
+      if (value == null)
+        continue;
+      if (value.url == null)
+        continue;
+      img.setAttribute("src", value.url);
+    }
+  }
+  arrayBufferToBase64(buffer) {
+    let binary = "";
+    const bytes = new Uint8Array(buffer);
+    const len = bytes.byteLength;
+    for (let i = 0; i < len; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    return btoa(binary);
+  }
+  async localImagesToBase64(vault) {
+    const keys = this.images.keys();
+    const result = /* @__PURE__ */ new Map();
+    for (let key of keys) {
+      const value = this.images.get(key);
+      if (value == null)
+        continue;
+      const file = vault.getFileByPath(value.filePath);
+      if (file == null)
+        continue;
+      let fileData = await vault.readBinary(file);
+      const base64 = this.arrayBufferToBase64(fileData);
+      const mimeType = this.getMimeType(file.extension);
+      const data = `data:${mimeType};base64,${base64}`;
+      result.set(value.resUrl, data);
+    }
+    return result;
+  }
+  async downloadRemoteImage(url) {
+    try {
+      const rep = await (0, import_obsidian7.requestUrl)(url);
+      let data = rep.arrayBuffer;
+      let blob = new Blob([data]);
+      let ext = this.getImageExtFromBlob(blob);
+      if (ext == "" || ext == null) {
+        const filename = this.getImageNameFromUrl(url, rep.headers["content-type"]);
+        ext = "." + filename.split(".").pop() || "jpg";
+      }
+      const base64 = this.arrayBufferToBase64(data);
+      const mimeType = this.getMimeType(ext);
+      return `data:${mimeType};base64,${base64}`;
+    } catch (e2) {
+      console.error(e2);
+      return "";
+    }
+  }
+  async remoteImagesToBase64(root) {
+    const images = root.getElementsByTagName("img");
+    const result = /* @__PURE__ */ new Map();
+    for (let i = 0; i < images.length; i++) {
+      const img = images[i];
+      if (!img.src.startsWith("http"))
+        continue;
+      const base64 = await this.downloadRemoteImage(img.src);
+      if (base64 == "")
+        continue;
+      result.set(img.src, base64);
+    }
+    return result;
+  }
+  async embleImages(root, vault) {
+    const localImages = await this.localImagesToBase64(vault);
+    const remoteImages = await this.remoteImagesToBase64(root);
+    const result = root.cloneNode(true);
+    const images = result.getElementsByTagName("img");
+    for (let i = 0; i < images.length; i++) {
+      const img = images[i];
+      if (img.src.startsWith("http")) {
+        const base64 = remoteImages.get(img.src);
+        if (base64 != null) {
+          img.setAttribute("src", base64);
+        }
+      } else {
+        const base64 = localImages.get(img.src);
+        if (base64 != null) {
+          img.setAttribute("src", base64);
+        }
+      }
+    }
+    return result.innerHTML;
+  }
+  async cleanup() {
+    this.images.clear();
+  }
+};
+var _LocalFile = class extends Extension {
+  constructor() {
+    super(...arguments);
+    this.index = 0;
+  }
+  generateId() {
+    this.index += 1;
+    return `fid-${this.index}`;
+  }
+  getImagePath(path) {
+    const res = this.assetsManager.getResourcePath(path);
+    if (res == null) {
+      console.error("\u627E\u4E0D\u5230\u6587\u4EF6\uFF1A" + path);
+      return "";
+    }
+    const info = {
+      resUrl: res.resUrl,
+      filePath: res.filePath,
+      url: null
+    };
+    LocalImageManager.getInstance().setImage(res.resUrl, info);
+    return res.resUrl;
+  }
+  isImage(file) {
+    file = file.toLowerCase();
+    return file.endsWith(".png") || file.endsWith(".jpg") || file.endsWith(".jpeg") || file.endsWith(".gif") || file.endsWith(".bmp") || file.endsWith(".webp");
+  }
+  parseImageLink(link2) {
+    if (link2.includes("|")) {
+      const parts = link2.split("|");
+      const path = parts[0];
+      if (!this.isImage(path))
+        return null;
+      let width = null;
+      let height = null;
+      if (parts.length == 2) {
+        const size = parts[1].toLowerCase().split("x");
+        width = parseInt(size[0]);
+        if (size.length == 2 && size[1] != "") {
+          height = parseInt(size[1]);
+        }
+      }
+      return { path, width, height };
+    }
+    if (this.isImage(link2)) {
+      return { path: link2, width: null, height: null };
+    }
+    return null;
+  }
+  getHeaderLevel(line) {
+    const match = line.trimStart().match(/^#{1,6}/);
+    if (match) {
+      return match[0].length;
+    }
+    return 0;
+  }
+  async getFileContent(file, header, block2) {
+    const content = await this.app.vault.adapter.read(file.path);
+    if (header == null && block2 == null) {
+      return content;
+    }
+    let result = "";
+    const lines = content.split("\n");
+    if (header) {
+      let level = 0;
+      let append2 = false;
+      for (let line of lines) {
+        if (append2) {
+          if (level == this.getHeaderLevel(line)) {
+            break;
+          }
+          result += line + "\n";
+          continue;
+        }
+        if (!line.trim().startsWith("#"))
+          continue;
+        const items = line.trim().split(" ");
+        if (items.length != 2)
+          continue;
+        if (header.trim() != items[1].trim())
+          continue;
+        if (this.getHeaderLevel(line)) {
+          result += line + "\n";
+          level = this.getHeaderLevel(line);
+          append2 = true;
+        }
+      }
+    }
+    if (block2) {
+      let preline = "";
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        if (line.indexOf(block2) >= 0) {
+          result = line.replace(block2, "");
+          if (result.trim() == "") {
+            for (let j = i - 1; j >= 0; j--) {
+              const l = lines[j];
+              if (l.trim() != "") {
+                result = l;
+                break;
+              }
+            }
+          }
+          break;
+        }
+        preline = line;
+      }
+    }
+    return result;
+  }
+  parseFileLink(link2) {
+    const info = link2.split("|")[0];
+    const items = info.split("#");
+    let path = items[0];
+    let header = null;
+    let block2 = null;
+    if (items.length == 2) {
+      if (items[1].startsWith("^")) {
+        block2 = items[1];
+      } else {
+        header = items[1];
+      }
+    }
+    return { path, head: header, block: block2 };
+  }
+  async renderFile(link2, id) {
+    let { path, head: header, block: block2 } = this.parseFileLink(link2);
+    let file = null;
+    if (path === "") {
+      file = this.app.workspace.getActiveFile();
+    } else {
+      if (!path.endsWith(".md")) {
+        path = path + ".md";
+      }
+      file = this.assetsManager.searchFile(path);
+    }
+    if (file == null) {
+      const msg = "\u627E\u4E0D\u5230\u6587\u4EF6\uFF1A" + path;
+      console.error(msg);
+      this.callback.updateElementByID(id, msg);
+      return;
+    }
+    let content = await this.getFileContent(file, header, block2);
+    if (content.startsWith("---")) {
+      content = content.replace(/^(---)$.+?^(---)$.+?/ims, "");
+    }
+    const body = await this.marked.parse(content);
+    this.callback.updateElementByID(id, body);
+  }
+  static async readBlob(src) {
+    return await fetch(src).then((response) => response.blob());
+  }
+  static async getExcalidrawUrl(data) {
+    const url = "https://obplugin.sunboshi.tech/math/excalidraw";
+    const req = await (0, import_obsidian7.requestUrl)({
+      url,
+      method: "POST",
+      contentType: "application/json",
+      headers: {
+        authkey: NMPSettings.getInstance().authKey
+      },
+      body: JSON.stringify({ data })
+    });
+    if (req.status != 200) {
+      console.error(req.status);
+      return null;
+    }
+    return req.json.url;
+  }
+  parseLinkStyle(link2) {
+    let filename = "";
+    let style = 'style="width:100%;height:100%"';
+    let postion = "left";
+    const postions = ["left", "center", "right"];
+    if (link2.includes("|")) {
+      const items = link2.split("|");
+      filename = items[0];
+      let size = "";
+      if (items.length == 2) {
+        if (postions.includes(items[1])) {
+          postion = items[1];
+        } else {
+          size = items[1];
+        }
+      } else if (items.length == 3) {
+        size = items[1];
+        if (postions.includes(items[1])) {
+          size = items[2];
+          postion = items[1];
+        } else {
+          size = items[1];
+          postion = items[2];
+        }
+      }
+      if (size != "") {
+        const sizes = size.split("x");
+        if (sizes.length == 2) {
+          style = `style="width:${sizes[0]}px;height:${sizes[1]}px;"`;
+        } else {
+          style = `style="width:${sizes[0]}px;"`;
+        }
+      }
+    } else {
+      filename = link2;
+    }
+    return { filename, style, postion };
+  }
+  parseExcalidrawLink(link2) {
+    let classname = "note-embed-excalidraw-left";
+    const postions = /* @__PURE__ */ new Map([
+      ["left", "note-embed-excalidraw-left"],
+      ["center", "note-embed-excalidraw-center"],
+      ["right", "note-embed-excalidraw-right"]
+    ]);
+    let { filename, style, postion } = this.parseLinkStyle(link2);
+    classname = postions.get(postion) || classname;
+    if (filename.endsWith("excalidraw") || filename.endsWith("excalidraw.md")) {
+      return { filename, style, classname };
+    }
+    return null;
+  }
+  static async renderExcalidraw(html2) {
+    try {
+      const src = await this.getExcalidrawUrl(html2);
+      let svg = "";
+      if (src === "") {
+        svg = "\u6E32\u67D3\u5931\u8D25";
+        console.log("Failed to get Excalidraw URL");
+      } else {
+        const blob = await this.readBlob(src);
+        if (blob.type === "image/svg+xml") {
+          svg = await blob.text();
+        } else {
+          svg = "\u6682\u4E0D\u652F\u6301" + blob.type;
+        }
+      }
+      return svg;
+    } catch (error) {
+      console.error(error.message);
+      return "\u6E32\u67D3\u5931\u8D25:" + error.message;
+    }
+  }
+  parseSVGLink(link2) {
+    let classname = "note-embed-svg-left";
+    const postions = /* @__PURE__ */ new Map([
+      ["left", "note-embed-svg-left"],
+      ["center", "note-embed-svg-center"],
+      ["right", "note-embed-svg-right"]
+    ]);
+    let { filename, style, postion } = this.parseLinkStyle(link2);
+    classname = postions.get(postion) || classname;
+    return { filename, style, classname };
+  }
+  async renderSVGFile(filename, id) {
+    const file = this.assetsManager.searchFile(filename);
+    if (file == null) {
+      const msg = "\u627E\u4E0D\u5230\u6587\u4EF6\uFF1A" + file;
+      console.error(msg);
+      this.callback.updateElementByID(id, msg);
+      return;
+    }
+    const content = await this.getFileContent(file, null, null);
+    _LocalFile.fileCache.set(filename, content);
+    this.callback.updateElementByID(id, content);
+  }
+  markedExtension() {
+    return { extensions: [{
+      name: "LocalImage",
+      level: "block",
+      start: (src) => {
+        const index = src.indexOf("![[");
+        if (index === -1)
+          return;
+        return index;
+      },
+      tokenizer: (src) => {
+        const matches = src.match(LocalFileRegex);
+        if (matches == null)
+          return;
+        const token = {
+          type: "LocalImage",
+          raw: matches[0],
+          href: matches[1],
+          text: matches[1]
+        };
+        return token;
+      },
+      renderer: (token) => {
+        let item = this.parseImageLink(token.href);
+        if (item) {
+          const src = this.getImagePath(item.path);
+          const width = item.width ? `width="${item.width}"` : "";
+          const height = item.height ? `height="${item.height}"` : "";
+          return `<img src="${src}" alt="${token.text}" ${width} ${height} />`;
+        }
+        const info = this.parseExcalidrawLink(token.href);
+        if (info) {
+          if (!NMPSettings.getInstance().isAuthKeyVaild()) {
+            return "<span>\u8BF7\u8BBE\u7F6E\u6CE8\u518C\u7801</span>";
+          }
+          const id2 = this.generateId();
+          this.callback.cacheElement("excalidraw", id2, token.raw);
+          return `<span class="${info.classname}"><span class="note-embed-excalidraw" id="${id2}" ${info.style}></span></span>`;
+        }
+        if (token.href.endsWith(".svg") || token.href.includes(".svg|")) {
+          const info2 = this.parseSVGLink(token.href);
+          const id2 = this.generateId();
+          let svg = "\u6E32\u67D3\u4E2D";
+          if (_LocalFile.fileCache.has(info2.filename)) {
+            svg = _LocalFile.fileCache.get(info2.filename) || "\u6E32\u67D3\u5931\u8D25";
+          } else {
+            this.renderSVGFile(info2.filename, id2);
+          }
+          return `<span class="${info2.classname}"><span class="note-embed-svg" id="${id2}" ${info2.style}>${svg}</span></span>`;
+        }
+        const id = this.generateId();
+        this.renderFile(token.href, id);
+        const tag2 = this.callback.settings.embedStyle === "quote" ? "blockquote" : "section";
+        return `<${tag2} class="note-embed-file" id="${id}">\u6E32\u67D3\u4E2D</${tag2}>`;
+      }
+    }] };
+  }
+};
+var LocalFile = _LocalFile;
+LocalFile.fileCache = /* @__PURE__ */ new Map();
+
+// src/markdown/text-highlight.ts
+var highlightRegex = /^==(.*?)==/;
+var TextHighlight = class extends Extension {
+  markedExtension() {
+    return {
+      extensions: [{
+        name: "InlineHighlight",
+        level: "inline",
+        start(src) {
+          let index;
+          let indexSrc = src;
+          while (indexSrc) {
+            index = indexSrc.indexOf("==");
+            if (index === -1)
+              return;
+            return index;
+          }
+        },
+        tokenizer(src, tokens) {
+          const match = src.match(highlightRegex);
+          if (match) {
+            return {
+              type: "InlineHighlight",
+              raw: match[0],
+              text: match[1]
+            };
+          }
+        },
+        renderer(token) {
+          const lexer2 = new _Lexer();
+          const tokens = lexer2.lex(token.text);
+          let body = this.parser.parse(tokens);
+          body = body.replace("<p>", "");
+          body = body.replace("</p>", "");
+          return `<span class="note-highlight">${body}</span>`;
+        }
+      }]
+    };
+  }
+};
+
+// src/markdown/commnet.ts
+var commentRegex = /^%%([\s\S]*?)%%/;
+var Comment = class extends Extension {
+  markedExtension() {
+    return {
+      extensions: [
+        {
+          name: "CommentInline",
+          level: "inline",
+          start(src) {
+            let index;
+            let indexSrc = src;
+            while (indexSrc) {
+              index = indexSrc.indexOf("%%");
+              if (index === -1)
+                return;
+              return index;
+            }
+          },
+          tokenizer(src) {
+            const match = src.match(commentRegex);
+            if (match) {
+              return {
+                type: "CommentInline",
+                raw: match[0],
+                text: match[1]
+              };
+            }
+          },
+          renderer(token) {
+            return "";
+          }
+        },
+        {
+          name: "CommentBlock",
+          level: "block",
+          tokenizer(src) {
+            const match = src.match(commentRegex);
+            if (match) {
+              return {
+                type: "CommentBlock",
+                raw: match[0],
+                text: match[1]
+              };
+            }
+          },
+          renderer(token) {
+            return "";
+          }
+        }
+      ]
+    };
+  }
+};
+
+// src/markdown/topic.ts
+var topicRegex = /^#([^\s#]+)/;
+var Topic = class extends Extension {
+  markedExtension() {
+    return {
+      extensions: [
+        {
+          name: "Topic",
+          level: "inline",
+          start(src) {
+            let index;
+            let indexSrc = src;
+            while (indexSrc) {
+              index = indexSrc.indexOf("#");
+              if (index === -1)
+                return;
+              return index;
+            }
+          },
+          tokenizer(src) {
+            const match = src.match(topicRegex);
+            if (match) {
+              return {
+                type: "Topic",
+                raw: match[0],
+                text: match[1]
+              };
+            }
+          },
+          renderer(token) {
+            return `<a class="wx_topic_link" style="color: #576B95 !important;" data-topic="1">${"#" + token.text.trim()}</a>`;
+          }
+        }
+      ]
+    };
+  }
+};
+
+// src/markdown/parser.ts
+var markedOptiones = {
+  gfm: true,
+  breaks: true
+};
+var customRenderer = {
+  heading(text, level, raw) {
+    return `<h${level}>${text}</h${level}>`;
+  },
+  hr() {
+    return "<hr>";
+  },
+  list(body, ordered, start) {
+    const type = ordered ? "ol" : "ul";
+    const startatt = ordered && start !== 1 ? ' start="' + start + '"' : "";
+    return "<" + type + startatt + ">" + body + "</" + type + ">";
+  },
+  listitem(text, task, checked) {
+    return `<li>${text}</li>`;
+  },
+  image(href, title, text) {
+    const cleanHref = cleanUrl(href);
+    if (cleanHref === null) {
+      return text;
+    }
+    href = cleanHref;
+    if (!href.startsWith("http")) {
+      const res = AssetsManager.getInstance().getResourcePath(decodeURI(href));
+      if (res) {
+        href = res.resUrl;
+        const info = {
+          resUrl: res.resUrl,
+          filePath: res.filePath,
+          url: null
+        };
+        LocalImageManager.getInstance().setImage(res.resUrl, info);
+      }
+    }
+    let out = "";
+    if (NMPSettings.getInstance().useFigcaption) {
+      out = `<figure style="display: flex; flex-direction: column; align-items: center;"><img src="${href}" alt="${text}"`;
+      if (title) {
+        out += ` title="${title}"`;
+      }
+      if (text.length > 0) {
+        out += `><figcaption>${text}</figcaption></figure>`;
+      } else {
+        out += "></figure>";
+      }
+    } else {
+      out = `<img src="${href}" alt="${text}"`;
+      if (title) {
+        out += ` title="${title}"`;
+      }
+      out += ">";
+    }
+    return out;
+  }
+};
+var MarkedParser = class {
+  constructor(app, callback) {
+    this.extensions = [];
+    this.app = app;
+    this.vault = app.vault;
+    const settings = NMPSettings.getInstance();
+    const assetsManager = AssetsManager.getInstance();
+    this.extensions.push(new LocalFile(app, settings, assetsManager, callback));
+    this.extensions.push(new Blockquote(app, settings, assetsManager, callback));
+    this.extensions.push(new CodeHighlight(app, settings, assetsManager, callback));
+    this.extensions.push(new EmbedBlockMark(app, settings, assetsManager, callback));
+    this.extensions.push(new SVGIcon(app, settings, assetsManager, callback));
+    this.extensions.push(new LinkRenderer(app, settings, assetsManager, callback));
+    this.extensions.push(new TextHighlight(app, settings, assetsManager, callback));
+    this.extensions.push(new CodeRenderer(app, settings, assetsManager, callback));
+    this.extensions.push(new Comment(app, settings, assetsManager, callback));
+    this.extensions.push(new Topic(app, settings, assetsManager, callback));
+    if (settings.isAuthKeyVaild()) {
+      this.extensions.push(new MathRenderer(app, settings, assetsManager, callback));
+    }
+  }
+  async buildMarked() {
+    this.marked = new Marked();
+    this.marked.use(markedOptiones);
+    for (const ext of this.extensions) {
+      this.marked.use(ext.markedExtension());
+      ext.marked = this.marked;
+      await ext.prepare();
+    }
+    this.marked.use({ renderer: customRenderer });
+  }
+  async prepare() {
+    this.extensions.forEach(async (ext) => await ext.prepare());
+  }
+  async postprocess(html2) {
+    let result = html2;
+    for (let ext of this.extensions) {
+      result = await ext.postprocess(result);
+    }
+    return result;
+  }
+  async parse(content) {
+    if (!this.marked)
+      await this.buildMarked();
+    await this.prepare();
+    let html2 = await this.marked.parse(content);
+    html2 = await this.postprocess(html2);
+    return html2;
+  }
+};
+
 // node_modules/html-to-image/es/util.js
 function resolveUrl(url, baseUrl) {
   if (url.match(/^[a-z]+:\/\//i)) {
@@ -69959,1453 +71404,13 @@ async function toPng(node, options2 = {}) {
   return canvas.toDataURL();
 }
 
-// src/markdown/math.ts
-var import_obsidian5 = require("obsidian");
-var inlineRule = /^(\${1,2})(?!\$)((?:\\.|[^\\\n])*?(?:\\.|[^\\\n\$]))\1/;
-var blockRule = /^(\${1,2})\n((?:\\[^]|[^\\])+?)\n\1(?:\n|$)/;
-var svgCache = /* @__PURE__ */ new Map();
-function cleanMathCache() {
-  svgCache.clear();
-}
-var MathRendererQueue = class {
-  constructor() {
-    this.queue = [];
-    this.isProcessing = false;
-    this.host = "https://obplugin.sunboshi.tech";
-    this.mathIndex = 0;
-  }
-  // 静态方法，用于获取实例
-  static getInstance() {
-    if (!MathRendererQueue.instance) {
-      MathRendererQueue.instance = new MathRendererQueue();
-    }
-    return MathRendererQueue.instance;
-  }
-  getMathSVG(expression, inline2, type, callback) {
-    const req = () => {
-      return new Promise((resolve, reject) => {
-        let path = "";
-        if (type === "asciimath") {
-          path = "/math/am";
-        } else {
-          path = "/math/tex";
-        }
-        const url = `${this.host}${path}`;
-        (0, import_obsidian5.requestUrl)({
-          url,
-          method: "POST",
-          contentType: "application/json",
-          headers: {
-            authkey: NMPSettings.getInstance().authKey
-          },
-          body: JSON.stringify({
-            expression,
-            inline: inline2
-          })
-        }).then((res) => {
-          let svg = "";
-          if (res.status === 200) {
-            svg = res.text;
-          } else {
-            console.error("render error: " + res.json.msg);
-            svg = "\u6E32\u67D3\u5931\u8D25";
-          }
-          callback(svg);
-          resolve();
-        }).catch((err) => {
-          console.log(err.msg);
-          const svg = "\u6E32\u67D3\u5931\u8D25";
-          callback(svg);
-          resolve();
-        });
-      });
-    };
-    this.enqueue(req);
-  }
-  // 添加请求到队列
-  enqueue(request) {
-    this.queue.push(request);
-    this.processQueue();
-  }
-  // 处理队列中的请求
-  async processQueue() {
-    if (this.isProcessing) {
-      return;
-    }
-    this.isProcessing = true;
-    while (this.queue.length > 0) {
-      const request = this.queue.shift();
-      if (request) {
-        try {
-          await request();
-        } catch (error) {
-          console.error("Request failed:", error);
-        }
-      }
-    }
-    this.isProcessing = false;
-  }
-  generateId() {
-    this.mathIndex += 1;
-    return `math-id-${this.mathIndex}`;
-  }
-  render(token, inline2, type, callback) {
-    if (!NMPSettings.getInstance().isAuthKeyVaild()) {
-      return "<span>\u6CE8\u518C\u7801\u65E0\u6548\u6216\u5DF2\u8FC7\u671F</span>";
-    }
-    const id = this.generateId();
-    let svg = "\u6E32\u67D3\u4E2D";
-    const expression = token.text;
-    if (svgCache.has(token.text)) {
-      svg = svgCache.get(expression);
-    } else {
-      this.getMathSVG(expression, inline2, type, (svg2) => {
-        svgCache.set(expression, svg2);
-        callback.updateElementByID(id, svg2);
-      });
-    }
-    let className = inline2 ? "inline-math-svg" : "block-math-svg";
-    return `<span id="${id}" class="${className}">${svg}</span>`;
-  }
-};
-var MathRenderer = class extends Extension {
-  renderer(token, inline2, type = "") {
-    if (type === "") {
-      type = this.settings.math;
-    }
-    return MathRendererQueue.getInstance().render(token, inline2, type, this.callback);
-  }
-  markedExtension() {
-    return {
-      extensions: [
-        this.inlineMath(),
-        this.blockMath()
-      ]
-    };
-  }
-  inlineMath() {
-    return {
-      name: "InlineMath",
-      level: "inline",
-      start(src) {
-        let index;
-        let indexSrc = src;
-        while (indexSrc) {
-          index = indexSrc.indexOf("$");
-          if (index === -1) {
-            return;
-          }
-          const possibleKatex = indexSrc.substring(index);
-          if (possibleKatex.match(inlineRule)) {
-            return index;
-          }
-          indexSrc = indexSrc.substring(index + 1).replace(/^\$+/, "");
-        }
-      },
-      tokenizer(src, tokens) {
-        const match = src.match(inlineRule);
-        if (match) {
-          return {
-            type: "InlineMath",
-            raw: match[0],
-            text: match[2].trim(),
-            displayMode: match[1].length === 2
-          };
-        }
-      },
-      renderer: (token) => {
-        return this.renderer(token, true);
-      }
-    };
-  }
-  blockMath() {
-    return {
-      name: "BlockMath",
-      level: "block",
-      tokenizer(src) {
-        const match = src.match(blockRule);
-        if (match) {
-          return {
-            type: "BlockMath",
-            raw: match[0],
-            text: match[2].trim(),
-            displayMode: match[1].length === 2
-          };
-        }
-      },
-      renderer: (token) => {
-        return this.renderer(token, false);
-      }
-    };
-  }
-};
-
-// src/markdown/code.ts
-var CardDataManager = class {
-  constructor() {
-    this.cardData = /* @__PURE__ */ new Map();
-  }
-  // 静态方法，用于获取实例
-  static getInstance() {
-    if (!CardDataManager.instance) {
-      CardDataManager.instance = new CardDataManager();
-    }
-    return CardDataManager.instance;
-  }
-  setCardData(id, cardData) {
-    this.cardData.set(id, cardData);
-  }
-  cleanup() {
-    this.cardData.clear();
-  }
-  restoreCard(html2) {
-    for (const [key, value] of this.cardData.entries()) {
-      const exp = `<section[^>]*\\sdata-id="${key}"[^>]*>(.*?)<\\/section>`;
-      const regex = new RegExp(exp, "gs");
-      if (!regex.test(html2)) {
-        console.error("\u672A\u80FD\u6B63\u786E\u66FF\u6362\u516C\u4F17\u53F7\u5361\u7247");
-      }
-      html2 = html2.replace(regex, value);
-    }
-    return html2;
-  }
-};
-var MermaidSectionClassName = "note-mermaid";
-var MermaidImgClassName = "note-mermaid-img";
-var CodeRenderer = class extends Extension {
-  async prepare() {
-    this.mermaidIndex = 0;
-  }
-  static srcToBlob(src) {
-    const base64 = src.split(",")[1];
-    const byteCharacters = atob(base64);
-    const byteNumbers = new Array(byteCharacters.length);
-    for (let i = 0; i < byteCharacters.length; i++) {
-      byteNumbers[i] = byteCharacters.charCodeAt(i);
-    }
-    const byteArray = new Uint8Array(byteNumbers);
-    return new Blob([byteArray], { type: "image/png" });
-  }
-  static async uploadMermaidImages(root, token) {
-    const imgs = root.querySelectorAll("." + MermaidImgClassName);
-    for (let img of imgs) {
-      const src = img.getAttribute("src");
-      if (!src)
-        continue;
-      if (src.startsWith("http"))
-        continue;
-      const blob = CodeRenderer.srcToBlob(img.getAttribute("src"));
-      const name = img.id + ".png";
-      const res = await UploadImageToWx(blob, name, token);
-      if (res.errcode != 0) {
-        const msg = `\u4E0A\u4F20\u56FE\u7247\u5931\u8D25: ${res.errcode} ${res.errmsg}`;
-        new import_obsidian6.Notice(msg);
-        console.error(msg);
-        continue;
-      }
-      const url = res.url;
-      img.setAttribute("src", url);
-    }
-  }
-  codeRenderer(code, infostring) {
-    var _a;
-    const lang = (_a = (infostring || "").match(/^\S*/)) == null ? void 0 : _a[0];
-    code = code.replace(/\n$/, "") + "\n";
-    let codeSection = "";
-    if (this.settings.lineNumber) {
-      const lines = code.split("\n");
-      let liItems = "";
-      let count = 1;
-      while (count < lines.length) {
-        liItems = liItems + `<li>${count}</li>`;
-        count = count + 1;
-      }
-      codeSection = '<section class="code-section"><ul>' + liItems + "</ul>";
-    } else {
-      codeSection = '<section class="code-section">';
-    }
-    if (!lang) {
-      return codeSection + "<pre><code>" + code + "</code></pre></section>\n";
-    }
-    return codeSection + '<pre><code class="hljs language-' + lang + '">' + code + "</code></pre></section>\n";
-  }
-  static getMathType(lang) {
-    if (!lang)
-      return null;
-    let l = lang.toLowerCase();
-    l = l.trim();
-    if (l === "am" || l === "asciimath")
-      return "asciimath";
-    if (l === "latex" || l === "tex")
-      return "latex";
-    return null;
-  }
-  parseCard(htmlString) {
-    const id = /data-id="([^"]+)"/;
-    const headimgRegex = /data-headimg="([^"]+)"/;
-    const nicknameRegex = /data-nickname="([^"]+)"/;
-    const signatureRegex = /data-signature="([^"]+)"/;
-    const idMatch = htmlString.match(id);
-    const headimgMatch = htmlString.match(headimgRegex);
-    const nicknameMatch = htmlString.match(nicknameRegex);
-    const signatureMatch = htmlString.match(signatureRegex);
-    return {
-      id: idMatch ? idMatch[1] : "",
-      headimg: headimgMatch ? headimgMatch[1] : "",
-      nickname: nicknameMatch ? nicknameMatch[1] : "\u516C\u4F17\u53F7\u540D\u79F0",
-      signature: signatureMatch ? signatureMatch[1] : "\u516C\u4F17\u53F7\u4ECB\u7ECD"
-    };
-  }
-  renderCard(token) {
-    const { id, headimg, nickname, signature } = this.parseCard(token.text);
-    if (id === "") {
-      return "<span>\u516C\u4F17\u53F7\u5361\u7247\u6570\u636E\u9519\u8BEF\uFF0C\u6CA1\u6709id</span>";
-    }
-    CardDataManager.getInstance().setCardData(id, token.text);
-    return `<section data-id="${id}" class="note-mpcard-wrapper"><div class="note-mpcard-content"><img class="note-mpcard-headimg" width="54" height="54" src="${headimg}"></img><div class="note-mpcard-info"><div class="note-mpcard-nickname">${nickname}</div><div class="note-mpcard-signature">${signature}</div></div></div><div class="note-mpcard-foot">\u516C\u4F17\u53F7</div></section>`;
-  }
-  renderMermaid(token) {
-    var _a;
-    try {
-      const meraidIndex = this.mermaidIndex;
-      const containerId = `mermaid-${meraidIndex}`;
-      const imgId = `meraid-img-${meraidIndex}`;
-      this.mermaidIndex += 1;
-      const failElement = "<span>mermaid\u6E32\u67D3\u5931\u8D25</span>";
-      let container = null;
-      const currentFile = this.app.workspace.getActiveFile();
-      const leaves = this.app.workspace.getLeavesOfType("markdown");
-      for (let leaf of leaves) {
-        const markdownView = leaf.view;
-        if (((_a = markdownView.file) == null ? void 0 : _a.path) === (currentFile == null ? void 0 : currentFile.path)) {
-          container = markdownView.containerEl;
-        }
-      }
-      if (container) {
-        const containers = container.querySelectorAll(".mermaid");
-        if (containers.length < meraidIndex) {
-          return failElement;
-        }
-        const root = containers[meraidIndex];
-        toPng(root).then((dataUrl) => {
-          this.callback.updateElementByID(containerId, `<img id="${imgId}" class="${MermaidImgClassName}" src="${dataUrl}"></img>`);
-        }).catch((error) => {
-          console.error("oops, something went wrong!", error);
-          this.callback.updateElementByID(containerId, failElement);
-        });
-        return `<section id="${containerId}" class="${MermaidSectionClassName}">\u6E32\u67D3\u4E2D</section>`;
-      } else {
-        console.error("container is null");
-        return failElement;
-      }
-    } catch (error) {
-      console.error(error.message);
-      return "<span>mermaid\u6E32\u67D3\u5931\u8D25</span>";
-    }
-  }
-  markedExtension() {
-    return {
-      extensions: [{
-        name: "code",
-        level: "block",
-        renderer: (token) => {
-          var _a;
-          if (this.settings.isAuthKeyVaild()) {
-            const type = CodeRenderer.getMathType((_a = token.lang) != null ? _a : "");
-            if (type) {
-              return MathRendererQueue.getInstance().render(token, false, type, this.callback);
-            }
-            if (token.lang && token.lang.trim().toLocaleLowerCase() == "mermaid") {
-              return this.renderMermaid(token);
-            }
-          }
-          if (token.lang && token.lang.trim().toLocaleLowerCase() == "mpcard") {
-            return this.renderCard(token);
-          }
-          return this.codeRenderer(token.text, token.lang);
-        }
-      }]
-    };
-  }
-};
-
-// src/markdown/code-highlight.ts
-var CodeHighlight = class extends Extension {
-  markedExtension() {
-    return markedHighlight({
-      langPrefix: "hljs language-",
-      highlight(code, lang, info) {
-        const type = CodeRenderer.getMathType(lang);
-        if (type)
-          return code;
-        if (lang && lang.trim().toLocaleLowerCase() == "mpcard")
-          return code;
-        if (lang && lang.trim().toLocaleLowerCase() == "mermaid")
-          return code;
-        if (lang && es_default.getLanguage(lang)) {
-          try {
-            const result = es_default.highlight(code, { language: lang });
-            return result.value;
-          } catch (err) {
-          }
-        }
-        try {
-          const result = es_default.highlightAuto(code);
-          return result.value;
-        } catch (err) {
-        }
-        return "";
-      }
-    });
-  }
-};
-
-// src/markdown/embed-block-mark.ts
-var BlockMarkRegex = /^\^[0-9A-Za-z-]+$/;
-var EmbedBlockMark = class extends Extension {
-  constructor() {
-    super(...arguments);
-    this.allLinks = [];
-  }
-  async prepare() {
-    this.allLinks = [];
-  }
-  markedExtension() {
-    return {
-      extensions: [{
-        name: "EmbedBlockMark",
-        level: "inline",
-        start(src) {
-          let index = src.indexOf("^");
-          if (index === -1) {
-            return;
-          }
-          return index;
-        },
-        tokenizer(src) {
-          const match = src.match(BlockMarkRegex);
-          if (match) {
-            return {
-              type: "EmbedBlockMark",
-              raw: match[0],
-              text: match[0]
-            };
-          }
-        },
-        renderer: (token) => {
-          return `<span data-txt="${token.text}"></span}`;
-        }
-      }]
-    };
-  }
-};
-
-// src/markdown/icons.ts
-var iconsRegex = /^\[:(.*?):\]/;
-var SVGIcon = class extends Extension {
-  isNumeric(str) {
-    return !isNaN(Number(str)) && str.trim() !== "";
-  }
-  getSize(size) {
-    const items = size.split("x");
-    let width, height;
-    if (items.length == 2) {
-      width = items[0];
-      height = items[1];
-    } else {
-      width = items[0];
-      height = items[0];
-    }
-    width = this.isNumeric(width) ? width + "px" : width;
-    height = this.isNumeric(height) ? height + "px" : height;
-    return { width, height };
-  }
-  renderStyle(items) {
-    let size = "";
-    let color = "";
-    if (items.length == 3) {
-      size = items[1];
-      color = items[2];
-    } else if (items.length == 2) {
-      if (items[1].startsWith("#")) {
-        color = items[1];
-      } else {
-        size = items[1];
-      }
-    }
-    let style = "";
-    if (size.length > 0) {
-      const { width, height } = this.getSize(size);
-      style += `width:${width};height:${height};`;
-    }
-    if (color.length > 0) {
-      style += `color:${color};`;
-    }
-    return style.length > 0 ? `style="${style}"` : "";
-  }
-  async render(text) {
-    const items = text.split("|");
-    const name = items[0];
-    const svg = await this.assetsManager.loadIcon(name);
-    const body = svg === "" ? "\u672A\u627E\u5230\u56FE\u6807" + name : svg;
-    const style = this.renderStyle(items);
-    return `<span class="note-svg-icon" ${style}>${body}</span>`;
-  }
-  markedExtension() {
-    return {
-      async: true,
-      walkTokens: async (token) => {
-        if (token.type !== "SVGIcon") {
-          return;
-        }
-        token.html = await this.render(token.text);
-      },
-      extensions: [{
-        name: "SVGIcon",
-        level: "inline",
-        start(src) {
-          let index;
-          let indexSrc = src;
-          while (indexSrc) {
-            index = indexSrc.indexOf("[:");
-            if (index === -1)
-              return;
-            return index;
-          }
-        },
-        tokenizer(src) {
-          const match = src.match(iconsRegex);
-          if (match) {
-            return {
-              type: "SVGIcon",
-              raw: match[0],
-              text: match[1]
-            };
-          }
-        },
-        renderer(token) {
-          return token.html;
-        }
-      }]
-    };
-  }
-};
-
-// src/markdown/link.ts
-var LinkRenderer = class extends Extension {
-  constructor() {
-    super(...arguments);
-    this.allLinks = [];
-  }
-  async prepare() {
-    this.allLinks = [];
-  }
-  async postprocess(html2) {
-    if (this.settings.linkStyle !== "footnote" || this.allLinks.length == 0) {
-      return html2;
-    }
-    const links = this.allLinks.map((href, i) => {
-      return `<li>${href}&nbsp;\u21A9</li>`;
-    });
-    return `${html2}<seciton class="footnotes"><hr><ol>${links.join("")}</ol></section>`;
-  }
-  markedExtension() {
-    return {
-      extensions: [{
-        name: "link",
-        level: "inline",
-        renderer: (token) => {
-          if (token.href.startsWith("mailto:")) {
-            return token.text;
-          }
-          if (token.text.indexOf(token.href) === 0 || token.href.indexOf("https://mp.weixin.qq.com/mp") === 0 || token.href.indexOf("https://mp.weixin.qq.com/s") === 0) {
-            return `<a href="${token.href}">${token.text}</a>`;
-          }
-          this.allLinks.push(token.href);
-          if (this.settings.linkStyle == "footnote") {
-            return `<a>${token.text}<sup>[${this.allLinks.length}]</sup></a>`;
-          } else {
-            return `<a>${token.text}[${token.href}]</a>`;
-          }
-        }
-      }]
-    };
-  }
-};
-
-// src/markdown/local-file.ts
-var import_obsidian7 = require("obsidian");
-var LocalFileRegex = /^!\[\[(.*?)\]\]/;
-var LocalImageManager = class {
-  constructor() {
-    this.images = /* @__PURE__ */ new Map();
-  }
-  // 静态方法，用于获取实例
-  static getInstance() {
-    if (!LocalImageManager.instance) {
-      LocalImageManager.instance = new LocalImageManager();
-    }
-    return LocalImageManager.instance;
-  }
-  setImage(path, info) {
-    if (!this.images.has(path)) {
-      this.images.set(path, info);
-    }
-  }
-  isWebp(file) {
-    if (file instanceof import_obsidian7.TFile) {
-      return file.extension.toLowerCase() === "webp";
-    }
-    const name = file.toLowerCase();
-    return name.endsWith(".webp");
-  }
-  async uploadLocalImage(token, vault, type = "") {
-    const keys = this.images.keys();
-    await PrepareImageLib();
-    const result = [];
-    for (let key of keys) {
-      const value = this.images.get(key);
-      if (value == null)
-        continue;
-      if (value.url != null)
-        continue;
-      const file = vault.getFileByPath(value.filePath);
-      if (file == null)
-        continue;
-      let fileData = await vault.readBinary(file);
-      let name = file.name;
-      if (this.isWebp(file)) {
-        if (IsImageLibReady()) {
-          fileData = WebpToJPG(fileData);
-          name = name.toLowerCase().replace(".webp", ".jpg");
-        } else {
-          console.error("wasm not ready for webp");
-        }
-      }
-      const res = await UploadImageToWx(new Blob([fileData]), name, token, type);
-      if (res.errcode != 0) {
-        const msg = `\u4E0A\u4F20\u56FE\u7247\u5931\u8D25: ${res.errcode} ${res.errmsg}`;
-        new import_obsidian7.Notice(msg);
-        console.error(msg);
-      }
-      value.url = res.url;
-      result.push(res);
-    }
-    return result;
-  }
-  checkImageExt(filename) {
-    const name = filename.toLowerCase();
-    if (name.endsWith(".jpg") || name.endsWith(".jpeg") || name.endsWith(".png") || name.endsWith(".gif") || name.endsWith(".bmp") || name.endsWith(".tiff") || name.endsWith(".svg") || name.endsWith(".webp")) {
-      return true;
-    }
-    return false;
-  }
-  getImageNameFromUrl(url, type) {
-    try {
-      const urlObj = new URL(url);
-      const pathname = urlObj.pathname;
-      let filename = pathname.split("/").pop() || "";
-      filename = decodeURIComponent(filename);
-      if (!this.checkImageExt(filename)) {
-        filename = filename + this.getImageExt(type);
-      }
-      return filename;
-    } catch (e2) {
-      const queryIndex = url.indexOf("?");
-      if (queryIndex !== -1) {
-        url = url.substring(0, queryIndex);
-      }
-      return url.split("/").pop() || "";
-    }
-  }
-  getImageExtFromBlob(blob) {
-    const mimeToExt = {
-      "image/jpeg": ".jpg",
-      "image/jpg": ".jpg",
-      "image/png": ".png",
-      "image/gif": ".gif",
-      "image/bmp": ".bmp",
-      "image/webp": ".webp",
-      "image/svg+xml": ".svg",
-      "image/tiff": ".tiff"
-    };
-    const mimeType = blob.type.toLowerCase();
-    return mimeToExt[mimeType] || "";
-  }
-  async uploadImageFromUrl(url, token, type = "") {
-    try {
-      const rep = await (0, import_obsidian7.requestUrl)(url);
-      await PrepareImageLib();
-      let data = rep.arrayBuffer;
-      let blob = new Blob([data]);
-      let filename = this.getImageNameFromUrl(url, rep.headers["content-type"]);
-      if (filename == "" || filename == null) {
-        filename = "remote_img" + this.getImageExtFromBlob(blob);
-      }
-      if (this.isWebp(filename)) {
-        if (IsImageLibReady()) {
-          data = WebpToJPG(data);
-          blob = new Blob([data]);
-          filename = filename.toLowerCase().replace(".webp", ".jpg");
-        } else {
-          console.error("wasm not ready for webp");
-        }
-      }
-      return await UploadImageToWx(blob, filename, token, type);
-    } catch (e2) {
-      console.error(e2);
-      throw new Error("\u4E0A\u4F20\u56FE\u7247\u5931\u8D25:" + e2.message + "|" + url);
-    }
-  }
-  getImageExt(type) {
-    const mimeToExt = {
-      "image/jpeg": ".jpg",
-      "image/jpg": ".jpg",
-      "image/png": ".png",
-      "image/gif": ".gif",
-      "image/bmp": ".bmp",
-      "image/webp": ".webp",
-      "image/svg+xml": ".svg",
-      "image/tiff": ".tiff"
-    };
-    return mimeToExt[type] || ".jpg";
-  }
-  getMimeType(ext) {
-    const extToMime = {
-      ".jpg": "image/jpeg",
-      ".jpeg": "image/jpeg",
-      ".png": "image/png",
-      ".gif": "image/gif",
-      ".bmp": "image/bmp",
-      ".webp": "image/webp",
-      ".svg": "image/svg+xml",
-      ".tiff": "image/tiff"
-    };
-    return extToMime[ext.toLowerCase()] || "image/jpeg";
-  }
-  async uploadRemoteImage(root, token, type = "") {
-    const images = root.getElementsByTagName("img");
-    const result = [];
-    for (let i = 0; i < images.length; i++) {
-      const img = images[i];
-      if (!img.src.startsWith("http"))
-        continue;
-      if (img.src.includes("mmbiz.qpic.cn"))
-        continue;
-      if (img.src.startsWith("http://localhost/") && import_obsidian7.Platform.isMobileApp) {
-        continue;
-      }
-      const res = await this.uploadImageFromUrl(img.src, token, type);
-      if (res.errcode != 0) {
-        const msg = `\u4E0A\u4F20\u56FE\u7247\u5931\u8D25: ${img.src} ${res.errcode} ${res.errmsg}`;
-        new import_obsidian7.Notice(msg);
-        console.error(msg);
-      }
-      const info = {
-        resUrl: img.src,
-        filePath: "",
-        url: res.url
-      };
-      this.images.set(img.src, info);
-      result.push(res);
-    }
-    return result;
-  }
-  replaceImages(root) {
-    const images = root.getElementsByTagName("img");
-    for (let i = 0; i < images.length; i++) {
-      const img = images[i];
-      const value = this.images.get(img.src);
-      if (value == null)
-        continue;
-      if (value.url == null)
-        continue;
-      img.setAttribute("src", value.url);
-    }
-  }
-  arrayBufferToBase64(buffer) {
-    let binary = "";
-    const bytes = new Uint8Array(buffer);
-    const len = bytes.byteLength;
-    for (let i = 0; i < len; i++) {
-      binary += String.fromCharCode(bytes[i]);
-    }
-    return btoa(binary);
-  }
-  async localImagesToBase64(vault) {
-    const keys = this.images.keys();
-    const result = /* @__PURE__ */ new Map();
-    for (let key of keys) {
-      const value = this.images.get(key);
-      if (value == null)
-        continue;
-      const file = vault.getFileByPath(value.filePath);
-      if (file == null)
-        continue;
-      let fileData = await vault.readBinary(file);
-      const base64 = this.arrayBufferToBase64(fileData);
-      const mimeType = this.getMimeType(file.extension);
-      const data = `data:${mimeType};base64,${base64}`;
-      result.set(value.resUrl, data);
-    }
-    return result;
-  }
-  async downloadRemoteImage(url) {
-    try {
-      const rep = await (0, import_obsidian7.requestUrl)(url);
-      let data = rep.arrayBuffer;
-      let blob = new Blob([data]);
-      let ext = this.getImageExtFromBlob(blob);
-      if (ext == "" || ext == null) {
-        const filename = this.getImageNameFromUrl(url, rep.headers["content-type"]);
-        ext = "." + filename.split(".").pop() || "jpg";
-      }
-      const base64 = this.arrayBufferToBase64(data);
-      const mimeType = this.getMimeType(ext);
-      return `data:${mimeType};base64,${base64}`;
-    } catch (e2) {
-      console.error(e2);
-      return "";
-    }
-  }
-  async remoteImagesToBase64(root) {
-    const images = root.getElementsByTagName("img");
-    const result = /* @__PURE__ */ new Map();
-    for (let i = 0; i < images.length; i++) {
-      const img = images[i];
-      if (!img.src.startsWith("http"))
-        continue;
-      const base64 = await this.downloadRemoteImage(img.src);
-      if (base64 == "")
-        continue;
-      result.set(img.src, base64);
-    }
-    return result;
-  }
-  async embleImages(root, vault) {
-    const localImages = await this.localImagesToBase64(vault);
-    const remoteImages = await this.remoteImagesToBase64(root);
-    const result = root.cloneNode(true);
-    const images = result.getElementsByTagName("img");
-    for (let i = 0; i < images.length; i++) {
-      const img = images[i];
-      if (img.src.startsWith("http")) {
-        const base64 = remoteImages.get(img.src);
-        if (base64 != null) {
-          img.setAttribute("src", base64);
-        }
-      } else {
-        const base64 = localImages.get(img.src);
-        if (base64 != null) {
-          img.setAttribute("src", base64);
-        }
-      }
-    }
-    return result.innerHTML;
-  }
-  async cleanup() {
-    this.images.clear();
-  }
-};
-var _LocalFile = class extends Extension {
-  constructor() {
-    super(...arguments);
-    this.index = 0;
-  }
-  generateId() {
-    this.index += 1;
-    return `fid-${this.index}`;
-  }
-  getImagePath(path) {
-    const res = this.assetsManager.getResourcePath(path);
-    if (res == null) {
-      console.error("\u627E\u4E0D\u5230\u6587\u4EF6\uFF1A" + path);
-      return "";
-    }
-    const info = {
-      resUrl: res.resUrl,
-      filePath: res.filePath,
-      url: null
-    };
-    LocalImageManager.getInstance().setImage(res.resUrl, info);
-    return res.resUrl;
-  }
-  isImage(file) {
-    file = file.toLowerCase();
-    return file.endsWith(".png") || file.endsWith(".jpg") || file.endsWith(".jpeg") || file.endsWith(".gif") || file.endsWith(".bmp") || file.endsWith(".webp");
-  }
-  parseImageLink(link2) {
-    if (link2.includes("|")) {
-      const parts = link2.split("|");
-      const path = parts[0];
-      if (!this.isImage(path))
-        return null;
-      let width = null;
-      let height = null;
-      if (parts.length == 2) {
-        const size = parts[1].toLowerCase().split("x");
-        width = parseInt(size[0]);
-        if (size.length == 2 && size[1] != "") {
-          height = parseInt(size[1]);
-        }
-      }
-      return { path, width, height };
-    }
-    if (this.isImage(link2)) {
-      return { path: link2, width: null, height: null };
-    }
-    return null;
-  }
-  getHeaderLevel(line) {
-    const match = line.trimStart().match(/^#{1,6}/);
-    if (match) {
-      return match[0].length;
-    }
-    return 0;
-  }
-  async getFileContent(file, header, block2) {
-    const content = await this.app.vault.adapter.read(file.path);
-    if (header == null && block2 == null) {
-      return content;
-    }
-    let result = "";
-    const lines = content.split("\n");
-    if (header) {
-      let level = 0;
-      let append2 = false;
-      for (let line of lines) {
-        if (append2) {
-          if (level == this.getHeaderLevel(line)) {
-            break;
-          }
-          result += line + "\n";
-          continue;
-        }
-        if (!line.trim().startsWith("#"))
-          continue;
-        const items = line.trim().split(" ");
-        if (items.length != 2)
-          continue;
-        if (header.trim() != items[1].trim())
-          continue;
-        if (this.getHeaderLevel(line)) {
-          result += line + "\n";
-          level = this.getHeaderLevel(line);
-          append2 = true;
-        }
-      }
-    }
-    if (block2) {
-      let preline = "";
-      for (let i = 0; i < lines.length; i++) {
-        const line = lines[i];
-        if (line.indexOf(block2) >= 0) {
-          result = line.replace(block2, "");
-          if (result.trim() == "") {
-            for (let j = i - 1; j >= 0; j--) {
-              const l = lines[j];
-              if (l.trim() != "") {
-                result = l;
-                break;
-              }
-            }
-          }
-          break;
-        }
-        preline = line;
-      }
-    }
-    return result;
-  }
-  parseFileLink(link2) {
-    const info = link2.split("|")[0];
-    const items = info.split("#");
-    let path = items[0];
-    let header = null;
-    let block2 = null;
-    if (items.length == 2) {
-      if (items[1].startsWith("^")) {
-        block2 = items[1];
-      } else {
-        header = items[1];
-      }
-    }
-    return { path, head: header, block: block2 };
-  }
-  async renderFile(link2, id) {
-    let { path, head: header, block: block2 } = this.parseFileLink(link2);
-    let file = null;
-    if (path === "") {
-      file = this.app.workspace.getActiveFile();
-    } else {
-      if (!path.endsWith(".md")) {
-        path = path + ".md";
-      }
-      file = this.assetsManager.searchFile(path);
-    }
-    if (file == null) {
-      const msg = "\u627E\u4E0D\u5230\u6587\u4EF6\uFF1A" + path;
-      console.error(msg);
-      this.callback.updateElementByID(id, msg);
-      return;
-    }
-    const content = await this.getFileContent(file, header, block2);
-    const body = await this.marked.parse(content);
-    this.callback.updateElementByID(id, body);
-  }
-  async readBlob(src) {
-    return await fetch(src).then((response) => response.blob());
-  }
-  async getExcalidrawUrl(data) {
-    const url = "https://obplugin.sunboshi.tech/math/excalidraw";
-    const req = await (0, import_obsidian7.requestUrl)({
-      url,
-      method: "POST",
-      contentType: "application/json",
-      headers: {
-        authkey: NMPSettings.getInstance().authKey
-      },
-      body: JSON.stringify({ data })
-    });
-    if (req.status != 200) {
-      console.error(req.status);
-      return null;
-    }
-    return req.json.url;
-  }
-  parseLinkStyle(link2) {
-    let filename = "";
-    let style = 'style="width:100%;height:100%"';
-    let postion = "left";
-    const postions = ["left", "center", "right"];
-    if (link2.includes("|")) {
-      const items = link2.split("|");
-      filename = items[0];
-      let size = "";
-      if (items.length == 2) {
-        if (postions.includes(items[1])) {
-          postion = items[1];
-        } else {
-          size = items[1];
-        }
-      } else if (items.length == 3) {
-        size = items[1];
-        if (postions.includes(items[1])) {
-          size = items[2];
-          postion = items[1];
-        } else {
-          size = items[1];
-          postion = items[2];
-        }
-      }
-      if (size != "") {
-        const sizes = size.split("x");
-        if (sizes.length == 2) {
-          style = `style="width:${sizes[0]}px;height:${sizes[1]}px;"`;
-        } else {
-          style = `style="width:${sizes[0]}px;"`;
-        }
-      }
-    } else {
-      filename = link2;
-    }
-    return { filename, style, postion };
-  }
-  parseExcalidrawLink(link2) {
-    let classname = "note-embed-excalidraw-left";
-    const postions = /* @__PURE__ */ new Map([
-      ["left", "note-embed-excalidraw-left"],
-      ["center", "note-embed-excalidraw-center"],
-      ["right", "note-embed-excalidraw-right"]
-    ]);
-    let { filename, style, postion } = this.parseLinkStyle(link2);
-    classname = postions.get(postion) || classname;
-    if (filename.endsWith("excalidraw") || filename.endsWith("excalidraw.md")) {
-      return { filename, style, classname };
-    }
-    return null;
-  }
-  async renderExcalidraw(name, id) {
-    var _a;
-    try {
-      let container = null;
-      const currentFile = this.app.workspace.getActiveFile();
-      const leaves = this.app.workspace.getLeavesOfType("markdown");
-      for (let leaf of leaves) {
-        const markdownView = leaf.view;
-        if (((_a = markdownView.file) == null ? void 0 : _a.path) === (currentFile == null ? void 0 : currentFile.path)) {
-          container = markdownView.containerEl;
-        }
-      }
-      if (container) {
-        const containers = container.querySelectorAll(".internal-embed");
-        for (let container2 of containers) {
-          if (name !== container2.getAttribute("src")) {
-            continue;
-          }
-          const src = await this.getExcalidrawUrl(container2.innerHTML);
-          let svg = "";
-          if (src === "") {
-            svg = "\u6E32\u67D3\u5931\u8D25";
-            console.log("Failed to get Excalidraw URL");
-          } else {
-            const blob = await this.readBlob(src);
-            if (blob.type === "image/svg+xml") {
-              svg = await blob.text();
-              _LocalFile.fileCache.set(name, svg);
-            } else {
-              svg = "\u6682\u4E0D\u652F\u6301" + blob.type;
-            }
-          }
-          this.callback.updateElementByID(id, svg);
-        }
-      } else {
-        console.error("container is null " + name);
-        this.callback.updateElementByID(id, "\u6E32\u67D3\u5931\u8D25");
-      }
-    } catch (error) {
-      console.error(error.message);
-      this.callback.updateElementByID(id, "\u6E32\u67D3\u5931\u8D25:" + error.message);
-    }
-  }
-  parseSVGLink(link2) {
-    let classname = "note-embed-svg-left";
-    const postions = /* @__PURE__ */ new Map([
-      ["left", "note-embed-svg-left"],
-      ["center", "note-embed-svg-center"],
-      ["right", "note-embed-svg-right"]
-    ]);
-    let { filename, style, postion } = this.parseLinkStyle(link2);
-    classname = postions.get(postion) || classname;
-    return { filename, style, classname };
-  }
-  async renderSVGFile(filename, id) {
-    const file = this.assetsManager.searchFile(filename);
-    if (file == null) {
-      const msg = "\u627E\u4E0D\u5230\u6587\u4EF6\uFF1A" + file;
-      console.error(msg);
-      this.callback.updateElementByID(id, msg);
-      return;
-    }
-    const content = await this.getFileContent(file, null, null);
-    _LocalFile.fileCache.set(filename, content);
-    this.callback.updateElementByID(id, content);
-  }
-  markedExtension() {
-    return { extensions: [{
-      name: "LocalImage",
-      level: "inline",
-      start: (src) => {
-        const index = src.indexOf("![[");
-        if (index === -1)
-          return;
-        return index;
-      },
-      tokenizer: (src) => {
-        const matches = src.match(LocalFileRegex);
-        if (matches == null)
-          return;
-        const token = {
-          type: "LocalImage",
-          raw: matches[0],
-          href: matches[1],
-          text: matches[1]
-        };
-        return token;
-      },
-      renderer: (token) => {
-        let item = this.parseImageLink(token.href);
-        if (item) {
-          const src = this.getImagePath(item.path);
-          const width = item.width ? `width="${item.width}"` : "";
-          const height = item.height ? `height="${item.height}"` : "";
-          return `<img src="${src}" alt="${token.text}" ${width} ${height} />`;
-        }
-        const info = this.parseExcalidrawLink(token.href);
-        if (info) {
-          const id2 = this.generateId();
-          let svg = "\u6E32\u67D3\u4E2D";
-          if (_LocalFile.fileCache.has(info.filename)) {
-            svg = _LocalFile.fileCache.get(info.filename) || "\u6E32\u67D3\u5931\u8D25";
-          } else {
-            this.renderExcalidraw(info.filename, id2);
-          }
-          return `<span class="${info.classname}"><span class="note-embed-excalidraw" id="${id2}" ${info.style}>${svg}</span></span>`;
-        }
-        if (token.href.endsWith(".svg") || token.href.includes(".svg|")) {
-          const info2 = this.parseSVGLink(token.href);
-          const id2 = this.generateId();
-          let svg = "\u6E32\u67D3\u4E2D";
-          if (_LocalFile.fileCache.has(info2.filename)) {
-            svg = _LocalFile.fileCache.get(info2.filename) || "\u6E32\u67D3\u5931\u8D25";
-          } else {
-            this.renderSVGFile(info2.filename, id2);
-          }
-          return `<span class="${info2.classname}"><span class="note-embed-svg" id="${id2}" ${info2.style}>${svg}</span></span>`;
-        }
-        const id = this.generateId();
-        this.renderFile(token.href, id);
-        const tag2 = this.callback.settings.embedStyle === "quote" ? "blockquote" : "section";
-        return `<${tag2} class="note-embed-file" id="${id}">\u6E32\u67D3\u4E2D</${tag2}>`;
-      }
-    }] };
-  }
-};
-var LocalFile = _LocalFile;
-LocalFile.fileCache = /* @__PURE__ */ new Map();
-
-// src/markdown/text-highlight.ts
-var highlightRegex = /^==(.*?)==/;
-var TextHighlight = class extends Extension {
-  markedExtension() {
-    return {
-      extensions: [{
-        name: "InlineHighlight",
-        level: "inline",
-        start(src) {
-          let index;
-          let indexSrc = src;
-          while (indexSrc) {
-            index = indexSrc.indexOf("==");
-            if (index === -1)
-              return;
-            return index;
-          }
-        },
-        tokenizer(src, tokens) {
-          const match = src.match(highlightRegex);
-          if (match) {
-            return {
-              type: "InlineHighlight",
-              raw: match[0],
-              text: match[1]
-            };
-          }
-        },
-        renderer(token) {
-          const lexer2 = new _Lexer();
-          const tokens = lexer2.lex(token.text);
-          let body = this.parser.parse(tokens);
-          body = body.replace("<p>", "");
-          body = body.replace("</p>", "");
-          return `<span class="note-highlight">${body}</span>`;
-        }
-      }]
-    };
-  }
-};
-
-// src/markdown/commnet.ts
-var commentRegex = /^%%([\s\S]*?)%%/;
-var Comment = class extends Extension {
-  markedExtension() {
-    return {
-      extensions: [
-        {
-          name: "CommentInline",
-          level: "inline",
-          start(src) {
-            let index;
-            let indexSrc = src;
-            while (indexSrc) {
-              index = indexSrc.indexOf("%%");
-              if (index === -1)
-                return;
-              return index;
-            }
-          },
-          tokenizer(src) {
-            const match = src.match(commentRegex);
-            if (match) {
-              return {
-                type: "CommentInline",
-                raw: match[0],
-                text: match[1]
-              };
-            }
-          },
-          renderer(token) {
-            return "";
-          }
-        },
-        {
-          name: "CommentBlock",
-          level: "block",
-          tokenizer(src) {
-            const match = src.match(commentRegex);
-            if (match) {
-              return {
-                type: "CommentBlock",
-                raw: match[0],
-                text: match[1]
-              };
-            }
-          },
-          renderer(token) {
-            return "";
-          }
-        }
-      ]
-    };
-  }
-};
-
-// src/markdown/topic.ts
-var topicRegex = /^#([^\s#]+)/;
-var Topic = class extends Extension {
-  markedExtension() {
-    return {
-      extensions: [
-        {
-          name: "Topic",
-          level: "inline",
-          start(src) {
-            let index;
-            let indexSrc = src;
-            while (indexSrc) {
-              index = indexSrc.indexOf("#");
-              if (index === -1)
-                return;
-              return index;
-            }
-          },
-          tokenizer(src) {
-            const match = src.match(topicRegex);
-            if (match) {
-              return {
-                type: "Topic",
-                raw: match[0],
-                text: match[1]
-              };
-            }
-          },
-          renderer(token) {
-            return `<a class="wx_topic_link" style="color: #576B95 !important;" data-topic="1">${"#" + token.text.trim()}</a>`;
-          }
-        }
-      ]
-    };
-  }
-};
-
-// src/markdown/parser.ts
-var markedOptiones = {
-  gfm: true,
-  breaks: true
-};
-var customRenderer = {
-  heading(text, level, raw) {
-    return `<h${level}>${text}</h${level}>`;
-  },
-  hr() {
-    return "<hr>";
-  },
-  list(body, ordered, start) {
-    const type = ordered ? "ol" : "ul";
-    const startatt = ordered && start !== 1 ? ' start="' + start + '"' : "";
-    return "<" + type + startatt + ">" + body + "</" + type + ">";
-  },
-  listitem(text, task, checked) {
-    return `<li>${text}</li>`;
-  },
-  image(href, title, text) {
-    const cleanHref = cleanUrl(href);
-    if (cleanHref === null) {
-      return text;
-    }
-    href = cleanHref;
-    if (!href.startsWith("http")) {
-      const res = AssetsManager.getInstance().getResourcePath(decodeURI(href));
-      if (res) {
-        href = res.resUrl;
-        const info = {
-          resUrl: res.resUrl,
-          filePath: res.filePath,
-          url: null
-        };
-        LocalImageManager.getInstance().setImage(res.resUrl, info);
-      }
-    }
-    let out = "";
-    if (NMPSettings.getInstance().useFigcaption) {
-      out = `<figure style="display: flex; flex-direction: column; align-items: center;"><img src="${href}" alt="${text}"`;
-      if (title) {
-        out += ` title="${title}"`;
-      }
-      if (text.length > 0) {
-        out += `><figcaption>${text}</figcaption></figure>`;
-      } else {
-        out += "></figure>";
-      }
-    } else {
-      out = `<img src="${href}" alt="${text}"`;
-      if (title) {
-        out += ` title="${title}"`;
-      }
-      out += ">";
-    }
-    return out;
-  }
-};
-var MarkedParser = class {
-  constructor(app, callback) {
-    this.extensions = [];
-    this.app = app;
-    this.vault = app.vault;
-    const settings = NMPSettings.getInstance();
-    const assetsManager = AssetsManager.getInstance();
-    this.extensions.push(new LocalFile(app, settings, assetsManager, callback));
-    this.extensions.push(new Blockquote(app, settings, assetsManager, callback));
-    this.extensions.push(new CodeHighlight(app, settings, assetsManager, callback));
-    this.extensions.push(new EmbedBlockMark(app, settings, assetsManager, callback));
-    this.extensions.push(new SVGIcon(app, settings, assetsManager, callback));
-    this.extensions.push(new LinkRenderer(app, settings, assetsManager, callback));
-    this.extensions.push(new TextHighlight(app, settings, assetsManager, callback));
-    this.extensions.push(new CodeRenderer(app, settings, assetsManager, callback));
-    this.extensions.push(new Comment(app, settings, assetsManager, callback));
-    this.extensions.push(new Topic(app, settings, assetsManager, callback));
-    if (settings.isAuthKeyVaild()) {
-      this.extensions.push(new MathRenderer(app, settings, assetsManager, callback));
-    }
-  }
-  async buildMarked() {
-    this.marked = new Marked();
-    this.marked.use(markedOptiones);
-    for (const ext of this.extensions) {
-      this.marked.use(ext.markedExtension());
-      ext.marked = this.marked;
-      await ext.prepare();
-    }
-    this.marked.use({ renderer: customRenderer });
-  }
-  async prepare() {
-    this.extensions.forEach(async (ext) => await ext.prepare());
-  }
-  async postprocess(html2) {
-    let result = html2;
-    for (let ext of this.extensions) {
-      result = await ext.postprocess(result);
-    }
-    return result;
-  }
-  async parse(content) {
-    if (!this.marked)
-      await this.buildMarked();
-    await this.prepare();
-    let html2 = await this.marked.parse(content);
-    html2 = await this.postprocess(html2);
-    return html2;
-  }
-};
-
 // src/note-preview.ts
 var VIEW_TYPE_NOTE_PREVIEW = "note-preview";
 var FRONT_MATTER_REGEX = /^(---)$.+?^(---)$.+?/ims;
 var NotePreview = class extends import_obsidian8.ItemView {
   constructor(leaf) {
     super(leaf);
-    this.observer = null;
-    this.editorView = null;
+    this.cachedElements = /* @__PURE__ */ new Map();
     this.workspace = this.app.workspace;
     this.settings = NMPSettings.getInstance();
     this.assetsManager = AssetsManager.getInstance();
@@ -71428,13 +71433,11 @@ var NotePreview = class extends import_obsidian8.ItemView {
     this.listeners = [
       this.workspace.on("active-leaf-change", () => this.update())
     ];
-    this.setupMutationObserver();
     this.renderMarkdown();
     uevent("open");
   }
   async onClose() {
     this.listeners.forEach((listener) => this.workspace.offref(listener));
-    this.releaseMutationObserver();
     LocalFile.fileCache.clear();
     uevent("close");
   }
@@ -71446,62 +71449,6 @@ var NotePreview = class extends import_obsidian8.ItemView {
     LocalImageManager.getInstance().cleanup();
     CardDataManager.getInstance().cleanup();
     this.renderMarkdown();
-    this.setupMutationObserver();
-  }
-  setupMutationObserver() {
-    var _a;
-    const view = this.app.workspace.getActiveViewOfType(import_obsidian8.MarkdownView);
-    const editorView = (_a = view == null ? void 0 : view.editor) == null ? void 0 : _a.cm;
-    if (!editorView)
-      return;
-    if (this.editorView === editorView) {
-      return;
-    }
-    this.releaseMutationObserver();
-    this.editorView = editorView;
-    const targetElement = editorView.dom;
-    const renderIfExcalidraw = (target) => {
-      var _a2;
-      if ((_a2 = target.getAttribute("src")) == null ? void 0 : _a2.includes(".excalidraw")) {
-        const name = target.getAttribute("src") || "";
-        if (LocalFile.fileCache.has(name)) {
-          return;
-        }
-        this.debouncedRenderMarkdown();
-      }
-    };
-    this.observer = new MutationObserver((mutationsList) => {
-      mutationsList.forEach((mutation) => {
-        try {
-          const target = mutation.target;
-          if (target.classList.contains("internal-embed")) {
-            renderIfExcalidraw(target);
-          } else {
-            const items = target.getElementsByClassName("internal-embed");
-            for (let i = 0; i < items.length; i++) {
-              renderIfExcalidraw(items[i]);
-            }
-            ;
-          }
-        } catch (error) {
-          console.error(error);
-        }
-      });
-    });
-    this.observer.observe(targetElement, {
-      attributes: true,
-      // 监听属性变化
-      childList: true,
-      // 监听子节点的变化
-      subtree: true
-      // 监听子树中的节点变化
-    });
-  }
-  releaseMutationObserver() {
-    var _a;
-    (_a = this.observer) == null ? void 0 : _a.disconnect();
-    this.observer = null;
-    this.editorView = null;
   }
   errorContent(error) {
     return '<h1>\u6E32\u67D3\u5931\u8D25!</h1><br/>\u5982\u9700\u5E2E\u52A9\u8BF7\u524D\u5F80&nbsp;&nbsp;<a href="https://github.com/sunbooshi/note-to-mp/issues">https://github.com/sunbooshi/note-to-mp/issues</a>&nbsp;&nbsp;\u53CD\u9988<br/><br/>\u5982\u679C\u65B9\u4FBF\uFF0C\u8BF7\u63D0\u4F9B\u5F15\u53D1\u9519\u8BEF\u7684\u5B8C\u6574Markdown\u5185\u5BB9\u3002<br/><br/><br/>Obsidian\u7248\u672C\uFF1A' + import_obsidian8.apiVersion + `<br/>\u9519\u8BEF\u4FE1\u606F\uFF1A<br/>${error}`;
@@ -71556,6 +71503,7 @@ var NotePreview = class extends import_obsidian8.ItemView {
       }
       this.articleHTML = await this.markedParser.parse(md);
       this.setArticle(this.articleHTML);
+      await this.processCachedElements();
     } catch (e2) {
       console.error(e2);
       this.setArticle(this.errorContent(e2));
@@ -71940,11 +71888,11 @@ ${customCSS}`;
       if (token === "") {
         return;
       }
+      await this.cachedElementsToImages();
       const lm = LocalImageManager.getInstance();
       await lm.uploadLocalImage(token, this.app.vault);
       await lm.uploadRemoteImage(this.articleDiv, token);
       lm.replaceImages(this.articleDiv);
-      await CodeRenderer.uploadMermaidImages(this.articleDiv, token);
       await this.copyArticle();
       this.showMsg("\u56FE\u7247\u5DF2\u4E0A\u4F20\uFF0C\u5E76\u4E14\u5DF2\u590D\u5236\uFF0C\u8BF7\u5230\u516C\u4F17\u53F7\u7F16\u8F91\u5668\u7C98\u8D34\u3002");
     } catch (error) {
@@ -71982,12 +71930,12 @@ ${customCSS}`;
         this.showMsg("\u83B7\u53D6token\u5931\u8D25,\u8BF7\u68C0\u67E5\u7F51\u7EDC\u94FE\u63A5!");
         return;
       }
+      await this.cachedElementsToImages();
       let metadata = this.getMetadata();
       const lm = LocalImageManager.getInstance();
       await lm.uploadLocalImage(token, this.app.vault);
       await lm.uploadRemoteImage(this.articleDiv, token);
       lm.replaceImages(this.articleDiv);
-      await CodeRenderer.uploadMermaidImages(this.articleDiv, token);
       let mediaId = metadata.thumb_media_id;
       if (!mediaId) {
         if (metadata.cover) {
@@ -72041,7 +71989,7 @@ ${customCSS}`;
       this.showMsg("\u8BF7\u5148\u9009\u62E9\u516C\u4F17\u53F7");
       return;
     }
-    this.showLoading("\u4E0A\u4F20\u4E2D...");
+    this.showLoading("\u53D1\u5E03\u4E2D...");
     try {
       const token = await this.getToken();
       if (token === "") {
@@ -72097,19 +72045,98 @@ ${customCSS}`;
     }
   }
   async exportHTML() {
-    const lm = LocalImageManager.getInstance();
-    const content = await lm.embleImages(this.articleDiv, this.app.vault);
-    const globalStyle = await this.assetsManager.getStyle();
-    const html2 = applyCSS(content, this.getCSS() + globalStyle);
-    const blob = new Blob([html2], { type: "text/html" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = this.title + ".html";
-    a.click();
-    URL.revokeObjectURL(url);
-    a.remove();
-    this.showMsg("\u5BFC\u51FA\u6210\u529F!");
+    this.showLoading("\u5BFC\u51FA\u4E2D...");
+    try {
+      await this.cachedElementsToImages();
+      const lm = LocalImageManager.getInstance();
+      const content = await lm.embleImages(this.articleDiv, this.app.vault);
+      const globalStyle = await this.assetsManager.getStyle();
+      const html2 = applyCSS(content, this.getCSS() + globalStyle);
+      const blob = new Blob([html2], { type: "text/html" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = this.title + ".html";
+      a.click();
+      URL.revokeObjectURL(url);
+      a.remove();
+      this.showMsg("\u5BFC\u51FA\u6210\u529F!");
+    } catch (error) {
+      console.error(error);
+      this.showMsg("\u5BFC\u51FA\u5931\u8D25!" + error.message);
+    }
+  }
+  async processCachedElements() {
+    const af = this.app.workspace.getActiveFile();
+    if (!af) {
+      console.error("\u5F53\u524D\u6CA1\u6709\u6253\u5F00\u6587\u4EF6\uFF0C\u65E0\u6CD5\u5904\u7406\u7F13\u5B58\u5143\u7D20");
+      return;
+    }
+    for (const [key, value] of this.cachedElements) {
+      const [category, id] = key.split(":");
+      if (category === "mermaid" || category === "excalidraw") {
+        const container = this.articleDiv.querySelector("#" + id);
+        if (container) {
+          await import_obsidian8.MarkdownRenderer.render(this.app, value, container, af.path, this);
+        }
+      }
+    }
+  }
+  async cachedElementsToImages() {
+    for (const [key, cached] of this.cachedElements) {
+      const [category, elementId] = key.split(":");
+      const container = this.articleDiv.querySelector(`#${elementId}`);
+      if (!container)
+        continue;
+      if (category === "mermaid") {
+        await this.replaceMermaidWithImage(container, elementId);
+      } else if (category === "excalidraw") {
+        await this.replaceExcalidrawWithImage(container, elementId);
+      }
+    }
+  }
+  async replaceMermaidWithImage(container, id) {
+    const mermaidContainer = container.querySelector(".mermaid");
+    if (!mermaidContainer || !mermaidContainer.children.length)
+      return;
+    const svg = mermaidContainer.querySelector("svg");
+    if (!svg)
+      return;
+    try {
+      const pngDataUrl = await toPng(mermaidContainer.firstElementChild, { pixelRatio: 2 });
+      const img = document.createElement("img");
+      img.id = `img-${id}`;
+      img.src = pngDataUrl;
+      img.style.width = `${svg.clientWidth}px`;
+      img.style.height = "auto";
+      container.replaceChild(img, mermaidContainer);
+    } catch (error) {
+      console.warn(`Failed to render Mermaid diagram: ${id}`, error);
+    }
+  }
+  async replaceExcalidrawWithImage(container, id) {
+    const innerDiv = container.querySelector("div");
+    if (!innerDiv)
+      return;
+    if (NMPSettings.getInstance().excalidrawToPNG) {
+      const originalImg = container.querySelector("img");
+      if (!originalImg)
+        return;
+      const style = originalImg.getAttribute("style") || "";
+      try {
+        const pngDataUrl = await toPng(originalImg, { pixelRatio: 2 });
+        const img = document.createElement("img");
+        img.id = `img-${id}`;
+        img.src = pngDataUrl;
+        img.setAttribute("style", style);
+        container.replaceChild(img, container.firstChild);
+      } catch (error) {
+        console.warn(`Failed to render Excalidraw image: ${id}`, error);
+      }
+    } else {
+      const svg = await LocalFile.renderExcalidraw(innerDiv.innerHTML);
+      this.updateElementByID(id, svg);
+    }
   }
   updateElementByID(id, html2) {
     const item = this.articleDiv.querySelector("#" + id);
@@ -72124,6 +72151,10 @@ ${customCSS}`;
     } else {
       item.innerText = "\u6E32\u67D3\u5931\u8D25";
     }
+  }
+  cacheElement(category, id, data) {
+    const key = category + ":" + id;
+    this.cachedElements.set(key, data);
   }
 };
 
@@ -72317,6 +72348,13 @@ var NoteToMpSettingTab = class extends import_obsidian9.PluginSettingTab {
       toggle.setValue(this.settings.useFigcaption);
       toggle.onChange(async (value) => {
         this.settings.useFigcaption = value;
+        await this.plugin.saveSettings();
+      });
+    });
+    new import_obsidian9.Setting(containerEl).setName("Excalidraw \u6E32\u67D3\u4E3A PNG \u56FE\u7247").addToggle((toggle) => {
+      toggle.setValue(this.settings.excalidrawToPNG);
+      toggle.onChange(async (value) => {
+        this.settings.excalidrawToPNG = value;
         await this.plugin.saveSettings();
       });
     });
