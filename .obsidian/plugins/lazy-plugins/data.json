@@ -380,6 +380,9 @@
       },
       "cubox-sync": {
         "startupType": "instant"
+      },
+      "extended-graph": {
+        "startupType": "disabled"
       }
     },
     "loadOrder": []
