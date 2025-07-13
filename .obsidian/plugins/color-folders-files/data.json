@@ -74,6 +74,12 @@
     },
     "999知识管理": {
       "textColor": "#bcfe86"
+    },
+    "00-课读笔记": {
+      "textColor": "#5cffa3"
+    },
+    "00-Cubox": {
+      "textColor": "#6b6b6b"
     }
   },
   "presets": {},
