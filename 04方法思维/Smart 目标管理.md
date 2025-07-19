@@ -1,3 +1,8 @@
+---
+tags:
+  - SMART
+---
+
 ## DeepSEEK 
 
 ### SMART 原则详细解释及应用指南
