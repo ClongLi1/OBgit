@@ -1,7 +1,7 @@
 {
   "palette": {
     "seed": 0,
-    "selected": "custom",
+    "selected": "adaptive-bright",
     "custom": "e12729-f37324-f8cc1b-72b043-007f4e"
   },
   "mixColors": true,
@@ -869,7 +869,8 @@
     "英语单词": 654,
     "英语词汇": 655,
     "正挤压": 656,
-    "反挤压": 657
+    "反挤压": 657,
+    "企业培训": 658
   },
   "_version": 3
 }
