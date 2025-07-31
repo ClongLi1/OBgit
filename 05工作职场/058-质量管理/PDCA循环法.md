@@ -6,6 +6,8 @@ tags:
   - 持续改进
   - PDCA
 ---
+![Pasted image 20250731123617|300](https://fig-1321973591.cos.ap-nanjing.myqcloud.com/Pasted%20image%2020250731123617.png)
+
 > [!NOTE] PDCA (持续改进)
 > PDCA循环法是一种持续改进的管理方法，由四个阶段组成：**计划（Plan）→执行（Do）→检查（Check）→处理（Act**
 
