@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "02材料专业",
+      "path": "02专业知识/02材料专业.md"
+    },
+    {
+      "basename": "化学元素分析",
+      "path": "02专业知识/化学元素分析.md"
+    },
+    {
       "basename": "🎉Welcome to ClongLi's HomePage🫧",
       "path": "100附件文件/🎉Welcome to ClongLi's HomePage🫧.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "工作准备参考建议",
       "path": "17AI写作咨询/工作准备参考建议.md"
-    },
-    {
-      "basename": "高纯镁制备蒸馏（昆明理工大学）",
-      "path": "00-课读笔记/高纯镁制备蒸馏（昆明理工大学）.md"
-    },
-    {
-      "basename": "高纯镁制备、生产和应用",
-      "path": "05工作职场/056实践操作/高纯镁制备、生产和应用.md"
     }
   ],
   "omittedPaths": [],
