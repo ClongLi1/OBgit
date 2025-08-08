@@ -5,6 +5,26 @@
       "path": "工作生活规划（导图）.md"
     },
     {
+      "basename": "🎉Welcome to ClongLi's HomePage🫧",
+      "path": "100附件文件/🎉Welcome to ClongLi's HomePage🫧.md"
+    },
+    {
+      "basename": "02材料专业",
+      "path": "02专业知识/02材料专业.md"
+    },
+    {
+      "basename": "00-阅读网课笔记",
+      "path": "00-课读笔记/00-阅读网课笔记.md"
+    },
+    {
+      "basename": "铝合金焊丝产品培训（张渊博）",
+      "path": "00-课读笔记/铝合金焊丝产品培训（张渊博）.md"
+    },
+    {
+      "basename": "镁合金熔铸（高华）",
+      "path": "00-课读笔记/镁合金熔铸（高华）.md"
+    },
+    {
       "basename": "2025-08-07",
       "path": "998日记汇总/2025-08-07.md"
     },
@@ -15,10 +35,6 @@
     {
       "basename": "人生需要四种人",
       "path": "07文学历史/人生需要四种人.md"
-    },
-    {
-      "basename": "车间实习一个月（个人总结）",
-      "path": "10总结反思/车间实习一个月（个人总结）.md"
     },
     {
       "basename": "11感情婚恋",
@@ -97,14 +113,6 @@
       "path": "10总结反思/李涵结婚.md"
     },
     {
-      "basename": "02材料专业",
-      "path": "02专业知识/02材料专业.md"
-    },
-    {
-      "basename": "🎉Welcome to ClongLi's HomePage🫧",
-      "path": "100附件文件/🎉Welcome to ClongLi's HomePage🫧.md"
-    },
-    {
       "basename": "专业理论",
       "path": "02专业知识/专业理论.md"
     },
@@ -125,16 +133,8 @@
       "path": "00-课读笔记/质量管理培训（岳丽娟）.md"
     },
     {
-      "basename": "00-阅读网课笔记",
-      "path": "00-课读笔记/00-阅读网课笔记.md"
-    },
-    {
       "basename": "镁合金轧制培训（杜青山）",
       "path": "00-课读笔记/镁合金轧制培训（杜青山）.md"
-    },
-    {
-      "basename": "镁合金熔铸（高华）",
-      "path": "00-课读笔记/镁合金熔铸（高华）.md"
     },
     {
       "basename": "2025-08-05",
@@ -195,10 +195,6 @@
     {
       "basename": "excalibrain",
       "path": "excalibrain.md"
-    },
-    {
-      "basename": "知识管理策略建议",
-      "path": "999知识管理/知识管理策略建议.md"
     }
   ],
   "omittedPaths": [],
