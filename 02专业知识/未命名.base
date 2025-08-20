@@ -1,0 +1,16 @@
+formulas:
+  Untitled: ""
+views:
+  - type: table
+    name: Table
+    filters:
+      and:
+        - contains(file.folder, "02专业知识")
+    order:
+      - file.ctime
+      - file.ext
+      - file.folder
+      - file.mtime
+      - file.name
+      - file.path
+      - file.size
