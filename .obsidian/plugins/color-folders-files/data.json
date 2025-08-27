@@ -80,6 +80,9 @@
     },
     "00-Cubox": {
       "textColor": "#6b6b6b"
+    },
+    "18个人管理": {
+      "textColor": "#ff6600"
     }
   },
   "presets": {},

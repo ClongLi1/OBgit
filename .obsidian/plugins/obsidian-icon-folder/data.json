@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": "#00ff9d",
     "recentlyUsedIcons": [
+      "💱",
       "💒",
       "📔",
       "LiObsidianNew",
-      "🥙",
-      "🧃"
+      "🥙"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -62,5 +62,6 @@
   "05工作职场": "👜",
   "00-Cubox": "🥙",
   "00-Clippings": "💒",
-  "00-课读笔记": "📔"
+  "00-课读笔记": "📔",
+  "18个人管理": "💱"
 }
