@@ -1,0 +1,10 @@
+views:
+  - type: table
+    name: 表格
+    order:
+      - file.name
+      - file.ctime
+      - file.ext
+      - file.folder
+      - file.size
+      - tags

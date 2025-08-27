@@ -1,0 +1,150 @@
+{
+  "confirmDeletion": true,
+  "showAddCommand": true,
+  "debug": false,
+  "editorMenu": [
+    {
+      "id": "webviewer:open",
+      "icon": "lucide-search",
+      "name": "Web viewer: Open web viewer",
+      "mode": "any"
+    }
+  ],
+  "fileMenu": [],
+  "leftRibbon": [
+    {
+      "id": "obsidian-custom-frames:open-custom-frames-deepseek",
+      "icon": "lucide-arrow-down-za",
+      "name": "Custom Frames: Open DeepSeek",
+      "mode": "any",
+      "color": "#00fadd"
+    },
+    {
+      "id": "obsidian-enhancing-mindmap:Create New MindMap",
+      "icon": "lucide-layout-list",
+      "name": "Enhancing Mindmap: 创建新思维导图",
+      "mode": "any",
+      "color": "#e252ff"
+    },
+    {
+      "id": "app:open-settings",
+      "icon": "lucide-settings",
+      "name": "打开设置",
+      "mode": "any",
+      "color": "#c8ff00"
+    },
+    {
+      "id": "bookmarks:open",
+      "icon": "lucide-bookmark",
+      "name": "书签: 显示书签列表",
+      "mode": "any",
+      "color": "#dea6a6"
+    }
+  ],
+  "rightRibbon": [],
+  "titleBar": [],
+  "statusBar": [],
+  "pageHeader": [
+    {
+      "id": "convert-url-to-iframe:url-to-iframe",
+      "icon": "lucide-airplay",
+      "name": "Iframe",
+      "mode": "any",
+      "color": "#c800ff"
+    },
+    {
+      "id": "obsidian-mind-map:app:markmap-preview",
+      "icon": "lucide-arrow-down-wide-narrow",
+      "name": "Mind Map: Preview the current note as a Mind Map",
+      "mode": "any",
+      "color": "#fbff00"
+    },
+    {
+      "id": "cmdr:open-commander-settings",
+      "icon": "ScriptEngine",
+      "name": "Commander: 打开 Commander 设置",
+      "mode": "any",
+      "color": "#00ff2a"
+    },
+    {
+      "id": "multi-column-markdown:insert-multi-column-region",
+      "icon": "rectangle-vertical-double",
+      "name": "分栏",
+      "mode": "any",
+      "color": "#00e1ff"
+    },
+    {
+      "id": "obsidian-tidy-footnotes:tidy-footnotes",
+      "icon": "lucide-arrow-down-10",
+      "name": " Footnotes",
+      "mode": "any",
+      "color": "#0033ff"
+    },
+    {
+      "id": "obsidian-charts:creation-helper",
+      "icon": "lucide-square-library",
+      "name": "Charts: Insert new Chart",
+      "mode": "any",
+      "color": "#00cddb"
+    },
+    {
+      "id": "homepage:open-homepage",
+      "icon": "lucide-home",
+      "name": "Homepage: Open homepage",
+      "mode": "any",
+      "color": "#c547ff"
+    },
+    {
+      "id": "buttons:button-maker",
+      "icon": "lucide-alert-circle",
+      "name": "按钮",
+      "mode": "any",
+      "color": "#8066ff"
+    },
+    {
+      "id": "obsidian-chartsview-plugin:chartsview-wizard",
+      "icon": "lucide-chart-line",
+      "name": "Charts View: Wizard",
+      "mode": "any",
+      "color": "#feeb8b"
+    },
+    {
+      "id": "automatic-table-of-contents:insert-automatic-table-of-contents",
+      "icon": "lucide-align-center",
+      "name": "目录",
+      "mode": "any",
+      "color": "#fa0000"
+    },
+    {
+      "id": "zen:toggle",
+      "icon": "lucide-eye-off",
+      "name": "Zen: Toggle",
+      "mode": "any",
+      "color": "#b3ff75"
+    },
+    {
+      "id": "timelines-revamped:insert-timeline-event",
+      "icon": "lucide-arrow-down-from-line",
+      "name": "Timelines (Revamped): Insert timeline event",
+      "mode": "any",
+      "color": "#ffbdbd"
+    }
+  ],
+  "macros": [],
+  "explorer": [],
+  "hide": {
+    "statusbar": [],
+    "leftRibbon": []
+  },
+  "spacing": "8",
+  "advancedToolbar": {
+    "rowHeight": 48,
+    "rowCount": 1,
+    "spacing": 0,
+    "buttonWidth": 48,
+    "columnLayout": false,
+    "mappedIcons": [],
+    "tooltips": false,
+    "heightOffset": 0
+  }
+}
