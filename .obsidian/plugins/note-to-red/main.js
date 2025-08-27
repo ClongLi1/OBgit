@@ -2751,7 +2751,7 @@ var require_default = __commonJS({
           userName: "font-size: 16px; font-weight: 600; color: #ffffff;",
           userId: "font-size: 14px; color: #98989d;",
           postTime: "font-size: 13px; color: #636366;",
-          verifiedIcon: "width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; color: #ffffff; background-color: #0A84FF; border-radius: 50%; font-size: 10px; flex-shrink: 0;"
+          verifiedIcon: "width: 20px; height: 20px; margin-left: -5px; fill: #1DA1F2;"
         },
         footer: {
           container: "position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 16px; color: #98989d; font-size: 13px; border-top: 1px solid #2c2c2e; background: #1c1c1e;",
@@ -2826,7 +2826,7 @@ var require_minimal = __commonJS({
           userName: "font-size: 16px; font-weight: 600; color: #333333; letter-spacing: 0.02em;",
           userId: "font-size: 14px; color: #666666;",
           postTime: "font-size: 13px; color: #999999;",
-          verifiedIcon: "width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; color: #ffffff; background-color: #6c9eb8; border-radius: 4px; font-size: 10px; flex-shrink: 0; box-shadow: 0 2px 4px rgba(108,158,184,0.1);"
+          verifiedIcon: "width: 20px; height: 20px; margin-left: -5px; fill: #1DA1F2;"
         },
         footer: {
           container: "position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 16px; padding: 16px; color: #999999; font-size: 13px; border-top: 1px solid #eeeeee; background: rgba(250,250,250,0.95); backdrop-filter: blur(8px);",
@@ -2901,7 +2901,7 @@ var require_elegant = __commonJS({
           userName: "font-size: 16px; font-weight: 600; color: #e2d9f3; letter-spacing: 0.02em;",
           userId: "font-size: 14px; color: #a393c9;",
           postTime: "font-size: 13px; color: #6d617f;",
-          verifiedIcon: "width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; color: #1a1721; background-color: #b490ff; border-radius: 6px; font-size: 10px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(180,144,255,0.2);"
+          verifiedIcon: "width: 20px; height: 20px; margin-left: -5px; fill: #1DA1F2;"
         },
         footer: {
           container: "position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 16px; color: #a393c9; font-size: 13px; border-top: 1px solid #2a2433; background: rgba(26,23,33,0.95); backdrop-filter: blur(12px);",
@@ -2978,8 +2978,8 @@ var require_cyber = __commonJS({
           nameContainer: "display: flex; align-items: center; gap: 8px;",
           userName: "font-size: 16px; font-weight: 600; color: #ff00ff; cursor: pointer; transition: all 0.2s ease; text-shadow: 0 0 10px rgba(255, 0, 255, 0.3); &:hover { color: #ff2a6d; }",
           userId: "font-size: 14px; color: #00ffff; cursor: pointer; transition: all 0.2s ease; &:hover { color: #05ffa1; }",
-          verifiedIcon: "width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; color: #ffffff; background-color: #ff00ff; border-radius: 50%; font-size: 10px; flex-shrink: 0; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(255, 0, 255, 0.3); &:hover { transform: scale(1.1); background-color: #05ffa1; }",
-          postTime: "font-size: 14px; color: #00ffff; cursor: pointer; transition: all 0.2s ease; &:hover { color: #05ffa1; }"
+          postTime: "font-size: 14px; color: #00ffff; cursor: pointer; transition: all 0.2s ease; &:hover { color: #05ffa1; }",
+          verifiedIcon: "width: 20px; height: 20px; margin-left: -5px; fill: #1DA1F2;"
         },
         footer: {
           container: "margin-top: 20px; padding: 14px 18px; position: absolute; bottom: 5px; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 16px; border-top: 1px solid rgba(0, 255, 255, 0.2); backdrop-filter: blur(8px); background: rgba(255, 255, 255, 0.9);",
@@ -3054,7 +3054,7 @@ var require_warm = __commonJS({
           userName: "font-size: 17px; font-weight: 600; color: #8b4513; serif; text-shadow: 0 2px 4px rgba(139,69,19,0.1);",
           userId: "font-size: 14px; color: #b87333; font-family: 'Noto Serif SC', serif;",
           postTime: "font-size: 13px; color: #d2691e; font-style: italic;",
-          verifiedIcon: "width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; color: #fffaf5; background: linear-gradient(135deg, #d2691e, #b87333); border-radius: 50%; font-size: 10px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(210,105,30,0.2); border: 1px solid #b8733380;"
+          verifiedIcon: "width: 20px; height: 20px; margin-left: -5px; fill: #1DA1F2;"
         },
         footer: {
           container: "position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 16px; color: #b87333; font-size: 13px; border-top: 1px solid #b8733380; background: rgba(255,250,245,0.95); backdrop-filter: blur(8px);",
@@ -3129,7 +3129,7 @@ var require_forest = __commonJS({
           userName: "font-size: 16px; font-weight: 600; color: #2ecc71; text-shadow: 0 2px 4px rgba(46,204,113,0.1);",
           userId: "font-size: 14px; color: #27ae60; font-family: 'SF Pro Text';",
           postTime: "font-size: 13px; color: #16a085; letter-spacing: 0.02em;",
-          verifiedIcon: "width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; color: #1a2420; background-color: #2ecc71; border-radius: 6px; font-size: 10px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(46,204,113,0.3); border: 1px solid #2ecc7180;"
+          verifiedIcon: "width: 20px; height: 20px; margin-left: -5px; fill: #1DA1F2;"
         },
         footer: {
           container: "position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 16px; color: #27ae60; font-size: 13px; border-top: 1px solid #2ecc7140; background: rgba(26,36,32,0.95); backdrop-filter: blur(12px);",
@@ -3204,7 +3204,7 @@ var require_ocean = __commonJS({
           userName: "font-size: 16px; font-weight: 700; color: #40a9ff; text-shadow: 0 2px 8px rgba(64,169,255,0.2);",
           userId: "font-size: 14px; color: #69c0ff; font-family: 'SF Pro Text';",
           postTime: "font-size: 13px; color: #91d5ff; letter-spacing: 0.03em;",
-          verifiedIcon: "width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; color: #0a192f; background: linear-gradient(135deg, #40a9ff, #69c0ff); border-radius: 6px; font-size: 10px; flex-shrink: 0; box-shadow: 0 2px 12px rgba(64,169,255,0.3); border: 1px solid #69c0ff80;"
+          verifiedIcon: "width: 20px; height: 20px; margin-left: -5px; fill: #1DA1F2;"
         },
         footer: {
           container: "position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 16px; color: #69c0ff; font-size: 13px; border-top: 1px solid #1d3552; background: rgba(10,25,47,0.95); backdrop-filter: blur(12px);",
@@ -3279,7 +3279,7 @@ var require_sakura = __commonJS({
           userName: "font-size: 16px; font-weight: 700; color: #ffb6c1; text-shadow: 0 2px 8px rgba(255,182,193,0.2);",
           userId: "font-size: 14px; color: #ff8da1; font-family: 'SF Pro Text';",
           postTime: "font-size: 13px; color: #ff6b88; letter-spacing: 0.03em;",
-          verifiedIcon: "width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; color: #1f1a1d; background: linear-gradient(135deg, #ffb6c1, #ff8da1); border-radius: 50%; font-size: 10px; flex-shrink: 0; box-shadow: 0 2px 12px rgba(255,182,193,0.3); border: 1px solid #ffb6c180;"
+          verifiedIcon: "width: 20px; height: 20px; margin-left: -5px; fill: #1DA1F2;"
         },
         footer: {
           container: "position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 16px; color: #ff8da1; font-size: 13px; border-top: 1px solid #ffb6c140; background: rgba(31,26,29,0.95); backdrop-filter: blur(12px);",
@@ -3354,7 +3354,7 @@ var require_starry = __commonJS({
           userName: "font-size: 16px; font-weight: 700; color: #9370db; text-shadow: 0 2px 8px rgba(147,112,219,0.2);",
           userId: "font-size: 14px; color: #b19cd9; font-family: 'SF Pro Text';",
           postTime: "font-size: 13px; color: #8a7bb5; letter-spacing: 0.03em;",
-          verifiedIcon: "width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; color: #0d0f1a; background: linear-gradient(135deg, #9370db, #b19cd9); border-radius: 50%; font-size: 10px; flex-shrink: 0; box-shadow: 0 2px 12px rgba(147,112,219,0.3); border: 1px solid #9370db80;"
+          verifiedIcon: "width: 20px; height: 20px; margin-left: -5px; fill: #1DA1F2;"
         },
         footer: {
           container: "position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 16px; color: #b19cd9; font-size: 13px; border-top: 1px solid #252640; background: rgba(13,15,26,0.95); backdrop-filter: blur(12px);",
@@ -3429,7 +3429,7 @@ var require_metal = __commonJS({
           userName: "font-size: 16px; font-weight: 700; color: #f0f0f0; text-shadow: 0 2px 4px rgba(0,0,0,0.3);",
           userId: "font-size: 14px; color: #a0a0a0; font-family: 'SF Pro Display';",
           postTime: "font-size: 13px; color: #808080; letter-spacing: 0.03em;",
-          verifiedIcon: "width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; color: #1e2228; background: linear-gradient(135deg, #d0d0d0, #ffffff); border-radius: 4px; font-size: 10px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.3); border: 1px solid #4d4d4d80;"
+          verifiedIcon: "width: 20px; height: 20px; margin-left: -5px; fill: #1DA1F2;"
         },
         footer: {
           container: "position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 16px; color: #a0a0a0; font-size: 13px; border-top: 1px solid #4d4d4d80; background: rgba(30,34,40,0.95); backdrop-filter: blur(12px);",
@@ -3504,7 +3504,7 @@ var require_yueling = __commonJS({
           userName: "font-size: 16px; font-weight: 600; color: #ffffff;",
           userId: "font-size: 14px; color: #98989d;",
           postTime: "font-size: 13px; color: #636366;",
-          verifiedIcon: "width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; color: #ffffff; background-color: #c57512; border-radius: 50%; font-size: 10px; flex-shrink: 0;"
+          verifiedIcon: "width: 20px; height: 20px; margin-left: -5px; fill: #1DA1F2;"
         },
         footer: {
           container: "position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 16px; color: #98989d; font-size: 13px; border-top: 1px solid #2c2c2e; background: #1c1c1e;",
@@ -3609,22 +3609,29 @@ var import_obsidian3 = require("obsidian");
 
 // src/converter.ts
 var RedConverter = class {
-  static initialize(app) {
+  static initialize(app, plugin) {
     this.app = app;
+    this.plugin = plugin;
   }
   static hasValidContent(element) {
-    const headers = element.querySelectorAll("h2");
+    var _a, _b;
+    const settings = (_b = (_a = this.plugin) == null ? void 0 : _a.settingsManager) == null ? void 0 : _b.getSettings();
+    const headingLevel = (settings == null ? void 0 : settings.headingLevel) || "h1";
+    const headers = element.querySelectorAll(headingLevel);
     return headers.length > 0;
   }
   static formatContent(element) {
-    const headers = Array.from(element.querySelectorAll("h2"));
+    var _a, _b;
+    const settings = (_b = (_a = this.plugin) == null ? void 0 : _a.settingsManager) == null ? void 0 : _b.getSettings();
+    const headingLevel = (settings == null ? void 0 : settings.headingLevel) || "h1";
+    const headers = Array.from(element.querySelectorAll(headingLevel));
     if (headers.length === 0) {
       element.empty();
       const tip = element.createEl("div", {
         cls: "red-empty-message",
         text: `\u26A0\uFE0F \u6E29\u99A8\u63D0\u793A
-                        \u8BF7\u4F7F\u7528\u4E8C\u7EA7\u6807\u9898(##)\u6765\u5206\u5272\u5185\u5BB9
-                        \u6BCF\u4E2A\u4E8C\u7EA7\u6807\u9898\u5C06\u751F\u6210\u4E00\u5F20\u72EC\u7ACB\u7684\u56FE\u7247
+                        \u8BF7\u4F7F\u7528${headingLevel === "h1" ? "\u4E00\u7EA7\u6807\u9898(#)" : "\u4E8C\u7EA7\u6807\u9898(##)"}\u6765\u5206\u5272\u5185\u5BB9
+                        \u6BCF\u4E2A${headingLevel === "h1" ? "\u4E00\u7EA7\u6807\u9898" : "\u4E8C\u7EA7\u6807\u9898"}\u5C06\u751F\u6210\u4E00\u5F20\u72EC\u7ACB\u7684\u56FE\u7247
                         \u73B0\u5728\u7F16\u8F91\u6587\u6863\uFF0C\u5B9E\u65F6\u9884\u89C8\u6548\u679C`
       });
       element.dispatchEvent(new CustomEvent("content-validation-change", {
@@ -3675,9 +3682,12 @@ var RedConverter = class {
     element.dispatchEvent(copyEvent);
   }
   static createContentSection(header, index) {
+    var _a, _b;
+    const settings = (_b = (_a = this.plugin) == null ? void 0 : _a.settingsManager) == null ? void 0 : _b.getSettings();
+    const headingLevel = (settings == null ? void 0 : settings.headingLevel) || "h1";
     let content = [];
     let current = header.nextElementSibling;
-    while (current && current.tagName !== "H2") {
+    while (current && current.tagName !== headingLevel.toUpperCase()) {
       content.push(current.cloneNode(true));
       current = current.nextElementSibling;
     }
@@ -5019,10 +5029,12 @@ var DefaultTemplate = class {
       text: settings.userName,
       attr: { "title": "\u70B9\u51FB\u7F16\u8F91\u7528\u6237\u540D" }
     });
-    userNameContainer.createEl("div", {
+    userNameContainer.createEl("span", {
       cls: "red-verified-icon",
-      text: "\u2713"
-    });
+      attr: {
+        role: "img"
+      }
+    }).innerHTML = `<svg viewBox="0 0 22 22" class="r-4qtqp9 r-yyyyoo r-1xvli5t r-bnwqim r-lrvibr r-m6rgpd r-1cvl2hr r-f9ja8p r-og9te1 r-3t4u6i"><g><path d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.017-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.22.436-1.69.882-.445.47-.749 1.055-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.606-.274 1.263-.144 1.896.13.634.433 1.218.877 1.688.47.443 1.054.747 1.687.878.633.132 1.29.084 1.897-.136.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.604.239 1.266.296 1.903.164.636-.132 1.22-.447 1.68-.907.46-.46.776-1.044.908-1.681s.075-1.299-.165-1.903c.586-.274 1.084-.705 1.439-1.246.354-.54.551-1.17.569-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"></path></g></svg>`;
     const userId = userMeta.createEl("div", {
       cls: "red-user-id",
       text: settings.userId,
@@ -5751,11 +5763,12 @@ var RedView = class extends import_obsidian3.ItemView {
       attr: { "aria-label": "\u4F7F\u7528\u6307\u5357" }
     });
     (0, import_obsidian3.setIcon)(helpButton, "help");
+    const headingLevel = this.settingsManager.getSettings().headingLevel || "h1";
     parent.createEl("div", {
       cls: "red-help-tooltip",
       text: `\u4F7F\u7528\u6307\u5357\uFF1A
-                1. \u6838\u5FC3\u7528\u6CD5\uFF1A\u7528\u4E8C\u7EA7\u6807\u9898(##)\u5206\u5272\u5185\u5BB9\uFF0C\u6BCF\u4E2A\u6807\u9898\u751F\u6210\u4E00\u5F20\u5C0F\u7EA2\u4E66\u914D\u56FE
-                2. \u5185\u5BB9\u5206\u9875\uFF1A\u5728\u4E8C\u7EA7\u6807\u9898\u4E0B\u4F7F\u7528 --- \u53EF\u5C06\u5185\u5BB9\u5206\u5272\u4E3A\u591A\u9875\uFF0C\u6BCF\u9875\u90FD\u4F1A\u5E26\u4E0A\u6807\u9898
+                1. \u6838\u5FC3\u7528\u6CD5\uFF1A\u7528${headingLevel === "h1" ? "\u4E00\u7EA7\u6807\u9898(#)" : "\u4E8C\u7EA7\u6807\u9898(##)"}\u6765\u5206\u5272\u5185\u5BB9\uFF0C\u6BCF\u4E2A\u6807\u9898\u751F\u6210\u4E00\u5F20\u5C0F\u7EA2\u4E66\u914D\u56FE
+                2. \u5185\u5BB9\u5206\u9875\uFF1A\u5728${headingLevel === "h1" ? "\u4E00\u7EA7\u6807\u9898(#)" : "\u4E8C\u7EA7\u6807\u9898(##)"}\u4E0B\u4F7F\u7528 --- \u53EF\u5C06\u5185\u5BB9\u5206\u5272\u4E3A\u591A\u9875\uFF0C\u6BCF\u9875\u90FD\u4F1A\u5E26\u4E0A\u6807\u9898
                 3. \u9996\u56FE\u5236\u4F5C\uFF1A\u5355\u72EC\u8C03\u6574\u9996\u8282\u5B57\u53F7\u81F320-24px\uFF0C\u4F7F\u7528\u3010\u4E0B\u8F7D\u5F53\u524D\u9875\u3011\u5BFC\u51FA
                 4. \u957F\u6587\u4F18\u5316\uFF1A\u5185\u5BB9\u8F83\u591A\u7684\u7AE0\u8282\u53EF\u8C03\u5C0F\u5B57\u53F7\u81F314-16px\u540E\u5355\u72EC\u5BFC\u51FA
                 5. \u6279\u91CF\u64CD\u4F5C\uFF1A\u4FDD\u6301\u7EDF\u4E00\u5B57\u53F7\u65F6\uFF0C\u7528\u3010\u5BFC\u51FA\u5168\u90E8\u9875\u3011\u6279\u91CF\u751F\u6210
@@ -5962,7 +5975,7 @@ var RedView = class extends import_obsidian3.ItemView {
     }
     this.updateControlsState(hasValidContent);
     if (!hasValidContent) {
-      this.copyButton.setAttribute("title", "\u8BF7\u5148\u6DFB\u52A0\u4E8C\u7EA7\u6807\u9898\u5185\u5BB9");
+      this.copyButton.setAttribute("title", "\u8BF7\u5148\u6DFB\u52A0\u4E00\u7EA7\u6807\u9898\u5185\u5BB9");
     } else {
       this.copyButton.removeAttribute("title");
     }
@@ -6287,6 +6300,8 @@ var DEFAULT_SETTINGS = {
   userId: "@Yeban",
   showTime: true,
   timeFormat: "zh-CN",
+  headingLevel: "h2",
+  // 默认使用二级标题
   footerLeftText: "\u591C\u534A\u8FC7\u540E\uFF0C\u5149\u660E\u4FBF\u542F\u7A0B",
   footerRightText: "\u6B22\u8FCE\u5173\u6CE8\u516C\u4F17\u53F7\uFF1A\u591C\u534A",
   customFonts: [
@@ -6479,7 +6494,13 @@ var ThemePreviewModal = class extends import_obsidian4.Modal {
     const userMeta = userLeft.createEl("div", { cls: "red-user-meta" });
     const userNameContainer = userMeta.createEl("div", { cls: "red-user-name-container" });
     userNameContainer.createEl("div", { cls: "red-user-name", text: `${settings.userName}` });
-    userNameContainer.createEl("div", { cls: "red-verified-icon", text: "\u2713" });
+    userNameContainer.createEl("span", {
+      cls: "red-verified-icon",
+      attr: {
+        "aria-label": "Verified account",
+        role: "img"
+      }
+    }).innerHTML = `<svg viewBox="0 0 22 22" class="r-4qtqp9 r-yyyyoo r-1xvli5t r-bnwqim r-lrvibr r-m6rgpd r-1cvl2hr r-f9ja8p r-og9te1 r-3t4u6i"><g><path d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.017-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.22.436-1.69.882-.445.47-.749 1.055-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.606-.274 1.263-.144 1.896.13.634.433 1.218.877 1.688.47.443 1.054.747 1.687.878.633.132 1.29.084 1.897-.136.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.604.239 1.266.296 1.903.164.636-.132 1.22-.447 1.68-.907.46-.46.776-1.044.908-1.681s.075-1.299-.165-1.903c.586-.274 1.084-.705 1.439-1.246.354-.54.551-1.17.569-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"></path></g></svg>`;
     userMeta.createEl("div", { cls: "red-user-id", text: `${settings.userId}` });
     const userRight = userInfo.createEl("div", { cls: "red-user-right" });
     userRight.createEl("div", { cls: "red-post-time", text: "2025/4/20" });
@@ -6552,7 +6573,7 @@ var CreateThemeModal = class extends import_obsidian5.Modal {
         userName: "font-size: 17px; font-weight: 600; color: #8b4513; serif; text-shadow: 0 2px 4px rgba(139,69,19,0.1);",
         userId: "font-size: 14px; color: #b87333; font-family: 'Noto Serif SC', serif;",
         postTime: "font-size: 13px; color: #d2691e; font-style: italic;",
-        verifiedIcon: "width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; color: #fffaf5; background: linear-gradient(135deg, #d2691e, #b87333); border-radius: 50%; font-size: 10px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(210,105,30,0.2); border: 1px solid #b8733380;"
+        verifiedIcon: "width: 20px; height: 20px; margin-left: -5px; fill: #1DA1F2;"
       },
       footer: {
         container: "position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 16px; color: #b87333; font-size: 13px; border-top: 1px solid #b8733380; background: rgba(255,250,245,0.95); backdrop-filter: blur(8px);",
@@ -6937,25 +6958,40 @@ var CreateThemeModal = class extends import_obsidian5.Modal {
         styles.avatar.container = styles.avatar.container.replace(/box-shadow:\s*0\s*4px\s*16px\s*[^;]+/, `box-shadow: 0 4px 16px ${value}1a`).replace(/border:\s*1px solid\s*#[a-fA-F0-9]+80/, `border: 1px solid ${value}80`);
       });
     });
-    new import_obsidian5.Setting(headerSection).setName("\u8BA4\u8BC1\u56FE\u6807\u989C\u8272").setDesc("\u8BBE\u7F6E\u8BA4\u8BC1\uFF08\u5DF2\u9A8C\u8BC1\uFF09\u56FE\u6807\u7684\u4E3B\u8272").addColorPicker((color) => {
-      let currentColor = "#b87333";
-      const bgMatch = styles.verifiedIcon.match(/background:\s*linear-gradient\([^,]+,\s*(#[a-fA-F0-9]+)/);
-      if (bgMatch) {
-        currentColor = bgMatch[1];
-      } else {
-        const colorMatch = styles.verifiedIcon.match(/background-color:\s*(#[a-fA-F0-9]+)/);
-        if (colorMatch) {
-          currentColor = colorMatch[1];
+    new import_obsidian5.Setting(headerSection).setName("\u5934\u50CF\u5706\u89D2").setDesc("\u8BBE\u7F6E\u5934\u50CF\u7684\u5706\u89D2\u5927\u5C0F\uFF08\u5355\u4F4D\uFF1Apx\uFF09\u3002\u8BBE\u7F6E\u4E3A-1\u8868\u793A\u5706\u5F62\uFF0C\u5927\u4E8E1\u5219\u6709\u5706\u89D2").addText((text) => {
+      var _a;
+      const currentRadius = ((_a = styles.avatar.container.match(/border-radius:\s*([\d-]+)px/)) == null ? void 0 : _a[1]) || "12";
+      text.setValue(currentRadius).setPlaceholder("\u8F93\u5165\u5706\u89D2\u5927\u5C0F").onChange((value) => {
+        let radius;
+        if (value === "-1") {
+          radius = "50%";
+        } else {
+          const pixelValue = parseInt(value) || 12;
+          radius = `${pixelValue}px`;
         }
-      }
+        styles.avatar.container = styles.avatar.container.replace(/border-radius:\s*[^;]+/, `border-radius: ${radius}`);
+      });
+    });
+    new import_obsidian5.Setting(headerSection).setName("\u8BA4\u8BC1\u56FE\u6807\u989C\u8272").setDesc("\u8BBE\u7F6E\u8BA4\u8BC1\u56FE\u6807\u7684\u989C\u8272").addColorPicker((color) => {
+      var _a;
+      const currentColor = ((_a = styles.verifiedIcon.match(/fill:\s*(#[a-fA-F0-9]+)/)) == null ? void 0 : _a[1]) || "#1DA1F2";
       color.setValue(currentColor).onChange((value) => {
-        if (styles.verifiedIcon.includes("linear-gradient")) {
-          styles.verifiedIcon = styles.verifiedIcon.replace(/background:\s*linear-gradient\([^)]+\)/, `background: linear-gradient(135deg, ${value}, ${value})`);
+        styles.verifiedIcon = styles.verifiedIcon.replace(/fill:\s*[^;]+/, `fill: ${value}`);
+        if (!styles.verifiedIcon.includes("fill:")) {
+          styles.verifiedIcon += `; fill: ${value}`;
         }
-        if (styles.verifiedIcon.includes("background-color")) {
-          styles.verifiedIcon = styles.verifiedIcon.replace(/background-color:\s*#[a-fA-F0-9]+/, `background-color: ${value}`);
-        }
-        styles.verifiedIcon = styles.verifiedIcon.replace(/border:\s*1px solid\s*#[a-fA-F0-9]+80/, `border: 1px solid ${value}80`).replace(/box-shadow:\s*0 2px 8px [^;]+;/, `box-shadow: 0 2px 8px ${value}1a;`);
+      });
+    });
+    new import_obsidian5.Setting(headerSection).setName("\u8BA4\u8BC1\u56FE\u6807\u5C3A\u5BF8").setDesc("\u8BBE\u7F6E\u8BA4\u8BC1\u56FE\u6807\u7684\u5BBD\u5EA6\u548C\u9AD8\u5EA6\uFF08\u5355\u4F4D\uFF1Apx\uFF09").addText((text) => {
+      text.setValue("25").setPlaceholder("\u8F93\u5165\u56FE\u6807\u5C3A\u5BF8").onChange((value) => {
+        const size = value + "px";
+        styles.verifiedIcon = styles.verifiedIcon.replace(/width:\s*[^;]+/, `width: ${size}`).replace(/height:\s*[^;]+/, `height: ${size}`);
+      });
+    });
+    new import_obsidian5.Setting(headerSection).setName("\u8BA4\u8BC1\u56FE\u6807\u95F4\u8DDD").setDesc("\u8BBE\u7F6E\u8BA4\u8BC1\u56FE\u6807\u7684\u5DE6\u8FB9\u8DDD\uFF08\u5355\u4F4D\uFF1Apx\uFF09").addText((text) => {
+      text.setValue("-5").setPlaceholder("\u8F93\u5165\u5DE6\u8FB9\u8DDD").onChange((value) => {
+        const margin = value + "px";
+        styles.verifiedIcon = styles.verifiedIcon.replace(/margin-left:\s*[^;]+/, `margin-left: ${margin}`);
       });
     });
   }
@@ -7480,6 +7516,25 @@ var RedSettingTab = class extends import_obsidian8.PluginSettingTab {
     this.createSection(containerEl, "\u4E3B\u9898\u8BBE\u7F6E", (el) => this.renderThemeSettings(el));
   }
   renderBasicSettings(containerEl) {
+    const typographySection = containerEl.createDiv("red-settings-subsection");
+    const typographyHeader = typographySection.createDiv("red-settings-subsection-header");
+    const typographyToggle = typographyHeader.createSpan("red-settings-subsection-toggle");
+    (0, import_obsidian8.setIcon)(typographyToggle, "chevron-right");
+    typographyHeader.createEl("h3", { text: "\u6392\u7248\u7BA1\u7406" });
+    const typographyContent = typographySection.createDiv("red-settings-subsection-content");
+    typographyHeader.addEventListener("click", () => {
+      const isExpanded = !typographySection.hasClass("is-expanded");
+      typographySection.toggleClass("is-expanded", isExpanded);
+      (0, import_obsidian8.setIcon)(typographyToggle, isExpanded ? "chevron-down" : "chevron-right");
+    });
+    new import_obsidian8.Setting(typographyContent).setName("\u5185\u5BB9\u5206\u5272\u6807\u9898\u7EA7\u522B").setDesc("\u9009\u62E9\u7528\u4E8E\u5206\u5272\u5185\u5BB9\u751F\u6210\u56FE\u7247\u7684\u6807\u9898\u7EA7\u522B\uFF1A").addDropdown(
+      (dropdown) => dropdown.addOption("h1", "\u4E00\u7EA7\u6807\u9898(#) - \u6309\u5927\u7AE0\u8282\u5206\u5272").addOption("h2", "\u4E8C\u7EA7\u6807\u9898(##) - \u6309\u5C0F\u7AE0\u8282\u5206\u5272").setValue(this.plugin.settingsManager.getSettings().headingLevel).onChange(async (value) => {
+        await this.plugin.settingsManager.updateSettings({
+          headingLevel: value
+        });
+        new import_obsidian8.Notice("\u6807\u9898\u7EA7\u522B\u8BBE\u7F6E\u5DF2\u66F4\u65B0\uFF0C\u8BF7\u91CD\u542F Obsidian \u6216\u91CD\u65B0\u52A0\u8F7D\u4EE5\u4F7F\u66F4\u6539\u751F\u6548");
+      })
+    );
     const fontSection = containerEl.createDiv("red-settings-subsection");
     const fontHeader = fontSection.createDiv("red-settings-subsection-header");
     const fontToggle = fontHeader.createSpan("red-settings-subsection-toggle");
@@ -7676,30 +7731,21 @@ var RedPlugin = class extends import_obsidian9.Plugin {
     this.settingsManager = new SettingsManager(this);
     await this.settingsManager.loadSettings();
     this.themeManager = new ThemeManager(this.app, this.settingsManager);
-    RedConverter.initialize(this.app);
+    RedConverter.initialize(this.app, this);
     DonateManager.initialize(this.app, this);
     this.registerView(
       VIEW_TYPE_RED,
       (leaf) => new RedView(leaf, this.themeManager, this.settingsManager)
     );
-    this.app.workspace.onLayoutReady(() => {
-      if (this.app.workspace.getLeavesOfType(VIEW_TYPE_RED).length === 0) {
-        const leaf = this.app.workspace.getRightLeaf(false);
-        if (leaf) {
-          leaf.setViewState({
-            type: VIEW_TYPE_RED,
-            active: false
-            // 设置为 false 表示不聚焦
-          });
-        }
-      }
-    });
     this.addCommand({
       id: "open-mp-preview",
       name: "\u6253\u5F00\u5C0F\u7EA2\u4E66\u56FE\u7247\u9884\u89C8",
       callback: async () => {
         await this.activateView();
       }
+    });
+    this.addRibbonIcon("image", "\u6253\u5F00\u5C0F\u7EA2\u4E66\u56FE\u7247\u9884\u89C8", () => {
+      this.activateView();
     });
     this.addSettingTab(new RedSettingTab(this.app, this));
   }

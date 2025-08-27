@@ -910,7 +910,7 @@ function create_if_block(ctx) {
   fab.$on(
     "click",
     /*updateDescription*/
-    ctx[9]
+    ctx[10]
   );
   return {
     c() {
@@ -923,7 +923,7 @@ function create_if_block(ctx) {
     p(ctx2, dirty) {
       const fab_changes = {};
       if (dirty & /*$$scope*/
-      33554432) {
+      67108864) {
         fab_changes.$$scope = { dirty, ctx: ctx2 };
       }
       fab.$set(fab_changes);
@@ -1018,19 +1018,25 @@ function create_fragment3(ctx) {
       if (!src_url_equal(img.src, img_src_value = /*state*/
       ctx[0].image ? (
         /*normalizeImgPath*/
-        ctx[11](
+        ctx[12](
           /*state*/
           (_a = ctx[0]) == null ? void 0 : _a.image
         )
       ) : (
         /*fallbackImage*/
-        ctx[7]
+        ctx[8]
       )))
         attr(img, "src", img_src_value);
       set_style(img, "width", `${/*avatarSize*/
-      ctx[6]}px`);
+      ctx[7]}px`);
       set_style(img, "height", `${/*avatarSize*/
-      ctx[6]}px`);
+      ctx[7]}px`);
+      set_style(
+        img,
+        "object-position",
+        /*objectPosition*/
+        ctx[6]
+      );
       attr(div0, "class", "avatar-container relative svelte-1v59h7c");
       attr(textarea, "class", "textarea svelte-1v59h7c");
       textarea.hidden = textarea_hidden_value = !/*editMode*/
@@ -1061,7 +1067,7 @@ function create_fragment3(ctx) {
       append(div2, t1);
       append(div2, div1);
       append(div1, textarea);
-      ctx[20](textarea);
+      ctx[21](textarea);
       set_input_value(
         textarea,
         /*state*/
@@ -1069,7 +1075,7 @@ function create_fragment3(ctx) {
       );
       append(div1, t2);
       append(div1, span);
-      ctx[22](span);
+      ctx[23](span);
       append(div1, t3);
       if (if_block1)
         if_block1.m(div1, null);
@@ -1080,31 +1086,31 @@ function create_fragment3(ctx) {
             div0,
             "click",
             /*updateImage*/
-            ctx[10]
+            ctx[11]
           ),
           listen(
             div0,
             "mouseenter",
             /*mouseenter_handler*/
-            ctx[18]
+            ctx[19]
           ),
           listen(
             div0,
             "mouseleave",
             /*mouseleave_handler*/
-            ctx[19]
+            ctx[20]
           ),
           listen(
             textarea,
             "input",
             /*textarea_input_handler*/
-            ctx[21]
+            ctx[22]
           ),
           listen(
             div1,
             "click",
             /*enterEditMode*/
-            ctx[8]
+            ctx[9]
           )
         ];
         mounted = true;
@@ -1113,28 +1119,37 @@ function create_fragment3(ctx) {
     p(ctx2, [dirty]) {
       var _a, _b;
       if (!current || dirty & /*state, fallbackImage*/
-      129 && !src_url_equal(img.src, img_src_value = /*state*/
+      257 && !src_url_equal(img.src, img_src_value = /*state*/
       ctx2[0].image ? (
         /*normalizeImgPath*/
-        ctx2[11](
+        ctx2[12](
           /*state*/
           (_a = ctx2[0]) == null ? void 0 : _a.image
         )
       ) : (
         /*fallbackImage*/
-        ctx2[7]
+        ctx2[8]
       ))) {
         attr(img, "src", img_src_value);
       }
       if (dirty & /*avatarSize*/
-      64) {
+      128) {
         set_style(img, "width", `${/*avatarSize*/
-        ctx2[6]}px`);
+        ctx2[7]}px`);
       }
       if (dirty & /*avatarSize*/
-      64) {
+      128) {
         set_style(img, "height", `${/*avatarSize*/
-        ctx2[6]}px`);
+        ctx2[7]}px`);
+      }
+      if (dirty & /*objectPosition*/
+      64) {
+        set_style(
+          img,
+          "object-position",
+          /*objectPosition*/
+          ctx2[6]
+        );
       }
       if (
         /*inSourceMode*/
@@ -1232,8 +1247,8 @@ function create_fragment3(ctx) {
         detach(div2);
       if (if_block0)
         if_block0.d();
-      ctx[20](null);
-      ctx[22](null);
+      ctx[21](null);
+      ctx[23](null);
       if (if_block1)
         if_block1.d();
       mounted = false;
@@ -1244,6 +1259,7 @@ function create_fragment3(ctx) {
 function instance3($$self, $$props, $$invalidate) {
   let fallbackImage;
   let avatarSize;
+  let objectPosition;
   var _a, _b;
   let { app: app2 } = $$props;
   let { plugin } = $$props;
@@ -1318,41 +1334,46 @@ function instance3($$self, $$props, $$invalidate) {
   function span_binding($$value) {
     binding_callbacks[$$value ? "unshift" : "push"](() => {
       descriptionPreviewEl = $$value;
-      $$invalidate(1, descriptionPreviewEl), $$invalidate(13, plugin), $$invalidate(0, state), $$invalidate(14, ctx), $$invalidate(17, _b);
+      $$invalidate(1, descriptionPreviewEl), $$invalidate(14, plugin), $$invalidate(0, state), $$invalidate(15, ctx), $$invalidate(18, _b);
     });
   }
   $$self.$$set = ($$props2) => {
     if ("app" in $$props2)
-      $$invalidate(12, app2 = $$props2.app);
+      $$invalidate(13, app2 = $$props2.app);
     if ("plugin" in $$props2)
-      $$invalidate(13, plugin = $$props2.plugin);
+      $$invalidate(14, plugin = $$props2.plugin);
     if ("ctx" in $$props2)
-      $$invalidate(14, ctx = $$props2.ctx);
+      $$invalidate(15, ctx = $$props2.ctx);
     if ("state" in $$props2)
       $$invalidate(0, state = $$props2.state);
     if ("setState" in $$props2)
-      $$invalidate(15, setState = $$props2.setState);
+      $$invalidate(16, setState = $$props2.setState);
   };
   $$self.$$.update = () => {
     if ($$self.$$.dirty & /*ctx, _a*/
-    81920) {
+    163840) {
       $:
-        $$invalidate(7, fallbackImage = `https://ui-avatars.com/api/?name=${$$invalidate(16, _a = ctx === null || ctx === void 0 ? void 0 : ctx.sourcePath.split("/").at(-1)) !== null && _a !== void 0 ? _a : "::"}&size=240`);
+        $$invalidate(8, fallbackImage = `https://ui-avatars.com/api/?name=${$$invalidate(17, _a = ctx === null || ctx === void 0 ? void 0 : ctx.sourcePath.split("/").at(-1)) !== null && _a !== void 0 ? _a : "::"}&size=240`);
     }
     if ($$self.$$.dirty & /*state*/
     1) {
       $:
-        $$invalidate(6, avatarSize = state.size ? typeof state.size === "string" ? { small: 180, medium: 240, large: 300 }[state.size] : state.size : 240);
+        $$invalidate(7, avatarSize = state.size ? typeof state.size === "string" ? { small: 180, medium: 240, large: 300 }[state.size] : state.size : 240);
+    }
+    if ($$self.$$.dirty & /*state*/
+    1) {
+      $:
+        $$invalidate(6, objectPosition = state.objectPosition);
     }
     if ($$self.$$.dirty & /*descriptionPreviewEl, plugin, state, ctx, _b*/
-    155651) {
+    311299) {
       $:
         if (descriptionPreviewEl && plugin && state && (state === null || state === void 0 ? void 0 : state.description)) {
           $$invalidate(1, descriptionPreviewEl.innerHTML = "", descriptionPreviewEl);
           import_obsidian4.MarkdownRenderer.renderMarkdown(
             state.description,
             descriptionPreviewEl,
-            $$invalidate(17, _b = ctx === null || ctx === void 0 ? void 0 : ctx.sourcePath) !== null && _b !== void 0 ? _b : "",
+            $$invalidate(18, _b = ctx === null || ctx === void 0 ? void 0 : ctx.sourcePath) !== null && _b !== void 0 ? _b : "",
             plugin
           );
         }
@@ -1365,6 +1386,7 @@ function instance3($$self, $$props, $$invalidate) {
     editMode,
     descriptionEditEl,
     inSourceMode,
+    objectPosition,
     avatarSize,
     fallbackImage,
     enterEditMode,
@@ -1394,11 +1416,11 @@ var AvatarView = class extends SvelteComponent {
       create_fragment3,
       safe_not_equal,
       {
-        app: 12,
-        plugin: 13,
-        ctx: 14,
+        app: 13,
+        plugin: 14,
+        ctx: 15,
         state: 0,
-        setState: 15
+        setState: 16
       },
       add_css2
     );

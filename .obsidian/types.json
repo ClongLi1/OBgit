@@ -49,6 +49,7 @@
     "创建日期": "date",
     "修改日期": "datetime",
     "评分10": "number",
-    "评级": "number"
+    "评级": "number",
+    "excalidraw-embed-md": "checkbox"
   }
 }

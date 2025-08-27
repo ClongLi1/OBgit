@@ -21,7 +21,7 @@
 .red-preview-container {
   position: relative;
   min-width: 490px;
-  height: 100%;
+  aspect-ratio: 3/4;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -78,7 +78,7 @@
 }
 .red-nav-container {
   position: fixed;
-  bottom: 120px;
+  bottom: 110px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -1033,7 +1033,7 @@
   background: var(--background-modifier-border-hover);
 }
 .red-settings .red-settings-subsection {
-  margin: 0 12px;
+  margin: 0 12px 12px 12px;
   border: 1px solid var(--background-modifier-border);
   border-radius: 8px;
   overflow-y: auto;
