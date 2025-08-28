@@ -29,7 +29,7 @@ aliases:
 - Tasks [^6]                          
 - Slises[^7]        
 - Checklist[^8]      
-- Charts[^9]    [Obsidian数据分析应用场景：如何使用Charts插件创建图表？](https://mp.weixin.qq.com/s/pQFveijAqUAuAa0N-uToxw)
+- Charts[^9]    [Obsidian数据分析应用场景：如何使用Charts插件创建图表？](https://mp.weixin.qq.com/s/pQFveijAqUAuAa0N-uToxw)[Obsidian 插件推荐：Charts — 让你的笔记会“画图”](https://mp.weixin.qq.com/s/5plKi5qdjGGQkEdr_G9GFg)
 - Chart view     
 - Tracker[^10]       
 - **ExcaliBrain** [Fetching Title#3mub](https://mp.weixin.qq.com/s/OZaw466SAt0v2Zy5fZkAtg?poc_token=HGM9MWijWvniyOOMtD7KulhjMOS_mIIwiS1Hu9Dp)
