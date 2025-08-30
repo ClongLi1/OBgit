@@ -29,22 +29,22 @@ cellStyleRules:
   - id: default_c
     color: "#ffeb99ff"
     min: "2"
-    max: "4"
+    max: "3"
   - id: default_d
     color: "#ffd700ff"
     min: "4"
-    max: "7"
+    max: "5"
   - id: default_e
     color: "#ffa500ff"
-    min: "7"
-    max: "9"
+    min: "5"
+    max: "6"
   - id: 1740749878263
-    min: "9"
-    max: "12"
+    min: "7"
+    max: "8"
     color: "#ff4500ff"
     text: ""
   - id: 1740749904057
-    min: "12"
+    min: "8"
     max: "99"
     color: "#ff0000ff"
     text: ""
