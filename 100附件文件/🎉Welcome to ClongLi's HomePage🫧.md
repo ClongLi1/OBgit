@@ -1,55 +1,42 @@
 <div style=" width: 100%; height:250;overflow: hidden; "><iframe src="https://widget.pkmer.cn/free/Carousel?user=a2e5899e-975e-4457-afd4-ec3ff7dcbc90&" allow="fullscreen" style=" height: 100%; width: 100%;"></iframe></div>   
 
-``` contributionGraph
-title: ""
+```contributionGraph
+title: (🔥坚持不懈🔥)(❤️‍🔥日益精进❤️‍🔥)
 graphType: default
-dateRangeValue: 730
+dateRangeValue: 450
 dateRangeType: LATEST_DAYS
 startOfWeek: 1
 showCellRuleIndicators: true
 titleStyle:
-  textAlign: left
-  fontSize: 20px
+  textAlign: center
+  fontSize: 15px
   fontWeight: normal
 dataSource:
   type: PAGE
   value: ""
-  dateField:
-    format: yyyy-mm-dd-tt
-fillTheScreen: true
+  dateField: {}
+fillTheScreen: false
 enableMainContainerShadow: false
-mainContainerStyle: {}
-cellStyle:
-  borderRadius: ""
 cellStyleRules:
-  - id: default_b
-    color: "#ffffccff"
-    min: "1"
-    max: "2"
-  - id: default_c
-    color: "#ffeb99ff"
-    min: "2"
-    max: "3"
-  - id: default_d
-    color: "#ffd700ff"
-    min: "4"
-    max: "5"
-  - id: default_e
-    color: "#ffa500ff"
-    min: "5"
-    max: "6"
-  - id: 1740749878263
-    min: "7"
-    max: "8"
-    color: "#ff4500ff"
-    text: ""
-  - id: 1740749904057
-    min: "8"
-    max: "99"
-    color: "#ff0000ff"
-    text: ""
+  - id: Lovely_a
+    color: "#fedcdc"
+    min: 1
+    max: 2
+  - id: Lovely_b
+    color: "#fdb8bf"
+    min: 2
+    max: 3
+  - id: Lovely_c
+    color: "#f892a9"
+    min: 3
+    max: 5
+  - id: Lovely_d
+    color: "#ec6a97"
+    min: 5
+    max: 9999
 
 ```
+
 ```dataviewjs  
 let ftMd = dv.pages("").file.sort(t => t.cday)[0];  
 let total = parseInt([new Date() - ftMd.ctime] / (60 * 60 * 24 * 1000));  
