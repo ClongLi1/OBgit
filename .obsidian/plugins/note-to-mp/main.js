@@ -3086,12 +3086,12 @@ var require_postcss = __commonJS({
             let func = 0;
             let inQuote = false;
             let prevQuote = "";
-            let escape3 = false;
+            let escape2 = false;
             for (let letter of string) {
-              if (escape3) {
-                escape3 = false;
+              if (escape2) {
+                escape2 = false;
               } else if (letter === "\\") {
-                escape3 = true;
+                escape2 = true;
               } else if (inQuote) {
                 if (letter === prevQuote) {
                   inQuote = false;
@@ -5126,7 +5126,7 @@ var require_postcss = __commonJS({
         module4.exports = function tokenizer(input, options2 = {}) {
           let css2 = input.css.valueOf();
           let ignore = options2.ignoreErrors;
-          let code, next, quote, content, escape3;
+          let code, next, quote, content, escape2;
           let escaped, escapePos, prev, n, currentToken;
           let length = css2.length;
           let pos = 0;
@@ -5249,13 +5249,13 @@ var require_postcss = __commonJS({
               }
               case BACKSLASH: {
                 next = pos;
-                escape3 = true;
+                escape2 = true;
                 while (css2.charCodeAt(next + 1) === BACKSLASH) {
                   next += 1;
-                  escape3 = !escape3;
+                  escape2 = !escape2;
                 }
                 code = css2.charCodeAt(next + 1);
-                if (escape3 && code !== SLASH && code !== SPACE && code !== NEWLINE && code !== TAB && code !== CR && code !== FEED) {
+                if (escape2 && code !== SLASH && code !== SPACE && code !== NEWLINE && code !== TAB && code !== CR && code !== FEED) {
                   next += 1;
                   if (RE_HEX_ESCAPE.test(css2.charAt(next))) {
                     while (RE_HEX_ESCAPE.test(css2.charAt(next + 1))) {
@@ -7098,7 +7098,7 @@ var require_core = __commonJS({
         this.html = html2;
       }
     };
-    var escape3 = escapeHTML;
+    var escape2 = escapeHTML;
     var inherit = inherit$1;
     var NO_MATCH = Symbol("nomatch");
     var MAX_KEYWORD_HITS = 7;
@@ -7471,7 +7471,7 @@ var require_core = __commonJS({
           if (err.message && err.message.includes("Illegal")) {
             return {
               language: languageName,
-              value: escape3(codeToHighlight),
+              value: escape2(codeToHighlight),
               illegal: true,
               relevance: 0,
               _illegalBy: {
@@ -7486,7 +7486,7 @@ var require_core = __commonJS({
           } else if (SAFE_MODE) {
             return {
               language: languageName,
-              value: escape3(codeToHighlight),
+              value: escape2(codeToHighlight),
               illegal: false,
               relevance: 0,
               errorRaised: err,
@@ -7500,7 +7500,7 @@ var require_core = __commonJS({
       }
       function justTextHighlightResult(code) {
         const result = {
-          value: escape3(code),
+          value: escape2(code),
           illegal: false,
           relevance: 0,
           _top: PLAINTEXT_LANGUAGE,
@@ -19898,7 +19898,7 @@ var require_fortran = __commonJS({
 // node_modules/highlight.js/lib/languages/fsharp.js
 var require_fsharp = __commonJS({
   "node_modules/highlight.js/lib/languages/fsharp.js"(exports, module2) {
-    function escape3(value) {
+    function escape2(value) {
       return new RegExp(value.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&"), "m");
     }
     function source(re) {
@@ -20155,7 +20155,7 @@ var require_fsharp = __commonJS({
         else
           allOperatorChars = "!%&*+-/<>@^|~?";
         const OPERATOR_CHARS = Array.from(allOperatorChars);
-        const OPERATOR_CHAR_RE = concat2("[", ...OPERATOR_CHARS.map(escape3), "]");
+        const OPERATOR_CHAR_RE = concat2("[", ...OPERATOR_CHARS.map(escape2), "]");
         const OPERATOR_CHAR_OR_DOT_RE = either(OPERATOR_CHAR_RE, /\./);
         const OPERATOR_FIRST_CHAR_OF_MULTIPLE_RE = concat2(OPERATOR_CHAR_OR_DOT_RE, lookahead(OPERATOR_CHAR_OR_DOT_RE));
         const SYMBOLIC_OPERATOR_RE = either(
@@ -56046,10 +56046,10 @@ __export(main_exports, {
   default: () => NoteToMpPlugin
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian11 = require("obsidian");
+var import_obsidian13 = require("obsidian");
 
 // src/note-preview.ts
-var import_obsidian8 = require("obsidian");
+var import_obsidian9 = require("obsidian");
 
 // src/utils.ts
 var import_obsidian = require("obsidian");
@@ -56070,19 +56070,57 @@ function setVersion(version) {
     PlugPlatform = "android";
   }
 }
+function processPseudoSelector(selector) {
+  if (selector.includes("::before") || selector.includes("::after")) {
+    selector = selector.replace(/::before/g, "").replace(/::after/g, "");
+  }
+  return selector;
+}
+function getPseudoType(selector) {
+  if (selector.includes("::before")) {
+    return "before";
+  } else if (selector.includes("::after")) {
+    return "after";
+  }
+  return void 0;
+}
 function applyStyle(root, cssRoot) {
   if (root.tagName.toLowerCase() === "a" && root.classList.contains("wx_topic_link")) {
     return;
   }
   const cssText = root.style.cssText;
   cssRoot.walkRules((rule) => {
-    if (root.matches(rule.selector)) {
-      rule.walkDecls((decl) => {
-        const setted = cssText.includes(decl.prop);
-        if (!setted || decl.important) {
-          root.style.setProperty(decl.prop, decl.value);
+    const selector = processPseudoSelector(rule.selector);
+    try {
+      if (root.matches(selector)) {
+        let item = root;
+        const pseudoType = getPseudoType(rule.selector);
+        if (pseudoType) {
+          let content = "";
+          rule.walkDecls("content", (decl) => {
+            content = decl.value || "";
+          });
+          item = createSpan();
+          item.textContent = content.replace(/(^")|("$)/g, "");
+          if (pseudoType === "before") {
+            root.prepend(item);
+          } else if (pseudoType === "after") {
+            root.appendChild(item);
+          }
         }
-      });
+        rule.walkDecls((decl) => {
+          const setted = cssText.includes(decl.prop);
+          if (!setted || decl.important) {
+            item.style.setProperty(decl.prop, decl.value);
+          }
+        });
+      }
+    } catch (err) {
+      if (err.message && err.message.includes("is not a valid selector")) {
+        return;
+      } else {
+        throw err;
+      }
     }
   });
   if (root.tagName === "svg") {
@@ -56129,11 +56167,20 @@ function cleanUrl(href) {
   }
   return href;
 }
+async function waitForLayoutReady(app) {
+  if (app.workspace.layoutReady) {
+    return;
+  }
+  return new Promise((resolve) => {
+    app.workspace.onLayoutReady(() => resolve());
+  });
+}
 
 // src/weixin-api.ts
 var import_obsidian2 = require("obsidian");
+var PluginHost = "https://obplugin.sunboshi.tech";
 async function wxGetToken(authkey, appid, secret) {
-  const url = "https://obplugin.sunboshi.tech/wx/token";
+  const url = PluginHost + "/v1/wx/token";
   const body = {
     authkey,
     appid,
@@ -56149,7 +56196,7 @@ async function wxGetToken(authkey, appid, secret) {
   return res;
 }
 async function wxEncrypt(authkey, wechat) {
-  const url = "https://obplugin.sunboshi.tech/wx/encrypt";
+  const url = PluginHost + "/v1/wx/encrypt";
   const body = JSON.stringify({
     authkey,
     wechat
@@ -56164,7 +56211,7 @@ async function wxEncrypt(authkey, wechat) {
   return res;
 }
 async function wxKeyInfo(authkey) {
-  const url = "https://obplugin.sunboshi.tech/wx/info/" + authkey + "?ver=2";
+  const url = PluginHost + "/v1/wx/info/" + authkey;
   const res = await (0, import_obsidian2.requestUrl)({
     url,
     method: "GET",
@@ -56172,6 +56219,30 @@ async function wxKeyInfo(authkey) {
     contentType: "application/json"
   });
   return res;
+}
+async function wxWidget(authkey, params) {
+  const host = "https://obplugin.sunboshi.tech";
+  const path = "/math/widget";
+  const url = `${host}${path}`;
+  try {
+    const res = await (0, import_obsidian2.requestUrl)({
+      url,
+      throw: false,
+      method: "POST",
+      contentType: "application/json",
+      headers: {
+        authkey
+      },
+      body: params
+    });
+    if (res.status === 200) {
+      return res.json.content;
+    }
+    return res.json.msg;
+  } catch (error) {
+    console.log(error);
+    return error.message;
+  }
 }
 async function wxUploadImage(data, filename, token, type) {
   let url = "";
@@ -56261,6 +56332,8 @@ var NMPSettings = class {
   constructor() {
     this.expireat = null;
     this.isVip = false;
+    this.isLoaded = false;
+    this.enableEmptyLine = false;
     this.defaultStyle = "obsidian-light";
     this.defaultHighlight = "\u9ED8\u8BA4";
     this.showStyleUI = true;
@@ -56276,6 +56349,8 @@ var NMPSettings = class {
     this.useFigcaption = false;
     this.customCSSNote = "";
     this.excalidrawToPNG = false;
+    this.expertSettingsNote = "";
+    this.enableEmptyLine = false;
   }
   // 静态方法，用于获取实例
   static getInstance() {
@@ -56307,7 +56382,9 @@ var NMPSettings = class {
       watermark,
       useFigcaption,
       customCSSNote,
-      excalidrawToPNG
+      excalidrawToPNG,
+      expertSettingsNote,
+      ignoreEmptyLine
     } = data;
     const settings = NMPSettings.getInstance();
     if (defaultStyle) {
@@ -56355,7 +56432,14 @@ var NMPSettings = class {
     if (excalidrawToPNG !== void 0) {
       settings.excalidrawToPNG = excalidrawToPNG;
     }
+    if (expertSettingsNote) {
+      settings.expertSettingsNote = expertSettingsNote;
+    }
+    if (ignoreEmptyLine !== void 0) {
+      settings.enableEmptyLine = ignoreEmptyLine;
+    }
     settings.getExpiredDate();
+    settings.isLoaded = true;
   }
   static allSettings() {
     const settings = NMPSettings.getInstance();
@@ -56374,7 +56458,9 @@ var NMPSettings = class {
       "watermark": settings.watermark,
       "useFigcaption": settings.useFigcaption,
       "customCSSNote": settings.customCSSNote,
-      "excalidrawToPNG": settings.excalidrawToPNG
+      "excalidrawToPNG": settings.excalidrawToPNG,
+      "expertSettingsNote": settings.expertSettingsNote,
+      "ignoreEmptyLine": settings.enableEmptyLine
     };
   }
   getExpiredDate() {
@@ -56401,7 +56487,7 @@ var NMPSettings = class {
 };
 
 // src/assets.ts
-var import_obsidian3 = require("obsidian");
+var import_obsidian4 = require("obsidian");
 
 // node_modules/@zip.js/zip.js/lib/core/streams/codecs/deflate.js
 var MAX_BITS = 15;
@@ -65697,12 +65783,11 @@ var css = `
 /* Obsidian\u7684\u9ED8\u8BA4\u6837\u5F0F                                            */
 /* =========================================================== */
 .note-to-mp {
-    padding: 20px 20px;
+    padding: 0;
     user-select: text;
     -webkit-user-select: text;
     color: #222222;
     font-size: 16px;
-    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
 }
 
 .note-to-mp:last-child {
@@ -65733,7 +65818,7 @@ Heading
 }
 
 .note-to-mp h2 {
-    color: inherit;
+    color: #222;
     font-weight: 600;
     font-size: 1.602em;
     line-height: 1.2;
@@ -65742,7 +65827,7 @@ Heading
 }
 
 .note-to-mp h3 {
-    color: inherit;
+    color: #222;
     font-weight: 600;
     font-size: 1.424em;
     line-height: 1.3;
@@ -65751,7 +65836,7 @@ Heading
 }
 
 .note-to-mp h4 {
-    color: inherit;
+    color: #222;
     font-weight: 600;
     font-size: 1.266em;
     line-height: 1.4;
@@ -65760,13 +65845,13 @@ Heading
 }
 
 .note-to-mp h5 {
-    color: inherit;
+    color: #222;
     margin-block-start: 1em;
     margin-block-end: 0;
 }
 
 .note-to-mp h6 {
-    color: inherit;
+    color: #222;
     margin-block-start: 1em;
     margin-block-end: 0;
 }
@@ -65847,13 +65932,7 @@ List
     margin: 0;
     margin-top: 1.25em;
     margin-bottom: 1.25em;
-}
-
-.note-to-mp ul>li {
-    /* position: relative; */
-    /* padding-left: 1.75rem; */
-    margin-top: 0.1em;
-    margin-bottom: 0.1em;
+    line-height: 1.6em;
 }
 
 .note-to-mp ul>li::marker {
@@ -65871,14 +65950,13 @@ List
     margin-top: 1.25em;
     margin-bottom: 0em;
     list-style-type: decimal;
+    line-height: 1.6em;
 }
 
 .note-to-mp ol>li {
     position: relative;
     padding-left: 0.1em;
     margin-left: 2em;
-    margin-top: 0.1em;
-    margin-bottom: 0.1em;
 }
 
 /*
@@ -65972,8 +66050,7 @@ Images
 ==================================
 */
 .note-to-mp img {
-    margin-top: 2em;
-    margin-bottom: 2em;
+    margin: 2em auto;
 }
 
 .note-to-mp .footnotes hr {
@@ -65988,55 +66065,42 @@ Code
 */
 .note-to-mp .code-section {
     display: flex;
-    background-color: rgb(250, 250, 250);
     border: rgb(240, 240, 240) 1px solid;
+    line-height: 26px;
+    font-size: 14px;
+    margin: 1em 0;
+    padding: 0.875em;
+    box-sizing: border-box;
 }
 
 .note-to-mp .code-section ul {
-    flex-shrink: 0;
-    counter-reset: line;
-    margin: 0;
-    padding: 0.875em 0 0.875em 0.875em;
-    white-space: normal;
     width: fit-content;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    flex-shrink: 0;
+    height: 100%;
+    padding: 0;
+    line-height: 26px;
+    list-style-type: none;
+    backgroud: transparent !important;
 }
 
 .note-to-mp .code-section ul>li {
-    font-family: Consolas, ui-monospace, SFMono-Regular, Menlo, Monaco, "Liberation Mono", "Courier New", monospace;
-    position: relative;
-    margin: 0;
-    padding: 0;
-    display: list-item;
     text-align: right;
-    line-height: 1.75em;
-    font-size: 0.875em;
-    padding: 0;
-    list-style-type: none;
-    color: rgba(0, 0, 0, 0.25);
-    text-wrap: nowrap;
 }
 
 .note-to-mp .code-section pre {
-    margin: 0;
-    padding: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    white-space: normal;
     overflow: auto;
+    padding: 0 0 0 0.875em;
 }
 
 .note-to-mp .code-section code {
-    font-family: Consolas, ui-monospace, SFMono-Regular, Menlo, Monaco, "Liberation Mono", "Courier New", monospace;
-    color: #5c5c5c;
-    background-color: #fafafa;
-    font-size: 0.875em;
-    vertical-align: baseline;
-    padding: 0 0.5em;
-}    
-
-.note-to-mp .code-section pre code {
-    display: block;
+    display: flex;
     text-wrap: nowrap;
-    line-height: 1.75em;
-    padding: 1em;
-    background: unset;
+    font-family: Consolas,Courier,monospace;
 }
 `;
 var default_theme_default = { name: "\u9ED8\u8BA4", className: "obsidian-light", desc: "\u9ED8\u8BA4\u4E3B\u9898", author: "SunBooshi", css };
@@ -66130,11 +66194,46 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 }
 `;
 
+// src/expert-settings.ts
+var import_obsidian3 = require("obsidian");
+var defaultExpertSettings = {
+  render: void 0,
+  frontmatter: {
+    title: "\u6807\u9898",
+    author: "\u4F5C\u8005",
+    digest: "\u6458\u8981",
+    content_source_url: "\u539F\u6587\u5730\u5740",
+    cover: "\u5C01\u9762",
+    thumb_media_id: "\u5C01\u9762\u7D20\u6750ID",
+    need_open_comment: "\u6253\u5F00\u8BC4\u8BBA",
+    only_fans_can_comment: "\u4EC5\u7C89\u4E1D\u53EF\u8BC4\u8BBA",
+    appid: "\u516C\u4F17\u53F7",
+    theme: "\u6837\u5F0F",
+    highlight: "\u4EE3\u7801\u9AD8\u4EAE",
+    crop: "\u5C01\u9762\u88C1\u526A"
+  }
+};
+function expertSettingsFromString(content) {
+  content = content.replace(/```yaml/gi, "").replace(/```/g, "");
+  let parsed = (0, import_obsidian3.parseYaml)(content);
+  if (!parsed || typeof parsed !== "object") {
+    parsed = {};
+  }
+  return {
+    render: parsed.render,
+    frontmatter: {
+      ...defaultExpertSettings.frontmatter,
+      ...parsed.frontmatter || {}
+    }
+  };
+}
+
 // src/assets.ts
 var AssetsManager = class {
   constructor() {
     this.defaultTheme = default_theme_default;
     this.customCSS = "";
+    this.isLoaded = false;
   }
   // 静态方法，用于获取实例
   static getInstance() {
@@ -66162,11 +66261,13 @@ var AssetsManager = class {
     await this.loadThemes();
     await this.loadHighlights();
     await this.loadCustomCSS();
+    await this.loadExpertSettings();
+    this.isLoaded = true;
   }
   async loadThemes() {
     try {
       if (!await this.app.vault.adapter.exists(this.themeCfg)) {
-        new import_obsidian3.Notice("\u4E3B\u9898\u8D44\u6E90\u672A\u4E0B\u8F7D\uFF0C\u8BF7\u524D\u5F80\u8BBE\u7F6E\u4E0B\u8F7D\uFF01");
+        new import_obsidian4.Notice("\u4E3B\u9898\u8D44\u6E90\u672A\u4E0B\u8F7D\uFF0C\u8BF7\u524D\u5F80\u8BBE\u7F6E\u4E0B\u8F7D\uFF01");
         this.themes = [this.defaultTheme];
         return;
       }
@@ -66178,7 +66279,7 @@ var AssetsManager = class {
       }
     } catch (error) {
       console.error(error);
-      new import_obsidian3.Notice("themes.json\u89E3\u6790\u5931\u8D25\uFF01");
+      new import_obsidian4.Notice("themes.json\u89E3\u6790\u5931\u8D25\uFF01");
     }
   }
   async loadCSS(themes) {
@@ -66192,7 +66293,7 @@ var AssetsManager = class {
       }
     } catch (error) {
       console.error(error);
-      new import_obsidian3.Notice("\u8BFB\u53D6CSS\u5931\u8D25\uFF01");
+      new import_obsidian4.Notice("\u8BFB\u53D6CSS\u5931\u8D25\uFF01");
     }
   }
   async loadCustomCSS() {
@@ -66206,7 +66307,7 @@ var AssetsManager = class {
             this.customCSS = cssContent2.replace(/```css/gi, "").replace(/```/g, "");
           }
         } else {
-          new import_obsidian3.Notice(customCSSNote + "\u81EA\u5B9A\u4E49CSS\u6587\u4EF6\u4E0D\u5B58\u5728\uFF01");
+          new import_obsidian4.Notice(customCSSNote + "\u81EA\u5B9A\u4E49CSS\u6587\u4EF6\u4E0D\u5B58\u5728\uFF01");
         }
         return;
       }
@@ -66219,7 +66320,32 @@ var AssetsManager = class {
       }
     } catch (error) {
       console.error(error);
-      new import_obsidian3.Notice("\u8BFB\u53D6CSS\u5931\u8D25\uFF01");
+      new import_obsidian4.Notice("\u8BFB\u53D6CSS\u5931\u8D25\uFF01");
+    }
+  }
+  async loadExpertSettings() {
+    try {
+      const note = NMPSettings.getInstance().expertSettingsNote;
+      if (note != "") {
+        const file = this.searchFile(note);
+        if (file) {
+          let content = await this.app.vault.adapter.read(file.path);
+          if (content) {
+            this.expertSettings = expertSettingsFromString(content);
+          } else {
+            this.expertSettings = defaultExpertSettings;
+            new import_obsidian4.Notice(note + "\u4E13\u5BB6\u8BBE\u7F6E\u6587\u4EF6\u5185\u5BB9\u4E3A\u7A7A\uFF01");
+          }
+        } else {
+          this.expertSettings = defaultExpertSettings;
+          new import_obsidian4.Notice(note + "\u4E13\u5BB6\u8BBE\u7F6E\u4E0D\u5B58\u5728\uFF01");
+        }
+      } else {
+        this.expertSettings = defaultExpertSettings;
+      }
+    } catch (error) {
+      console.error(error);
+      new import_obsidian4.Notice("\u8BFB\u53D6\u4E13\u5BB6\u8BBE\u7F6E\u5931\u8D25\uFF01");
     }
   }
   async loadHighlights() {
@@ -66227,7 +66353,7 @@ var AssetsManager = class {
       const defaultHighlight = { name: "\u9ED8\u8BA4", url: "", css: default_highlight_default };
       this.highlights = [defaultHighlight];
       if (!await this.app.vault.adapter.exists(this.hilightCfg)) {
-        new import_obsidian3.Notice("\u9AD8\u4EAE\u8D44\u6E90\u672A\u4E0B\u8F7D\uFF0C\u8BF7\u524D\u5F80\u8BBE\u7F6E\u4E0B\u8F7D\uFF01");
+        new import_obsidian4.Notice("\u9AD8\u4EAE\u8D44\u6E90\u672A\u4E0B\u8F7D\uFF0C\u8BF7\u524D\u5F80\u8BBE\u7F6E\u4E0B\u8F7D\uFF01");
         return;
       }
       const data = await this.app.vault.adapter.read(this.hilightCfg);
@@ -66241,7 +66367,7 @@ var AssetsManager = class {
       }
     } catch (error) {
       console.error(error);
-      new import_obsidian3.Notice("highlights.json\u89E3\u6790\u5931\u8D25\uFF01");
+      new import_obsidian4.Notice("highlights.json\u89E3\u6790\u5931\u8D25\uFF01");
     }
   }
   async loadIcon(name) {
@@ -66303,18 +66429,18 @@ var AssetsManager = class {
   async downloadThemes() {
     try {
       if (await this.app.vault.adapter.exists(this.themeCfg)) {
-        new import_obsidian3.Notice("\u4E3B\u9898\u8D44\u6E90\u5DF2\u5B58\u5728\uFF01");
+        new import_obsidian4.Notice("\u4E3B\u9898\u8D44\u6E90\u5DF2\u5B58\u5728\uFF01");
         return;
       }
-      const res = await (0, import_obsidian3.requestUrl)(this.getThemeURL());
+      const res = await (0, import_obsidian4.requestUrl)(this.getThemeURL());
       const data = res.arrayBuffer;
       await this.unzip(new Blob([data]));
       await this.loadAssets();
-      new import_obsidian3.Notice("\u4E3B\u9898\u4E0B\u8F7D\u5B8C\u6210\uFF01");
+      new import_obsidian4.Notice("\u4E3B\u9898\u4E0B\u8F7D\u5B8C\u6210\uFF01");
     } catch (error) {
       console.error(error);
       await this.removeThemes();
-      new import_obsidian3.Notice("\u4E3B\u9898\u4E0B\u8F7D\u5931\u8D25, \u8BF7\u68C0\u67E5\u7F51\u7EDC\uFF01");
+      new import_obsidian4.Notice("\u4E3B\u9898\u4E0B\u8F7D\u5931\u8D25, \u8BF7\u68C0\u67E5\u7F51\u7EDC\uFF01");
     }
   }
   async unzip(data) {
@@ -66333,7 +66459,7 @@ var AssetsManager = class {
         const blobWriter = new Uint8ArrayWriter();
         if (entry.getData) {
           const data2 = await entry.getData(blobWriter);
-          await this.app.vault.adapter.writeBinary(filePath, data2);
+          await this.app.vault.adapter.writeBinary(filePath, data2.buffer);
         }
       }
     }
@@ -66355,10 +66481,10 @@ var AssetsManager = class {
         await adapter.rmdir(this.hilightPath, true);
       }
       await this.loadAssets();
-      new import_obsidian3.Notice("\u6E05\u7A7A\u5B8C\u6210\uFF01");
+      new import_obsidian4.Notice("\u6E05\u7A7A\u5B8C\u6210\uFF01");
     } catch (error) {
       console.error(error);
-      new import_obsidian3.Notice("\u6E05\u7A7A\u4E3B\u9898\u5931\u8D25\uFF01");
+      new import_obsidian4.Notice("\u6E05\u7A7A\u4E3B\u9898\u5931\u8D25\uFF01");
     }
   }
   async openAssets() {
@@ -66373,8 +66499,8 @@ var AssetsManager = class {
     const { shell } = require("electron");
     shell.openPath(dst);
   }
-  searchFile(originPath) {
-    const resolvedPath = this.resolvePath(originPath);
+  searchFile(nameOrPath) {
+    const resolvedPath = this.resolvePath(nameOrPath);
     const vault = this.app.vault;
     const attachmentFolderPath = vault.config.attachmentFolderPath || "";
     let localPath = resolvedPath;
@@ -66383,12 +66509,12 @@ var AssetsManager = class {
     if (file) {
       return file;
     }
-    file = vault.getFileByPath(originPath);
+    file = vault.getFileByPath(nameOrPath);
     if (file) {
       return file;
     }
     if (attachmentFolderPath != "") {
-      localPath = attachmentFolderPath + "/" + originPath;
+      localPath = attachmentFolderPath + "/" + nameOrPath;
       file = vault.getFileByPath(localPath);
       if (file) {
         return file;
@@ -66401,7 +66527,10 @@ var AssetsManager = class {
     }
     const files = vault.getAllLoadedFiles();
     for (let f of files) {
-      if (f.path.includes(originPath)) {
+      if (f instanceof import_obsidian4.TFolder)
+        continue;
+      file = f;
+      if (file.basename === nameOrPath || file.name === nameOrPath) {
         return f;
       }
     }
@@ -66455,6 +66584,31 @@ var AssetsManager = class {
   }
 };
 
+// src/markdown/local-file.ts
+var import_obsidian5 = require("obsidian");
+
+// src/markdown/extension.ts
+var Extension = class {
+  constructor(app, settings, assetsManager, callback) {
+    this.app = app;
+    this.vault = app.vault;
+    this.settings = settings;
+    this.assetsManager = assetsManager;
+    this.callback = callback;
+  }
+  async prepare() {
+    return;
+  }
+  async postprocess(html2) {
+    return html2;
+  }
+  async beforePublish() {
+  }
+  async cleanup() {
+    return;
+  }
+};
+
 // src/wasm/wasm.ts
 require_wasm_exec();
 var WasmLoaded = false;
@@ -66505,6 +66659,1094 @@ async function UploadImageToWx(data, filename, token, type) {
   }
   return await wxUploadImage(data, filename, token, type);
 }
+
+// src/markdown/local-file.ts
+var LocalFileRegex = /^!\[\[(.*?)\]\]/;
+var LocalImageManager = class {
+  constructor() {
+    this.images = /* @__PURE__ */ new Map();
+  }
+  // 静态方法，用于获取实例
+  static getInstance() {
+    if (!LocalImageManager.instance) {
+      LocalImageManager.instance = new LocalImageManager();
+    }
+    return LocalImageManager.instance;
+  }
+  setImage(path, info) {
+    if (!this.images.has(path)) {
+      this.images.set(path, info);
+    }
+  }
+  isWebp(file) {
+    if (file instanceof import_obsidian5.TFile) {
+      return file.extension.toLowerCase() === "webp";
+    }
+    const name = file.toLowerCase();
+    return name.endsWith(".webp");
+  }
+  async uploadLocalImage(token, vault, type = "") {
+    const keys = this.images.keys();
+    await PrepareImageLib();
+    const result = [];
+    for (let key of keys) {
+      const value = this.images.get(key);
+      if (value == null)
+        continue;
+      if (value.url != null)
+        continue;
+      const file = vault.getFileByPath(value.filePath);
+      if (file == null)
+        continue;
+      let fileData = await vault.readBinary(file);
+      let name = file.name;
+      if (this.isWebp(file)) {
+        if (IsImageLibReady()) {
+          fileData = WebpToJPG(fileData);
+          name = name.toLowerCase().replace(".webp", ".jpg");
+        } else {
+          console.error("wasm not ready for webp");
+        }
+      }
+      const res = await UploadImageToWx(new Blob([fileData]), name, token, type);
+      if (res.errcode != 0) {
+        const msg = `\u4E0A\u4F20\u56FE\u7247\u5931\u8D25: ${res.errcode} ${res.errmsg}`;
+        new import_obsidian5.Notice(msg);
+        console.error(msg);
+      }
+      value.url = res.url;
+      value.media_id = res.media_id;
+      result.push(res);
+    }
+    return result;
+  }
+  checkImageExt(filename) {
+    const name = filename.toLowerCase();
+    if (name.endsWith(".jpg") || name.endsWith(".jpeg") || name.endsWith(".png") || name.endsWith(".gif") || name.endsWith(".bmp") || name.endsWith(".tiff") || name.endsWith(".svg") || name.endsWith(".webp")) {
+      return true;
+    }
+    return false;
+  }
+  getImageNameFromUrl(url, type) {
+    try {
+      const urlObj = new URL(url);
+      const pathname = urlObj.pathname;
+      let filename = pathname.split("/").pop() || "";
+      filename = decodeURIComponent(filename);
+      if (!this.checkImageExt(filename)) {
+        filename = filename + this.getImageExt(type);
+      }
+      return filename;
+    } catch (e2) {
+      const queryIndex = url.indexOf("?");
+      if (queryIndex !== -1) {
+        url = url.substring(0, queryIndex);
+      }
+      return url.split("/").pop() || "";
+    }
+  }
+  getImageExtFromBlob(blob) {
+    const mimeToExt = {
+      "image/jpeg": ".jpg",
+      "image/jpg": ".jpg",
+      "image/png": ".png",
+      "image/gif": ".gif",
+      "image/bmp": ".bmp",
+      "image/webp": ".webp",
+      "image/svg+xml": ".svg",
+      "image/tiff": ".tiff"
+    };
+    const mimeType = blob.type.toLowerCase();
+    return mimeToExt[mimeType] || "";
+  }
+  base64ToBlob(src) {
+    const items = src.split(",");
+    if (items.length != 2) {
+      throw new Error("base64\u683C\u5F0F\u9519\u8BEF");
+    }
+    const mineType = items[0].replace("data:", "");
+    const base64 = items[1];
+    const byteCharacters = atob(base64);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    return { blob: new Blob([byteArray], { type: mineType }), ext: this.getImageExt(mineType) };
+  }
+  async uploadImageFromUrl(url, token, type = "") {
+    try {
+      const rep = await (0, import_obsidian5.requestUrl)(url);
+      await PrepareImageLib();
+      let data = rep.arrayBuffer;
+      let blob = new Blob([data]);
+      let filename = this.getImageNameFromUrl(url, rep.headers["content-type"]);
+      if (filename == "" || filename == null) {
+        filename = "remote_img" + this.getImageExtFromBlob(blob);
+      }
+      if (this.isWebp(filename)) {
+        if (IsImageLibReady()) {
+          data = WebpToJPG(data);
+          blob = new Blob([data]);
+          filename = filename.toLowerCase().replace(".webp", ".jpg");
+        } else {
+          console.error("wasm not ready for webp");
+        }
+      }
+      return await UploadImageToWx(blob, filename, token, type);
+    } catch (e2) {
+      console.error(e2);
+      throw new Error("\u4E0A\u4F20\u56FE\u7247\u5931\u8D25:" + e2.message + "|" + url);
+    }
+  }
+  getImageExt(type) {
+    const mimeToExt = {
+      "image/jpeg": ".jpg",
+      "image/jpg": ".jpg",
+      "image/png": ".png",
+      "image/gif": ".gif",
+      "image/bmp": ".bmp",
+      "image/webp": ".webp",
+      "image/svg+xml": ".svg",
+      "image/tiff": ".tiff"
+    };
+    return mimeToExt[type] || ".jpg";
+  }
+  getMimeType(ext) {
+    const extToMime = {
+      ".jpg": "image/jpeg",
+      ".jpeg": "image/jpeg",
+      ".png": "image/png",
+      ".gif": "image/gif",
+      ".bmp": "image/bmp",
+      ".webp": "image/webp",
+      ".svg": "image/svg+xml",
+      ".tiff": "image/tiff"
+    };
+    return extToMime[ext.toLowerCase()] || "image/jpeg";
+  }
+  getImageInfos(root) {
+    const images = root.getElementsByTagName("img");
+    const result = [];
+    for (let i = 0; i < images.length; i++) {
+      const img = images[i];
+      const res = this.images.get(img.src);
+      if (res) {
+        result.push(res);
+      }
+    }
+    return result;
+  }
+  async uploadRemoteImage(root, token, type = "") {
+    const images = root.getElementsByTagName("img");
+    const result = [];
+    for (let i = 0; i < images.length; i++) {
+      const img = images[i];
+      if (img.src.includes("mmbiz.qpic.cn"))
+        continue;
+      if (img.src.startsWith("http://localhost/") && import_obsidian5.Platform.isMobileApp) {
+        continue;
+      }
+      if (img.src.startsWith("http")) {
+        const res = await this.uploadImageFromUrl(img.src, token, type);
+        if (res.errcode != 0) {
+          const msg = `\u4E0A\u4F20\u56FE\u7247\u5931\u8D25: ${img.src} ${res.errcode} ${res.errmsg}`;
+          new import_obsidian5.Notice(msg);
+          console.error(msg);
+        }
+        const info = {
+          resUrl: img.src,
+          filePath: "",
+          url: res.url,
+          media_id: res.media_id
+        };
+        this.images.set(img.src, info);
+        result.push(res);
+      } else if (img.src.startsWith("data:image/")) {
+        const { blob, ext } = this.base64ToBlob(img.src);
+        if (!img.id) {
+          img.id = `local-img-${i}`;
+        }
+        const name = img.id + ext;
+        const res = await UploadImageToWx(blob, name, token);
+        if (res.errcode != 0) {
+          const msg = `\u4E0A\u4F20\u56FE\u7247\u5931\u8D25: ${res.errcode} ${res.errmsg}`;
+          new import_obsidian5.Notice(msg);
+          console.error(msg);
+          continue;
+        }
+        const info = {
+          resUrl: "#" + img.id,
+          filePath: "",
+          url: res.url,
+          media_id: res.media_id
+        };
+        this.images.set("#" + img.id, info);
+        result.push(res);
+      }
+    }
+    return result;
+  }
+  replaceImages(root) {
+    const images = root.getElementsByTagName("img");
+    for (let i = 0; i < images.length; i++) {
+      const img = images[i];
+      let value = this.images.get(img.src);
+      if (value == null) {
+        if (!img.id) {
+          console.error("miss image id, " + img.src);
+          continue;
+        }
+        value = this.images.get("#" + img.id);
+      }
+      if (value == null)
+        continue;
+      if (value.url == null)
+        continue;
+      img.setAttribute("src", value.url);
+    }
+  }
+  arrayBufferToBase64(buffer) {
+    let binary = "";
+    const bytes = new Uint8Array(buffer);
+    const len = bytes.byteLength;
+    for (let i = 0; i < len; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    return btoa(binary);
+  }
+  async localImagesToBase64(vault) {
+    const keys = this.images.keys();
+    const result = /* @__PURE__ */ new Map();
+    for (let key of keys) {
+      const value = this.images.get(key);
+      if (value == null)
+        continue;
+      const file = vault.getFileByPath(value.filePath);
+      if (file == null)
+        continue;
+      let fileData = await vault.readBinary(file);
+      const base64 = this.arrayBufferToBase64(fileData);
+      const mimeType = this.getMimeType(file.extension);
+      const data = `data:${mimeType};base64,${base64}`;
+      result.set(value.resUrl, data);
+    }
+    return result;
+  }
+  async downloadRemoteImage(url) {
+    try {
+      const rep = await (0, import_obsidian5.requestUrl)(url);
+      let data = rep.arrayBuffer;
+      let blob = new Blob([data]);
+      let ext = this.getImageExtFromBlob(blob);
+      if (ext == "" || ext == null) {
+        const filename = this.getImageNameFromUrl(url, rep.headers["content-type"]);
+        ext = "." + filename.split(".").pop() || "jpg";
+      }
+      const base64 = this.arrayBufferToBase64(data);
+      const mimeType = this.getMimeType(ext);
+      return `data:${mimeType};base64,${base64}`;
+    } catch (e2) {
+      console.error(e2);
+      return "";
+    }
+  }
+  async remoteImagesToBase64(root) {
+    const images = root.getElementsByTagName("img");
+    const result = /* @__PURE__ */ new Map();
+    for (let i = 0; i < images.length; i++) {
+      const img = images[i];
+      if (!img.src.startsWith("http"))
+        continue;
+      const base64 = await this.downloadRemoteImage(img.src);
+      if (base64 == "")
+        continue;
+      result.set(img.src, base64);
+    }
+    return result;
+  }
+  async embleImages(root, vault) {
+    const localImages = await this.localImagesToBase64(vault);
+    const remoteImages = await this.remoteImagesToBase64(root);
+    const result = root.cloneNode(true);
+    const images = result.getElementsByTagName("img");
+    for (let i = 0; i < images.length; i++) {
+      const img = images[i];
+      if (img.src.startsWith("http")) {
+        const base64 = remoteImages.get(img.src);
+        if (base64 != null) {
+          img.setAttribute("src", base64);
+        }
+      } else {
+        const base64 = localImages.get(img.src);
+        if (base64 != null) {
+          img.setAttribute("src", base64);
+        }
+      }
+    }
+    return result.innerHTML;
+  }
+  async cleanup() {
+    this.images.clear();
+  }
+};
+var _LocalFile = class extends Extension {
+  constructor() {
+    super(...arguments);
+    this.index = 0;
+  }
+  generateId() {
+    this.index += 1;
+    return `fid-${this.index}`;
+  }
+  getImagePath(path) {
+    const res = this.assetsManager.getResourcePath(path);
+    if (res == null) {
+      console.error("\u627E\u4E0D\u5230\u6587\u4EF6\uFF1A" + path);
+      return "";
+    }
+    const info = {
+      resUrl: res.resUrl,
+      filePath: res.filePath,
+      media_id: null,
+      url: null
+    };
+    LocalImageManager.getInstance().setImage(res.resUrl, info);
+    return res.resUrl;
+  }
+  isImage(file) {
+    file = file.toLowerCase();
+    return file.endsWith(".png") || file.endsWith(".jpg") || file.endsWith(".jpeg") || file.endsWith(".gif") || file.endsWith(".bmp") || file.endsWith(".webp");
+  }
+  parseImageLink(link2) {
+    if (link2.includes("|")) {
+      const parts = link2.split("|");
+      const path = parts[0];
+      if (!this.isImage(path))
+        return null;
+      let width = null;
+      let height = null;
+      if (parts.length == 2) {
+        const size = parts[1].toLowerCase().split("x");
+        width = parseInt(size[0]);
+        if (size.length == 2 && size[1] != "") {
+          height = parseInt(size[1]);
+        }
+      }
+      return { path, width, height };
+    }
+    if (this.isImage(link2)) {
+      return { path: link2, width: null, height: null };
+    }
+    return null;
+  }
+  getHeaderLevel(line) {
+    const match = line.trimStart().match(/^#{1,6}/);
+    if (match) {
+      return match[0].length;
+    }
+    return 0;
+  }
+  async getFileContent(file, header, block2) {
+    const content = await this.app.vault.adapter.read(file.path);
+    if (header == null && block2 == null) {
+      return content;
+    }
+    let result = "";
+    const lines = content.split("\n");
+    if (header) {
+      let level = 0;
+      let append2 = false;
+      for (let line of lines) {
+        if (append2) {
+          if (level == this.getHeaderLevel(line)) {
+            break;
+          }
+          result += line + "\n";
+          continue;
+        }
+        if (!line.trim().startsWith("#"))
+          continue;
+        const items = line.trim().split(" ");
+        if (items.length != 2)
+          continue;
+        if (header.trim() != items[1].trim())
+          continue;
+        if (this.getHeaderLevel(line)) {
+          result += line + "\n";
+          level = this.getHeaderLevel(line);
+          append2 = true;
+        }
+      }
+    }
+    function isStructuredBlock(line) {
+      const trimmed = line.trim();
+      return trimmed.startsWith("-") || trimmed.startsWith(">") || trimmed.startsWith("|") || trimmed.match(/^\d+\./);
+    }
+    if (block2) {
+      let stopAtEmpty = false;
+      let totalLen = 0;
+      let structured = false;
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        if (line.indexOf(block2) >= 0) {
+          result = line.replace(block2, "").trim();
+          if (isStructuredBlock(line)) {
+            break;
+          }
+          for (let j = i - 1; j >= 0; j--) {
+            const l = lines[j];
+            if (l.startsWith("#")) {
+              break;
+            }
+            if (l.trim() == "") {
+              if (stopAtEmpty)
+                break;
+              if (j < i - 1 && totalLen > 0)
+                break;
+              stopAtEmpty = true;
+              result = l + "\n" + result;
+              continue;
+            } else {
+              stopAtEmpty = true;
+            }
+            if (structured && !isStructuredBlock(l)) {
+              break;
+            }
+            if (totalLen === 0 && isStructuredBlock(l)) {
+              structured = true;
+            }
+            totalLen += result.length;
+            result = l + "\n" + result;
+          }
+          break;
+        }
+      }
+    }
+    return result;
+  }
+  parseFileLink(link2) {
+    const info = link2.split("|")[0];
+    const items = info.split("#");
+    let path = items[0];
+    let header = null;
+    let block2 = null;
+    if (items.length == 2) {
+      if (items[1].startsWith("^")) {
+        block2 = items[1];
+      } else {
+        header = items[1];
+      }
+    }
+    return { path, head: header, block: block2 };
+  }
+  async renderFile(link2, id) {
+    let { path, head: header, block: block2 } = this.parseFileLink(link2);
+    let file = null;
+    if (path === "") {
+      file = this.app.workspace.getActiveFile();
+    } else {
+      if (!path.endsWith(".md")) {
+        path = path + ".md";
+      }
+      file = this.assetsManager.searchFile(path);
+    }
+    if (file == null) {
+      const msg = "\u627E\u4E0D\u5230\u6587\u4EF6\uFF1A" + path;
+      console.error(msg);
+      return msg;
+    }
+    let content = await this.getFileContent(file, header, block2);
+    if (content.startsWith("---")) {
+      content = content.replace(/^(---)$.+?^(---)$.+?/ims, "");
+    }
+    const body = await this.marked.parse(content);
+    return body;
+  }
+  static async readBlob(src) {
+    return await fetch(src).then((response) => response.blob());
+  }
+  static async getExcalidrawUrl(data) {
+    const url = "https://obplugin.sunboshi.tech/math/excalidraw";
+    const req = await (0, import_obsidian5.requestUrl)({
+      url,
+      method: "POST",
+      contentType: "application/json",
+      headers: {
+        authkey: NMPSettings.getInstance().authKey
+      },
+      body: JSON.stringify({ data })
+    });
+    if (req.status != 200) {
+      console.error(req.status);
+      return null;
+    }
+    return req.json.url;
+  }
+  parseLinkStyle(link2) {
+    let filename = "";
+    let style = 'style="width:100%;height:100%"';
+    let postion = "left";
+    const postions = ["left", "center", "right"];
+    if (link2.includes("|")) {
+      const items = link2.split("|");
+      filename = items[0];
+      let size = "";
+      if (items.length == 2) {
+        if (postions.includes(items[1])) {
+          postion = items[1];
+        } else {
+          size = items[1];
+        }
+      } else if (items.length == 3) {
+        size = items[1];
+        if (postions.includes(items[1])) {
+          size = items[2];
+          postion = items[1];
+        } else {
+          size = items[1];
+          postion = items[2];
+        }
+      }
+      if (size != "") {
+        const sizes = size.split("x");
+        if (sizes.length == 2) {
+          style = `style="width:${sizes[0]}px;height:${sizes[1]}px;"`;
+        } else {
+          style = `style="width:${sizes[0]}px;"`;
+        }
+      }
+    } else {
+      filename = link2;
+    }
+    return { filename, style, postion };
+  }
+  parseExcalidrawLink(link2) {
+    let classname = "note-embed-excalidraw-left";
+    const postions = /* @__PURE__ */ new Map([
+      ["left", "note-embed-excalidraw-left"],
+      ["center", "note-embed-excalidraw-center"],
+      ["right", "note-embed-excalidraw-right"]
+    ]);
+    let { filename, style, postion } = this.parseLinkStyle(link2);
+    classname = postions.get(postion) || classname;
+    if (filename.endsWith("excalidraw") || filename.endsWith("excalidraw.md")) {
+      return { filename, style, classname };
+    }
+    return null;
+  }
+  static async renderExcalidraw(html2) {
+    try {
+      const src = await this.getExcalidrawUrl(html2);
+      let svg = "";
+      if (src === "") {
+        svg = "\u6E32\u67D3\u5931\u8D25";
+        console.log("Failed to get Excalidraw URL");
+      } else {
+        const blob = await this.readBlob(src);
+        if (blob.type === "image/svg+xml") {
+          svg = await blob.text();
+        } else {
+          svg = "\u6682\u4E0D\u652F\u6301" + blob.type;
+        }
+      }
+      return svg;
+    } catch (error) {
+      console.error(error.message);
+      return "\u6E32\u67D3\u5931\u8D25:" + error.message;
+    }
+  }
+  parseSVGLink(link2) {
+    let classname = "note-embed-svg-left";
+    const postions = /* @__PURE__ */ new Map([
+      ["left", "note-embed-svg-left"],
+      ["center", "note-embed-svg-center"],
+      ["right", "note-embed-svg-right"]
+    ]);
+    let { filename, style, postion } = this.parseLinkStyle(link2);
+    classname = postions.get(postion) || classname;
+    return { filename, style, classname };
+  }
+  async renderSVGFile(filename, id) {
+    const file = this.assetsManager.searchFile(filename);
+    if (file == null) {
+      const msg = "\u627E\u4E0D\u5230\u6587\u4EF6\uFF1A" + file;
+      console.error(msg);
+      return msg;
+    }
+    const content = await this.getFileContent(file, null, null);
+    _LocalFile.fileCache.set(filename, content);
+    return content;
+  }
+  markedExtension() {
+    return {
+      async: true,
+      walkTokens: async (token) => {
+        if (token.type !== "LocalImage") {
+          return;
+        }
+        let item = this.parseImageLink(token.href);
+        if (item) {
+          const src = this.getImagePath(item.path);
+          const width = item.width ? `width="${item.width}"` : "";
+          const height = item.height ? `height="${item.height}"` : "";
+          token.html = `<img src="${src}" alt="${token.text}" ${width} ${height} />`;
+          return;
+        }
+        const info = this.parseExcalidrawLink(token.href);
+        if (info) {
+          if (!NMPSettings.getInstance().isAuthKeyVaild()) {
+            token.html = "<span>\u8BF7\u8BBE\u7F6E\u6CE8\u518C\u7801</span>";
+            return;
+          }
+          const id2 = this.generateId();
+          this.callback.cacheElement("excalidraw", id2, token.raw);
+          token.html = `<span class="${info.classname}"><span class="note-embed-excalidraw" id="${id2}" ${info.style}></span></span>`;
+          return;
+        }
+        if (token.href.endsWith(".svg") || token.href.includes(".svg|")) {
+          const info2 = this.parseSVGLink(token.href);
+          const id2 = this.generateId();
+          let svg = "\u6E32\u67D3\u4E2D";
+          if (_LocalFile.fileCache.has(info2.filename)) {
+            svg = _LocalFile.fileCache.get(info2.filename) || "\u6E32\u67D3\u5931\u8D25";
+          } else {
+            svg = await this.renderSVGFile(info2.filename, id2) || "\u6E32\u67D3\u5931\u8D25";
+          }
+          token.html = `<span class="${info2.classname}"><span class="note-embed-svg" id="${id2}" ${info2.style}>${svg}</span></span>`;
+          return;
+        }
+        const id = this.generateId();
+        const content = await this.renderFile(token.href, id);
+        const tag2 = this.callback.settings.embedStyle === "quote" ? "blockquote" : "section";
+        token.html = `<${tag2} class="note-embed-file" id="${id}">${content}</${tag2}>`;
+      },
+      extensions: [{
+        name: "LocalImage",
+        level: "block",
+        start: (src) => {
+          const index = src.indexOf("![[");
+          if (index === -1)
+            return;
+          return index;
+        },
+        tokenizer: (src) => {
+          const matches = src.match(LocalFileRegex);
+          if (matches == null)
+            return;
+          const token = {
+            type: "LocalImage",
+            raw: matches[0],
+            href: matches[1],
+            text: matches[1]
+          };
+          return token;
+        },
+        renderer: (token) => {
+          return token.html;
+        }
+      }]
+    };
+  }
+};
+var LocalFile = _LocalFile;
+LocalFile.fileCache = /* @__PURE__ */ new Map();
+
+// src/markdown/code.ts
+var import_obsidian7 = require("obsidian");
+
+// node_modules/highlight.js/es/index.js
+var import_lib = __toESM(require_lib(), 1);
+var es_default = import_lib.default;
+
+// src/markdown/math.ts
+var import_obsidian6 = require("obsidian");
+var inlineRule = /^(\${1,2})(?!\$)((?:\\.|[^\\\n])*?(?:\\.|[^\\\n\$]))\1/;
+var blockRule = /^(\${1,2})\n((?:\\[^]|[^\\])+?)\n\1(?:\n|$)/;
+var svgCache = /* @__PURE__ */ new Map();
+function cleanMathCache() {
+  svgCache.clear();
+}
+var MathRendererQueue = class {
+  constructor() {
+    this.host = "https://obplugin.sunboshi.tech";
+    this.mathIndex = 0;
+  }
+  // 静态方法，用于获取实例
+  static getInstance() {
+    if (!MathRendererQueue.instance) {
+      MathRendererQueue.instance = new MathRendererQueue();
+    }
+    return MathRendererQueue.instance;
+  }
+  async getMathSVG(expression, inline2, type) {
+    try {
+      let success = false;
+      let path = "";
+      if (type === "asciimath") {
+        path = "/math/am";
+      } else {
+        path = "/math/tex";
+      }
+      const url = `${this.host}${path}`;
+      const res = await (0, import_obsidian6.requestUrl)({
+        url,
+        method: "POST",
+        contentType: "application/json",
+        headers: {
+          authkey: NMPSettings.getInstance().authKey
+        },
+        body: JSON.stringify({
+          expression,
+          inline: inline2
+        })
+      });
+      let svg = "";
+      if (res.status === 200) {
+        svg = res.text;
+        success = true;
+      } else {
+        console.error("render error: " + res.json.msg);
+        svg = "\u6E32\u67D3\u5931\u8D25: " + res.json.msg;
+      }
+      return { svg, success };
+    } catch (err) {
+      console.log(err.msg);
+      const svg = "\u6E32\u67D3\u5931\u8D25: " + err.message;
+      return { svg, success: false };
+    }
+  }
+  generateId() {
+    this.mathIndex += 1;
+    return `math-id-${this.mathIndex}`;
+  }
+  async render(token, inline2, type) {
+    if (!NMPSettings.getInstance().isAuthKeyVaild()) {
+      return "<span>\u6CE8\u518C\u7801\u65E0\u6548\u6216\u5DF2\u8FC7\u671F</span>";
+    }
+    const id = this.generateId();
+    let svg = "\u6E32\u67D3\u4E2D";
+    const expression = token.text;
+    if (svgCache.has(token.text)) {
+      svg = svgCache.get(expression);
+    } else {
+      const res = await this.getMathSVG(expression, inline2, type);
+      if (res.success) {
+        svgCache.set(expression, res.svg);
+      }
+      svg = res.svg;
+    }
+    const className = inline2 ? "inline-math-svg" : "block-math-svg";
+    const body = inline2 ? svg : `<section class="block-math-section">${svg}</section>`;
+    return `<span id="${id}" class="${className}">${body}</span>`;
+  }
+};
+var MathRenderer = class extends Extension {
+  async renderer(token, inline2, type = "") {
+    if (type === "") {
+      type = this.settings.math;
+    }
+    return await MathRendererQueue.getInstance().render(token, inline2, type);
+  }
+  markedExtension() {
+    return {
+      async: true,
+      walkTokens: async (token) => {
+        if (token.type === "InlineMath" || token.type === "BlockMath") {
+          token.html = await this.renderer(token, token.type === "InlineMath", token.displayMode ? "latex" : "asciimath");
+        }
+      },
+      extensions: [
+        this.inlineMath(),
+        this.blockMath()
+      ]
+    };
+  }
+  inlineMath() {
+    return {
+      name: "InlineMath",
+      level: "inline",
+      start(src) {
+        let index;
+        let indexSrc = src;
+        while (indexSrc) {
+          index = indexSrc.indexOf("$");
+          if (index === -1) {
+            return;
+          }
+          const possibleKatex = indexSrc.substring(index);
+          if (possibleKatex.match(inlineRule)) {
+            return index;
+          }
+          indexSrc = indexSrc.substring(index + 1).replace(/^\$+/, "");
+        }
+      },
+      tokenizer(src, tokens) {
+        const match = src.match(inlineRule);
+        if (match) {
+          return {
+            type: "InlineMath",
+            raw: match[0],
+            text: match[2].trim(),
+            displayMode: match[1].length === 2
+          };
+        }
+      },
+      renderer: (token) => {
+        return token.html;
+      }
+    };
+  }
+  blockMath() {
+    return {
+      name: "BlockMath",
+      level: "block",
+      tokenizer(src) {
+        const match = src.match(blockRule);
+        if (match) {
+          return {
+            type: "BlockMath",
+            raw: match[0],
+            text: match[2].trim(),
+            displayMode: match[1].length === 2
+          };
+        }
+      },
+      renderer: (token) => {
+        return token.html;
+      }
+    };
+  }
+};
+
+// src/markdown/code.ts
+var CardDataManager = class {
+  constructor() {
+    this.cardData = /* @__PURE__ */ new Map();
+  }
+  // 静态方法，用于获取实例
+  static getInstance() {
+    if (!CardDataManager.instance) {
+      CardDataManager.instance = new CardDataManager();
+    }
+    return CardDataManager.instance;
+  }
+  setCardData(id, cardData) {
+    this.cardData.set(id, cardData);
+  }
+  cleanup() {
+    this.cardData.clear();
+  }
+  restoreCard(html2) {
+    for (const [key, value] of this.cardData.entries()) {
+      const exp = `<section[^>]*\\sdata-id="${key}"[^>]*>(.*?)<\\/section>`;
+      const regex = new RegExp(exp, "gs");
+      if (!regex.test(html2)) {
+        console.warn("\u6CA1\u6709\u516C\u4F17\u53F7\u4FE1\u606F\uFF1A", key);
+        continue;
+      }
+      html2 = html2.replace(regex, value);
+    }
+    return html2;
+  }
+};
+var MermaidSectionClassName = "note-mermaid";
+var MermaidImgClassName = "note-mermaid-img";
+var CodeRenderer = class extends Extension {
+  async prepare() {
+    this.mermaidIndex = 0;
+  }
+  static srcToBlob(src) {
+    const base64 = src.split(",")[1];
+    const byteCharacters = atob(base64);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    return new Blob([byteArray], { type: "image/png" });
+  }
+  static async uploadMermaidImages(root, token) {
+    const imgs = root.querySelectorAll("." + MermaidImgClassName);
+    for (let img of imgs) {
+      const src = img.getAttribute("src");
+      if (!src)
+        continue;
+      if (src.startsWith("http"))
+        continue;
+      const blob = CodeRenderer.srcToBlob(img.getAttribute("src"));
+      const name = img.id + ".png";
+      const res = await UploadImageToWx(blob, name, token);
+      if (res.errcode != 0) {
+        const msg = `\u4E0A\u4F20\u56FE\u7247\u5931\u8D25: ${res.errcode} ${res.errmsg}`;
+        new import_obsidian7.Notice(msg);
+        console.error(msg);
+        continue;
+      }
+      const url = res.url;
+      img.setAttribute("src", url);
+    }
+  }
+  replaceSpaces(text) {
+    let result = "";
+    let inTag = false;
+    for (let char of text) {
+      if (char === "<") {
+        inTag = true;
+        result += char;
+        continue;
+      } else if (char === ">") {
+        inTag = false;
+        result += char;
+        continue;
+      }
+      if (inTag) {
+        result += char;
+      } else {
+        if (char === " ") {
+          result += "&nbsp;";
+        } else if (char === "	") {
+          result += "&nbsp;&nbsp;&nbsp;&nbsp;";
+        } else {
+          result += char;
+        }
+      }
+    }
+    return result;
+  }
+  async codeRenderer(code, infostring) {
+    var _a, _b;
+    const lang = (_a = (infostring || "").match(/^\S*/)) == null ? void 0 : _a[0];
+    code = code.replace(/\n$/, "");
+    try {
+      if (lang && es_default.getLanguage(lang)) {
+        code = es_default.highlight(code, { language: lang }).value;
+      } else {
+        code = es_default.highlightAuto(code).value;
+      }
+    } catch (err) {
+      console.error(err);
+    }
+    code = this.replaceSpaces(code);
+    const lines = code.split("\n");
+    let body = "";
+    let liItems = "";
+    for (let line in lines) {
+      let text = lines[line];
+      if (text.length === 0) {
+        text = "<br>";
+      }
+      body = body + "<code>" + text + "</code>";
+      liItems = liItems + `<li>${parseInt(line) + 1}</li>`;
+    }
+    let codeSection = '<section class="code-section code-snippet__fix hljs">';
+    if (this.settings.lineNumber) {
+      codeSection = codeSection + "<ul>" + liItems + "</ul>";
+    }
+    let html2 = "";
+    if (lang) {
+      html2 = codeSection + '<pre style="max-width:1000% !important;" class="hljs language-' + lang + '">' + body + "</pre></section>";
+    } else {
+      html2 = codeSection + "<pre>" + body + "</pre></section>";
+    }
+    if (!this.settings.isAuthKeyVaild()) {
+      return html2;
+    }
+    const settings = AssetsManager.getInstance().expertSettings;
+    const id = (_b = settings.render) == null ? void 0 : _b.code;
+    if (id && typeof id === "number") {
+      const params = JSON.stringify({
+        id: `${id}`,
+        content: html2
+      });
+      html2 = await wxWidget(this.settings.authKey, params);
+    }
+    return html2;
+  }
+  static getMathType(lang) {
+    if (!lang)
+      return null;
+    let l = lang.toLowerCase();
+    l = l.trim();
+    if (l === "am" || l === "asciimath")
+      return "asciimath";
+    if (l === "latex" || l === "tex")
+      return "latex";
+    return null;
+  }
+  parseCard(htmlString) {
+    const id = /data-id="([^"]+)"/;
+    const headimgRegex = /data-headimg="([^"]+)"/;
+    const nicknameRegex = /data-nickname="([^"]+)"/;
+    const signatureRegex = /data-signature="([^"]+)"/;
+    const idMatch = htmlString.match(id);
+    const headimgMatch = htmlString.match(headimgRegex);
+    const nicknameMatch = htmlString.match(nicknameRegex);
+    const signatureMatch = htmlString.match(signatureRegex);
+    return {
+      id: idMatch ? idMatch[1] : "",
+      headimg: headimgMatch ? headimgMatch[1] : "",
+      nickname: nicknameMatch ? nicknameMatch[1] : "\u516C\u4F17\u53F7\u540D\u79F0",
+      signature: signatureMatch ? signatureMatch[1] : "\u516C\u4F17\u53F7\u4ECB\u7ECD"
+    };
+  }
+  renderCard(token) {
+    const { id, headimg, nickname, signature } = this.parseCard(token.text);
+    if (id === "") {
+      return "<span>\u516C\u4F17\u53F7\u5361\u7247\u6570\u636E\u9519\u8BEF\uFF0C\u6CA1\u6709id</span>";
+    }
+    CardDataManager.getInstance().setCardData(id, token.text);
+    return `<section data-id="${id}" class="note-mpcard-wrapper"><div class="note-mpcard-content"><img class="note-mpcard-headimg" width="54" height="54" src="${headimg}"></img><div class="note-mpcard-info"><div class="note-mpcard-nickname">${nickname}</div><div class="note-mpcard-signature">${signature}</div></div></div><div class="note-mpcard-foot">\u516C\u4F17\u53F7</div></section>`;
+  }
+  renderMermaid(token) {
+    try {
+      const meraidIndex = this.mermaidIndex;
+      const containerId = `mermaid-${meraidIndex}`;
+      this.callback.cacheElement("mermaid", containerId, token.raw);
+      this.mermaidIndex += 1;
+      return `<section id="${containerId}" class="${MermaidSectionClassName}"></section>`;
+    } catch (error) {
+      console.error(error.message);
+      return "<span>mermaid\u6E32\u67D3\u5931\u8D25</span>";
+    }
+  }
+  markedExtension() {
+    return {
+      async: true,
+      walkTokens: async (token) => {
+        var _a;
+        if (token.type !== "code")
+          return;
+        if (this.settings.isAuthKeyVaild()) {
+          const type = CodeRenderer.getMathType((_a = token.lang) != null ? _a : "");
+          if (type) {
+            token.html = await MathRendererQueue.getInstance().render(token, false, type);
+            return;
+          }
+          if (token.lang && token.lang.trim().toLocaleLowerCase() == "mermaid") {
+            token.html = this.renderMermaid(token);
+            return;
+          }
+        }
+        if (token.lang && token.lang.trim().toLocaleLowerCase() == "mpcard") {
+          token.html = this.renderCard(token);
+          return;
+        }
+        token.html = await this.codeRenderer(token.text, token.lang);
+      },
+      extensions: [{
+        name: "code",
+        level: "block",
+        renderer: (token) => {
+          return token.html;
+        }
+      }]
+    };
+  }
+};
+
+// src/article-render.ts
+var import_obsidian8 = require("obsidian");
 
 // src/inline-css.ts
 var inline_css_default = `
@@ -66579,6 +67821,11 @@ section .note-callout-quote {
   color: rgb(158, 158, 158);
   background-color: rgba(158, 158, 158, 0.1);
 }
+/* custom icon callout */
+section .note-callout-custom { 
+  color: rgb(8, 109, 221);
+  background-color: rgba(8, 109, 221, 0.1);
+}
 
 /* --------------------------------------- */
 /* math */
@@ -66591,6 +67838,11 @@ section .note-callout-quote {
   align-items: center;
   margin:20px 0px;
   max-width: 300% !important;
+}
+
+.block-math-section {
+  text-align: center;
+  overflow: auto;
 }
 
 /* --------------------------------------- */
@@ -68698,28 +69950,6 @@ var parseInline = marked.parseInline;
 var parser = _Parser.parse;
 var lexer = _Lexer.lex;
 
-// src/markdown/extension.ts
-var Extension = class {
-  constructor(app, settings, assetsManager, callback) {
-    this.app = app;
-    this.vault = app.vault;
-    this.settings = settings;
-    this.assetsManager = assetsManager;
-    this.callback = callback;
-  }
-  async prepare() {
-    return;
-  }
-  async postprocess(html2) {
-    return html2;
-  }
-  async beforePublish() {
-  }
-  async cleanup() {
-    return;
-  }
-};
-
 // src/markdown/callouts.ts
 var icon_note = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-pencil"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path><path d="m15 5 4 4"></path></svg>`;
 var icon_abstract = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-clipboard-list"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M12 11h4"></path><path d="M12 16h4"></path><path d="M8 11h.01"></path><path d="M8 16h.01"></path></svg>`;
@@ -68877,6 +70107,7 @@ var CalloutRenderer = class extends Extension {
     return matchCallouts(text) != "";
   }
   async renderer(token) {
+    var _a;
     let callout = matchCallouts(token.text);
     if (callout == "") {
       const body2 = this.marked.parser(token.tokens);
@@ -68884,20 +70115,41 @@ var CalloutRenderer = class extends Extension {
       ;
     }
     const title = GetCalloutTitle(callout, token.text);
-    let info = GetCallout(callout.toLowerCase());
-    if (info == null) {
-      const svg = await this.assetsManager.loadIcon(callout);
-      if (svg) {
-        info = { icon: svg, style: "note-callout-note" };
-      } else {
-        info = GetCallout("note");
-      }
-    }
     const index = token.text.indexOf("\n");
     let body = "";
     if (index > 0) {
       token.text = token.text.slice(index + 1);
       body = await this.marked.parse(token.text);
+    }
+    const setting = (_a = AssetsManager.getInstance().expertSettings.render) == null ? void 0 : _a.callout;
+    if (setting && callout.toLocaleLowerCase() in setting) {
+      const authkey = this.settings.authKey;
+      const widget = setting[callout.toLocaleLowerCase()];
+      if (typeof widget === "number") {
+        return await wxWidget(authkey, JSON.stringify({
+          id: `${widget}`,
+          title,
+          content: body
+        }));
+      }
+      if (typeof widget === "object") {
+        const { id, style } = widget;
+        return await wxWidget(authkey, JSON.stringify({
+          id: `${id}`,
+          title,
+          style: style || {},
+          content: body
+        }));
+      }
+    }
+    let info = GetCallout(callout.toLowerCase());
+    if (info == null) {
+      const svg = await this.assetsManager.loadIcon(callout);
+      if (svg) {
+        info = { icon: svg, style: "note-callout-custom" };
+      } else {
+        info = GetCallout("note");
+      }
     }
     return `<section class="note-callout ${info == null ? void 0 : info.style}"><section class="note-callout-title-wrap"><span class="note-callout-icon">${info == null ? void 0 : info.icon}</span><span class="note-callout-title">${title}<span></section><section class="note-callout-content">${body}</section></section>`;
   }
@@ -68922,7 +70174,6 @@ var CalloutRenderer = class extends Extension {
 };
 
 // src/markdown/widget-box.ts
-var import_obsidian4 = require("obsidian");
 var widgetCache = /* @__PURE__ */ new Map();
 var WidgetBox = class extends Extension {
   mapToString(map) {
@@ -68996,33 +70247,13 @@ var WidgetBox = class extends Extension {
     return { style, contentStr };
   }
   async reqContent(id, title, style, content) {
-    const host = "https://obplugin.sunboshi.tech";
-    const path = "/math/widget";
-    const url = `${host}${path}`;
-    try {
-      const res = await (0, import_obsidian4.requestUrl)({
-        url,
-        throw: false,
-        method: "POST",
-        contentType: "application/json",
-        headers: {
-          authkey: NMPSettings.getInstance().authKey
-        },
-        body: JSON.stringify({
-          id,
-          title,
-          style: Object.fromEntries(style),
-          content
-        })
-      });
-      if (res.status === 200) {
-        return res.json.content;
-      }
-      return res.json.msg;
-    } catch (error) {
-      console.log(error);
-      return error.message;
-    }
+    const params = JSON.stringify({
+      id,
+      title,
+      style: Object.fromEntries(style),
+      content
+    });
+    return wxWidget(NMPSettings.getInstance().authKey, params);
   }
   processColor(style) {
     const keys = style.keys();
@@ -69126,469 +70357,6 @@ var Blockquote = class extends Extension {
         }
       }]
     };
-  }
-};
-
-// node_modules/marked-highlight/src/index.js
-function markedHighlight(options2) {
-  if (typeof options2 === "function") {
-    options2 = {
-      highlight: options2
-    };
-  }
-  if (!options2 || typeof options2.highlight !== "function") {
-    throw new Error("Must provide highlight function");
-  }
-  if (typeof options2.langPrefix !== "string") {
-    options2.langPrefix = "language-";
-  }
-  return {
-    async: !!options2.async,
-    walkTokens(token) {
-      if (token.type !== "code") {
-        return;
-      }
-      const lang = getLang(token.lang);
-      if (options2.async) {
-        return Promise.resolve(options2.highlight(token.text, lang, token.lang || "")).then(updateToken(token));
-      }
-      const code = options2.highlight(token.text, lang, token.lang || "");
-      if (code instanceof Promise) {
-        throw new Error("markedHighlight is not set to async but the highlight function is async. Set the async option to true on markedHighlight to await the async highlight function.");
-      }
-      updateToken(token)(code);
-    },
-    useNewRenderer: true,
-    renderer: {
-      code(code, infoString, escaped) {
-        if (typeof code === "object") {
-          escaped = code.escaped;
-          infoString = code.lang;
-          code = code.text;
-        }
-        const lang = getLang(infoString);
-        const classAttr = lang ? ` class="${options2.langPrefix}${escape2(lang)}"` : "";
-        code = code.replace(/\n$/, "");
-        return `<pre><code${classAttr}>${escaped ? code : escape2(code, true)}
-</code></pre>`;
-      }
-    }
-  };
-}
-function getLang(lang) {
-  return (lang || "").match(/\S*/)[0];
-}
-function updateToken(token) {
-  return (code) => {
-    if (typeof code === "string" && code !== token.text) {
-      token.escaped = true;
-      token.text = code;
-    }
-  };
-}
-var escapeTest2 = /[&<>"']/;
-var escapeReplace2 = new RegExp(escapeTest2.source, "g");
-var escapeTestNoEncode2 = /[<>"']|&(?!(#\d{1,7}|#[Xx][a-fA-F0-9]{1,6}|\w+);)/;
-var escapeReplaceNoEncode2 = new RegExp(escapeTestNoEncode2.source, "g");
-var escapeReplacements2 = {
-  "&": "&amp;",
-  "<": "&lt;",
-  ">": "&gt;",
-  '"': "&quot;",
-  "'": "&#39;"
-};
-var getEscapeReplacement2 = (ch) => escapeReplacements2[ch];
-function escape2(html2, encode) {
-  if (encode) {
-    if (escapeTest2.test(html2)) {
-      return html2.replace(escapeReplace2, getEscapeReplacement2);
-    }
-  } else {
-    if (escapeTestNoEncode2.test(html2)) {
-      return html2.replace(escapeReplaceNoEncode2, getEscapeReplacement2);
-    }
-  }
-  return html2;
-}
-
-// node_modules/highlight.js/es/index.js
-var import_lib = __toESM(require_lib(), 1);
-var es_default = import_lib.default;
-
-// src/markdown/code.ts
-var import_obsidian6 = require("obsidian");
-
-// src/markdown/math.ts
-var import_obsidian5 = require("obsidian");
-var inlineRule = /^(\${1,2})(?!\$)((?:\\.|[^\\\n])*?(?:\\.|[^\\\n\$]))\1/;
-var blockRule = /^(\${1,2})\n((?:\\[^]|[^\\])+?)\n\1(?:\n|$)/;
-var svgCache = /* @__PURE__ */ new Map();
-function cleanMathCache() {
-  svgCache.clear();
-}
-var MathRendererQueue = class {
-  constructor() {
-    this.queue = [];
-    this.isProcessing = false;
-    this.host = "https://obplugin.sunboshi.tech";
-    this.mathIndex = 0;
-  }
-  // 静态方法，用于获取实例
-  static getInstance() {
-    if (!MathRendererQueue.instance) {
-      MathRendererQueue.instance = new MathRendererQueue();
-    }
-    return MathRendererQueue.instance;
-  }
-  getMathSVG(expression, inline2, type, callback) {
-    const req = () => {
-      return new Promise((resolve, reject) => {
-        let path = "";
-        if (type === "asciimath") {
-          path = "/math/am";
-        } else {
-          path = "/math/tex";
-        }
-        const url = `${this.host}${path}`;
-        (0, import_obsidian5.requestUrl)({
-          url,
-          method: "POST",
-          contentType: "application/json",
-          headers: {
-            authkey: NMPSettings.getInstance().authKey
-          },
-          body: JSON.stringify({
-            expression,
-            inline: inline2
-          })
-        }).then((res) => {
-          let svg = "";
-          if (res.status === 200) {
-            svg = res.text;
-          } else {
-            console.error("render error: " + res.json.msg);
-            svg = "\u6E32\u67D3\u5931\u8D25";
-          }
-          callback(svg);
-          resolve();
-        }).catch((err) => {
-          console.log(err.msg);
-          const svg = "\u6E32\u67D3\u5931\u8D25";
-          callback(svg);
-          resolve();
-        });
-      });
-    };
-    this.enqueue(req);
-  }
-  // 添加请求到队列
-  enqueue(request) {
-    this.queue.push(request);
-    this.processQueue();
-  }
-  // 处理队列中的请求
-  async processQueue() {
-    if (this.isProcessing) {
-      return;
-    }
-    this.isProcessing = true;
-    while (this.queue.length > 0) {
-      const request = this.queue.shift();
-      if (request) {
-        try {
-          await request();
-        } catch (error) {
-          console.error("Request failed:", error);
-        }
-      }
-    }
-    this.isProcessing = false;
-  }
-  generateId() {
-    this.mathIndex += 1;
-    return `math-id-${this.mathIndex}`;
-  }
-  render(token, inline2, type, callback) {
-    if (!NMPSettings.getInstance().isAuthKeyVaild()) {
-      return "<span>\u6CE8\u518C\u7801\u65E0\u6548\u6216\u5DF2\u8FC7\u671F</span>";
-    }
-    const id = this.generateId();
-    let svg = "\u6E32\u67D3\u4E2D";
-    const expression = token.text;
-    if (svgCache.has(token.text)) {
-      svg = svgCache.get(expression);
-    } else {
-      this.getMathSVG(expression, inline2, type, (svg2) => {
-        svgCache.set(expression, svg2);
-        callback.updateElementByID(id, svg2);
-      });
-    }
-    let className = inline2 ? "inline-math-svg" : "block-math-svg";
-    return `<span id="${id}" class="${className}">${svg}</span>`;
-  }
-};
-var MathRenderer = class extends Extension {
-  renderer(token, inline2, type = "") {
-    if (type === "") {
-      type = this.settings.math;
-    }
-    return MathRendererQueue.getInstance().render(token, inline2, type, this.callback);
-  }
-  markedExtension() {
-    return {
-      extensions: [
-        this.inlineMath(),
-        this.blockMath()
-      ]
-    };
-  }
-  inlineMath() {
-    return {
-      name: "InlineMath",
-      level: "inline",
-      start(src) {
-        let index;
-        let indexSrc = src;
-        while (indexSrc) {
-          index = indexSrc.indexOf("$");
-          if (index === -1) {
-            return;
-          }
-          const possibleKatex = indexSrc.substring(index);
-          if (possibleKatex.match(inlineRule)) {
-            return index;
-          }
-          indexSrc = indexSrc.substring(index + 1).replace(/^\$+/, "");
-        }
-      },
-      tokenizer(src, tokens) {
-        const match = src.match(inlineRule);
-        if (match) {
-          return {
-            type: "InlineMath",
-            raw: match[0],
-            text: match[2].trim(),
-            displayMode: match[1].length === 2
-          };
-        }
-      },
-      renderer: (token) => {
-        return this.renderer(token, true);
-      }
-    };
-  }
-  blockMath() {
-    return {
-      name: "BlockMath",
-      level: "block",
-      tokenizer(src) {
-        const match = src.match(blockRule);
-        if (match) {
-          return {
-            type: "BlockMath",
-            raw: match[0],
-            text: match[2].trim(),
-            displayMode: match[1].length === 2
-          };
-        }
-      },
-      renderer: (token) => {
-        return this.renderer(token, false);
-      }
-    };
-  }
-};
-
-// src/markdown/code.ts
-var CardDataManager = class {
-  constructor() {
-    this.cardData = /* @__PURE__ */ new Map();
-  }
-  // 静态方法，用于获取实例
-  static getInstance() {
-    if (!CardDataManager.instance) {
-      CardDataManager.instance = new CardDataManager();
-    }
-    return CardDataManager.instance;
-  }
-  setCardData(id, cardData) {
-    this.cardData.set(id, cardData);
-  }
-  cleanup() {
-    this.cardData.clear();
-  }
-  restoreCard(html2) {
-    for (const [key, value] of this.cardData.entries()) {
-      const exp = `<section[^>]*\\sdata-id="${key}"[^>]*>(.*?)<\\/section>`;
-      const regex = new RegExp(exp, "gs");
-      if (!regex.test(html2)) {
-        console.error("\u672A\u80FD\u6B63\u786E\u66FF\u6362\u516C\u4F17\u53F7\u5361\u7247");
-      }
-      html2 = html2.replace(regex, value);
-    }
-    return html2;
-  }
-};
-var MermaidSectionClassName = "note-mermaid";
-var MermaidImgClassName = "note-mermaid-img";
-var CodeRenderer = class extends Extension {
-  async prepare() {
-    this.mermaidIndex = 0;
-  }
-  static srcToBlob(src) {
-    const base64 = src.split(",")[1];
-    const byteCharacters = atob(base64);
-    const byteNumbers = new Array(byteCharacters.length);
-    for (let i = 0; i < byteCharacters.length; i++) {
-      byteNumbers[i] = byteCharacters.charCodeAt(i);
-    }
-    const byteArray = new Uint8Array(byteNumbers);
-    return new Blob([byteArray], { type: "image/png" });
-  }
-  static async uploadMermaidImages(root, token) {
-    const imgs = root.querySelectorAll("." + MermaidImgClassName);
-    for (let img of imgs) {
-      const src = img.getAttribute("src");
-      if (!src)
-        continue;
-      if (src.startsWith("http"))
-        continue;
-      const blob = CodeRenderer.srcToBlob(img.getAttribute("src"));
-      const name = img.id + ".png";
-      const res = await UploadImageToWx(blob, name, token);
-      if (res.errcode != 0) {
-        const msg = `\u4E0A\u4F20\u56FE\u7247\u5931\u8D25: ${res.errcode} ${res.errmsg}`;
-        new import_obsidian6.Notice(msg);
-        console.error(msg);
-        continue;
-      }
-      const url = res.url;
-      img.setAttribute("src", url);
-    }
-  }
-  codeRenderer(code, infostring) {
-    var _a;
-    const lang = (_a = (infostring || "").match(/^\S*/)) == null ? void 0 : _a[0];
-    code = code.replace(/\n$/, "") + "\n";
-    let codeSection = "";
-    if (this.settings.lineNumber) {
-      const lines = code.split("\n");
-      let liItems = "";
-      let count = 1;
-      while (count < lines.length) {
-        liItems = liItems + `<li>${count}</li>`;
-        count = count + 1;
-      }
-      codeSection = '<section class="code-section"><ul>' + liItems + "</ul>";
-    } else {
-      codeSection = '<section class="code-section">';
-    }
-    if (!lang) {
-      return codeSection + "<pre><code>" + code + "</code></pre></section>\n";
-    }
-    return codeSection + '<pre><code class="hljs language-' + lang + '">' + code + "</code></pre></section>\n";
-  }
-  static getMathType(lang) {
-    if (!lang)
-      return null;
-    let l = lang.toLowerCase();
-    l = l.trim();
-    if (l === "am" || l === "asciimath")
-      return "asciimath";
-    if (l === "latex" || l === "tex")
-      return "latex";
-    return null;
-  }
-  parseCard(htmlString) {
-    const id = /data-id="([^"]+)"/;
-    const headimgRegex = /data-headimg="([^"]+)"/;
-    const nicknameRegex = /data-nickname="([^"]+)"/;
-    const signatureRegex = /data-signature="([^"]+)"/;
-    const idMatch = htmlString.match(id);
-    const headimgMatch = htmlString.match(headimgRegex);
-    const nicknameMatch = htmlString.match(nicknameRegex);
-    const signatureMatch = htmlString.match(signatureRegex);
-    return {
-      id: idMatch ? idMatch[1] : "",
-      headimg: headimgMatch ? headimgMatch[1] : "",
-      nickname: nicknameMatch ? nicknameMatch[1] : "\u516C\u4F17\u53F7\u540D\u79F0",
-      signature: signatureMatch ? signatureMatch[1] : "\u516C\u4F17\u53F7\u4ECB\u7ECD"
-    };
-  }
-  renderCard(token) {
-    const { id, headimg, nickname, signature } = this.parseCard(token.text);
-    if (id === "") {
-      return "<span>\u516C\u4F17\u53F7\u5361\u7247\u6570\u636E\u9519\u8BEF\uFF0C\u6CA1\u6709id</span>";
-    }
-    CardDataManager.getInstance().setCardData(id, token.text);
-    return `<section data-id="${id}" class="note-mpcard-wrapper"><div class="note-mpcard-content"><img class="note-mpcard-headimg" width="54" height="54" src="${headimg}"></img><div class="note-mpcard-info"><div class="note-mpcard-nickname">${nickname}</div><div class="note-mpcard-signature">${signature}</div></div></div><div class="note-mpcard-foot">\u516C\u4F17\u53F7</div></section>`;
-  }
-  renderMermaid(token) {
-    try {
-      const meraidIndex = this.mermaidIndex;
-      const containerId = `mermaid-${meraidIndex}`;
-      this.callback.cacheElement("mermaid", containerId, token.raw);
-      this.mermaidIndex += 1;
-      return `<section id="${containerId}" class="${MermaidSectionClassName}"></section>`;
-    } catch (error) {
-      console.error(error.message);
-      return "<span>mermaid\u6E32\u67D3\u5931\u8D25</span>";
-    }
-  }
-  markedExtension() {
-    return {
-      extensions: [{
-        name: "code",
-        level: "block",
-        renderer: (token) => {
-          var _a;
-          if (this.settings.isAuthKeyVaild()) {
-            const type = CodeRenderer.getMathType((_a = token.lang) != null ? _a : "");
-            if (type) {
-              return MathRendererQueue.getInstance().render(token, false, type, this.callback);
-            }
-            if (token.lang && token.lang.trim().toLocaleLowerCase() == "mermaid") {
-              return this.renderMermaid(token);
-            }
-          }
-          if (token.lang && token.lang.trim().toLocaleLowerCase() == "mpcard") {
-            return this.renderCard(token);
-          }
-          return this.codeRenderer(token.text, token.lang);
-        }
-      }]
-    };
-  }
-};
-
-// src/markdown/code-highlight.ts
-var CodeHighlight = class extends Extension {
-  markedExtension() {
-    return markedHighlight({
-      langPrefix: "hljs language-",
-      highlight(code, lang, info) {
-        const type = CodeRenderer.getMathType(lang);
-        if (type)
-          return code;
-        if (lang && lang.trim().toLocaleLowerCase() == "mpcard")
-          return code;
-        if (lang && lang.trim().toLocaleLowerCase() == "mermaid")
-          return code;
-        if (lang && es_default.getLanguage(lang)) {
-          try {
-            const result = es_default.highlight(code, { language: lang });
-            return result.value;
-          } catch (err) {
-          }
-        }
-        try {
-          const result = es_default.highlightAuto(code);
-          return result.value;
-        } catch (err) {
-        }
-        return "";
-      }
-    });
   }
 };
 
@@ -69765,648 +70533,6 @@ var LinkRenderer = class extends Extension {
   }
 };
 
-// src/markdown/local-file.ts
-var import_obsidian7 = require("obsidian");
-var LocalFileRegex = /^!\[\[(.*?)\]\]/;
-var LocalImageManager = class {
-  constructor() {
-    this.images = /* @__PURE__ */ new Map();
-  }
-  // 静态方法，用于获取实例
-  static getInstance() {
-    if (!LocalImageManager.instance) {
-      LocalImageManager.instance = new LocalImageManager();
-    }
-    return LocalImageManager.instance;
-  }
-  setImage(path, info) {
-    if (!this.images.has(path)) {
-      this.images.set(path, info);
-    }
-  }
-  isWebp(file) {
-    if (file instanceof import_obsidian7.TFile) {
-      return file.extension.toLowerCase() === "webp";
-    }
-    const name = file.toLowerCase();
-    return name.endsWith(".webp");
-  }
-  async uploadLocalImage(token, vault, type = "") {
-    const keys = this.images.keys();
-    await PrepareImageLib();
-    const result = [];
-    for (let key of keys) {
-      const value = this.images.get(key);
-      if (value == null)
-        continue;
-      if (value.url != null)
-        continue;
-      const file = vault.getFileByPath(value.filePath);
-      if (file == null)
-        continue;
-      let fileData = await vault.readBinary(file);
-      let name = file.name;
-      if (this.isWebp(file)) {
-        if (IsImageLibReady()) {
-          fileData = WebpToJPG(fileData);
-          name = name.toLowerCase().replace(".webp", ".jpg");
-        } else {
-          console.error("wasm not ready for webp");
-        }
-      }
-      const res = await UploadImageToWx(new Blob([fileData]), name, token, type);
-      if (res.errcode != 0) {
-        const msg = `\u4E0A\u4F20\u56FE\u7247\u5931\u8D25: ${res.errcode} ${res.errmsg}`;
-        new import_obsidian7.Notice(msg);
-        console.error(msg);
-      }
-      value.url = res.url;
-      result.push(res);
-    }
-    return result;
-  }
-  checkImageExt(filename) {
-    const name = filename.toLowerCase();
-    if (name.endsWith(".jpg") || name.endsWith(".jpeg") || name.endsWith(".png") || name.endsWith(".gif") || name.endsWith(".bmp") || name.endsWith(".tiff") || name.endsWith(".svg") || name.endsWith(".webp")) {
-      return true;
-    }
-    return false;
-  }
-  getImageNameFromUrl(url, type) {
-    try {
-      const urlObj = new URL(url);
-      const pathname = urlObj.pathname;
-      let filename = pathname.split("/").pop() || "";
-      filename = decodeURIComponent(filename);
-      if (!this.checkImageExt(filename)) {
-        filename = filename + this.getImageExt(type);
-      }
-      return filename;
-    } catch (e2) {
-      const queryIndex = url.indexOf("?");
-      if (queryIndex !== -1) {
-        url = url.substring(0, queryIndex);
-      }
-      return url.split("/").pop() || "";
-    }
-  }
-  getImageExtFromBlob(blob) {
-    const mimeToExt = {
-      "image/jpeg": ".jpg",
-      "image/jpg": ".jpg",
-      "image/png": ".png",
-      "image/gif": ".gif",
-      "image/bmp": ".bmp",
-      "image/webp": ".webp",
-      "image/svg+xml": ".svg",
-      "image/tiff": ".tiff"
-    };
-    const mimeType = blob.type.toLowerCase();
-    return mimeToExt[mimeType] || "";
-  }
-  base64ToBlob(src) {
-    const items = src.split(",");
-    if (items.length != 2) {
-      throw new Error("base64\u683C\u5F0F\u9519\u8BEF");
-    }
-    const mineType = items[0].replace("data:", "");
-    const base64 = items[1];
-    const byteCharacters = atob(base64);
-    const byteNumbers = new Array(byteCharacters.length);
-    for (let i = 0; i < byteCharacters.length; i++) {
-      byteNumbers[i] = byteCharacters.charCodeAt(i);
-    }
-    const byteArray = new Uint8Array(byteNumbers);
-    return { blob: new Blob([byteArray], { type: mineType }), ext: this.getImageExt(mineType) };
-  }
-  async uploadImageFromUrl(url, token, type = "") {
-    try {
-      const rep = await (0, import_obsidian7.requestUrl)(url);
-      await PrepareImageLib();
-      let data = rep.arrayBuffer;
-      let blob = new Blob([data]);
-      let filename = this.getImageNameFromUrl(url, rep.headers["content-type"]);
-      if (filename == "" || filename == null) {
-        filename = "remote_img" + this.getImageExtFromBlob(blob);
-      }
-      if (this.isWebp(filename)) {
-        if (IsImageLibReady()) {
-          data = WebpToJPG(data);
-          blob = new Blob([data]);
-          filename = filename.toLowerCase().replace(".webp", ".jpg");
-        } else {
-          console.error("wasm not ready for webp");
-        }
-      }
-      return await UploadImageToWx(blob, filename, token, type);
-    } catch (e2) {
-      console.error(e2);
-      throw new Error("\u4E0A\u4F20\u56FE\u7247\u5931\u8D25:" + e2.message + "|" + url);
-    }
-  }
-  getImageExt(type) {
-    const mimeToExt = {
-      "image/jpeg": ".jpg",
-      "image/jpg": ".jpg",
-      "image/png": ".png",
-      "image/gif": ".gif",
-      "image/bmp": ".bmp",
-      "image/webp": ".webp",
-      "image/svg+xml": ".svg",
-      "image/tiff": ".tiff"
-    };
-    return mimeToExt[type] || ".jpg";
-  }
-  getMimeType(ext) {
-    const extToMime = {
-      ".jpg": "image/jpeg",
-      ".jpeg": "image/jpeg",
-      ".png": "image/png",
-      ".gif": "image/gif",
-      ".bmp": "image/bmp",
-      ".webp": "image/webp",
-      ".svg": "image/svg+xml",
-      ".tiff": "image/tiff"
-    };
-    return extToMime[ext.toLowerCase()] || "image/jpeg";
-  }
-  async uploadRemoteImage(root, token, type = "") {
-    const images = root.getElementsByTagName("img");
-    const result = [];
-    for (let i = 0; i < images.length; i++) {
-      const img = images[i];
-      if (img.src.includes("mmbiz.qpic.cn"))
-        continue;
-      if (img.src.startsWith("http://localhost/") && import_obsidian7.Platform.isMobileApp) {
-        continue;
-      }
-      if (img.src.startsWith("http")) {
-        const res = await this.uploadImageFromUrl(img.src, token, type);
-        if (res.errcode != 0) {
-          const msg = `\u4E0A\u4F20\u56FE\u7247\u5931\u8D25: ${img.src} ${res.errcode} ${res.errmsg}`;
-          new import_obsidian7.Notice(msg);
-          console.error(msg);
-        }
-        const info = {
-          resUrl: img.src,
-          filePath: "",
-          url: res.url
-        };
-        this.images.set(img.src, info);
-        result.push(res);
-      } else if (img.src.startsWith("data:image/")) {
-        const { blob, ext } = this.base64ToBlob(img.src);
-        if (!img.id) {
-          img.id = `local-img-${i}`;
-        }
-        const name = img.id + ext;
-        const res = await UploadImageToWx(blob, name, token);
-        if (res.errcode != 0) {
-          const msg = `\u4E0A\u4F20\u56FE\u7247\u5931\u8D25: ${res.errcode} ${res.errmsg}`;
-          new import_obsidian7.Notice(msg);
-          console.error(msg);
-          continue;
-        }
-        const info = {
-          resUrl: "#" + img.id,
-          filePath: "",
-          url: res.url
-        };
-        this.images.set("#" + img.id, info);
-        result.push(res);
-      }
-    }
-    return result;
-  }
-  replaceImages(root) {
-    const images = root.getElementsByTagName("img");
-    for (let i = 0; i < images.length; i++) {
-      const img = images[i];
-      let value = this.images.get(img.src);
-      if (value == null) {
-        if (!img.id) {
-          console.error("miss image id, " + img.src);
-          continue;
-        }
-        value = this.images.get("#" + img.id);
-      }
-      if (value == null)
-        continue;
-      if (value.url == null)
-        continue;
-      img.setAttribute("src", value.url);
-    }
-  }
-  arrayBufferToBase64(buffer) {
-    let binary = "";
-    const bytes = new Uint8Array(buffer);
-    const len = bytes.byteLength;
-    for (let i = 0; i < len; i++) {
-      binary += String.fromCharCode(bytes[i]);
-    }
-    return btoa(binary);
-  }
-  async localImagesToBase64(vault) {
-    const keys = this.images.keys();
-    const result = /* @__PURE__ */ new Map();
-    for (let key of keys) {
-      const value = this.images.get(key);
-      if (value == null)
-        continue;
-      const file = vault.getFileByPath(value.filePath);
-      if (file == null)
-        continue;
-      let fileData = await vault.readBinary(file);
-      const base64 = this.arrayBufferToBase64(fileData);
-      const mimeType = this.getMimeType(file.extension);
-      const data = `data:${mimeType};base64,${base64}`;
-      result.set(value.resUrl, data);
-    }
-    return result;
-  }
-  async downloadRemoteImage(url) {
-    try {
-      const rep = await (0, import_obsidian7.requestUrl)(url);
-      let data = rep.arrayBuffer;
-      let blob = new Blob([data]);
-      let ext = this.getImageExtFromBlob(blob);
-      if (ext == "" || ext == null) {
-        const filename = this.getImageNameFromUrl(url, rep.headers["content-type"]);
-        ext = "." + filename.split(".").pop() || "jpg";
-      }
-      const base64 = this.arrayBufferToBase64(data);
-      const mimeType = this.getMimeType(ext);
-      return `data:${mimeType};base64,${base64}`;
-    } catch (e2) {
-      console.error(e2);
-      return "";
-    }
-  }
-  async remoteImagesToBase64(root) {
-    const images = root.getElementsByTagName("img");
-    const result = /* @__PURE__ */ new Map();
-    for (let i = 0; i < images.length; i++) {
-      const img = images[i];
-      if (!img.src.startsWith("http"))
-        continue;
-      const base64 = await this.downloadRemoteImage(img.src);
-      if (base64 == "")
-        continue;
-      result.set(img.src, base64);
-    }
-    return result;
-  }
-  async embleImages(root, vault) {
-    const localImages = await this.localImagesToBase64(vault);
-    const remoteImages = await this.remoteImagesToBase64(root);
-    const result = root.cloneNode(true);
-    const images = result.getElementsByTagName("img");
-    for (let i = 0; i < images.length; i++) {
-      const img = images[i];
-      if (img.src.startsWith("http")) {
-        const base64 = remoteImages.get(img.src);
-        if (base64 != null) {
-          img.setAttribute("src", base64);
-        }
-      } else {
-        const base64 = localImages.get(img.src);
-        if (base64 != null) {
-          img.setAttribute("src", base64);
-        }
-      }
-    }
-    return result.innerHTML;
-  }
-  async cleanup() {
-    this.images.clear();
-  }
-};
-var _LocalFile = class extends Extension {
-  constructor() {
-    super(...arguments);
-    this.index = 0;
-  }
-  generateId() {
-    this.index += 1;
-    return `fid-${this.index}`;
-  }
-  getImagePath(path) {
-    const res = this.assetsManager.getResourcePath(path);
-    if (res == null) {
-      console.error("\u627E\u4E0D\u5230\u6587\u4EF6\uFF1A" + path);
-      return "";
-    }
-    const info = {
-      resUrl: res.resUrl,
-      filePath: res.filePath,
-      url: null
-    };
-    LocalImageManager.getInstance().setImage(res.resUrl, info);
-    return res.resUrl;
-  }
-  isImage(file) {
-    file = file.toLowerCase();
-    return file.endsWith(".png") || file.endsWith(".jpg") || file.endsWith(".jpeg") || file.endsWith(".gif") || file.endsWith(".bmp") || file.endsWith(".webp");
-  }
-  parseImageLink(link2) {
-    if (link2.includes("|")) {
-      const parts = link2.split("|");
-      const path = parts[0];
-      if (!this.isImage(path))
-        return null;
-      let width = null;
-      let height = null;
-      if (parts.length == 2) {
-        const size = parts[1].toLowerCase().split("x");
-        width = parseInt(size[0]);
-        if (size.length == 2 && size[1] != "") {
-          height = parseInt(size[1]);
-        }
-      }
-      return { path, width, height };
-    }
-    if (this.isImage(link2)) {
-      return { path: link2, width: null, height: null };
-    }
-    return null;
-  }
-  getHeaderLevel(line) {
-    const match = line.trimStart().match(/^#{1,6}/);
-    if (match) {
-      return match[0].length;
-    }
-    return 0;
-  }
-  async getFileContent(file, header, block2) {
-    const content = await this.app.vault.adapter.read(file.path);
-    if (header == null && block2 == null) {
-      return content;
-    }
-    let result = "";
-    const lines = content.split("\n");
-    if (header) {
-      let level = 0;
-      let append2 = false;
-      for (let line of lines) {
-        if (append2) {
-          if (level == this.getHeaderLevel(line)) {
-            break;
-          }
-          result += line + "\n";
-          continue;
-        }
-        if (!line.trim().startsWith("#"))
-          continue;
-        const items = line.trim().split(" ");
-        if (items.length != 2)
-          continue;
-        if (header.trim() != items[1].trim())
-          continue;
-        if (this.getHeaderLevel(line)) {
-          result += line + "\n";
-          level = this.getHeaderLevel(line);
-          append2 = true;
-        }
-      }
-    }
-    if (block2) {
-      let preline = "";
-      for (let i = 0; i < lines.length; i++) {
-        const line = lines[i];
-        if (line.indexOf(block2) >= 0) {
-          result = line.replace(block2, "");
-          if (result.trim() == "") {
-            for (let j = i - 1; j >= 0; j--) {
-              const l = lines[j];
-              if (l.trim() != "") {
-                result = l;
-                break;
-              }
-            }
-          }
-          break;
-        }
-        preline = line;
-      }
-    }
-    return result;
-  }
-  parseFileLink(link2) {
-    const info = link2.split("|")[0];
-    const items = info.split("#");
-    let path = items[0];
-    let header = null;
-    let block2 = null;
-    if (items.length == 2) {
-      if (items[1].startsWith("^")) {
-        block2 = items[1];
-      } else {
-        header = items[1];
-      }
-    }
-    return { path, head: header, block: block2 };
-  }
-  async renderFile(link2, id) {
-    let { path, head: header, block: block2 } = this.parseFileLink(link2);
-    let file = null;
-    if (path === "") {
-      file = this.app.workspace.getActiveFile();
-    } else {
-      if (!path.endsWith(".md")) {
-        path = path + ".md";
-      }
-      file = this.assetsManager.searchFile(path);
-    }
-    if (file == null) {
-      const msg = "\u627E\u4E0D\u5230\u6587\u4EF6\uFF1A" + path;
-      console.error(msg);
-      this.callback.updateElementByID(id, msg);
-      return;
-    }
-    let content = await this.getFileContent(file, header, block2);
-    if (content.startsWith("---")) {
-      content = content.replace(/^(---)$.+?^(---)$.+?/ims, "");
-    }
-    const body = await this.marked.parse(content);
-    this.callback.updateElementByID(id, body);
-  }
-  static async readBlob(src) {
-    return await fetch(src).then((response) => response.blob());
-  }
-  static async getExcalidrawUrl(data) {
-    const url = "https://obplugin.sunboshi.tech/math/excalidraw";
-    const req = await (0, import_obsidian7.requestUrl)({
-      url,
-      method: "POST",
-      contentType: "application/json",
-      headers: {
-        authkey: NMPSettings.getInstance().authKey
-      },
-      body: JSON.stringify({ data })
-    });
-    if (req.status != 200) {
-      console.error(req.status);
-      return null;
-    }
-    return req.json.url;
-  }
-  parseLinkStyle(link2) {
-    let filename = "";
-    let style = 'style="width:100%;height:100%"';
-    let postion = "left";
-    const postions = ["left", "center", "right"];
-    if (link2.includes("|")) {
-      const items = link2.split("|");
-      filename = items[0];
-      let size = "";
-      if (items.length == 2) {
-        if (postions.includes(items[1])) {
-          postion = items[1];
-        } else {
-          size = items[1];
-        }
-      } else if (items.length == 3) {
-        size = items[1];
-        if (postions.includes(items[1])) {
-          size = items[2];
-          postion = items[1];
-        } else {
-          size = items[1];
-          postion = items[2];
-        }
-      }
-      if (size != "") {
-        const sizes = size.split("x");
-        if (sizes.length == 2) {
-          style = `style="width:${sizes[0]}px;height:${sizes[1]}px;"`;
-        } else {
-          style = `style="width:${sizes[0]}px;"`;
-        }
-      }
-    } else {
-      filename = link2;
-    }
-    return { filename, style, postion };
-  }
-  parseExcalidrawLink(link2) {
-    let classname = "note-embed-excalidraw-left";
-    const postions = /* @__PURE__ */ new Map([
-      ["left", "note-embed-excalidraw-left"],
-      ["center", "note-embed-excalidraw-center"],
-      ["right", "note-embed-excalidraw-right"]
-    ]);
-    let { filename, style, postion } = this.parseLinkStyle(link2);
-    classname = postions.get(postion) || classname;
-    if (filename.endsWith("excalidraw") || filename.endsWith("excalidraw.md")) {
-      return { filename, style, classname };
-    }
-    return null;
-  }
-  static async renderExcalidraw(html2) {
-    try {
-      const src = await this.getExcalidrawUrl(html2);
-      let svg = "";
-      if (src === "") {
-        svg = "\u6E32\u67D3\u5931\u8D25";
-        console.log("Failed to get Excalidraw URL");
-      } else {
-        const blob = await this.readBlob(src);
-        if (blob.type === "image/svg+xml") {
-          svg = await blob.text();
-        } else {
-          svg = "\u6682\u4E0D\u652F\u6301" + blob.type;
-        }
-      }
-      return svg;
-    } catch (error) {
-      console.error(error.message);
-      return "\u6E32\u67D3\u5931\u8D25:" + error.message;
-    }
-  }
-  parseSVGLink(link2) {
-    let classname = "note-embed-svg-left";
-    const postions = /* @__PURE__ */ new Map([
-      ["left", "note-embed-svg-left"],
-      ["center", "note-embed-svg-center"],
-      ["right", "note-embed-svg-right"]
-    ]);
-    let { filename, style, postion } = this.parseLinkStyle(link2);
-    classname = postions.get(postion) || classname;
-    return { filename, style, classname };
-  }
-  async renderSVGFile(filename, id) {
-    const file = this.assetsManager.searchFile(filename);
-    if (file == null) {
-      const msg = "\u627E\u4E0D\u5230\u6587\u4EF6\uFF1A" + file;
-      console.error(msg);
-      this.callback.updateElementByID(id, msg);
-      return;
-    }
-    const content = await this.getFileContent(file, null, null);
-    _LocalFile.fileCache.set(filename, content);
-    this.callback.updateElementByID(id, content);
-  }
-  markedExtension() {
-    return { extensions: [{
-      name: "LocalImage",
-      level: "block",
-      start: (src) => {
-        const index = src.indexOf("![[");
-        if (index === -1)
-          return;
-        return index;
-      },
-      tokenizer: (src) => {
-        const matches = src.match(LocalFileRegex);
-        if (matches == null)
-          return;
-        const token = {
-          type: "LocalImage",
-          raw: matches[0],
-          href: matches[1],
-          text: matches[1]
-        };
-        return token;
-      },
-      renderer: (token) => {
-        let item = this.parseImageLink(token.href);
-        if (item) {
-          const src = this.getImagePath(item.path);
-          const width = item.width ? `width="${item.width}"` : "";
-          const height = item.height ? `height="${item.height}"` : "";
-          return `<img src="${src}" alt="${token.text}" ${width} ${height} />`;
-        }
-        const info = this.parseExcalidrawLink(token.href);
-        if (info) {
-          if (!NMPSettings.getInstance().isAuthKeyVaild()) {
-            return "<span>\u8BF7\u8BBE\u7F6E\u6CE8\u518C\u7801</span>";
-          }
-          const id2 = this.generateId();
-          this.callback.cacheElement("excalidraw", id2, token.raw);
-          return `<span class="${info.classname}"><span class="note-embed-excalidraw" id="${id2}" ${info.style}></span></span>`;
-        }
-        if (token.href.endsWith(".svg") || token.href.includes(".svg|")) {
-          const info2 = this.parseSVGLink(token.href);
-          const id2 = this.generateId();
-          let svg = "\u6E32\u67D3\u4E2D";
-          if (_LocalFile.fileCache.has(info2.filename)) {
-            svg = _LocalFile.fileCache.get(info2.filename) || "\u6E32\u67D3\u5931\u8D25";
-          } else {
-            this.renderSVGFile(info2.filename, id2);
-          }
-          return `<span class="${info2.classname}"><span class="note-embed-svg" id="${id2}" ${info2.style}>${svg}</span></span>`;
-        }
-        const id = this.generateId();
-        this.renderFile(token.href, id);
-        const tag2 = this.callback.settings.embedStyle === "quote" ? "blockquote" : "section";
-        return `<${tag2} class="note-embed-file" id="${id}">\u6E32\u67D3\u4E2D</${tag2}>`;
-      }
-    }] };
-  }
-};
-var LocalFile = _LocalFile;
-LocalFile.fileCache = /* @__PURE__ */ new Map();
-
 // src/markdown/text-highlight.ts
 var highlightRegex = /^==(.*?)==/;
 var TextHighlight = class extends Extension {
@@ -70541,25 +70667,223 @@ var Topic = class extends Extension {
   }
 };
 
+// src/markdown/heading.ts
+var HeadingRenderer = class extends Extension {
+  constructor() {
+    super(...arguments);
+    this.index = [0, 0, 0, 0];
+  }
+  async prepare() {
+    this.index = [0, 0, 0, 0];
+    this.expertSettings = AssetsManager.getInstance().expertSettings;
+    this.headingSettings = [void 0, void 0, void 0, void 0];
+    if (!this.expertSettings.render) {
+      return;
+    }
+    if (this.expertSettings.render.h1) {
+      this.headingSettings[1] = this.expertSettings.render.h1;
+    }
+    if (this.expertSettings.render.h2) {
+      this.headingSettings[2] = this.expertSettings.render.h2;
+    }
+    if (this.expertSettings.render.h3) {
+      this.headingSettings[3] = this.expertSettings.render.h3;
+    }
+  }
+  async renderWithTemplate(token, template) {
+    const content = await this.marked.parseInline(token.text);
+    return template.replace("{content}", content);
+  }
+  async renderWithWidgetId(token, widgetId) {
+    const authkey = this.settings.authKey;
+    const content = await this.marked.parseInline(token.text);
+    const params = JSON.stringify({
+      id: `${widgetId}`,
+      title: content
+    });
+    return await wxWidget(authkey, params);
+  }
+  async renderWithWidget(token, widgetId, counter, len, style = void 0) {
+    const authkey = this.settings.authKey;
+    let title = token.text;
+    if (counter === void 0) {
+      counter = false;
+    }
+    if (len === void 0) {
+      len = 1;
+    }
+    if (style === void 0) {
+      style = /* @__PURE__ */ new Map();
+    }
+    if (counter) {
+      title = `${this.index[token.depth]}`;
+      if (title.length < len) {
+        title = title.padStart(len, "0");
+      }
+    }
+    const content = await this.marked.parseInline(token.text);
+    const params = JSON.stringify({
+      id: `${widgetId}`,
+      title,
+      style,
+      content: "<p>" + content + "</p>"
+    });
+    return await wxWidget(authkey, params);
+  }
+  markedExtension() {
+    return {
+      async: true,
+      walkTokens: async (token) => {
+        if (token.type !== "heading") {
+          return;
+        }
+        const setting = this.headingSettings[token.depth];
+        this.index[token.depth] += 1;
+        if (setting) {
+          if (typeof setting === "string") {
+            token.html = await this.renderWithTemplate(token, setting);
+          } else if (typeof setting === "number") {
+            token.html = await this.renderWithWidgetId(token, setting);
+          } else {
+            const { id, counter, len, style } = setting;
+            token.html = await this.renderWithWidget(token, id, counter, len, style);
+          }
+          return;
+        }
+        const body = await this.marked.parseInline(token.text);
+        token.html = `<h${token.depth}>${body}</h${token.depth}>`;
+      },
+      extensions: [{
+        name: "heading",
+        level: "block",
+        renderer: (token) => {
+          return token.html;
+        }
+      }]
+    };
+  }
+};
+
+// src/markdown/footnote.ts
+var refRule = /^\[\^([^\]]+)\]/;
+var defRule = /^ *\[\^([^\]]+)\]:/;
+var FootnoteRenderer = class extends Extension {
+  constructor() {
+    super(...arguments);
+    this.allDefs = [];
+    this.defCounter = 0;
+  }
+  async prepare() {
+    this.allDefs = [];
+    this.defCounter = 0;
+  }
+  async postprocess(html2) {
+    if (this.allDefs.length == 0) {
+      return html2;
+    }
+    let body = "";
+    for (const def2 of this.allDefs) {
+      const { label, content } = def2;
+      const html3 = await this.marked.parse(content);
+      const id = `fn-${label}`;
+      body += `<li id="${id}">${html3}</li>`;
+    }
+    return html2 + `<section class="footnotes"><hr><ol>${body}</ol></section>`;
+  }
+  markedExtension() {
+    return {
+      extensions: [
+        {
+          name: "FootnoteRef",
+          level: "inline",
+          start(src) {
+            const index = src.indexOf("[^");
+            return index > 0 ? index : -1;
+          },
+          tokenizer: (src) => {
+            const match = src.match(refRule);
+            if (match) {
+              return {
+                type: "FootnoteRef",
+                raw: match[0],
+                text: match[1]
+              };
+            }
+          },
+          renderer: (token) => {
+            this.defCounter += 1;
+            const id = `fnref-${this.defCounter}`;
+            return `<sup id="${id}">${this.defCounter}</sup>`;
+          }
+        },
+        {
+          name: "FootnoteDef",
+          level: "block",
+          tokenizer: (src) => {
+            const match = src.match(defRule);
+            if (match) {
+              const label = match[1].trim();
+              const end = src.indexOf("\n");
+              const raw = end === -1 ? src : src.substring(0, end + 1);
+              const content = raw.substring(match[0].length);
+              this.allDefs.push({ label, content });
+              return {
+                type: "FootnoteDef",
+                raw,
+                text: content
+              };
+            }
+          },
+          renderer: (token) => {
+            return "";
+          }
+        }
+      ]
+    };
+  }
+};
+
+// src/markdown/empty-line.ts
+var EmptyLineRenderer = class extends Extension {
+  markedExtension() {
+    return {
+      extensions: [{
+        name: "emptyline",
+        level: "block",
+        tokenizer(src) {
+          const match = /^\n\n+/.exec(src);
+          if (match) {
+            console.log("mathced src: ", src);
+            return {
+              type: "emptyline",
+              raw: match[0]
+            };
+          }
+        },
+        renderer: (token) => {
+          return "<p><br></p>".repeat(token.raw.length - 1);
+        }
+      }]
+    };
+  }
+};
+
 // src/markdown/parser.ts
 var markedOptiones = {
   gfm: true,
   breaks: true
 };
 var customRenderer = {
-  heading(text, level, raw) {
-    return `<h${level}>${text}</h${level}>`;
-  },
   hr() {
     return "<hr>";
   },
   list(body, ordered, start) {
     const type = ordered ? "ol" : "ul";
     const startatt = ordered && start !== 1 ? ' start="' + start + '"' : "";
-    return "<" + type + startatt + ">" + body + "</" + type + ">";
+    return "<" + type + startatt + ' class="list-paddingleft-1">' + body + "</" + type + ">";
   },
   listitem(text, task, checked) {
-    return `<li>${text}</li>`;
+    return `<li><section><span data-leaf="">${text}<span></section></li>`;
   },
   image(href, title, text) {
     const cleanHref = cleanUrl(href);
@@ -70574,6 +70898,7 @@ var customRenderer = {
         const info = {
           resUrl: res.resUrl,
           filePath: res.filePath,
+          media_id: null,
           url: null
         };
         LocalImageManager.getInstance().setImage(res.resUrl, info);
@@ -70609,7 +70934,6 @@ var MarkedParser = class {
     const assetsManager = AssetsManager.getInstance();
     this.extensions.push(new LocalFile(app, settings, assetsManager, callback));
     this.extensions.push(new Blockquote(app, settings, assetsManager, callback));
-    this.extensions.push(new CodeHighlight(app, settings, assetsManager, callback));
     this.extensions.push(new EmbedBlockMark(app, settings, assetsManager, callback));
     this.extensions.push(new SVGIcon(app, settings, assetsManager, callback));
     this.extensions.push(new LinkRenderer(app, settings, assetsManager, callback));
@@ -70617,6 +70941,11 @@ var MarkedParser = class {
     this.extensions.push(new CodeRenderer(app, settings, assetsManager, callback));
     this.extensions.push(new Comment(app, settings, assetsManager, callback));
     this.extensions.push(new Topic(app, settings, assetsManager, callback));
+    this.extensions.push(new HeadingRenderer(app, settings, assetsManager, callback));
+    this.extensions.push(new FootnoteRenderer(app, settings, assetsManager, callback));
+    if (settings.enableEmptyLine) {
+      this.extensions.push(new EmptyLineRenderer(app, settings, assetsManager, callback));
+    }
     if (settings.isAuthKeyVaild()) {
       this.extensions.push(new MathRenderer(app, settings, assetsManager, callback));
     }
@@ -71404,54 +71733,23 @@ async function toPng(node, options2 = {}) {
   return canvas.toDataURL();
 }
 
-// src/note-preview.ts
-var VIEW_TYPE_NOTE_PREVIEW = "note-preview";
+// src/article-render.ts
 var FRONT_MATTER_REGEX = /^(---)$.+?^(---)$.+?/ims;
-var NotePreview = class extends import_obsidian8.ItemView {
-  constructor(leaf) {
-    super(leaf);
+var ArticleRender = class {
+  constructor(app, itemView, styleEl, articleDiv) {
     this.cachedElements = /* @__PURE__ */ new Map();
-    this.workspace = this.app.workspace;
+    this.app = app;
+    this.itemView = itemView;
+    this.styleEl = styleEl;
+    this.articleDiv = articleDiv;
     this.settings = NMPSettings.getInstance();
     this.assetsManager = AssetsManager.getInstance();
-    this.currentTheme = this.settings.defaultStyle;
-    this.currentHighlight = this.settings.defaultHighlight;
-    this.markedParser = new MarkedParser(this.app, this);
+    this.articleHTML = "";
+    this.title = "";
+    this._currentTheme = "default";
+    this._currentHighlight = "default";
+    this.markedParser = new MarkedParser(app, this);
     this.debouncedRenderMarkdown = debounce(this.renderMarkdown.bind(this), 1e3);
-  }
-  getViewType() {
-    return VIEW_TYPE_NOTE_PREVIEW;
-  }
-  getIcon() {
-    return "clipboard-paste";
-  }
-  getDisplayText() {
-    return "\u7B14\u8BB0\u9884\u89C8";
-  }
-  async onOpen() {
-    this.buildUI();
-    this.listeners = [
-      this.workspace.on("active-leaf-change", () => this.update())
-    ];
-    this.renderMarkdown();
-    uevent("open");
-  }
-  async onClose() {
-    this.listeners.forEach((listener) => this.workspace.offref(listener));
-    LocalFile.fileCache.clear();
-    uevent("close");
-  }
-  onAppIdChanged() {
-    LocalImageManager.getInstance().cleanup();
-    CardDataManager.getInstance().cleanup();
-  }
-  async update() {
-    LocalImageManager.getInstance().cleanup();
-    CardDataManager.getInstance().cleanup();
-    this.renderMarkdown();
-  }
-  errorContent(error) {
-    return '<h1>\u6E32\u67D3\u5931\u8D25!</h1><br/>\u5982\u9700\u5E2E\u52A9\u8BF7\u524D\u5F80&nbsp;&nbsp;<a href="https://github.com/sunbooshi/note-to-mp/issues">https://github.com/sunbooshi/note-to-mp/issues</a>&nbsp;&nbsp;\u53CD\u9988<br/><br/>\u5982\u679C\u65B9\u4FBF\uFF0C\u8BF7\u63D0\u4F9B\u5F15\u53D1\u9519\u8BEF\u7684\u5B8C\u6574Markdown\u5185\u5BB9\u3002<br/><br/><br/>Obsidian\u7248\u672C\uFF1A' + import_obsidian8.apiVersion + `<br/>\u9519\u8BEF\u4FE1\u606F\uFF1A<br/>${error}`;
   }
   set currentTheme(value) {
     this._currentTheme = value;
@@ -71472,42 +71770,6 @@ var NotePreview = class extends import_obsidian8.ItemView {
       return highlight;
     }
     return this._currentHighlight;
-  }
-  set currentAppId(value) {
-    this._currentAppId = value;
-  }
-  get currentAppId() {
-    var _a;
-    const { appid } = this.getMetadata();
-    if (appid) {
-      if (appid.startsWith("wx")) {
-        return appid;
-      } else {
-        return ((_a = this.settings.wxInfo.find((wx) => wx.name === appid)) == null ? void 0 : _a.appid) || "";
-      }
-    }
-    return this._currentAppId;
-  }
-  async renderMarkdown() {
-    try {
-      const af = this.app.workspace.getActiveFile();
-      let md = "";
-      if (af && af.extension.toLocaleLowerCase() === "md") {
-        md = await this.app.vault.adapter.read(af.path);
-        this.title = af.basename;
-      } else {
-        md = "\u6CA1\u6709\u53EF\u6E32\u67D3\u7684\u7B14\u8BB0\u6216\u6587\u4EF6\u4E0D\u652F\u6301\u6E32\u67D3";
-      }
-      if (md.startsWith("---")) {
-        md = md.replace(FRONT_MATTER_REGEX, "");
-      }
-      this.articleHTML = await this.markedParser.parse(md);
-      this.setArticle(this.articleHTML);
-      await this.processCachedElements();
-    } catch (e2) {
-      console.error(e2);
-      this.setArticle(this.errorContent(e2));
-    }
   }
   isOldTheme() {
     const theme = this.assetsManager.getTheme(this.currentTheme);
@@ -71532,6 +71794,9 @@ var NotePreview = class extends import_obsidian8.ItemView {
     this.styleEl.empty();
     this.styleEl.appendChild(document.createTextNode(css2));
   }
+  reloadStyle() {
+    this.setStyle(this.getCSS());
+  }
   getArticleSection() {
     return this.articleDiv.querySelector("#article-section");
   }
@@ -71540,10 +71805,35 @@ var NotePreview = class extends import_obsidian8.ItemView {
     let html2 = applyCSS(content, this.getCSS());
     html2 = html2.replace(/rel="noopener nofollow"/g, "");
     html2 = html2.replace(/target="_blank"/g, "");
+    html2 = html2.replace(/data-leaf=""/g, 'leaf=""');
     return CardDataManager.getInstance().restoreCard(html2);
   }
   getArticleText() {
     return this.articleDiv.innerText.trimStart();
+  }
+  errorContent(error) {
+    return '<h1>\u6E32\u67D3\u5931\u8D25!</h1><br/>\u5982\u9700\u5E2E\u52A9\u8BF7\u524D\u5F80&nbsp;&nbsp;<a href="https://github.com/sunbooshi/note-to-mp/issues">https://github.com/sunbooshi/note-to-mp/issues</a>&nbsp;&nbsp;\u53CD\u9988<br/><br/>\u5982\u679C\u65B9\u4FBF\uFF0C\u8BF7\u63D0\u4F9B\u5F15\u53D1\u9519\u8BEF\u7684\u5B8C\u6574Markdown\u5185\u5BB9\u3002<br/><br/><br/>Obsidian\u7248\u672C\uFF1A' + import_obsidian8.apiVersion + `<br/>\u9519\u8BEF\u4FE1\u606F\uFF1A<br/>${error}`;
+  }
+  async renderMarkdown(af = null) {
+    try {
+      let md = "";
+      if (af && af.extension.toLocaleLowerCase() === "md") {
+        md = await this.app.vault.adapter.read(af.path);
+        this.title = af.basename;
+      } else {
+        md = "\u6CA1\u6709\u53EF\u6E32\u67D3\u7684\u7B14\u8BB0\u6216\u6587\u4EF6\u4E0D\u652F\u6301\u6E32\u67D3";
+      }
+      if (md.startsWith("---")) {
+        md = md.replace(FRONT_MATTER_REGEX, "");
+      }
+      this.articleHTML = await this.markedParser.parse(md);
+      this.setStyle(this.getCSS());
+      this.setArticle(this.articleHTML);
+      await this.processCachedElements();
+    } catch (e2) {
+      console.error(e2);
+      this.setArticle(this.errorContent(e2));
+    }
   }
   getCSS() {
     try {
@@ -71566,201 +71856,6 @@ ${customCSS}`;
     }
     return "";
   }
-  buildMsgView(parent) {
-    this.msgView = parent.createDiv({ cls: "msg-view" });
-    const title = this.msgView.createDiv({ cls: "msg-title" });
-    title.id = "msg-title";
-    title.innerText = "\u52A0\u8F7D\u4E2D...";
-    const okBtn = this.msgView.createEl("button", { cls: "msg-ok-btn" }, async (button) => {
-    });
-    okBtn.id = "msg-ok-btn";
-    okBtn.innerText = "\u786E\u5B9A";
-    okBtn.onclick = async () => {
-      this.msgView.setAttr("style", "display: none;");
-    };
-  }
-  showLoading(msg) {
-    const title = this.msgView.querySelector("#msg-title");
-    title.innerText = msg;
-    const btn = this.msgView.querySelector("#msg-ok-btn");
-    btn.setAttr("style", "display: none;");
-    this.msgView.setAttr("style", "display: flex;");
-  }
-  showMsg(msg) {
-    const title = this.msgView.querySelector("#msg-title");
-    title.innerText = msg;
-    const btn = this.msgView.querySelector("#msg-ok-btn");
-    btn.setAttr("style", "display: block;");
-    this.msgView.setAttr("style", "display: flex;");
-  }
-  buildToolbar(parent) {
-    this.toolbar = parent.createDiv({ cls: "preview-toolbar" });
-    let lineDiv;
-    if (this.settings.wxInfo.length > 1 || import_obsidian8.Platform.isDesktop) {
-      lineDiv = this.toolbar.createDiv({ cls: "toolbar-line" });
-      lineDiv.createDiv({ cls: "style-label" }).innerText = "\u516C\u4F17\u53F7:";
-      const wxSelect = lineDiv.createEl("select", { cls: "style-select" });
-      wxSelect.setAttr("style", "width: 200px");
-      wxSelect.onchange = async () => {
-        this.currentAppId = wxSelect.value;
-        this.onAppIdChanged();
-      };
-      const defautlOp = wxSelect.createEl("option");
-      defautlOp.value = "";
-      defautlOp.text = "\u8BF7\u5728\u8BBE\u7F6E\u91CC\u914D\u7F6E\u516C\u4F17\u53F7";
-      for (let i = 0; i < this.settings.wxInfo.length; i++) {
-        const op = wxSelect.createEl("option");
-        const wx = this.settings.wxInfo[i];
-        op.value = wx.appid;
-        op.text = wx.name;
-        if (i == 0) {
-          op.selected = true;
-          this.currentAppId = wx.appid;
-        }
-      }
-    } else if (this.settings.wxInfo.length > 0) {
-      this.currentAppId = this.settings.wxInfo[0].appid;
-    }
-    lineDiv = this.toolbar.createDiv({ cls: "toolbar-line" });
-    const refreshBtn = lineDiv.createEl("button", { cls: "refresh-button" }, async (button) => {
-      button.setText("\u5237\u65B0");
-    });
-    refreshBtn.onclick = async () => {
-      this.assetsManager.loadCustomCSS();
-      this.setStyle(this.getCSS());
-      await this.renderMarkdown();
-      uevent("refresh");
-    };
-    if (import_obsidian8.Platform.isDesktop) {
-      const copyBtn = lineDiv.createEl("button", { cls: "copy-button" }, async (button) => {
-        button.setText("\u590D\u5236");
-      });
-      copyBtn.onclick = async () => {
-        try {
-          await this.copyArticle();
-          new import_obsidian8.Notice("\u590D\u5236\u6210\u529F\uFF0C\u8BF7\u5230\u516C\u4F17\u53F7\u7F16\u8F91\u5668\u7C98\u8D34\u3002");
-          uevent("copy");
-        } catch (error) {
-          console.error(error);
-          new import_obsidian8.Notice("\u590D\u5236\u5931\u8D25: " + error);
-        }
-      };
-    }
-    const uploadImgBtn = lineDiv.createEl("button", { cls: "copy-button" }, async (button) => {
-      button.setText("\u4E0A\u4F20\u56FE\u7247");
-    });
-    uploadImgBtn.onclick = async () => {
-      await this.uploadImages();
-      uevent("upload");
-    };
-    const postBtn = lineDiv.createEl("button", { cls: "copy-button" }, async (button) => {
-      button.setText("\u53D1\u8349\u7A3F");
-    });
-    postBtn.onclick = async () => {
-      await this.postArticle();
-      uevent("pub");
-    };
-    const imagesBtn = lineDiv.createEl("button", { cls: "copy-button" }, async (button) => {
-      button.setText("\u56FE\u7247/\u6587\u5B57");
-    });
-    imagesBtn.onclick = async () => {
-      await this.postImages();
-      uevent("pub-images");
-    };
-    if (import_obsidian8.Platform.isDesktop && this.settings.isAuthKeyVaild()) {
-      const htmlBtn = lineDiv.createEl("button", { cls: "copy-button" }, async (button) => {
-        button.setText("\u5BFC\u51FAHTML");
-      });
-      htmlBtn.onclick = async () => {
-        await this.exportHTML();
-        uevent("export-html");
-      };
-    }
-    lineDiv = this.toolbar.createDiv({ cls: "toolbar-line" });
-    const coverTitle = lineDiv.createDiv({ cls: "style-label" });
-    coverTitle.innerText = "\u5C01\u9762:";
-    this.useDefaultCover = lineDiv.createEl("input", { cls: "input-style" });
-    this.useDefaultCover.setAttr("type", "radio");
-    this.useDefaultCover.setAttr("name", "cover");
-    this.useDefaultCover.setAttr("value", "default");
-    this.useDefaultCover.setAttr("checked", true);
-    this.useDefaultCover.id = "default-cover";
-    this.useDefaultCover.onchange = async () => {
-      if (this.useDefaultCover.checked) {
-        this.coverEl.setAttr("style", "visibility:hidden;width:0px;");
-      } else {
-        this.coverEl.setAttr("style", "visibility:visible;width:180px;");
-      }
-    };
-    const defaultLable = lineDiv.createEl("label");
-    defaultLable.innerText = "\u9ED8\u8BA4";
-    defaultLable.setAttr("for", "default-cover");
-    this.useLocalCover = lineDiv.createEl("input", { cls: "input-style" });
-    this.useLocalCover.setAttr("type", "radio");
-    this.useLocalCover.setAttr("name", "cover");
-    this.useLocalCover.setAttr("value", "local");
-    this.useLocalCover.id = "local-cover";
-    this.useLocalCover.setAttr("style", "margin-left:20px;");
-    this.useLocalCover.onchange = async () => {
-      if (this.useLocalCover.checked) {
-        this.coverEl.setAttr("style", "visibility:visible;width:180px;");
-      } else {
-        this.coverEl.setAttr("style", "visibility:hidden;width:0px;");
-      }
-    };
-    const localLabel = lineDiv.createEl("label");
-    localLabel.setAttr("for", "local-cover");
-    localLabel.innerText = "\u4E0A\u4F20";
-    this.coverEl = lineDiv.createEl("input", { cls: "upload-input" });
-    this.coverEl.setAttr("type", "file");
-    this.coverEl.setAttr("placeholder", "\u5C01\u9762\u56FE\u7247");
-    this.coverEl.setAttr("accept", ".png, .jpg, .jpeg");
-    this.coverEl.setAttr("name", "cover");
-    this.coverEl.id = "cover-input";
-    if (this.settings.showStyleUI) {
-      lineDiv = this.toolbar.createDiv({ cls: "toolbar-line" });
-      const cssStyle = lineDiv.createDiv({ cls: "style-label" });
-      cssStyle.innerText = "\u6837\u5F0F:";
-      const selectBtn = lineDiv.createEl("select", { cls: "style-select" }, async (sel) => {
-      });
-      selectBtn.onchange = async () => {
-        this.updateStyle(selectBtn.value);
-      };
-      for (let s of this.assetsManager.themes) {
-        const op = selectBtn.createEl("option");
-        op.value = s.className;
-        op.text = s.name;
-        op.selected = s.className == this.settings.defaultStyle;
-      }
-      const highlightStyle = lineDiv.createDiv({ cls: "style-label" });
-      highlightStyle.innerText = "\u4EE3\u7801\u9AD8\u4EAE:";
-      const highlightStyleBtn = lineDiv.createEl("select", { cls: "style-select" }, async (sel) => {
-      });
-      highlightStyleBtn.onchange = async () => {
-        this.updateHighLight(highlightStyleBtn.value);
-      };
-      for (let s of this.assetsManager.highlights) {
-        const op = highlightStyleBtn.createEl("option");
-        op.value = s.name;
-        op.text = s.name;
-        op.selected = s.name == this.settings.defaultHighlight;
-      }
-    }
-    this.buildMsgView(this.toolbar);
-  }
-  async buildUI() {
-    this.container = this.containerEl.children[1];
-    this.container.empty();
-    this.mainDiv = this.container.createDiv({ cls: "note-preview" });
-    this.buildToolbar(this.mainDiv);
-    this.renderDiv = this.mainDiv.createDiv({ cls: "render-div" });
-    this.renderDiv.id = "render-div";
-    this.renderDiv.setAttribute("style", "-webkit-user-select: text; user-select: text;");
-    this.styleEl = this.renderDiv.createEl("style");
-    this.styleEl.setAttr("title", "note-to-mp-style");
-    this.setStyle(this.getCSS());
-    this.articleDiv = this.renderDiv.createEl("div");
-  }
   updateStyle(styleName) {
     this.currentTheme = styleName;
     this.setStyle(this.getCSS());
@@ -71769,7 +71864,15 @@ ${customCSS}`;
     this.currentHighlight = styleName;
     this.setStyle(this.getCSS());
   }
+  getFrontmatterValue(frontmatter, key) {
+    const value = frontmatter[key];
+    if (value instanceof Array) {
+      return value[0];
+    }
+    return value;
+  }
   getMetadata() {
+    var _a;
     let res = {
       title: "",
       author: void 0,
@@ -71791,19 +71894,23 @@ ${customCSS}`;
       return res;
     const metadata = this.app.metadataCache.getFileCache(file);
     if (metadata == null ? void 0 : metadata.frontmatter) {
+      const keys = this.assetsManager.expertSettings.frontmatter;
       const frontmatter = metadata.frontmatter;
-      res.title = frontmatter["\u6807\u9898"];
-      res.author = frontmatter["\u4F5C\u8005"];
-      res.digest = frontmatter["\u6458\u8981"];
-      res.content_source_url = frontmatter["\u539F\u6587\u5730\u5740"];
-      res.cover = frontmatter["\u5C01\u9762"];
-      res.thumb_media_id = frontmatter["\u5C01\u9762\u7D20\u6750ID"];
-      res.need_open_comment = frontmatter["\u6253\u5F00\u8BC4\u8BBA"] ? 1 : void 0;
-      res.only_fans_can_comment = frontmatter["\u4EC5\u7C89\u4E1D\u53EF\u8BC4\u8BBA"] ? 1 : void 0;
-      res.appid = frontmatter["\u516C\u4F17\u53F7"];
-      res.theme = frontmatter["\u6837\u5F0F"];
-      res.highlight = frontmatter["\u4EE3\u7801\u9AD8\u4EAE"];
-      if (frontmatter["\u5C01\u9762\u88C1\u526A"]) {
+      res.title = this.getFrontmatterValue(frontmatter, keys.title);
+      res.author = this.getFrontmatterValue(frontmatter, keys.author);
+      res.digest = this.getFrontmatterValue(frontmatter, keys.digest);
+      res.content_source_url = this.getFrontmatterValue(frontmatter, keys.content_source_url);
+      res.cover = this.getFrontmatterValue(frontmatter, keys.cover);
+      res.thumb_media_id = this.getFrontmatterValue(frontmatter, keys.thumb_media_id);
+      res.need_open_comment = frontmatter[keys.need_open_comment] ? 1 : void 0;
+      res.only_fans_can_comment = frontmatter[keys.only_fans_can_comment] ? 1 : void 0;
+      res.appid = this.getFrontmatterValue(frontmatter, keys.appid);
+      if (res.appid && !res.appid.startsWith("wx")) {
+        res.appid = (_a = this.settings.wxInfo.find((wx) => wx.name === res.appid)) == null ? void 0 : _a.appid;
+      }
+      res.theme = this.getFrontmatterValue(frontmatter, keys.theme);
+      res.highlight = this.getFrontmatterValue(frontmatter, keys.highlight);
+      if (frontmatter[keys.crop]) {
         res.pic_crop_235_1 = "0_0_1_0.5";
         res.pic_crop_1_1 = "0_0.525_0.404_1";
       }
@@ -71827,17 +71934,6 @@ ${customCSS}`;
     const fileData = await vault.readBinary(file);
     return await this.uploadCover(new Blob([fileData]), file.name, token);
   }
-  async uploadLocalCover(token) {
-    const fileInput = this.coverEl;
-    if (!fileInput.files || fileInput.files.length === 0) {
-      throw new Error("\u8BF7\u9009\u62E9\u5C01\u9762\u6587\u4EF6");
-    }
-    const file = fileInput.files[0];
-    if (!file) {
-      throw new Error("\u8BF7\u9009\u62E9\u5C01\u9762\u6587\u4EF6");
-    }
-    return await this.uploadCover(file, file.name, token);
-  }
   async uploadCover(data, filename, token) {
     if (filename.toLowerCase().endsWith(".webp")) {
       await PrepareImageLib();
@@ -71860,45 +71956,40 @@ ${customCSS}`;
     }
     return "";
   }
-  async getToken() {
-    const res = await wxGetToken(this.settings.authKey, this.currentAppId, this.getSecret());
+  async getToken(appid) {
+    const secret = this.getSecret(appid);
+    const res = await wxGetToken(this.settings.authKey, appid, secret);
     if (res.status != 200) {
       const data = res.json;
-      this.showMsg("\u83B7\u53D6token\u5931\u8D25: " + data.message);
-      return "";
+      throw new Error("\u83B7\u53D6token\u5931\u8D25: " + data.message);
     }
     const token = res.json.token;
     if (token === "") {
-      this.showMsg("\u83B7\u53D6token\u5931\u8D25: " + res.json.message);
+      throw new Error("\u83B7\u53D6token\u5931\u8D25: " + res.json.message);
     }
     return token;
   }
-  async uploadImages() {
+  async uploadImages(appid) {
     if (!this.settings.authKey) {
-      this.showMsg("\u8BF7\u5148\u8BBE\u7F6E\u6CE8\u518C\u7801\uFF08AuthKey\uFF09");
+      throw new Error("\u8BF7\u5148\u8BBE\u7F6E\u6CE8\u518C\u7801\uFF08AuthKey\uFF09");
+    }
+    let metadata = this.getMetadata();
+    if (metadata.appid) {
+      appid = metadata.appid;
+    }
+    if (!appid || appid.length == 0) {
+      throw new Error("\u8BF7\u5148\u9009\u62E9\u516C\u4F17\u53F7");
+    }
+    const token = await this.getToken(appid);
+    if (token === "") {
       return;
     }
-    if (this.currentAppId === "") {
-      this.showMsg("\u8BF7\u5148\u9009\u62E9\u516C\u4F17\u53F7");
-      return;
-    }
-    this.showLoading("\u4E0A\u4F20\u56FE\u7247\u4E2D...");
-    try {
-      const token = await this.getToken();
-      if (token === "") {
-        return;
-      }
-      await this.cachedElementsToImages();
-      const lm = LocalImageManager.getInstance();
-      await lm.uploadLocalImage(token, this.app.vault);
-      await lm.uploadRemoteImage(this.articleDiv, token);
-      lm.replaceImages(this.articleDiv);
-      await this.copyArticle();
-      this.showMsg("\u56FE\u7247\u5DF2\u4E0A\u4F20\uFF0C\u5E76\u4E14\u5DF2\u590D\u5236\uFF0C\u8BF7\u5230\u516C\u4F17\u53F7\u7F16\u8F91\u5668\u7C98\u8D34\u3002");
-    } catch (error) {
-      console.error(error);
-      this.showMsg("\u4E0A\u4F20\u56FE\u7247\u5931\u8D25: " + error.message);
-    }
+    await this.cachedElementsToImages();
+    const lm = LocalImageManager.getInstance();
+    await lm.uploadLocalImage(token, this.app.vault);
+    await lm.uploadRemoteImage(this.articleDiv, token);
+    lm.replaceImages(this.articleDiv);
+    await this.copyArticle();
   }
   async copyArticle() {
     const content = this.getArticleContent();
@@ -71906,165 +71997,142 @@ ${customCSS}`;
       "text/html": new Blob([content], { type: "text/html" })
     })]);
   }
-  getSecret() {
+  getSecret(appid) {
     for (const wx of this.settings.wxInfo) {
-      if (wx.appid === this.currentAppId) {
+      if (wx.appid === appid) {
         return wx.secret.replace("SECRET", "");
       }
     }
     return "";
   }
-  async postArticle() {
+  async postArticle(appid, localCover = null) {
     if (!this.settings.authKey) {
-      this.showMsg("\u8BF7\u5148\u8BBE\u7F6E\u6CE8\u518C\u7801\uFF08AuthKey\uFF09");
-      return;
+      throw new Error("\u8BF7\u5148\u8BBE\u7F6E\u6CE8\u518C\u7801\uFF08AuthKey\uFF09");
     }
-    if (this.currentAppId === "") {
-      this.showMsg("\u8BF7\u5148\u9009\u62E9\u516C\u4F17\u53F7");
-      return;
+    let metadata = this.getMetadata();
+    if (metadata.appid) {
+      appid = metadata.appid;
     }
-    this.showLoading("\u4E0A\u4F20\u4E2D...");
-    try {
-      const token = await this.getToken();
-      if (token === "") {
-        this.showMsg("\u83B7\u53D6token\u5931\u8D25,\u8BF7\u68C0\u67E5\u7F51\u7EDC\u94FE\u63A5!");
-        return;
-      }
-      await this.cachedElementsToImages();
-      let metadata = this.getMetadata();
-      const lm = LocalImageManager.getInstance();
-      await lm.uploadLocalImage(token, this.app.vault);
-      await lm.uploadRemoteImage(this.articleDiv, token);
-      lm.replaceImages(this.articleDiv);
-      let mediaId = metadata.thumb_media_id;
-      if (!mediaId) {
-        if (metadata.cover) {
-          if (metadata.cover.startsWith("http")) {
-            const res2 = await LocalImageManager.getInstance().uploadImageFromUrl(metadata.cover, token, "image");
-            if (res2.media_id) {
-              mediaId = res2.media_id;
-            } else {
-              throw new Error("\u4E0A\u4F20\u5C01\u9762\u5931\u8D25:" + res2.errmsg);
-            }
+    if (!appid || appid.length == 0) {
+      throw new Error("\u8BF7\u5148\u9009\u62E9\u516C\u4F17\u53F7");
+    }
+    const token = await this.getToken(appid);
+    if (token === "") {
+      throw new Error("\u83B7\u53D6token\u5931\u8D25,\u8BF7\u68C0\u67E5\u7F51\u7EDC\u94FE\u63A5!");
+    }
+    await this.cachedElementsToImages();
+    const lm = LocalImageManager.getInstance();
+    await lm.uploadLocalImage(token, this.app.vault);
+    await lm.uploadRemoteImage(this.articleDiv, token);
+    lm.replaceImages(this.articleDiv);
+    let mediaId = metadata.thumb_media_id;
+    if (!mediaId) {
+      if (metadata.cover) {
+        if (metadata.cover.startsWith("http")) {
+          const res2 = await LocalImageManager.getInstance().uploadImageFromUrl(metadata.cover, token, "image");
+          if (res2.media_id) {
+            mediaId = res2.media_id;
           } else {
-            mediaId = await this.uploadVaultCover(metadata.cover, token);
+            throw new Error("\u4E0A\u4F20\u5C01\u9762\u5931\u8D25:" + res2.errmsg);
           }
-        } else if (this.useLocalCover.checked) {
-          mediaId = await this.uploadLocalCover(token);
         } else {
-          mediaId = await this.getDefaultCover(token);
+          mediaId = await this.uploadVaultCover(metadata.cover, token);
         }
-      }
-      if (mediaId === "") {
-        this.showMsg("\u8BF7\u5148\u4E0A\u4F20\u56FE\u7247\u6216\u8005\u8BBE\u7F6E\u9ED8\u8BA4\u5C01\u9762");
-        return;
-      }
-      metadata.title = metadata.title || this.title;
-      metadata.content = this.getArticleContent();
-      metadata.thumb_media_id = mediaId;
-      const res = await wxAddDraft(token, metadata);
-      if (res.status != 200) {
-        console.error(res.text);
-        this.showMsg(`\u521B\u5EFA\u8349\u7A3F\u5931\u8D25, https\u72B6\u6001\u7801: ${res.status} \u53EF\u80FD\u662F\u6587\u7AE0\u5305\u542B\u5F02\u5E38\u5185\u5BB9\uFF0C\u8BF7\u5C1D\u8BD5\u624B\u52A8\u590D\u5236\u5230\u516C\u4F17\u53F7\u7F16\u8F91\u5668\uFF01`);
-        return;
-      }
-      const draft = res.json;
-      if (draft.media_id) {
-        this.showMsg("\u53D1\u5E03\u6210\u529F!");
+      } else if (localCover) {
+        mediaId = await this.uploadCover(localCover, localCover.name, token);
       } else {
-        console.error(JSON.stringify(draft));
-        this.showMsg("\u53D1\u5E03\u5931\u8D25!" + draft.errmsg);
+        mediaId = await this.getDefaultCover(token);
       }
-    } catch (error) {
-      console.error(error);
-      this.showMsg("\u53D1\u5E03\u5931\u8D25!" + error.message);
+    }
+    if (mediaId === "") {
+      throw new Error("\u8BF7\u5148\u4E0A\u4F20\u56FE\u7247\u6216\u8005\u8BBE\u7F6E\u9ED8\u8BA4\u5C01\u9762");
+    }
+    metadata.title = metadata.title || this.title;
+    metadata.content = this.getArticleContent();
+    metadata.thumb_media_id = mediaId;
+    const res = await wxAddDraft(token, metadata);
+    if (res.status != 200) {
+      console.error(res.text);
+      throw new Error(`\u521B\u5EFA\u8349\u7A3F\u5931\u8D25, https\u72B6\u6001\u7801: ${res.status} \u53EF\u80FD\u662F\u6587\u7AE0\u5305\u542B\u5F02\u5E38\u5185\u5BB9\uFF0C\u8BF7\u5C1D\u8BD5\u624B\u52A8\u590D\u5236\u5230\u516C\u4F17\u53F7\u7F16\u8F91\u5668\uFF01`);
+    }
+    const draft = res.json;
+    if (draft.media_id) {
+      return draft.media_id;
+    } else {
+      console.error(JSON.stringify(draft));
+      throw new Error("\u53D1\u5E03\u5931\u8D25!" + draft.errmsg);
     }
   }
-  async postImages() {
+  async postImages(appid) {
     if (!this.settings.authKey) {
-      this.showMsg("\u8BF7\u5148\u8BBE\u7F6E\u6CE8\u518C\u7801\uFF08AuthKey\uFF09");
-      return;
+      throw new Error("\u8BF7\u5148\u8BBE\u7F6E\u6CE8\u518C\u7801\uFF08AuthKey\uFF09");
     }
-    if (this.currentAppId === "") {
-      this.showMsg("\u8BF7\u5148\u9009\u62E9\u516C\u4F17\u53F7");
-      return;
+    let metadata = this.getMetadata();
+    if (metadata.appid) {
+      appid = metadata.appid;
     }
-    this.showLoading("\u53D1\u5E03\u4E2D...");
-    try {
-      const token = await this.getToken();
-      if (token === "") {
-        this.showMsg("\u83B7\u53D6token\u5931\u8D25,\u8BF7\u68C0\u67E5\u7F51\u7EDC\u94FE\u63A5!");
-        return;
+    if (!appid || appid.length == 0) {
+      throw new Error("\u8BF7\u5148\u9009\u62E9\u516C\u4F17\u53F7");
+    }
+    const token = await this.getToken(appid);
+    if (token === "") {
+      throw new Error("\u83B7\u53D6token\u5931\u8D25,\u8BF7\u68C0\u67E5\u7F51\u7EDC\u94FE\u63A5!");
+    }
+    const imageList = [];
+    const lm = LocalImageManager.getInstance();
+    await lm.uploadLocalImage(token, this.app.vault, "image");
+    await lm.uploadRemoteImage(this.articleDiv, token, "image");
+    const images = lm.getImageInfos(this.articleDiv);
+    for (const image of images) {
+      if (!image.media_id) {
+        console.warn("miss media id:", image.resUrl);
+        continue;
       }
-      let metadata = this.getMetadata();
-      const imageList = [];
-      const lm = LocalImageManager.getInstance();
-      const localImages = await lm.uploadLocalImage(token, this.app.vault, "image");
-      for (const image of localImages) {
-        imageList.push({
-          image_media_id: image.media_id
-        });
+      imageList.push({
+        image_media_id: image.media_id
+      });
+    }
+    if (imageList.length === 0) {
+      throw new Error("\u6CA1\u6709\u56FE\u7247\u9700\u8981\u53D1\u5E03!");
+    }
+    const content = this.getArticleText();
+    const imagesData = {
+      article_type: "newspic",
+      title: metadata.title || this.title,
+      content,
+      need_open_commnet: metadata.need_open_comment || 0,
+      only_fans_can_comment: metadata.only_fans_can_comment || 0,
+      image_info: {
+        image_list: imageList
       }
-      const remoteImages = await lm.uploadRemoteImage(this.articleDiv, token, "image");
-      for (const image of remoteImages) {
-        imageList.push({
-          image_media_id: image.media_id
-        });
-      }
-      const content = this.getArticleText();
-      if (imageList.length === 0) {
-        this.showMsg("\u6CA1\u6709\u56FE\u7247\u9700\u8981\u53D1\u5E03!");
-        return;
-      }
-      const imagesData = {
-        article_type: "newspic",
-        title: metadata.title || this.title,
-        content,
-        need_open_commnet: metadata.need_open_comment || 0,
-        only_fans_can_comment: metadata.only_fans_can_comment || 0,
-        image_info: {
-          image_list: imageList
-        }
-      };
-      const res = await wxAddDraftImages(token, imagesData);
-      if (res.status != 200) {
-        console.error(res.text);
-        this.showMsg(`\u521B\u5EFA\u56FE\u7247/\u6587\u5B57\u5931\u8D25, https\u72B6\u6001\u7801: ${res.status}  ${res.text}\uFF01`);
-        return;
-      }
-      const draft = res.json;
-      if (draft.media_id) {
-        this.showMsg("\u53D1\u5E03\u6210\u529F!");
-      } else {
-        console.error(JSON.stringify(draft));
-        this.showMsg("\u53D1\u5E03\u5931\u8D25!" + draft.errmsg);
-      }
-    } catch (error) {
-      console.error(error);
-      this.showMsg("\u53D1\u5E03\u5931\u8D25!" + error.message);
+    };
+    const res = await wxAddDraftImages(token, imagesData);
+    if (res.status != 200) {
+      console.error(res.text);
+      throw new Error(`\u521B\u5EFA\u56FE\u7247/\u6587\u5B57\u5931\u8D25, https\u72B6\u6001\u7801: ${res.status}  ${res.text}\uFF01`);
+    }
+    const draft = res.json;
+    if (draft.media_id) {
+      return draft.media_id;
+    } else {
+      console.error(JSON.stringify(draft));
+      throw new Error("\u53D1\u5E03\u5931\u8D25!" + draft.errmsg);
     }
   }
   async exportHTML() {
-    this.showLoading("\u5BFC\u51FA\u4E2D...");
-    try {
-      await this.cachedElementsToImages();
-      const lm = LocalImageManager.getInstance();
-      const content = await lm.embleImages(this.articleDiv, this.app.vault);
-      const globalStyle = await this.assetsManager.getStyle();
-      const html2 = applyCSS(content, this.getCSS() + globalStyle);
-      const blob = new Blob([html2], { type: "text/html" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = this.title + ".html";
-      a.click();
-      URL.revokeObjectURL(url);
-      a.remove();
-      this.showMsg("\u5BFC\u51FA\u6210\u529F!");
-    } catch (error) {
-      console.error(error);
-      this.showMsg("\u5BFC\u51FA\u5931\u8D25!" + error.message);
-    }
+    await this.cachedElementsToImages();
+    const lm = LocalImageManager.getInstance();
+    const content = await lm.embleImages(this.articleDiv, this.app.vault);
+    const globalStyle = await this.assetsManager.getStyle();
+    const html2 = applyCSS(content, this.getCSS() + globalStyle);
+    const blob = new Blob([html2], { type: "text/html" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = this.title + ".html";
+    a.click();
+    URL.revokeObjectURL(url);
+    a.remove();
   }
   async processCachedElements() {
     const af = this.app.workspace.getActiveFile();
@@ -72077,7 +72145,7 @@ ${customCSS}`;
       if (category === "mermaid" || category === "excalidraw") {
         const container = this.articleDiv.querySelector("#" + id);
         if (container) {
-          await import_obsidian8.MarkdownRenderer.render(this.app, value, container, af.path, this);
+          await import_obsidian8.MarkdownRenderer.render(this.app, value, container, af.path, this.itemView);
         }
       }
     }
@@ -72158,9 +72226,471 @@ ${customCSS}`;
   }
 };
 
+// src/note-preview.ts
+var VIEW_TYPE_NOTE_PREVIEW = "note-preview";
+var NotePreview = class extends import_obsidian9.ItemView {
+  constructor(leaf, plugin) {
+    super(leaf);
+    this.cachedElements = /* @__PURE__ */ new Map();
+    this._articleRender = null;
+    this.isCancelUpload = false;
+    this.isBatchRuning = false;
+    this.workspace = this.app.workspace;
+    this.plugin = plugin;
+    this.settings = NMPSettings.getInstance();
+    this.assetsManager = AssetsManager.getInstance();
+    this.currentTheme = this.settings.defaultStyle;
+    this.currentHighlight = this.settings.defaultHighlight;
+  }
+  getViewType() {
+    return VIEW_TYPE_NOTE_PREVIEW;
+  }
+  getIcon() {
+    return "clipboard-paste";
+  }
+  getDisplayText() {
+    return "\u7B14\u8BB0\u9884\u89C8";
+  }
+  get render() {
+    if (!this._articleRender) {
+      this._articleRender = new ArticleRender(this.app, this, this.styleEl, this.articleDiv);
+      this._articleRender.currentTheme = this.currentTheme;
+      this._articleRender.currentHighlight = this.currentHighlight;
+    }
+    return this._articleRender;
+  }
+  async onOpen() {
+    this.viewLoading();
+    this.setup();
+    uevent("open");
+  }
+  async setup() {
+    await waitForLayoutReady(this.app);
+    if (!this.settings.isLoaded) {
+      const data = await this.plugin.loadData();
+      NMPSettings.loadSettings(data);
+    }
+    if (!this.assetsManager.isLoaded) {
+      await this.assetsManager.loadAssets();
+    }
+    this.buildUI();
+    this.listeners = [
+      this.workspace.on("file-open", () => {
+        this.update();
+      }),
+      this.app.vault.on("modify", (file) => {
+        var _a;
+        if (((_a = this.currentFile) == null ? void 0 : _a.path) == file.path) {
+          this.renderMarkdown();
+        }
+      })
+    ];
+    this.renderMarkdown();
+  }
+  async onClose() {
+    var _a;
+    (_a = this.listeners) == null ? void 0 : _a.forEach((listener) => this.workspace.offref(listener));
+    LocalFile.fileCache.clear();
+    uevent("close");
+  }
+  onAppIdChanged() {
+    this.cleanArticleData();
+  }
+  async update() {
+    if (this.isBatchRuning) {
+      return;
+    }
+    this.cleanArticleData();
+    this.renderMarkdown();
+  }
+  cleanArticleData() {
+    LocalImageManager.getInstance().cleanup();
+    CardDataManager.getInstance().cleanup();
+  }
+  buildMsgView(parent) {
+    this.msgView = parent.createDiv({ cls: "msg-view" });
+    const title = this.msgView.createDiv({ cls: "msg-title" });
+    title.id = "msg-title";
+    title.innerText = "\u52A0\u8F7D\u4E2D...";
+    const okBtn = this.msgView.createEl("button", { cls: "msg-ok-btn" }, async (button) => {
+    });
+    okBtn.id = "msg-ok-btn";
+    okBtn.innerText = "\u786E\u5B9A";
+    okBtn.onclick = async () => {
+      this.msgView.setAttr("style", "display: none;");
+    };
+    const cancelBtn = this.msgView.createEl("button", { cls: "msg-ok-btn" }, async (button) => {
+    });
+    cancelBtn.id = "msg-cancel-btn";
+    cancelBtn.innerText = "\u53D6\u6D88";
+    cancelBtn.onclick = async () => {
+      this.isCancelUpload = true;
+      this.msgView.setAttr("style", "display: none;");
+    };
+  }
+  showLoading(msg, cancelable = false) {
+    const title = this.msgView.querySelector("#msg-title");
+    title.innerText = msg;
+    const btn = this.msgView.querySelector("#msg-ok-btn");
+    btn.setAttr("style", "display: none;");
+    this.msgView.setAttr("style", "display: flex;");
+    const cancelBtn = this.msgView.querySelector("#msg-cancel-btn");
+    cancelBtn.setAttr("style", cancelable ? "display: block;" : "display: none;");
+    this.msgView.setAttr("style", "display: flex;");
+  }
+  showMsg(msg) {
+    const title = this.msgView.querySelector("#msg-title");
+    title.innerText = msg;
+    const btn = this.msgView.querySelector("#msg-ok-btn");
+    btn.setAttr("style", "display: block;");
+    this.msgView.setAttr("style", "display: flex;");
+    const cancelBtn = this.msgView.querySelector("#msg-cancel-btn");
+    cancelBtn.setAttr("style", "display: none;");
+    this.msgView.setAttr("style", "display: flex;");
+  }
+  buildToolbar(parent) {
+    this.toolbar = parent.createDiv({ cls: "preview-toolbar" });
+    let lineDiv;
+    if (this.settings.wxInfo.length > 1 || import_obsidian9.Platform.isDesktop) {
+      lineDiv = this.toolbar.createDiv({ cls: "toolbar-line" });
+      lineDiv.createDiv({ cls: "style-label" }).innerText = "\u516C\u4F17\u53F7:";
+      const wxSelect = lineDiv.createEl("select", { cls: "style-select" });
+      wxSelect.setAttr("style", "width: 200px");
+      wxSelect.onchange = async () => {
+        this.currentAppId = wxSelect.value;
+        this.onAppIdChanged();
+      };
+      const defautlOp = wxSelect.createEl("option");
+      defautlOp.value = "";
+      defautlOp.text = "\u8BF7\u5728\u8BBE\u7F6E\u91CC\u914D\u7F6E\u516C\u4F17\u53F7";
+      for (let i = 0; i < this.settings.wxInfo.length; i++) {
+        const op = wxSelect.createEl("option");
+        const wx = this.settings.wxInfo[i];
+        op.value = wx.appid;
+        op.text = wx.name;
+        if (i == 0) {
+          op.selected = true;
+          this.currentAppId = wx.appid;
+        }
+      }
+      this.wechatSelect = wxSelect;
+      if (import_obsidian9.Platform.isDesktop) {
+        const openBtn = lineDiv.createEl("button", { cls: "refresh-button" }, async (button) => {
+          button.setText("\u53BB\u516C\u4F17\u53F7\u540E\u53F0");
+        });
+        openBtn.onclick = async () => {
+          const { shell } = require("electron");
+          shell.openExternal("https://mp.weixin.qq.com");
+          uevent("open-mp");
+        };
+      }
+    } else if (this.settings.wxInfo.length > 0) {
+      this.currentAppId = this.settings.wxInfo[0].appid;
+    }
+    lineDiv = this.toolbar.createDiv({ cls: "toolbar-line" });
+    const refreshBtn = lineDiv.createEl("button", { cls: "refresh-button" }, async (button) => {
+      button.setText("\u5237\u65B0");
+    });
+    refreshBtn.onclick = async () => {
+      await this.assetsManager.loadCustomCSS();
+      await this.assetsManager.loadExpertSettings();
+      this.render.reloadStyle();
+      await this.renderMarkdown();
+      uevent("refresh");
+    };
+    if (import_obsidian9.Platform.isDesktop) {
+      const copyBtn = lineDiv.createEl("button", { cls: "copy-button" }, async (button) => {
+        button.setText("\u590D\u5236");
+      });
+      copyBtn.onclick = async () => {
+        try {
+          await this.render.copyArticle();
+          new import_obsidian9.Notice("\u590D\u5236\u6210\u529F\uFF0C\u8BF7\u5230\u516C\u4F17\u53F7\u7F16\u8F91\u5668\u7C98\u8D34\u3002");
+          uevent("copy");
+        } catch (error) {
+          console.error(error);
+          new import_obsidian9.Notice("\u590D\u5236\u5931\u8D25: " + error);
+        }
+      };
+    }
+    const uploadImgBtn = lineDiv.createEl("button", { cls: "copy-button" }, async (button) => {
+      button.setText("\u4E0A\u4F20\u56FE\u7247");
+    });
+    uploadImgBtn.onclick = async () => {
+      await this.uploadImages();
+      uevent("upload");
+    };
+    const postBtn = lineDiv.createEl("button", { cls: "copy-button" }, async (button) => {
+      button.setText("\u53D1\u8349\u7A3F");
+    });
+    postBtn.onclick = async () => {
+      await this.postArticle();
+      uevent("pub");
+    };
+    const imagesBtn = lineDiv.createEl("button", { cls: "copy-button" }, async (button) => {
+      button.setText("\u56FE\u7247/\u6587\u5B57");
+    });
+    imagesBtn.onclick = async () => {
+      await this.postImages();
+      uevent("pub-images");
+    };
+    if (import_obsidian9.Platform.isDesktop && this.settings.isAuthKeyVaild()) {
+      const htmlBtn = lineDiv.createEl("button", { cls: "copy-button" }, async (button) => {
+        button.setText("\u5BFC\u51FAHTML");
+      });
+      htmlBtn.onclick = async () => {
+        await this.exportHTML();
+        uevent("export-html");
+      };
+    }
+    lineDiv = this.toolbar.createDiv({ cls: "toolbar-line" });
+    const coverTitle = lineDiv.createDiv({ cls: "style-label" });
+    coverTitle.innerText = "\u5C01\u9762:";
+    this.useDefaultCover = lineDiv.createEl("input", { cls: "input-style" });
+    this.useDefaultCover.setAttr("type", "radio");
+    this.useDefaultCover.setAttr("name", "cover");
+    this.useDefaultCover.setAttr("value", "default");
+    this.useDefaultCover.setAttr("checked", true);
+    this.useDefaultCover.id = "default-cover";
+    this.useDefaultCover.onchange = async () => {
+      if (this.useDefaultCover.checked) {
+        this.coverEl.setAttr("style", "visibility:hidden;width:0px;");
+      } else {
+        this.coverEl.setAttr("style", "visibility:visible;width:180px;");
+      }
+    };
+    const defaultLable = lineDiv.createEl("label");
+    defaultLable.innerText = "\u9ED8\u8BA4";
+    defaultLable.setAttr("for", "default-cover");
+    this.useLocalCover = lineDiv.createEl("input", { cls: "input-style" });
+    this.useLocalCover.setAttr("type", "radio");
+    this.useLocalCover.setAttr("name", "cover");
+    this.useLocalCover.setAttr("value", "local");
+    this.useLocalCover.id = "local-cover";
+    this.useLocalCover.setAttr("style", "margin-left:20px;");
+    this.useLocalCover.onchange = async () => {
+      if (this.useLocalCover.checked) {
+        this.coverEl.setAttr("style", "visibility:visible;width:180px;");
+      } else {
+        this.coverEl.setAttr("style", "visibility:hidden;width:0px;");
+      }
+    };
+    const localLabel = lineDiv.createEl("label");
+    localLabel.setAttr("for", "local-cover");
+    localLabel.innerText = "\u4E0A\u4F20";
+    this.coverEl = lineDiv.createEl("input", { cls: "upload-input" });
+    this.coverEl.setAttr("type", "file");
+    this.coverEl.setAttr("placeholder", "\u5C01\u9762\u56FE\u7247");
+    this.coverEl.setAttr("accept", ".png, .jpg, .jpeg");
+    this.coverEl.setAttr("name", "cover");
+    this.coverEl.id = "cover-input";
+    if (this.settings.showStyleUI) {
+      lineDiv = this.toolbar.createDiv({ cls: "toolbar-line" });
+      const cssStyle = lineDiv.createDiv({ cls: "style-label" });
+      cssStyle.innerText = "\u6837\u5F0F:";
+      const selectBtn = lineDiv.createEl("select", { cls: "style-select" }, async (sel) => {
+      });
+      selectBtn.onchange = async () => {
+        this.currentTheme = selectBtn.value;
+        this.render.updateStyle(selectBtn.value);
+      };
+      for (let s of this.assetsManager.themes) {
+        const op = selectBtn.createEl("option");
+        op.value = s.className;
+        op.text = s.name;
+        op.selected = s.className == this.settings.defaultStyle;
+      }
+      this.themeSelect = selectBtn;
+      const highlightStyle = lineDiv.createDiv({ cls: "style-label" });
+      highlightStyle.innerText = "\u4EE3\u7801\u9AD8\u4EAE:";
+      const highlightStyleBtn = lineDiv.createEl("select", { cls: "style-select" }, async (sel) => {
+      });
+      highlightStyleBtn.onchange = async () => {
+        this.currentHighlight = highlightStyleBtn.value;
+        this.render.updateHighLight(highlightStyleBtn.value);
+      };
+      for (let s of this.assetsManager.highlights) {
+        const op = highlightStyleBtn.createEl("option");
+        op.value = s.name;
+        op.text = s.name;
+        op.selected = s.name == this.settings.defaultHighlight;
+      }
+      this.highlightSelect = highlightStyleBtn;
+    }
+    this.buildMsgView(this.toolbar);
+  }
+  async buildUI() {
+    this.container = this.containerEl.children[1];
+    this.container.empty();
+    this.mainDiv = this.container.createDiv({ cls: "note-preview" });
+    this.buildToolbar(this.mainDiv);
+    this.renderDiv = this.mainDiv.createDiv({ cls: "render-div" });
+    this.renderDiv.id = "render-div";
+    this.renderDiv.setAttribute("style", "-webkit-user-select: text; user-select: text;");
+    this.styleEl = this.renderDiv.createEl("style");
+    this.styleEl.setAttr("title", "note-to-mp-style");
+    this.articleDiv = this.renderDiv.createEl("div");
+  }
+  async viewLoading() {
+    const container = this.containerEl.children[1];
+    container.empty();
+    const loading = container.createDiv({ cls: "loading-wrapper" });
+    loading.createDiv({ cls: "loading-spinner" });
+  }
+  async renderMarkdown(af = null) {
+    if (!af) {
+      af = this.app.workspace.getActiveFile();
+    }
+    if (!af || af.extension.toLocaleLowerCase() !== "md") {
+      return;
+    }
+    this.currentFile = af;
+    await this.render.renderMarkdown(af);
+    const metadata = this.render.getMetadata();
+    if (metadata.appid) {
+      this.wechatSelect.value = metadata.appid;
+    } else {
+      this.wechatSelect.value = this.currentAppId;
+    }
+    if (metadata.theme) {
+      this.assetsManager.themes.forEach((theme) => {
+        if (theme.name === metadata.theme) {
+          this.themeSelect.value = theme.className;
+        }
+      });
+    } else {
+      this.themeSelect.value = this.currentTheme;
+    }
+    if (metadata.highlight) {
+      this.highlightSelect.value = this.render.currentHighlight;
+    } else {
+      this.highlightSelect.value = this.currentHighlight;
+    }
+  }
+  async uploadImages() {
+    this.showLoading("\u56FE\u7247\u4E0A\u4F20\u4E2D...");
+    try {
+      await this.render.uploadImages(this.currentAppId);
+      this.showMsg("\u56FE\u7247\u4E0A\u4F20\u6210\u529F\uFF0C\u5E76\u4E14\u6587\u7AE0\u5185\u5BB9\u5DF2\u590D\u5236\uFF0C\u8BF7\u5230\u516C\u4F17\u53F7\u7F16\u8F91\u5668\u7C98\u8D34\u3002");
+    } catch (error) {
+      this.showMsg("\u56FE\u7247\u4E0A\u4F20\u5931\u8D25: " + error.message);
+    }
+  }
+  async postArticle() {
+    let localCover = null;
+    if (this.useLocalCover.checked) {
+      const fileInput = this.coverEl;
+      if (!fileInput.files || fileInput.files.length === 0) {
+        this.showMsg("\u8BF7\u9009\u62E9\u5C01\u9762\u6587\u4EF6");
+        return;
+      }
+      localCover = fileInput.files[0];
+      if (!localCover) {
+        this.showMsg("\u8BF7\u9009\u62E9\u5C01\u9762\u6587\u4EF6");
+        return;
+      }
+    }
+    this.showLoading("\u53D1\u5E03\u4E2D...");
+    try {
+      await this.render.postArticle(this.currentAppId, localCover);
+      this.showMsg("\u53D1\u5E03\u6210\u529F");
+    } catch (error) {
+      this.showMsg("\u53D1\u5E03\u5931\u8D25: " + error.message);
+    }
+  }
+  async postImages() {
+    this.showLoading("\u53D1\u5E03\u56FE\u7247\u4E2D...");
+    try {
+      await this.render.postImages(this.currentAppId);
+      this.showMsg("\u56FE\u7247\u53D1\u5E03\u6210\u529F");
+    } catch (error) {
+      this.showMsg("\u56FE\u7247\u53D1\u5E03\u5931\u8D25: " + error.message);
+    }
+  }
+  async exportHTML() {
+    this.showLoading("\u5BFC\u51FAHTML\u4E2D...");
+    try {
+      await this.render.exportHTML();
+      this.showMsg("HTML\u5BFC\u51FA\u6210\u529F");
+    } catch (error) {
+      this.showMsg("HTML\u5BFC\u51FA\u5931\u8D25: " + error.message);
+    }
+  }
+  async batchPost(folder) {
+    const files = folder.children.filter((child) => child.path.toLocaleLowerCase().endsWith(".md"));
+    if (!files) {
+      new import_obsidian9.Notice("\u6CA1\u6709\u53EF\u6E32\u67D3\u7684\u7B14\u8BB0\u6216\u6587\u4EF6\u4E0D\u652F\u6301\u6E32\u67D3");
+      return;
+    }
+    this.isCancelUpload = false;
+    this.isBatchRuning = true;
+    try {
+      for (let file of files) {
+        this.showLoading(`\u5373\u5C06\u53D1\u5E03: ${file.name}`, true);
+        await sleep(5e3);
+        if (this.isCancelUpload) {
+          break;
+        }
+        this.cleanArticleData();
+        await this.renderMarkdown(file);
+        await this.postArticle();
+      }
+      if (!this.isCancelUpload) {
+        this.showMsg(`\u6279\u91CF\u53D1\u5E03\u5B8C\u6210\uFF1A\u6210\u529F\u53D1\u5E03 ${files.length} \u7BC7\u7B14\u8BB0`);
+      }
+    } catch (e2) {
+      console.error(e2);
+      new import_obsidian9.Notice("\u6279\u91CF\u53D1\u5E03\u5931\u8D25: " + e2.message);
+    } finally {
+      this.isBatchRuning = false;
+      this.isCancelUpload = false;
+    }
+  }
+};
+
 // src/setting-tab.ts
-var import_obsidian9 = require("obsidian");
-var NoteToMpSettingTab = class extends import_obsidian9.PluginSettingTab {
+var import_obsidian11 = require("obsidian");
+
+// src/doc-modal.ts
+var import_obsidian10 = require("obsidian");
+var DocModal = class extends import_obsidian10.Modal {
+  constructor(app, title = "\u63D0\u793A", content = "", url = "") {
+    super(app);
+    this.url = "";
+    this.title = "\u63D0\u793A";
+    this.content = "";
+    this.title = title;
+    this.content = content;
+    this.url = url;
+  }
+  onOpen() {
+    let { contentEl, modalEl } = this;
+    modalEl.style.width = "640px";
+    modalEl.style.height = "720px";
+    contentEl.style.display = "flex";
+    contentEl.style.flexDirection = "column";
+    const titleEl = contentEl.createEl("h2", { text: this.title });
+    titleEl.style.marginTop = "0.5em";
+    const content = contentEl.createEl("div");
+    content.setAttr("style", "margin-bottom:1em;-webkit-user-select: text; user-select: text;");
+    content.appendChild((0, import_obsidian10.sanitizeHTMLToDom)(this.content));
+    const iframe = contentEl.createEl("iframe", {
+      attr: {
+        src: this.url,
+        width: "100%",
+        allow: "clipboard-read; clipboard-write"
+      }
+    });
+    iframe.style.flex = "1";
+  }
+  onClose() {
+    let { contentEl } = this;
+    contentEl.empty();
+  }
+};
+
+// src/setting-tab.ts
+var NoteToMpSettingTab = class extends import_obsidian11.PluginSettingTab {
   constructor(app, plugin) {
     super(app, plugin);
     this.plugin = plugin;
@@ -72186,40 +72716,51 @@ var NoteToMpSettingTab = class extends import_obsidian9.PluginSettingTab {
   async testWXInfo() {
     const authKey = this.settings.authKey;
     if (authKey.length == 0) {
-      new import_obsidian9.Notice("\u8BF7\u5148\u8BBE\u7F6EauthKey");
+      new import_obsidian11.Notice("\u8BF7\u5148\u8BBE\u7F6EauthKey");
       return;
     }
     const wxInfo = this.settings.wxInfo;
     if (wxInfo.length == 0) {
-      new import_obsidian9.Notice("\u8BF7\u5148\u8BBE\u7F6E\u516C\u4F17\u53F7\u4FE1\u606F");
+      new import_obsidian11.Notice("\u8BF7\u5148\u8BBE\u7F6E\u516C\u4F17\u53F7\u4FE1\u606F");
       return;
     }
     try {
+      const docUrl = "https://mp.weixin.qq.com/s/rk5CTPGr5ftly8PtYgSjCQ";
       for (let wx of wxInfo) {
         const res = await wxGetToken(authKey, wx.appid, wx.secret.replace("SECRET", ""));
         if (res.status != 200) {
           const data2 = res.json;
-          new import_obsidian9.Notice(`${wx.name}|${wx.appid} \u6D4B\u8BD5\u5931\u8D25\uFF1A${data2.message}`);
+          const { code, message } = data2;
+          let content = message;
+          if (code === 50002) {
+            content = "\u7528\u6237\u53D7\u9650\uFF0C\u53EF\u80FD\u662F\u60A8\u7684\u516C\u4F17\u53F7\u88AB\u51BB\u7ED3\u6216\u6CE8\u9500\uFF0C\u8BF7\u8054\u7CFB\u5FAE\u4FE1\u5BA2\u670D\u5904\u7406";
+          } else if (code === 40125) {
+            content = "AppSecret\u9519\u8BEF\uFF0C\u8BF7\u68C0\u67E5\u6216\u8005\u91CD\u7F6E\uFF0C\u8BE6\u7EC6\u64CD\u4F5C\u6B65\u9AA4\u8BF7\u53C2\u8003\u4E0B\u65B9\u6587\u6863";
+          } else if (code === 40164) {
+            content = "IP\u5730\u5740\u4E0D\u5728\u767D\u540D\u5355\u4E2D\uFF0C\u8BF7\u5C06\u5982\u4E0B\u5730\u5740\u6DFB\u52A0\u5230\u767D\u540D\u5355\uFF1A<br>59.110.112.211<br>154.8.198.218<br>\u8BE6\u7EC6\u6B65\u9AA4\u8BF7\u53C2\u8003\u4E0B\u65B9\u6587\u6863";
+          }
+          const modal = new DocModal(this.app, `${wx.name} \u6D4B\u8BD5\u5931\u8D25`, content, docUrl);
+          modal.open();
           break;
         }
         const data = res.json;
         if (data.token.length == 0) {
-          new import_obsidian9.Notice(`${wx.name}|${wx.appid} \u6D4B\u8BD5\u5931\u8D25`);
+          new import_obsidian11.Notice(`${wx.name}|${wx.appid} \u6D4B\u8BD5\u5931\u8D25`);
           break;
         }
-        new import_obsidian9.Notice(`${wx.name} \u6D4B\u8BD5\u901A\u8FC7`);
+        new import_obsidian11.Notice(`${wx.name} \u6D4B\u8BD5\u901A\u8FC7`);
       }
     } catch (error) {
-      new import_obsidian9.Notice(`\u6D4B\u8BD5\u5931\u8D25\uFF1A${error}`);
+      new import_obsidian11.Notice(`\u6D4B\u8BD5\u5931\u8D25\uFF1A${error}`);
     }
   }
   async encrypt() {
     if (this.wxInfo.length == 0) {
-      new import_obsidian9.Notice("\u8BF7\u8F93\u5165\u5185\u5BB9");
+      new import_obsidian11.Notice("\u8BF7\u8F93\u5165\u5185\u5BB9");
       return false;
     }
     if (this.settings.wxInfo.length > 0) {
-      new import_obsidian9.Notice("\u5DF2\u7ECF\u52A0\u5BC6\u8FC7\u4E86\uFF0C\u8BF7\u5148\u6E05\u9664\uFF01");
+      new import_obsidian11.Notice("\u5DF2\u7ECF\u4FDD\u5B58\u8FC7\u4E86\uFF0C\u8BF7\u5148\u6E05\u9664\uFF01");
       return false;
     }
     const wechat = [];
@@ -72231,12 +72772,12 @@ var NoteToMpSettingTab = class extends import_obsidian9.PluginSettingTab {
       }
       const items = line.split("|");
       if (items.length != 3) {
-        new import_obsidian9.Notice("\u683C\u5F0F\u9519\u8BEF\uFF0C\u8BF7\u68C0\u67E5");
+        new import_obsidian11.Notice("\u683C\u5F0F\u9519\u8BEF\uFF0C\u8BF7\u68C0\u67E5");
         return false;
       }
       const name = items[0];
-      const appid = items[1];
-      const secret = items[2];
+      const appid = items[1].trim();
+      const secret = items[2].trim();
       wechat.push({ name, appid, secret });
     }
     if (wechat.length == 0) {
@@ -72246,7 +72787,7 @@ var NoteToMpSettingTab = class extends import_obsidian9.PluginSettingTab {
       const res = await wxEncrypt(this.settings.authKey, wechat);
       if (res.status != 200) {
         const data2 = res.json;
-        new import_obsidian9.Notice(`${data2.message}`);
+        new import_obsidian11.Notice(`${data2.message}`);
         return false;
       }
       const data = res.json;
@@ -72257,10 +72798,10 @@ var NoteToMpSettingTab = class extends import_obsidian9.PluginSettingTab {
       await this.plugin.saveSettings();
       this.wxInfo = this.parseWXInfo();
       this.displayWXInfo(this.wxInfo);
-      new import_obsidian9.Notice("\u52A0\u5BC6\u6210\u529F");
+      new import_obsidian11.Notice("\u4FDD\u5B58\u6210\u529F");
       return true;
     } catch (error) {
-      new import_obsidian9.Notice(`\u52A0\u5BC6\u5931\u8D25\uFF1A${error}`);
+      new import_obsidian11.Notice(`\u4FDD\u5B58\u5931\u8D25\uFF1A${error}`);
       console.error(error);
     }
     return false;
@@ -72280,7 +72821,7 @@ var NoteToMpSettingTab = class extends import_obsidian9.PluginSettingTab {
     helpEl.createEl("h2", { text: "\u5E2E\u52A9\u6587\u6863" }).style.cssText = "margin-right: 10px;";
     helpEl.createEl("a", { text: "https://sunboshi.tech/doc", attr: { href: "https://sunboshi.tech/doc" } });
     containerEl.createEl("h2", { text: "\u63D2\u4EF6\u8BBE\u7F6E" });
-    new import_obsidian9.Setting(containerEl).setName("\u9ED8\u8BA4\u6837\u5F0F").addDropdown((dropdown) => {
+    new import_obsidian11.Setting(containerEl).setName("\u9ED8\u8BA4\u6837\u5F0F").addDropdown((dropdown) => {
       const styles = this.plugin.assetsManager.themes;
       for (let s of styles) {
         dropdown.addOption(s.className, s.name);
@@ -72291,7 +72832,7 @@ var NoteToMpSettingTab = class extends import_obsidian9.PluginSettingTab {
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian9.Setting(containerEl).setName("\u4EE3\u7801\u9AD8\u4EAE").addDropdown((dropdown) => {
+    new import_obsidian11.Setting(containerEl).setName("\u4EE3\u7801\u9AD8\u4EAE").addDropdown((dropdown) => {
       const styles = this.plugin.assetsManager.highlights;
       for (let s of styles) {
         dropdown.addOption(s.name, s.name);
@@ -72302,14 +72843,14 @@ var NoteToMpSettingTab = class extends import_obsidian9.PluginSettingTab {
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian9.Setting(containerEl).setName("\u5728\u5DE5\u5177\u680F\u5C55\u793A\u6837\u5F0F\u9009\u62E9").setDesc("\u5EFA\u8BAE\u5728\u79FB\u52A8\u7AEF\u5173\u95ED\uFF0C\u53EF\u4EE5\u589E\u5927\u6587\u7AE0\u9884\u89C8\u533A\u57DF").addToggle((toggle) => {
+    new import_obsidian11.Setting(containerEl).setName("\u5728\u5DE5\u5177\u680F\u5C55\u793A\u6837\u5F0F\u9009\u62E9").setDesc("\u5EFA\u8BAE\u5728\u79FB\u52A8\u7AEF\u5173\u95ED\uFF0C\u53EF\u4EE5\u589E\u5927\u6587\u7AE0\u9884\u89C8\u533A\u57DF").addToggle((toggle) => {
       toggle.setValue(this.settings.showStyleUI);
       toggle.onChange(async (value) => {
         this.settings.showStyleUI = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian9.Setting(containerEl).setName("\u94FE\u63A5\u5C55\u793A\u6837\u5F0F").addDropdown((dropdown) => {
+    new import_obsidian11.Setting(containerEl).setName("\u94FE\u63A5\u5C55\u793A\u6837\u5F0F").addDropdown((dropdown) => {
       dropdown.addOption("inline", "\u5185\u5D4C");
       dropdown.addOption("footnote", "\u811A\u6CE8");
       dropdown.setValue(this.settings.linkStyle);
@@ -72318,7 +72859,7 @@ var NoteToMpSettingTab = class extends import_obsidian9.PluginSettingTab {
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian9.Setting(containerEl).setName("\u6587\u4EF6\u5D4C\u5165\u5C55\u793A\u6837\u5F0F").addDropdown((dropdown) => {
+    new import_obsidian11.Setting(containerEl).setName("\u6587\u4EF6\u5D4C\u5165\u5C55\u793A\u6837\u5F0F").addDropdown((dropdown) => {
       dropdown.addOption("quote", "\u5F15\u7528");
       dropdown.addOption("content", "\u6B63\u6587");
       dropdown.setValue(this.settings.embedStyle);
@@ -72327,7 +72868,7 @@ var NoteToMpSettingTab = class extends import_obsidian9.PluginSettingTab {
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian9.Setting(containerEl).setName("\u6570\u5B66\u516C\u5F0F\u8BED\u6CD5").addDropdown((dropdown) => {
+    new import_obsidian11.Setting(containerEl).setName("\u6570\u5B66\u516C\u5F0F\u8BED\u6CD5").addDropdown((dropdown) => {
       dropdown.addOption("latex", "latex");
       dropdown.addOption("asciimath", "asciimath");
       dropdown.setValue(this.settings.math);
@@ -72337,34 +72878,41 @@ var NoteToMpSettingTab = class extends import_obsidian9.PluginSettingTab {
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian9.Setting(containerEl).setName("\u663E\u793A\u4EE3\u7801\u884C\u53F7").addToggle((toggle) => {
+    new import_obsidian11.Setting(containerEl).setName("\u663E\u793A\u4EE3\u7801\u884C\u53F7").addToggle((toggle) => {
       toggle.setValue(this.settings.lineNumber);
       toggle.onChange(async (value) => {
         this.settings.lineNumber = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian9.Setting(containerEl).setName("\u6E32\u67D3\u56FE\u7247\u6807\u9898").addToggle((toggle) => {
+    new import_obsidian11.Setting(containerEl).setName("\u542F\u7528\u7A7A\u884C\u6E32\u67D3").addToggle((toggle) => {
+      toggle.setValue(this.settings.enableEmptyLine);
+      toggle.onChange(async (value) => {
+        this.settings.enableEmptyLine = value;
+        await this.plugin.saveSettings();
+      });
+    });
+    new import_obsidian11.Setting(containerEl).setName("\u6E32\u67D3\u56FE\u7247\u6807\u9898").addToggle((toggle) => {
       toggle.setValue(this.settings.useFigcaption);
       toggle.onChange(async (value) => {
         this.settings.useFigcaption = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian9.Setting(containerEl).setName("Excalidraw \u6E32\u67D3\u4E3A PNG \u56FE\u7247").addToggle((toggle) => {
+    new import_obsidian11.Setting(containerEl).setName("Excalidraw \u6E32\u67D3\u4E3A PNG \u56FE\u7247").addToggle((toggle) => {
       toggle.setValue(this.settings.excalidrawToPNG);
       toggle.onChange(async (value) => {
         this.settings.excalidrawToPNG = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian9.Setting(containerEl).setName("\u6C34\u5370\u56FE\u7247").addText((text) => {
+    new import_obsidian11.Setting(containerEl).setName("\u6C34\u5370\u56FE\u7247").addText((text) => {
       text.setPlaceholder("\u8BF7\u8F93\u5165\u56FE\u7247\u540D\u79F0").setValue(this.settings.watermark).onChange(async (value) => {
         this.settings.watermark = value.trim();
         await this.plugin.saveSettings();
       }).inputEl.setAttr("style", "width: 320px;");
     });
-    new import_obsidian9.Setting(containerEl).setName("\u83B7\u53D6\u66F4\u591A\u4E3B\u9898").addButton((button) => {
+    new import_obsidian11.Setting(containerEl).setName("\u83B7\u53D6\u66F4\u591A\u4E3B\u9898").addButton((button) => {
       button.setButtonText("\u4E0B\u8F7D");
       button.onClick(async () => {
         button.setButtonText("\u4E0B\u8F7D\u4E2D...");
@@ -72377,7 +72925,7 @@ var NoteToMpSettingTab = class extends import_obsidian9.PluginSettingTab {
         await this.plugin.assetsManager.openAssets();
       });
     });
-    new import_obsidian9.Setting(containerEl).setName("\u6E05\u7A7A\u4E3B\u9898").addButton((button) => {
+    new import_obsidian11.Setting(containerEl).setName("\u6E05\u7A7A\u4E3B\u9898").addButton((button) => {
       button.setButtonText("\u6E05\u7A7A");
       button.onClick(async () => {
         await this.plugin.assetsManager.removeThemes();
@@ -72385,7 +72933,7 @@ var NoteToMpSettingTab = class extends import_obsidian9.PluginSettingTab {
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian9.Setting(containerEl).setName("\u5168\u5C40CSS\u5C5E\u6027").setDesc("\u53EA\u80FD\u586B\u5199CSS\u5C5E\u6027\uFF0C\u4E0D\u80FD\u5199\u9009\u62E9\u5668").addTextArea((text) => {
+    new import_obsidian11.Setting(containerEl).setName("\u5168\u5C40CSS\u5C5E\u6027").setDesc("\u53EA\u80FD\u586B\u5199CSS\u5C5E\u6027\uFF0C\u4E0D\u80FD\u5199\u9009\u62E9\u5668").addTextArea((text) => {
       this.wxTextArea = text;
       text.setPlaceholder("\u8BF7\u8F93\u5165CSS\u5C5E\u6027\uFF0C\u5982\uFF1Abackground: #fff;padding: 10px;").setValue(this.settings.baseCSS).onChange(async (value) => {
         this.settings.baseCSS = value;
@@ -72393,10 +72941,19 @@ var NoteToMpSettingTab = class extends import_obsidian9.PluginSettingTab {
       }).inputEl.setAttr("style", "width: 520px; height: 60px;");
     });
     const customCSSDoc = '\u4F7F\u7528\u6307\u5357\uFF1A<a href="https://sunboshi.tech/customcss">https://sunboshi.tech/customcss</a>';
-    new import_obsidian9.Setting(containerEl).setName("\u81EA\u5B9A\u4E49CSS\u7B14\u8BB0").setDesc((0, import_obsidian9.sanitizeHTMLToDom)(customCSSDoc)).addText((text) => {
+    new import_obsidian11.Setting(containerEl).setName("\u81EA\u5B9A\u4E49CSS\u7B14\u8BB0").setDesc((0, import_obsidian11.sanitizeHTMLToDom)(customCSSDoc)).addText((text) => {
       text.setPlaceholder("\u8BF7\u8F93\u5165\u81EA\u5B9A\u4E49CSS\u7B14\u8BB0\u6807\u9898").setValue(this.settings.customCSSNote).onChange(async (value) => {
         this.settings.customCSSNote = value.trim();
         await this.plugin.saveSettings();
+        await this.plugin.assetsManager.loadCustomCSS();
+      }).inputEl.setAttr("style", "width: 320px;");
+    });
+    const expertDoc = '\u4F7F\u7528\u6307\u5357\uFF1A<a href="https://sunboshi.tech/expert">https://sunboshi.tech/expert</a>';
+    new import_obsidian11.Setting(containerEl).setName("\u4E13\u5BB6\u8BBE\u7F6E\u7B14\u8BB0").setDesc((0, import_obsidian11.sanitizeHTMLToDom)(expertDoc)).addText((text) => {
+      text.setPlaceholder("\u8BF7\u8F93\u5165\u4E13\u5BB6\u8BBE\u7F6E\u7B14\u8BB0\u6807\u9898").setValue(this.settings.expertSettingsNote).onChange(async (value) => {
+        this.settings.expertSettingsNote = value.trim();
+        await this.plugin.saveSettings();
+        await this.plugin.assetsManager.loadExpertSettings();
       }).inputEl.setAttr("style", "width: 320px;");
     });
     let descHtml = '\u8BE6\u60C5\u8BF4\u660E\uFF1A<a href="https://sunboshi.tech/subscribe">https://sunboshi.tech/subscribe</a>';
@@ -72406,7 +72963,7 @@ var NoteToMpSettingTab = class extends import_obsidian9.PluginSettingTab {
       const timestr = this.settings.expireat.toLocaleString();
       descHtml = `\u6709\u6548\u671F\u81F3\uFF1A${timestr} <br/>${descHtml}`;
     }
-    new import_obsidian9.Setting(containerEl).setName("\u6CE8\u518C\u7801\uFF08AuthKey\uFF09").setDesc((0, import_obsidian9.sanitizeHTMLToDom)(descHtml)).addText((text) => {
+    new import_obsidian11.Setting(containerEl).setName("\u6CE8\u518C\u7801\uFF08AuthKey\uFF09").setDesc((0, import_obsidian11.sanitizeHTMLToDom)(descHtml)).addText((text) => {
       text.setPlaceholder("\u8BF7\u8F93\u5165\u6CE8\u518C\u7801").setValue(this.settings.authKey).onChange(async (value) => {
         this.settings.authKey = value.trim();
         this.settings.getExpiredDate();
@@ -72415,14 +72972,14 @@ var NoteToMpSettingTab = class extends import_obsidian9.PluginSettingTab {
     }).descEl.setAttr("style", "-webkit-user-select: text; user-select: text;");
     let isClear = this.settings.wxInfo.length > 0;
     let isRealClear = false;
-    const buttonText = isClear ? "\u6E05\u7A7A\u516C\u4F17\u53F7\u4FE1\u606F" : "\u52A0\u5BC6\u516C\u4F17\u53F7\u4FE1\u606F";
-    new import_obsidian9.Setting(containerEl).setName("\u516C\u4F17\u53F7\u4FE1\u606F").addTextArea((text) => {
+    const buttonText = isClear ? "\u6E05\u7A7A\u516C\u4F17\u53F7\u4FE1\u606F" : "\u4FDD\u5B58\u516C\u4F17\u53F7\u4FE1\u606F";
+    new import_obsidian11.Setting(containerEl).setName("\u516C\u4F17\u53F7\u4FE1\u606F").addTextArea((text) => {
       this.wxTextArea = text;
       text.setPlaceholder("\u8BF7\u8F93\u5165\u516C\u4F17\u53F7\u4FE1\u606F\n\u683C\u5F0F\uFF1A\u516C\u4F17\u53F7\u540D\u79F0|\u516C\u4F17\u53F7AppID|\u516C\u4F17\u53F7AppSecret\n\u591A\u4E2A\u516C\u4F17\u53F7\u8BF7\u6362\u884C\u8F93\u5165\n\u8F93\u5165\u5B8C\u6210\u540E\u70B9\u51FB\u52A0\u5BC6\u6309\u94AE").setValue(this.wxInfo).onChange((value) => {
         this.wxInfo = value;
       }).inputEl.setAttr("style", "width: 520px; height: 120px;");
     });
-    new import_obsidian9.Setting(containerEl).addButton((button) => {
+    new import_obsidian11.Setting(containerEl).addButton((button) => {
       button.setButtonText(buttonText);
       button.onClick(async () => {
         if (isClear) {
@@ -72433,15 +72990,15 @@ var NoteToMpSettingTab = class extends import_obsidian9.PluginSettingTab {
           isRealClear = false;
           isClear = false;
           this.clear();
-          button.setButtonText("\u52A0\u5BC6\u516C\u4F17\u53F7\u4FE1\u606F");
+          button.setButtonText("\u4FDD\u5B58\u516C\u4F17\u53F7\u4FE1\u606F");
         } else {
-          button.setButtonText("\u52A0\u5BC6\u4E2D...");
+          button.setButtonText("\u4FDD\u5B58\u4E2D...");
           if (await this.encrypt()) {
             isClear = true;
             isRealClear = false;
             button.setButtonText("\u6E05\u7A7A\u516C\u4F17\u53F7\u4FE1\u606F");
           } else {
-            button.setButtonText("\u52A0\u5BC6\u516C\u4F17\u53F7\u4FE1\u606F");
+            button.setButtonText("\u4FDD\u5B58\u516C\u4F17\u53F7\u4FE1\u606F");
           }
         }
       });
@@ -72457,8 +73014,8 @@ var NoteToMpSettingTab = class extends import_obsidian9.PluginSettingTab {
 };
 
 // src/widgets-modal.ts
-var import_obsidian10 = require("obsidian");
-var WidgetsModal = class extends import_obsidian10.Modal {
+var import_obsidian12 = require("obsidian");
+var WidgetsModal = class extends import_obsidian12.Modal {
   constructor(app) {
     super(app);
     this.listener = null;
@@ -72466,7 +73023,7 @@ var WidgetsModal = class extends import_obsidian10.Modal {
   }
   insertMarkdown(markdown) {
     var _a;
-    const editor = (_a = this.app.workspace.getActiveViewOfType(import_obsidian10.MarkdownView)) == null ? void 0 : _a.editor;
+    const editor = (_a = this.app.workspace.getActiveViewOfType(import_obsidian12.MarkdownView)) == null ? void 0 : _a.editor;
     if (!editor)
       return;
     editor.replaceSelection(markdown);
@@ -72508,21 +73065,26 @@ var WidgetsModal = class extends import_obsidian10.Modal {
 };
 
 // src/main.ts
-var NoteToMpPlugin = class extends import_obsidian11.Plugin {
+var NoteToMpPlugin = class extends import_obsidian13.Plugin {
   constructor(app, manifest) {
     super(app, manifest);
     AssetsManager.setup(app, manifest);
     this.assetsManager = AssetsManager.getInstance();
   }
-  async onload() {
-    console.log("Loading Note to MP");
-    setVersion(this.manifest.version);
-    uevent("load");
+  async loadResource() {
     await this.loadSettings();
     await this.assetsManager.loadAssets();
+  }
+  async onload() {
+    console.log("Loading NoteToMP");
+    setVersion(this.manifest.version);
+    uevent("load");
+    this.app.workspace.onLayoutReady(() => {
+      this.loadResource();
+    });
     this.registerView(
       VIEW_TYPE_NOTE_PREVIEW,
-      (leaf) => new NotePreview(leaf)
+      (leaf) => new NotePreview(leaf, this)
     );
     const ribbonIconEl = this.addRibbonIcon("clipboard-paste", "\u590D\u5236\u5230\u516C\u4F17\u53F7", (evt) => {
       this.activateView();
@@ -72543,6 +73105,36 @@ var NoteToMpPlugin = class extends import_obsidian11.Plugin {
         new WidgetsModal(this.app).open();
       }
     });
+    this.addCommand({
+      id: "note-to-mp-pub",
+      name: "\u53D1\u5E03\u516C\u4F17\u53F7\u6587\u7AE0",
+      callback: async () => {
+        var _a;
+        await this.activateView();
+        (_a = this.getNotePreview()) == null ? void 0 : _a.postArticle();
+      }
+    });
+    this.registerEvent(
+      this.app.workspace.on("file-menu", (menu, file) => {
+        menu.addItem((item) => {
+          item.setTitle("\u53D1\u5E03\u5230\u516C\u4F17\u53F7").setIcon("lucide-send").onClick(async () => {
+            var _a, _b, _c;
+            if (file instanceof import_obsidian13.TFile) {
+              if (file.extension.toLowerCase() !== "md") {
+                new import_obsidian13.Notice("\u53EA\u80FD\u53D1\u5E03 Markdown \u6587\u4EF6");
+                return;
+              }
+              await this.activateView();
+              await ((_a = this.getNotePreview()) == null ? void 0 : _a.renderMarkdown(file));
+              await ((_b = this.getNotePreview()) == null ? void 0 : _b.postArticle());
+            } else if (file instanceof import_obsidian13.TFolder) {
+              await this.activateView();
+              await ((_c = this.getNotePreview()) == null ? void 0 : _c.batchPost(file));
+            }
+          });
+        });
+      })
+    );
   }
   onunload() {
   }
@@ -72564,6 +73156,14 @@ var NoteToMpPlugin = class extends import_obsidian11.Plugin {
     }
     if (leaf)
       workspace.revealLeaf(leaf);
+  }
+  getNotePreview() {
+    const leaves = this.app.workspace.getLeavesOfType(VIEW_TYPE_NOTE_PREVIEW);
+    if (leaves.length > 0) {
+      const leaf = leaves[0];
+      return leaf.view;
+    }
+    return null;
   }
 };
 /*!
