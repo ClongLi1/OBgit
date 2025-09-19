@@ -1,348 +1,325 @@
 {
-  "edges": [
-    {
-      "color": "1",
-      "fromNode": "67f463a99bb25427",
-      "fromSide": "top",
-      "id": "093a2d5584ad2d5d",
-      "styleAttributes": {
-      },
-      "toNode": "dd598360abcabbc9",
-      "toSide": "bottom"
-    },
-    {
-      "color": "4",
-      "fromNode": "e0758cac78b1f441",
-      "fromSide": "top",
-      "id": "501c81af7b2d42b8",
-      "styleAttributes": {
-      },
-      "toNode": "f5f3b77ec613c69b",
-      "toSide": "bottom"
-    }
-  ],
-  "nodes": [
-    {
-      "color": "#ee00ff",
-      "height": 460,
-      "id": "017b73ef0a82c4a7",
-      "label": "内容管理层",
-      "styleAttributes": {
-      },
-      "type": "group",
-      "width": 980,
-      "x": -400,
-      "y": -200
-    },
-    {
-      "color": "3",
-      "height": 300,
-      "id": "14d9bd75fc5be70b",
-      "label": "数据展示层",
-      "styleAttributes": {
-      },
-      "type": "group",
-      "width": 940,
-      "x": -380,
-      "y": -560
-    },
-    {
-      "color": "5",
-      "height": 380,
-      "id": "74d53af6c7168c8e",
-      "label": "日常记事",
-      "styleAttributes": {
-      },
-      "type": "group",
-      "width": 300,
-      "x": -380,
-      "y": -140
-    },
-    {
-      "color": "2",
-      "height": 380,
-      "id": "b403996aa64a4657",
-      "label": "知识管理",
-      "styleAttributes": {
-      },
-      "type": "group",
-      "width": 300,
-      "x": -60,
-      "y": -140
-    },
-    {
-      "color": "6",
-      "height": 380,
-      "id": "ffc71dab7ead1df5",
-      "label": "任务管理",
-      "styleAttributes": {
-      },
-      "type": "group",
-      "width": 300,
-      "x": 260,
-      "y": -140
-    },
-    {
-      "height": 100,
-      "id": "fa05830ab11e6531",
-      "label": "基础服务层",
-      "styleAttributes": {
-      },
-      "type": "group",
-      "width": 940,
-      "x": -380,
-      "y": 320
-    },
-    {
-      "color": "1",
-      "height": 240,
-      "id": "1047c0ea26513f56",
-      "label": "知识管理分析",
-      "styleAttributes": {
-      },
-      "type": "group",
-      "width": 300,
-      "x": -340,
-      "y": -520
-    },
-    {
-      "color": "4",
-      "height": 240,
-      "id": "9587753d30758676",
-      "label": "任务管理分析",
-      "styleAttributes": {
-      },
-      "type": "group",
-      "width": 300,
-      "x": 240,
-      "y": -520
-    },
-    {
-      "color": "1",
-      "height": 60,
-      "id": "dd598360abcabbc9",
-      "styleAttributes": {
-        "shape": null
-      },
-      "text": "Canvas 数据看板",
-      "type": "text",
-      "width": 260,
-      "x": -320,
-      "y": -500
-    },
-    {
-      "color": "1",
-      "height": 60,
-      "id": "67f463a99bb25427",
-      "styleAttributes": {
-        "shape": null
-      },
-      "text": "Dataview 数据查询",
-      "type": "text",
-      "width": 260,
-      "x": -320,
-      "y": -360
-    },
-    {
-      "color": "5",
-      "height": 60,
-      "id": "adbf1463e9097b51",
-      "styleAttributes": {
-      },
-      "text": "记录时间",
-      "type": "text",
-      "width": 260,
-      "x": -360,
-      "y": -120
-    },
-    {
-      "color": "4",
-      "height": 60,
-      "id": "f5f3b77ec613c69b",
-      "styleAttributes": {
-      },
-      "text": "Canvas 数据看板",
-      "type": "text",
-      "width": 260,
-      "x": 260,
-      "y": -500
-    },
-    {
-      "color": "4",
-      "height": 60,
-      "id": "e0758cac78b1f441",
-      "styleAttributes": {
-      },
-      "text": "Dataview 数据查询",
-      "type": "text",
-      "width": 260,
-      "x": 260,
-      "y": -360
-    },
-    {
-      "color": "5",
-      "height": 60,
-      "id": "7f184930ab9254ed",
-      "styleAttributes": {
-      },
-      "text": "记录事件",
-      "type": "text",
-      "width": 260,
-      "x": -360,
-      "y": -30
-    },
-    {
-      "color": "5",
-      "height": 60,
-      "id": "5c178cad9f3e57e0",
-      "styleAttributes": {
-      },
-      "text": "记录任务",
-      "type": "text",
-      "width": 260,
-      "x": -360,
-      "y": 60
-    },
-    {
-      "color": "5",
-      "height": 60,
-      "id": "f8667d96f92a99a6",
-      "styleAttributes": {
-      },
-      "text": "精彩瞬间",
-      "type": "text",
-      "width": 260,
-      "x": -360,
-      "y": 160
-    },
-    {
-      "color": "2",
-      "height": 60,
-      "id": "a1e76bd4a63879df",
-      "styleAttributes": {
-      },
-      "text": "知识沉淀",
-      "type": "text",
-      "width": 260,
-      "x": -40,
-      "y": 60
-    },
-    {
-      "color": "2",
-      "height": 60,
-      "id": "d2d09fefe941d962",
-      "styleAttributes": {
-      },
-      "text": "灵感时刻",
-      "type": "text",
-      "width": 260,
-      "x": -40,
-      "y": -120
-    },
-    {
-      "height": 60,
-      "id": "4c94efa0c0b095d8",
-      "styleAttributes": {
-      },
-      "text": "笔记模板",
-      "type": "text",
-      "width": 260,
-      "x": -360,
-      "y": 340
-    },
-    {
-      "height": 60,
-      "id": "b5c17a937debbd04",
-      "styleAttributes": {
-      },
-      "text": "笔记结构",
-      "type": "text",
-      "width": 260,
-      "x": -40,
-      "y": 340
-    },
-    {
-      "height": 60,
-      "id": "a18fa7029eae8009",
-      "styleAttributes": {
-      },
-      "text": "使用技巧",
-      "type": "text",
-      "width": 260,
-      "x": 280,
-      "y": 340
-    },
-    {
-      "color": "2",
-      "height": 60,
-      "id": "d2c03a8bdac20dd7",
-      "styleAttributes": {
-      },
-      "text": "信息输入",
-      "type": "text",
-      "width": 260,
-      "x": -40,
-      "y": -30
-    },
-    {
-      "color": "6",
-      "height": 60,
-      "id": "4bdd59c64b16ad8a",
-      "styleAttributes": {
-      },
-      "text": "短时任务",
-      "type": "text",
-      "width": 260,
-      "x": 280,
-      "y": -120
-    },
-    {
-      "color": "6",
-      "height": 60,
-      "id": "3501110b739090a8",
-      "styleAttributes": {
-      },
-      "text": "长期规划",
-      "type": "text",
-      "width": 260,
-      "x": 280,
-      "y": -30
-    },
-    {
-      "color": "6",
-      "height": 60,
-      "id": "628ba1952276900b",
-      "styleAttributes": {
-      },
-      "text": "目标梦想",
-      "type": "text",
-      "width": 260,
-      "x": 280,
-      "y": 60
-    },
-    {
-      "color": "6",
-      "height": 60,
-      "id": "d35f5fdc8175f847",
-      "styleAttributes": {
-      },
-      "text": "精彩瞬间",
-      "type": "text",
-      "width": 260,
-      "x": 280,
-      "y": 160
-    },
-    {
-      "color": "2",
-      "height": 60,
-      "id": "8051e481893a9e9f",
-      "styleAttributes": {
-      },
-      "text": "迭代更新",
-      "type": "text",
-      "width": 260,
-      "x": -40,
-      "y": 160
-    }
-  ]
+	"edges":[
+		{
+			"id":"093a2d5584ad2d5d",
+			"styleAttributes":{},
+			"fromNode":"67f463a99bb25427",
+			"fromSide":"top",
+			"toNode":"dd598360abcabbc9",
+			"toSide":"bottom",
+			"color":"1"
+		},
+		{
+			"id":"501c81af7b2d42b8",
+			"styleAttributes":{},
+			"fromNode":"e0758cac78b1f441",
+			"fromSide":"top",
+			"toNode":"f5f3b77ec613c69b",
+			"toSide":"bottom",
+			"color":"4"
+		}
+	],
+	"nodes":[
+		{
+			"id":"017b73ef0a82c4a7",
+			"styleAttributes":{},
+			"type":"group",
+			"x":-400,
+			"y":-200,
+			"width":980,
+			"height":460,
+			"color":"#ee00ff",
+			"label":"内容管理层"
+		},
+		{
+			"id":"14d9bd75fc5be70b",
+			"styleAttributes":{},
+			"type":"group",
+			"x":-380,
+			"y":-560,
+			"width":940,
+			"height":300,
+			"color":"3",
+			"label":"数据展示层"
+		},
+		{
+			"id":"74d53af6c7168c8e",
+			"styleAttributes":{},
+			"type":"group",
+			"x":-380,
+			"y":-140,
+			"width":300,
+			"height":380,
+			"color":"5",
+			"label":"日常记事"
+		},
+		{
+			"id":"b403996aa64a4657",
+			"styleAttributes":{},
+			"type":"group",
+			"x":-60,
+			"y":-140,
+			"width":300,
+			"height":380,
+			"color":"2",
+			"label":"知识管理"
+		},
+		{
+			"id":"ffc71dab7ead1df5",
+			"styleAttributes":{},
+			"type":"group",
+			"x":260,
+			"y":-140,
+			"width":300,
+			"height":380,
+			"color":"6",
+			"label":"任务管理"
+		},
+		{
+			"id":"fa05830ab11e6531",
+			"styleAttributes":{},
+			"type":"group",
+			"x":-380,
+			"y":320,
+			"width":940,
+			"height":100,
+			"label":"基础服务层"
+		},
+		{
+			"id":"1047c0ea26513f56",
+			"styleAttributes":{},
+			"type":"group",
+			"x":-340,
+			"y":-520,
+			"width":300,
+			"height":240,
+			"color":"1",
+			"label":"知识管理分析"
+		},
+		{
+			"id":"9587753d30758676",
+			"styleAttributes":{},
+			"type":"group",
+			"x":240,
+			"y":-520,
+			"width":300,
+			"height":240,
+			"color":"4",
+			"label":"任务管理分析"
+		},
+		{
+			"id":"dd598360abcabbc9",
+			"styleAttributes":{
+				"shape":null
+			},
+			"text":"Canvas 数据看板",
+			"type":"text",
+			"x":-320,
+			"y":-500,
+			"width":260,
+			"height":60,
+			"color":"1"
+		},
+		{
+			"id":"67f463a99bb25427",
+			"styleAttributes":{
+				"shape":null
+			},
+			"text":"Dataview 数据查询",
+			"type":"text",
+			"x":-320,
+			"y":-360,
+			"width":260,
+			"height":60,
+			"color":"1"
+		},
+		{
+			"id":"adbf1463e9097b51",
+			"styleAttributes":{},
+			"text":"记录时间",
+			"type":"text",
+			"x":-360,
+			"y":-120,
+			"width":260,
+			"height":60,
+			"color":"5"
+		},
+		{
+			"id":"f5f3b77ec613c69b",
+			"styleAttributes":{},
+			"text":"Canvas 数据看板",
+			"type":"text",
+			"x":260,
+			"y":-500,
+			"width":260,
+			"height":60,
+			"color":"4"
+		},
+		{
+			"id":"e0758cac78b1f441",
+			"styleAttributes":{},
+			"text":"Dataview 数据查询",
+			"type":"text",
+			"x":260,
+			"y":-360,
+			"width":260,
+			"height":60,
+			"color":"4"
+		},
+		{
+			"id":"7f184930ab9254ed",
+			"styleAttributes":{},
+			"text":"记录事件",
+			"type":"text",
+			"x":-360,
+			"y":-30,
+			"width":260,
+			"height":60,
+			"color":"5"
+		},
+		{
+			"id":"5c178cad9f3e57e0",
+			"styleAttributes":{},
+			"text":"记录任务",
+			"type":"text",
+			"x":-360,
+			"y":60,
+			"width":260,
+			"height":60,
+			"color":"5"
+		},
+		{
+			"id":"f8667d96f92a99a6",
+			"styleAttributes":{},
+			"text":"精彩瞬间",
+			"type":"text",
+			"x":-360,
+			"y":160,
+			"width":260,
+			"height":60,
+			"color":"5"
+		},
+		{
+			"id":"a1e76bd4a63879df",
+			"styleAttributes":{},
+			"text":"知识沉淀",
+			"type":"text",
+			"x":-40,
+			"y":60,
+			"width":260,
+			"height":60,
+			"color":"2"
+		},
+		{
+			"id":"d2d09fefe941d962",
+			"styleAttributes":{},
+			"text":"灵感时刻",
+			"type":"text",
+			"x":-40,
+			"y":-120,
+			"width":260,
+			"height":60,
+			"color":"2"
+		},
+		{
+			"id":"4c94efa0c0b095d8",
+			"styleAttributes":{},
+			"text":"笔记模板",
+			"type":"text",
+			"x":-360,
+			"y":340,
+			"width":260,
+			"height":60
+		},
+		{
+			"id":"b5c17a937debbd04",
+			"styleAttributes":{},
+			"text":"笔记结构",
+			"type":"text",
+			"x":-40,
+			"y":340,
+			"width":260,
+			"height":60
+		},
+		{
+			"id":"a18fa7029eae8009",
+			"styleAttributes":{},
+			"text":"使用技巧",
+			"type":"text",
+			"x":280,
+			"y":340,
+			"width":260,
+			"height":60
+		},
+		{
+			"id":"d2c03a8bdac20dd7",
+			"styleAttributes":{},
+			"text":"信息输入",
+			"type":"text",
+			"x":-40,
+			"y":-30,
+			"width":260,
+			"height":60,
+			"color":"2"
+		},
+		{
+			"id":"4bdd59c64b16ad8a",
+			"styleAttributes":{},
+			"text":"短时任务",
+			"type":"text",
+			"x":280,
+			"y":-120,
+			"width":260,
+			"height":60,
+			"color":"6"
+		},
+		{
+			"id":"3501110b739090a8",
+			"styleAttributes":{},
+			"text":"长期规划",
+			"type":"text",
+			"x":280,
+			"y":-30,
+			"width":260,
+			"height":60,
+			"color":"6"
+		},
+		{
+			"id":"628ba1952276900b",
+			"styleAttributes":{},
+			"text":"目标梦想",
+			"type":"text",
+			"x":280,
+			"y":60,
+			"width":260,
+			"height":60,
+			"color":"6"
+		},
+		{
+			"id":"d35f5fdc8175f847",
+			"styleAttributes":{},
+			"text":"精彩瞬间",
+			"type":"text",
+			"x":280,
+			"y":160,
+			"width":260,
+			"height":60,
+			"color":"6"
+		},
+		{
+			"id":"8051e481893a9e9f",
+			"styleAttributes":{},
+			"text":"迭代更新",
+			"type":"text",
+			"x":-40,
+			"y":160,
+			"width":260,
+			"height":60,
+			"color":"2"
+		}
+	],
+	"metadata":{
+		"version":"1.0-1.0",
+		"frontmatter":{}
+	}
 }
