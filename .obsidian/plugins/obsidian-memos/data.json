@@ -9,7 +9,7 @@
   "SaveMemoButtonIcon": "",
   "ShareFooterStart": "{ThinoNum} Thino {UsedDay} Day",
   "ShareFooterEnd": "✍️ by {UserName}",
-  "DefaultPrefix": "List",
+  "DefaultPrefix": "Task",
   "DefaultTimePrefix": "HH:mm",
   "UseDailyOrPeriodic": "Daily",
   "InsertDateFormat": "Tasks",
