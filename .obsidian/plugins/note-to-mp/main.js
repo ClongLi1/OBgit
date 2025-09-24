@@ -67453,7 +67453,7 @@ var MathRenderer = class extends Extension {
       async: true,
       walkTokens: async (token) => {
         if (token.type === "InlineMath" || token.type === "BlockMath") {
-          token.html = await this.renderer(token, token.type === "InlineMath", token.displayMode ? "latex" : "asciimath");
+          token.html = await this.renderer(token, token.type === "InlineMath");
         }
       },
       extensions: [
@@ -67840,9 +67840,17 @@ section .note-callout-custom {
   max-width: 300% !important;
 }
 
+.block-math-svg svg {
+  scale: 0.85;
+}
+
 .block-math-section {
   text-align: center;
   overflow: auto;
+}
+
+.inline-math-svg svg {
+  font-size: 0.85em;
 }
 
 /* --------------------------------------- */
@@ -70337,7 +70345,7 @@ var Blockquote = class extends Extension {
     if (this.box && this.box.matched(token.text)) {
       return await this.box.renderer(token);
     }
-    const body = this.marked.parser(token.tokens);
+    const body = await this.marked.parse(token.text);
     return `<blockquote>${body}</blockquote>`;
   }
   markedExtension() {
@@ -70771,11 +70779,9 @@ var FootnoteRenderer = class extends Extension {
   constructor() {
     super(...arguments);
     this.allDefs = [];
-    this.defCounter = 0;
   }
   async prepare() {
     this.allDefs = [];
-    this.defCounter = 0;
   }
   async postprocess(html2) {
     if (this.allDefs.length == 0) {
@@ -70811,9 +70817,9 @@ var FootnoteRenderer = class extends Extension {
             }
           },
           renderer: (token) => {
-            this.defCounter += 1;
-            const id = `fnref-${this.defCounter}`;
-            return `<sup id="${id}">${this.defCounter}</sup>`;
+            const index = this.allDefs.findIndex((def2) => def2.label == token.text) + 1;
+            const id = `fnref-${index}`;
+            return `<sup id="${id}" class="fnref-sup">${index}</sup>`;
           }
         },
         {
