@@ -18,20 +18,20 @@ dataSource:
 fillTheScreen: false
 enableMainContainerShadow: false
 cellStyleRules:
-  - id: Halloween_a
-    color: "#fdd577"
+  - id: Wine_a
+    color: "#d8b0b3"
     min: 1
     max: 2
-  - id: Halloween_b
-    color: "#faaa53"
+  - id: Wine_b
+    color: "#c78089"
     min: 2
     max: 3
-  - id: Halloween_c
-    color: "#f07c44"
+  - id: Wine_c
+    color: "#ac4c61"
     min: 3
     max: 5
-  - id: Halloween_d
-    color: "#d94e49"
+  - id: Wine_d
+    color: "#830738"
     min: 5
     max: 9999
 mainContainerStyle:
