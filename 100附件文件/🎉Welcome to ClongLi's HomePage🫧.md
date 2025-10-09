@@ -18,22 +18,22 @@ dataSource:
 fillTheScreen: false
 enableMainContainerShadow: false
 cellStyleRules:
-  - id: Wine_a
-    color: "#d8b0b3"
+  - id: default_b
+    color: "#9be9a8"
     min: 1
     max: 2
-  - id: Wine_b
-    color: "#c78089"
+  - id: default_c
+    color: "#40c463"
     min: 2
-    max: 3
-  - id: Wine_c
-    color: "#ac4c61"
-    min: 3
     max: 5
-  - id: Wine_d
-    color: "#830738"
+  - id: default_d
+    color: "#30a14e"
     min: 5
-    max: 9999
+    max: 10
+  - id: default_e
+    color: "#216e39"
+    min: 10
+    max: 999
 mainContainerStyle:
   backgroundColor: "#00000007"
 
