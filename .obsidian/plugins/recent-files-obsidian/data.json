@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "艾跃进教授语录",
+      "path": "00-课读笔记/艾跃进教授语录.md"
+    },
+    {
+      "basename": "毛泽东党内通讯",
+      "path": "00-课读笔记/毛泽东党内通讯.md"
+    },
+    {
       "basename": "个人日常运动",
       "path": "14运动医学/个人日常运动.md"
     },
@@ -35,10 +43,6 @@
     {
       "basename": "excalibrain",
       "path": "excalibrain.md"
-    },
-    {
-      "basename": "艾跃进教授语录",
-      "path": "00-课读笔记/艾跃进教授语录.md"
     },
     {
       "basename": "00-阅读网课笔记",
@@ -195,10 +199,6 @@
     {
       "basename": "滴水思维（每天进步一点点）",
       "path": "04方法思维/滴水思维（每天进步一点点）.md"
-    },
-    {
-      "basename": "99必备技能",
-      "path": "99-必备技能/99必备技能.md"
     }
   ],
   "omittedPaths": [],
