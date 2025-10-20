@@ -18,22 +18,22 @@ dataSource:
 fillTheScreen: false
 enableMainContainerShadow: false
 cellStyleRules:
-  - id: default_b
-    color: "#9be9a8"
+  - id: Lovely_a
+    color: "#fedcdc"
     min: 1
     max: 2
-  - id: default_c
-    color: "#40c463"
+  - id: Lovely_b
+    color: "#fdb8bf"
     min: 2
+    max: 3
+  - id: Lovely_c
+    color: "#f892a9"
+    min: 3
     max: 5
-  - id: default_d
-    color: "#30a14e"
+  - id: Lovely_d
+    color: "#ec6a97"
     min: 5
-    max: 10
-  - id: default_e
-    color: "#216e39"
-    min: 10
-    max: 999
+    max: 9999
 mainContainerStyle:
   backgroundColor: "#00000007"
 
