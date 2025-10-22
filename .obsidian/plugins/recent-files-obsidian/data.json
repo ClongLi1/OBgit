@@ -1,8 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "截线法测晶粒尺寸",
+      "path": "02专业知识/截线法测晶粒尺寸.md"
+    },
+    {
       "basename": "excalibrain",
       "path": "excalibrain.md"
+    },
+    {
+      "basename": "金相分析",
+      "path": "02专业知识/金相分析.md"
+    },
+    {
+      "basename": "02材料专业",
+      "path": "02专业知识/02材料专业.md"
     },
     {
       "basename": "2025-10-21",
@@ -71,10 +83,6 @@
     {
       "basename": "03软件电脑",
       "path": "03软件网络/03软件电脑.md"
-    },
-    {
-      "basename": "02材料专业",
-      "path": "02专业知识/02材料专业.md"
     },
     {
       "basename": "葡萄牙语言翻译",
@@ -191,14 +199,6 @@
     {
       "basename": "购房技巧经验总结",
       "path": "99-必备技能/购房技巧经验总结.md"
-    },
-    {
-      "basename": "论文查重",
-      "path": "00科研相关/论文查重.md"
-    },
-    {
-      "basename": "设置专栏",
-      "path": "04方法思维/设置专栏.md"
     }
   ],
   "omittedPaths": [],
