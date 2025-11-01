@@ -1,8 +1,108 @@
 {
   "recentFiles": [
     {
-      "basename": "🔥热力图🔥",
-      "path": "00草稿收集/🧰收纳箱/🔥热力图🔥.md"
+      "basename": "新手机开荒+旧手机使用",
+      "path": "03软件网络/新手机开荒+旧手机使用.md"
+    },
+    {
+      "basename": "小米技巧",
+      "path": "03软件网络/小米技巧.md"
+    },
+    {
+      "basename": "03软件电脑",
+      "path": "03软件网络/03软件电脑.md"
+    },
+    {
+      "basename": "Dataview插件——充分释放Obsidian性能",
+      "path": "00写作运营/Dataview插件——充分释放Obsidian性能.md"
+    },
+    {
+      "basename": "AI可以做什么？",
+      "path": "00写作运营/AI可以做什么？.md"
+    },
+    {
+      "basename": "AI&ChatGPT",
+      "path": "00写作运营/AI&ChatGPT.md"
+    },
+    {
+      "basename": "微信公众号运营技巧",
+      "path": "00写作运营/微信公众号运营技巧.md"
+    },
+    {
+      "basename": "手机APP",
+      "path": "00写作运营/手机APP.md"
+    },
+    {
+      "basename": "软件教程-逻辑要素图片",
+      "path": "00写作运营/软件教程-逻辑要素图片.md"
+    },
+    {
+      "basename": "人脉管理话术",
+      "path": "00写作运营/人脉管理话术.md"
+    },
+    {
+      "basename": "科研工具分享",
+      "path": "00写作运营/科研工具分享.md"
+    },
+    {
+      "basename": "公众号自媒体经验灵感",
+      "path": "00写作运营/公众号自媒体经验灵感.md"
+    },
+    {
+      "basename": "公众号的群推广",
+      "path": "00写作运营/公众号的群推广.md"
+    },
+    {
+      "basename": "Obsidian笔记中元素（Markdown语法）",
+      "path": "00写作运营/02卡片/Obsidian笔记中元素（Markdown语法）.md"
+    },
+    {
+      "basename": "Obsidian学习资源推荐",
+      "path": "00写作运营/02卡片/Obsidian学习资源推荐.md"
+    },
+    {
+      "basename": "00写作运营",
+      "path": "00写作运营/00写作运营.md"
+    },
+    {
+      "basename": "电脑必备工具",
+      "path": "00写作运营/电脑必备工具.md"
+    },
+    {
+      "basename": "值得收藏的宝藏网站",
+      "path": "00写作运营/02卡片/值得收藏的宝藏网站.md"
+    },
+    {
+      "basename": "一站式管理软件合集",
+      "path": "00写作运营/02卡片/一站式管理软件合集.md"
+    },
+    {
+      "basename": "未命名",
+      "path": "00写作运营/02卡片/未命名.md"
+    },
+    {
+      "basename": "精选DeepSeek指令100个",
+      "path": "00写作运营/02卡片/精选DeepSeek指令100个.md"
+    },
+    {
+      "basename": "AI工具和模型",
+      "path": "03软件网络/AI工具和模型.md"
+    },
+    {
+      "basename": "Dataview（🌤️天气预报🌦️）",
+      "path": "00草稿收集/🧰收纳箱/Dataview（🌤️天气预报🌦️）.md"
+    },
+    {
+      "basename": "🎉Welcome to ClongLi's HomePage🫧",
+      "path": "100附件文件/🎉Welcome to ClongLi's HomePage🫧.md"
+    },
+    {
+      "basename": "excalibrain",
+      "path": "excalibrain.md"
+    },
+    {
+      "basename": "文件检索",
+      "path": "00草稿收集/文件检索.md"
     },
     {
       "basename": "热力图（主页）",
@@ -13,192 +113,92 @@
       "path": "00草稿收集/⏲️时间进度仪表板.md"
     },
     {
-      "basename": "⌛牛马-倒计时⌛",
-      "path": "00草稿收集/🧰收纳箱/⌛牛马-倒计时⌛.md"
+      "basename": "时间线TimeLine插件",
+      "path": "00草稿收集/测试箱/时间线TimeLine插件.md"
     },
     {
-      "basename": "📚码力喵📚",
-      "path": "00草稿收集/🧰收纳箱/📚码力喵📚.md"
-    },
-    {
-      "basename": "词云（标签可视化）",
-      "path": "00草稿收集/🧰收纳箱/词云（标签可视化）.md"
-    },
-    {
-      "basename": "🔖标签分类管理",
-      "path": "100附件文件/1000附件/🔖标签分类管理.md"
-    },
-    {
-      "basename": "04思维方法",
-      "path": "04方法思维/04思维方法.md"
+      "basename": "mermaid草稿",
+      "path": "00草稿收集/mermaid草稿.md"
     },
     {
       "basename": "🧠第二大脑🧠",
       "path": "00草稿收集/🧰收纳箱/🧠第二大脑🧠.md"
     },
     {
-      "basename": "💎时光飞逝💎",
-      "path": "00草稿收集/🧰收纳箱/💎时光飞逝💎.md"
+      "basename": "如何构建知识体系？",
+      "path": "999知识管理/如何构建知识体系？.md"
     },
     {
-      "basename": "⏮️随机音乐⏸️轻松愉悦⏭️",
-      "path": "00草稿收集/⏮️随机音乐⏸️轻松愉悦⏭️.md"
+      "basename": "如何扩大自己的知识体系？",
+      "path": "999知识管理/如何扩大自己的知识体系？.md"
     },
     {
-      "basename": "00科研项目",
-      "path": "00科研相关/00科研项目.md"
+      "basename": "视觉刺激",
+      "path": "999知识管理/视觉刺激.md"
     },
     {
-      "basename": "excalibrain",
-      "path": "excalibrain.md"
+      "basename": "知识管理",
+      "path": "999知识管理/知识管理.md"
     },
     {
-      "basename": "🎉Welcome to ClongLi's HomePage🫧",
-      "path": "100附件文件/🎉Welcome to ClongLi's HomePage🫧.md"
+      "basename": "知识管理策略建议",
+      "path": "999知识管理/知识管理策略建议.md"
     },
     {
-      "basename": "10 总结反思",
-      "path": "10总结反思/10 总结反思.md"
+      "basename": "知识体系图",
+      "path": "999知识管理/知识体系图.md"
     },
     {
-      "basename": "灵感想法收集",
-      "path": "08灵感梦想/灵感想法收集.md"
+      "basename": "子弹笔记",
+      "path": "999知识管理/子弹笔记.md"
+    },
+    {
+      "basename": "未命名思维导图",
+      "path": "未命名思维导图.md"
+    },
+    {
+      "basename": "16时政现实",
+      "path": "16时政现实/16时政现实.md"
+    },
+    {
+      "basename": "06口才社交",
+      "path": "06口才社交/06口才社交.md"
+    },
+    {
+      "basename": "电脑硬件知识",
+      "path": "03软件网络/电脑硬件知识.md"
+    },
+    {
+      "basename": "曹将PPT资源",
+      "path": "03软件网络/曹将PPT资源.md"
+    },
+    {
+      "basename": "常用的内敛语句",
+      "path": "03软件网络/常用的内敛语句.md"
     },
     {
       "basename": "个人问题和经验总结",
       "path": "10总结反思/个人问题和经验总结.md"
     },
     {
-      "basename": "待办任务事项汇集",
-      "path": "08灵感梦想/待办任务事项汇集.md"
+      "basename": "🏳️‍🌈动彩时钟🏳️‍🌈",
+      "path": "00草稿收集/🏳️‍🌈动彩时钟🏳️‍🌈.md"
     },
     {
-      "basename": "短期待办网页和事项",
-      "path": "08灵感梦想/短期待办网页和事项.md"
+      "basename": "未命名",
+      "path": "03软件网络/未命名.base"
     },
     {
-      "basename": "2024年度总结与2025年度计划",
-      "path": "10总结反思/2024年度总结与2025年度计划.md"
-    },
-    {
-      "basename": "14运动健康 ",
-      "path": "14运动医学/14运动健康 .md"
-    },
-    {
-      "basename": "薪资收入+消费支出+投资储蓄",
-      "path": "01生活方面/薪资收入+消费支出+投资储蓄.md"
-    },
-    {
-      "basename": "像建设新中国一样建设自己",
-      "path": "18个人管理/像建设新中国一样建设自己.md"
-    },
-    {
-      "basename": "18个人管理",
-      "path": "18个人管理/18个人管理.md"
-    },
-    {
-      "basename": "认知体系",
-      "path": "999知识管理/认知体系.md"
-    },
-    {
-      "basename": "999知识管理",
-      "path": "999知识管理/999知识管理.md"
-    },
-    {
-      "basename": "日志改写周志",
-      "path": "10总结反思/日志改写周志.md"
-    },
-    {
-      "basename": "原位透射电子显微镜",
-      "path": "02专业知识/原位透射电子显微镜.md"
-    },
-    {
-      "basename": "副业思维",
-      "path": "01生活方面/副业思维.md"
-    },
-    {
-      "basename": "塑性变形",
-      "path": "02专业知识/塑性变形.md"
-    },
-    {
-      "basename": "小米妙功能简介",
-      "path": "03软件网络/小米妙功能简介.md"
-    },
-    {
-      "basename": "铜合金",
-      "path": "02专业知识/铜合金.md"
-    },
-    {
-      "basename": "人一定要学会读书和运动",
-      "path": "07文学历史/人一定要学会读书和运动.md"
-    },
-    {
-      "basename": "其他合金",
-      "path": "02专业知识/其他合金.md"
-    },
-    {
-      "basename": "素质冰山模型：知识、技能、能力、个性、价值、动机",
-      "path": "04方法思维/素质冰山模型：知识、技能、能力、个性、价值、动机.md"
-    },
-    {
-      "basename": "培养自己的九种能力",
-      "path": "07文学历史/培养自己的九种能力.md"
-    },
-    {
-      "basename": "2025-05-09_日历运用技巧经验",
-      "path": "00ZK卡片/2025-05-09_日历运用技巧经验.md"
-    },
-    {
-      "basename": "公司通讯录",
-      "path": "05工作职场/051-主业工作（轻研合金）/公司通讯录.md"
-    },
-    {
-      "basename": "名人名言",
-      "path": "00闪念笔记/名人名言.md"
-    },
-    {
-      "basename": "00闪念笔记",
-      "path": "00闪念笔记/00闪念笔记.md"
-    },
-    {
-      "basename": "17AI写作咨询",
-      "path": "17AI写作咨询/17AI写作咨询.md"
-    },
-    {
-      "basename": "3C挤压板退火合理性分析",
-      "path": "17AI写作咨询/3C挤压板退火合理性分析.md"
-    },
-    {
-      "basename": "在自己的世界里独善其身，在别人的世界里顺其自然",
-      "path": "07文学历史/在自己的世界里独善其身，在别人的世界里顺其自然.md"
-    },
-    {
-      "basename": "论文提交前校对",
-      "path": "00科研相关/论文提交前校对.md"
-    },
-    {
-      "basename": "复合材料",
-      "path": "02专业知识/复合材料.md"
-    },
-    {
-      "basename": "焊丝划水（梁志伟）+刘晓慧（催要资料）",
-      "path": "10总结反思/焊丝划水（梁志伟）+刘晓慧（催要资料）.md"
-    },
-    {
-      "basename": "工作能力差的具体表现",
-      "path": "05工作职场/工作能力差的具体表现.md"
-    },
-    {
-      "basename": "王佩丰EXCEL24讲",
-      "path": "03软件网络/王佩丰EXCEL24讲.md"
-    },
-    {
-      "basename": "高考挑行李回家的小姑娘",
-      "path": "07文学历史/高考挑行李回家的小姑娘.md"
+      "basename": "01生活方面",
+      "path": "01生活方面/01生活方面.md"
     },
     {
       "basename": "02材料专业",
       "path": "02专业知识/02材料专业.md"
+    },
+    {
+      "basename": "Dataview（文件夹笔记数量汇总）",
+      "path": "100附件文件/1010Dataview/Dataview（文件夹笔记数量汇总）.md"
     }
   ],
   "omittedPaths": [],
