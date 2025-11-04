@@ -1,12 +1,84 @@
 {
   "recentFiles": [
     {
+      "basename": "未命名思维导图",
+      "path": "未命名思维导图.md"
+    },
+    {
       "basename": "2025-11-03",
       "path": "998日记汇总/2025-11-03.md"
     },
     {
+      "basename": "🎉Welcome to ClongLi's HomePage🫧",
+      "path": "100附件文件/🎉Welcome to ClongLi's HomePage🫧.md"
+    },
+    {
+      "basename": "如何变优秀？",
+      "path": "04方法思维/如何变优秀？.md"
+    },
+    {
+      "basename": "热爱生活，积极向上、充满希望",
+      "path": "12亲子教育/热爱生活，积极向上、充满希望.md"
+    },
+    {
+      "basename": "Dataview（文件夹笔记数量汇总）",
+      "path": "100附件文件/1010Dataview/Dataview（文件夹笔记数量汇总）.md"
+    },
+    {
+      "basename": "成人职场思维",
+      "path": "04方法思维/成人职场思维.md"
+    },
+    {
+      "basename": "做科研的人",
+      "path": "00科研相关/做科研的人.md"
+    },
+    {
       "basename": "excalibrain",
       "path": "excalibrain.md"
+    },
+    {
+      "basename": "哲学",
+      "path": "07文学历史/哲学.md"
+    },
+    {
+      "basename": "11感情婚恋",
+      "path": "11情感婚恋/11感情婚恋.md"
+    },
+    {
+      "basename": "09心灵慰藉",
+      "path": "09心灵慰藉/09心灵慰藉.md"
+    },
+    {
+      "basename": "人生低谷要敢于东山再起",
+      "path": "09心灵慰藉/人生低谷要敢于东山再起.md"
+    },
+    {
+      "basename": "调好心态，继续前行",
+      "path": "09心灵慰藉/调好心态，继续前行.md"
+    },
+    {
+      "basename": "07文学历史",
+      "path": "07文学历史/07文学历史.md"
+    },
+    {
+      "basename": "唐诗宋词",
+      "path": "07文学历史/唐诗宋词.md"
+    },
+    {
+      "basename": "06口才社交",
+      "path": "06口才社交/06口才社交.md"
+    },
+    {
+      "basename": "独处",
+      "path": "09心灵慰藉/独处.md"
+    },
+    {
+      "basename": "认知体系",
+      "path": "999知识管理/认知体系.md"
+    },
+    {
+      "basename": "999知识管理",
+      "path": "999知识管理/999知识管理.md"
     },
     {
       "basename": "学会投资自己",
@@ -15,10 +87,6 @@
     {
       "basename": "饮食健康",
       "path": "01生活方面/饮食健康.md"
-    },
-    {
-      "basename": "🎉Welcome to ClongLi's HomePage🫧",
-      "path": "100附件文件/🎉Welcome to ClongLi's HomePage🫧.md"
     },
     {
       "basename": "🧠第二大脑🧠",
@@ -85,24 +153,12 @@
       "path": "00闪念笔记/名人名言.md"
     },
     {
-      "basename": "11感情婚恋",
-      "path": "11情感婚恋/11感情婚恋.md"
-    },
-    {
       "basename": "数字笔记",
       "path": "07文学历史/数字笔记.md"
     },
     {
-      "basename": "07文学历史",
-      "path": "07文学历史/07文学历史.md"
-    },
-    {
       "basename": "14运动健康 ",
       "path": "14运动医学/14运动健康 .md"
-    },
-    {
-      "basename": "哲学",
-      "path": "07文学历史/哲学.md"
     },
     {
       "basename": "个人日常运动",
@@ -143,62 +199,6 @@
     {
       "basename": "2024-2025寒假",
       "path": "00闪念笔记/2024-2025寒假.md"
-    },
-    {
-      "basename": "电器电路",
-      "path": "02专业知识/电器电路.md"
-    },
-    {
-      "basename": "新手机开荒+旧手机使用",
-      "path": "03软件网络/新手机开荒+旧手机使用.md"
-    },
-    {
-      "basename": "⌛牛马-倒计时⌛",
-      "path": "00草稿收集/🧰收纳箱/⌛牛马-倒计时⌛.md"
-    },
-    {
-      "basename": "📚码力喵📚",
-      "path": "00草稿收集/🧰收纳箱/📚码力喵📚.md"
-    },
-    {
-      "basename": "💎时光飞逝💎",
-      "path": "00草稿收集/🧰收纳箱/💎时光飞逝💎.md"
-    },
-    {
-      "basename": "⏮️随机音乐⏸️轻松愉悦⏭️",
-      "path": "00草稿收集/⏮️随机音乐⏸️轻松愉悦⏭️.md"
-    },
-    {
-      "basename": "小米技巧",
-      "path": "03软件网络/小米技巧.md"
-    },
-    {
-      "basename": "03软件电脑",
-      "path": "03软件网络/03软件电脑.md"
-    },
-    {
-      "basename": "Dataview插件——充分释放Obsidian性能",
-      "path": "00写作运营/Dataview插件——充分释放Obsidian性能.md"
-    },
-    {
-      "basename": "AI可以做什么？",
-      "path": "00写作运营/AI可以做什么？.md"
-    },
-    {
-      "basename": "AI&ChatGPT",
-      "path": "00写作运营/AI&ChatGPT.md"
-    },
-    {
-      "basename": "微信公众号运营技巧",
-      "path": "00写作运营/微信公众号运营技巧.md"
-    },
-    {
-      "basename": "手机APP",
-      "path": "00写作运营/手机APP.md"
-    },
-    {
-      "basename": "软件教程-逻辑要素图片",
-      "path": "00写作运营/软件教程-逻辑要素图片.md"
     }
   ],
   "omittedPaths": [],
