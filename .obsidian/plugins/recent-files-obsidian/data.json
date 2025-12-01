@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "excalibrain",
+      "path": "excalibrain.md"
+    },
+    {
       "basename": "未命名思维导图",
       "path": "未命名思维导图.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "UG",
       "path": "03软件网络/UG.md"
-    },
-    {
-      "basename": "00科研项目",
-      "path": "00科研相关/00科研项目.md"
     }
   ],
   "omittedPaths": [],
