@@ -70889,7 +70889,7 @@ var customRenderer = {
     return "<" + type + startatt + ' class="list-paddingleft-1">' + body + "</" + type + ">";
   },
   listitem(text, task, checked) {
-    return `<li><section><span data-leaf="">${text}<span></section></li>`;
+    return `<li><section>${text}</section></li>`;
   },
   image(href, title, text) {
     const cleanHref = cleanUrl(href);
