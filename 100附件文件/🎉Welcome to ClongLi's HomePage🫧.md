@@ -3,7 +3,7 @@
 ```contributionGraph
 title: ""
 graphType: default
-dateRangeValue: 400
+dateRangeValue: 600
 dateRangeType: LATEST_DAYS
 startOfWeek: 1
 showCellRuleIndicators: true
@@ -18,20 +18,20 @@ dataSource:
 fillTheScreen: false
 enableMainContainerShadow: false
 cellStyleRules:
-  - id: Halloween_a
-    color: "#fdd577"
+  - id: Lovely_a
+    color: "#fedcdc"
     min: 1
     max: 2
-  - id: Halloween_b
-    color: "#faaa53"
+  - id: Lovely_b
+    color: "#fdb8bf"
     min: 2
     max: 3
-  - id: Halloween_c
-    color: "#f07c44"
+  - id: Lovely_c
+    color: "#f892a9"
     min: 3
     max: 5
-  - id: Halloween_d
-    color: "#d94e49"
+  - id: Lovely_d
+    color: "#ec6a97"
     min: 5
     max: 9999
 mainContainerStyle:
