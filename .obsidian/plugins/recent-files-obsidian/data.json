@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "excalibrain",
+      "path": "excalibrain.md"
+    },
+    {
+      "basename": "2026-01-05",
+      "path": "998日记汇总/2026-01-05.md"
+    },
+    {
       "basename": "2026-01-04",
       "path": "998日记汇总/2026-01-04.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "如何读书？",
       "path": "04方法思维/如何读书？.md"
-    },
-    {
-      "basename": "03软件电脑",
-      "path": "03软件网络/03软件电脑.md"
-    },
-    {
-      "basename": "兴趣爱好",
-      "path": "01生活方面/兴趣爱好.md"
     }
   ],
   "omittedPaths": [],
