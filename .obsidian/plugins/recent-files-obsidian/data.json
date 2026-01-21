@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "excalibrain",
+      "path": "excalibrain.md"
+    },
+    {
       "basename": "未命名思维导图",
       "path": "未命名思维导图.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "新员工转正考核总结",
       "path": "10总结反思/新员工转正考核总结.md"
-    },
-    {
-      "basename": "02材料专业",
-      "path": "02专业知识/02材料专业.md"
     }
   ],
   "omittedPaths": [],
