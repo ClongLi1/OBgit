@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "excalibrain",
+      "path": "excalibrain.md"
+    },
+    {
       "basename": "2026-02-02",
       "path": "998日记汇总/2026-02-02.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "04思维方法",
       "path": "04方法思维/04思维方法.md"
-    },
-    {
-      "basename": "毛选顶级思维",
-      "path": "07文学历史/毛选顶级思维.md"
     }
   ],
   "omittedPaths": [],
