@@ -109899,7 +109899,7 @@ section .note-callout-custom {
 }
 
 .block-math-svg svg {
-  scale: 0.85;
+  scale: 1;
 }
 
 .block-math-section {
@@ -109908,7 +109908,8 @@ section .note-callout-custom {
 }
 
 .inline-math-svg svg {
-  font-size: 0.85em;
+  font-size: 1em;
+  overflow: visible;
 }
 
 /* --------------------------------------- */
@@ -114674,7 +114675,7 @@ ${customCSS}`;
     this.imagesReplaced = true;
   }
   async copyArticle(container, css2, appid) {
-    if (appid) {
+    if (appid && this.settings.isAuthKeyVaild()) {
       await this.uploadImages(appid, container);
     }
     const content = this.getArticleContent(container, css2);
@@ -114898,7 +114899,10 @@ ${customCSS}`;
     }
   }
   updateElementByID(container, id, html2) {
-    const item = container.querySelector("#" + id);
+    let item = container;
+    if (container.id !== id) {
+      item = container.querySelector("#" + id);
+    }
     if (!item) return;
     const doc = (0, import_obsidian10.sanitizeHTMLToDom)(html2);
     item.empty();
