@@ -116808,7 +116808,7 @@ var RadixSelect = ({ value, onValueChange, options: options2, placeholder, label
       /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports5.ScrollUpButton, { className: MdToImageConverter_default.SelectScrollButton, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(ChevronUpIcon, {}) }),
       /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports5.Viewport, { className: MdToImageConverter_default.SelectViewport, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(dist_exports5.Group, { children: [
         label && /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports5.Label, { className: MdToImageConverter_default.SelectLabel, children: label }),
-        options2.map((opt) => /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(dist_exports5.Item, { className: MdToImageConverter_default.SelectItem, value: opt.value, children: [
+        options2.filter((opt) => opt.value && opt.value.trim() !== "").map((opt) => /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(dist_exports5.Item, { className: MdToImageConverter_default.SelectItem, value: opt.value, children: [
           /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports5.ItemText, { children: opt.label }),
           /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports5.ItemIndicator, { className: MdToImageConverter_default.SelectItemIndicator, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(CheckIcon, {}) })
         ] }, opt.value))
@@ -116923,7 +116923,11 @@ ${customCSS}`
           const status = await navigator.permissions.query({ name: "local-fonts" });
           if (status.state === "granted" || status.state === "prompt") {
             const fonts = await window.queryLocalFonts();
-            const uniqueFamilies = Array.from(new Set(fonts.map((f) => f.family)));
+            const uniqueFamilies = Array.from(
+              new Set(
+                fonts.map((f) => f.family).filter((f) => typeof f === "string" && f.trim() !== "")
+              )
+            );
             if (uniqueFamilies.length > 0) {
               setFontList(["\u9ED8\u8BA4", ...uniqueFamilies.sort()]);
             }
@@ -119231,7 +119235,7 @@ function Workflow() {
             ] }),
             /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Portal2, { container: accountSelectRef.current || void 0, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(Content22, { className: workflow_default.SelectContent, position: "popper", sideOffset: 5, children: [
               /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ScrollUpButton, { className: workflow_default.SelectScrollButton, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ChevronUpIcon, {}) }),
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Viewport2, { className: workflow_default.SelectViewport, children: wxInfo.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Item2, { value: "", className: workflow_default.SelectItem, disabled: true, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ItemText, { children: "\u6682\u65E0\u8D26\u53F7" }) }) : wxInfo.map((wx) => /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(Item2, { value: wx.appid, className: workflow_default.SelectItem, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Viewport2, { className: workflow_default.SelectViewport, children: wxInfo.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Item2, { value: "none", className: workflow_default.SelectItem, disabled: true, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ItemText, { children: "\u6682\u65E0\u8D26\u53F7" }) }) : wxInfo.map((wx) => /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(Item2, { value: wx.appid, className: workflow_default.SelectItem, children: [
                 /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ItemText, { children: wx.name }),
                 /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ItemIndicator, { className: workflow_default.SelectItemIndicator, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(CheckIcon, {}) })
               ] }, wx.appid)) }),
