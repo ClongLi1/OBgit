@@ -116797,6 +116797,58 @@ var dataUrlToBlob = (dataUrl) => {
   }
   return new Blob([u8arr], { type: mime });
 };
+var findNearestLineBoundary = (element, targetY, offsetCalibration) => {
+  let bestSplit = targetY;
+  let bestDistance = Infinity;
+  const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+  let textNode;
+  while (textNode = walker.nextNode()) {
+    if (!textNode.textContent || !textNode.textContent.trim()) continue;
+    const range = document.createRange();
+    range.selectNodeContents(textNode);
+    const rects = range.getClientRects();
+    for (let r = 0; r < rects.length; r++) {
+      const rect = rects[r];
+      const lineTop = rect.top + offsetCalibration;
+      const lineBottom = rect.bottom + offsetCalibration;
+      if (lineBottom <= targetY) {
+        const distance = targetY - lineBottom;
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          bestSplit = lineBottom;
+        }
+      } else if (lineTop < targetY && lineBottom > targetY) {
+        const distance = targetY - lineTop;
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          bestSplit = lineTop;
+        }
+      }
+    }
+  }
+  const descendants = element.querySelectorAll("*");
+  for (let i = 0; i < descendants.length; i++) {
+    const el = descendants[i];
+    const rect = el.getBoundingClientRect();
+    if (rect.height < 1) continue;
+    const elTop = rect.top + offsetCalibration;
+    const elBottom = rect.bottom + offsetCalibration;
+    if (elBottom <= targetY) {
+      const distance = targetY - elBottom;
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        bestSplit = elBottom;
+      }
+    } else if (elTop < targetY && elBottom > targetY) {
+      const distance = targetY - elTop;
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        bestSplit = elTop;
+      }
+    }
+  }
+  return bestSplit;
+};
 var RadixSelect = ({ value, onValueChange, options: options2, placeholder, label }) => {
   const containerRef = (0, import_react11.useRef)(null);
   return /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { ref: containerRef, style: { position: "relative", width: "100%" }, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(dist_exports5.Root, { value, onValueChange, children: [
@@ -116967,6 +117019,14 @@ ${customCSS}`
       setContentHeight(height);
       return;
     }
+    let offsetCalibration = 0;
+    for (const child of children) {
+      const rect = child.getBoundingClientRect();
+      if (rect.height > 0) {
+        offsetCalibration = child.offsetTop - rect.top;
+        break;
+      }
+    }
     if (settings.pageMode === "hr") {
       const hrOffsets = [0];
       for (let i = 0; i < children.length; i++) {
@@ -117005,6 +117065,7 @@ ${customCSS}`
           }
           let splitPoint = pageEnd;
           let foundIntersecting = false;
+          let intersectingChild = null;
           for (let i = 0; i < children.length; i++) {
             const child = children[i];
             const childTop = child.offsetTop;
@@ -117014,6 +117075,7 @@ ${customCSS}`
             }
             if (childTop < pageEnd && childBottom > pageEnd) {
               foundIntersecting = true;
+              intersectingChild = child;
               const isHeading = /^(H[1-6])$/i.test(child.tagName);
               const fitsInOnePage = child.offsetHeight <= viewportHeightVal2;
               if (isHeading || fitsInOnePage) {
@@ -117035,6 +117097,12 @@ ${customCSS}`
           }
           if (!foundIntersecting) {
             splitPoint = pageEnd;
+          }
+          if (splitPoint === pageEnd && intersectingChild) {
+            const refined = findNearestLineBoundary(intersectingChild, pageEnd, offsetCalibration);
+            if (refined > currentTop2 + 10 && refined < pageEnd) {
+              splitPoint = refined;
+            }
           }
           if (splitPoint <= currentTop2) {
             splitPoint = currentTop2 + viewportHeightVal2;
@@ -117060,12 +117128,14 @@ ${customCSS}`
       }
       let splitPoint = pageEnd;
       let foundIntersecting = false;
+      let intersectingChild = null;
       for (let i = 0; i < children.length; i++) {
         const child = children[i];
         const childTop = child.offsetTop;
         const childBottom = childTop + child.offsetHeight;
         if (childTop < pageEnd && childBottom > pageEnd) {
           foundIntersecting = true;
+          intersectingChild = child;
           const isHeading = /^(H[1-6])$/i.test(child.tagName);
           const fitsInOnePage = child.offsetHeight <= viewportHeightVal;
           if (isHeading || fitsInOnePage) {
@@ -117087,6 +117157,15 @@ ${customCSS}`
       }
       if (!foundIntersecting) {
         splitPoint = pageEnd;
+      }
+      if (splitPoint === pageEnd && intersectingChild) {
+        const refined = findNearestLineBoundary(intersectingChild, pageEnd, offsetCalibration);
+        if (refined > currentTop + 10 && refined < pageEnd) {
+          splitPoint = refined;
+        }
+      }
+      if (splitPoint <= currentTop) {
+        splitPoint = currentTop + viewportHeightVal;
       }
       offsets.push(splitPoint);
       currentTop = splitPoint;
@@ -117238,6 +117317,7 @@ ${customCSS}`
                     transform: `translateY(-${offsetY}px)`,
                     fontFamily: formatFontFamily(settings.fontFamily),
                     fontSize: `${settings.fontSize}px`,
+                    lineHeight: 1.6,
                     background: "transparent",
                     backgroundColor: "transparent",
                     backgroundImage: "none"
