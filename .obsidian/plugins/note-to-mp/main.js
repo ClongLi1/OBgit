@@ -17817,18 +17817,18 @@ var require_react_jsx_runtime_development = __commonJS({
       function isValidElement2(object) {
         return "object" === typeof object && null !== object && object.$$typeof === REACT_ELEMENT_TYPE;
       }
-      var React53 = require_react(), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), ReactSharedInternals = React53.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
+      var React54 = require_react(), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), ReactSharedInternals = React54.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
         return null;
       };
-      React53 = {
+      React54 = {
         react_stack_bottom_frame: function(callStackForError) {
           return callStackForError();
         }
       };
       var specialPropKeyWarningShown;
       var didWarnAboutElementRef = {};
-      var unknownOwnerDebugStack = React53.react_stack_bottom_frame.bind(
-        React53,
+      var unknownOwnerDebugStack = React54.react_stack_bottom_frame.bind(
+        React54,
         UnknownOwner
       )();
       var unknownOwnerDebugTask = createTask(getTaskName(UnknownOwner));
@@ -17921,7 +17921,7 @@ var require_react_dom_development = __commonJS({
         return dispatcher;
       }
       "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-      var React53 = require_react(), Internals = {
+      var React54 = require_react(), Internals = {
         d: {
           f: noop4,
           r: function() {
@@ -17939,7 +17939,7 @@ var require_react_dom_development = __commonJS({
         },
         p: 0,
         findDOMNode: null
-      }, REACT_PORTAL_TYPE = Symbol.for("react.portal"), ReactSharedInternals = React53.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
+      }, REACT_PORTAL_TYPE = Symbol.for("react.portal"), ReactSharedInternals = React54.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
       "function" === typeof Map && null != Map.prototype && "function" === typeof Map.prototype.forEach && "function" === typeof Set && null != Set.prototype && "function" === typeof Set.prototype.clear && "function" === typeof Set.prototype.forEach || console.error(
         "React depends on Map and Set built-in types. Make sure that you load a polyfill in older browsers. https://reactjs.org/link/react-polyfills"
       );
@@ -19745,7 +19745,7 @@ var require_react_dom_client_development = __commonJS({
         "number" === type && getActiveElement(node.ownerDocument) === node || node.defaultValue === "" + value || (node.defaultValue = "" + value);
       }
       function validateOptionProps(element, props) {
-        null == props.value && ("object" === typeof props.children && null !== props.children ? React53.Children.forEach(props.children, function(child) {
+        null == props.value && ("object" === typeof props.children && null !== props.children ? React54.Children.forEach(props.children, function(child) {
           null == child || "string" === typeof child || "number" === typeof child || "bigint" === typeof child || didWarnInvalidChild || (didWarnInvalidChild = true, console.error(
             "Cannot infer the option value of complex children. Pass a `value` prop or use a plain string as children to <option>."
           ));
@@ -35377,14 +35377,14 @@ var require_react_dom_client_development = __commonJS({
         ));
       }
       "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-      var Scheduler = require_scheduler(), React53 = require_react(), ReactDOM9 = require_react_dom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = Symbol.for("react.element"), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy");
+      var Scheduler = require_scheduler(), React54 = require_react(), ReactDOM11 = require_react_dom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = Symbol.for("react.element"), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy");
       Symbol.for("react.scope");
       var REACT_ACTIVITY_TYPE = Symbol.for("react.activity");
       Symbol.for("react.legacy_hidden");
       Symbol.for("react.tracing_marker");
       var REACT_MEMO_CACHE_SENTINEL = Symbol.for("react.memo_cache_sentinel");
       Symbol.for("react.view_transition");
-      var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React53.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM9.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
+      var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React54.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM11.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
         pending: false,
         data: null,
         method: null,
@@ -38172,7 +38172,7 @@ var require_react_dom_client_development = __commonJS({
         }
       };
       (function() {
-        var isomorphicReactPackageVersion = React53.version;
+        var isomorphicReactPackageVersion = React54.version;
         if ("19.2.0" !== isomorphicReactPackageVersion)
           throw Error(
             'Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:\n  - react:      ' + (isomorphicReactPackageVersion + "\n  - react-dom:  19.2.0\nLearn more: https://react.dev/warnings/version-mismatch")
@@ -88198,10 +88198,10 @@ __export(main_exports, {
   default: () => NoteToMpPlugin
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian22 = require("obsidian");
+var import_obsidian26 = require("obsidian");
 
 // src/note-preview.ts
-var import_obsidian14 = require("obsidian");
+var import_obsidian16 = require("obsidian");
 
 // src/utils.ts
 var import_obsidian = require("obsidian");
@@ -88322,6 +88322,10 @@ function matchesVersionRequirement(currentVersion, targetVersion) {
     default:
       return true;
   }
+}
+function openInBrowser(url) {
+  const { shell } = require("electron");
+  shell.openExternal(url);
 }
 
 // src/core/markdown/local-file.ts
@@ -98788,6 +98792,47 @@ async function wxBatchGetMaterial(token, type, offset4 = 0, count3 = 10) {
   });
   return await res.json;
 }
+async function wxDraftBatchget(token, offset4 = 0, count3 = 10, no_content = 0) {
+  const url = "https://api.weixin.qq.com/cgi-bin/draft/batchget?access_token=" + token;
+  const body = {
+    offset: offset4,
+    count: count3,
+    ...no_content ? { no_content } : {}
+  };
+  const res = await (0, import_obsidian5.requestUrl)({
+    method: "POST",
+    url,
+    throw: false,
+    body: JSON.stringify(body)
+  });
+  return await res.json;
+}
+async function wxDraftDelete(token, mediaId) {
+  const url = "https://api.weixin.qq.com/cgi-bin/draft/delete?access_token=" + token;
+  const body = {
+    media_id: mediaId
+  };
+  const res = await (0, import_obsidian5.requestUrl)({
+    method: "POST",
+    url,
+    throw: false,
+    body: JSON.stringify(body)
+  });
+  return await res.json;
+}
+async function wxGetMaterial(token, mediaId) {
+  const url = "https://api.weixin.qq.com/cgi-bin/material/get_material?access_token=" + token;
+  const body = {
+    media_id: mediaId
+  };
+  const res = await (0, import_obsidian5.requestUrl)({
+    method: "POST",
+    url,
+    throw: false,
+    body: JSON.stringify(body)
+  });
+  return res;
+}
 async function getUploadImageURL(authkey, ext) {
   const url = PluginHost + "/v1/oss/url/" + ext + "/" + authkey;
   const res = await (0, import_obsidian5.requestUrl)({
@@ -98815,8 +98860,8 @@ async function putImageToOSS(authKey, uploadURL, data, ext) {
   return res;
 }
 async function uploadImageToOSS(authkey, data, filename) {
-  if (data.size > 1048576) {
-    throw new Error(`\u56FE\u7247 "${filename}" \u5927\u5C0F\u8D85\u8FC71MB\u9650\u5236`);
+  if (data.size > 3 * 1024 * 1024) {
+    throw new Error(`\u56FE\u7247 "${filename}" \u5927\u5C0F\u8D85\u8FC73MB\u9650\u5236`);
   }
   const ext = filename.split(".").pop() || "jpg";
   const { uploadURL, downloadURL } = await getUploadImageURL(authkey, ext);
@@ -98915,6 +98960,7 @@ var NMPSettings = class _NMPSettings {
     this.enableEmptyLine = false;
     this.dismissedAnnouncements = [];
     this.extraSettings = null;
+    this.favoriteCovers = [];
     this.defaultStyle = "obsidian-light";
     this.defaultHighlight = "\u9ED8\u8BA4";
     this.showStyleUI = true;
@@ -98933,6 +98979,7 @@ var NMPSettings = class _NMPSettings {
     this.expertSettingsNote = "";
     this.enableEmptyLine = false;
     this.dismissedAnnouncements = [];
+    this.favoriteCovers = [];
   }
   // 静态方法，用于获取实例
   static getInstance() {
@@ -98970,7 +99017,8 @@ var NMPSettings = class _NMPSettings {
       isVip,
       expireat,
       dismissedAnnouncements,
-      extraSettings
+      extraSettings,
+      favoriteCovers
     } = data;
     const settings = _NMPSettings.getInstance();
     if (defaultStyle) {
@@ -99036,6 +99084,9 @@ var NMPSettings = class _NMPSettings {
     if (extraSettings) {
       settings.extraSettings = extraSettings;
     }
+    if (Array.isArray(favoriteCovers)) {
+      settings.favoriteCovers = favoriteCovers;
+    }
     settings.isLoaded = true;
   }
   static allSettings() {
@@ -99061,7 +99112,8 @@ var NMPSettings = class _NMPSettings {
       "isVip": settings.isVip,
       "expireat": settings.expireat,
       "dismissedAnnouncements": settings.dismissedAnnouncements,
-      "extraSettings": settings.extraSettings
+      "extraSettings": settings.extraSettings,
+      "favoriteCovers": settings.favoriteCovers
     };
   }
   async updateKeyInfo() {
@@ -100765,6 +100817,20 @@ var useRenderStore = createSelectors(create(immer2((set2) => ({
   })
 }))));
 
+// src/store/PluginStore.ts
+var usePluginStore = createSelectors(create((set2) => ({
+  app: null,
+  setApp: (app) => set2({ app }),
+  plugin: null,
+  setPlugin: (plugin) => set2({ plugin }),
+  isReourceLoaded: false,
+  setResourceLoaded: (loaded) => set2({ isReourceLoaded: loaded }),
+  isCollapsed: false,
+  setIsCollapsed: (collapsed) => set2({ isCollapsed: collapsed }),
+  previewVisible: false,
+  setPreviewVisible: (visible) => set2({ previewVisible: visible })
+})));
+
 // node_modules/@radix-ui/react-tabs/dist/index.mjs
 var React14 = __toESM(require_react(), 1);
 
@@ -101734,7 +101800,7 @@ var Trigger = TabsTrigger;
 var Content = TabsContent;
 
 // src/ui/preview.tsx
-var ReactDOM6 = __toESM(require_client());
+var ReactDOM7 = __toESM(require_client());
 
 // src/ui/components/Notification.tsx
 var React20 = __toESM(require_react());
@@ -102690,24 +102756,12 @@ var useNotification = () => {
   return context;
 };
 
-// src/store/PluginStore.ts
-var usePluginStore = createSelectors(create((set2) => ({
-  app: null,
-  setApp: (app) => set2({ app }),
-  plugin: null,
-  setPlugin: (plugin) => set2({ plugin }),
-  isReourceLoaded: false,
-  setResourceLoaded: (loaded) => set2({ isReourceLoaded: loaded }),
-  isCollapsed: false,
-  setIsCollapsed: (collapsed) => set2({ isCollapsed: collapsed })
-})));
-
 // src/ui/components/Wechat.tsx
 var import_react9 = __toESM(require_react());
-var import_obsidian11 = require("obsidian");
+var import_obsidian13 = require("obsidian");
 
 // src/ui/components/Cover.tsx
-var React21 = __toESM(require_react());
+var React25 = __toESM(require_react());
 
 // src/store/ConfigStore.ts
 var import_react4 = __toESM(require_react());
@@ -102740,15 +102794,790 @@ function useConfigContext(selector) {
 
 // src/ui/components/Cover.module.css
 var Cover_default = {
+  CoverContainer: "Cover_CoverContainer",
   CoverLabel: "Cover_CoverLabel",
   CoverInput: "Cover_CoverInput",
   CoverTip: "Cover_CoverTip",
+  CoverSourceOptions: "Cover_CoverSourceOptions",
+  CoverSourceButton: "Cover_CoverSourceButton",
   CoverPreview: "Cover_CoverPreview",
   CloseButton: "Cover_CloseButton"
 };
 
-// src/ui/components/Cover.tsx
+// src/ui/components/UnsplashCoverPicker.tsx
+var React21 = __toESM(require_react());
+var ReactDOM4 = __toESM(require_client());
+
+// node_modules/@radix-ui/react-icons/dist/react-icons.esm.js
+var import_react5 = __toESM(require_react());
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+  return target;
+}
+var _excluded$p = ["color"];
+var BellIcon = /* @__PURE__ */ (0, import_react5.forwardRef)(function(_ref, forwardedRef) {
+  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$p);
+  return (0, import_react5.createElement)("svg", Object.assign({
+    width: "15",
+    height: "15",
+    viewBox: "0 0 15 15",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props, {
+    ref: forwardedRef
+  }), (0, import_react5.createElement)("path", {
+    d: "M8.60124 1.25086C8.60124 1.75459 8.26278 2.17927 7.80087 2.30989C10.1459 2.4647 12 4.41582 12 6.79999V10.25C12 11.0563 12.0329 11.7074 12.7236 12.0528C12.931 12.1565 13.0399 12.3892 12.9866 12.6149C12.9333 12.8406 12.7319 13 12.5 13H8.16144C8.36904 13.1832 8.49997 13.4513 8.49997 13.75C8.49997 14.3023 8.05226 14.75 7.49997 14.75C6.94769 14.75 6.49997 14.3023 6.49997 13.75C6.49997 13.4513 6.63091 13.1832 6.83851 13H2.49999C2.2681 13 2.06664 12.8406 2.01336 12.6149C1.96009 12.3892 2.06897 12.1565 2.27638 12.0528C2.96708 11.7074 2.99999 11.0563 2.99999 10.25V6.79999C2.99999 4.41537 4.85481 2.46396 7.20042 2.3098C6.73867 2.17908 6.40036 1.75448 6.40036 1.25086C6.40036 0.643104 6.89304 0.150421 7.5008 0.150421C8.10855 0.150421 8.60124 0.643104 8.60124 1.25086ZM7.49999 3.29999C5.56699 3.29999 3.99999 4.86699 3.99999 6.79999V10.25L4.00002 10.3009C4.0005 10.7463 4.00121 11.4084 3.69929 12H11.3007C10.9988 11.4084 10.9995 10.7463 11 10.3009L11 10.25V6.79999C11 4.86699 9.43299 3.29999 7.49999 3.29999Z",
+    fill: color,
+    fillRule: "evenodd",
+    clipRule: "evenodd"
+  }));
+});
+var _excluded$Q = ["color"];
+var CaretSortIcon = /* @__PURE__ */ (0, import_react5.forwardRef)(function(_ref, forwardedRef) {
+  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$Q);
+  return (0, import_react5.createElement)("svg", Object.assign({
+    width: "15",
+    height: "15",
+    viewBox: "0 0 15 15",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props, {
+    ref: forwardedRef
+  }), (0, import_react5.createElement)("path", {
+    d: "M4.93179 5.43179C4.75605 5.60753 4.75605 5.89245 4.93179 6.06819C5.10753 6.24392 5.39245 6.24392 5.56819 6.06819L7.49999 4.13638L9.43179 6.06819C9.60753 6.24392 9.89245 6.24392 10.0682 6.06819C10.2439 5.89245 10.2439 5.60753 10.0682 5.43179L7.81819 3.18179C7.73379 3.0974 7.61933 3.04999 7.49999 3.04999C7.38064 3.04999 7.26618 3.0974 7.18179 3.18179L4.93179 5.43179ZM10.0682 9.56819C10.2439 9.39245 10.2439 9.10753 10.0682 8.93179C9.89245 8.75606 9.60753 8.75606 9.43179 8.93179L7.49999 10.8636L5.56819 8.93179C5.39245 8.75606 5.10753 8.75606 4.93179 8.93179C4.75605 9.10753 4.75605 9.39245 4.93179 9.56819L7.18179 11.8182C7.35753 11.9939 7.64245 11.9939 7.81819 11.8182L10.0682 9.56819Z",
+    fill: color,
+    fillRule: "evenodd",
+    clipRule: "evenodd"
+  }));
+});
+var _excluded$T = ["color"];
+var CheckIcon = /* @__PURE__ */ (0, import_react5.forwardRef)(function(_ref, forwardedRef) {
+  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$T);
+  return (0, import_react5.createElement)("svg", Object.assign({
+    width: "15",
+    height: "15",
+    viewBox: "0 0 15 15",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props, {
+    ref: forwardedRef
+  }), (0, import_react5.createElement)("path", {
+    d: "M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z",
+    fill: color,
+    fillRule: "evenodd",
+    clipRule: "evenodd"
+  }));
+});
+var _excluded$W = ["color"];
+var ChevronDownIcon = /* @__PURE__ */ (0, import_react5.forwardRef)(function(_ref, forwardedRef) {
+  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$W);
+  return (0, import_react5.createElement)("svg", Object.assign({
+    width: "15",
+    height: "15",
+    viewBox: "0 0 15 15",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props, {
+    ref: forwardedRef
+  }), (0, import_react5.createElement)("path", {
+    d: "M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z",
+    fill: color,
+    fillRule: "evenodd",
+    clipRule: "evenodd"
+  }));
+});
+var _excluded$Y = ["color"];
+var ChevronRightIcon = /* @__PURE__ */ (0, import_react5.forwardRef)(function(_ref, forwardedRef) {
+  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$Y);
+  return (0, import_react5.createElement)("svg", Object.assign({
+    width: "15",
+    height: "15",
+    viewBox: "0 0 15 15",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props, {
+    ref: forwardedRef
+  }), (0, import_react5.createElement)("path", {
+    d: "M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z",
+    fill: color,
+    fillRule: "evenodd",
+    clipRule: "evenodd"
+  }));
+});
+var _excluded$Z = ["color"];
+var ChevronUpIcon = /* @__PURE__ */ (0, import_react5.forwardRef)(function(_ref, forwardedRef) {
+  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$Z);
+  return (0, import_react5.createElement)("svg", Object.assign({
+    width: "15",
+    height: "15",
+    viewBox: "0 0 15 15",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props, {
+    ref: forwardedRef
+  }), (0, import_react5.createElement)("path", {
+    d: "M3.13523 8.84197C3.3241 9.04343 3.64052 9.05363 3.84197 8.86477L7.5 5.43536L11.158 8.86477C11.3595 9.05363 11.6759 9.04343 11.8648 8.84197C12.0536 8.64051 12.0434 8.32409 11.842 8.13523L7.84197 4.38523C7.64964 4.20492 7.35036 4.20492 7.15803 4.38523L3.15803 8.13523C2.95657 8.32409 2.94637 8.64051 3.13523 8.84197Z",
+    fill: color,
+    fillRule: "evenodd",
+    clipRule: "evenodd"
+  }));
+});
+var _excluded$1h = ["color"];
+var CopyIcon = /* @__PURE__ */ (0, import_react5.forwardRef)(function(_ref, forwardedRef) {
+  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$1h);
+  return (0, import_react5.createElement)("svg", Object.assign({
+    width: "15",
+    height: "15",
+    viewBox: "0 0 15 15",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props, {
+    ref: forwardedRef
+  }), (0, import_react5.createElement)("path", {
+    d: "M1 9.50006C1 10.3285 1.67157 11.0001 2.5 11.0001H4L4 10.0001H2.5C2.22386 10.0001 2 9.7762 2 9.50006L2 2.50006C2 2.22392 2.22386 2.00006 2.5 2.00006L9.5 2.00006C9.77614 2.00006 10 2.22392 10 2.50006V4.00002H5.5C4.67158 4.00002 4 4.67159 4 5.50002V12.5C4 13.3284 4.67158 14 5.5 14H12.5C13.3284 14 14 13.3284 14 12.5V5.50002C14 4.67159 13.3284 4.00002 12.5 4.00002H11V2.50006C11 1.67163 10.3284 1.00006 9.5 1.00006H2.5C1.67157 1.00006 1 1.67163 1 2.50006V9.50006ZM5 5.50002C5 5.22388 5.22386 5.00002 5.5 5.00002H12.5C12.7761 5.00002 13 5.22388 13 5.50002V12.5C13 12.7762 12.7761 13 12.5 13H5.5C5.22386 13 5 12.7762 5 12.5V5.50002Z",
+    fill: color,
+    fillRule: "evenodd",
+    clipRule: "evenodd"
+  }));
+});
+var _excluded$1r = ["color"];
+var Cross2Icon = /* @__PURE__ */ (0, import_react5.forwardRef)(function(_ref, forwardedRef) {
+  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$1r);
+  return (0, import_react5.createElement)("svg", Object.assign({
+    width: "15",
+    height: "15",
+    viewBox: "0 0 15 15",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props, {
+    ref: forwardedRef
+  }), (0, import_react5.createElement)("path", {
+    d: "M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z",
+    fill: color,
+    fillRule: "evenodd",
+    clipRule: "evenodd"
+  }));
+});
+var _excluded$1I = ["color"];
+var DotFilledIcon = /* @__PURE__ */ (0, import_react5.forwardRef)(function(_ref, forwardedRef) {
+  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$1I);
+  return (0, import_react5.createElement)("svg", Object.assign({
+    width: "15",
+    height: "15",
+    viewBox: "0 0 15 15",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props, {
+    ref: forwardedRef
+  }), (0, import_react5.createElement)("path", {
+    d: "M9.875 7.5C9.875 8.81168 8.81168 9.875 7.5 9.875C6.18832 9.875 5.125 8.81168 5.125 7.5C5.125 6.18832 6.18832 5.125 7.5 5.125C8.81168 5.125 9.875 6.18832 9.875 7.5Z",
+    fill: color
+  }));
+});
+var _excluded$1L = ["color"];
+var DoubleArrowDownIcon = /* @__PURE__ */ (0, import_react5.forwardRef)(function(_ref, forwardedRef) {
+  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$1L);
+  return (0, import_react5.createElement)("svg", Object.assign({
+    width: "15",
+    height: "15",
+    viewBox: "0 0 15 15",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props, {
+    ref: forwardedRef
+  }), (0, import_react5.createElement)("path", {
+    d: "M3.85355 2.14645C3.65829 1.95118 3.34171 1.95118 3.14645 2.14645C2.95118 2.34171 2.95118 2.65829 3.14645 2.85355L7.14645 6.85355C7.34171 7.04882 7.65829 7.04882 7.85355 6.85355L11.8536 2.85355C12.0488 2.65829 12.0488 2.34171 11.8536 2.14645C11.6583 1.95118 11.3417 1.95118 11.1464 2.14645L7.5 5.79289L3.85355 2.14645ZM3.85355 8.14645C3.65829 7.95118 3.34171 7.95118 3.14645 8.14645C2.95118 8.34171 2.95118 8.65829 3.14645 8.85355L7.14645 12.8536C7.34171 13.0488 7.65829 13.0488 7.85355 12.8536L11.8536 8.85355C12.0488 8.65829 12.0488 8.34171 11.8536 8.14645C11.6583 7.95118 11.3417 7.95118 11.1464 8.14645L7.5 11.7929L3.85355 8.14645Z",
+    fill: color,
+    fillRule: "evenodd",
+    clipRule: "evenodd"
+  }));
+});
+var _excluded$1O = ["color"];
+var DoubleArrowUpIcon = /* @__PURE__ */ (0, import_react5.forwardRef)(function(_ref, forwardedRef) {
+  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$1O);
+  return (0, import_react5.createElement)("svg", Object.assign({
+    width: "15",
+    height: "15",
+    viewBox: "0 0 15 15",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props, {
+    ref: forwardedRef
+  }), (0, import_react5.createElement)("path", {
+    d: "M11.1464 6.85355C11.3417 7.04882 11.6583 7.04882 11.8536 6.85355C12.0488 6.65829 12.0488 6.34171 11.8536 6.14645L7.85355 2.14645C7.65829 1.95118 7.34171 1.95118 7.14645 2.14645L3.14645 6.14645C2.95118 6.34171 2.95118 6.65829 3.14645 6.85355C3.34171 7.04882 3.65829 7.04882 3.85355 6.85355L7.5 3.20711L11.1464 6.85355ZM11.1464 12.8536C11.3417 13.0488 11.6583 13.0488 11.8536 12.8536C12.0488 12.6583 12.0488 12.3417 11.8536 12.1464L7.85355 8.14645C7.65829 7.95118 7.34171 7.95118 7.14645 8.14645L3.14645 12.1464C2.95118 12.3417 2.95118 12.6583 3.14645 12.8536C3.34171 13.0488 3.65829 13.0488 3.85355 12.8536L7.5 9.20711L11.1464 12.8536Z",
+    fill: color,
+    fillRule: "evenodd",
+    clipRule: "evenodd"
+  }));
+});
+var _excluded$1P = ["color"];
+var DownloadIcon = /* @__PURE__ */ (0, import_react5.forwardRef)(function(_ref, forwardedRef) {
+  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$1P);
+  return (0, import_react5.createElement)("svg", Object.assign({
+    width: "15",
+    height: "15",
+    viewBox: "0 0 15 15",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props, {
+    ref: forwardedRef
+  }), (0, import_react5.createElement)("path", {
+    d: "M7.50005 1.04999C7.74858 1.04999 7.95005 1.25146 7.95005 1.49999V8.41359L10.1819 6.18179C10.3576 6.00605 10.6425 6.00605 10.8182 6.18179C10.994 6.35753 10.994 6.64245 10.8182 6.81819L7.81825 9.81819C7.64251 9.99392 7.35759 9.99392 7.18185 9.81819L4.18185 6.81819C4.00611 6.64245 4.00611 6.35753 4.18185 6.18179C4.35759 6.00605 4.64251 6.00605 4.81825 6.18179L7.05005 8.41359V1.49999C7.05005 1.25146 7.25152 1.04999 7.50005 1.04999ZM2.5 10C2.77614 10 3 10.2239 3 10.5V12C3 12.5539 3.44565 13 3.99635 13H11.0012C11.5529 13 12 12.5528 12 12V10.5C12 10.2239 12.2239 10 12.5 10C12.7761 10 13 10.2239 13 10.5V12C13 13.1041 12.1062 14 11.0012 14H3.99635C2.89019 14 2 13.103 2 12V10.5C2 10.2239 2.22386 10 2.5 10Z",
+    fill: color,
+    fillRule: "evenodd",
+    clipRule: "evenodd"
+  }));
+});
+var _excluded$20 = ["color"];
+var ExclamationTriangleIcon = /* @__PURE__ */ (0, import_react5.forwardRef)(function(_ref, forwardedRef) {
+  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$20);
+  return (0, import_react5.createElement)("svg", Object.assign({
+    width: "15",
+    height: "15",
+    viewBox: "0 0 15 15",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props, {
+    ref: forwardedRef
+  }), (0, import_react5.createElement)("path", {
+    d: "M8.4449 0.608765C8.0183 -0.107015 6.9817 -0.107015 6.55509 0.608766L0.161178 11.3368C-0.275824 12.07 0.252503 13 1.10608 13H13.8939C14.7475 13 15.2758 12.07 14.8388 11.3368L8.4449 0.608765ZM7.4141 1.12073C7.45288 1.05566 7.54712 1.05566 7.5859 1.12073L13.9798 11.8488C14.0196 11.9154 13.9715 12 13.8939 12H1.10608C1.02849 12 0.980454 11.9154 1.02018 11.8488L7.4141 1.12073ZM6.8269 4.48611C6.81221 4.10423 7.11783 3.78663 7.5 3.78663C7.88217 3.78663 8.18778 4.10423 8.1731 4.48612L8.01921 8.48701C8.00848 8.766 7.7792 8.98664 7.5 8.98664C7.2208 8.98664 6.99151 8.766 6.98078 8.48701L6.8269 4.48611ZM8.24989 10.476C8.24989 10.8902 7.9141 11.226 7.49989 11.226C7.08567 11.226 6.74989 10.8902 6.74989 10.476C6.74989 10.0618 7.08567 9.72599 7.49989 9.72599C7.9141 9.72599 8.24989 10.0618 8.24989 10.476Z",
+    fill: color,
+    fillRule: "evenodd",
+    clipRule: "evenodd"
+  }));
+});
+var _excluded$23 = ["color"];
+var ExternalLinkIcon = /* @__PURE__ */ (0, import_react5.forwardRef)(function(_ref, forwardedRef) {
+  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$23);
+  return (0, import_react5.createElement)("svg", Object.assign({
+    width: "15",
+    height: "15",
+    viewBox: "0 0 15 15",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props, {
+    ref: forwardedRef
+  }), (0, import_react5.createElement)("path", {
+    d: "M3 2C2.44772 2 2 2.44772 2 3V12C2 12.5523 2.44772 13 3 13H12C12.5523 13 13 12.5523 13 12V8.5C13 8.22386 12.7761 8 12.5 8C12.2239 8 12 8.22386 12 8.5V12H3V3L6.5 3C6.77614 3 7 2.77614 7 2.5C7 2.22386 6.77614 2 6.5 2H3ZM12.8536 2.14645C12.9015 2.19439 12.9377 2.24964 12.9621 2.30861C12.9861 2.36669 12.9996 2.4303 13 2.497L13 2.5V2.50049V5.5C13 5.77614 12.7761 6 12.5 6C12.2239 6 12 5.77614 12 5.5V3.70711L6.85355 8.85355C6.65829 9.04882 6.34171 9.04882 6.14645 8.85355C5.95118 8.65829 5.95118 8.34171 6.14645 8.14645L11.2929 3H9.5C9.22386 3 9 2.77614 9 2.5C9 2.22386 9.22386 2 9.5 2H12.4999H12.5C12.5678 2 12.6324 2.01349 12.6914 2.03794C12.7504 2.06234 12.8056 2.09851 12.8536 2.14645Z",
+    fill: color,
+    fillRule: "evenodd",
+    clipRule: "evenodd"
+  }));
+});
+var _excluded$2l = ["color"];
+var GearIcon = /* @__PURE__ */ (0, import_react5.forwardRef)(function(_ref, forwardedRef) {
+  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$2l);
+  return (0, import_react5.createElement)("svg", Object.assign({
+    width: "15",
+    height: "15",
+    viewBox: "0 0 15 15",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props, {
+    ref: forwardedRef
+  }), (0, import_react5.createElement)("path", {
+    d: "M7.07095 0.650238C6.67391 0.650238 6.32977 0.925096 6.24198 1.31231L6.0039 2.36247C5.6249 2.47269 5.26335 2.62363 4.92436 2.81013L4.01335 2.23585C3.67748 2.02413 3.23978 2.07312 2.95903 2.35386L2.35294 2.95996C2.0722 3.2407 2.0232 3.6784 2.23493 4.01427L2.80942 4.92561C2.62307 5.2645 2.47227 5.62594 2.36216 6.00481L1.31209 6.24287C0.924883 6.33065 0.650024 6.6748 0.650024 7.07183V7.92897C0.650024 8.32601 0.924883 8.67015 1.31209 8.75794L2.36228 8.99603C2.47246 9.375 2.62335 9.73652 2.80979 10.0755L2.2354 10.9867C2.02367 11.3225 2.07267 11.7602 2.35341 12.041L2.95951 12.6471C3.24025 12.9278 3.67795 12.9768 4.01382 12.7651L4.92506 12.1907C5.26384 12.377 5.62516 12.5278 6.0039 12.6379L6.24198 13.6881C6.32977 14.0753 6.67391 14.3502 7.07095 14.3502H7.92809C8.32512 14.3502 8.66927 14.0753 8.75705 13.6881L8.99505 12.6383C9.37411 12.5282 9.73573 12.3773 10.0748 12.1909L10.986 12.7653C11.3218 12.977 11.7595 12.928 12.0403 12.6473L12.6464 12.0412C12.9271 11.7604 12.9761 11.3227 12.7644 10.9869L12.1902 10.076C12.3768 9.73688 12.5278 9.37515 12.638 8.99596L13.6879 8.75794C14.0751 8.67015 14.35 8.32601 14.35 7.92897V7.07183C14.35 6.6748 14.0751 6.33065 13.6879 6.24287L12.6381 6.00488C12.528 5.62578 12.3771 5.26414 12.1906 4.92507L12.7648 4.01407C12.9766 3.6782 12.9276 3.2405 12.6468 2.95975L12.0407 2.35366C11.76 2.07292 11.3223 2.02392 10.9864 2.23565L10.0755 2.80989C9.73622 2.62328 9.37437 2.47229 8.99505 2.36209L8.75705 1.31231C8.66927 0.925096 8.32512 0.650238 7.92809 0.650238H7.07095ZM4.92053 3.81251C5.44724 3.44339 6.05665 3.18424 6.71543 3.06839L7.07095 1.50024H7.92809L8.28355 3.06816C8.94267 3.18387 9.5524 3.44302 10.0794 3.81224L11.4397 2.9547L12.0458 3.56079L11.1882 4.92117C11.5573 5.44798 11.8164 6.0575 11.9321 6.71638L13.5 7.07183V7.92897L11.932 8.28444C11.8162 8.94342 11.557 9.55301 11.1878 10.0798L12.0453 11.4402L11.4392 12.0462L10.0787 11.1886C9.55192 11.5576 8.94241 11.8166 8.28355 11.9323L7.92809 13.5002H7.07095L6.71543 11.932C6.0569 11.8162 5.44772 11.5572 4.92116 11.1883L3.56055 12.046L2.95445 11.4399L3.81213 10.0794C3.4431 9.55266 3.18403 8.94326 3.06825 8.2845L1.50002 7.92897V7.07183L3.06818 6.71632C3.18388 6.05765 3.44283 5.44833 3.81171 4.92165L2.95398 3.561L3.56008 2.95491L4.92053 3.81251ZM9.02496 7.50008C9.02496 8.34226 8.34223 9.02499 7.50005 9.02499C6.65786 9.02499 5.97513 8.34226 5.97513 7.50008C5.97513 6.65789 6.65786 5.97516 7.50005 5.97516C8.34223 5.97516 9.02496 6.65789 9.02496 7.50008ZM9.92496 7.50008C9.92496 8.83932 8.83929 9.92499 7.50005 9.92499C6.1608 9.92499 5.07513 8.83932 5.07513 7.50008C5.07513 6.16084 6.1608 5.07516 7.50005 5.07516C8.83929 5.07516 9.92496 6.16084 9.92496 7.50008Z",
+    fill: color,
+    fillRule: "evenodd",
+    clipRule: "evenodd"
+  }));
+});
+var _excluded$2s = ["color"];
+var HamburgerMenuIcon = /* @__PURE__ */ (0, import_react5.forwardRef)(function(_ref, forwardedRef) {
+  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$2s);
+  return (0, import_react5.createElement)("svg", Object.assign({
+    width: "15",
+    height: "15",
+    viewBox: "0 0 15 15",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props, {
+    ref: forwardedRef
+  }), (0, import_react5.createElement)("path", {
+    d: "M1.5 3C1.22386 3 1 3.22386 1 3.5C1 3.77614 1.22386 4 1.5 4H13.5C13.7761 4 14 3.77614 14 3.5C14 3.22386 13.7761 3 13.5 3H1.5ZM1 7.5C1 7.22386 1.22386 7 1.5 7H13.5C13.7761 7 14 7.22386 14 7.5C14 7.77614 13.7761 8 13.5 8H1.5C1.22386 8 1 7.77614 1 7.5ZM1 11.5C1 11.2239 1.22386 11 1.5 11H13.5C13.7761 11 14 11.2239 14 11.5C14 11.7761 13.7761 12 13.5 12H1.5C1.22386 12 1 11.7761 1 11.5Z",
+    fill: color,
+    fillRule: "evenodd",
+    clipRule: "evenodd"
+  }));
+});
+var _excluded$2C = ["color"];
+var ImageIcon = /* @__PURE__ */ (0, import_react5.forwardRef)(function(_ref, forwardedRef) {
+  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$2C);
+  return (0, import_react5.createElement)("svg", Object.assign({
+    width: "15",
+    height: "15",
+    viewBox: "0 0 15 15",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props, {
+    ref: forwardedRef
+  }), (0, import_react5.createElement)("path", {
+    d: "M2.5 1H12.5C13.3284 1 14 1.67157 14 2.5V12.5C14 13.3284 13.3284 14 12.5 14H2.5C1.67157 14 1 13.3284 1 12.5V2.5C1 1.67157 1.67157 1 2.5 1ZM2.5 2C2.22386 2 2 2.22386 2 2.5V8.3636L3.6818 6.6818C3.76809 6.59551 3.88572 6.54797 4.00774 6.55007C4.12975 6.55216 4.24568 6.60372 4.32895 6.69293L7.87355 10.4901L10.6818 7.6818C10.8575 7.50607 11.1425 7.50607 11.3182 7.6818L13 9.3636V2.5C13 2.22386 12.7761 2 12.5 2H2.5ZM2 12.5V9.6364L3.98887 7.64753L7.5311 11.4421L8.94113 13H2.5C2.22386 13 2 12.7761 2 12.5ZM12.5 13H10.155L8.48336 11.153L11 8.6364L13 10.6364V12.5C13 12.7761 12.7761 13 12.5 13ZM6.64922 5.5C6.64922 5.03013 7.03013 4.64922 7.5 4.64922C7.96987 4.64922 8.35078 5.03013 8.35078 5.5C8.35078 5.96987 7.96987 6.35078 7.5 6.35078C7.03013 6.35078 6.64922 5.96987 6.64922 5.5ZM7.5 3.74922C6.53307 3.74922 5.74922 4.53307 5.74922 5.5C5.74922 6.46693 6.53307 7.25078 7.5 7.25078C8.46693 7.25078 9.25078 6.46693 9.25078 5.5C9.25078 4.53307 8.46693 3.74922 7.5 3.74922Z",
+    fill: color,
+    fillRule: "evenodd",
+    clipRule: "evenodd"
+  }));
+});
+var _excluded$3x = ["color"];
+var PlusIcon = /* @__PURE__ */ (0, import_react5.forwardRef)(function(_ref, forwardedRef) {
+  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$3x);
+  return (0, import_react5.createElement)("svg", Object.assign({
+    width: "15",
+    height: "15",
+    viewBox: "0 0 15 15",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props, {
+    ref: forwardedRef
+  }), (0, import_react5.createElement)("path", {
+    d: "M8 2.75C8 2.47386 7.77614 2.25 7.5 2.25C7.22386 2.25 7 2.47386 7 2.75V7H2.75C2.47386 7 2.25 7.22386 2.25 7.5C2.25 7.77614 2.47386 8 2.75 8H7V12.25C7 12.5261 7.22386 12.75 7.5 12.75C7.77614 12.75 8 12.5261 8 12.25V8H12.25C12.5261 8 12.75 7.77614 12.75 7.5C12.75 7.22386 12.5261 7 12.25 7H8V2.75Z",
+    fill: color,
+    fillRule: "evenodd",
+    clipRule: "evenodd"
+  }));
+});
+var _excluded$4a = ["color"];
+var StarIcon = /* @__PURE__ */ (0, import_react5.forwardRef)(function(_ref, forwardedRef) {
+  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$4a);
+  return (0, import_react5.createElement)("svg", Object.assign({
+    width: "15",
+    height: "15",
+    viewBox: "0 0 15 15",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props, {
+    ref: forwardedRef
+  }), (0, import_react5.createElement)("path", {
+    d: "M6.97942 1.25171L6.9585 1.30199L5.58662 4.60039C5.54342 4.70426 5.44573 4.77523 5.3336 4.78422L1.7727 5.0697L1.71841 5.07405L1.38687 5.10063L1.08608 5.12475C0.820085 5.14607 0.712228 5.47802 0.914889 5.65162L1.14406 5.84793L1.39666 6.06431L1.43802 6.09974L4.15105 8.42374C4.23648 8.49692 4.2738 8.61176 4.24769 8.72118L3.41882 12.196L3.40618 12.249L3.32901 12.5725L3.25899 12.866C3.19708 13.1256 3.47945 13.3308 3.70718 13.1917L3.9647 13.0344L4.24854 12.861L4.29502 12.8326L7.34365 10.9705C7.43965 10.9119 7.5604 10.9119 7.6564 10.9705L10.705 12.8326L10.7515 12.861L11.0354 13.0344L11.2929 13.1917C11.5206 13.3308 11.803 13.1256 11.7411 12.866L11.671 12.5725L11.5939 12.249L11.5812 12.196L10.7524 8.72118C10.7263 8.61176 10.7636 8.49692 10.849 8.42374L13.562 6.09974L13.6034 6.06431L13.856 5.84793L14.0852 5.65162C14.2878 5.47802 14.18 5.14607 13.914 5.12475L13.6132 5.10063L13.2816 5.07405L13.2274 5.0697L9.66645 4.78422C9.55432 4.77523 9.45663 4.70426 9.41343 4.60039L8.04155 1.30199L8.02064 1.25171L7.89291 0.944609L7.77702 0.665992C7.67454 0.419604 7.32551 0.419604 7.22303 0.665992L7.10715 0.944609L6.97942 1.25171ZM7.50003 2.60397L6.50994 4.98442C6.32273 5.43453 5.89944 5.74207 5.41351 5.78103L2.84361 5.98705L4.8016 7.66428C5.17183 7.98142 5.33351 8.47903 5.2204 8.95321L4.62221 11.461L6.8224 10.1171C7.23842 9.86302 7.76164 9.86302 8.17766 10.1171L10.3778 11.461L9.77965 8.95321C9.66654 8.47903 9.82822 7.98142 10.1984 7.66428L12.1564 5.98705L9.58654 5.78103C9.10061 5.74207 8.67732 5.43453 8.49011 4.98442L7.50003 2.60397Z",
+    fill: color,
+    fillRule: "evenodd",
+    clipRule: "evenodd"
+  }));
+});
+var _excluded$4b = ["color"];
+var StarFilledIcon = /* @__PURE__ */ (0, import_react5.forwardRef)(function(_ref, forwardedRef) {
+  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$4b);
+  return (0, import_react5.createElement)("svg", Object.assign({
+    width: "15",
+    height: "15",
+    viewBox: "0 0 15 15",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props, {
+    ref: forwardedRef
+  }), (0, import_react5.createElement)("path", {
+    d: "M7.22303 0.665992C7.32551 0.419604 7.67454 0.419604 7.77702 0.665992L9.41343 4.60039C9.45663 4.70426 9.55432 4.77523 9.66645 4.78422L13.914 5.12475C14.18 5.14607 14.2878 5.47802 14.0852 5.65162L10.849 8.42374C10.7636 8.49692 10.7263 8.61176 10.7524 8.72118L11.7411 12.866C11.803 13.1256 11.5206 13.3308 11.2929 13.1917L7.6564 10.9705C7.5604 10.9119 7.43965 10.9119 7.34365 10.9705L3.70718 13.1917C3.47945 13.3308 3.19708 13.1256 3.25899 12.866L4.24769 8.72118C4.2738 8.61176 4.23648 8.49692 4.15105 8.42374L0.914889 5.65162C0.712228 5.47802 0.820086 5.14607 1.08608 5.12475L5.3336 4.78422C5.44573 4.77523 5.54342 4.70426 5.58662 4.60039L7.22303 0.665992Z",
+    fill: color
+  }));
+});
+
+// src/ui/components/UnsplashCoverPicker.tsx
+var import_obsidian8 = require("obsidian");
+
+// src/unsplash.ts
+var import_obsidian7 = require("obsidian");
+var CoverSearchHost = "https://obplugin.dualhue.cn";
+var CoverCategories = [
+  { key: "random", label: "\u968F\u673A" },
+  { key: "nature", label: "\u81EA\u7136" },
+  { key: "technology", label: "\u79D1\u6280" },
+  { key: "ai", label: "AI" },
+  { key: "writing", label: "\u5199\u4F5C" },
+  { key: "business", label: "\u5546\u4E1A" },
+  { key: "minimal", label: "\u6781\u7B80" },
+  { key: "art", label: "\u6587\u827A" },
+  { key: "travel", label: "\u65C5\u884C" },
+  { key: "abstract", label: "\u62BD\u8C61" },
+  { key: "plant", label: "\u690D\u7269" }
+];
+var RandomCategoryKeys = CoverCategories.filter((item) => item.key !== "random").map((item) => item.key);
+function pickRandomCoverCategory() {
+  return RandomCategoryKeys[Math.floor(Math.random() * RandomCategoryKeys.length)];
+}
+async function getRandomCover() {
+  const authKey = NMPSettings.getInstance().authKey;
+  if (!authKey) {
+    throw new Error("\u8BF7\u5148\u8BBE\u7F6E\u6CE8\u518C\u7801\uFF08AuthKey\uFF09");
+  }
+  const url = `${CoverSearchHost}/v1/cover/random`;
+  const res = await (0, import_obsidian7.requestUrl)({
+    url,
+    method: "GET",
+    throw: false,
+    headers: {
+      Authorization: `Bearer ${authKey}`
+    }
+  });
+  if (res.status !== 200) {
+    let message = `\u83B7\u53D6\u5C01\u9762\u56FE\u7247\u5931\u8D25\uFF08HTTP ${res.status}\uFF09`;
+    try {
+      const data = res.json;
+      if (data && typeof data.message === "string" && data.message) {
+        message = data.message;
+      }
+    } catch (error) {
+    }
+    throw new Error(message);
+  }
+  return res.json;
+}
+async function searchCoverImages(query, page = 1, perPage = 20) {
+  const authKey = NMPSettings.getInstance().authKey;
+  if (!authKey) {
+    throw new Error("\u8BF7\u5148\u8BBE\u7F6E\u6CE8\u518C\u7801\uFF08AuthKey\uFF09");
+  }
+  const params = new URLSearchParams({
+    query,
+    page: String(page),
+    per_page: String(perPage)
+  });
+  const url = `${CoverSearchHost}/v1/cover/search?${params.toString()}`;
+  const res = await (0, import_obsidian7.requestUrl)({
+    url,
+    method: "GET",
+    throw: false,
+    headers: {
+      Authorization: `Bearer ${authKey}`
+    }
+  });
+  if (res.status !== 200) {
+    let message = `\u83B7\u53D6\u5C01\u9762\u56FE\u7247\u5931\u8D25\uFF08HTTP ${res.status}\uFF09`;
+    try {
+      const data = res.json;
+      if (data && typeof data.message === "string" && data.message) {
+        message = data.message;
+      }
+    } catch (error) {
+    }
+    throw new Error(message);
+  }
+  return res.json;
+}
+async function getDownloadLocation(photo) {
+  const authKey = NMPSettings.getInstance().authKey;
+  if (!authKey) {
+    throw new Error("\u8BF7\u5148\u8BBE\u7F6E\u6CE8\u518C\u7801\uFF08AuthKey\uFF09");
+  }
+  if (!photo.links.download_location) {
+    throw new Error("\u4E0B\u8F7D\u94FE\u63A5\u7F3A\u5931");
+  }
+  const res = await (0, import_obsidian7.requestUrl)({
+    url: `${CoverSearchHost}/v1/cover/download?url=${encodeURIComponent(photo.links.download_location)}`,
+    method: "GET",
+    throw: false,
+    headers: {
+      Authorization: `Bearer ${authKey}`
+    }
+  });
+  if (res.status !== 200) {
+    let message = `\u83B7\u53D6\u4E0B\u8F7D\u94FE\u63A5\u5931\u8D25\uFF08HTTP ${res.status}\uFF09`;
+    try {
+      const data2 = res.json;
+      if (data2 && typeof data2.message === "string" && data2.message) {
+        message = data2.message;
+      }
+    } catch (error) {
+    }
+    throw new Error(message);
+  }
+  const data = res.json;
+  if (!data.url) {
+    throw new Error("\u4E0B\u8F7D\u94FE\u63A5\u7F3A\u5931");
+  }
+  return data.url;
+}
+async function downloadUnsplashPhoto(photo) {
+  const url = await getDownloadLocation(photo);
+  const res = await (0, import_obsidian7.requestUrl)({
+    url,
+    method: "GET",
+    throw: false
+  });
+  if (res.status !== 200) {
+    throw new Error(`\u4E0B\u8F7D\u56FE\u7247\u5931\u8D25\uFF08HTTP ${res.status}\uFF09`);
+  }
+  let mime = "image/jpeg";
+  const contentType = res.headers ? res.headers["content-type"] : void 0;
+  if (contentType) {
+    mime = contentType.split(";")[0].trim() || mime;
+  }
+  const ext = mimeToImageExt(mime);
+  const filename = `unsplash-${photo.id}${ext}`;
+  return new File([res.arrayBuffer], filename, { type: mime });
+}
+
+// src/ui/components/UnsplashCoverPicker.module.css
+var UnsplashCoverPicker_default = {
+  PickerBody: "UnsplashCoverPicker_PickerBody",
+  ContentArea: "UnsplashCoverPicker_ContentArea",
+  LoadingToast: "UnsplashCoverPicker_LoadingToast",
+  Spinner: "UnsplashCoverPicker_Spinner",
+  "ntm-spin": "UnsplashCoverPicker_ntm-spin",
+  Toolbar: "UnsplashCoverPicker_Toolbar",
+  CategoryBar: "UnsplashCoverPicker_CategoryBar",
+  ToolbarDivider: "UnsplashCoverPicker_ToolbarDivider",
+  CategoryButton: "UnsplashCoverPicker_CategoryButton",
+  CategoryActive: "UnsplashCoverPicker_CategoryActive",
+  ToolButton: "UnsplashCoverPicker_ToolButton",
+  PhotoGrid: "UnsplashCoverPicker_PhotoGrid",
+  PhotoCard: "UnsplashCoverPicker_PhotoCard",
+  FavoriteButton: "UnsplashCoverPicker_FavoriteButton",
+  FavoriteActive: "UnsplashCoverPicker_FavoriteActive",
+  PhotoLink: "UnsplashCoverPicker_PhotoLink",
+  PhotoThumbLink: "UnsplashCoverPicker_PhotoThumbLink",
+  PhotoThumb: "UnsplashCoverPicker_PhotoThumb",
+  PhotoOverlay: "UnsplashCoverPicker_PhotoOverlay",
+  PhotoAuthor: "UnsplashCoverPicker_PhotoAuthor",
+  UseButton: "UnsplashCoverPicker_UseButton",
+  ErrorBox: "UnsplashCoverPicker_ErrorBox",
+  LoadingBox: "UnsplashCoverPicker_LoadingBox",
+  EmptyBox: "UnsplashCoverPicker_EmptyBox",
+  Footer: "UnsplashCoverPicker_Footer"
+};
+
+// src/ui/components/UnsplashCoverPicker.tsx
 var import_jsx_runtime14 = __toESM(require_jsx_runtime());
+var FavoriteCategoryKey = "favorite";
+var coverCache = {};
+function UnsplashCoverView({ onPick }) {
+  const [category, setCategory] = React21.useState("random");
+  const [query, setQuery] = React21.useState(() => pickRandomCoverCategory());
+  const [photos, setPhotos] = React21.useState([]);
+  const [loading, setLoading] = React21.useState(false);
+  const [error, setError] = React21.useState("");
+  const [usingId, setUsingId] = React21.useState(null);
+  const [refreshToken, setRefreshToken] = React21.useState(0);
+  const [refreshing, setRefreshing] = React21.useState(false);
+  const [favorites, setFavorites] = React21.useState(
+    () => NMPSettings.getInstance().favoriteCovers || []
+  );
+  const forceRefreshRef = React21.useRef(false);
+  const isFavoriteCategory = category === FavoriteCategoryKey;
+  const displayedPhotos = isFavoriteCategory ? favorites : photos;
+  React21.useEffect(() => {
+    if (!query || isFavoriteCategory) {
+      setRefreshing(false);
+      return;
+    }
+    const cacheKey = category === "random" ? "random" : query;
+    const isRefresh = forceRefreshRef.current;
+    forceRefreshRef.current = false;
+    const cached = coverCache[cacheKey];
+    if (!isRefresh && cached) {
+      setRefreshing(false);
+      setPhotos(cached);
+      setError("");
+      setLoading(false);
+      return;
+    }
+    let cancelled = false;
+    setRefreshing(isRefresh);
+    setLoading(true);
+    setError("");
+    const applyData = (list2) => {
+      if (cancelled) return;
+      coverCache[cacheKey] = list2;
+      setRefreshing(false);
+      setPhotos(list2);
+      setLoading(false);
+    };
+    const applyError = (e2) => {
+      if (cancelled) return;
+      setRefreshing(false);
+      setError(e2 instanceof Error ? e2.message : String(e2));
+      setPhotos([]);
+      setLoading(false);
+    };
+    if (category === "random") {
+      getRandomCover().then((data) => applyData(data.photos || [])).catch(applyError);
+    } else {
+      searchCoverImages(query, 1, 20).then((data) => applyData(data.photos || [])).catch(applyError);
+    }
+    return () => {
+      cancelled = true;
+    };
+  }, [query, refreshToken, isFavoriteCategory, category]);
+  const handleCategoryClick = (key) => {
+    setCategory(key);
+    setQuery(key);
+    setError("");
+    const cacheKey = key === FavoriteCategoryKey ? null : key === "random" ? "random" : key;
+    const cached = cacheKey ? coverCache[cacheKey] : void 0;
+    setPhotos(cached ? [...cached] : []);
+    if (key === FavoriteCategoryKey) {
+      setLoading(false);
+    }
+  };
+  const handleRefresh = () => {
+    forceRefreshRef.current = true;
+    setRefreshToken((v2) => v2 + 1);
+    setError("");
+  };
+  const handleUse = async (photo) => {
+    setUsingId(photo.id);
+    try {
+      const file = await downloadUnsplashPhoto(photo);
+      onPick(file);
+    } catch (e2) {
+      new import_obsidian8.Notice(e2 instanceof Error ? e2.message : String(e2), 5e3);
+    } finally {
+      setUsingId(null);
+    }
+  };
+  const handleToggleFavorite = (photo) => {
+    var _a5;
+    const settings = NMPSettings.getInstance();
+    const isFav = settings.favoriteCovers.some((item) => item.id === photo.id);
+    const next = isFav ? settings.favoriteCovers.filter((item) => item.id !== photo.id) : [...settings.favoriteCovers, photo];
+    settings.favoriteCovers = next;
+    setFavorites(next);
+    const plugin = usePluginStore.getState().plugin;
+    (_a5 = plugin == null ? void 0 : plugin.saveSettings) == null ? void 0 : _a5.call(plugin);
+    new import_obsidian8.Notice(isFav ? "\u5DF2\u53D6\u6D88\u6536\u85CF" : "\u5DF2\u6536\u85CF");
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: UnsplashCoverPicker_default.PickerBody, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: UnsplashCoverPicker_default.Toolbar, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+        "button",
+        {
+          className: UnsplashCoverPicker_default.ToolButton,
+          onClick: handleRefresh,
+          disabled: loading || isFavoriteCategory,
+          children: "\u6362\u4E00\u6279"
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: UnsplashCoverPicker_default.ToolbarDivider }),
+      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: UnsplashCoverPicker_default.CategoryBar, children: [
+        { key: FavoriteCategoryKey, label: "\u6536\u85CF" },
+        ...CoverCategories
+      ].map((item) => /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+        "button",
+        {
+          className: `${UnsplashCoverPicker_default.CategoryButton} ${category === item.key ? UnsplashCoverPicker_default.CategoryActive : ""}`,
+          onClick: () => handleCategoryClick(item.key),
+          children: item.label
+        },
+        item.key
+      )) })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: UnsplashCoverPicker_default.ContentArea, children: [
+      refreshing && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: UnsplashCoverPicker_default.LoadingToast, role: "status", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { className: UnsplashCoverPicker_default.Spinner }),
+        "\u6B63\u5728\u52A0\u8F7D\u2026"
+      ] }),
+      error ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: UnsplashCoverPicker_default.ErrorBox, children: error }) : isFavoriteCategory && favorites.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: UnsplashCoverPicker_default.EmptyBox, children: "\u8FD8\u6CA1\u6709\u6536\u85CF\u7684\u5C01\u9762\uFF0C\u70B9\u51FB\u56FE\u7247\u53F3\u4E0A\u89D2\u7684\u661F\u6807\u5373\u53EF\u6536\u85CF" }) : loading && photos.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: UnsplashCoverPicker_default.LoadingBox, children: "\u6B63\u5728\u52A0\u8F7D\u56FE\u7247\u2026" }) : /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: UnsplashCoverPicker_default.PhotoGrid, children: displayedPhotos.map((photo) => {
+        var _a5, _b2, _c;
+        const isFav = favorites.some((item) => item.id === photo.id);
+        return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: UnsplashCoverPicker_default.PhotoCard, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: UnsplashCoverPicker_default.PhotoLink, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+              "a",
+              {
+                className: UnsplashCoverPicker_default.PhotoThumbLink,
+                href: photo.links.html + "?utm_source=NoteToMP&utm_medium=referral",
+                target: "_blank",
+                rel: "noopener noreferrer",
+                title: "\u67E5\u770B\u56FE\u7247",
+                children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+                  "img",
+                  {
+                    className: UnsplashCoverPicker_default.PhotoThumb,
+                    src: photo.urls.thumb,
+                    alt: photo.alt_description || photo.description || "Unsplash \u56FE\u7247",
+                    loading: "lazy"
+                  }
+                )
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { className: UnsplashCoverPicker_default.PhotoOverlay, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+                "a",
+                {
+                  className: UnsplashCoverPicker_default.PhotoAuthor,
+                  href: ((_b2 = (_a5 = photo.user) == null ? void 0 : _a5.links) == null ? void 0 : _b2.html) + "?utm_source=NoteToMP&utm_medium=referral",
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                  title: "\u524D\u5F80\u4F5C\u8005\u4E3B\u9875",
+                  children: ((_c = photo.user) == null ? void 0 : _c.name) || "Unsplash"
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(ExternalLinkIcon, { width: 12, height: 12 })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+            "button",
+            {
+              className: `${UnsplashCoverPicker_default.FavoriteButton} ${isFav ? UnsplashCoverPicker_default.FavoriteActive : ""}`,
+              title: isFav ? "\u53D6\u6D88\u6536\u85CF" : "\u6536\u85CF",
+              "aria-label": isFav ? "\u53D6\u6D88\u6536\u85CF" : "\u6536\u85CF",
+              onClick: (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                handleToggleFavorite(photo);
+              },
+              children: isFav ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(StarFilledIcon, { width: 16, height: 16 }) : /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(StarIcon, { width: 16, height: 16 })
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+            "button",
+            {
+              className: UnsplashCoverPicker_default.UseButton,
+              disabled: usingId === photo.id,
+              onClick: () => handleUse(photo),
+              children: usingId === photo.id ? "\u4E0B\u8F7D\u4E2D\u2026" : "\u4F7F\u7528"
+            }
+          )
+        ] }, photo.id);
+      }) })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: UnsplashCoverPicker_default.Footer, children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { children: "\u56FE\u7247\u4E0E\u4F5C\u8005\u4FE1\u606F\u6765\u81EA Unsplash\uFF0C\u9075\u5FAA Unsplash License \u534F\u8BAE" }) })
+  ] });
+}
+var UnsplashCoverModal = class extends import_obsidian8.Modal {
+  constructor(app, onPick) {
+    super(app);
+    this.onPick = onPick;
+    this.view = null;
+  }
+  onOpen() {
+    this.setTitle("\u9009\u62E9 Unsplash \u5C01\u9762");
+    const { modalEl, contentEl } = this;
+    modalEl.style.width = "min(880px, 92vw)";
+    modalEl.style.height = "min(86vh, 720px)";
+    contentEl.style.display = "flex";
+    contentEl.style.flexDirection = "column";
+    contentEl.style.minHeight = "0";
+    this.view = ReactDOM4.createRoot(contentEl);
+    this.view.render(
+      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+        UnsplashCoverView,
+        {
+          onPick: (file) => {
+            this.onPick(file);
+            this.close();
+          }
+        }
+      )
+    );
+  }
+  onClose() {
+    var _a5;
+    (_a5 = this.view) == null ? void 0 : _a5.unmount();
+    this.view = null;
+    this.contentEl.empty();
+  }
+};
+
+// src/ui/components/Cover.tsx
+var import_jsx_runtime15 = __toESM(require_jsx_runtime());
 function getCoverURL(cover) {
   if (cover.startsWith("http")) return cover;
   const res = AssetsManager.getInstance().getResourcePath(trimEmbedTag(cover));
@@ -102756,95 +103585,141 @@ function getCoverURL(cover) {
   return null;
 }
 function Cover({ readOnly = false, initialCover = "" }) {
+  const app = usePluginStore((s) => s.app);
   const localCover = useConfigContext((s) => s.cover);
   const setCover = useConfigContext((s) => s.setCover);
   const displayedCover = readOnly && initialCover ? getCoverURL(initialCover) : localCover ? URL.createObjectURL(localCover) : null;
-  const fileInputRef = React21.useRef(null);
+  const coverContainerRef = React25.useRef(null);
+  const [showSourceOptions, setShowSourceOptions] = React25.useState(false);
+  React25.useEffect(() => {
+    if (!showSourceOptions) return;
+    const handleDocumentMouseDown = (event) => {
+      if (coverContainerRef.current && !coverContainerRef.current.contains(event.target)) {
+        setShowSourceOptions(false);
+      }
+    };
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setShowSourceOptions(false);
+      }
+    };
+    document.addEventListener("mousedown", handleDocumentMouseDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleDocumentMouseDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [showSourceOptions]);
   const handleFileChange = (event) => {
     if (readOnly) return;
+    setShowSourceOptions(false);
     if (event.target.files && event.target.files.length > 0) {
       setCover(event.target.files[0]);
     } else {
       setCover(null);
     }
   };
-  const handleImageClick = () => {
-    var _a5;
+  const handleImageClick = (event) => {
     if (readOnly) return;
-    (_a5 = fileInputRef.current) == null ? void 0 : _a5.click();
+    setShowSourceOptions((v2) => !v2);
+  };
+  const handleOpenUnsplash = (event) => {
+    event == null ? void 0 : event.preventDefault();
+    event == null ? void 0 : event.stopPropagation();
+    setShowSourceOptions(false);
+    new UnsplashCoverModal(app, (file) => setCover(file)).open();
   };
   const handleCloseClick = (event) => {
     if (readOnly) return;
     event.preventDefault();
     event.stopPropagation();
+    setShowSourceOptions(false);
     setCover(null);
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: Cover_default.CoverContainer, children: /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("label", { className: Cover_default.CoverLabel, onClick: !readOnly && displayedCover ? handleImageClick : void 0, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-      "input",
+  return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: Cover_default.CoverContainer, ref: coverContainerRef, children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: Cover_default.CoverLabel, onClick: handleImageClick, children: showSourceOptions ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: Cover_default.CoverSourceOptions, onClick: (event) => event.stopPropagation(), children: [
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("label", { className: Cover_default.CoverSourceButton, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+        "input",
+        {
+          type: "file",
+          accept: ".jpeg, .jpg, .png",
+          className: Cover_default.CoverInput,
+          onChange: handleFileChange,
+          disabled: readOnly,
+          onClick: (event) => event.stopPropagation()
+        }
+      ),
+      "\u672C\u5730\u56FE\u7247"
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+      "label",
       {
-        type: "file",
-        accept: ".jpeg, .jpg, .png",
-        className: Cover_default.CoverInput,
-        onChange: handleFileChange,
-        ref: fileInputRef,
-        disabled: readOnly
+        className: Cover_default.CoverSourceButton,
+        role: "button",
+        tabIndex: 0,
+        onClick: handleOpenUnsplash,
+        onKeyDown: (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            handleOpenUnsplash();
+          }
+        },
+        children: "Unsplash \u56FE\u7247"
+      }
+    )
+  ] }) : displayedCover ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+      "img",
+      {
+        src: displayedCover,
+        alt: "Cover Preview",
+        className: Cover_default.CoverPreview
       }
     ),
-    displayedCover ? /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(import_jsx_runtime14.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-        "img",
-        {
-          src: displayedCover,
-          alt: "Cover Preview",
-          className: Cover_default.CoverPreview
-        }
-      ),
-      !readOnly && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("button", { className: Cover_default.CloseButton, onClick: handleCloseClick, children: "\xD7 " })
-    ] }) : /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: Cover_default.CoverTip, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
-        "svg",
-        {
-          width: "20",
-          height: "20",
-          viewBox: "0 0 20 20",
-          fill: "none",
-          xmlns: "http://www.w3.org/2000/svg",
-          children: [
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-              "line",
-              {
-                x1: "2",
-                y1: "10",
-                x2: "18",
-                y2: "10",
-                stroke: "#AFAFAF",
-                strokeWidth: "4",
-                strokeLinecap: "round"
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-              "line",
-              {
-                x1: "10",
-                y1: "18",
-                x2: "10",
-                y2: "2",
-                stroke: "#AFAFAF",
-                strokeWidth: "4",
-                strokeLinecap: "round"
-              }
-            )
-          ]
-        }
-      ),
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { children: "\u6DFB\u52A0\u5C01\u9762" })
-    ] })
-  ] }) });
+    !readOnly && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("button", { className: Cover_default.CloseButton, onClick: handleCloseClick, children: "\xD7 " })
+  ] }) : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: Cover_default.CoverTip, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
+      "svg",
+      {
+        width: "20",
+        height: "20",
+        viewBox: "0 0 20 20",
+        fill: "none",
+        xmlns: "http://www.w3.org/2000/svg",
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+            "line",
+            {
+              x1: "2",
+              y1: "10",
+              x2: "18",
+              y2: "10",
+              stroke: "#AFAFAF",
+              strokeWidth: "4",
+              strokeLinecap: "round"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+            "line",
+            {
+              x1: "10",
+              y1: "18",
+              x2: "10",
+              y2: "2",
+              stroke: "#AFAFAF",
+              strokeWidth: "4",
+              strokeLinecap: "round"
+            }
+          )
+        ]
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { children: "\u6DFB\u52A0\u5C01\u9762" })
+  ] }) }) });
 }
 
 // src/ui/components/AccountSelect.tsx
-var React40 = __toESM(require_react());
+var React41 = __toESM(require_react());
 
 // node_modules/@radix-ui/react-select/dist/index.mjs
 var dist_exports5 = {};
@@ -102883,8 +103758,8 @@ __export(dist_exports5, {
   Viewport: () => Viewport2,
   createSelectScope: () => createSelectScope
 });
-var React39 = __toESM(require_react(), 1);
-var ReactDOM5 = __toESM(require_react_dom(), 1);
+var React40 = __toESM(require_react(), 1);
+var ReactDOM6 = __toESM(require_react_dom(), 1);
 
 // node_modules/@radix-ui/number/dist/index.mjs
 function clamp(value, [min2, max2]) {
@@ -102892,10 +103767,10 @@ function clamp(value, [min2, max2]) {
 }
 
 // node_modules/@radix-ui/react-focus-guards/dist/index.mjs
-var React25 = __toESM(require_react(), 1);
+var React26 = __toESM(require_react(), 1);
 var count2 = 0;
 function useFocusGuards() {
-  React25.useEffect(() => {
+  React26.useEffect(() => {
     var _a5, _b2;
     const edgeGuards = document.querySelectorAll("[data-radix-focus-guard]");
     document.body.insertAdjacentElement("afterbegin", (_a5 = edgeGuards[0]) != null ? _a5 : createFocusGuard());
@@ -102921,13 +103796,13 @@ function createFocusGuard() {
 }
 
 // node_modules/@radix-ui/react-focus-scope/dist/index.mjs
-var React26 = __toESM(require_react(), 1);
-var import_jsx_runtime15 = __toESM(require_jsx_runtime(), 1);
+var React27 = __toESM(require_react(), 1);
+var import_jsx_runtime16 = __toESM(require_jsx_runtime(), 1);
 var AUTOFOCUS_ON_MOUNT = "focusScope.autoFocusOnMount";
 var AUTOFOCUS_ON_UNMOUNT = "focusScope.autoFocusOnUnmount";
 var EVENT_OPTIONS2 = { bubbles: false, cancelable: true };
 var FOCUS_SCOPE_NAME = "FocusScope";
-var FocusScope = React26.forwardRef((props, forwardedRef) => {
+var FocusScope = React27.forwardRef((props, forwardedRef) => {
   const {
     loop = false,
     trapped = false,
@@ -102935,12 +103810,12 @@ var FocusScope = React26.forwardRef((props, forwardedRef) => {
     onUnmountAutoFocus: onUnmountAutoFocusProp,
     ...scopeProps
   } = props;
-  const [container, setContainer] = React26.useState(null);
+  const [container, setContainer] = React27.useState(null);
   const onMountAutoFocus = useCallbackRef(onMountAutoFocusProp);
   const onUnmountAutoFocus = useCallbackRef(onUnmountAutoFocusProp);
-  const lastFocusedElementRef = React26.useRef(null);
+  const lastFocusedElementRef = React27.useRef(null);
   const composedRefs = useComposedRefs(forwardedRef, (node) => setContainer(node));
-  const focusScope = React26.useRef({
+  const focusScope = React27.useRef({
     paused: false,
     pause() {
       this.paused = true;
@@ -102949,7 +103824,7 @@ var FocusScope = React26.forwardRef((props, forwardedRef) => {
       this.paused = false;
     }
   }).current;
-  React26.useEffect(() => {
+  React27.useEffect(() => {
     if (trapped) {
       let handleFocusIn2 = function(event) {
         if (focusScope.paused || !container) return;
@@ -102985,7 +103860,7 @@ var FocusScope = React26.forwardRef((props, forwardedRef) => {
       };
     }
   }, [trapped, container, focusScope.paused]);
-  React26.useEffect(() => {
+  React27.useEffect(() => {
     if (container) {
       focusScopesStack.add(focusScope);
       const previouslyFocusedElement = document.activeElement;
@@ -103016,7 +103891,7 @@ var FocusScope = React26.forwardRef((props, forwardedRef) => {
       };
     }
   }, [container, onMountAutoFocus, onUnmountAutoFocus, focusScope]);
-  const handleKeyDown = React26.useCallback(
+  const handleKeyDown = React27.useCallback(
     (event) => {
       if (!loop && !trapped) return;
       if (focusScope.paused) return;
@@ -103041,7 +103916,7 @@ var FocusScope = React26.forwardRef((props, forwardedRef) => {
     },
     [loop, trapped, focusScope.paused]
   );
-  return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Primitive.div, { tabIndex: -1, ...scopeProps, ref: composedRefs, onKeyDown: handleKeyDown });
+  return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Primitive.div, { tabIndex: -1, ...scopeProps, ref: composedRefs, onKeyDown: handleKeyDown });
 });
 FocusScope.displayName = FOCUS_SCOPE_NAME;
 function focusFirst3(candidates, { select = false } = {}) {
@@ -103126,7 +104001,7 @@ function removeLinks(items) {
 }
 
 // node_modules/@radix-ui/react-popper/dist/index.mjs
-var React30 = __toESM(require_react(), 1);
+var React31 = __toESM(require_react(), 1);
 
 // node_modules/@floating-ui/utils/dist/floating-ui.utils.mjs
 var sides = ["top", "right", "bottom", "left"];
@@ -104735,13 +105610,13 @@ var computePosition2 = (reference, floating, options2) => {
 };
 
 // node_modules/@floating-ui/react-dom/dist/floating-ui.react-dom.mjs
-var React27 = __toESM(require_react(), 1);
-var import_react5 = __toESM(require_react(), 1);
-var ReactDOM4 = __toESM(require_react_dom(), 1);
+var React28 = __toESM(require_react(), 1);
+var import_react6 = __toESM(require_react(), 1);
+var ReactDOM5 = __toESM(require_react_dom(), 1);
 var isClient = typeof document !== "undefined";
 var noop = function noop2() {
 };
-var index = isClient ? import_react5.useLayoutEffect : noop;
+var index = isClient ? import_react6.useLayoutEffect : noop;
 function deepEqual(a, b2) {
   if (a === b2) {
     return true;
@@ -104801,7 +105676,7 @@ function roundByDPR(element, value) {
   return Math.round(value * dpr) / dpr;
 }
 function useLatestRef(value) {
-  const ref = React27.useRef(value);
+  const ref = React28.useRef(value);
   index(() => {
     ref.current = value;
   });
@@ -104824,7 +105699,7 @@ function useFloating(options2) {
     whileElementsMounted,
     open
   } = options2;
-  const [data, setData] = React27.useState({
+  const [data, setData] = React28.useState({
     x: 0,
     y: 0,
     strategy,
@@ -104832,19 +105707,19 @@ function useFloating(options2) {
     middlewareData: {},
     isPositioned: false
   });
-  const [latestMiddleware, setLatestMiddleware] = React27.useState(middleware);
+  const [latestMiddleware, setLatestMiddleware] = React28.useState(middleware);
   if (!deepEqual(latestMiddleware, middleware)) {
     setLatestMiddleware(middleware);
   }
-  const [_reference, _setReference] = React27.useState(null);
-  const [_floating, _setFloating] = React27.useState(null);
-  const setReference = React27.useCallback((node) => {
+  const [_reference, _setReference] = React28.useState(null);
+  const [_floating, _setFloating] = React28.useState(null);
+  const setReference = React28.useCallback((node) => {
     if (node !== referenceRef.current) {
       referenceRef.current = node;
       _setReference(node);
     }
   }, []);
-  const setFloating = React27.useCallback((node) => {
+  const setFloating = React28.useCallback((node) => {
     if (node !== floatingRef.current) {
       floatingRef.current = node;
       _setFloating(node);
@@ -104852,14 +105727,14 @@ function useFloating(options2) {
   }, []);
   const referenceEl = externalReference || _reference;
   const floatingEl = externalFloating || _floating;
-  const referenceRef = React27.useRef(null);
-  const floatingRef = React27.useRef(null);
-  const dataRef = React27.useRef(data);
+  const referenceRef = React28.useRef(null);
+  const floatingRef = React28.useRef(null);
+  const dataRef = React28.useRef(data);
   const hasWhileElementsMounted = whileElementsMounted != null;
   const whileElementsMountedRef = useLatestRef(whileElementsMounted);
   const platformRef = useLatestRef(platform2);
   const openRef = useLatestRef(open);
-  const update = React27.useCallback(() => {
+  const update = React28.useCallback(() => {
     if (!referenceRef.current || !floatingRef.current) {
       return;
     }
@@ -104882,7 +105757,7 @@ function useFloating(options2) {
       };
       if (isMountedRef.current && !deepEqual(dataRef.current, fullData)) {
         dataRef.current = fullData;
-        ReactDOM4.flushSync(() => {
+        ReactDOM5.flushSync(() => {
           setData(fullData);
         });
       }
@@ -104897,7 +105772,7 @@ function useFloating(options2) {
       }));
     }
   }, [open]);
-  const isMountedRef = React27.useRef(false);
+  const isMountedRef = React28.useRef(false);
   index(() => {
     isMountedRef.current = true;
     return () => {
@@ -104914,17 +105789,17 @@ function useFloating(options2) {
       update();
     }
   }, [referenceEl, floatingEl, update, whileElementsMountedRef, hasWhileElementsMounted]);
-  const refs = React27.useMemo(() => ({
+  const refs = React28.useMemo(() => ({
     reference: referenceRef,
     floating: floatingRef,
     setReference,
     setFloating
   }), [setReference, setFloating]);
-  const elements = React27.useMemo(() => ({
+  const elements = React28.useMemo(() => ({
     reference: referenceEl,
     floating: floatingEl
   }), [referenceEl, floatingEl]);
-  const floatingStyles = React27.useMemo(() => {
+  const floatingStyles = React28.useMemo(() => {
     const initialStyles = {
       position: strategy,
       left: 0,
@@ -104950,7 +105825,7 @@ function useFloating(options2) {
       top: y2
     };
   }, [strategy, transform, elements.floating, data.x, data.y]);
-  return React27.useMemo(() => ({
+  return React28.useMemo(() => ({
     ...data,
     update,
     refs,
@@ -105019,12 +105894,12 @@ var arrow3 = (options2, deps) => ({
 });
 
 // node_modules/@radix-ui/react-arrow/dist/index.mjs
-var React28 = __toESM(require_react(), 1);
-var import_jsx_runtime16 = __toESM(require_jsx_runtime(), 1);
+var React29 = __toESM(require_react(), 1);
+var import_jsx_runtime17 = __toESM(require_jsx_runtime(), 1);
 var NAME2 = "Arrow";
-var Arrow = React28.forwardRef((props, forwardedRef) => {
+var Arrow = React29.forwardRef((props, forwardedRef) => {
   const { children, width = 10, height = 5, ...arrowProps } = props;
-  return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
     Primitive.svg,
     {
       ...arrowProps,
@@ -105033,7 +105908,7 @@ var Arrow = React28.forwardRef((props, forwardedRef) => {
       height,
       viewBox: "0 0 30 10",
       preserveAspectRatio: "none",
-      children: props.asChild ? children : /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("polygon", { points: "0,0 30,0 15,10" })
+      children: props.asChild ? children : /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("polygon", { points: "0,0 30,0 15,10" })
     }
   );
 });
@@ -105041,9 +105916,9 @@ Arrow.displayName = NAME2;
 var Root5 = Arrow;
 
 // node_modules/@radix-ui/react-use-size/dist/index.mjs
-var React29 = __toESM(require_react(), 1);
+var React30 = __toESM(require_react(), 1);
 function useSize(element) {
-  const [size4, setSize] = React29.useState(void 0);
+  const [size4, setSize] = React30.useState(void 0);
   useLayoutEffect2(() => {
     if (element) {
       setSize({ width: element.offsetWidth, height: element.offsetHeight });
@@ -105078,38 +105953,38 @@ function useSize(element) {
 }
 
 // node_modules/@radix-ui/react-popper/dist/index.mjs
-var import_jsx_runtime17 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime18 = __toESM(require_jsx_runtime(), 1);
 var POPPER_NAME = "Popper";
 var [createPopperContext, createPopperScope] = createContextScope(POPPER_NAME);
 var [PopperProvider, usePopperContext] = createPopperContext(POPPER_NAME);
 var Popper = (props) => {
   const { __scopePopper, children } = props;
-  const [anchor, setAnchor] = React30.useState(null);
-  return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(PopperProvider, { scope: __scopePopper, anchor, onAnchorChange: setAnchor, children });
+  const [anchor, setAnchor] = React31.useState(null);
+  return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(PopperProvider, { scope: __scopePopper, anchor, onAnchorChange: setAnchor, children });
 };
 Popper.displayName = POPPER_NAME;
 var ANCHOR_NAME = "PopperAnchor";
-var PopperAnchor = React30.forwardRef(
+var PopperAnchor = React31.forwardRef(
   (props, forwardedRef) => {
     const { __scopePopper, virtualRef, ...anchorProps } = props;
     const context = usePopperContext(ANCHOR_NAME, __scopePopper);
-    const ref = React30.useRef(null);
+    const ref = React31.useRef(null);
     const composedRefs = useComposedRefs(forwardedRef, ref);
-    const anchorRef = React30.useRef(null);
-    React30.useEffect(() => {
+    const anchorRef = React31.useRef(null);
+    React31.useEffect(() => {
       const previousAnchor = anchorRef.current;
       anchorRef.current = (virtualRef == null ? void 0 : virtualRef.current) || ref.current;
       if (previousAnchor !== anchorRef.current) {
         context.onAnchorChange(anchorRef.current);
       }
     });
-    return virtualRef ? null : /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(Primitive.div, { ...anchorProps, ref: composedRefs });
+    return virtualRef ? null : /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Primitive.div, { ...anchorProps, ref: composedRefs });
   }
 );
 PopperAnchor.displayName = ANCHOR_NAME;
 var CONTENT_NAME2 = "PopperContent";
 var [PopperContentProvider, useContentContext] = createPopperContext(CONTENT_NAME2);
-var PopperContent = React30.forwardRef(
+var PopperContent = React31.forwardRef(
   (props, forwardedRef) => {
     var _a5, _b2, _c, _d, _e, _f, _g, _h;
     const {
@@ -105129,9 +106004,9 @@ var PopperContent = React30.forwardRef(
       ...contentProps
     } = props;
     const context = usePopperContext(CONTENT_NAME2, __scopePopper);
-    const [content, setContent] = React30.useState(null);
+    const [content, setContent] = React31.useState(null);
     const composedRefs = useComposedRefs(forwardedRef, (node) => setContent(node));
-    const [arrow4, setArrow] = React30.useState(null);
+    const [arrow4, setArrow] = React31.useState(null);
     const arrowSize = useSize(arrow4);
     const arrowWidth = (_a5 = arrowSize == null ? void 0 : arrowSize.width) != null ? _a5 : 0;
     const arrowHeight = (_b2 = arrowSize == null ? void 0 : arrowSize.height) != null ? _b2 : 0;
@@ -105193,11 +106068,11 @@ var PopperContent = React30.forwardRef(
     const arrowX = (_c = middlewareData.arrow) == null ? void 0 : _c.x;
     const arrowY = (_d = middlewareData.arrow) == null ? void 0 : _d.y;
     const cannotCenterArrow = ((_e = middlewareData.arrow) == null ? void 0 : _e.centerOffset) !== 0;
-    const [contentZIndex, setContentZIndex] = React30.useState();
+    const [contentZIndex, setContentZIndex] = React31.useState();
     useLayoutEffect2(() => {
       if (content) setContentZIndex(window.getComputedStyle(content).zIndex);
     }, [content]);
-    return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
       "div",
       {
         ref: refs.setFloating,
@@ -105221,7 +106096,7 @@ var PopperContent = React30.forwardRef(
           }
         },
         dir: props.dir,
-        children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
           PopperContentProvider,
           {
             scope: __scopePopper,
@@ -105230,7 +106105,7 @@ var PopperContent = React30.forwardRef(
             arrowX,
             arrowY,
             shouldHideArrow: cannotCenterArrow,
-            children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+            children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
               Primitive.div,
               {
                 "data-side": placedSide,
@@ -105259,7 +106134,7 @@ var OPPOSITE_SIDE = {
   bottom: "top",
   left: "right"
 };
-var PopperArrow = React30.forwardRef(function PopperArrow2(props, forwardedRef) {
+var PopperArrow = React31.forwardRef(function PopperArrow2(props, forwardedRef) {
   const { __scopePopper, ...arrowProps } = props;
   const contentContext = useContentContext(ARROW_NAME, __scopePopper);
   const baseSide = OPPOSITE_SIDE[contentContext.placedSide];
@@ -105267,7 +106142,7 @@ var PopperArrow = React30.forwardRef(function PopperArrow2(props, forwardedRef) 
     // we have to use an extra wrapper because `ResizeObserver` (used by `useSize`)
     // doesn't report size as we'd expect on SVG elements.
     // it reports their bounding box which is effectively the largest path inside the SVG.
-    /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
       "span",
       {
         ref: contentContext.onArrowChange,
@@ -105290,7 +106165,7 @@ var PopperArrow = React30.forwardRef(function PopperArrow2(props, forwardedRef) 
           }[contentContext.placedSide],
           visibility: contentContext.shouldHideArrow ? "hidden" : void 0
         },
-        children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
           Root5,
           {
             ...arrowProps,
@@ -105352,10 +106227,10 @@ var Content2 = PopperContent;
 var Arrow2 = PopperArrow;
 
 // node_modules/@radix-ui/react-use-previous/dist/index.mjs
-var React31 = __toESM(require_react(), 1);
+var React32 = __toESM(require_react(), 1);
 function usePrevious(value) {
-  const ref = React31.useRef({ value, previous: value });
-  return React31.useMemo(() => {
+  const ref = React32.useRef({ value, previous: value });
+  return React32.useMemo(() => {
     if (ref.current.value !== value) {
       ref.current.previous = ref.current.value;
       ref.current.value = value;
@@ -105518,10 +106393,10 @@ function __spreadArray(to, from, pack) {
 }
 
 // node_modules/react-remove-scroll/dist/es2015/Combination.js
-var React38 = __toESM(require_react());
+var React39 = __toESM(require_react());
 
 // node_modules/react-remove-scroll/dist/es2015/UI.js
-var React34 = __toESM(require_react());
+var React35 = __toESM(require_react());
 
 // node_modules/react-remove-scroll-bar/dist/es2015/constants.js
 var zeroRightClassName = "right-scroll-bar-position";
@@ -105540,9 +106415,9 @@ function assignRef(ref, value) {
 }
 
 // node_modules/use-callback-ref/dist/es2015/useRef.js
-var import_react6 = __toESM(require_react());
+var import_react7 = __toESM(require_react());
 function useCallbackRef2(initialValue, callback) {
-  var ref = (0, import_react6.useState)(function() {
+  var ref = (0, import_react7.useState)(function() {
     return {
       // value
       value: initialValue,
@@ -105568,8 +106443,8 @@ function useCallbackRef2(initialValue, callback) {
 }
 
 // node_modules/use-callback-ref/dist/es2015/useMergeRef.js
-var React32 = __toESM(require_react());
-var useIsomorphicLayoutEffect = typeof window !== "undefined" ? React32.useLayoutEffect : React32.useEffect;
+var React33 = __toESM(require_react());
+var useIsomorphicLayoutEffect = typeof window !== "undefined" ? React33.useLayoutEffect : React33.useEffect;
 var currentValues = /* @__PURE__ */ new WeakMap();
 function useMergeRefs(refs, defaultValue2) {
   var callbackRef = useCallbackRef2(defaultValue2 || null, function(newValue) {
@@ -105686,7 +106561,7 @@ function createSidecarMedium(options2) {
 }
 
 // node_modules/use-sidecar/dist/es2015/exports.js
-var React33 = __toESM(require_react());
+var React34 = __toESM(require_react());
 var SideCar = function(_a5) {
   var sideCar = _a5.sideCar, rest = __rest(_a5, ["sideCar"]);
   if (!sideCar) {
@@ -105696,7 +106571,7 @@ var SideCar = function(_a5) {
   if (!Target) {
     throw new Error("Sidecar medium not found");
   }
-  return React33.createElement(Target, __assign({}, rest));
+  return React34.createElement(Target, __assign({}, rest));
 };
 SideCar.isSideCarExport = true;
 function exportSidecar(medium, exported) {
@@ -105711,9 +106586,9 @@ var effectCar = createSidecarMedium();
 var nothing = function() {
   return;
 };
-var RemoveScroll = React34.forwardRef(function(props, parentRef) {
-  var ref = React34.useRef(null);
-  var _a5 = React34.useState({
+var RemoveScroll = React35.forwardRef(function(props, parentRef) {
+  var ref = React35.useRef(null);
+  var _a5 = React35.useState({
     onScrollCapture: nothing,
     onWheelCapture: nothing,
     onTouchMoveCapture: nothing
@@ -105722,11 +106597,11 @@ var RemoveScroll = React34.forwardRef(function(props, parentRef) {
   var SideCar2 = sideCar;
   var containerRef = useMergeRefs([ref, parentRef]);
   var containerProps = __assign(__assign({}, rest), callbacks);
-  return React34.createElement(
-    React34.Fragment,
+  return React35.createElement(
+    React35.Fragment,
     null,
-    enabled && React34.createElement(SideCar2, { sideCar: effectCar, removeScrollBar, shards, noRelative, noIsolation, inert, setCallbacks, allowPinchZoom: !!allowPinchZoom, lockRef: ref, gapMode }),
-    forwardProps ? React34.cloneElement(React34.Children.only(children), __assign(__assign({}, containerProps), { ref: containerRef })) : React34.createElement(Container, __assign({}, containerProps, { className, ref: containerRef }), children)
+    enabled && React35.createElement(SideCar2, { sideCar: effectCar, removeScrollBar, shards, noRelative, noIsolation, inert, setCallbacks, allowPinchZoom: !!allowPinchZoom, lockRef: ref, gapMode }),
+    forwardProps ? React35.cloneElement(React35.Children.only(children), __assign(__assign({}, containerProps), { ref: containerRef })) : React35.createElement(Container, __assign({}, containerProps, { className, ref: containerRef }), children)
   );
 });
 RemoveScroll.defaultProps = {
@@ -105740,13 +106615,13 @@ RemoveScroll.classNames = {
 };
 
 // node_modules/react-remove-scroll/dist/es2015/SideEffect.js
-var React37 = __toESM(require_react());
+var React38 = __toESM(require_react());
 
 // node_modules/react-remove-scroll-bar/dist/es2015/component.js
-var React36 = __toESM(require_react());
+var React37 = __toESM(require_react());
 
 // node_modules/react-style-singleton/dist/es2015/hook.js
-var React35 = __toESM(require_react());
+var React36 = __toESM(require_react());
 
 // node_modules/get-nonce/dist/es2015/index.js
 var currentNonce;
@@ -105810,7 +106685,7 @@ var stylesheetSingleton = function() {
 var styleHookSingleton = function() {
   var sheet = stylesheetSingleton();
   return function(styles, isDynamic) {
-    React35.useEffect(function() {
+    React36.useEffect(function() {
       sheet.add(styles);
       return function() {
         sheet.remove();
@@ -105884,7 +106759,7 @@ var getCurrentUseCounter = function() {
   return isFinite(counter) ? counter : 0;
 };
 var useLockAttribute = function() {
-  React36.useEffect(function() {
+  React37.useEffect(function() {
     document.body.setAttribute(lockAttribute, (getCurrentUseCounter() + 1).toString());
     return function() {
       var newCounter = getCurrentUseCounter() - 1;
@@ -105899,10 +106774,10 @@ var useLockAttribute = function() {
 var RemoveScrollBar = function(_a5) {
   var noRelative = _a5.noRelative, noImportant = _a5.noImportant, _b2 = _a5.gapMode, gapMode = _b2 === void 0 ? "margin" : _b2;
   useLockAttribute();
-  var gap = React36.useMemo(function() {
+  var gap = React37.useMemo(function() {
     return getGapWidth(gapMode);
   }, [gapMode]);
-  return React36.createElement(Style, { styles: getStyles(gap, !noRelative, gapMode, !noImportant ? "!important" : "") });
+  return React37.createElement(Style, { styles: getStyles(gap, !noRelative, gapMode, !noImportant ? "!important" : "") });
 };
 
 // node_modules/react-remove-scroll/dist/es2015/aggresiveCapture.js
@@ -106043,16 +106918,16 @@ var generateStyle = function(id) {
 var idCounter = 0;
 var lockStack = [];
 function RemoveScrollSideCar(props) {
-  var shouldPreventQueue = React37.useRef([]);
-  var touchStartRef = React37.useRef([0, 0]);
-  var activeAxis = React37.useRef();
-  var id = React37.useState(idCounter++)[0];
-  var Style2 = React37.useState(styleSingleton)[0];
-  var lastProps = React37.useRef(props);
-  React37.useEffect(function() {
+  var shouldPreventQueue = React38.useRef([]);
+  var touchStartRef = React38.useRef([0, 0]);
+  var activeAxis = React38.useRef();
+  var id = React38.useState(idCounter++)[0];
+  var Style2 = React38.useState(styleSingleton)[0];
+  var lastProps = React38.useRef(props);
+  React38.useEffect(function() {
     lastProps.current = props;
   }, [props]);
-  React37.useEffect(function() {
+  React38.useEffect(function() {
     if (props.inert) {
       document.body.classList.add("block-interactivity-".concat(id));
       var allow_1 = __spreadArray([props.lockRef.current], (props.shards || []).map(extractRef), true).filter(Boolean);
@@ -106068,7 +106943,7 @@ function RemoveScrollSideCar(props) {
     }
     return;
   }, [props.inert, props.lockRef.current, props.shards]);
-  var shouldCancelEvent = React37.useCallback(function(event, parent) {
+  var shouldCancelEvent = React38.useCallback(function(event, parent) {
     if ("touches" in event && event.touches.length === 2 || event.type === "wheel" && event.ctrlKey) {
       return !lastProps.current.allowPinchZoom;
     }
@@ -106104,7 +106979,7 @@ function RemoveScrollSideCar(props) {
     var cancelingAxis = activeAxis.current || currentAxis;
     return handleScroll(cancelingAxis, parent, event, cancelingAxis === "h" ? deltaX : deltaY, true);
   }, []);
-  var shouldPrevent = React37.useCallback(function(_event) {
+  var shouldPrevent = React38.useCallback(function(_event) {
     var event = _event;
     if (!lockStack.length || lockStack[lockStack.length - 1] !== Style2) {
       return;
@@ -106131,7 +107006,7 @@ function RemoveScrollSideCar(props) {
       }
     }
   }, []);
-  var shouldCancel = React37.useCallback(function(name, delta, target, should) {
+  var shouldCancel = React38.useCallback(function(name, delta, target, should) {
     var event = { name, delta, target, should, shadowParent: getOutermostShadowParent(target) };
     shouldPreventQueue.current.push(event);
     setTimeout(function() {
@@ -106140,17 +107015,17 @@ function RemoveScrollSideCar(props) {
       });
     }, 1);
   }, []);
-  var scrollTouchStart = React37.useCallback(function(event) {
+  var scrollTouchStart = React38.useCallback(function(event) {
     touchStartRef.current = getTouchXY(event);
     activeAxis.current = void 0;
   }, []);
-  var scrollWheel = React37.useCallback(function(event) {
+  var scrollWheel = React38.useCallback(function(event) {
     shouldCancel(event.type, getDeltaXY(event), event.target, shouldCancelEvent(event, props.lockRef.current));
   }, []);
-  var scrollTouchMove = React37.useCallback(function(event) {
+  var scrollTouchMove = React38.useCallback(function(event) {
     shouldCancel(event.type, getTouchXY(event), event.target, shouldCancelEvent(event, props.lockRef.current));
   }, []);
-  React37.useEffect(function() {
+  React38.useEffect(function() {
     lockStack.push(Style2);
     props.setCallbacks({
       onScrollCapture: scrollWheel,
@@ -106170,11 +107045,11 @@ function RemoveScrollSideCar(props) {
     };
   }, []);
   var removeScrollBar = props.removeScrollBar, inert = props.inert;
-  return React37.createElement(
-    React37.Fragment,
+  return React38.createElement(
+    React38.Fragment,
     null,
-    inert ? React37.createElement(Style2, { styles: generateStyle(id) }) : null,
-    removeScrollBar ? React37.createElement(RemoveScrollBar, { noRelative: props.noRelative, gapMode: props.gapMode }) : null
+    inert ? React38.createElement(Style2, { styles: generateStyle(id) }) : null,
+    removeScrollBar ? React38.createElement(RemoveScrollBar, { noRelative: props.noRelative, gapMode: props.gapMode }) : null
   );
 }
 function getOutermostShadowParent(node) {
@@ -106193,14 +107068,14 @@ function getOutermostShadowParent(node) {
 var sidecar_default = exportSidecar(effectCar, RemoveScrollSideCar);
 
 // node_modules/react-remove-scroll/dist/es2015/Combination.js
-var ReactRemoveScroll = React38.forwardRef(function(props, ref) {
-  return React38.createElement(RemoveScroll, __assign({}, props, { ref, sideCar: sidecar_default }));
+var ReactRemoveScroll = React39.forwardRef(function(props, ref) {
+  return React39.createElement(RemoveScroll, __assign({}, props, { ref, sideCar: sidecar_default }));
 });
 ReactRemoveScroll.classNames = RemoveScroll.classNames;
 var Combination_default = ReactRemoveScroll;
 
 // node_modules/@radix-ui/react-select/dist/index.mjs
-var import_jsx_runtime18 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime19 = __toESM(require_jsx_runtime(), 1);
 var OPEN_KEYS = [" ", "Enter", "ArrowUp", "ArrowDown"];
 var SELECTION_KEYS = [" ", "Enter"];
 var SELECT_NAME = "Select";
@@ -106230,9 +107105,9 @@ var Select = (props) => {
     form
   } = props;
   const popperScope = usePopperScope(__scopeSelect);
-  const [trigger, setTrigger] = React39.useState(null);
-  const [valueNode, setValueNode] = React39.useState(null);
-  const [valueNodeHasChildren, setValueNodeHasChildren] = React39.useState(false);
+  const [trigger, setTrigger] = React40.useState(null);
+  const [valueNode, setValueNode] = React40.useState(null);
+  const [valueNodeHasChildren, setValueNodeHasChildren] = React40.useState(false);
   const direction = useDirection(dir);
   const [open, setOpen] = useControllableState({
     prop: openProp,
@@ -106246,11 +107121,11 @@ var Select = (props) => {
     onChange: onValueChange,
     caller: SELECT_NAME
   });
-  const triggerPointerDownPosRef = React39.useRef(null);
+  const triggerPointerDownPosRef = React40.useRef(null);
   const isFormControl = trigger ? form || !!trigger.closest("form") : true;
-  const [nativeOptionsSet, setNativeOptionsSet] = React39.useState(/* @__PURE__ */ new Set());
+  const [nativeOptionsSet, setNativeOptionsSet] = React40.useState(/* @__PURE__ */ new Set());
   const nativeSelectKey = Array.from(nativeOptionsSet).map((option) => option.props.value).join(";");
-  return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Root23, { ...popperScope, children: /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Root23, { ...popperScope, children: /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(
     SelectProvider,
     {
       required,
@@ -106270,14 +107145,14 @@ var Select = (props) => {
       triggerPointerDownPosRef,
       disabled,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Collection3.Provider, { scope: __scopeSelect, children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Collection3.Provider, { scope: __scopeSelect, children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
           SelectNativeOptionsProvider,
           {
             scope: props.__scopeSelect,
-            onNativeOptionAdd: React39.useCallback((option) => {
+            onNativeOptionAdd: React40.useCallback((option) => {
               setNativeOptionsSet((prev) => new Set(prev).add(option));
             }, []),
-            onNativeOptionRemove: React39.useCallback((option) => {
+            onNativeOptionRemove: React40.useCallback((option) => {
               setNativeOptionsSet((prev) => {
                 const optionsSet = new Set(prev);
                 optionsSet.delete(option);
@@ -106287,7 +107162,7 @@ var Select = (props) => {
             children
           }
         ) }),
-        isFormControl ? /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(
+        isFormControl ? /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(
           SelectBubbleInput,
           {
             "aria-hidden": true,
@@ -106300,7 +107175,7 @@ var Select = (props) => {
             disabled,
             form,
             children: [
-              value === void 0 ? /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("option", { value: "" }) : null,
+              value === void 0 ? /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("option", { value: "" }) : null,
               Array.from(nativeOptionsSet)
             ]
           },
@@ -106312,7 +107187,7 @@ var Select = (props) => {
 };
 Select.displayName = SELECT_NAME;
 var TRIGGER_NAME2 = "SelectTrigger";
-var SelectTrigger = React39.forwardRef(
+var SelectTrigger = React40.forwardRef(
   (props, forwardedRef) => {
     const { __scopeSelect, disabled = false, ...triggerProps } = props;
     const popperScope = usePopperScope(__scopeSelect);
@@ -106320,7 +107195,7 @@ var SelectTrigger = React39.forwardRef(
     const isDisabled = context.disabled || disabled;
     const composedRefs = useComposedRefs(forwardedRef, context.onTriggerChange);
     const getItems = useCollection3(__scopeSelect);
-    const pointerTypeRef = React39.useRef("touch");
+    const pointerTypeRef = React40.useRef("touch");
     const [searchRef, handleTypeaheadSearch, resetTypeahead] = useTypeaheadSearch((search) => {
       const enabledItems = getItems().filter((item) => !item.disabled);
       const currentItem = enabledItems.find((item) => item.value === context.value);
@@ -106341,7 +107216,7 @@ var SelectTrigger = React39.forwardRef(
         };
       }
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Anchor, { asChild: true, ...popperScope, children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Anchor, { asChild: true, ...popperScope, children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
       Primitive.button,
       {
         type: "button",
@@ -106390,7 +107265,7 @@ var SelectTrigger = React39.forwardRef(
 );
 SelectTrigger.displayName = TRIGGER_NAME2;
 var VALUE_NAME = "SelectValue";
-var SelectValue = React39.forwardRef(
+var SelectValue = React40.forwardRef(
   (props, forwardedRef) => {
     const { __scopeSelect, className, style, children, placeholder = "", ...valueProps } = props;
     const context = useSelectContext(VALUE_NAME, __scopeSelect);
@@ -106400,47 +107275,47 @@ var SelectValue = React39.forwardRef(
     useLayoutEffect2(() => {
       onValueNodeHasChildrenChange(hasChildren);
     }, [onValueNodeHasChildrenChange, hasChildren]);
-    return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
       Primitive.span,
       {
         ...valueProps,
         ref: composedRefs,
         style: { pointerEvents: "none" },
-        children: shouldShowPlaceholder(context.value) ? /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(import_jsx_runtime18.Fragment, { children: placeholder }) : children
+        children: shouldShowPlaceholder(context.value) ? /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(import_jsx_runtime19.Fragment, { children: placeholder }) : children
       }
     );
   }
 );
 SelectValue.displayName = VALUE_NAME;
 var ICON_NAME = "SelectIcon";
-var SelectIcon = React39.forwardRef(
+var SelectIcon = React40.forwardRef(
   (props, forwardedRef) => {
     const { __scopeSelect, children, ...iconProps } = props;
-    return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Primitive.span, { "aria-hidden": true, ...iconProps, ref: forwardedRef, children: children || "\u25BC" });
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Primitive.span, { "aria-hidden": true, ...iconProps, ref: forwardedRef, children: children || "\u25BC" });
   }
 );
 SelectIcon.displayName = ICON_NAME;
 var PORTAL_NAME2 = "SelectPortal";
 var SelectPortal = (props) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Portal, { asChild: true, ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Portal, { asChild: true, ...props });
 };
 SelectPortal.displayName = PORTAL_NAME2;
 var CONTENT_NAME3 = "SelectContent";
-var SelectContent = React39.forwardRef(
+var SelectContent = React40.forwardRef(
   (props, forwardedRef) => {
     const context = useSelectContext(CONTENT_NAME3, props.__scopeSelect);
-    const [fragment, setFragment] = React39.useState();
+    const [fragment, setFragment] = React40.useState();
     useLayoutEffect2(() => {
       setFragment(new DocumentFragment());
     }, []);
     if (!context.open) {
       const frag = fragment;
-      return frag ? ReactDOM5.createPortal(
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(SelectContentProvider, { scope: props.__scopeSelect, children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Collection3.Slot, { scope: props.__scopeSelect, children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { children: props.children }) }) }),
+      return frag ? ReactDOM6.createPortal(
+        /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(SelectContentProvider, { scope: props.__scopeSelect, children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Collection3.Slot, { scope: props.__scopeSelect, children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", { children: props.children }) }) }),
         frag
       ) : null;
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(SelectContentImpl, { ...props, ref: forwardedRef });
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(SelectContentImpl, { ...props, ref: forwardedRef });
   }
 );
 SelectContent.displayName = CONTENT_NAME3;
@@ -106448,7 +107323,7 @@ var CONTENT_MARGIN = 10;
 var [SelectContentProvider, useSelectContentContext] = createSelectContext(CONTENT_NAME3);
 var CONTENT_IMPL_NAME = "SelectContentImpl";
 var Slot = createSlot("SelectContent.RemoveScroll");
-var SelectContentImpl = React39.forwardRef(
+var SelectContentImpl = React40.forwardRef(
   (props, forwardedRef) => {
     const {
       __scopeSelect,
@@ -106472,21 +107347,21 @@ var SelectContentImpl = React39.forwardRef(
       ...contentProps
     } = props;
     const context = useSelectContext(CONTENT_NAME3, __scopeSelect);
-    const [content, setContent] = React39.useState(null);
-    const [viewport, setViewport] = React39.useState(null);
+    const [content, setContent] = React40.useState(null);
+    const [viewport, setViewport] = React40.useState(null);
     const composedRefs = useComposedRefs(forwardedRef, (node) => setContent(node));
-    const [selectedItem, setSelectedItem] = React39.useState(null);
-    const [selectedItemText, setSelectedItemText] = React39.useState(
+    const [selectedItem, setSelectedItem] = React40.useState(null);
+    const [selectedItemText, setSelectedItemText] = React40.useState(
       null
     );
     const getItems = useCollection3(__scopeSelect);
-    const [isPositioned, setIsPositioned] = React39.useState(false);
-    const firstValidItemFoundRef = React39.useRef(false);
-    React39.useEffect(() => {
+    const [isPositioned, setIsPositioned] = React40.useState(false);
+    const firstValidItemFoundRef = React40.useRef(false);
+    React40.useEffect(() => {
       if (content) return hideOthers(content);
     }, [content]);
     useFocusGuards();
-    const focusFirst5 = React39.useCallback(
+    const focusFirst5 = React40.useCallback(
       (candidates) => {
         const [firstItem, ...restItems] = getItems().map((item) => item.ref.current);
         const [lastItem] = restItems.slice(-1);
@@ -106502,17 +107377,17 @@ var SelectContentImpl = React39.forwardRef(
       },
       [getItems, viewport]
     );
-    const focusSelectedItem = React39.useCallback(
+    const focusSelectedItem = React40.useCallback(
       () => focusFirst5([selectedItem, content]),
       [focusFirst5, selectedItem, content]
     );
-    React39.useEffect(() => {
+    React40.useEffect(() => {
       if (isPositioned) {
         focusSelectedItem();
       }
     }, [isPositioned, focusSelectedItem]);
     const { onOpenChange, triggerPointerDownPosRef } = context;
-    React39.useEffect(() => {
+    React40.useEffect(() => {
       if (content) {
         let pointerMoveDelta = { x: 0, y: 0 };
         const handlePointerMove = (event) => {
@@ -106543,7 +107418,7 @@ var SelectContentImpl = React39.forwardRef(
         };
       }
     }, [content, onOpenChange, triggerPointerDownPosRef]);
-    React39.useEffect(() => {
+    React40.useEffect(() => {
       const close = () => onOpenChange(false);
       window.addEventListener("blur", close);
       window.addEventListener("resize", close);
@@ -106560,7 +107435,7 @@ var SelectContentImpl = React39.forwardRef(
         setTimeout(() => nextItem.ref.current.focus());
       }
     });
-    const itemRefCallback = React39.useCallback(
+    const itemRefCallback = React40.useCallback(
       (node, value, disabled) => {
         const isFirstValidItem = !firstValidItemFoundRef.current && !disabled;
         const isSelectedItem = context.value !== void 0 && context.value === value;
@@ -106571,8 +107446,8 @@ var SelectContentImpl = React39.forwardRef(
       },
       [context.value]
     );
-    const handleItemLeave = React39.useCallback(() => content == null ? void 0 : content.focus(), [content]);
-    const itemTextRefCallback = React39.useCallback(
+    const handleItemLeave = React40.useCallback(() => content == null ? void 0 : content.focus(), [content]);
+    const itemTextRefCallback = React40.useCallback(
       (node, value, disabled) => {
         const isFirstValidItem = !firstValidItemFoundRef.current && !disabled;
         const isSelectedItem = context.value !== void 0 && context.value === value;
@@ -106595,7 +107470,7 @@ var SelectContentImpl = React39.forwardRef(
       hideWhenDetached,
       avoidCollisions
     } : {};
-    return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
       SelectContentProvider,
       {
         scope: __scopeSelect,
@@ -106611,7 +107486,7 @@ var SelectContentImpl = React39.forwardRef(
         position,
         isPositioned,
         searchRef,
-        children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Combination_default, { as: Slot, allowPinchZoom: true, children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Combination_default, { as: Slot, allowPinchZoom: true, children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
           FocusScope,
           {
             asChild: true,
@@ -106624,7 +107499,7 @@ var SelectContentImpl = React39.forwardRef(
               (_a5 = context.trigger) == null ? void 0 : _a5.focus({ preventScroll: true });
               event.preventDefault();
             }),
-            children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+            children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
               DismissableLayer,
               {
                 asChild: true,
@@ -106633,7 +107508,7 @@ var SelectContentImpl = React39.forwardRef(
                 onPointerDownOutside,
                 onFocusOutside: (event) => event.preventDefault(),
                 onDismiss: () => context.onOpenChange(false),
-                children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+                children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
                   SelectPosition,
                   {
                     role: "listbox",
@@ -106684,18 +107559,18 @@ var SelectContentImpl = React39.forwardRef(
 );
 SelectContentImpl.displayName = CONTENT_IMPL_NAME;
 var ITEM_ALIGNED_POSITION_NAME = "SelectItemAlignedPosition";
-var SelectItemAlignedPosition = React39.forwardRef((props, forwardedRef) => {
+var SelectItemAlignedPosition = React40.forwardRef((props, forwardedRef) => {
   const { __scopeSelect, onPlaced, ...popperProps } = props;
   const context = useSelectContext(CONTENT_NAME3, __scopeSelect);
   const contentContext = useSelectContentContext(CONTENT_NAME3, __scopeSelect);
-  const [contentWrapper, setContentWrapper] = React39.useState(null);
-  const [content, setContent] = React39.useState(null);
+  const [contentWrapper, setContentWrapper] = React40.useState(null);
+  const [content, setContent] = React40.useState(null);
   const composedRefs = useComposedRefs(forwardedRef, (node) => setContent(node));
   const getItems = useCollection3(__scopeSelect);
-  const shouldExpandOnScrollRef = React39.useRef(false);
-  const shouldRepositionRef = React39.useRef(true);
+  const shouldExpandOnScrollRef = React40.useRef(false);
+  const shouldRepositionRef = React40.useRef(true);
   const { viewport, selectedItem, selectedItemText, focusSelectedItem } = contentContext;
-  const position = React39.useCallback(() => {
+  const position = React40.useCallback(() => {
     if (context.trigger && context.valueNode && contentWrapper && content && viewport && selectedItem && selectedItemText) {
       const triggerRect = context.trigger.getBoundingClientRect();
       const contentRect = content.getBoundingClientRect();
@@ -106795,11 +107670,11 @@ var SelectItemAlignedPosition = React39.forwardRef((props, forwardedRef) => {
     onPlaced
   ]);
   useLayoutEffect2(() => position(), [position]);
-  const [contentZIndex, setContentZIndex] = React39.useState();
+  const [contentZIndex, setContentZIndex] = React40.useState();
   useLayoutEffect2(() => {
     if (content) setContentZIndex(window.getComputedStyle(content).zIndex);
   }, [content]);
-  const handleScrollButtonChange = React39.useCallback(
+  const handleScrollButtonChange = React40.useCallback(
     (node) => {
       if (node && shouldRepositionRef.current === true) {
         position();
@@ -106809,14 +107684,14 @@ var SelectItemAlignedPosition = React39.forwardRef((props, forwardedRef) => {
     },
     [position, focusSelectedItem]
   );
-  return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
     SelectViewportProvider,
     {
       scope: __scopeSelect,
       contentWrapper,
       shouldExpandOnScrollRef,
       onScrollButtonChange: handleScrollButtonChange,
-      children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
         "div",
         {
           ref: setContentWrapper,
@@ -106826,7 +107701,7 @@ var SelectItemAlignedPosition = React39.forwardRef((props, forwardedRef) => {
             position: "fixed",
             zIndex: contentZIndex
           },
-          children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+          children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
             Primitive.div,
             {
               ...popperProps,
@@ -106848,7 +107723,7 @@ var SelectItemAlignedPosition = React39.forwardRef((props, forwardedRef) => {
 });
 SelectItemAlignedPosition.displayName = ITEM_ALIGNED_POSITION_NAME;
 var POPPER_POSITION_NAME = "SelectPopperPosition";
-var SelectPopperPosition = React39.forwardRef((props, forwardedRef) => {
+var SelectPopperPosition = React40.forwardRef((props, forwardedRef) => {
   const {
     __scopeSelect,
     align = "start",
@@ -106856,7 +107731,7 @@ var SelectPopperPosition = React39.forwardRef((props, forwardedRef) => {
     ...popperProps
   } = props;
   const popperScope = usePopperScope(__scopeSelect);
-  return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
     Content2,
     {
       ...popperScope,
@@ -106883,15 +107758,15 @@ var SelectPopperPosition = React39.forwardRef((props, forwardedRef) => {
 SelectPopperPosition.displayName = POPPER_POSITION_NAME;
 var [SelectViewportProvider, useSelectViewportContext] = createSelectContext(CONTENT_NAME3, {});
 var VIEWPORT_NAME2 = "SelectViewport";
-var SelectViewport = React39.forwardRef(
+var SelectViewport = React40.forwardRef(
   (props, forwardedRef) => {
     const { __scopeSelect, nonce, ...viewportProps } = props;
     const contentContext = useSelectContentContext(VIEWPORT_NAME2, __scopeSelect);
     const viewportContext = useSelectViewportContext(VIEWPORT_NAME2, __scopeSelect);
     const composedRefs = useComposedRefs(forwardedRef, contentContext.onViewportChange);
-    const prevScrollTopRef = React39.useRef(0);
-    return /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(import_jsx_runtime18.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+    const prevScrollTopRef = React40.useRef(0);
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(import_jsx_runtime19.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
         "style",
         {
           dangerouslySetInnerHTML: {
@@ -106900,7 +107775,7 @@ var SelectViewport = React39.forwardRef(
           nonce
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Collection3.Slot, { scope: __scopeSelect, children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Collection3.Slot, { scope: __scopeSelect, children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
         Primitive.div,
         {
           "data-radix-select-viewport": "",
@@ -106952,26 +107827,26 @@ var SelectViewport = React39.forwardRef(
 SelectViewport.displayName = VIEWPORT_NAME2;
 var GROUP_NAME2 = "SelectGroup";
 var [SelectGroupContextProvider, useSelectGroupContext] = createSelectContext(GROUP_NAME2);
-var SelectGroup = React39.forwardRef(
+var SelectGroup = React40.forwardRef(
   (props, forwardedRef) => {
     const { __scopeSelect, ...groupProps } = props;
     const groupId = useId();
-    return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(SelectGroupContextProvider, { scope: __scopeSelect, id: groupId, children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Primitive.div, { role: "group", "aria-labelledby": groupId, ...groupProps, ref: forwardedRef }) });
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(SelectGroupContextProvider, { scope: __scopeSelect, id: groupId, children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Primitive.div, { role: "group", "aria-labelledby": groupId, ...groupProps, ref: forwardedRef }) });
   }
 );
 SelectGroup.displayName = GROUP_NAME2;
 var LABEL_NAME = "SelectLabel";
-var SelectLabel = React39.forwardRef(
+var SelectLabel = React40.forwardRef(
   (props, forwardedRef) => {
     const { __scopeSelect, ...labelProps } = props;
     const groupContext = useSelectGroupContext(LABEL_NAME, __scopeSelect);
-    return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Primitive.div, { id: groupContext.id, ...labelProps, ref: forwardedRef });
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Primitive.div, { id: groupContext.id, ...labelProps, ref: forwardedRef });
   }
 );
 SelectLabel.displayName = LABEL_NAME;
 var ITEM_NAME2 = "SelectItem";
 var [SelectItemContextProvider, useSelectItemContext] = createSelectContext(ITEM_NAME2);
-var SelectItem = React39.forwardRef(
+var SelectItem = React40.forwardRef(
   (props, forwardedRef) => {
     const {
       __scopeSelect,
@@ -106983,8 +107858,8 @@ var SelectItem = React39.forwardRef(
     const context = useSelectContext(ITEM_NAME2, __scopeSelect);
     const contentContext = useSelectContentContext(ITEM_NAME2, __scopeSelect);
     const isSelected = context.value === value;
-    const [textValue, setTextValue] = React39.useState(textValueProp != null ? textValueProp : "");
-    const [isFocused, setIsFocused] = React39.useState(false);
+    const [textValue, setTextValue] = React40.useState(textValueProp != null ? textValueProp : "");
+    const [isFocused, setIsFocused] = React40.useState(false);
     const composedRefs = useComposedRefs(
       forwardedRef,
       (node) => {
@@ -106993,7 +107868,7 @@ var SelectItem = React39.forwardRef(
       }
     );
     const textId = useId();
-    const pointerTypeRef = React39.useRef("touch");
+    const pointerTypeRef = React40.useRef("touch");
     const handleSelect = () => {
       if (!disabled) {
         context.onValueChange(value);
@@ -107005,7 +107880,7 @@ var SelectItem = React39.forwardRef(
         "A <Select.Item /> must have a value prop that is not an empty string. This is because the Select value can be set to an empty string to clear the selection and show the placeholder."
       );
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
       SelectItemContextProvider,
       {
         scope: __scopeSelect,
@@ -107013,20 +107888,20 @@ var SelectItem = React39.forwardRef(
         disabled,
         textId,
         isSelected,
-        onItemTextChange: React39.useCallback((node) => {
+        onItemTextChange: React40.useCallback((node) => {
           setTextValue((prevTextValue) => {
             var _a5;
             return prevTextValue || ((_a5 = node == null ? void 0 : node.textContent) != null ? _a5 : "").trim();
           });
         }, []),
-        children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
           Collection3.ItemSlot,
           {
             scope: __scopeSelect,
             value,
             disabled,
             textValue,
-            children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+            children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
               Primitive.div,
               {
                 role: "option",
@@ -107082,14 +107957,14 @@ var SelectItem = React39.forwardRef(
 );
 SelectItem.displayName = ITEM_NAME2;
 var ITEM_TEXT_NAME = "SelectItemText";
-var SelectItemText = React39.forwardRef(
+var SelectItemText = React40.forwardRef(
   (props, forwardedRef) => {
     const { __scopeSelect, className, style, ...itemTextProps } = props;
     const context = useSelectContext(ITEM_TEXT_NAME, __scopeSelect);
     const contentContext = useSelectContentContext(ITEM_TEXT_NAME, __scopeSelect);
     const itemContext = useSelectItemContext(ITEM_TEXT_NAME, __scopeSelect);
     const nativeOptionsContext = useSelectNativeOptionsContext(ITEM_TEXT_NAME, __scopeSelect);
-    const [itemTextNode, setItemTextNode] = React39.useState(null);
+    const [itemTextNode, setItemTextNode] = React40.useState(null);
     const composedRefs = useComposedRefs(
       forwardedRef,
       (node) => setItemTextNode(node),
@@ -107100,8 +107975,8 @@ var SelectItemText = React39.forwardRef(
       }
     );
     const textContent = itemTextNode == null ? void 0 : itemTextNode.textContent;
-    const nativeOption = React39.useMemo(
-      () => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("option", { value: itemContext.value, disabled: itemContext.disabled, children: textContent }, itemContext.value),
+    const nativeOption = React40.useMemo(
+      () => /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("option", { value: itemContext.value, disabled: itemContext.disabled, children: textContent }, itemContext.value),
       [itemContext.disabled, itemContext.value, textContent]
     );
     const { onNativeOptionAdd, onNativeOptionRemove } = nativeOptionsContext;
@@ -107109,27 +107984,27 @@ var SelectItemText = React39.forwardRef(
       onNativeOptionAdd(nativeOption);
       return () => onNativeOptionRemove(nativeOption);
     }, [onNativeOptionAdd, onNativeOptionRemove, nativeOption]);
-    return /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(import_jsx_runtime18.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Primitive.span, { id: itemContext.textId, ...itemTextProps, ref: composedRefs }),
-      itemContext.isSelected && context.valueNode && !context.valueNodeHasChildren ? ReactDOM5.createPortal(itemTextProps.children, context.valueNode) : null
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(import_jsx_runtime19.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Primitive.span, { id: itemContext.textId, ...itemTextProps, ref: composedRefs }),
+      itemContext.isSelected && context.valueNode && !context.valueNodeHasChildren ? ReactDOM6.createPortal(itemTextProps.children, context.valueNode) : null
     ] });
   }
 );
 SelectItemText.displayName = ITEM_TEXT_NAME;
 var ITEM_INDICATOR_NAME = "SelectItemIndicator";
-var SelectItemIndicator = React39.forwardRef(
+var SelectItemIndicator = React40.forwardRef(
   (props, forwardedRef) => {
     const { __scopeSelect, ...itemIndicatorProps } = props;
     const itemContext = useSelectItemContext(ITEM_INDICATOR_NAME, __scopeSelect);
-    return itemContext.isSelected ? /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Primitive.span, { "aria-hidden": true, ...itemIndicatorProps, ref: forwardedRef }) : null;
+    return itemContext.isSelected ? /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Primitive.span, { "aria-hidden": true, ...itemIndicatorProps, ref: forwardedRef }) : null;
   }
 );
 SelectItemIndicator.displayName = ITEM_INDICATOR_NAME;
 var SCROLL_UP_BUTTON_NAME = "SelectScrollUpButton";
-var SelectScrollUpButton = React39.forwardRef((props, forwardedRef) => {
+var SelectScrollUpButton = React40.forwardRef((props, forwardedRef) => {
   const contentContext = useSelectContentContext(SCROLL_UP_BUTTON_NAME, props.__scopeSelect);
   const viewportContext = useSelectViewportContext(SCROLL_UP_BUTTON_NAME, props.__scopeSelect);
-  const [canScrollUp, setCanScrollUp] = React39.useState(false);
+  const [canScrollUp, setCanScrollUp] = React40.useState(false);
   const composedRefs = useComposedRefs(forwardedRef, viewportContext.onScrollButtonChange);
   useLayoutEffect2(() => {
     if (contentContext.viewport && contentContext.isPositioned) {
@@ -107144,7 +108019,7 @@ var SelectScrollUpButton = React39.forwardRef((props, forwardedRef) => {
       return () => viewport.removeEventListener("scroll", handleScroll22);
     }
   }, [contentContext.viewport, contentContext.isPositioned]);
-  return canScrollUp ? /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+  return canScrollUp ? /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
     SelectScrollButtonImpl,
     {
       ...props,
@@ -107160,10 +108035,10 @@ var SelectScrollUpButton = React39.forwardRef((props, forwardedRef) => {
 });
 SelectScrollUpButton.displayName = SCROLL_UP_BUTTON_NAME;
 var SCROLL_DOWN_BUTTON_NAME = "SelectScrollDownButton";
-var SelectScrollDownButton = React39.forwardRef((props, forwardedRef) => {
+var SelectScrollDownButton = React40.forwardRef((props, forwardedRef) => {
   const contentContext = useSelectContentContext(SCROLL_DOWN_BUTTON_NAME, props.__scopeSelect);
   const viewportContext = useSelectViewportContext(SCROLL_DOWN_BUTTON_NAME, props.__scopeSelect);
-  const [canScrollDown, setCanScrollDown] = React39.useState(false);
+  const [canScrollDown, setCanScrollDown] = React40.useState(false);
   const composedRefs = useComposedRefs(forwardedRef, viewportContext.onScrollButtonChange);
   useLayoutEffect2(() => {
     if (contentContext.viewport && contentContext.isPositioned) {
@@ -107179,7 +108054,7 @@ var SelectScrollDownButton = React39.forwardRef((props, forwardedRef) => {
       return () => viewport.removeEventListener("scroll", handleScroll22);
     }
   }, [contentContext.viewport, contentContext.isPositioned]);
-  return canScrollDown ? /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+  return canScrollDown ? /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
     SelectScrollButtonImpl,
     {
       ...props,
@@ -107194,18 +108069,18 @@ var SelectScrollDownButton = React39.forwardRef((props, forwardedRef) => {
   ) : null;
 });
 SelectScrollDownButton.displayName = SCROLL_DOWN_BUTTON_NAME;
-var SelectScrollButtonImpl = React39.forwardRef((props, forwardedRef) => {
+var SelectScrollButtonImpl = React40.forwardRef((props, forwardedRef) => {
   const { __scopeSelect, onAutoScroll, ...scrollIndicatorProps } = props;
   const contentContext = useSelectContentContext("SelectScrollButton", __scopeSelect);
-  const autoScrollTimerRef = React39.useRef(null);
+  const autoScrollTimerRef = React40.useRef(null);
   const getItems = useCollection3(__scopeSelect);
-  const clearAutoScrollTimer = React39.useCallback(() => {
+  const clearAutoScrollTimer = React40.useCallback(() => {
     if (autoScrollTimerRef.current !== null) {
       window.clearInterval(autoScrollTimerRef.current);
       autoScrollTimerRef.current = null;
     }
   }, []);
-  React39.useEffect(() => {
+  React40.useEffect(() => {
     return () => clearAutoScrollTimer();
   }, [clearAutoScrollTimer]);
   useLayoutEffect2(() => {
@@ -107213,7 +108088,7 @@ var SelectScrollButtonImpl = React39.forwardRef((props, forwardedRef) => {
     const activeItem = getItems().find((item) => item.ref.current === document.activeElement);
     (_a5 = activeItem == null ? void 0 : activeItem.ref.current) == null ? void 0 : _a5.scrollIntoView({ block: "nearest" });
   }, [getItems]);
-  return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
     Primitive.div,
     {
       "aria-hidden": true,
@@ -107239,31 +108114,31 @@ var SelectScrollButtonImpl = React39.forwardRef((props, forwardedRef) => {
   );
 });
 var SEPARATOR_NAME = "SelectSeparator";
-var SelectSeparator = React39.forwardRef(
+var SelectSeparator = React40.forwardRef(
   (props, forwardedRef) => {
     const { __scopeSelect, ...separatorProps } = props;
-    return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Primitive.div, { "aria-hidden": true, ...separatorProps, ref: forwardedRef });
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Primitive.div, { "aria-hidden": true, ...separatorProps, ref: forwardedRef });
   }
 );
 SelectSeparator.displayName = SEPARATOR_NAME;
 var ARROW_NAME2 = "SelectArrow";
-var SelectArrow = React39.forwardRef(
+var SelectArrow = React40.forwardRef(
   (props, forwardedRef) => {
     const { __scopeSelect, ...arrowProps } = props;
     const popperScope = usePopperScope(__scopeSelect);
     const context = useSelectContext(ARROW_NAME2, __scopeSelect);
     const contentContext = useSelectContentContext(ARROW_NAME2, __scopeSelect);
-    return context.open && contentContext.position === "popper" ? /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Arrow2, { ...popperScope, ...arrowProps, ref: forwardedRef }) : null;
+    return context.open && contentContext.position === "popper" ? /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Arrow2, { ...popperScope, ...arrowProps, ref: forwardedRef }) : null;
   }
 );
 SelectArrow.displayName = ARROW_NAME2;
 var BUBBLE_INPUT_NAME = "SelectBubbleInput";
-var SelectBubbleInput = React39.forwardRef(
+var SelectBubbleInput = React40.forwardRef(
   ({ __scopeSelect, value, ...props }, forwardedRef) => {
-    const ref = React39.useRef(null);
+    const ref = React40.useRef(null);
     const composedRefs = useComposedRefs(forwardedRef, ref);
     const prevValue = usePrevious(value);
-    React39.useEffect(() => {
+    React40.useEffect(() => {
       const select = ref.current;
       if (!select) return;
       const selectProto = window.HTMLSelectElement.prototype;
@@ -107278,7 +108153,7 @@ var SelectBubbleInput = React39.forwardRef(
         select.dispatchEvent(event);
       }
     }, [prevValue, value]);
-    return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
       Primitive.select,
       {
         ...props,
@@ -107295,9 +108170,9 @@ function shouldShowPlaceholder(value) {
 }
 function useTypeaheadSearch(onSearchChange) {
   const handleSearchChange = useCallbackRef(onSearchChange);
-  const searchRef = React39.useRef("");
-  const timerRef = React39.useRef(0);
-  const handleTypeaheadSearch = React39.useCallback(
+  const searchRef = React40.useRef("");
+  const timerRef = React40.useRef(0);
+  const handleTypeaheadSearch = React40.useCallback(
     (key) => {
       const search = searchRef.current + key;
       handleSearchChange(search);
@@ -107309,11 +108184,11 @@ function useTypeaheadSearch(onSearchChange) {
     },
     [handleSearchChange]
   );
-  const resetTypeahead = React39.useCallback(() => {
+  const resetTypeahead = React40.useCallback(() => {
     searchRef.current = "";
     window.clearTimeout(timerRef.current);
   }, []);
-  React39.useEffect(() => {
+  React40.useEffect(() => {
     return () => window.clearTimeout(timerRef.current);
   }, []);
   return [searchRef, handleTypeaheadSearch, resetTypeahead];
@@ -107353,325 +108228,6 @@ var Arrow22 = SelectArrow;
 // src/ui/components/AccountSelect.tsx
 var import_classnames = __toESM(require_classnames());
 
-// node_modules/@radix-ui/react-icons/dist/react-icons.esm.js
-var import_react7 = __toESM(require_react());
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-  return target;
-}
-var _excluded$p = ["color"];
-var BellIcon = /* @__PURE__ */ (0, import_react7.forwardRef)(function(_ref, forwardedRef) {
-  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$p);
-  return (0, import_react7.createElement)("svg", Object.assign({
-    width: "15",
-    height: "15",
-    viewBox: "0 0 15 15",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props, {
-    ref: forwardedRef
-  }), (0, import_react7.createElement)("path", {
-    d: "M8.60124 1.25086C8.60124 1.75459 8.26278 2.17927 7.80087 2.30989C10.1459 2.4647 12 4.41582 12 6.79999V10.25C12 11.0563 12.0329 11.7074 12.7236 12.0528C12.931 12.1565 13.0399 12.3892 12.9866 12.6149C12.9333 12.8406 12.7319 13 12.5 13H8.16144C8.36904 13.1832 8.49997 13.4513 8.49997 13.75C8.49997 14.3023 8.05226 14.75 7.49997 14.75C6.94769 14.75 6.49997 14.3023 6.49997 13.75C6.49997 13.4513 6.63091 13.1832 6.83851 13H2.49999C2.2681 13 2.06664 12.8406 2.01336 12.6149C1.96009 12.3892 2.06897 12.1565 2.27638 12.0528C2.96708 11.7074 2.99999 11.0563 2.99999 10.25V6.79999C2.99999 4.41537 4.85481 2.46396 7.20042 2.3098C6.73867 2.17908 6.40036 1.75448 6.40036 1.25086C6.40036 0.643104 6.89304 0.150421 7.5008 0.150421C8.10855 0.150421 8.60124 0.643104 8.60124 1.25086ZM7.49999 3.29999C5.56699 3.29999 3.99999 4.86699 3.99999 6.79999V10.25L4.00002 10.3009C4.0005 10.7463 4.00121 11.4084 3.69929 12H11.3007C10.9988 11.4084 10.9995 10.7463 11 10.3009L11 10.25V6.79999C11 4.86699 9.43299 3.29999 7.49999 3.29999Z",
-    fill: color,
-    fillRule: "evenodd",
-    clipRule: "evenodd"
-  }));
-});
-var _excluded$Q = ["color"];
-var CaretSortIcon = /* @__PURE__ */ (0, import_react7.forwardRef)(function(_ref, forwardedRef) {
-  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$Q);
-  return (0, import_react7.createElement)("svg", Object.assign({
-    width: "15",
-    height: "15",
-    viewBox: "0 0 15 15",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props, {
-    ref: forwardedRef
-  }), (0, import_react7.createElement)("path", {
-    d: "M4.93179 5.43179C4.75605 5.60753 4.75605 5.89245 4.93179 6.06819C5.10753 6.24392 5.39245 6.24392 5.56819 6.06819L7.49999 4.13638L9.43179 6.06819C9.60753 6.24392 9.89245 6.24392 10.0682 6.06819C10.2439 5.89245 10.2439 5.60753 10.0682 5.43179L7.81819 3.18179C7.73379 3.0974 7.61933 3.04999 7.49999 3.04999C7.38064 3.04999 7.26618 3.0974 7.18179 3.18179L4.93179 5.43179ZM10.0682 9.56819C10.2439 9.39245 10.2439 9.10753 10.0682 8.93179C9.89245 8.75606 9.60753 8.75606 9.43179 8.93179L7.49999 10.8636L5.56819 8.93179C5.39245 8.75606 5.10753 8.75606 4.93179 8.93179C4.75605 9.10753 4.75605 9.39245 4.93179 9.56819L7.18179 11.8182C7.35753 11.9939 7.64245 11.9939 7.81819 11.8182L10.0682 9.56819Z",
-    fill: color,
-    fillRule: "evenodd",
-    clipRule: "evenodd"
-  }));
-});
-var _excluded$T = ["color"];
-var CheckIcon = /* @__PURE__ */ (0, import_react7.forwardRef)(function(_ref, forwardedRef) {
-  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$T);
-  return (0, import_react7.createElement)("svg", Object.assign({
-    width: "15",
-    height: "15",
-    viewBox: "0 0 15 15",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props, {
-    ref: forwardedRef
-  }), (0, import_react7.createElement)("path", {
-    d: "M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z",
-    fill: color,
-    fillRule: "evenodd",
-    clipRule: "evenodd"
-  }));
-});
-var _excluded$W = ["color"];
-var ChevronDownIcon = /* @__PURE__ */ (0, import_react7.forwardRef)(function(_ref, forwardedRef) {
-  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$W);
-  return (0, import_react7.createElement)("svg", Object.assign({
-    width: "15",
-    height: "15",
-    viewBox: "0 0 15 15",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props, {
-    ref: forwardedRef
-  }), (0, import_react7.createElement)("path", {
-    d: "M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z",
-    fill: color,
-    fillRule: "evenodd",
-    clipRule: "evenodd"
-  }));
-});
-var _excluded$Y = ["color"];
-var ChevronRightIcon = /* @__PURE__ */ (0, import_react7.forwardRef)(function(_ref, forwardedRef) {
-  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$Y);
-  return (0, import_react7.createElement)("svg", Object.assign({
-    width: "15",
-    height: "15",
-    viewBox: "0 0 15 15",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props, {
-    ref: forwardedRef
-  }), (0, import_react7.createElement)("path", {
-    d: "M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z",
-    fill: color,
-    fillRule: "evenodd",
-    clipRule: "evenodd"
-  }));
-});
-var _excluded$Z = ["color"];
-var ChevronUpIcon = /* @__PURE__ */ (0, import_react7.forwardRef)(function(_ref, forwardedRef) {
-  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$Z);
-  return (0, import_react7.createElement)("svg", Object.assign({
-    width: "15",
-    height: "15",
-    viewBox: "0 0 15 15",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props, {
-    ref: forwardedRef
-  }), (0, import_react7.createElement)("path", {
-    d: "M3.13523 8.84197C3.3241 9.04343 3.64052 9.05363 3.84197 8.86477L7.5 5.43536L11.158 8.86477C11.3595 9.05363 11.6759 9.04343 11.8648 8.84197C12.0536 8.64051 12.0434 8.32409 11.842 8.13523L7.84197 4.38523C7.64964 4.20492 7.35036 4.20492 7.15803 4.38523L3.15803 8.13523C2.95657 8.32409 2.94637 8.64051 3.13523 8.84197Z",
-    fill: color,
-    fillRule: "evenodd",
-    clipRule: "evenodd"
-  }));
-});
-var _excluded$1h = ["color"];
-var CopyIcon = /* @__PURE__ */ (0, import_react7.forwardRef)(function(_ref, forwardedRef) {
-  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$1h);
-  return (0, import_react7.createElement)("svg", Object.assign({
-    width: "15",
-    height: "15",
-    viewBox: "0 0 15 15",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props, {
-    ref: forwardedRef
-  }), (0, import_react7.createElement)("path", {
-    d: "M1 9.50006C1 10.3285 1.67157 11.0001 2.5 11.0001H4L4 10.0001H2.5C2.22386 10.0001 2 9.7762 2 9.50006L2 2.50006C2 2.22392 2.22386 2.00006 2.5 2.00006L9.5 2.00006C9.77614 2.00006 10 2.22392 10 2.50006V4.00002H5.5C4.67158 4.00002 4 4.67159 4 5.50002V12.5C4 13.3284 4.67158 14 5.5 14H12.5C13.3284 14 14 13.3284 14 12.5V5.50002C14 4.67159 13.3284 4.00002 12.5 4.00002H11V2.50006C11 1.67163 10.3284 1.00006 9.5 1.00006H2.5C1.67157 1.00006 1 1.67163 1 2.50006V9.50006ZM5 5.50002C5 5.22388 5.22386 5.00002 5.5 5.00002H12.5C12.7761 5.00002 13 5.22388 13 5.50002V12.5C13 12.7762 12.7761 13 12.5 13H5.5C5.22386 13 5 12.7762 5 12.5V5.50002Z",
-    fill: color,
-    fillRule: "evenodd",
-    clipRule: "evenodd"
-  }));
-});
-var _excluded$1r = ["color"];
-var Cross2Icon = /* @__PURE__ */ (0, import_react7.forwardRef)(function(_ref, forwardedRef) {
-  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$1r);
-  return (0, import_react7.createElement)("svg", Object.assign({
-    width: "15",
-    height: "15",
-    viewBox: "0 0 15 15",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props, {
-    ref: forwardedRef
-  }), (0, import_react7.createElement)("path", {
-    d: "M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z",
-    fill: color,
-    fillRule: "evenodd",
-    clipRule: "evenodd"
-  }));
-});
-var _excluded$1I = ["color"];
-var DotFilledIcon = /* @__PURE__ */ (0, import_react7.forwardRef)(function(_ref, forwardedRef) {
-  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$1I);
-  return (0, import_react7.createElement)("svg", Object.assign({
-    width: "15",
-    height: "15",
-    viewBox: "0 0 15 15",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props, {
-    ref: forwardedRef
-  }), (0, import_react7.createElement)("path", {
-    d: "M9.875 7.5C9.875 8.81168 8.81168 9.875 7.5 9.875C6.18832 9.875 5.125 8.81168 5.125 7.5C5.125 6.18832 6.18832 5.125 7.5 5.125C8.81168 5.125 9.875 6.18832 9.875 7.5Z",
-    fill: color
-  }));
-});
-var _excluded$1L = ["color"];
-var DoubleArrowDownIcon = /* @__PURE__ */ (0, import_react7.forwardRef)(function(_ref, forwardedRef) {
-  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$1L);
-  return (0, import_react7.createElement)("svg", Object.assign({
-    width: "15",
-    height: "15",
-    viewBox: "0 0 15 15",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props, {
-    ref: forwardedRef
-  }), (0, import_react7.createElement)("path", {
-    d: "M3.85355 2.14645C3.65829 1.95118 3.34171 1.95118 3.14645 2.14645C2.95118 2.34171 2.95118 2.65829 3.14645 2.85355L7.14645 6.85355C7.34171 7.04882 7.65829 7.04882 7.85355 6.85355L11.8536 2.85355C12.0488 2.65829 12.0488 2.34171 11.8536 2.14645C11.6583 1.95118 11.3417 1.95118 11.1464 2.14645L7.5 5.79289L3.85355 2.14645ZM3.85355 8.14645C3.65829 7.95118 3.34171 7.95118 3.14645 8.14645C2.95118 8.34171 2.95118 8.65829 3.14645 8.85355L7.14645 12.8536C7.34171 13.0488 7.65829 13.0488 7.85355 12.8536L11.8536 8.85355C12.0488 8.65829 12.0488 8.34171 11.8536 8.14645C11.6583 7.95118 11.3417 7.95118 11.1464 8.14645L7.5 11.7929L3.85355 8.14645Z",
-    fill: color,
-    fillRule: "evenodd",
-    clipRule: "evenodd"
-  }));
-});
-var _excluded$1O = ["color"];
-var DoubleArrowUpIcon = /* @__PURE__ */ (0, import_react7.forwardRef)(function(_ref, forwardedRef) {
-  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$1O);
-  return (0, import_react7.createElement)("svg", Object.assign({
-    width: "15",
-    height: "15",
-    viewBox: "0 0 15 15",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props, {
-    ref: forwardedRef
-  }), (0, import_react7.createElement)("path", {
-    d: "M11.1464 6.85355C11.3417 7.04882 11.6583 7.04882 11.8536 6.85355C12.0488 6.65829 12.0488 6.34171 11.8536 6.14645L7.85355 2.14645C7.65829 1.95118 7.34171 1.95118 7.14645 2.14645L3.14645 6.14645C2.95118 6.34171 2.95118 6.65829 3.14645 6.85355C3.34171 7.04882 3.65829 7.04882 3.85355 6.85355L7.5 3.20711L11.1464 6.85355ZM11.1464 12.8536C11.3417 13.0488 11.6583 13.0488 11.8536 12.8536C12.0488 12.6583 12.0488 12.3417 11.8536 12.1464L7.85355 8.14645C7.65829 7.95118 7.34171 7.95118 7.14645 8.14645L3.14645 12.1464C2.95118 12.3417 2.95118 12.6583 3.14645 12.8536C3.34171 13.0488 3.65829 13.0488 3.85355 12.8536L7.5 9.20711L11.1464 12.8536Z",
-    fill: color,
-    fillRule: "evenodd",
-    clipRule: "evenodd"
-  }));
-});
-var _excluded$1P = ["color"];
-var DownloadIcon = /* @__PURE__ */ (0, import_react7.forwardRef)(function(_ref, forwardedRef) {
-  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$1P);
-  return (0, import_react7.createElement)("svg", Object.assign({
-    width: "15",
-    height: "15",
-    viewBox: "0 0 15 15",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props, {
-    ref: forwardedRef
-  }), (0, import_react7.createElement)("path", {
-    d: "M7.50005 1.04999C7.74858 1.04999 7.95005 1.25146 7.95005 1.49999V8.41359L10.1819 6.18179C10.3576 6.00605 10.6425 6.00605 10.8182 6.18179C10.994 6.35753 10.994 6.64245 10.8182 6.81819L7.81825 9.81819C7.64251 9.99392 7.35759 9.99392 7.18185 9.81819L4.18185 6.81819C4.00611 6.64245 4.00611 6.35753 4.18185 6.18179C4.35759 6.00605 4.64251 6.00605 4.81825 6.18179L7.05005 8.41359V1.49999C7.05005 1.25146 7.25152 1.04999 7.50005 1.04999ZM2.5 10C2.77614 10 3 10.2239 3 10.5V12C3 12.5539 3.44565 13 3.99635 13H11.0012C11.5529 13 12 12.5528 12 12V10.5C12 10.2239 12.2239 10 12.5 10C12.7761 10 13 10.2239 13 10.5V12C13 13.1041 12.1062 14 11.0012 14H3.99635C2.89019 14 2 13.103 2 12V10.5C2 10.2239 2.22386 10 2.5 10Z",
-    fill: color,
-    fillRule: "evenodd",
-    clipRule: "evenodd"
-  }));
-});
-var _excluded$20 = ["color"];
-var ExclamationTriangleIcon = /* @__PURE__ */ (0, import_react7.forwardRef)(function(_ref, forwardedRef) {
-  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$20);
-  return (0, import_react7.createElement)("svg", Object.assign({
-    width: "15",
-    height: "15",
-    viewBox: "0 0 15 15",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props, {
-    ref: forwardedRef
-  }), (0, import_react7.createElement)("path", {
-    d: "M8.4449 0.608765C8.0183 -0.107015 6.9817 -0.107015 6.55509 0.608766L0.161178 11.3368C-0.275824 12.07 0.252503 13 1.10608 13H13.8939C14.7475 13 15.2758 12.07 14.8388 11.3368L8.4449 0.608765ZM7.4141 1.12073C7.45288 1.05566 7.54712 1.05566 7.5859 1.12073L13.9798 11.8488C14.0196 11.9154 13.9715 12 13.8939 12H1.10608C1.02849 12 0.980454 11.9154 1.02018 11.8488L7.4141 1.12073ZM6.8269 4.48611C6.81221 4.10423 7.11783 3.78663 7.5 3.78663C7.88217 3.78663 8.18778 4.10423 8.1731 4.48612L8.01921 8.48701C8.00848 8.766 7.7792 8.98664 7.5 8.98664C7.2208 8.98664 6.99151 8.766 6.98078 8.48701L6.8269 4.48611ZM8.24989 10.476C8.24989 10.8902 7.9141 11.226 7.49989 11.226C7.08567 11.226 6.74989 10.8902 6.74989 10.476C6.74989 10.0618 7.08567 9.72599 7.49989 9.72599C7.9141 9.72599 8.24989 10.0618 8.24989 10.476Z",
-    fill: color,
-    fillRule: "evenodd",
-    clipRule: "evenodd"
-  }));
-});
-var _excluded$23 = ["color"];
-var ExternalLinkIcon = /* @__PURE__ */ (0, import_react7.forwardRef)(function(_ref, forwardedRef) {
-  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$23);
-  return (0, import_react7.createElement)("svg", Object.assign({
-    width: "15",
-    height: "15",
-    viewBox: "0 0 15 15",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props, {
-    ref: forwardedRef
-  }), (0, import_react7.createElement)("path", {
-    d: "M3 2C2.44772 2 2 2.44772 2 3V12C2 12.5523 2.44772 13 3 13H12C12.5523 13 13 12.5523 13 12V8.5C13 8.22386 12.7761 8 12.5 8C12.2239 8 12 8.22386 12 8.5V12H3V3L6.5 3C6.77614 3 7 2.77614 7 2.5C7 2.22386 6.77614 2 6.5 2H3ZM12.8536 2.14645C12.9015 2.19439 12.9377 2.24964 12.9621 2.30861C12.9861 2.36669 12.9996 2.4303 13 2.497L13 2.5V2.50049V5.5C13 5.77614 12.7761 6 12.5 6C12.2239 6 12 5.77614 12 5.5V3.70711L6.85355 8.85355C6.65829 9.04882 6.34171 9.04882 6.14645 8.85355C5.95118 8.65829 5.95118 8.34171 6.14645 8.14645L11.2929 3H9.5C9.22386 3 9 2.77614 9 2.5C9 2.22386 9.22386 2 9.5 2H12.4999H12.5C12.5678 2 12.6324 2.01349 12.6914 2.03794C12.7504 2.06234 12.8056 2.09851 12.8536 2.14645Z",
-    fill: color,
-    fillRule: "evenodd",
-    clipRule: "evenodd"
-  }));
-});
-var _excluded$2l = ["color"];
-var GearIcon = /* @__PURE__ */ (0, import_react7.forwardRef)(function(_ref, forwardedRef) {
-  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$2l);
-  return (0, import_react7.createElement)("svg", Object.assign({
-    width: "15",
-    height: "15",
-    viewBox: "0 0 15 15",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props, {
-    ref: forwardedRef
-  }), (0, import_react7.createElement)("path", {
-    d: "M7.07095 0.650238C6.67391 0.650238 6.32977 0.925096 6.24198 1.31231L6.0039 2.36247C5.6249 2.47269 5.26335 2.62363 4.92436 2.81013L4.01335 2.23585C3.67748 2.02413 3.23978 2.07312 2.95903 2.35386L2.35294 2.95996C2.0722 3.2407 2.0232 3.6784 2.23493 4.01427L2.80942 4.92561C2.62307 5.2645 2.47227 5.62594 2.36216 6.00481L1.31209 6.24287C0.924883 6.33065 0.650024 6.6748 0.650024 7.07183V7.92897C0.650024 8.32601 0.924883 8.67015 1.31209 8.75794L2.36228 8.99603C2.47246 9.375 2.62335 9.73652 2.80979 10.0755L2.2354 10.9867C2.02367 11.3225 2.07267 11.7602 2.35341 12.041L2.95951 12.6471C3.24025 12.9278 3.67795 12.9768 4.01382 12.7651L4.92506 12.1907C5.26384 12.377 5.62516 12.5278 6.0039 12.6379L6.24198 13.6881C6.32977 14.0753 6.67391 14.3502 7.07095 14.3502H7.92809C8.32512 14.3502 8.66927 14.0753 8.75705 13.6881L8.99505 12.6383C9.37411 12.5282 9.73573 12.3773 10.0748 12.1909L10.986 12.7653C11.3218 12.977 11.7595 12.928 12.0403 12.6473L12.6464 12.0412C12.9271 11.7604 12.9761 11.3227 12.7644 10.9869L12.1902 10.076C12.3768 9.73688 12.5278 9.37515 12.638 8.99596L13.6879 8.75794C14.0751 8.67015 14.35 8.32601 14.35 7.92897V7.07183C14.35 6.6748 14.0751 6.33065 13.6879 6.24287L12.6381 6.00488C12.528 5.62578 12.3771 5.26414 12.1906 4.92507L12.7648 4.01407C12.9766 3.6782 12.9276 3.2405 12.6468 2.95975L12.0407 2.35366C11.76 2.07292 11.3223 2.02392 10.9864 2.23565L10.0755 2.80989C9.73622 2.62328 9.37437 2.47229 8.99505 2.36209L8.75705 1.31231C8.66927 0.925096 8.32512 0.650238 7.92809 0.650238H7.07095ZM4.92053 3.81251C5.44724 3.44339 6.05665 3.18424 6.71543 3.06839L7.07095 1.50024H7.92809L8.28355 3.06816C8.94267 3.18387 9.5524 3.44302 10.0794 3.81224L11.4397 2.9547L12.0458 3.56079L11.1882 4.92117C11.5573 5.44798 11.8164 6.0575 11.9321 6.71638L13.5 7.07183V7.92897L11.932 8.28444C11.8162 8.94342 11.557 9.55301 11.1878 10.0798L12.0453 11.4402L11.4392 12.0462L10.0787 11.1886C9.55192 11.5576 8.94241 11.8166 8.28355 11.9323L7.92809 13.5002H7.07095L6.71543 11.932C6.0569 11.8162 5.44772 11.5572 4.92116 11.1883L3.56055 12.046L2.95445 11.4399L3.81213 10.0794C3.4431 9.55266 3.18403 8.94326 3.06825 8.2845L1.50002 7.92897V7.07183L3.06818 6.71632C3.18388 6.05765 3.44283 5.44833 3.81171 4.92165L2.95398 3.561L3.56008 2.95491L4.92053 3.81251ZM9.02496 7.50008C9.02496 8.34226 8.34223 9.02499 7.50005 9.02499C6.65786 9.02499 5.97513 8.34226 5.97513 7.50008C5.97513 6.65789 6.65786 5.97516 7.50005 5.97516C8.34223 5.97516 9.02496 6.65789 9.02496 7.50008ZM9.92496 7.50008C9.92496 8.83932 8.83929 9.92499 7.50005 9.92499C6.1608 9.92499 5.07513 8.83932 5.07513 7.50008C5.07513 6.16084 6.1608 5.07516 7.50005 5.07516C8.83929 5.07516 9.92496 6.16084 9.92496 7.50008Z",
-    fill: color,
-    fillRule: "evenodd",
-    clipRule: "evenodd"
-  }));
-});
-var _excluded$2s = ["color"];
-var HamburgerMenuIcon = /* @__PURE__ */ (0, import_react7.forwardRef)(function(_ref, forwardedRef) {
-  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$2s);
-  return (0, import_react7.createElement)("svg", Object.assign({
-    width: "15",
-    height: "15",
-    viewBox: "0 0 15 15",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props, {
-    ref: forwardedRef
-  }), (0, import_react7.createElement)("path", {
-    d: "M1.5 3C1.22386 3 1 3.22386 1 3.5C1 3.77614 1.22386 4 1.5 4H13.5C13.7761 4 14 3.77614 14 3.5C14 3.22386 13.7761 3 13.5 3H1.5ZM1 7.5C1 7.22386 1.22386 7 1.5 7H13.5C13.7761 7 14 7.22386 14 7.5C14 7.77614 13.7761 8 13.5 8H1.5C1.22386 8 1 7.77614 1 7.5ZM1 11.5C1 11.2239 1.22386 11 1.5 11H13.5C13.7761 11 14 11.2239 14 11.5C14 11.7761 13.7761 12 13.5 12H1.5C1.22386 12 1 11.7761 1 11.5Z",
-    fill: color,
-    fillRule: "evenodd",
-    clipRule: "evenodd"
-  }));
-});
-var _excluded$2C = ["color"];
-var ImageIcon = /* @__PURE__ */ (0, import_react7.forwardRef)(function(_ref, forwardedRef) {
-  var _ref$color = _ref.color, color = _ref$color === void 0 ? "currentColor" : _ref$color, props = _objectWithoutPropertiesLoose(_ref, _excluded$2C);
-  return (0, import_react7.createElement)("svg", Object.assign({
-    width: "15",
-    height: "15",
-    viewBox: "0 0 15 15",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props, {
-    ref: forwardedRef
-  }), (0, import_react7.createElement)("path", {
-    d: "M2.5 1H12.5C13.3284 1 14 1.67157 14 2.5V12.5C14 13.3284 13.3284 14 12.5 14H2.5C1.67157 14 1 13.3284 1 12.5V2.5C1 1.67157 1.67157 1 2.5 1ZM2.5 2C2.22386 2 2 2.22386 2 2.5V8.3636L3.6818 6.6818C3.76809 6.59551 3.88572 6.54797 4.00774 6.55007C4.12975 6.55216 4.24568 6.60372 4.32895 6.69293L7.87355 10.4901L10.6818 7.6818C10.8575 7.50607 11.1425 7.50607 11.3182 7.6818L13 9.3636V2.5C13 2.22386 12.7761 2 12.5 2H2.5ZM2 12.5V9.6364L3.98887 7.64753L7.5311 11.4421L8.94113 13H2.5C2.22386 13 2 12.7761 2 12.5ZM12.5 13H10.155L8.48336 11.153L11 8.6364L13 10.6364V12.5C13 12.7761 12.7761 13 12.5 13ZM6.64922 5.5C6.64922 5.03013 7.03013 4.64922 7.5 4.64922C7.96987 4.64922 8.35078 5.03013 8.35078 5.5C8.35078 5.96987 7.96987 6.35078 7.5 6.35078C7.03013 6.35078 6.64922 5.96987 6.64922 5.5ZM7.5 3.74922C6.53307 3.74922 5.74922 4.53307 5.74922 5.5C5.74922 6.46693 6.53307 7.25078 7.5 7.25078C8.46693 7.25078 9.25078 6.46693 9.25078 5.5C9.25078 4.53307 8.46693 3.74922 7.5 3.74922Z",
-    fill: color,
-    fillRule: "evenodd",
-    clipRule: "evenodd"
-  }));
-});
-
 // src/ui/components/AccountSelect.module.css
 var AccountSelect_default = {
   Trigger: "AccountSelect_Trigger",
@@ -107686,40 +108242,40 @@ var AccountSelect_default = {
 };
 
 // src/ui/components/AccountSelect.tsx
-var import_jsx_runtime19 = __toESM(require_jsx_runtime());
+var import_jsx_runtime20 = __toESM(require_jsx_runtime());
 function AccountSelect({ disabled = false }) {
   const setAppId = useConfigContext((s) => s.setAppId);
   const defaultAccount = useConfigContext((s) => s.appid) || "";
   const settings = NMPSettings.getInstance();
   const accounts = !settings.wxInfo ? [] : settings.wxInfo.map((account) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(SelectItem2, { value: account.appid, children: account.name }, account.appid);
+    return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(SelectItem2, { value: account.appid, children: account.name }, account.appid);
   });
-  const containerRef = React40.useRef(null);
-  return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", { ref: containerRef, style: { position: "relative" }, children: /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(Root24, { defaultValue: defaultAccount, onValueChange: setAppId, disabled, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(Trigger2, { className: AccountSelect_default.Trigger, disabled, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Value, { placeholder: "\u8BF7\u5728\u8BBE\u7F6E\u6DFB\u52A0\u516C\u4F17\u53F7" }),
-      /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Icon, { className: AccountSelect_default.Icon, children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(ChevronDownIcon, {}) })
+  const containerRef = React41.useRef(null);
+  return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { ref: containerRef, style: { position: "relative" }, children: /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(Root24, { defaultValue: defaultAccount, onValueChange: setAppId, disabled, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(Trigger2, { className: AccountSelect_default.Trigger, disabled, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Value, { placeholder: "\u8BF7\u5728\u8BBE\u7F6E\u6DFB\u52A0\u516C\u4F17\u53F7" }),
+      /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Icon, { className: AccountSelect_default.Icon, children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(ChevronDownIcon, {}) })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Portal2, { container: containerRef.current || void 0, children: /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Portal2, { container: containerRef.current || void 0, children: /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(
       Content22,
       {
         className: AccountSelect_default.Content,
         position: "popper",
         sideOffset: 5,
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(ScrollUpButton, { className: AccountSelect_default.ScrollButton, children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(ChevronUpIcon, {}) }),
-          /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Viewport2, { className: AccountSelect_default.Viewport, children: /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(Group, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Label, { className: AccountSelect_default.Label, children: "\u516C\u4F17\u53F7" }),
+          /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(ScrollUpButton, { className: AccountSelect_default.ScrollButton, children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(ChevronUpIcon, {}) }),
+          /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Viewport2, { className: AccountSelect_default.Viewport, children: /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(Group, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Label, { className: AccountSelect_default.Label, children: "\u516C\u4F17\u53F7" }),
             accounts
           ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(ScrollDownButton, { className: AccountSelect_default.ScrollButton, children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(ChevronDownIcon, {}) })
+          /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(ScrollDownButton, { className: AccountSelect_default.ScrollButton, children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(ChevronDownIcon, {}) })
         ]
       }
     ) })
   ] }) });
 }
-var SelectItem2 = React40.forwardRef(({ children, className, value, ...props }, forwardedRef) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(
+var SelectItem2 = React41.forwardRef(({ children, className, value, ...props }, forwardedRef) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(
     Item2,
     {
       className: (0, import_classnames.default)(AccountSelect_default.Item, className),
@@ -107727,8 +108283,8 @@ var SelectItem2 = React40.forwardRef(({ children, className, value, ...props }, 
       ...props,
       ref: forwardedRef,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(ItemText, { children }),
-        /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(ItemIndicator, { className: AccountSelect_default.ItemIndicator, children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(CheckIcon, {}) })
+        /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(ItemText, { children }),
+        /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(ItemIndicator, { className: AccountSelect_default.ItemIndicator, children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(CheckIcon, {}) })
       ]
     }
   );
@@ -107736,12 +108292,12 @@ var SelectItem2 = React40.forwardRef(({ children, className, value, ...props }, 
 var AccountSelect_default2 = AccountSelect;
 
 // node_modules/@radix-ui/react-collapsible/dist/index.mjs
-var React41 = __toESM(require_react(), 1);
-var import_jsx_runtime20 = __toESM(require_jsx_runtime(), 1);
+var React42 = __toESM(require_react(), 1);
+var import_jsx_runtime21 = __toESM(require_jsx_runtime(), 1);
 var COLLAPSIBLE_NAME = "Collapsible";
 var [createCollapsibleContext, createCollapsibleScope] = createContextScope(COLLAPSIBLE_NAME);
 var [CollapsibleProvider, useCollapsibleContext] = createCollapsibleContext(COLLAPSIBLE_NAME);
-var Collapsible = React41.forwardRef(
+var Collapsible = React42.forwardRef(
   (props, forwardedRef) => {
     const {
       __scopeCollapsible,
@@ -107757,15 +108313,15 @@ var Collapsible = React41.forwardRef(
       onChange: onOpenChange,
       caller: COLLAPSIBLE_NAME
     });
-    return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
       CollapsibleProvider,
       {
         scope: __scopeCollapsible,
         disabled,
         contentId: useId(),
         open,
-        onOpenToggle: React41.useCallback(() => setOpen((prevOpen) => !prevOpen), [setOpen]),
-        children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+        onOpenToggle: React42.useCallback(() => setOpen((prevOpen) => !prevOpen), [setOpen]),
+        children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
           Primitive.div,
           {
             "data-state": getState(open),
@@ -107780,11 +108336,11 @@ var Collapsible = React41.forwardRef(
 );
 Collapsible.displayName = COLLAPSIBLE_NAME;
 var TRIGGER_NAME3 = "CollapsibleTrigger";
-var CollapsibleTrigger = React41.forwardRef(
+var CollapsibleTrigger = React42.forwardRef(
   (props, forwardedRef) => {
     const { __scopeCollapsible, ...triggerProps } = props;
     const context = useCollapsibleContext(TRIGGER_NAME3, __scopeCollapsible);
-    return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
       Primitive.button,
       {
         type: "button",
@@ -107802,28 +108358,28 @@ var CollapsibleTrigger = React41.forwardRef(
 );
 CollapsibleTrigger.displayName = TRIGGER_NAME3;
 var CONTENT_NAME4 = "CollapsibleContent";
-var CollapsibleContent = React41.forwardRef(
+var CollapsibleContent = React42.forwardRef(
   (props, forwardedRef) => {
     const { forceMount, ...contentProps } = props;
     const context = useCollapsibleContext(CONTENT_NAME4, props.__scopeCollapsible);
-    return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Presence, { present: forceMount || context.open, children: ({ present }) => /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(CollapsibleContentImpl, { ...contentProps, ref: forwardedRef, present }) });
+    return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Presence, { present: forceMount || context.open, children: ({ present }) => /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(CollapsibleContentImpl, { ...contentProps, ref: forwardedRef, present }) });
   }
 );
 CollapsibleContent.displayName = CONTENT_NAME4;
-var CollapsibleContentImpl = React41.forwardRef((props, forwardedRef) => {
+var CollapsibleContentImpl = React42.forwardRef((props, forwardedRef) => {
   const { __scopeCollapsible, present, children, ...contentProps } = props;
   const context = useCollapsibleContext(CONTENT_NAME4, __scopeCollapsible);
-  const [isPresent, setIsPresent] = React41.useState(present);
-  const ref = React41.useRef(null);
+  const [isPresent, setIsPresent] = React42.useState(present);
+  const ref = React42.useRef(null);
   const composedRefs = useComposedRefs(forwardedRef, ref);
-  const heightRef = React41.useRef(0);
+  const heightRef = React42.useRef(0);
   const height = heightRef.current;
-  const widthRef = React41.useRef(0);
+  const widthRef = React42.useRef(0);
   const width = widthRef.current;
   const isOpen = context.open || isPresent;
-  const isMountAnimationPreventedRef = React41.useRef(isOpen);
-  const originalStylesRef = React41.useRef(void 0);
-  React41.useEffect(() => {
+  const isMountAnimationPreventedRef = React42.useRef(isOpen);
+  const originalStylesRef = React42.useRef(void 0);
+  React42.useEffect(() => {
     const rAF = requestAnimationFrame(() => isMountAnimationPreventedRef.current = false);
     return () => cancelAnimationFrame(rAF);
   }, []);
@@ -107846,7 +108402,7 @@ var CollapsibleContentImpl = React41.forwardRef((props, forwardedRef) => {
       setIsPresent(present);
     }
   }, [context.open, present]);
-  return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
     Primitive.div,
     {
       "data-state": getState(context.open),
@@ -107872,8 +108428,8 @@ var Trigger3 = CollapsibleTrigger;
 var Content3 = CollapsibleContent;
 
 // node_modules/@radix-ui/react-dialog/dist/index.mjs
-var React42 = __toESM(require_react(), 1);
-var import_jsx_runtime21 = __toESM(require_jsx_runtime(), 1);
+var React43 = __toESM(require_react(), 1);
+var import_jsx_runtime22 = __toESM(require_jsx_runtime(), 1);
 var DIALOG_NAME = "Dialog";
 var [createDialogContext, createDialogScope] = createContextScope(DIALOG_NAME);
 var [DialogProvider, useDialogContext] = createDialogContext(DIALOG_NAME);
@@ -107886,15 +108442,15 @@ var Dialog = (props) => {
     onOpenChange,
     modal = true
   } = props;
-  const triggerRef = React42.useRef(null);
-  const contentRef = React42.useRef(null);
+  const triggerRef = React43.useRef(null);
+  const contentRef = React43.useRef(null);
   const [open, setOpen] = useControllableState({
     prop: openProp,
     defaultProp: defaultOpen != null ? defaultOpen : false,
     onChange: onOpenChange,
     caller: DIALOG_NAME
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
     DialogProvider,
     {
       scope: __scopeDialog,
@@ -107905,7 +108461,7 @@ var Dialog = (props) => {
       descriptionId: useId(),
       open,
       onOpenChange: setOpen,
-      onOpenToggle: React42.useCallback(() => setOpen((prevOpen) => !prevOpen), [setOpen]),
+      onOpenToggle: React43.useCallback(() => setOpen((prevOpen) => !prevOpen), [setOpen]),
       modal,
       children
     }
@@ -107913,12 +108469,12 @@ var Dialog = (props) => {
 };
 Dialog.displayName = DIALOG_NAME;
 var TRIGGER_NAME4 = "DialogTrigger";
-var DialogTrigger = React42.forwardRef(
+var DialogTrigger = React43.forwardRef(
   (props, forwardedRef) => {
     const { __scopeDialog, ...triggerProps } = props;
     const context = useDialogContext(TRIGGER_NAME4, __scopeDialog);
     const composedTriggerRef = useComposedRefs(forwardedRef, context.triggerRef);
-    return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
       Primitive.button,
       {
         type: "button",
@@ -107941,28 +108497,28 @@ var [PortalProvider, usePortalContext] = createDialogContext(PORTAL_NAME3, {
 var DialogPortal = (props) => {
   const { __scopeDialog, forceMount, children, container } = props;
   const context = useDialogContext(PORTAL_NAME3, __scopeDialog);
-  return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(PortalProvider, { scope: __scopeDialog, forceMount, children: React42.Children.map(children, (child) => /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Portal, { asChild: true, container, children: child }) })) });
+  return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(PortalProvider, { scope: __scopeDialog, forceMount, children: React43.Children.map(children, (child) => /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Portal, { asChild: true, container, children: child }) })) });
 };
 DialogPortal.displayName = PORTAL_NAME3;
 var OVERLAY_NAME = "DialogOverlay";
-var DialogOverlay = React42.forwardRef(
+var DialogOverlay = React43.forwardRef(
   (props, forwardedRef) => {
     const portalContext = usePortalContext(OVERLAY_NAME, props.__scopeDialog);
     const { forceMount = portalContext.forceMount, ...overlayProps } = props;
     const context = useDialogContext(OVERLAY_NAME, props.__scopeDialog);
-    return context.modal ? /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(DialogOverlayImpl, { ...overlayProps, ref: forwardedRef }) }) : null;
+    return context.modal ? /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(DialogOverlayImpl, { ...overlayProps, ref: forwardedRef }) }) : null;
   }
 );
 DialogOverlay.displayName = OVERLAY_NAME;
 var Slot2 = createSlot("DialogOverlay.RemoveScroll");
-var DialogOverlayImpl = React42.forwardRef(
+var DialogOverlayImpl = React43.forwardRef(
   (props, forwardedRef) => {
     const { __scopeDialog, ...overlayProps } = props;
     const context = useDialogContext(OVERLAY_NAME, __scopeDialog);
     return (
       // Make sure `Content` is scrollable even when it doesn't live inside `RemoveScroll`
       // ie. when `Overlay` and `Content` are siblings
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Combination_default, { as: Slot2, allowPinchZoom: true, shards: [context.contentRef], children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Combination_default, { as: Slot2, allowPinchZoom: true, shards: [context.contentRef], children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
         Primitive.div,
         {
           "data-state": getState2(context.open),
@@ -107975,25 +108531,25 @@ var DialogOverlayImpl = React42.forwardRef(
   }
 );
 var CONTENT_NAME5 = "DialogContent";
-var DialogContent = React42.forwardRef(
+var DialogContent = React43.forwardRef(
   (props, forwardedRef) => {
     const portalContext = usePortalContext(CONTENT_NAME5, props.__scopeDialog);
     const { forceMount = portalContext.forceMount, ...contentProps } = props;
     const context = useDialogContext(CONTENT_NAME5, props.__scopeDialog);
-    return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Presence, { present: forceMount || context.open, children: context.modal ? /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(DialogContentModal, { ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(DialogContentNonModal, { ...contentProps, ref: forwardedRef }) });
+    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Presence, { present: forceMount || context.open, children: context.modal ? /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(DialogContentModal, { ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(DialogContentNonModal, { ...contentProps, ref: forwardedRef }) });
   }
 );
 DialogContent.displayName = CONTENT_NAME5;
-var DialogContentModal = React42.forwardRef(
+var DialogContentModal = React43.forwardRef(
   (props, forwardedRef) => {
     const context = useDialogContext(CONTENT_NAME5, props.__scopeDialog);
-    const contentRef = React42.useRef(null);
+    const contentRef = React43.useRef(null);
     const composedRefs = useComposedRefs(forwardedRef, context.contentRef, contentRef);
-    React42.useEffect(() => {
+    React43.useEffect(() => {
       const content = contentRef.current;
       if (content) return hideOthers(content);
     }, []);
-    return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
       DialogContentImpl,
       {
         ...props,
@@ -108019,12 +108575,12 @@ var DialogContentModal = React42.forwardRef(
     );
   }
 );
-var DialogContentNonModal = React42.forwardRef(
+var DialogContentNonModal = React43.forwardRef(
   (props, forwardedRef) => {
     const context = useDialogContext(CONTENT_NAME5, props.__scopeDialog);
-    const hasInteractedOutsideRef = React42.useRef(false);
-    const hasPointerDownOutsideRef = React42.useRef(false);
-    return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+    const hasInteractedOutsideRef = React43.useRef(false);
+    const hasPointerDownOutsideRef = React43.useRef(false);
+    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
       DialogContentImpl,
       {
         ...props,
@@ -108061,15 +108617,15 @@ var DialogContentNonModal = React42.forwardRef(
     );
   }
 );
-var DialogContentImpl = React42.forwardRef(
+var DialogContentImpl = React43.forwardRef(
   (props, forwardedRef) => {
     const { __scopeDialog, trapFocus, onOpenAutoFocus, onCloseAutoFocus, ...contentProps } = props;
     const context = useDialogContext(CONTENT_NAME5, __scopeDialog);
-    const contentRef = React42.useRef(null);
+    const contentRef = React43.useRef(null);
     const composedRefs = useComposedRefs(forwardedRef, contentRef);
     useFocusGuards();
-    return /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(import_jsx_runtime21.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(import_jsx_runtime22.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
         FocusScope,
         {
           asChild: true,
@@ -108077,7 +108633,7 @@ var DialogContentImpl = React42.forwardRef(
           trapped: trapFocus,
           onMountAutoFocus: onOpenAutoFocus,
           onUnmountAutoFocus: onCloseAutoFocus,
-          children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+          children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
             DismissableLayer,
             {
               role: "dialog",
@@ -108092,37 +108648,37 @@ var DialogContentImpl = React42.forwardRef(
           )
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(import_jsx_runtime21.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(TitleWarning, { titleId: context.titleId }),
-        /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(DescriptionWarning, { contentRef, descriptionId: context.descriptionId })
+      /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(import_jsx_runtime22.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(TitleWarning, { titleId: context.titleId }),
+        /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(DescriptionWarning, { contentRef, descriptionId: context.descriptionId })
       ] })
     ] });
   }
 );
 var TITLE_NAME2 = "DialogTitle";
-var DialogTitle = React42.forwardRef(
+var DialogTitle = React43.forwardRef(
   (props, forwardedRef) => {
     const { __scopeDialog, ...titleProps } = props;
     const context = useDialogContext(TITLE_NAME2, __scopeDialog);
-    return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Primitive.h2, { id: context.titleId, ...titleProps, ref: forwardedRef });
+    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Primitive.h2, { id: context.titleId, ...titleProps, ref: forwardedRef });
   }
 );
 DialogTitle.displayName = TITLE_NAME2;
 var DESCRIPTION_NAME2 = "DialogDescription";
-var DialogDescription = React42.forwardRef(
+var DialogDescription = React43.forwardRef(
   (props, forwardedRef) => {
     const { __scopeDialog, ...descriptionProps } = props;
     const context = useDialogContext(DESCRIPTION_NAME2, __scopeDialog);
-    return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Primitive.p, { id: context.descriptionId, ...descriptionProps, ref: forwardedRef });
+    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Primitive.p, { id: context.descriptionId, ...descriptionProps, ref: forwardedRef });
   }
 );
 DialogDescription.displayName = DESCRIPTION_NAME2;
 var CLOSE_NAME2 = "DialogClose";
-var DialogClose = React42.forwardRef(
+var DialogClose = React43.forwardRef(
   (props, forwardedRef) => {
     const { __scopeDialog, ...closeProps } = props;
     const context = useDialogContext(CLOSE_NAME2, __scopeDialog);
-    return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
       Primitive.button,
       {
         type: "button",
@@ -108150,7 +108706,7 @@ var TitleWarning = ({ titleId }) => {
 If you want to hide the \`${titleWarningContext.titleName}\`, you can wrap it with our VisuallyHidden component.
 
 For more information, see https://radix-ui.com/primitives/docs/components/${titleWarningContext.docsSlug}`;
-  React42.useEffect(() => {
+  React43.useEffect(() => {
     if (titleId) {
       const hasTitle = document.getElementById(titleId);
       if (!hasTitle) console.error(MESSAGE);
@@ -108162,7 +108718,7 @@ var DESCRIPTION_WARNING_NAME = "DialogDescriptionWarning";
 var DescriptionWarning = ({ contentRef, descriptionId }) => {
   const descriptionWarningContext = useWarningContext(DESCRIPTION_WARNING_NAME);
   const MESSAGE = `Warning: Missing \`Description\` or \`aria-describedby={undefined}\` for {${descriptionWarningContext.contentName}}.`;
-  React42.useEffect(() => {
+  React43.useEffect(() => {
     var _a5;
     const describedById = (_a5 = contentRef.current) == null ? void 0 : _a5.getAttribute("aria-describedby");
     if (descriptionId && describedById) {
@@ -108181,8 +108737,8 @@ var Description2 = DialogDescription;
 var Close2 = DialogClose;
 
 // node_modules/@radix-ui/react-menu/dist/index.mjs
-var React43 = __toESM(require_react(), 1);
-var import_jsx_runtime22 = __toESM(require_jsx_runtime(), 1);
+var React44 = __toESM(require_react(), 1);
+var import_jsx_runtime23 = __toESM(require_jsx_runtime(), 1);
 var SELECTION_KEYS2 = ["Enter", " "];
 var FIRST_KEYS = ["ArrowDown", "PageUp", "Home"];
 var LAST_KEYS = ["ArrowUp", "PageDown", "End"];
@@ -108209,11 +108765,11 @@ var [MenuRootProvider, useMenuRootContext] = createMenuContext(MENU_NAME);
 var Menu = (props) => {
   const { __scopeMenu, open = false, children, dir, onOpenChange, modal = true } = props;
   const popperScope = usePopperScope2(__scopeMenu);
-  const [content, setContent] = React43.useState(null);
-  const isUsingKeyboardRef = React43.useRef(false);
+  const [content, setContent] = React44.useState(null);
+  const isUsingKeyboardRef = React44.useRef(false);
   const handleOpenChange = useCallbackRef(onOpenChange);
   const direction = useDirection(dir);
-  React43.useEffect(() => {
+  React44.useEffect(() => {
     const handleKeyDown = () => {
       isUsingKeyboardRef.current = true;
       document.addEventListener("pointerdown", handlePointer, { capture: true, once: true });
@@ -108227,7 +108783,7 @@ var Menu = (props) => {
       document.removeEventListener("pointermove", handlePointer, { capture: true });
     };
   }, []);
-  return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Root23, { ...popperScope, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Root23, { ...popperScope, children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
     MenuProvider,
     {
       scope: __scopeMenu,
@@ -108235,11 +108791,11 @@ var Menu = (props) => {
       onOpenChange: handleOpenChange,
       content,
       onContentChange: setContent,
-      children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
         MenuRootProvider,
         {
           scope: __scopeMenu,
-          onClose: React43.useCallback(() => handleOpenChange(false), [handleOpenChange]),
+          onClose: React44.useCallback(() => handleOpenChange(false), [handleOpenChange]),
           isUsingKeyboardRef,
           dir: direction,
           modal,
@@ -108251,11 +108807,11 @@ var Menu = (props) => {
 };
 Menu.displayName = MENU_NAME;
 var ANCHOR_NAME2 = "MenuAnchor";
-var MenuAnchor = React43.forwardRef(
+var MenuAnchor = React44.forwardRef(
   (props, forwardedRef) => {
     const { __scopeMenu, ...anchorProps } = props;
     const popperScope = usePopperScope2(__scopeMenu);
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Anchor, { ...popperScope, ...anchorProps, ref: forwardedRef });
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Anchor, { ...popperScope, ...anchorProps, ref: forwardedRef });
   }
 );
 MenuAnchor.displayName = ANCHOR_NAME2;
@@ -108266,30 +108822,30 @@ var [PortalProvider2, usePortalContext2] = createMenuContext(PORTAL_NAME4, {
 var MenuPortal = (props) => {
   const { __scopeMenu, forceMount, children, container } = props;
   const context = useMenuContext(PORTAL_NAME4, __scopeMenu);
-  return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(PortalProvider2, { scope: __scopeMenu, forceMount, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Portal, { asChild: true, container, children }) }) });
+  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(PortalProvider2, { scope: __scopeMenu, forceMount, children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Portal, { asChild: true, container, children }) }) });
 };
 MenuPortal.displayName = PORTAL_NAME4;
 var CONTENT_NAME6 = "MenuContent";
 var [MenuContentProvider, useMenuContentContext] = createMenuContext(CONTENT_NAME6);
-var MenuContent = React43.forwardRef(
+var MenuContent = React44.forwardRef(
   (props, forwardedRef) => {
     const portalContext = usePortalContext2(CONTENT_NAME6, props.__scopeMenu);
     const { forceMount = portalContext.forceMount, ...contentProps } = props;
     const context = useMenuContext(CONTENT_NAME6, props.__scopeMenu);
     const rootContext = useMenuRootContext(CONTENT_NAME6, props.__scopeMenu);
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Collection4.Provider, { scope: props.__scopeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Collection4.Slot, { scope: props.__scopeMenu, children: rootContext.modal ? /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(MenuRootContentModal, { ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(MenuRootContentNonModal, { ...contentProps, ref: forwardedRef }) }) }) });
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Collection4.Provider, { scope: props.__scopeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Collection4.Slot, { scope: props.__scopeMenu, children: rootContext.modal ? /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(MenuRootContentModal, { ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(MenuRootContentNonModal, { ...contentProps, ref: forwardedRef }) }) }) });
   }
 );
-var MenuRootContentModal = React43.forwardRef(
+var MenuRootContentModal = React44.forwardRef(
   (props, forwardedRef) => {
     const context = useMenuContext(CONTENT_NAME6, props.__scopeMenu);
-    const ref = React43.useRef(null);
+    const ref = React44.useRef(null);
     const composedRefs = useComposedRefs(forwardedRef, ref);
-    React43.useEffect(() => {
+    React44.useEffect(() => {
       const content = ref.current;
       if (content) return hideOthers(content);
     }, []);
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
       MenuContentImpl,
       {
         ...props,
@@ -108307,9 +108863,9 @@ var MenuRootContentModal = React43.forwardRef(
     );
   }
 );
-var MenuRootContentNonModal = React43.forwardRef((props, forwardedRef) => {
+var MenuRootContentNonModal = React44.forwardRef((props, forwardedRef) => {
   const context = useMenuContext(CONTENT_NAME6, props.__scopeMenu);
-  return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
     MenuContentImpl,
     {
       ...props,
@@ -108322,7 +108878,7 @@ var MenuRootContentNonModal = React43.forwardRef((props, forwardedRef) => {
   );
 });
 var Slot3 = createSlot("MenuContent.ScrollLock");
-var MenuContentImpl = React43.forwardRef(
+var MenuContentImpl = React44.forwardRef(
   (props, forwardedRef) => {
     const {
       __scopeMenu,
@@ -108345,16 +108901,16 @@ var MenuContentImpl = React43.forwardRef(
     const popperScope = usePopperScope2(__scopeMenu);
     const rovingFocusGroupScope = useRovingFocusGroupScope2(__scopeMenu);
     const getItems = useCollection4(__scopeMenu);
-    const [currentItemId, setCurrentItemId] = React43.useState(null);
-    const contentRef = React43.useRef(null);
+    const [currentItemId, setCurrentItemId] = React44.useState(null);
+    const contentRef = React44.useRef(null);
     const composedRefs = useComposedRefs(forwardedRef, contentRef, context.onContentChange);
-    const timerRef = React43.useRef(0);
-    const searchRef = React43.useRef("");
-    const pointerGraceTimerRef = React43.useRef(0);
-    const pointerGraceIntentRef = React43.useRef(null);
-    const pointerDirRef = React43.useRef("right");
-    const lastPointerXRef = React43.useRef(0);
-    const ScrollLockWrapper = disableOutsideScroll ? Combination_default : React43.Fragment;
+    const timerRef = React44.useRef(0);
+    const searchRef = React44.useRef("");
+    const pointerGraceTimerRef = React44.useRef(0);
+    const pointerGraceIntentRef = React44.useRef(null);
+    const pointerDirRef = React44.useRef("right");
+    const lastPointerXRef = React44.useRef(0);
+    const ScrollLockWrapper = disableOutsideScroll ? Combination_default : React44.Fragment;
     const scrollLockWrapperProps = disableOutsideScroll ? { as: Slot3, allowPinchZoom: true } : void 0;
     const handleTypeaheadSearch = (key) => {
       var _a5, _b2;
@@ -108374,27 +108930,27 @@ var MenuContentImpl = React43.forwardRef(
         setTimeout(() => newItem.focus());
       }
     };
-    React43.useEffect(() => {
+    React44.useEffect(() => {
       return () => window.clearTimeout(timerRef.current);
     }, []);
     useFocusGuards();
-    const isPointerMovingToSubmenu = React43.useCallback((event) => {
+    const isPointerMovingToSubmenu = React44.useCallback((event) => {
       var _a5, _b2;
       const isMovingTowards = pointerDirRef.current === ((_a5 = pointerGraceIntentRef.current) == null ? void 0 : _a5.side);
       return isMovingTowards && isPointerInGraceArea(event, (_b2 = pointerGraceIntentRef.current) == null ? void 0 : _b2.area);
     }, []);
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
       MenuContentProvider,
       {
         scope: __scopeMenu,
         searchRef,
-        onItemEnter: React43.useCallback(
+        onItemEnter: React44.useCallback(
           (event) => {
             if (isPointerMovingToSubmenu(event)) event.preventDefault();
           },
           [isPointerMovingToSubmenu]
         ),
-        onItemLeave: React43.useCallback(
+        onItemLeave: React44.useCallback(
           (event) => {
             var _a5;
             if (isPointerMovingToSubmenu(event)) return;
@@ -108403,17 +108959,17 @@ var MenuContentImpl = React43.forwardRef(
           },
           [isPointerMovingToSubmenu]
         ),
-        onTriggerLeave: React43.useCallback(
+        onTriggerLeave: React44.useCallback(
           (event) => {
             if (isPointerMovingToSubmenu(event)) event.preventDefault();
           },
           [isPointerMovingToSubmenu]
         ),
         pointerGraceTimerRef,
-        onPointerGraceIntentChange: React43.useCallback((intent) => {
+        onPointerGraceIntentChange: React44.useCallback((intent) => {
           pointerGraceIntentRef.current = intent;
         }, []),
-        children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(ScrollLockWrapper, { ...scrollLockWrapperProps, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(ScrollLockWrapper, { ...scrollLockWrapperProps, children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
           FocusScope,
           {
             asChild: true,
@@ -108424,7 +108980,7 @@ var MenuContentImpl = React43.forwardRef(
               (_a5 = contentRef.current) == null ? void 0 : _a5.focus({ preventScroll: true });
             }),
             onUnmountAutoFocus: onCloseAutoFocus,
-            children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+            children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
               DismissableLayer,
               {
                 asChild: true,
@@ -108434,7 +108990,7 @@ var MenuContentImpl = React43.forwardRef(
                 onFocusOutside,
                 onInteractOutside,
                 onDismiss,
-                children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+                children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
                   Root,
                   {
                     asChild: true,
@@ -108448,7 +109004,7 @@ var MenuContentImpl = React43.forwardRef(
                       if (!rootContext.isUsingKeyboardRef.current) event.preventDefault();
                     }),
                     preventScrollOnEntryFocus: true,
-                    children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+                    children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
                       Content2,
                       {
                         role: "menu",
@@ -108510,31 +109066,31 @@ var MenuContentImpl = React43.forwardRef(
 );
 MenuContent.displayName = CONTENT_NAME6;
 var GROUP_NAME3 = "MenuGroup";
-var MenuGroup = React43.forwardRef(
+var MenuGroup = React44.forwardRef(
   (props, forwardedRef) => {
     const { __scopeMenu, ...groupProps } = props;
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Primitive.div, { role: "group", ...groupProps, ref: forwardedRef });
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Primitive.div, { role: "group", ...groupProps, ref: forwardedRef });
   }
 );
 MenuGroup.displayName = GROUP_NAME3;
 var LABEL_NAME2 = "MenuLabel";
-var MenuLabel = React43.forwardRef(
+var MenuLabel = React44.forwardRef(
   (props, forwardedRef) => {
     const { __scopeMenu, ...labelProps } = props;
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Primitive.div, { ...labelProps, ref: forwardedRef });
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Primitive.div, { ...labelProps, ref: forwardedRef });
   }
 );
 MenuLabel.displayName = LABEL_NAME2;
 var ITEM_NAME3 = "MenuItem";
 var ITEM_SELECT = "menu.itemSelect";
-var MenuItem = React43.forwardRef(
+var MenuItem = React44.forwardRef(
   (props, forwardedRef) => {
     const { disabled = false, onSelect, ...itemProps } = props;
-    const ref = React43.useRef(null);
+    const ref = React44.useRef(null);
     const rootContext = useMenuRootContext(ITEM_NAME3, props.__scopeMenu);
     const contentContext = useMenuContentContext(ITEM_NAME3, props.__scopeMenu);
     const composedRefs = useComposedRefs(forwardedRef, ref);
-    const isPointerDownRef = React43.useRef(false);
+    const isPointerDownRef = React44.useRef(false);
     const handleSelect = () => {
       const menuItem = ref.current;
       if (!disabled && menuItem) {
@@ -108548,7 +109104,7 @@ var MenuItem = React43.forwardRef(
         }
       }
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
       MenuItemImpl,
       {
         ...itemProps,
@@ -108577,29 +109133,29 @@ var MenuItem = React43.forwardRef(
   }
 );
 MenuItem.displayName = ITEM_NAME3;
-var MenuItemImpl = React43.forwardRef(
+var MenuItemImpl = React44.forwardRef(
   (props, forwardedRef) => {
     const { __scopeMenu, disabled = false, textValue, ...itemProps } = props;
     const contentContext = useMenuContentContext(ITEM_NAME3, __scopeMenu);
     const rovingFocusGroupScope = useRovingFocusGroupScope2(__scopeMenu);
-    const ref = React43.useRef(null);
+    const ref = React44.useRef(null);
     const composedRefs = useComposedRefs(forwardedRef, ref);
-    const [isFocused, setIsFocused] = React43.useState(false);
-    const [textContent, setTextContent] = React43.useState("");
-    React43.useEffect(() => {
+    const [isFocused, setIsFocused] = React44.useState(false);
+    const [textContent, setTextContent] = React44.useState("");
+    React44.useEffect(() => {
       var _a5;
       const menuItem = ref.current;
       if (menuItem) {
         setTextContent(((_a5 = menuItem.textContent) != null ? _a5 : "").trim());
       }
     }, [itemProps.children]);
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
       Collection4.ItemSlot,
       {
         scope: __scopeMenu,
         disabled,
         textValue: textValue != null ? textValue : textContent,
-        children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Item, { asChild: true, ...rovingFocusGroupScope, focusable: !disabled, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Item, { asChild: true, ...rovingFocusGroupScope, focusable: !disabled, children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
           Primitive.div,
           {
             role: "menuitem",
@@ -108635,10 +109191,10 @@ var MenuItemImpl = React43.forwardRef(
   }
 );
 var CHECKBOX_ITEM_NAME = "MenuCheckboxItem";
-var MenuCheckboxItem = React43.forwardRef(
+var MenuCheckboxItem = React44.forwardRef(
   (props, forwardedRef) => {
     const { checked = false, onCheckedChange, ...checkboxItemProps } = props;
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(ItemIndicatorProvider, { scope: props.__scopeMenu, checked, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(ItemIndicatorProvider, { scope: props.__scopeMenu, checked, children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
       MenuItem,
       {
         role: "menuitemcheckbox",
@@ -108662,21 +109218,21 @@ var [RadioGroupProvider, useRadioGroupContext] = createMenuContext(
   { value: void 0, onValueChange: () => {
   } }
 );
-var MenuRadioGroup = React43.forwardRef(
+var MenuRadioGroup = React44.forwardRef(
   (props, forwardedRef) => {
     const { value, onValueChange, ...groupProps } = props;
     const handleValueChange = useCallbackRef(onValueChange);
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(RadioGroupProvider, { scope: props.__scopeMenu, value, onValueChange: handleValueChange, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(MenuGroup, { ...groupProps, ref: forwardedRef }) });
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(RadioGroupProvider, { scope: props.__scopeMenu, value, onValueChange: handleValueChange, children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(MenuGroup, { ...groupProps, ref: forwardedRef }) });
   }
 );
 MenuRadioGroup.displayName = RADIO_GROUP_NAME;
 var RADIO_ITEM_NAME = "MenuRadioItem";
-var MenuRadioItem = React43.forwardRef(
+var MenuRadioItem = React44.forwardRef(
   (props, forwardedRef) => {
     const { value, ...radioItemProps } = props;
     const context = useRadioGroupContext(RADIO_ITEM_NAME, props.__scopeMenu);
     const checked = value === context.value;
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(ItemIndicatorProvider, { scope: props.__scopeMenu, checked, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(ItemIndicatorProvider, { scope: props.__scopeMenu, checked, children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
       MenuItem,
       {
         role: "menuitemradio",
@@ -108702,15 +109258,15 @@ var [ItemIndicatorProvider, useItemIndicatorContext] = createMenuContext(
   ITEM_INDICATOR_NAME2,
   { checked: false }
 );
-var MenuItemIndicator = React43.forwardRef(
+var MenuItemIndicator = React44.forwardRef(
   (props, forwardedRef) => {
     const { __scopeMenu, forceMount, ...itemIndicatorProps } = props;
     const indicatorContext = useItemIndicatorContext(ITEM_INDICATOR_NAME2, __scopeMenu);
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
       Presence,
       {
         present: forceMount || isIndeterminate(indicatorContext.checked) || indicatorContext.checked === true,
-        children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
           Primitive.span,
           {
             ...itemIndicatorProps,
@@ -108724,10 +109280,10 @@ var MenuItemIndicator = React43.forwardRef(
 );
 MenuItemIndicator.displayName = ITEM_INDICATOR_NAME2;
 var SEPARATOR_NAME2 = "MenuSeparator";
-var MenuSeparator = React43.forwardRef(
+var MenuSeparator = React44.forwardRef(
   (props, forwardedRef) => {
     const { __scopeMenu, ...separatorProps } = props;
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
       Primitive.div,
       {
         role: "separator",
@@ -108740,11 +109296,11 @@ var MenuSeparator = React43.forwardRef(
 );
 MenuSeparator.displayName = SEPARATOR_NAME2;
 var ARROW_NAME3 = "MenuArrow";
-var MenuArrow = React43.forwardRef(
+var MenuArrow = React44.forwardRef(
   (props, forwardedRef) => {
     const { __scopeMenu, ...arrowProps } = props;
     const popperScope = usePopperScope2(__scopeMenu);
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Arrow2, { ...popperScope, ...arrowProps, ref: forwardedRef });
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Arrow2, { ...popperScope, ...arrowProps, ref: forwardedRef });
   }
 );
 MenuArrow.displayName = ARROW_NAME3;
@@ -108754,14 +109310,14 @@ var MenuSub = (props) => {
   const { __scopeMenu, children, open = false, onOpenChange } = props;
   const parentMenuContext = useMenuContext(SUB_NAME, __scopeMenu);
   const popperScope = usePopperScope2(__scopeMenu);
-  const [trigger, setTrigger] = React43.useState(null);
-  const [content, setContent] = React43.useState(null);
+  const [trigger, setTrigger] = React44.useState(null);
+  const [content, setContent] = React44.useState(null);
   const handleOpenChange = useCallbackRef(onOpenChange);
-  React43.useEffect(() => {
+  React44.useEffect(() => {
     if (parentMenuContext.open === false) handleOpenChange(false);
     return () => handleOpenChange(false);
   }, [parentMenuContext.open, handleOpenChange]);
-  return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Root23, { ...popperScope, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Root23, { ...popperScope, children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
     MenuProvider,
     {
       scope: __scopeMenu,
@@ -108769,7 +109325,7 @@ var MenuSub = (props) => {
       onOpenChange: handleOpenChange,
       content,
       onContentChange: setContent,
-      children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
         MenuSubProvider,
         {
           scope: __scopeMenu,
@@ -108785,28 +109341,28 @@ var MenuSub = (props) => {
 };
 MenuSub.displayName = SUB_NAME;
 var SUB_TRIGGER_NAME = "MenuSubTrigger";
-var MenuSubTrigger = React43.forwardRef(
+var MenuSubTrigger = React44.forwardRef(
   (props, forwardedRef) => {
     const context = useMenuContext(SUB_TRIGGER_NAME, props.__scopeMenu);
     const rootContext = useMenuRootContext(SUB_TRIGGER_NAME, props.__scopeMenu);
     const subContext = useMenuSubContext(SUB_TRIGGER_NAME, props.__scopeMenu);
     const contentContext = useMenuContentContext(SUB_TRIGGER_NAME, props.__scopeMenu);
-    const openTimerRef = React43.useRef(null);
+    const openTimerRef = React44.useRef(null);
     const { pointerGraceTimerRef, onPointerGraceIntentChange } = contentContext;
     const scope = { __scopeMenu: props.__scopeMenu };
-    const clearOpenTimer = React43.useCallback(() => {
+    const clearOpenTimer = React44.useCallback(() => {
       if (openTimerRef.current) window.clearTimeout(openTimerRef.current);
       openTimerRef.current = null;
     }, []);
-    React43.useEffect(() => clearOpenTimer, [clearOpenTimer]);
-    React43.useEffect(() => {
+    React44.useEffect(() => clearOpenTimer, [clearOpenTimer]);
+    React44.useEffect(() => {
       const pointerGraceTimer = pointerGraceTimerRef.current;
       return () => {
         window.clearTimeout(pointerGraceTimer);
         onPointerGraceIntentChange(null);
       };
     }, [pointerGraceTimerRef, onPointerGraceIntentChange]);
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(MenuAnchor, { asChild: true, ...scope, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(MenuAnchor, { asChild: true, ...scope, children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
       MenuItemImpl,
       {
         id: subContext.triggerId,
@@ -108889,16 +109445,16 @@ var MenuSubTrigger = React43.forwardRef(
 );
 MenuSubTrigger.displayName = SUB_TRIGGER_NAME;
 var SUB_CONTENT_NAME = "MenuSubContent";
-var MenuSubContent = React43.forwardRef(
+var MenuSubContent = React44.forwardRef(
   (props, forwardedRef) => {
     const portalContext = usePortalContext2(CONTENT_NAME6, props.__scopeMenu);
     const { forceMount = portalContext.forceMount, ...subContentProps } = props;
     const context = useMenuContext(CONTENT_NAME6, props.__scopeMenu);
     const rootContext = useMenuRootContext(CONTENT_NAME6, props.__scopeMenu);
     const subContext = useMenuSubContext(SUB_CONTENT_NAME, props.__scopeMenu);
-    const ref = React43.useRef(null);
+    const ref = React44.useRef(null);
     const composedRefs = useComposedRefs(forwardedRef, ref);
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Collection4.Provider, { scope: props.__scopeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Collection4.Slot, { scope: props.__scopeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Collection4.Provider, { scope: props.__scopeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Collection4.Slot, { scope: props.__scopeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
       MenuContentImpl,
       {
         id: subContext.contentId,
@@ -109047,8 +109603,8 @@ __export(dist_exports7, {
   Trigger: () => Trigger4,
   createDropdownMenuScope: () => createDropdownMenuScope
 });
-var React44 = __toESM(require_react(), 1);
-var import_jsx_runtime23 = __toESM(require_jsx_runtime(), 1);
+var React45 = __toESM(require_react(), 1);
+var import_jsx_runtime24 = __toESM(require_jsx_runtime(), 1);
 var DROPDOWN_MENU_NAME = "DropdownMenu";
 var [createDropdownMenuContext, createDropdownMenuScope] = createContextScope(
   DROPDOWN_MENU_NAME,
@@ -109067,14 +109623,14 @@ var DropdownMenu = (props) => {
     modal = true
   } = props;
   const menuScope = useMenuScope(__scopeDropdownMenu);
-  const triggerRef = React44.useRef(null);
+  const triggerRef = React45.useRef(null);
   const [open, setOpen] = useControllableState({
     prop: openProp,
     defaultProp: defaultOpen != null ? defaultOpen : false,
     onChange: onOpenChange,
     caller: DROPDOWN_MENU_NAME
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
     DropdownMenuProvider,
     {
       scope: __scopeDropdownMenu,
@@ -109083,20 +109639,20 @@ var DropdownMenu = (props) => {
       contentId: useId(),
       open,
       onOpenChange: setOpen,
-      onOpenToggle: React44.useCallback(() => setOpen((prevOpen) => !prevOpen), [setOpen]),
+      onOpenToggle: React45.useCallback(() => setOpen((prevOpen) => !prevOpen), [setOpen]),
       modal,
-      children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Root32, { ...menuScope, open, onOpenChange: setOpen, dir, modal, children })
+      children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Root32, { ...menuScope, open, onOpenChange: setOpen, dir, modal, children })
     }
   );
 };
 DropdownMenu.displayName = DROPDOWN_MENU_NAME;
 var TRIGGER_NAME5 = "DropdownMenuTrigger";
-var DropdownMenuTrigger = React44.forwardRef(
+var DropdownMenuTrigger = React45.forwardRef(
   (props, forwardedRef) => {
     const { __scopeDropdownMenu, disabled = false, ...triggerProps } = props;
     const context = useDropdownMenuContext(TRIGGER_NAME5, __scopeDropdownMenu);
     const menuScope = useMenuScope(__scopeDropdownMenu);
-    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Anchor2, { asChild: true, ...menuScope, children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Anchor2, { asChild: true, ...menuScope, children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
       Primitive.button,
       {
         type: "button",
@@ -109130,17 +109686,17 @@ var PORTAL_NAME5 = "DropdownMenuPortal";
 var DropdownMenuPortal = (props) => {
   const { __scopeDropdownMenu, ...portalProps } = props;
   const menuScope = useMenuScope(__scopeDropdownMenu);
-  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Portal4, { ...menuScope, ...portalProps });
+  return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Portal4, { ...menuScope, ...portalProps });
 };
 DropdownMenuPortal.displayName = PORTAL_NAME5;
 var CONTENT_NAME7 = "DropdownMenuContent";
-var DropdownMenuContent = React44.forwardRef(
+var DropdownMenuContent = React45.forwardRef(
   (props, forwardedRef) => {
     const { __scopeDropdownMenu, ...contentProps } = props;
     const context = useDropdownMenuContext(CONTENT_NAME7, __scopeDropdownMenu);
     const menuScope = useMenuScope(__scopeDropdownMenu);
-    const hasInteractedOutsideRef = React44.useRef(false);
-    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
+    const hasInteractedOutsideRef = React45.useRef(false);
+    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
       Content23,
       {
         id: context.contentId,
@@ -109177,73 +109733,73 @@ var DropdownMenuContent = React44.forwardRef(
 );
 DropdownMenuContent.displayName = CONTENT_NAME7;
 var GROUP_NAME4 = "DropdownMenuGroup";
-var DropdownMenuGroup = React44.forwardRef(
+var DropdownMenuGroup = React45.forwardRef(
   (props, forwardedRef) => {
     const { __scopeDropdownMenu, ...groupProps } = props;
     const menuScope = useMenuScope(__scopeDropdownMenu);
-    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Group2, { ...menuScope, ...groupProps, ref: forwardedRef });
+    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Group2, { ...menuScope, ...groupProps, ref: forwardedRef });
   }
 );
 DropdownMenuGroup.displayName = GROUP_NAME4;
 var LABEL_NAME3 = "DropdownMenuLabel";
-var DropdownMenuLabel = React44.forwardRef(
+var DropdownMenuLabel = React45.forwardRef(
   (props, forwardedRef) => {
     const { __scopeDropdownMenu, ...labelProps } = props;
     const menuScope = useMenuScope(__scopeDropdownMenu);
-    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Label2, { ...menuScope, ...labelProps, ref: forwardedRef });
+    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Label2, { ...menuScope, ...labelProps, ref: forwardedRef });
   }
 );
 DropdownMenuLabel.displayName = LABEL_NAME3;
 var ITEM_NAME4 = "DropdownMenuItem";
-var DropdownMenuItem = React44.forwardRef(
+var DropdownMenuItem = React45.forwardRef(
   (props, forwardedRef) => {
     const { __scopeDropdownMenu, ...itemProps } = props;
     const menuScope = useMenuScope(__scopeDropdownMenu);
-    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Item22, { ...menuScope, ...itemProps, ref: forwardedRef });
+    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Item22, { ...menuScope, ...itemProps, ref: forwardedRef });
   }
 );
 DropdownMenuItem.displayName = ITEM_NAME4;
 var CHECKBOX_ITEM_NAME2 = "DropdownMenuCheckboxItem";
-var DropdownMenuCheckboxItem = React44.forwardRef((props, forwardedRef) => {
+var DropdownMenuCheckboxItem = React45.forwardRef((props, forwardedRef) => {
   const { __scopeDropdownMenu, ...checkboxItemProps } = props;
   const menuScope = useMenuScope(__scopeDropdownMenu);
-  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(CheckboxItem, { ...menuScope, ...checkboxItemProps, ref: forwardedRef });
+  return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(CheckboxItem, { ...menuScope, ...checkboxItemProps, ref: forwardedRef });
 });
 DropdownMenuCheckboxItem.displayName = CHECKBOX_ITEM_NAME2;
 var RADIO_GROUP_NAME2 = "DropdownMenuRadioGroup";
-var DropdownMenuRadioGroup = React44.forwardRef((props, forwardedRef) => {
+var DropdownMenuRadioGroup = React45.forwardRef((props, forwardedRef) => {
   const { __scopeDropdownMenu, ...radioGroupProps } = props;
   const menuScope = useMenuScope(__scopeDropdownMenu);
-  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(RadioGroup, { ...menuScope, ...radioGroupProps, ref: forwardedRef });
+  return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(RadioGroup, { ...menuScope, ...radioGroupProps, ref: forwardedRef });
 });
 DropdownMenuRadioGroup.displayName = RADIO_GROUP_NAME2;
 var RADIO_ITEM_NAME2 = "DropdownMenuRadioItem";
-var DropdownMenuRadioItem = React44.forwardRef((props, forwardedRef) => {
+var DropdownMenuRadioItem = React45.forwardRef((props, forwardedRef) => {
   const { __scopeDropdownMenu, ...radioItemProps } = props;
   const menuScope = useMenuScope(__scopeDropdownMenu);
-  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(RadioItem, { ...menuScope, ...radioItemProps, ref: forwardedRef });
+  return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(RadioItem, { ...menuScope, ...radioItemProps, ref: forwardedRef });
 });
 DropdownMenuRadioItem.displayName = RADIO_ITEM_NAME2;
 var INDICATOR_NAME = "DropdownMenuItemIndicator";
-var DropdownMenuItemIndicator = React44.forwardRef((props, forwardedRef) => {
+var DropdownMenuItemIndicator = React45.forwardRef((props, forwardedRef) => {
   const { __scopeDropdownMenu, ...itemIndicatorProps } = props;
   const menuScope = useMenuScope(__scopeDropdownMenu);
-  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(ItemIndicator2, { ...menuScope, ...itemIndicatorProps, ref: forwardedRef });
+  return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(ItemIndicator2, { ...menuScope, ...itemIndicatorProps, ref: forwardedRef });
 });
 DropdownMenuItemIndicator.displayName = INDICATOR_NAME;
 var SEPARATOR_NAME3 = "DropdownMenuSeparator";
-var DropdownMenuSeparator = React44.forwardRef((props, forwardedRef) => {
+var DropdownMenuSeparator = React45.forwardRef((props, forwardedRef) => {
   const { __scopeDropdownMenu, ...separatorProps } = props;
   const menuScope = useMenuScope(__scopeDropdownMenu);
-  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Separator2, { ...menuScope, ...separatorProps, ref: forwardedRef });
+  return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Separator2, { ...menuScope, ...separatorProps, ref: forwardedRef });
 });
 DropdownMenuSeparator.displayName = SEPARATOR_NAME3;
 var ARROW_NAME4 = "DropdownMenuArrow";
-var DropdownMenuArrow = React44.forwardRef(
+var DropdownMenuArrow = React45.forwardRef(
   (props, forwardedRef) => {
     const { __scopeDropdownMenu, ...arrowProps } = props;
     const menuScope = useMenuScope(__scopeDropdownMenu);
-    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Arrow23, { ...menuScope, ...arrowProps, ref: forwardedRef });
+    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Arrow23, { ...menuScope, ...arrowProps, ref: forwardedRef });
   }
 );
 DropdownMenuArrow.displayName = ARROW_NAME4;
@@ -109256,20 +109812,20 @@ var DropdownMenuSub = (props) => {
     onChange: onOpenChange,
     caller: "DropdownMenuSub"
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Sub, { ...menuScope, open, onOpenChange: setOpen, children });
+  return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Sub, { ...menuScope, open, onOpenChange: setOpen, children });
 };
 var SUB_TRIGGER_NAME2 = "DropdownMenuSubTrigger";
-var DropdownMenuSubTrigger = React44.forwardRef((props, forwardedRef) => {
+var DropdownMenuSubTrigger = React45.forwardRef((props, forwardedRef) => {
   const { __scopeDropdownMenu, ...subTriggerProps } = props;
   const menuScope = useMenuScope(__scopeDropdownMenu);
-  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(SubTrigger, { ...menuScope, ...subTriggerProps, ref: forwardedRef });
+  return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(SubTrigger, { ...menuScope, ...subTriggerProps, ref: forwardedRef });
 });
 DropdownMenuSubTrigger.displayName = SUB_TRIGGER_NAME2;
 var SUB_CONTENT_NAME2 = "DropdownMenuSubContent";
-var DropdownMenuSubContent = React44.forwardRef((props, forwardedRef) => {
+var DropdownMenuSubContent = React45.forwardRef((props, forwardedRef) => {
   const { __scopeDropdownMenu, ...subContentProps } = props;
   const menuScope = useMenuScope(__scopeDropdownMenu);
-  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
     SubContent,
     {
       ...menuScope,
@@ -109320,8 +109876,8 @@ __export(dist_exports9, {
   Track: () => Track,
   createSliderScope: () => createSliderScope
 });
-var React45 = __toESM(require_react(), 1);
-var import_jsx_runtime24 = __toESM(require_jsx_runtime(), 1);
+var React46 = __toESM(require_react(), 1);
+var import_jsx_runtime25 = __toESM(require_jsx_runtime(), 1);
 var PAGE_KEYS = ["PageUp", "PageDown"];
 var ARROW_KEYS = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
 var BACK_KEYS = {
@@ -109336,7 +109892,7 @@ var [createSliderContext, createSliderScope] = createContextScope(SLIDER_NAME, [
   createCollectionScope5
 ]);
 var [SliderProvider, useSliderContext] = createSliderContext(SLIDER_NAME);
-var Slider = React45.forwardRef(
+var Slider = React46.forwardRef(
   (props, forwardedRef) => {
     const {
       name,
@@ -109356,8 +109912,8 @@ var Slider = React45.forwardRef(
       form,
       ...sliderProps
     } = props;
-    const thumbRefs = React45.useRef(/* @__PURE__ */ new Set());
-    const valueIndexToChangeRef = React45.useRef(0);
+    const thumbRefs = React46.useRef(/* @__PURE__ */ new Set());
+    const valueIndexToChangeRef = React46.useRef(0);
     const isHorizontal = orientation === "horizontal";
     const SliderOrientation = isHorizontal ? SliderHorizontal : SliderVertical;
     const [values = [], setValues] = useControllableState({
@@ -109370,7 +109926,7 @@ var Slider = React45.forwardRef(
         onValueChange(value2);
       }
     });
-    const valuesBeforeSlideStartRef = React45.useRef(values);
+    const valuesBeforeSlideStartRef = React46.useRef(values);
     function handleSlideStart(value2) {
       const closestIndex = getClosestValueIndex(values, value2);
       updateValues(value2, closestIndex);
@@ -109400,7 +109956,7 @@ var Slider = React45.forwardRef(
         }
       });
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
       SliderProvider,
       {
         scope: props.__scopeSlider,
@@ -109413,7 +109969,7 @@ var Slider = React45.forwardRef(
         values,
         orientation,
         form,
-        children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Collection5.Provider, { scope: props.__scopeSlider, children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Collection5.Slot, { scope: props.__scopeSlider, children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Collection5.Provider, { scope: props.__scopeSlider, children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Collection5.Slot, { scope: props.__scopeSlider, children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
           SliderOrientation,
           {
             "aria-disabled": disabled,
@@ -109455,7 +110011,7 @@ var [SliderOrientationProvider, useSliderOrientationContext] = createSliderConte
   size: "width",
   direction: 1
 });
-var SliderHorizontal = React45.forwardRef(
+var SliderHorizontal = React46.forwardRef(
   (props, forwardedRef) => {
     const {
       min: min2,
@@ -109468,9 +110024,9 @@ var SliderHorizontal = React45.forwardRef(
       onStepKeyDown,
       ...sliderProps
     } = props;
-    const [slider, setSlider] = React45.useState(null);
+    const [slider, setSlider] = React46.useState(null);
     const composedRefs = useComposedRefs(forwardedRef, (node) => setSlider(node));
-    const rectRef = React45.useRef(void 0);
+    const rectRef = React46.useRef(void 0);
     const direction = useDirection(dir);
     const isDirectionLTR = direction === "ltr";
     const isSlidingFromLeft = isDirectionLTR && !inverted || !isDirectionLTR && inverted;
@@ -109482,7 +110038,7 @@ var SliderHorizontal = React45.forwardRef(
       rectRef.current = rect;
       return value(pointerPosition - rect.left);
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
       SliderOrientationProvider,
       {
         scope: props.__scopeSlider,
@@ -109490,7 +110046,7 @@ var SliderHorizontal = React45.forwardRef(
         endEdge: isSlidingFromLeft ? "right" : "left",
         direction: isSlidingFromLeft ? 1 : -1,
         size: "width",
-        children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
           SliderImpl,
           {
             dir: direction,
@@ -109524,7 +110080,7 @@ var SliderHorizontal = React45.forwardRef(
     );
   }
 );
-var SliderVertical = React45.forwardRef(
+var SliderVertical = React46.forwardRef(
   (props, forwardedRef) => {
     const {
       min: min2,
@@ -109536,9 +110092,9 @@ var SliderVertical = React45.forwardRef(
       onStepKeyDown,
       ...sliderProps
     } = props;
-    const sliderRef = React45.useRef(null);
+    const sliderRef = React46.useRef(null);
     const ref = useComposedRefs(forwardedRef, sliderRef);
-    const rectRef = React45.useRef(void 0);
+    const rectRef = React46.useRef(void 0);
     const isSlidingFromBottom = !inverted;
     function getValueFromPointer(pointerPosition) {
       const rect = rectRef.current || sliderRef.current.getBoundingClientRect();
@@ -109548,7 +110104,7 @@ var SliderVertical = React45.forwardRef(
       rectRef.current = rect;
       return value(pointerPosition - rect.top);
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
       SliderOrientationProvider,
       {
         scope: props.__scopeSlider,
@@ -109556,7 +110112,7 @@ var SliderVertical = React45.forwardRef(
         endEdge: isSlidingFromBottom ? "top" : "bottom",
         size: "height",
         direction: isSlidingFromBottom ? 1 : -1,
-        children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
           SliderImpl,
           {
             "data-orientation": "vertical",
@@ -109589,7 +110145,7 @@ var SliderVertical = React45.forwardRef(
     );
   }
 );
-var SliderImpl = React45.forwardRef(
+var SliderImpl = React46.forwardRef(
   (props, forwardedRef) => {
     const {
       __scopeSlider,
@@ -109602,7 +110158,7 @@ var SliderImpl = React45.forwardRef(
       ...sliderProps
     } = props;
     const context = useSliderContext(SLIDER_NAME, __scopeSlider);
-    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
       Primitive.span,
       {
         ...sliderProps,
@@ -109645,11 +110201,11 @@ var SliderImpl = React45.forwardRef(
   }
 );
 var TRACK_NAME = "SliderTrack";
-var SliderTrack = React45.forwardRef(
+var SliderTrack = React46.forwardRef(
   (props, forwardedRef) => {
     const { __scopeSlider, ...trackProps } = props;
     const context = useSliderContext(TRACK_NAME, __scopeSlider);
-    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
       Primitive.span,
       {
         "data-disabled": context.disabled ? "" : void 0,
@@ -109662,12 +110218,12 @@ var SliderTrack = React45.forwardRef(
 );
 SliderTrack.displayName = TRACK_NAME;
 var RANGE_NAME = "SliderRange";
-var SliderRange = React45.forwardRef(
+var SliderRange = React46.forwardRef(
   (props, forwardedRef) => {
     const { __scopeSlider, ...rangeProps } = props;
     const context = useSliderContext(RANGE_NAME, __scopeSlider);
     const orientation = useSliderOrientationContext(RANGE_NAME, __scopeSlider);
-    const ref = React45.useRef(null);
+    const ref = React46.useRef(null);
     const composedRefs = useComposedRefs(forwardedRef, ref);
     const valuesCount = context.values.length;
     const percentages = context.values.map(
@@ -109675,7 +110231,7 @@ var SliderRange = React45.forwardRef(
     );
     const offsetStart = valuesCount > 1 ? Math.min(...percentages) : 0;
     const offsetEnd = 100 - Math.max(...percentages);
-    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
       Primitive.span,
       {
         "data-orientation": context.orientation,
@@ -109693,24 +110249,24 @@ var SliderRange = React45.forwardRef(
 );
 SliderRange.displayName = RANGE_NAME;
 var THUMB_NAME = "SliderThumb";
-var SliderThumb = React45.forwardRef(
+var SliderThumb = React46.forwardRef(
   (props, forwardedRef) => {
     const getItems = useCollection5(props.__scopeSlider);
-    const [thumb, setThumb] = React45.useState(null);
+    const [thumb, setThumb] = React46.useState(null);
     const composedRefs = useComposedRefs(forwardedRef, (node) => setThumb(node));
-    const index2 = React45.useMemo(
+    const index2 = React46.useMemo(
       () => thumb ? getItems().findIndex((item) => item.ref.current === thumb) : -1,
       [getItems, thumb]
     );
-    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(SliderThumbImpl, { ...props, ref: composedRefs, index: index2 });
+    return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(SliderThumbImpl, { ...props, ref: composedRefs, index: index2 });
   }
 );
-var SliderThumbImpl = React45.forwardRef(
+var SliderThumbImpl = React46.forwardRef(
   (props, forwardedRef) => {
     const { __scopeSlider, index: index2, name, ...thumbProps } = props;
     const context = useSliderContext(THUMB_NAME, __scopeSlider);
     const orientation = useSliderOrientationContext(THUMB_NAME, __scopeSlider);
-    const [thumb, setThumb] = React45.useState(null);
+    const [thumb, setThumb] = React46.useState(null);
     const composedRefs = useComposedRefs(forwardedRef, (node) => setThumb(node));
     const isFormControl = thumb ? context.form || !!thumb.closest("form") : true;
     const size4 = useSize(thumb);
@@ -109719,7 +110275,7 @@ var SliderThumbImpl = React45.forwardRef(
     const label = getLabel(index2, context.values.length);
     const orientationSize = size4 == null ? void 0 : size4[orientation.size];
     const thumbInBoundsOffset = orientationSize ? getThumbInBoundsOffset(orientationSize, percent, orientation.direction) : 0;
-    React45.useEffect(() => {
+    React46.useEffect(() => {
       if (thumb) {
         context.thumbs.add(thumb);
         return () => {
@@ -109727,7 +110283,7 @@ var SliderThumbImpl = React45.forwardRef(
         };
       }
     }, [thumb, context.thumbs]);
-    return /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(
       "span",
       {
         style: {
@@ -109736,7 +110292,7 @@ var SliderThumbImpl = React45.forwardRef(
           [orientation.startEdge]: `calc(${percent}% + ${thumbInBoundsOffset}px)`
         },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Collection5.ItemSlot, { scope: props.__scopeSlider, children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Collection5.ItemSlot, { scope: props.__scopeSlider, children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
             Primitive.span,
             {
               role: "slider",
@@ -109756,7 +110312,7 @@ var SliderThumbImpl = React45.forwardRef(
               })
             }
           ) }),
-          isFormControl && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+          isFormControl && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
             SliderBubbleInput,
             {
               name: name != null ? name : context.name ? context.name + (context.values.length > 1 ? "[]" : "") : void 0,
@@ -109772,12 +110328,12 @@ var SliderThumbImpl = React45.forwardRef(
 );
 SliderThumb.displayName = THUMB_NAME;
 var BUBBLE_INPUT_NAME2 = "RadioBubbleInput";
-var SliderBubbleInput = React45.forwardRef(
+var SliderBubbleInput = React46.forwardRef(
   ({ __scopeSlider, value, ...props }, forwardedRef) => {
-    const ref = React45.useRef(null);
+    const ref = React46.useRef(null);
     const composedRefs = useComposedRefs(ref, forwardedRef);
     const prevValue = usePrevious(value);
-    React45.useEffect(() => {
+    React46.useEffect(() => {
       const input = ref.current;
       if (!input) return;
       const inputProto = window.HTMLInputElement.prototype;
@@ -109789,7 +110345,7 @@ var SliderBubbleInput = React45.forwardRef(
         input.dispatchEvent(event);
       }
     }, [prevValue, value]);
-    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
       Primitive.input,
       {
         style: { display: "none" },
@@ -109864,10 +110420,10 @@ var Range = SliderRange;
 var Thumb = SliderThumb;
 
 // node_modules/@radix-ui/react-toggle/dist/index.mjs
-var React46 = __toESM(require_react(), 1);
-var import_jsx_runtime25 = __toESM(require_jsx_runtime(), 1);
+var React47 = __toESM(require_react(), 1);
+var import_jsx_runtime26 = __toESM(require_jsx_runtime(), 1);
 var NAME3 = "Toggle";
-var Toggle = React46.forwardRef((props, forwardedRef) => {
+var Toggle = React47.forwardRef((props, forwardedRef) => {
   const { pressed: pressedProp, defaultPressed, onPressedChange, ...buttonProps } = props;
   const [pressed, setPressed] = useControllableState({
     prop: pressedProp,
@@ -109875,7 +110431,7 @@ var Toggle = React46.forwardRef((props, forwardedRef) => {
     defaultProp: defaultPressed != null ? defaultPressed : false,
     caller: NAME3
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
     Primitive.button,
     {
       type: "button",
@@ -109904,7 +110460,7 @@ __export(dist_exports10, {
   createToggleGroupScope: () => createToggleGroupScope
 });
 var import_react8 = __toESM(require_react(), 1);
-var import_jsx_runtime26 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime27 = __toESM(require_jsx_runtime(), 1);
 var TOGGLE_GROUP_NAME = "ToggleGroup";
 var [createToggleGroupContext, createToggleGroupScope] = createContextScope(TOGGLE_GROUP_NAME, [
   createRovingFocusGroupScope
@@ -109914,11 +110470,11 @@ var ToggleGroup = import_react8.default.forwardRef((props, forwardedRef) => {
   const { type, ...toggleGroupProps } = props;
   if (type === "single") {
     const singleProps = toggleGroupProps;
-    return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(ToggleGroupImplSingle, { ...singleProps, ref: forwardedRef });
+    return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ToggleGroupImplSingle, { ...singleProps, ref: forwardedRef });
   }
   if (type === "multiple") {
     const multipleProps = toggleGroupProps;
-    return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(ToggleGroupImplMultiple, { ...multipleProps, ref: forwardedRef });
+    return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ToggleGroupImplMultiple, { ...multipleProps, ref: forwardedRef });
   }
   throw new Error(`Missing prop \`type\` expected on \`${TOGGLE_GROUP_NAME}\``);
 });
@@ -109938,7 +110494,7 @@ var ToggleGroupImplSingle = import_react8.default.forwardRef((props, forwardedRe
     onChange: onValueChange,
     caller: TOGGLE_GROUP_NAME
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
     ToggleGroupValueProvider,
     {
       scope: props.__scopeToggleGroup,
@@ -109946,7 +110502,7 @@ var ToggleGroupImplSingle = import_react8.default.forwardRef((props, forwardedRe
       value: import_react8.default.useMemo(() => value ? [value] : [], [value]),
       onItemActivate: setValue,
       onItemDeactivate: import_react8.default.useCallback(() => setValue(""), [setValue]),
-      children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(ToggleGroupImpl, { ...toggleGroupSingleProps, ref: forwardedRef })
+      children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ToggleGroupImpl, { ...toggleGroupSingleProps, ref: forwardedRef })
     }
   );
 });
@@ -109972,7 +110528,7 @@ var ToggleGroupImplMultiple = import_react8.default.forwardRef((props, forwarded
     (itemValue) => setValue((prevValue = []) => prevValue.filter((value2) => value2 !== itemValue)),
     [setValue]
   );
-  return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
     ToggleGroupValueProvider,
     {
       scope: props.__scopeToggleGroup,
@@ -109980,7 +110536,7 @@ var ToggleGroupImplMultiple = import_react8.default.forwardRef((props, forwarded
       value,
       onItemActivate: handleButtonActivate,
       onItemDeactivate: handleButtonDeactivate,
-      children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(ToggleGroupImpl, { ...toggleGroupMultipleProps, ref: forwardedRef })
+      children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ToggleGroupImpl, { ...toggleGroupMultipleProps, ref: forwardedRef })
     }
   );
 });
@@ -110000,7 +110556,7 @@ var ToggleGroupImpl = import_react8.default.forwardRef(
     const rovingFocusGroupScope = useRovingFocusGroupScope3(__scopeToggleGroup);
     const direction = useDirection(dir);
     const commonProps = { role: "group", dir: direction, ...toggleGroupProps };
-    return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(ToggleGroupContext, { scope: __scopeToggleGroup, rovingFocus, disabled, children: rovingFocus ? /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ToggleGroupContext, { scope: __scopeToggleGroup, rovingFocus, disabled, children: rovingFocus ? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
       Root,
       {
         asChild: true,
@@ -110008,9 +110564,9 @@ var ToggleGroupImpl = import_react8.default.forwardRef(
         orientation,
         dir: direction,
         loop,
-        children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Primitive.div, { ...commonProps, ref: forwardedRef })
+        children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Primitive.div, { ...commonProps, ref: forwardedRef })
       }
-    ) : /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Primitive.div, { ...commonProps, ref: forwardedRef }) });
+    ) : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Primitive.div, { ...commonProps, ref: forwardedRef }) });
   }
 );
 var ITEM_NAME5 = "ToggleGroupItem";
@@ -110023,7 +110579,7 @@ var ToggleGroupItem = import_react8.default.forwardRef(
     const disabled = context.disabled || props.disabled;
     const commonProps = { ...props, pressed, disabled };
     const ref = import_react8.default.useRef(null);
-    return context.rovingFocus ? /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+    return context.rovingFocus ? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
       Item,
       {
         asChild: true,
@@ -110031,9 +110587,9 @@ var ToggleGroupItem = import_react8.default.forwardRef(
         focusable: !disabled,
         active: pressed,
         ref,
-        children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(ToggleGroupItemImpl, { ...commonProps, ref: forwardedRef })
+        children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ToggleGroupItemImpl, { ...commonProps, ref: forwardedRef })
       }
-    ) : /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(ToggleGroupItemImpl, { ...commonProps, ref: forwardedRef });
+    ) : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ToggleGroupItemImpl, { ...commonProps, ref: forwardedRef });
   }
 );
 ToggleGroupItem.displayName = ITEM_NAME5;
@@ -110043,7 +110599,7 @@ var ToggleGroupItemImpl = import_react8.default.forwardRef(
     const valueContext = useToggleGroupValueContext(ITEM_NAME5, __scopeToggleGroup);
     const singleProps = { role: "radio", "aria-checked": props.pressed, "aria-pressed": void 0 };
     const typeProps = valueContext.type === "single" ? singleProps : void 0;
-    return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
       Toggle,
       {
         ...typeProps,
@@ -110064,8 +110620,8 @@ var Root26 = ToggleGroup;
 var Item24 = ToggleGroupItem;
 
 // node_modules/@radix-ui/react-tooltip/dist/index.mjs
-var React48 = __toESM(require_react(), 1);
-var import_jsx_runtime27 = __toESM(require_jsx_runtime(), 1);
+var React49 = __toESM(require_react(), 1);
+var import_jsx_runtime28 = __toESM(require_jsx_runtime(), 1);
 var [createTooltipContext, createTooltipScope] = createContextScope("Tooltip", [
   createPopperScope
 ]);
@@ -110082,24 +110638,24 @@ var TooltipProvider = (props) => {
     disableHoverableContent = false,
     children
   } = props;
-  const isOpenDelayedRef = React48.useRef(true);
-  const isPointerInTransitRef = React48.useRef(false);
-  const skipDelayTimerRef = React48.useRef(0);
-  React48.useEffect(() => {
+  const isOpenDelayedRef = React49.useRef(true);
+  const isPointerInTransitRef = React49.useRef(false);
+  const skipDelayTimerRef = React49.useRef(0);
+  React49.useEffect(() => {
     const skipDelayTimer = skipDelayTimerRef.current;
     return () => window.clearTimeout(skipDelayTimer);
   }, []);
-  return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
     TooltipProviderContextProvider,
     {
       scope: __scopeTooltip,
       isOpenDelayedRef,
       delayDuration,
-      onOpen: React48.useCallback(() => {
+      onOpen: React49.useCallback(() => {
         window.clearTimeout(skipDelayTimerRef.current);
         isOpenDelayedRef.current = false;
       }, []),
-      onClose: React48.useCallback(() => {
+      onClose: React49.useCallback(() => {
         window.clearTimeout(skipDelayTimerRef.current);
         skipDelayTimerRef.current = window.setTimeout(
           () => isOpenDelayedRef.current = true,
@@ -110107,7 +110663,7 @@ var TooltipProvider = (props) => {
         );
       }, [skipDelayDuration]),
       isPointerInTransitRef,
-      onPointerInTransitChange: React48.useCallback((inTransit) => {
+      onPointerInTransitChange: React49.useCallback((inTransit) => {
         isPointerInTransitRef.current = inTransit;
       }, []),
       disableHoverableContent,
@@ -110130,12 +110686,12 @@ var Tooltip = (props) => {
   } = props;
   const providerContext = useTooltipProviderContext(TOOLTIP_NAME, props.__scopeTooltip);
   const popperScope = usePopperScope3(__scopeTooltip);
-  const [trigger, setTrigger] = React48.useState(null);
+  const [trigger, setTrigger] = React49.useState(null);
   const contentId = useId();
-  const openTimerRef = React48.useRef(0);
+  const openTimerRef = React49.useRef(0);
   const disableHoverableContent = disableHoverableContentProp != null ? disableHoverableContentProp : providerContext.disableHoverableContent;
   const delayDuration = delayDurationProp != null ? delayDurationProp : providerContext.delayDuration;
-  const wasOpenDelayedRef = React48.useRef(false);
+  const wasOpenDelayedRef = React49.useRef(false);
   const [open, setOpen] = useControllableState({
     prop: openProp,
     defaultProp: defaultOpen != null ? defaultOpen : false,
@@ -110150,21 +110706,21 @@ var Tooltip = (props) => {
     },
     caller: TOOLTIP_NAME
   });
-  const stateAttribute = React48.useMemo(() => {
+  const stateAttribute = React49.useMemo(() => {
     return open ? wasOpenDelayedRef.current ? "delayed-open" : "instant-open" : "closed";
   }, [open]);
-  const handleOpen = React48.useCallback(() => {
+  const handleOpen = React49.useCallback(() => {
     window.clearTimeout(openTimerRef.current);
     openTimerRef.current = 0;
     wasOpenDelayedRef.current = false;
     setOpen(true);
   }, [setOpen]);
-  const handleClose = React48.useCallback(() => {
+  const handleClose = React49.useCallback(() => {
     window.clearTimeout(openTimerRef.current);
     openTimerRef.current = 0;
     setOpen(false);
   }, [setOpen]);
-  const handleDelayedOpen = React48.useCallback(() => {
+  const handleDelayedOpen = React49.useCallback(() => {
     window.clearTimeout(openTimerRef.current);
     openTimerRef.current = window.setTimeout(() => {
       wasOpenDelayedRef.current = true;
@@ -110172,7 +110728,7 @@ var Tooltip = (props) => {
       openTimerRef.current = 0;
     }, delayDuration);
   }, [delayDuration, setOpen]);
-  React48.useEffect(() => {
+  React49.useEffect(() => {
     return () => {
       if (openTimerRef.current) {
         window.clearTimeout(openTimerRef.current);
@@ -110180,7 +110736,7 @@ var Tooltip = (props) => {
       }
     };
   }, []);
-  return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Root23, { ...popperScope, children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Root23, { ...popperScope, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
     TooltipContextProvider,
     {
       scope: __scopeTooltip,
@@ -110189,11 +110745,11 @@ var Tooltip = (props) => {
       stateAttribute,
       trigger,
       onTriggerChange: setTrigger,
-      onTriggerEnter: React48.useCallback(() => {
+      onTriggerEnter: React49.useCallback(() => {
         if (providerContext.isOpenDelayedRef.current) handleDelayedOpen();
         else handleOpen();
       }, [providerContext.isOpenDelayedRef, handleDelayedOpen, handleOpen]),
-      onTriggerLeave: React48.useCallback(() => {
+      onTriggerLeave: React49.useCallback(() => {
         if (disableHoverableContent) {
           handleClose();
         } else {
@@ -110210,21 +110766,21 @@ var Tooltip = (props) => {
 };
 Tooltip.displayName = TOOLTIP_NAME;
 var TRIGGER_NAME6 = "TooltipTrigger";
-var TooltipTrigger = React48.forwardRef(
+var TooltipTrigger = React49.forwardRef(
   (props, forwardedRef) => {
     const { __scopeTooltip, ...triggerProps } = props;
     const context = useTooltipContext(TRIGGER_NAME6, __scopeTooltip);
     const providerContext = useTooltipProviderContext(TRIGGER_NAME6, __scopeTooltip);
     const popperScope = usePopperScope3(__scopeTooltip);
-    const ref = React48.useRef(null);
+    const ref = React49.useRef(null);
     const composedRefs = useComposedRefs(forwardedRef, ref, context.onTriggerChange);
-    const isPointerDownRef = React48.useRef(false);
-    const hasPointerMoveOpenedRef = React48.useRef(false);
-    const handlePointerUp = React48.useCallback(() => isPointerDownRef.current = false, []);
-    React48.useEffect(() => {
+    const isPointerDownRef = React49.useRef(false);
+    const hasPointerMoveOpenedRef = React49.useRef(false);
+    const handlePointerUp = React49.useCallback(() => isPointerDownRef.current = false, []);
+    React49.useEffect(() => {
       return () => document.removeEventListener("pointerup", handlePointerUp);
     }, [handlePointerUp]);
-    return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Anchor, { asChild: true, ...popperScope, children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Anchor, { asChild: true, ...popperScope, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
       Primitive.button,
       {
         "aria-describedby": context.open ? context.contentId : void 0,
@@ -110266,32 +110822,32 @@ var [PortalProvider3, usePortalContext3] = createTooltipContext(PORTAL_NAME6, {
 var TooltipPortal = (props) => {
   const { __scopeTooltip, forceMount, children, container } = props;
   const context = useTooltipContext(PORTAL_NAME6, __scopeTooltip);
-  return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(PortalProvider3, { scope: __scopeTooltip, forceMount, children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Portal, { asChild: true, container, children }) }) });
+  return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(PortalProvider3, { scope: __scopeTooltip, forceMount, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Portal, { asChild: true, container, children }) }) });
 };
 TooltipPortal.displayName = PORTAL_NAME6;
 var CONTENT_NAME8 = "TooltipContent";
-var TooltipContent = React48.forwardRef(
+var TooltipContent = React49.forwardRef(
   (props, forwardedRef) => {
     const portalContext = usePortalContext3(CONTENT_NAME8, props.__scopeTooltip);
     const { forceMount = portalContext.forceMount, side = "top", ...contentProps } = props;
     const context = useTooltipContext(CONTENT_NAME8, props.__scopeTooltip);
-    return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Presence, { present: forceMount || context.open, children: context.disableHoverableContent ? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(TooltipContentImpl, { side, ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(TooltipContentHoverable, { side, ...contentProps, ref: forwardedRef }) });
+    return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Presence, { present: forceMount || context.open, children: context.disableHoverableContent ? /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(TooltipContentImpl, { side, ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(TooltipContentHoverable, { side, ...contentProps, ref: forwardedRef }) });
   }
 );
-var TooltipContentHoverable = React48.forwardRef((props, forwardedRef) => {
+var TooltipContentHoverable = React49.forwardRef((props, forwardedRef) => {
   const context = useTooltipContext(CONTENT_NAME8, props.__scopeTooltip);
   const providerContext = useTooltipProviderContext(CONTENT_NAME8, props.__scopeTooltip);
-  const ref = React48.useRef(null);
+  const ref = React49.useRef(null);
   const composedRefs = useComposedRefs(forwardedRef, ref);
-  const [pointerGraceArea, setPointerGraceArea] = React48.useState(null);
+  const [pointerGraceArea, setPointerGraceArea] = React49.useState(null);
   const { trigger, onClose } = context;
   const content = ref.current;
   const { onPointerInTransitChange } = providerContext;
-  const handleRemoveGraceArea = React48.useCallback(() => {
+  const handleRemoveGraceArea = React49.useCallback(() => {
     setPointerGraceArea(null);
     onPointerInTransitChange(false);
   }, [onPointerInTransitChange]);
-  const handleCreateGraceArea = React48.useCallback(
+  const handleCreateGraceArea = React49.useCallback(
     (event, hoverTarget) => {
       const currentTarget = event.currentTarget;
       const exitPoint = { x: event.clientX, y: event.clientY };
@@ -110304,10 +110860,10 @@ var TooltipContentHoverable = React48.forwardRef((props, forwardedRef) => {
     },
     [onPointerInTransitChange]
   );
-  React48.useEffect(() => {
+  React49.useEffect(() => {
     return () => handleRemoveGraceArea();
   }, [handleRemoveGraceArea]);
-  React48.useEffect(() => {
+  React49.useEffect(() => {
     if (trigger && content) {
       const handleTriggerLeave = (event) => handleCreateGraceArea(event, content);
       const handleContentLeave = (event) => handleCreateGraceArea(event, trigger);
@@ -110319,7 +110875,7 @@ var TooltipContentHoverable = React48.forwardRef((props, forwardedRef) => {
       };
     }
   }, [trigger, content, handleCreateGraceArea, handleRemoveGraceArea]);
-  React48.useEffect(() => {
+  React49.useEffect(() => {
     if (pointerGraceArea) {
       const handleTrackPointerGrace = (event) => {
         const target = event.target;
@@ -110337,11 +110893,11 @@ var TooltipContentHoverable = React48.forwardRef((props, forwardedRef) => {
       return () => document.removeEventListener("pointermove", handleTrackPointerGrace);
     }
   }, [trigger, content, pointerGraceArea, onClose, handleRemoveGraceArea]);
-  return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(TooltipContentImpl, { ...props, ref: composedRefs });
+  return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(TooltipContentImpl, { ...props, ref: composedRefs });
 });
 var [VisuallyHiddenContentContextProvider, useVisuallyHiddenContentContext] = createTooltipContext(TOOLTIP_NAME, { isInside: false });
 var Slottable = createSlottable("TooltipContent");
-var TooltipContentImpl = React48.forwardRef(
+var TooltipContentImpl = React49.forwardRef(
   (props, forwardedRef) => {
     const {
       __scopeTooltip,
@@ -110354,11 +110910,11 @@ var TooltipContentImpl = React48.forwardRef(
     const context = useTooltipContext(CONTENT_NAME8, __scopeTooltip);
     const popperScope = usePopperScope3(__scopeTooltip);
     const { onClose } = context;
-    React48.useEffect(() => {
+    React49.useEffect(() => {
       document.addEventListener(TOOLTIP_OPEN, onClose);
       return () => document.removeEventListener(TOOLTIP_OPEN, onClose);
     }, [onClose]);
-    React48.useEffect(() => {
+    React49.useEffect(() => {
       if (context.trigger) {
         const handleScroll2 = (event) => {
           const target = event.target;
@@ -110368,7 +110924,7 @@ var TooltipContentImpl = React48.forwardRef(
         return () => window.removeEventListener("scroll", handleScroll2, { capture: true });
       }
     }, [context.trigger, onClose]);
-    return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
       DismissableLayer,
       {
         asChild: true,
@@ -110377,7 +110933,7 @@ var TooltipContentImpl = React48.forwardRef(
         onPointerDownOutside,
         onFocusOutside: (event) => event.preventDefault(),
         onDismiss: onClose,
-        children: /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(
           Content2,
           {
             "data-state": context.stateAttribute,
@@ -110396,8 +110952,8 @@ var TooltipContentImpl = React48.forwardRef(
               }
             },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Slottable, { children }),
-              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(VisuallyHiddenContentContextProvider, { scope: __scopeTooltip, isInside: true, children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Root4, { id: context.contentId, role: "tooltip", children: ariaLabel || children }) })
+              /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Slottable, { children }),
+              /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(VisuallyHiddenContentContextProvider, { scope: __scopeTooltip, isInside: true, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Root4, { id: context.contentId, role: "tooltip", children: ariaLabel || children }) })
             ]
           }
         )
@@ -110407,7 +110963,7 @@ var TooltipContentImpl = React48.forwardRef(
 );
 TooltipContent.displayName = CONTENT_NAME8;
 var ARROW_NAME5 = "TooltipArrow";
-var TooltipArrow = React48.forwardRef(
+var TooltipArrow = React49.forwardRef(
   (props, forwardedRef) => {
     const { __scopeTooltip, ...arrowProps } = props;
     const popperScope = usePopperScope3(__scopeTooltip);
@@ -110415,7 +110971,7 @@ var TooltipArrow = React48.forwardRef(
       ARROW_NAME5,
       __scopeTooltip
     );
-    return visuallyHiddenContentContext.isInside ? null : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Arrow2, { ...popperScope, ...arrowProps, ref: forwardedRef });
+    return visuallyHiddenContentContext.isInside ? null : /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Arrow2, { ...popperScope, ...arrowProps, ref: forwardedRef });
   }
 );
 TooltipArrow.displayName = ARROW_NAME5;
@@ -110562,8 +111118,8 @@ var ThemeList_default = {
 };
 
 // src/ui/components/ThemeList.tsx
-var React49 = __toESM(require_react());
-var import_jsx_runtime28 = __toESM(require_jsx_runtime());
+var React50 = __toESM(require_react());
+var import_jsx_runtime29 = __toESM(require_jsx_runtime());
 function ThemeList({ disabled = false }) {
   const manager = AssetsManager.getInstance();
   const theme = useConfigContext((s) => s.theme);
@@ -110571,48 +111127,48 @@ function ThemeList({ disabled = false }) {
   const setTheme = useConfigContext((s) => s.setTheme);
   const setHighlight = useConfigContext((s) => s.setHighlight);
   const themes = manager.themes === void 0 ? [] : manager.themes.map((t) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(dist_exports7.RadioItem, { className: ThemeList_default.RadioItem, value: t.className, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(dist_exports7.ItemIndicator, { className: ThemeList_default.ItemIndicator, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(DotFilledIcon, {}) }),
+    return /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(dist_exports7.RadioItem, { className: ThemeList_default.RadioItem, value: t.className, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(dist_exports7.ItemIndicator, { className: ThemeList_default.ItemIndicator, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(DotFilledIcon, {}) }),
       t.name
     ] }, t.className);
   });
   const highlights = manager.highlights === void 0 ? [] : manager.highlights.map((h) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(dist_exports7.RadioItem, { className: ThemeList_default.RadioItem, value: h.name, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(dist_exports7.ItemIndicator, { className: ThemeList_default.ItemIndicator, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(DotFilledIcon, {}) }),
+    return /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(dist_exports7.RadioItem, { className: ThemeList_default.RadioItem, value: h.name, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(dist_exports7.ItemIndicator, { className: ThemeList_default.ItemIndicator, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(DotFilledIcon, {}) }),
       h.name
     ] }, h.name);
   });
-  const containerRef = React49.useRef(null);
-  return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("div", { ref: containerRef, style: { position: "relative", display: "inline-block" }, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(dist_exports7.Root, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(dist_exports7.Trigger, { asChild: true, disabled, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("button", { children: "\u4E3B\u9898" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(dist_exports7.Portal, { container: containerRef.current || void 0, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(dist_exports7.Content, { className: ThemeList_default.Content, sideOffset: 5, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(dist_exports7.Sub, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(dist_exports7.SubTrigger, { className: ThemeList_default.SubTrigger, children: [
+  const containerRef = React50.useRef(null);
+  return /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { ref: containerRef, style: { position: "relative", display: "inline-block" }, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(dist_exports7.Root, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(dist_exports7.Trigger, { asChild: true, disabled, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("button", { children: "\u4E3B\u9898" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(dist_exports7.Portal, { container: containerRef.current || void 0, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(dist_exports7.Content, { className: ThemeList_default.Content, sideOffset: 5, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(dist_exports7.Sub, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(dist_exports7.SubTrigger, { className: ThemeList_default.SubTrigger, children: [
           "\u4E3B\u9898",
-          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("div", { className: ThemeList_default.RightSlot, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(ChevronRightIcon, {}) })
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: ThemeList_default.RightSlot, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(ChevronRightIcon, {}) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(dist_exports7.Portal, { container: containerRef.current || void 0, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(dist_exports7.Portal, { container: containerRef.current || void 0, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
           dist_exports7.SubContent,
           {
             className: ThemeList_default.SubContent,
             sideOffset: 2,
             alignOffset: -5,
-            children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(dist_exports7.RadioGroup, { value: theme, onValueChange: setTheme, children: themes })
+            children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(dist_exports7.RadioGroup, { value: theme, onValueChange: setTheme, children: themes })
           }
         ) })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(dist_exports7.Sub, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(dist_exports7.SubTrigger, { className: ThemeList_default.SubTrigger, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(dist_exports7.Sub, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(dist_exports7.SubTrigger, { className: ThemeList_default.SubTrigger, children: [
           "\u4EE3\u7801\u9AD8\u4EAE",
-          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("div", { className: ThemeList_default.RightSlot, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(ChevronRightIcon, {}) })
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: ThemeList_default.RightSlot, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(ChevronRightIcon, {}) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(dist_exports7.Portal, { container: containerRef.current || void 0, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(dist_exports7.Portal, { container: containerRef.current || void 0, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
           dist_exports7.SubContent,
           {
             className: ThemeList_default.SubContent,
             sideOffset: 2,
             alignOffset: -5,
-            children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(dist_exports7.RadioGroup, { value: highlight, onValueChange: setHighlight, children: highlights })
+            children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(dist_exports7.RadioGroup, { value: highlight, onValueChange: setHighlight, children: highlights })
           }
         ) })
       ] })
@@ -110621,7 +111177,7 @@ function ThemeList({ disabled = false }) {
 }
 
 // src/article-render.ts
-var import_obsidian10 = require("obsidian");
+var import_obsidian12 = require("obsidian");
 
 // src/inline-css.ts
 var inline_css_default = `
@@ -113316,16 +113872,16 @@ var Blockquote = class extends Extension {
 };
 
 // src/core/markdown/code.ts
-var import_obsidian9 = require("obsidian");
+var import_obsidian11 = require("obsidian");
 
 // node_modules/highlight.js/es/index.js
 var import_lib = __toESM(require_lib(), 1);
 var es_default = import_lib.default;
 
 // src/core/markdown/math.ts
-var import_obsidian7 = require("obsidian");
+var import_obsidian9 = require("obsidian");
 var inlineRule = /^(\${1,2})(?!\$)((?:\\.|[^\\\n])*?(?:\\.|[^\\\n\$]))\1/;
-var blockRule = /^(\${1,2})\n((?:\\[^]|[^\\])+?)\n\1(?:\n|$)/;
+var blockRule = /^(\${1,2})\n?((?:\\[^]|[^\\])+?)\n?\1(?:\n|$)/;
 var svgCache = /* @__PURE__ */ new Map();
 function cleanMathCache() {
   svgCache.clear();
@@ -113352,7 +113908,7 @@ var MathRendererQueue = class _MathRendererQueue {
         path = "/math/tex";
       }
       const url = `${this.host}${path}`;
-      const res = await (0, import_obsidian7.requestUrl)({
+      const res = await (0, import_obsidian9.requestUrl)({
         url,
         method: "POST",
         contentType: "application/json",
@@ -113420,7 +113976,8 @@ var MathRenderer = class extends Extension {
       async: true,
       walkTokens: async (token) => {
         if (token.type === "InlineMath" || token.type === "BlockMath") {
-          token.html = await this.renderer(token, token.type === "InlineMath");
+          const inline4 = token.type === "InlineMath" && !token.displayMode;
+          token.html = await this.renderer(token, inline4);
         }
       },
       extensions: [
@@ -113487,7 +114044,7 @@ var MathRenderer = class extends Extension {
 };
 
 // src/core/WorkflowManager.ts
-var import_obsidian8 = require("obsidian");
+var import_obsidian10 = require("obsidian");
 var WorkflowDataManager = class _WorkflowDataManager {
   constructor() {
     this.data = [];
@@ -113512,7 +114069,7 @@ var WorkflowDataManager = class _WorkflowDataManager {
   }
   parse(note, yml) {
     try {
-      const obj = (0, import_obsidian8.parseYaml)(yml);
+      const obj = (0, import_obsidian10.parseYaml)(yml);
       if (!obj || typeof obj !== "object") return;
       const data = {
         note,
@@ -113538,7 +114095,7 @@ var WorkflowDataManager = class _WorkflowDataManager {
   }
   async loadNoteContent(app, path, note) {
     const file = app.metadataCache.getFirstLinkpathDest(path, note);
-    if (file instanceof import_obsidian8.TFile) {
+    if (file instanceof import_obsidian10.TFile) {
       if (file.extension.toLocaleLowerCase() === "md") {
         const content = await app.vault.cachedRead(file);
         return content;
@@ -113606,7 +114163,7 @@ var WorkflowDataManager = class _WorkflowDataManager {
       headers: data.headers ? Object.fromEntries(data.headers) : void 0,
       body
     };
-    const res = await (0, import_obsidian8.requestUrl)(req);
+    const res = await (0, import_obsidian10.requestUrl)(req);
     if (res.status !== 200) {
       const msg = res.text || "";
       if (throwOnFail) {
@@ -113675,7 +114232,7 @@ var CodeRenderer = class _CodeRenderer extends Extension {
       const res = await UploadImageToWx(blob, name, token);
       if (res.errcode != 0) {
         const msg = `\u4E0A\u4F20\u56FE\u7247\u5931\u8D25: ${res.errcode} ${res.errmsg}`;
-        new import_obsidian9.Notice(msg);
+        new import_obsidian11.Notice(msg);
         console.error(msg);
         continue;
       }
@@ -114597,7 +115154,11 @@ var MarkedParser = class {
       },
       table(header, body) {
         if (body) body = `<tbody>${body}</tbody>`;
-        return '<section class="note-table"><table><thead>' + header + "</thead>" + body + "</table></section>";
+        const content = "<table><thead>" + header + "</thead>" + body + "</table>";
+        if (self2.callback.isWechat()) {
+          return '<section class="note-table">' + content + "</section>";
+        }
+        return content;
       },
       paragraph: function(text) {
         const isOnlyImage = /^<(figure|img)\b[^>]*>([\s\S]*?)<\/(figure|img)>$/.test(text) || /^<img\b[^>]*>$/.test(text);
@@ -115454,7 +116015,7 @@ var ArticleRender = class {
     container.empty();
     let className = "note-to-mp";
     const html2 = `<section class="${className}" id="article-section" data-plugin="note-to-mp">${article}</section>`;
-    const doc = (0, import_obsidian10.sanitizeHTMLToDom)(html2);
+    const doc = (0, import_obsidian12.sanitizeHTMLToDom)(html2);
     if (doc.firstChild) {
       container.appendChild(doc.firstChild);
     }
@@ -115462,7 +116023,7 @@ var ArticleRender = class {
   showLoading(container) {
     container.empty();
     const html2 = '<div class="loading-wrapper"><div class="loading-spinner"></div></div>';
-    const doc = (0, import_obsidian10.sanitizeHTMLToDom)(html2);
+    const doc = (0, import_obsidian12.sanitizeHTMLToDom)(html2);
     if (doc.firstChild) {
       container.appendChild(doc.firstChild);
     }
@@ -115479,7 +116040,7 @@ var ArticleRender = class {
     return container.innerText.trimStart();
   }
   errorContent(error) {
-    return '<h1>\u6E32\u67D3\u5931\u8D25!</h1><br/>\u5982\u9700\u5E2E\u52A9\u8BF7\u524D\u5F80&nbsp;&nbsp;<a href="https://github.com/sunbooshi/note-to-mp/issues">https://github.com/sunbooshi/note-to-mp/issues</a>&nbsp;&nbsp;\u53CD\u9988<br/><br/>\u5982\u679C\u65B9\u4FBF\uFF0C\u8BF7\u63D0\u4F9B\u5F15\u53D1\u9519\u8BEF\u7684\u5B8C\u6574Markdown\u5185\u5BB9\u3002<br/><br/><br/>Obsidian\u7248\u672C\uFF1A' + import_obsidian10.apiVersion + `<br/>\u9519\u8BEF\u4FE1\u606F\uFF1A<br/>${error}`;
+    return '<h1>\u6E32\u67D3\u5931\u8D25!</h1><br/>\u5982\u9700\u5E2E\u52A9\u8BF7\u524D\u5F80&nbsp;&nbsp;<a href="https://github.com/sunbooshi/note-to-mp/issues">https://github.com/sunbooshi/note-to-mp/issues</a>&nbsp;&nbsp;\u53CD\u9988<br/><br/>\u5982\u679C\u65B9\u4FBF\uFF0C\u8BF7\u63D0\u4F9B\u5F15\u53D1\u9519\u8BEF\u7684\u5B8C\u6574Markdown\u5185\u5BB9\u3002<br/><br/><br/>Obsidian\u7248\u672C\uFF1A' + import_obsidian12.apiVersion + `<br/>\u9519\u8BEF\u4FE1\u606F\uFF1A<br/>${error}`;
   }
   async renderMarkdown(contianer, af) {
     try {
@@ -115532,7 +116093,7 @@ ${baseCSS}
 ${customCSS}`;
     } catch (error) {
       console.error(error);
-      new import_obsidian10.Notice(`\u83B7\u53D6\u6837\u5F0F\u5931\u8D25${themeName}|${highlightName}\uFF0C\u8BF7\u68C0\u67E5\u4E3B\u9898\u662F\u5426\u6B63\u786E\u5B89\u88C5\u3002`);
+      new import_obsidian12.Notice(`\u83B7\u53D6\u6837\u5F0F\u5931\u8D25${themeName}|${highlightName}\uFF0C\u8BF7\u68C0\u67E5\u4E3B\u9898\u662F\u5426\u6B63\u786E\u5B89\u88C5\u3002`);
     }
     return "";
   }
@@ -115770,527 +116331,6 @@ ${customCSS}`;
       console.error("\u5F53\u524D\u6CA1\u6709\u6253\u5F00\u6587\u4EF6\uFF0C\u65E0\u6CD5\u5904\u7406\u7F13\u5B58\u5143\u7D20");
       return;
     }
-    const component = new import_obsidian10.Component();
-    component.load();
-    for (const [key, value] of this.cachedElements) {
-      const [category, id] = key.split(":");
-      if (category === "mermaid" || category === "excalidraw") {
-        const container = root.querySelector("#" + id);
-        if (container) {
-          await import_obsidian10.MarkdownRenderer.render(this.app, value, container, af.path, component);
-        }
-      }
-    }
-    const metadata = getMetadata(this.app, this.note);
-    if (this.settings.extraSettings && this.settings.extraSettings.imageFrame && !metadata.disable_image_background && this.settings.isAuthKeyVaild()) {
-      const img = root.querySelectorAll("img");
-      img.forEach((img2) => {
-        if (img2.getAttribute("data-source") !== "note") return;
-        if (img2.closest("shot-render")) return;
-        const shotRender = ImageToShot(img2);
-        if (shotRender) {
-          img2.replaceWith(shotRender);
-        }
-      });
-    }
-    component.unload();
-  }
-  async cachedElementsToImages(root) {
-    for (const [key, cached] of this.cachedElements) {
-      const [category, elementId] = key.split(":");
-      const container = root.querySelector(`#${elementId}`);
-      if (!container) continue;
-      if (category === "mermaid") {
-        await this.replaceMermaidWithImage(container, elementId);
-      } else if (category === "excalidraw") {
-        await this.replaceExcalidrawWithImage(container, elementId);
-      }
-    }
-    const shotRenders = root.querySelectorAll("shot-render");
-    for (const shotRender of shotRenders) {
-      await this.replaceShotRenderWithImage(root, shotRender);
-    }
-  }
-  async replaceShotRenderWithImage(container, shotRender) {
-    const clone = shotRender.cloneNode(true);
-    const tempContainer = document.createElement("div");
-    tempContainer.style.cssText = `
-      position: fixed;
-      left: -10000px;
-      top: 0;
-      width: 1280px;
-      height: auto;
-      z-index: -1;
-    `;
-    document.body.appendChild(tempContainer);
-    tempContainer.appendChild(clone);
-    clone.style.maxWidth = "1280px";
-    clone.style.width = "fit-content";
-    clone.style.margin = "0";
-    clone.style.display = "block";
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 200));
-      const images = Array.from(clone.querySelectorAll("img"));
-      await Promise.all(images.map((img) => {
-        if (img.complete) return Promise.resolve();
-        return new Promise((resolve) => {
-          img.onload = resolve;
-          img.onerror = resolve;
-        });
-      }));
-      const width = clone.offsetWidth;
-      const height = clone.offsetHeight;
-      if (width === 0 || height === 0) {
-        console.warn("shot-render clone has 0 size");
-        return;
-      }
-      const pngDataUrl = await toPng(clone, {
-        width,
-        height,
-        pixelRatio: 1,
-        cacheBust: false,
-        skipFonts: true,
-        style: {
-          margin: "0",
-          maxWidth: "1280px"
-        }
-      });
-      if (pngDataUrl && pngDataUrl.length > 100) {
-        const img = document.createElement("img");
-        img.src = pngDataUrl;
-        const imgId = shotRender.getAttribute("data-img-id");
-        if (imgId) {
-          img.setAttribute("data-img-id", imgId);
-        }
-        const style = shotRender.getAttribute("style");
-        if (style) {
-          img.setAttribute("style", style);
-        }
-        shotRender.replaceWith(img);
-      }
-    } catch (error) {
-      console.warn("Failed to render shot-render clone:", error);
-    } finally {
-      document.body.removeChild(tempContainer);
-    }
-  }
-  async replaceMermaidWithImage(container, id) {
-    const mermaidContainer = container.querySelector(".mermaid");
-    if (!mermaidContainer || !mermaidContainer.children.length) return;
-    const svg = mermaidContainer.querySelector("svg");
-    if (!svg) return;
-    try {
-      const pngDataUrl = await toPng(mermaidContainer.firstElementChild, { pixelRatio: 2, style: { margin: "0" } });
-      const img = document.createElement("img");
-      img.id = `img-${id}`;
-      img.src = pngDataUrl;
-      img.style.width = `${svg.clientWidth}px`;
-      img.style.height = "auto";
-      container.replaceChild(img, mermaidContainer);
-    } catch (error) {
-      console.warn(`Failed to render Mermaid diagram: ${id}`, error);
-    }
-  }
-  async replaceExcalidrawWithImage(container, id) {
-    const innerDiv = container.querySelector("div");
-    if (!innerDiv) return;
-    if (NMPSettings.getInstance().excalidrawToPNG) {
-      const originalImg = container.querySelector("img");
-      if (!originalImg) return;
-      const style = originalImg.getAttribute("style") || "";
-      try {
-        const pngDataUrl = await toPng(originalImg, { pixelRatio: 2, style: { margin: "0" } });
-        const img = document.createElement("img");
-        img.id = `img-${id}`;
-        img.src = pngDataUrl;
-        img.setAttribute("style", style);
-        container.replaceChild(img, container.firstChild);
-      } catch (error) {
-        console.warn(`Failed to render Excalidraw image: ${id}`, error);
-      }
-    } else {
-      const svg = await LocalFile.renderExcalidraw(innerDiv.innerHTML);
-      this.updateElementByID(container, id, svg);
-    }
-  }
-  updateElementByID(container, id, html2) {
-    let item = container;
-    if (container.id !== id) {
-      item = container.querySelector("#" + id);
-    }
-    if (!item) return;
-    const doc = (0, import_obsidian10.sanitizeHTMLToDom)(html2);
-    item.empty();
-    if (doc.childElementCount > 0) {
-      for (const child of doc.children) {
-        item.appendChild(child.cloneNode(true));
-      }
-    } else {
-      item.innerText = "\u6E32\u67D3\u5931\u8D25";
-    }
-  }
-  async runStartWorkflow() {
-    if (this.note) {
-      await WorkflowDataManager.getInstance().runWorkflow(this.app, this.note.path, "start");
-    }
-  }
-  async runEndWorkflow() {
-    if (this.note) {
-      await WorkflowDataManager.getInstance().runWorkflow(this.app, this.note.path, "end");
-    }
-  }
-  accountChanged() {
-    this.imageManager.accountChanged();
-    CardDataManager.getInstance().cleanup();
-  }
-  cacheElement(category, id, data) {
-    const key = category + ":" + id;
-    this.cachedElements.set(key, data);
-  }
-  cacheImage(resUrl, filePath) {
-    const info = {
-      resUrl,
-      filePath,
-      media_id: null,
-      url: null,
-      id: this.imageManager.getImageId()
-    };
-    this.imageManager.setImage(resUrl, info);
-  }
-  isWechat() {
-    return true;
-  }
-};
-
-// src/ui/components/Loading.module.css
-var Loading_default = {
-  PageLoading: "Loading_PageLoading",
-  LoadingSpinner: "Loading_LoadingSpinner",
-  spin: "Loading_spin",
-  LoadingOrb: "Loading_LoadingOrb",
-  "char-switch": "Loading_char-switch"
-};
-
-// src/ui/components/Loading.tsx
-var import_jsx_runtime29 = __toESM(require_jsx_runtime());
-function Loading() {
-  return /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: Loading_default.LoadingSpinner });
-}
-function PageLoading() {
-  return /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: Loading_default.PageLoading, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Loading, {}) });
-}
-function LoadingOrb({ fontSize, width, height, color }) {
-  fontSize = fontSize || 32;
-  width = width || 44;
-  height = height || 44;
-  color = color || "rgb(169, 84, 248)";
-  return /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: Loading_default.LoadingOrb, style: { fontSize, width, height, color } });
-}
-
-// src/ui/components/Wechat.module.css
-var Wechat_default = {
-  Root: "Wechat_Root",
-  Panel: "Wechat_Panel",
-  PanelRight: "Wechat_PanelRight",
-  RenderWrapper: "Wechat_RenderWrapper",
-  RenderRoot: "Wechat_RenderRoot",
-  LineBreak: "Wechat_LineBreak",
-  Loading: "Wechat_Loading",
-  LoadingWrapper: "Wechat_LoadingWrapper"
-};
-
-// src/ui/components/Wechat.tsx
-var import_jsx_runtime30 = __toESM(require_jsx_runtime());
-var WechatInternal = () => {
-  const { notify } = useNotification();
-  const app = usePluginStore((s) => s.app);
-  const activeNote = useRenderStore.use.note();
-  const renderVersion = useRenderStore.use.renderVersion();
-  const [metadataAppid, setMetadataAppid] = (0, import_react9.useState)("");
-  const [metadataTheme, setMetadataTheme] = (0, import_react9.useState)("");
-  const [metadataCover, setMetadataCover] = (0, import_react9.useState)("");
-  (0, import_react9.useEffect)(() => {
-    if (activeNote) {
-      const metadata = getMetadata(app, activeNote);
-      setMetadataAppid(metadata.appid || "");
-      setMetadataTheme(metadata.theme || "");
-      setMetadataCover(metadata.cover || "");
-    }
-  }, [activeNote, app]);
-  const appid = useConfigContext((s) => s.appid);
-  const cover = useConfigContext((s) => s.cover);
-  const theme = useConfigContext((s) => s.theme);
-  const highlight = useConfigContext((s) => s.highlight);
-  const styleRef = (0, import_react9.useRef)(null);
-  const contentRef = (0, import_react9.useRef)(null);
-  const renderRef = (0, import_react9.useRef)(new ArticleRender(app));
-  const [cssContent, setCSSContent] = (0, import_react9.useState)("");
-  const [loading, setLoading] = (0, import_react9.useState)(false);
-  const isMember = NMPSettings.getInstance().isAuthKeyVaild();
-  const showMsg = (msg) => {
-    notify({ type: "success", title: msg });
-  };
-  const showErr = (msg) => {
-    notify({ type: "error", title: msg });
-  };
-  (0, import_react9.useEffect)(() => {
-    renderRef.current.accountChanged();
-    if (renderRef.current.imagesReplaced) {
-      useRenderStore.getState().setRenderVersion();
-    }
-  }, [appid]);
-  (0, import_react9.useEffect)(() => {
-    if (!contentRef.current) return;
-    if (!activeNote) return;
-    renderRef.current.renderMarkdown(contentRef.current, activeNote).catch((error) => {
-      showErr("\u6E32\u67D3\u5931\u8D25\uFF1A" + error.message);
-    });
-  }, [activeNote, renderVersion, contentRef]);
-  (0, import_react9.useEffect)(() => {
-    if (!activeNote) return;
-    renderRef.current.getCSS(activeNote, theme, highlight).then((res) => setCSSContent(res)).catch((error) => {
-      showErr("\u8BBE\u7F6E\u6837\u5F0F\u5931\u8D25\uFF1A" + error.message);
-    });
-  }, [activeNote, theme, highlight]);
-  const handleRefresh = async () => {
-    if (!activeNote) return;
-    setLoading(true);
-    try {
-      await AssetsManager.getInstance().loadCustomCSS();
-      await AssetsManager.getInstance().loadExpertSettings();
-      useRenderStore.getState().setRenderVersion();
-      const res = await renderRef.current.getCSS(activeNote, theme, highlight);
-      setCSSContent(res);
-      setLoading(false);
-      showMsg("\u5237\u65B0\u6210\u529F");
-    } catch (error) {
-      setLoading(false);
-      showErr("\u5931\u8D25\uFF1A" + error.message);
-    }
-  };
-  const onHelpClick = () => {
-    const { shell } = require("electron");
-    shell.openExternal("https://docs.dualhue.cn/doc");
-    uevent("open-help");
-  };
-  const gotoMP = () => {
-    const { shell } = require("electron");
-    shell.openExternal("https://mp.weixin.qq.com");
-    uevent("open-mp");
-  };
-  const handlePost = async () => {
-    if (!appid) {
-      showErr("\u8BF7\u5148\u9009\u62E9\u4E00\u4E2A\u516C\u4F17\u53F7\u8D26\u53F7");
-      return;
-    }
-    if (contentRef.current == null) {
-      showErr("\u672A\u521D\u59CB\u5316\uFF01");
-      return;
-    }
-    try {
-      setLoading(true);
-      await renderRef.current.postArticle(appid, cover, contentRef.current, cssContent);
-      setLoading(false);
-      showMsg("\u53D1\u5E03\u6210\u529F");
-    } catch (error) {
-      setLoading(false);
-      showErr("\u53D1\u5E03\u5931\u8D25:" + error.message);
-    }
-    uevent("pub");
-  };
-  const handlePostImage = async () => {
-    if (!appid) {
-      showErr("\u8BF7\u5148\u9009\u62E9\u4E00\u4E2A\u516C\u4F17\u53F7\u8D26\u53F7");
-      return;
-    }
-    if (contentRef.current == null) {
-      showErr("\u672A\u521D\u59CB\u5316\uFF01");
-      return;
-    }
-    try {
-      setLoading(true);
-      await renderRef.current.postImages(appid, contentRef.current);
-      setLoading(false);
-      showMsg("\u53D1\u5E03\u6210\u529F");
-    } catch (error) {
-      setLoading(false);
-      showErr("\u53D1\u5E03\u5931\u8D25:" + error.message);
-    }
-    uevent("pub-images");
-  };
-  const handleCopy = async () => {
-    if (import_obsidian11.Platform.isMobile) {
-      showErr("\u7531\u4E8EObsidian API\u7684\u9650\u5236\uFF0C\u79FB\u52A8\u8BBE\u5907\u4E0D\u652F\u6301\u590D\u5236\uFF01");
-      return;
-    }
-    if (contentRef.current == null) {
-      showErr("\u672A\u521D\u59CB\u5316\uFF01");
-      return;
-    }
-    try {
-      setLoading(true);
-      await renderRef.current.copyArticle(contentRef.current, cssContent, appid);
-      setLoading(false);
-      if (NMPSettings.getInstance().isAuthKeyVaild()) {
-        showMsg("\u590D\u5236\u6210\u529F\uFF0C\u5FEB\u53BB\u7C98\u8D34\u5427\uFF01");
-      } else {
-        showMsg("\u590D\u5236\u6210\u529F\uFF0C\u5FEB\u53BB\u7C98\u8D34\u5427\uFF01\u5982\u9700\u590D\u5236\u672C\u5730\u56FE\u7247\u8BF7\u8D2D\u4E70\u4F1A\u5458\uFF0C\u611F\u8C22\u652F\u6301\uFF01");
-      }
-    } catch (error) {
-      setLoading(false);
-      showErr("\u9519\u8BEF\uFF1A" + error.message);
-    }
-    uevent("copy");
-  };
-  const handleExport = async () => {
-    if (contentRef.current == null) {
-      showErr("\u672A\u521D\u59CB\u5316\uFF01");
-      return;
-    }
-    try {
-      setLoading(true);
-      await renderRef.current.exportHTML(contentRef.current, cssContent);
-      setLoading(false);
-      showMsg("\u5BFC\u51FA\u6210\u529F");
-    } catch (error) {
-      setLoading(false);
-      showErr("\u5BFC\u51FA\u5931\u8D25:" + error.message);
-    }
-    uevent("export-html");
-  };
-  const isCollapsed = usePluginStore.use.isCollapsed();
-  return /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: Wechat_default.Root, "data-collapsed": isCollapsed, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: Wechat_default.Panel, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Cover, { readOnly: !!metadataCover, initialCover: metadataCover }),
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: Wechat_default.PanelRight, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(AccountSelect_default2, { disabled: !!metadataAppid }),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("button", { onClick: gotoMP, children: "\u53BB\u516C\u4F17\u53F7\u540E\u53F0" }),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("button", { onClick: handleRefresh, children: "\u5237\u65B0" }),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: Wechat_default.LineBreak }),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("button", { onClick: handlePost, children: "\u53D1\u6587\u7AE0" }),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("button", { onClick: handlePostImage, children: "\u53D1\u8D34\u56FE" }),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("button", { onClick: handleCopy, children: "\u590D\u5236" }),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(ThemeList, { disabled: !!metadataTheme }),
-        isMember ? /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("button", { onClick: handleExport, children: "\u5BFC\u51FA" }) : /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("button", { onClick: onHelpClick, children: "\u5E2E\u52A9" })
-      ] })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: Wechat_default.RenderWrapper, children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: Wechat_default.RenderRoot, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("style", { ref: styleRef, children: cssContent }),
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { ref: contentRef })
-    ] }) }),
-    loading ? /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: Wechat_default.Loading, children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: Wechat_default.LoadingWrapper, children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Loading, {}) }) }) : /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(import_jsx_runtime30.Fragment, {})
-  ] });
-};
-function Wechat() {
-  const storeRef = (0, import_react9.useRef)(null);
-  if (!storeRef.current) {
-    storeRef.current = createConfigStore();
-  }
-  return /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(ConfigContext.Provider, { value: storeRef.current, children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(WechatInternal, {}) });
-}
-
-// src/ui/components/NoteRender.tsx
-var import_react10 = __toESM(require_react());
-var import_obsidian13 = require("obsidian");
-
-// src/base-render.ts
-var import_obsidian12 = require("obsidian");
-var BaseRender = class {
-  constructor(app) {
-    this.note = null;
-    this.cachedElements = /* @__PURE__ */ new Map();
-    this.app = app;
-    this.settings = NMPSettings.getInstance();
-    this.assetsManager = AssetsManager.getInstance();
-    this.articleHTML = "";
-    this.title = "";
-    this.imageManager = new LocalImageManager();
-    this.markedParser = new MarkedParser(app, this);
-    this.debouncedRenderMarkdown = debounce(this.renderMarkdown.bind(this), 1e3);
-  }
-  setArticle(container, article) {
-    container.empty();
-    const html2 = `<section class="note-to-mp-base">${article}</section>`;
-    const doc = (0, import_obsidian12.sanitizeHTMLToDom)(html2);
-    if (doc.firstChild) {
-      container.appendChild(doc.firstChild);
-    }
-  }
-  getArticleText(container) {
-    return container.innerText.trimStart();
-  }
-  errorContent(error) {
-    return '<h1>\u6E32\u67D3\u5931\u8D25!</h1><br/>\u5982\u9700\u5E2E\u52A9\u8BF7\u524D\u5F80&nbsp;&nbsp;<a href="https://github.com/sunbooshi/note-to-mp/issues">https://github.com/sunbooshi/note-to-mp/issues</a>&nbsp;&nbsp;\u53CD\u9988<br/><br/>\u5982\u679C\u65B9\u4FBF\uFF0C\u8BF7\u63D0\u4F9B\u5F15\u53D1\u9519\u8BEF\u7684\u5B8C\u6574Markdown\u5185\u5BB9\u3002<br/><br/><br/>Obsidian\u7248\u672C\uFF1A' + import_obsidian12.apiVersion + `<br/>\u9519\u8BEF\u4FE1\u606F\uFF1A<br/>${error}`;
-  }
-  async renderMarkdown(contianer, af) {
-    try {
-      let md = "";
-      if (af.extension.toLocaleLowerCase() === "md") {
-        md = await this.app.vault.cachedRead(af);
-        this.title = af.basename;
-      } else {
-        md = "\u6CA1\u6709\u53EF\u6E32\u67D3\u7684\u7B14\u8BB0\u6216\u6587\u4EF6\u4E0D\u652F\u6301\u6E32\u67D3";
-      }
-      md = removeFrontMatter(md);
-      if (this.note && this.note.path !== af.path) {
-        this.imageManager.cleanup();
-      }
-      this.note = af;
-      this.articleHTML = await this.markedParser.parse(md, af);
-      this.setArticle(contianer, this.articleHTML);
-      await this.processCachedElements(contianer);
-    } catch (e2) {
-      console.error(e2);
-      this.setArticle(contianer, this.errorContent(e2));
-    }
-  }
-  async copyWithoutCSS(container) {
-    await this.cachedElementsToImages(container);
-    const base = container.getElementsByClassName("note-to-mp-base");
-    let content = base.length == 0 ? container.innerHTML : base[0].innerHTML;
-    if (!this.settings.isAuthKeyVaild()) {
-      await navigator.clipboard.write([new ClipboardItem({
-        "text/html": new Blob([content], { type: "text/html" })
-      })]);
-      return;
-    }
-    await this.imageManager.uploadToOSS(container, this.settings.authKey, this.app.vault);
-    content = base.length == 0 ? container.innerHTML : base[0].innerHTML;
-    await navigator.clipboard.write([new ClipboardItem({
-      "text/html": new Blob([content], { type: "text/html" })
-    })]);
-  }
-  async exportHTML(container, css2) {
-    await this.cachedElementsToImages(container);
-    const lm = this.imageManager;
-    const content = await lm.embleImages(container, this.app.vault);
-    const html2 = applyCSS(content, css2);
-    const blob = new Blob([html2], { type: "text/html" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = this.title + ".html";
-    a.click();
-    URL.revokeObjectURL(url);
-    a.remove();
-  }
-  async copyHTML(container) {
-    await this.cachedElementsToImages(container);
-    const base = container.getElementsByClassName("note-to-mp-base");
-    const root = base.length == 0 ? container : base[0];
-    const lm = this.imageManager;
-    const content = await lm.embleImages(root, this.app.vault);
-    const blob = new Blob([content], { type: "text/html" });
-    await navigator.clipboard.write([new ClipboardItem({
-      "text/html": blob
-    })]);
-  }
-  async processCachedElements(root) {
-    const af = this.note;
-    if (!af) {
-      console.error("\u5F53\u524D\u6CA1\u6709\u6253\u5F00\u6587\u4EF6\uFF0C\u65E0\u6CD5\u5904\u7406\u7F13\u5B58\u5143\u7D20");
-      return;
-    }
     const component = new import_obsidian12.Component();
     component.load();
     for (const [key, value] of this.cachedElements) {
@@ -116435,9 +116475,535 @@ var BaseRender = class {
     }
   }
   updateElementByID(container, id, html2) {
-    const item = container.querySelector("#" + id);
+    let item = container;
+    if (container.id !== id) {
+      item = container.querySelector("#" + id);
+    }
     if (!item) return;
     const doc = (0, import_obsidian12.sanitizeHTMLToDom)(html2);
+    item.empty();
+    if (doc.childElementCount > 0) {
+      for (const child of doc.children) {
+        item.appendChild(child.cloneNode(true));
+      }
+    } else {
+      item.innerText = "\u6E32\u67D3\u5931\u8D25";
+    }
+  }
+  async runStartWorkflow() {
+    if (this.note) {
+      await WorkflowDataManager.getInstance().runWorkflow(this.app, this.note.path, "start");
+    }
+  }
+  async runEndWorkflow() {
+    if (this.note) {
+      await WorkflowDataManager.getInstance().runWorkflow(this.app, this.note.path, "end");
+    }
+  }
+  accountChanged() {
+    this.imageManager.accountChanged();
+    CardDataManager.getInstance().cleanup();
+  }
+  cacheElement(category, id, data) {
+    const key = category + ":" + id;
+    this.cachedElements.set(key, data);
+  }
+  cacheImage(resUrl, filePath) {
+    const info = {
+      resUrl,
+      filePath,
+      media_id: null,
+      url: null,
+      id: this.imageManager.getImageId()
+    };
+    this.imageManager.setImage(resUrl, info);
+  }
+  isWechat() {
+    return true;
+  }
+};
+
+// src/ui/components/Loading.module.css
+var Loading_default = {
+  PageLoading: "Loading_PageLoading",
+  LoadingSpinner: "Loading_LoadingSpinner",
+  spin: "Loading_spin",
+  LoadingOrb: "Loading_LoadingOrb",
+  "char-switch": "Loading_char-switch"
+};
+
+// src/ui/components/Loading.tsx
+var import_jsx_runtime30 = __toESM(require_jsx_runtime());
+function Loading() {
+  return /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: Loading_default.LoadingSpinner });
+}
+function PageLoading() {
+  return /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: Loading_default.PageLoading, children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Loading, {}) });
+}
+function LoadingOrb({ fontSize, width, height, color }) {
+  fontSize = fontSize || 32;
+  width = width || 44;
+  height = height || 44;
+  color = color || "rgb(169, 84, 248)";
+  return /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: Loading_default.LoadingOrb, style: { fontSize, width, height, color } });
+}
+
+// src/ui/components/Wechat.module.css
+var Wechat_default = {
+  Root: "Wechat_Root",
+  Panel: "Wechat_Panel",
+  PanelRight: "Wechat_PanelRight",
+  RenderWrapper: "Wechat_RenderWrapper",
+  RenderRoot: "Wechat_RenderRoot",
+  LineBreak: "Wechat_LineBreak",
+  Loading: "Wechat_Loading",
+  LoadingWrapper: "Wechat_LoadingWrapper"
+};
+
+// src/ui/components/Wechat.tsx
+var import_jsx_runtime31 = __toESM(require_jsx_runtime());
+var WechatInternal = ({ visible }) => {
+  const { notify } = useNotification();
+  const app = usePluginStore((s) => s.app);
+  const activeNote = useRenderStore.use.note();
+  const renderVersion = useRenderStore.use.renderVersion();
+  const previewVisible = usePluginStore.use.previewVisible();
+  const [metadataAppid, setMetadataAppid] = (0, import_react9.useState)("");
+  const [metadataTheme, setMetadataTheme] = (0, import_react9.useState)("");
+  const [metadataCover, setMetadataCover] = (0, import_react9.useState)("");
+  (0, import_react9.useEffect)(() => {
+    if (activeNote) {
+      const metadata = getMetadata(app, activeNote);
+      setMetadataAppid(metadata.appid || "");
+      setMetadataTheme(metadata.theme || "");
+      setMetadataCover(metadata.cover || "");
+    }
+  }, [activeNote, app]);
+  const appid = useConfigContext((s) => s.appid);
+  const cover = useConfigContext((s) => s.cover);
+  const theme = useConfigContext((s) => s.theme);
+  const highlight = useConfigContext((s) => s.highlight);
+  const styleRef = (0, import_react9.useRef)(null);
+  const contentRef = (0, import_react9.useRef)(null);
+  const lastRenderedRef = (0, import_react9.useRef)("");
+  const renderRef = (0, import_react9.useRef)(new ArticleRender(app));
+  const [cssContent, setCSSContent] = (0, import_react9.useState)("");
+  const [loading, setLoading] = (0, import_react9.useState)(false);
+  const isMember = NMPSettings.getInstance().isAuthKeyVaild();
+  const showMsg = (msg) => {
+    notify({ type: "success", title: msg });
+  };
+  const showErr = (msg) => {
+    notify({ type: "error", title: msg });
+  };
+  (0, import_react9.useEffect)(() => {
+    renderRef.current.accountChanged();
+    if (renderRef.current.imagesReplaced) {
+      useRenderStore.getState().setRenderVersion();
+    }
+  }, [appid]);
+  (0, import_react9.useEffect)(() => {
+    if (!previewVisible) return;
+    if (!visible) return;
+    if (!contentRef.current) return;
+    if (!activeNote) return;
+    const renderKey = activeNote.path + ":" + renderVersion;
+    if (lastRenderedRef.current === renderKey) return;
+    lastRenderedRef.current = renderKey;
+    renderRef.current.renderMarkdown(contentRef.current, activeNote).catch((error) => {
+      showErr("\u6E32\u67D3\u5931\u8D25\uFF1A" + error.message);
+    });
+  }, [activeNote, renderVersion, contentRef, visible, previewVisible]);
+  (0, import_react9.useEffect)(() => {
+    if (!activeNote) return;
+    renderRef.current.getCSS(activeNote, theme, highlight).then((res) => setCSSContent(res)).catch((error) => {
+      showErr("\u8BBE\u7F6E\u6837\u5F0F\u5931\u8D25\uFF1A" + error.message);
+    });
+  }, [activeNote, theme, highlight]);
+  const handleRefresh = async () => {
+    if (!activeNote) return;
+    setLoading(true);
+    try {
+      await AssetsManager.getInstance().loadCustomCSS();
+      await AssetsManager.getInstance().loadExpertSettings();
+      useRenderStore.getState().setRenderVersion();
+      const res = await renderRef.current.getCSS(activeNote, theme, highlight);
+      setCSSContent(res);
+      setLoading(false);
+      showMsg("\u5237\u65B0\u6210\u529F");
+    } catch (error) {
+      setLoading(false);
+      showErr("\u5931\u8D25\uFF1A" + error.message);
+    }
+  };
+  const onHelpClick = () => {
+    openInBrowser("https://docs.dualhue.cn/doc");
+    uevent("open-help");
+  };
+  const gotoMP = () => {
+    openInBrowser("https://mp.weixin.qq.com");
+    uevent("open-mp");
+  };
+  const handlePost = async () => {
+    if (!appid) {
+      showErr("\u8BF7\u5148\u9009\u62E9\u4E00\u4E2A\u516C\u4F17\u53F7\u8D26\u53F7");
+      return;
+    }
+    if (contentRef.current == null) {
+      showErr("\u672A\u521D\u59CB\u5316\uFF01");
+      return;
+    }
+    try {
+      setLoading(true);
+      await renderRef.current.postArticle(appid, cover, contentRef.current, cssContent);
+      setLoading(false);
+      showMsg("\u53D1\u5E03\u6210\u529F");
+    } catch (error) {
+      setLoading(false);
+      showErr("\u53D1\u5E03\u5931\u8D25:" + error.message);
+    }
+    uevent("pub");
+  };
+  const handlePostImage = async () => {
+    if (!appid) {
+      showErr("\u8BF7\u5148\u9009\u62E9\u4E00\u4E2A\u516C\u4F17\u53F7\u8D26\u53F7");
+      return;
+    }
+    if (contentRef.current == null) {
+      showErr("\u672A\u521D\u59CB\u5316\uFF01");
+      return;
+    }
+    try {
+      setLoading(true);
+      await renderRef.current.postImages(appid, contentRef.current);
+      setLoading(false);
+      showMsg("\u53D1\u5E03\u6210\u529F");
+    } catch (error) {
+      setLoading(false);
+      showErr("\u53D1\u5E03\u5931\u8D25:" + error.message);
+    }
+    uevent("pub-images");
+  };
+  const handleCopy = async () => {
+    if (import_obsidian13.Platform.isMobile) {
+      showErr("\u7531\u4E8EObsidian API\u7684\u9650\u5236\uFF0C\u79FB\u52A8\u8BBE\u5907\u4E0D\u652F\u6301\u590D\u5236\uFF01");
+      return;
+    }
+    if (contentRef.current == null) {
+      showErr("\u672A\u521D\u59CB\u5316\uFF01");
+      return;
+    }
+    try {
+      setLoading(true);
+      await renderRef.current.copyArticle(contentRef.current, cssContent, appid);
+      setLoading(false);
+      if (NMPSettings.getInstance().isAuthKeyVaild()) {
+        showMsg("\u590D\u5236\u6210\u529F\uFF0C\u5FEB\u53BB\u7C98\u8D34\u5427\uFF01");
+      } else {
+        showMsg("\u590D\u5236\u6210\u529F\uFF0C\u5FEB\u53BB\u7C98\u8D34\u5427\uFF01\u5982\u9700\u590D\u5236\u672C\u5730\u56FE\u7247\u8BF7\u8D2D\u4E70\u4F1A\u5458\uFF0C\u611F\u8C22\u652F\u6301\uFF01");
+      }
+    } catch (error) {
+      setLoading(false);
+      showErr("\u9519\u8BEF\uFF1A" + error.message);
+    }
+    uevent("copy");
+  };
+  const handleExport = async () => {
+    if (contentRef.current == null) {
+      showErr("\u672A\u521D\u59CB\u5316\uFF01");
+      return;
+    }
+    try {
+      setLoading(true);
+      await renderRef.current.exportHTML(contentRef.current, cssContent);
+      setLoading(false);
+      showMsg("\u5BFC\u51FA\u6210\u529F");
+    } catch (error) {
+      setLoading(false);
+      showErr("\u5BFC\u51FA\u5931\u8D25:" + error.message);
+    }
+    uevent("export-html");
+  };
+  const isCollapsed = usePluginStore.use.isCollapsed();
+  return /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: Wechat_default.Root, "data-collapsed": isCollapsed, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: Wechat_default.Panel, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(Cover, { readOnly: !!metadataCover, initialCover: metadataCover }),
+      /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: Wechat_default.PanelRight, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(AccountSelect_default2, { disabled: !!metadataAppid }),
+        /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("button", { onClick: gotoMP, children: "\u53BB\u516C\u4F17\u53F7\u540E\u53F0" }),
+        /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("button", { onClick: handleRefresh, children: "\u5237\u65B0" }),
+        /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: Wechat_default.LineBreak }),
+        /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("button", { onClick: handlePost, children: "\u53D1\u6587\u7AE0" }),
+        /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("button", { onClick: handlePostImage, children: "\u53D1\u8D34\u56FE" }),
+        /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("button", { onClick: handleCopy, children: "\u590D\u5236" }),
+        /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(ThemeList, { disabled: !!metadataTheme }),
+        isMember ? /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("button", { onClick: handleExport, children: "\u5BFC\u51FA" }) : /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("button", { onClick: onHelpClick, children: "\u5E2E\u52A9" })
+      ] })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: Wechat_default.RenderWrapper, children: /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: Wechat_default.RenderRoot, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("style", { ref: styleRef, children: cssContent }),
+      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { ref: contentRef })
+    ] }) }),
+    loading ? /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: Wechat_default.Loading, children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: Wechat_default.LoadingWrapper, children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(Loading, {}) }) }) : /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(import_jsx_runtime31.Fragment, {})
+  ] });
+};
+function Wechat({ visible }) {
+  const storeRef = (0, import_react9.useRef)(null);
+  if (!storeRef.current) {
+    storeRef.current = createConfigStore();
+  }
+  return /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(ConfigContext.Provider, { value: storeRef.current, children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(WechatInternal, { visible }) });
+}
+
+// src/ui/components/NoteRender.tsx
+var import_react10 = __toESM(require_react());
+var import_obsidian15 = require("obsidian");
+
+// src/base-render.ts
+var import_obsidian14 = require("obsidian");
+var BaseRender = class {
+  constructor(app) {
+    this.note = null;
+    this.cachedElements = /* @__PURE__ */ new Map();
+    this.app = app;
+    this.settings = NMPSettings.getInstance();
+    this.assetsManager = AssetsManager.getInstance();
+    this.articleHTML = "";
+    this.title = "";
+    this.imageManager = new LocalImageManager();
+    this.markedParser = new MarkedParser(app, this);
+    this.debouncedRenderMarkdown = debounce(this.renderMarkdown.bind(this), 1e3);
+  }
+  setArticle(container, article) {
+    container.empty();
+    const html2 = `<section class="note-to-mp-base">${article}</section>`;
+    const doc = (0, import_obsidian14.sanitizeHTMLToDom)(html2);
+    if (doc.firstChild) {
+      container.appendChild(doc.firstChild);
+    }
+  }
+  getArticleText(container) {
+    return container.innerText.trimStart();
+  }
+  errorContent(error) {
+    return '<h1>\u6E32\u67D3\u5931\u8D25!</h1><br/>\u5982\u9700\u5E2E\u52A9\u8BF7\u524D\u5F80&nbsp;&nbsp;<a href="https://github.com/sunbooshi/note-to-mp/issues">https://github.com/sunbooshi/note-to-mp/issues</a>&nbsp;&nbsp;\u53CD\u9988<br/><br/>\u5982\u679C\u65B9\u4FBF\uFF0C\u8BF7\u63D0\u4F9B\u5F15\u53D1\u9519\u8BEF\u7684\u5B8C\u6574Markdown\u5185\u5BB9\u3002<br/><br/><br/>Obsidian\u7248\u672C\uFF1A' + import_obsidian14.apiVersion + `<br/>\u9519\u8BEF\u4FE1\u606F\uFF1A<br/>${error}`;
+  }
+  async renderMarkdown(contianer, af) {
+    try {
+      let md = "";
+      if (af.extension.toLocaleLowerCase() === "md") {
+        md = await this.app.vault.cachedRead(af);
+        this.title = af.basename;
+      } else {
+        md = "\u6CA1\u6709\u53EF\u6E32\u67D3\u7684\u7B14\u8BB0\u6216\u6587\u4EF6\u4E0D\u652F\u6301\u6E32\u67D3";
+      }
+      md = removeFrontMatter(md);
+      if (this.note && this.note.path !== af.path) {
+        this.imageManager.cleanup();
+      }
+      this.note = af;
+      this.articleHTML = await this.markedParser.parse(md, af);
+      this.setArticle(contianer, this.articleHTML);
+      await this.processCachedElements(contianer);
+    } catch (e2) {
+      console.error(e2);
+      this.setArticle(contianer, this.errorContent(e2));
+    }
+  }
+  async copyWithoutCSS(container) {
+    await this.cachedElementsToImages(container);
+    const base = container.getElementsByClassName("note-to-mp-base");
+    let content = base.length == 0 ? container.innerHTML : base[0].innerHTML;
+    if (!this.settings.isAuthKeyVaild()) {
+      await navigator.clipboard.write([new ClipboardItem({
+        "text/html": new Blob([content], { type: "text/html" })
+      })]);
+      return;
+    }
+    await this.imageManager.uploadToOSS(container, this.settings.authKey, this.app.vault);
+    content = base.length == 0 ? container.innerHTML : base[0].innerHTML;
+    await navigator.clipboard.write([new ClipboardItem({
+      "text/html": new Blob([content], { type: "text/html" })
+    })]);
+  }
+  async exportHTML(container, css2) {
+    await this.cachedElementsToImages(container);
+    const lm = this.imageManager;
+    const content = await lm.embleImages(container, this.app.vault);
+    const html2 = applyCSS(content, css2);
+    const blob = new Blob([html2], { type: "text/html" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = this.title + ".html";
+    a.click();
+    URL.revokeObjectURL(url);
+    a.remove();
+  }
+  async copyHTML(container) {
+    await this.cachedElementsToImages(container);
+    const base = container.getElementsByClassName("note-to-mp-base");
+    const root = base.length == 0 ? container : base[0];
+    const lm = this.imageManager;
+    const content = await lm.embleImages(root, this.app.vault);
+    const blob = new Blob([content], { type: "text/html" });
+    await navigator.clipboard.write([new ClipboardItem({
+      "text/html": blob
+    })]);
+  }
+  async processCachedElements(root) {
+    const af = this.note;
+    if (!af) {
+      console.error("\u5F53\u524D\u6CA1\u6709\u6253\u5F00\u6587\u4EF6\uFF0C\u65E0\u6CD5\u5904\u7406\u7F13\u5B58\u5143\u7D20");
+      return;
+    }
+    const component = new import_obsidian14.Component();
+    component.load();
+    for (const [key, value] of this.cachedElements) {
+      const [category, id] = key.split(":");
+      if (category === "mermaid" || category === "excalidraw") {
+        const container = root.querySelector("#" + id);
+        if (container) {
+          await import_obsidian14.MarkdownRenderer.render(this.app, value, container, af.path, component);
+        }
+      }
+    }
+    const metadata = getMetadata(this.app, this.note);
+    if (this.settings.extraSettings && this.settings.extraSettings.imageFrame && !metadata.disable_image_background && this.settings.isAuthKeyVaild()) {
+      const img = root.querySelectorAll("img");
+      img.forEach((img2) => {
+        if (img2.getAttribute("data-source") !== "note") return;
+        if (img2.closest("shot-render")) return;
+        const shotRender = ImageToShot(img2);
+        if (shotRender) {
+          img2.replaceWith(shotRender);
+        }
+      });
+    }
+    component.unload();
+  }
+  async cachedElementsToImages(root) {
+    for (const [key, cached] of this.cachedElements) {
+      const [category, elementId] = key.split(":");
+      const container = root.querySelector(`#${elementId}`);
+      if (!container) continue;
+      if (category === "mermaid") {
+        await this.replaceMermaidWithImage(container, elementId);
+      } else if (category === "excalidraw") {
+        await this.replaceExcalidrawWithImage(container, elementId);
+      }
+    }
+    const shotRenders = root.querySelectorAll("shot-render");
+    for (const shotRender of shotRenders) {
+      await this.replaceShotRenderWithImage(root, shotRender);
+    }
+  }
+  async replaceShotRenderWithImage(container, shotRender) {
+    const clone = shotRender.cloneNode(true);
+    const tempContainer = document.createElement("div");
+    tempContainer.style.cssText = `
+      position: fixed;
+      left: -10000px;
+      top: 0;
+      width: 1280px;
+      height: auto;
+      z-index: -1;
+    `;
+    document.body.appendChild(tempContainer);
+    tempContainer.appendChild(clone);
+    clone.style.maxWidth = "1280px";
+    clone.style.width = "fit-content";
+    clone.style.margin = "0";
+    clone.style.display = "block";
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 200));
+      const images = Array.from(clone.querySelectorAll("img"));
+      await Promise.all(images.map((img) => {
+        if (img.complete) return Promise.resolve();
+        return new Promise((resolve) => {
+          img.onload = resolve;
+          img.onerror = resolve;
+        });
+      }));
+      const width = clone.offsetWidth;
+      const height = clone.offsetHeight;
+      if (width === 0 || height === 0) {
+        console.warn("shot-render clone has 0 size");
+        return;
+      }
+      const pngDataUrl = await toPng(clone, {
+        width,
+        height,
+        pixelRatio: 1,
+        cacheBust: false,
+        skipFonts: true,
+        style: {
+          margin: "0",
+          maxWidth: "1280px"
+        }
+      });
+      if (pngDataUrl && pngDataUrl.length > 100) {
+        const img = document.createElement("img");
+        img.src = pngDataUrl;
+        const imgId = shotRender.getAttribute("data-img-id");
+        if (imgId) {
+          img.setAttribute("data-img-id", imgId);
+        }
+        const style = shotRender.getAttribute("style");
+        if (style) {
+          img.setAttribute("style", style);
+        }
+        shotRender.replaceWith(img);
+      }
+    } catch (error) {
+      console.warn("Failed to render shot-render clone:", error);
+    } finally {
+      document.body.removeChild(tempContainer);
+    }
+  }
+  async replaceMermaidWithImage(container, id) {
+    const mermaidContainer = container.querySelector(".mermaid");
+    if (!mermaidContainer || !mermaidContainer.children.length) return;
+    const svg = mermaidContainer.querySelector("svg");
+    if (!svg) return;
+    try {
+      const pngDataUrl = await toPng(mermaidContainer.firstElementChild, { pixelRatio: 2, style: { margin: "0" } });
+      const img = document.createElement("img");
+      img.id = `img-${id}`;
+      img.src = pngDataUrl;
+      img.style.width = `${svg.clientWidth}px`;
+      img.style.height = "auto";
+      container.replaceChild(img, mermaidContainer);
+    } catch (error) {
+      console.warn(`Failed to render Mermaid diagram: ${id}`, error);
+    }
+  }
+  async replaceExcalidrawWithImage(container, id) {
+    const innerDiv = container.querySelector("div");
+    if (!innerDiv) return;
+    if (NMPSettings.getInstance().excalidrawToPNG) {
+      const originalImg = container.querySelector("img");
+      if (!originalImg) return;
+      const style = originalImg.getAttribute("style") || "";
+      try {
+        const pngDataUrl = await toPng(originalImg, { pixelRatio: 2, style: { margin: "0" } });
+        const img = document.createElement("img");
+        img.id = `img-${id}`;
+        img.src = pngDataUrl;
+        img.setAttribute("style", style);
+        container.replaceChild(img, container.firstChild);
+      } catch (error) {
+        console.warn(`Failed to render Excalidraw image: ${id}`, error);
+      }
+    } else {
+      const svg = await LocalFile.renderExcalidraw(innerDiv.innerHTML);
+      this.updateElementByID(container, id, svg);
+    }
+  }
+  updateElementByID(container, id, html2) {
+    const item = container.querySelector("#" + id);
+    if (!item) return;
+    const doc = (0, import_obsidian14.sanitizeHTMLToDom)(html2);
     item.empty();
     if (doc.childElementCount > 0) {
       for (const child of doc.children) {
@@ -116467,14 +117033,16 @@ var BaseRender = class {
 };
 
 // src/ui/components/NoteRender.tsx
-var import_jsx_runtime31 = __toESM(require_jsx_runtime());
-function NoteRender({ platform: platform2 }) {
+var import_jsx_runtime32 = __toESM(require_jsx_runtime());
+function NoteRender({ platform: platform2, visible }) {
   var _a5;
   const { notify } = useNotification();
   const app = usePluginStore((s) => s.app);
   const activeNote = useRenderStore.use.note();
   const renderVersion = useRenderStore.use.renderVersion();
+  const previewVisible = usePluginStore.use.previewVisible();
   const contentRef = (0, import_react10.useRef)(null);
+  const lastRenderedRef = (0, import_react10.useRef)("");
   const renderRef = (0, import_react10.useRef)(new BaseRender(app));
   const [loading, setLoading] = (0, import_react10.useState)(false);
   const cssContent = (_a5 = AssetsManager.getInstance().getTheme("obsidian-light")) == null ? void 0 : _a5.css.replace(/\.note-to-mp/g, ".note-to-mp-base");
@@ -116485,12 +117053,17 @@ function NoteRender({ platform: platform2 }) {
     notify({ type: "error", title: msg });
   };
   (0, import_react10.useEffect)(() => {
+    if (!previewVisible) return;
+    if (!visible) return;
     if (!contentRef.current) return;
     if (!activeNote) return;
+    const renderKey = activeNote.path + ":" + renderVersion;
+    if (lastRenderedRef.current === renderKey) return;
+    lastRenderedRef.current = renderKey;
     renderRef.current.renderMarkdown(contentRef.current, activeNote).catch((error) => {
       showErr("\u6E32\u67D3\u5931\u8D25\uFF1A" + error.message);
     });
-  }, [activeNote, renderVersion, contentRef]);
+  }, [activeNote, renderVersion, contentRef, visible, previewVisible]);
   const handleRefresh = async () => {
     if (!activeNote) return;
     setLoading(true);
@@ -116504,8 +117077,7 @@ function NoteRender({ platform: platform2 }) {
     }
   };
   const onHelpClick = () => {
-    const { shell } = require("electron");
-    shell.openExternal("https://docs.dualhue.cn/doc");
+    openInBrowser("https://docs.dualhue.cn/doc");
     uevent("open-help");
   };
   const gotoPlatform = () => {
@@ -116524,7 +117096,7 @@ function NoteRender({ platform: platform2 }) {
     uevent("open-" + platform2);
   };
   const handleCopy = async () => {
-    if (import_obsidian13.Platform.isMobile) {
+    if (import_obsidian15.Platform.isMobile) {
       showErr("\u7531\u4E8EObsidian API\u7684\u9650\u5236\uFF0C\u79FB\u52A8\u8BBE\u5907\u4E0D\u652F\u6301\u590D\u5236\u529F\u80FD\uFF01");
       return;
     }
@@ -116562,18 +117134,18 @@ function NoteRender({ platform: platform2 }) {
     btnTitle = "\u53BB\u5C0F\u7EA2\u4E66";
   }
   const isCollapsed = usePluginStore.use.isCollapsed();
-  return /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: Wechat_default.Root, "data-collapsed": isCollapsed, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: Wechat_default.Panel, children: /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: Wechat_default.PanelRight, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("button", { onClick: handleCopy, children: "\u590D\u5236" }),
-      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("button", { onClick: gotoPlatform, children: btnTitle }),
-      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("button", { onClick: handleRefresh, children: "\u5237\u65B0" }),
-      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("button", { onClick: onHelpClick, children: "\u5E2E\u52A9" })
+  return /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: Wechat_default.Root, "data-collapsed": isCollapsed, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: Wechat_default.Panel, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: Wechat_default.PanelRight, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("button", { onClick: handleCopy, children: "\u590D\u5236" }),
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("button", { onClick: gotoPlatform, children: btnTitle }),
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("button", { onClick: handleRefresh, children: "\u5237\u65B0" }),
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("button", { onClick: onHelpClick, children: "\u5E2E\u52A9" })
     ] }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: Wechat_default.RenderWrapper, children: /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: Wechat_default.RenderRoot, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("style", { children: cssContent }),
-      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { ref: contentRef })
+    /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: Wechat_default.RenderWrapper, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: Wechat_default.RenderRoot, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("style", { children: cssContent }),
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { ref: contentRef })
     ] }) }),
-    loading ? /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: Wechat_default.Loading, children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: Wechat_default.LoadingWrapper, children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(Loading, {}) }) }) : /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(import_jsx_runtime31.Fragment, {})
+    loading ? /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: Wechat_default.Loading, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: Wechat_default.LoadingWrapper, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(Loading, {}) }) }) : /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(import_jsx_runtime32.Fragment, {})
   ] });
 }
 
@@ -116697,7 +117269,7 @@ var MdToImageConverter_default = {
 };
 
 // src/ui/components/MdToImageConverter.tsx
-var import_jsx_runtime32 = __toESM(require_jsx_runtime());
+var import_jsx_runtime33 = __toESM(require_jsx_runtime());
 var formatFontFamily = (font) => {
   if (!font || font === "\u9ED8\u8BA4") return void 0;
   const systemKeywords = ["system-ui", "sans-serif", "serif", "monospace", "cursive", "fantasy", "inherit", "initial", "revert", "unset"];
@@ -116851,21 +117423,21 @@ var findNearestLineBoundary = (element, targetY, offsetCalibration) => {
 };
 var RadixSelect = ({ value, onValueChange, options: options2, placeholder, label }) => {
   const containerRef = (0, import_react11.useRef)(null);
-  return /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { ref: containerRef, style: { position: "relative", width: "100%" }, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(dist_exports5.Root, { value, onValueChange, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(dist_exports5.Trigger, { className: MdToImageConverter_default.SelectTrigger, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports5.Value, { placeholder }),
-      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports5.Icon, { className: MdToImageConverter_default.SelectIcon, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(ChevronDownIcon, {}) })
+  return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { ref: containerRef, style: { position: "relative", width: "100%" }, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(dist_exports5.Root, { value, onValueChange, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(dist_exports5.Trigger, { className: MdToImageConverter_default.SelectTrigger, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports5.Value, { placeholder }),
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports5.Icon, { className: MdToImageConverter_default.SelectIcon, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(ChevronDownIcon, {}) })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports5.Portal, { container: containerRef.current || void 0, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(dist_exports5.Content, { className: MdToImageConverter_default.SelectContent, position: "popper", sideOffset: 5, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports5.ScrollUpButton, { className: MdToImageConverter_default.SelectScrollButton, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(ChevronUpIcon, {}) }),
-      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports5.Viewport, { className: MdToImageConverter_default.SelectViewport, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(dist_exports5.Group, { children: [
-        label && /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports5.Label, { className: MdToImageConverter_default.SelectLabel, children: label }),
-        options2.filter((opt) => opt.value && opt.value.trim() !== "").map((opt) => /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(dist_exports5.Item, { className: MdToImageConverter_default.SelectItem, value: opt.value, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports5.ItemText, { children: opt.label }),
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports5.ItemIndicator, { className: MdToImageConverter_default.SelectItemIndicator, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(CheckIcon, {}) })
+    /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports5.Portal, { container: containerRef.current || void 0, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(dist_exports5.Content, { className: MdToImageConverter_default.SelectContent, position: "popper", sideOffset: 5, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports5.ScrollUpButton, { className: MdToImageConverter_default.SelectScrollButton, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(ChevronUpIcon, {}) }),
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports5.Viewport, { className: MdToImageConverter_default.SelectViewport, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(dist_exports5.Group, { children: [
+        label && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports5.Label, { className: MdToImageConverter_default.SelectLabel, children: label }),
+        options2.filter((opt) => opt.value && opt.value.trim() !== "").map((opt) => /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(dist_exports5.Item, { className: MdToImageConverter_default.SelectItem, value: opt.value, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports5.ItemText, { children: opt.label }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports5.ItemIndicator, { className: MdToImageConverter_default.SelectItemIndicator, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(CheckIcon, {}) })
         ] }, opt.value))
       ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports5.ScrollDownButton, { className: MdToImageConverter_default.SelectScrollButton, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(ChevronDownIcon, {}) })
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports5.ScrollDownButton, { className: MdToImageConverter_default.SelectScrollButton, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(ChevronDownIcon, {}) })
     ] }) })
   ] }) });
 };
@@ -117280,7 +117852,7 @@ ${customCSS}`
     const bgStyle = getBackgroundStyle();
     const offsetY = settings.pageMode === "single" ? 0 : pageOffsets[pageIndex] !== void 0 ? pageOffsets[pageIndex] : pageIndex * viewportHeight;
     const currentPageContentHeight = getPageContentHeight(pageIndex);
-    return /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(
       "div",
       {
         className: `md-to-image-page-frame ${instanceId} ${isSplitByHr ? "split-by-hr" : ""}`,
@@ -117293,13 +117865,13 @@ ${customCSS}`
           boxSizing: "border-box"
         },
         children: [
-          !isExportTrack && settings.pageMode === "multi" && /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.pageBadge, children: [
+          !isExportTrack && settings.pageMode === "multi" && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.pageBadge, children: [
             "Page ",
             pageIndex + 1,
             " / ",
             totalPages
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
             "div",
             {
               className: MdToImageConverter_default.pageOffsetContainer,
@@ -117308,7 +117880,7 @@ ${customCSS}`
                 height: currentPageContentHeight,
                 overflow: "hidden"
               },
-              children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+              children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
                 "div",
                 {
                   className: `md-to-image-rendered-content ${instanceId} ${isSplitByHr ? "split-by-hr" : ""}`,
@@ -117461,8 +118033,7 @@ ${customCSS}`
     uevent("copy-redbook");
   };
   const gotoRedBook = () => {
-    const { shell } = require("electron");
-    shell.openExternal("https://creator.xiaohongshu.com/");
+    openInBrowser("https://creator.xiaohongshu.com/");
     uevent("open-redbook");
   };
   const handleRefresh = async () => {
@@ -117475,74 +118046,74 @@ ${customCSS}`
       showErr("\u5237\u65B0\u5931\u8D25\uFF1A" + error.message);
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.container, children: [
-    activeTheme && /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("style", { dangerouslySetInnerHTML: { __html: activeTheme.css.replace(/\.note-to-mp/g, `.${instanceId}`) } }),
-    isSplitByHr && /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("style", { dangerouslySetInnerHTML: { __html: `.${instanceId} hr { display: none !important; }` } }),
-    /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: MdToImageConverter_default.toolbar, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.toolbarActions, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(AccountSelect_default2, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.container, children: [
+    activeTheme && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("style", { dangerouslySetInnerHTML: { __html: activeTheme.css.replace(/\.note-to-mp/g, `.${instanceId}`) } }),
+    isSplitByHr && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("style", { dangerouslySetInnerHTML: { __html: `.${instanceId} hr { display: none !important; }` } }),
+    /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: MdToImageConverter_default.toolbar, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.toolbarActions, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(AccountSelect_default2, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
         "button",
         {
           className: MdToImageConverter_default.toolbarBtn,
           disabled: exporting || posting,
           onClick: () => handleMPPost(false),
-          children: posting ? /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(import_jsx_runtime32.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: MdToImageConverter_default.spinner, style: { marginRight: "6px", display: "inline-block" } }),
+          children: posting ? /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(import_jsx_runtime33.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: MdToImageConverter_default.spinner, style: { marginRight: "6px", display: "inline-block" } }),
             "\u6B63\u5728\u53D1\u5E03..."
           ] }) : "\u516C\u4F17\u53F7\u53D1\u8D34\u56FE"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
         "button",
         {
           className: MdToImageConverter_default.toolbarBtn,
           disabled: exporting || posting,
           onClick: () => handleMPPost(true),
-          children: posting ? /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(import_jsx_runtime32.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: MdToImageConverter_default.spinner, style: { marginRight: "6px", display: "inline-block" } }),
+          children: posting ? /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(import_jsx_runtime33.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: MdToImageConverter_default.spinner, style: { marginRight: "6px", display: "inline-block" } }),
             "\u6B63\u5728\u53D1\u5E03..."
           ] }) : "\u516C\u4F17\u53F7\u53D1\u8D34\u56FE\uFF08\u5E26\u63CF\u8FF0\uFF09"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
         "button",
         {
           className: MdToImageConverter_default.toolbarBtn,
           disabled: exporting || posting,
           onClick: handleExport,
-          children: exporting ? /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(import_jsx_runtime32.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: MdToImageConverter_default.spinner, style: { marginRight: "6px", display: "inline-block" } }),
+          children: exporting ? /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(import_jsx_runtime33.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: MdToImageConverter_default.spinner, style: { marginRight: "6px", display: "inline-block" } }),
             "\u6B63\u5728\u751F\u6210..."
           ] }) : "\u5BFC\u51FA\u56FE\u7247"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("button", { className: MdToImageConverter_default.toolbarBtn, onClick: handleCopyText, children: "\u590D\u5236\u6587\u6848" }),
-      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("button", { className: MdToImageConverter_default.toolbarBtn, onClick: gotoRedBook, children: "\u53BB\u5C0F\u7EA2\u4E66" }),
-      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("button", { className: MdToImageConverter_default.toolbarBtn, onClick: handleRefresh, children: "\u5237\u65B0" })
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("button", { className: MdToImageConverter_default.toolbarBtn, onClick: handleCopyText, children: "\u590D\u5236\u6587\u6848" }),
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("button", { className: MdToImageConverter_default.toolbarBtn, onClick: gotoRedBook, children: "\u53BB\u5C0F\u7EA2\u4E66" }),
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("button", { className: MdToImageConverter_default.toolbarBtn, onClick: handleRefresh, children: "\u5237\u65B0" })
     ] }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.mainContent, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.mainContent, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
         "div",
         {
           className: `${MdToImageConverter_default.backdrop} ${settingsOpen ? MdToImageConverter_default.backdropVisible : MdToImageConverter_default.backdropHidden}`,
           onClick: () => setSettingsOpen(false)
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
         "button",
         {
           className: MdToImageConverter_default.settingsToggleBtn,
           onClick: () => setSettingsOpen((prev) => !prev),
           title: "\u6392\u7248\u8BBE\u7F6E",
-          children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(GearIcon, { style: { width: "20px", height: "20px" } })
+          children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(GearIcon, { style: { width: "20px", height: "20px" } })
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.previewArea, ref: previewAreaRef, children: [
-        (!htmlContent || !scaleReady) && /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.previewLoading, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: MdToImageConverter_default.loadingSpinner }),
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("span", { children: !htmlContent ? "\u6B63\u5728\u7F16\u8BD1\u7B14\u8BB0\u5185\u5BB9..." : "\u6B63\u5728\u8BA1\u7B97\u6392\u7248\u5E03\u5C40..." })
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.previewArea, ref: previewAreaRef, children: [
+        (!htmlContent || !scaleReady) && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.previewLoading, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: MdToImageConverter_default.loadingSpinner }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { children: !htmlContent ? "\u6B63\u5728\u7F16\u8BD1\u7B14\u8BB0\u5185\u5BB9..." : "\u6B63\u5728\u8BA1\u7B97\u6392\u7248\u5E03\u5C40..." })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(
           "div",
           {
             className: MdToImageConverter_default.previewScaleWrapper,
@@ -117552,18 +118123,18 @@ ${customCSS}`
               transition: "opacity 0.2s ease-in-out"
             },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.previewTitle, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.previewTitle, children: [
                 "\u5C3A\u5BF8 (",
                 settings.width,
                 "px \xD7 ",
                 Math.round(pageHeight),
                 "px)"
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: MdToImageConverter_default.pagesList, children: Array.from({ length: totalPages }).map((_2, i) => renderPage(i, false)) })
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: MdToImageConverter_default.pagesList, children: Array.from({ length: totalPages }).map((_2, i) => renderPage(i, false)) })
             ]
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
           "div",
           {
             style: {
@@ -117575,7 +118146,7 @@ ${customCSS}`
               left: 0,
               zIndex: -1
             },
-            children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+            children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
               "div",
               {
                 ref: measureRef,
@@ -117595,14 +118166,14 @@ ${customCSS}`
           }
         )
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: `${MdToImageConverter_default.settingsArea} ${settingsOpen ? MdToImageConverter_default.expanded : MdToImageConverter_default.collapsed}`, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.settingsHeader, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("h2", { className: MdToImageConverter_default.sectionTitle, children: "\u6392\u7248\u5E03\u5C40\u8BBE\u7F6E" }),
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("button", { className: MdToImageConverter_default.closeBtn, onClick: () => setSettingsOpen(false), title: "\u6536\u8D77", children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(Cross2Icon, { style: { width: "16px", height: "16px" } }) })
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: `${MdToImageConverter_default.settingsArea} ${settingsOpen ? MdToImageConverter_default.expanded : MdToImageConverter_default.collapsed}`, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.settingsHeader, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h2", { className: MdToImageConverter_default.sectionTitle, children: "\u6392\u7248\u5E03\u5C40\u8BBE\u7F6E" }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("button", { className: MdToImageConverter_default.closeBtn, onClick: () => setSettingsOpen(false), title: "\u6536\u8D77", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Cross2Icon, { style: { width: "16px", height: "16px" } }) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("label", { className: MdToImageConverter_default.label, children: "\u5BFC\u51FA\u6A21\u5F0F" }),
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("label", { className: MdToImageConverter_default.label, children: "\u5BFC\u51FA\u6A21\u5F0F" }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(
             dist_exports10.Root,
             {
               type: "single",
@@ -117612,16 +118183,16 @@ ${customCSS}`
               },
               className: MdToImageConverter_default.ToggleGroup,
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports10.Item, { value: "single", className: MdToImageConverter_default.ToggleGroupItem, children: "\u5355\u5F20\u957F\u56FE" }),
-                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports10.Item, { value: "multi", className: MdToImageConverter_default.ToggleGroupItem, children: "\u591A\u9875\u5207\u7247" }),
-                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports10.Item, { value: "hr", className: MdToImageConverter_default.ToggleGroupItem, children: "\u6309\u5206\u5272\u7EBF\u5207\u7247" })
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports10.Item, { value: "single", className: MdToImageConverter_default.ToggleGroupItem, children: "\u5355\u5F20\u957F\u56FE" }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports10.Item, { value: "multi", className: MdToImageConverter_default.ToggleGroupItem, children: "\u591A\u9875\u5207\u7247" }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports10.Item, { value: "hr", className: MdToImageConverter_default.ToggleGroupItem, children: "\u6309\u5206\u5272\u7EBF\u5207\u7247" })
               ]
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("label", { className: MdToImageConverter_default.label, children: "\u6BD4\u4F8B\u9884\u8BBE" }),
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("label", { className: MdToImageConverter_default.label, children: "\u6BD4\u4F8B\u9884\u8BBE" }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(
             dist_exports10.Root,
             {
               type: "single",
@@ -117631,20 +118202,20 @@ ${customCSS}`
               },
               className: MdToImageConverter_default.PresetGrid,
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports10.Item, { value: "xhs-3-4", className: MdToImageConverter_default.PresetItem, children: "\u5C0F\u7EA2\u4E66 3:4" }),
-                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports10.Item, { value: "9-16", className: MdToImageConverter_default.PresetItem, children: "\u6545\u4E8B 9:16" }),
-                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports10.Item, { value: "1-1", className: MdToImageConverter_default.PresetItem, children: "\u6B63\u65B9\u5F62 1:1" }),
-                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports10.Item, { value: "4-3", className: MdToImageConverter_default.PresetItem, children: "\u6807\u51C6 4:3" }),
-                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports10.Item, { value: "16-9", className: MdToImageConverter_default.PresetItem, children: "\u5BBD\u5C4F 16:9" }),
-                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports10.Item, { value: "custom", className: MdToImageConverter_default.PresetItem, children: "\u81EA\u5B9A\u4E49" })
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports10.Item, { value: "xhs-3-4", className: MdToImageConverter_default.PresetItem, children: "\u5C0F\u7EA2\u4E66 3:4" }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports10.Item, { value: "9-16", className: MdToImageConverter_default.PresetItem, children: "\u6545\u4E8B 9:16" }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports10.Item, { value: "1-1", className: MdToImageConverter_default.PresetItem, children: "\u6B63\u65B9\u5F62 1:1" }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports10.Item, { value: "4-3", className: MdToImageConverter_default.PresetItem, children: "\u6807\u51C6 4:3" }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports10.Item, { value: "16-9", className: MdToImageConverter_default.PresetItem, children: "\u5BBD\u5C4F 16:9" }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports10.Item, { value: "custom", className: MdToImageConverter_default.PresetItem, children: "\u81EA\u5B9A\u4E49" })
               ]
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.doubleRow, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("label", { className: MdToImageConverter_default.label, children: "\u5BBD\u5EA6 (px)" }),
-            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.doubleRow, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("label", { className: MdToImageConverter_default.label, children: "\u5BBD\u5EA6 (px)" }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
               "input",
               {
                 type: "number",
@@ -117671,9 +118242,9 @@ ${customCSS}`
               }
             )
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("label", { className: MdToImageConverter_default.label, children: "\u9875\u9AD8\u5EA6 (px)" }),
-            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("label", { className: MdToImageConverter_default.label, children: "\u9875\u9AD8\u5EA6 (px)" }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
               "input",
               {
                 type: "number",
@@ -117701,13 +118272,13 @@ ${customCSS}`
                 onKeyDown: handleInputKeyDown
               }
             ),
-            settings.pageMode === "single" && /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("span", { className: MdToImageConverter_default.inputDesc, children: "\u957F\u56FE\u6A21\u5F0F\u4E0B\u9AD8\u5EA6\u81EA\u9002\u5E94" })
+            settings.pageMode === "single" && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: MdToImageConverter_default.inputDesc, children: "\u957F\u56FE\u6A21\u5F0F\u4E0B\u9AD8\u5EA6\u81EA\u9002\u5E94" })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("h2", { className: MdToImageConverter_default.sectionTitle, children: "\u6392\u7248\u4E0E\u4E3B\u9898" }),
-        themes.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("label", { className: MdToImageConverter_default.label, children: "CSS \u4E3B\u9898" }),
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h2", { className: MdToImageConverter_default.sectionTitle, children: "\u6392\u7248\u4E0E\u4E3B\u9898" }),
+        themes.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("label", { className: MdToImageConverter_default.label, children: "CSS \u4E3B\u9898" }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
             RadixSelect,
             {
               value: settings.themeId,
@@ -117717,9 +118288,9 @@ ${customCSS}`
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("label", { className: MdToImageConverter_default.label, children: "\u5B57\u4F53\u9009\u62E9" }),
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("label", { className: MdToImageConverter_default.label, children: "\u5B57\u4F53\u9009\u62E9" }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
             RadixSelect,
             {
               value: settings.fontFamily,
@@ -117729,9 +118300,9 @@ ${customCSS}`
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("label", { className: MdToImageConverter_default.label, children: "\u624B\u52A8\u8F93\u5165\u5B57\u4F53" }),
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("label", { className: MdToImageConverter_default.label, children: "\u624B\u52A8\u8F93\u5165\u5B57\u4F53" }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
             "input",
             {
               type: "text",
@@ -117742,15 +118313,15 @@ ${customCSS}`
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.sliderHeader, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("label", { className: MdToImageConverter_default.label, children: "\u5B57\u53F7\u5927\u5C0F" }),
-            /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("span", { className: MdToImageConverter_default.sliderValue, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.sliderHeader, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("label", { className: MdToImageConverter_default.label, children: "\u5B57\u53F7\u5927\u5C0F" }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: MdToImageConverter_default.sliderValue, children: [
               settings.fontSize,
               "px"
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(
             dist_exports9.Root,
             {
               className: MdToImageConverter_default.SliderRoot,
@@ -117760,16 +118331,16 @@ ${customCSS}`
               step: 1,
               onValueChange: (val) => updateSettings({ fontSize: val[0] }),
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports9.Track, { className: MdToImageConverter_default.SliderTrack, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports9.Range, { className: MdToImageConverter_default.SliderRange }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports9.Thumb, { className: MdToImageConverter_default.SliderThumb, "aria-label": "Font size" })
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports9.Track, { className: MdToImageConverter_default.SliderTrack, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports9.Range, { className: MdToImageConverter_default.SliderRange }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports9.Thumb, { className: MdToImageConverter_default.SliderThumb, "aria-label": "Font size" })
               ]
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("h2", { className: MdToImageConverter_default.sectionTitle, children: "\u6837\u5F0F\u4E0E\u80CC\u666F" }),
-        /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("label", { className: MdToImageConverter_default.label, children: "\u80CC\u666F\u6A21\u5F0F" }),
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h2", { className: MdToImageConverter_default.sectionTitle, children: "\u6837\u5F0F\u4E0E\u80CC\u666F" }),
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("label", { className: MdToImageConverter_default.label, children: "\u80CC\u666F\u6A21\u5F0F" }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(
             dist_exports10.Root,
             {
               type: "single",
@@ -117779,20 +118350,20 @@ ${customCSS}`
               },
               className: MdToImageConverter_default.ToggleGroup,
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports10.Item, { value: "theme", className: MdToImageConverter_default.ToggleGroupItem, children: "\u4E3B\u9898\u9ED8\u8BA4" }),
-                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports10.Item, { value: "color", className: MdToImageConverter_default.ToggleGroupItem, children: "\u7EAF\u8272" }),
-                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports10.Item, { value: "gradient", className: MdToImageConverter_default.ToggleGroupItem, children: "\u6E10\u53D8" })
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports10.Item, { value: "theme", className: MdToImageConverter_default.ToggleGroupItem, children: "\u4E3B\u9898\u9ED8\u8BA4" }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports10.Item, { value: "color", className: MdToImageConverter_default.ToggleGroupItem, children: "\u7EAF\u8272" }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports10.Item, { value: "gradient", className: MdToImageConverter_default.ToggleGroupItem, children: "\u6E10\u53D8" })
               ]
             }
           )
         ] }),
-        settings.backgroundType === "color" && /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("label", { className: MdToImageConverter_default.label, children: "\u7EAF\u8272\u80CC\u666F\u8272" }),
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.colorSwatchesGrid, children: [
+        settings.backgroundType === "color" && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("label", { className: MdToImageConverter_default.label, children: "\u7EAF\u8272\u80CC\u666F\u8272" }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.colorSwatchesGrid, children: [
             DEFAULT_COLORS.map((color, idx) => {
               const isActive = settings.backgroundColor === color;
               const isTransparent = color.startsWith("rgba") && color.includes(",0)");
-              return /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+              return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
                 "button",
                 {
                   type: "button",
@@ -117807,13 +118378,13 @@ ${customCSS}`
             (() => {
               const isCustomActive = !DEFAULT_COLORS.includes(settings.backgroundColor);
               const hexColor = getHexColor(settings.backgroundColor);
-              return /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+              return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
                 "div",
                 {
                   className: `${MdToImageConverter_default.colorSwatch} ${MdToImageConverter_default.customSwatch} ${isCustomActive ? MdToImageConverter_default.active : ""}`,
                   style: isCustomActive ? { backgroundColor: settings.backgroundColor } : {},
                   title: "\u81EA\u5B9A\u4E49",
-                  children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+                  children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
                     "input",
                     {
                       type: "color",
@@ -117826,7 +118397,7 @@ ${customCSS}`
               );
             })()
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: MdToImageConverter_default.colorRow, style: { marginTop: "8px" }, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: MdToImageConverter_default.colorRow, style: { marginTop: "8px" }, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
             "input",
             {
               type: "text",
@@ -117837,9 +118408,9 @@ ${customCSS}`
             }
           ) })
         ] }),
-        settings.backgroundType === "gradient" && /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("label", { className: MdToImageConverter_default.label, children: "\u6E10\u53D8\u80CC\u666F\u9009\u62E9" }),
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: MdToImageConverter_default.gradientPresets, children: GRADIENT_PRESETS.map((preset) => /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+        settings.backgroundType === "gradient" && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("label", { className: MdToImageConverter_default.label, children: "\u6E10\u53D8\u80CC\u666F\u9009\u62E9" }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: MdToImageConverter_default.gradientPresets, children: GRADIENT_PRESETS.map((preset) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
             "button",
             {
               className: `${MdToImageConverter_default.gradientBtn} ${settings.backgroundGradient === preset.value ? MdToImageConverter_default.active : ""}`,
@@ -117849,7 +118420,7 @@ ${customCSS}`
             },
             preset.name
           )) }),
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
             "input",
             {
               type: "text",
@@ -117860,15 +118431,15 @@ ${customCSS}`
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.sliderHeader, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("label", { className: MdToImageConverter_default.label, children: "\u5185\u8FB9\u8DDD (Padding)" }),
-            /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("span", { className: MdToImageConverter_default.sliderValue, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.sliderHeader, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("label", { className: MdToImageConverter_default.label, children: "\u5185\u8FB9\u8DDD (Padding)" }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: MdToImageConverter_default.sliderValue, children: [
               settings.padding,
               "px"
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(
             dist_exports9.Root,
             {
               className: MdToImageConverter_default.SliderRoot,
@@ -117878,21 +118449,21 @@ ${customCSS}`
               step: 1,
               onValueChange: (val) => updateSettings({ padding: val[0] }),
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports9.Track, { className: MdToImageConverter_default.SliderTrack, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports9.Range, { className: MdToImageConverter_default.SliderRange }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports9.Thumb, { className: MdToImageConverter_default.SliderThumb, "aria-label": "Padding" })
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports9.Track, { className: MdToImageConverter_default.SliderTrack, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports9.Range, { className: MdToImageConverter_default.SliderRange }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports9.Thumb, { className: MdToImageConverter_default.SliderThumb, "aria-label": "Padding" })
               ]
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: MdToImageConverter_default.sliderHeader, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("label", { className: MdToImageConverter_default.label, children: "\u5706\u89D2\u5927\u5C0F" }),
-            /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("span", { className: MdToImageConverter_default.sliderValue, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.formGroup, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: MdToImageConverter_default.sliderHeader, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("label", { className: MdToImageConverter_default.label, children: "\u5706\u89D2\u5927\u5C0F" }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: MdToImageConverter_default.sliderValue, children: [
               settings.borderRadius,
               "px"
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(
             dist_exports9.Root,
             {
               className: MdToImageConverter_default.SliderRoot,
@@ -117902,29 +118473,36 @@ ${customCSS}`
               step: 1,
               onValueChange: (val) => updateSettings({ borderRadius: val[0] }),
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports9.Track, { className: MdToImageConverter_default.SliderTrack, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports9.Range, { className: MdToImageConverter_default.SliderRange }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(dist_exports9.Thumb, { className: MdToImageConverter_default.SliderThumb, "aria-label": "Border radius" })
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports9.Track, { className: MdToImageConverter_default.SliderTrack, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports9.Range, { className: MdToImageConverter_default.SliderRange }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(dist_exports9.Thumb, { className: MdToImageConverter_default.SliderThumb, "aria-label": "Border radius" })
               ]
             }
           )
         ] })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: MdToImageConverter_default.offscreenExportContainer, ref: exportContainerRef, children: Array.from({ length: totalPages }).map((_2, i) => renderPage(i, true)) })
+    /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: MdToImageConverter_default.offscreenExportContainer, ref: exportContainerRef, children: Array.from({ length: totalPages }).map((_2, i) => renderPage(i, true)) })
   ] });
 };
 var MdToImageConverter_default2 = MdToImageConverter;
 
 // src/ui/components/RedBook.tsx
-var import_jsx_runtime33 = __toESM(require_jsx_runtime());
-function RedBookInternal() {
+var import_jsx_runtime34 = __toESM(require_jsx_runtime());
+function RedBookInternal({ visible }) {
   const app = usePluginStore((s) => s.app);
+  const previewVisible = usePluginStore.use.previewVisible();
   const activeNote = useRenderStore.use.note();
   const renderVersion = useRenderStore.use.renderVersion();
   const htmlRenderRef = (0, import_react12.useRef)(new ArticleRender(app));
+  const lastRenderedRef = (0, import_react12.useRef)("");
   const [htmlContent, setHtmlContent] = (0, import_react12.useState)("");
   (0, import_react12.useEffect)(() => {
+    if (!previewVisible) return;
+    if (!visible) return;
     if (!activeNote) return;
+    const renderKey = activeNote.path + ":" + renderVersion;
+    if (lastRenderedRef.current === renderKey) return;
+    lastRenderedRef.current = renderKey;
     const renderContent = async () => {
       const tempDiv = document.createElement("div");
       try {
@@ -117946,15 +118524,15 @@ function RedBookInternal() {
       }
     };
     renderContent();
-  }, [activeNote, renderVersion]);
-  return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(MdToImageConverter_default2, { htmlContent });
+  }, [activeNote, renderVersion, visible]);
+  return /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(MdToImageConverter_default2, { htmlContent });
 }
-function RedBook() {
+function RedBook({ visible }) {
   const storeRef = (0, import_react12.useRef)(null);
   if (!storeRef.current) {
     storeRef.current = createConfigStore();
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(ConfigContext.Provider, { value: storeRef.current, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(RedBookInternal, {}) });
+  return /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(ConfigContext.Provider, { value: storeRef.current, children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(RedBookInternal, { visible }) });
 }
 
 // src/ui/preview.tsx
@@ -117973,27 +118551,26 @@ var Announcement_default = {
 };
 
 // src/ui/components/Announcement.tsx
-var import_jsx_runtime34 = __toESM(require_jsx_runtime());
+var import_jsx_runtime35 = __toESM(require_jsx_runtime());
 var Announcement = ({ announcement, onDismiss }) => {
   const handleAction = () => {
     if (announcement.action_url) {
-      const { shell } = require("electron");
-      shell.openExternal(announcement.action_url);
+      openInBrowser(announcement.action_url);
       onDismiss();
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("div", { className: Announcement_default.Root, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(BellIcon, { className: Announcement_default.Icon }),
-    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { className: Announcement_default.Content, children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { className: Announcement_default.Title, children: announcement.title }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("div", { className: Announcement_default.Actions, children: [
-      announcement.action_url && /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("button", { className: Announcement_default.ActionButton, onClick: handleAction, children: "\u67E5\u770B" }),
-      /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: Announcement_default.Root, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(BellIcon, { className: Announcement_default.Icon }),
+    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: Announcement_default.Content, children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: Announcement_default.Title, children: announcement.title }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: Announcement_default.Actions, children: [
+      announcement.action_url && /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("button", { className: Announcement_default.ActionButton, onClick: handleAction, children: "\u67E5\u770B" }),
+      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
         "button",
         {
           className: Announcement_default.DismissButton,
           onClick: onDismiss,
           title: "\u5FFD\u7565",
-          children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(Cross2Icon, {})
+          children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Cross2Icon, {})
         }
       )
     ] })
@@ -118010,7 +118587,7 @@ var preview_default = {
 };
 
 // src/ui/preview.tsx
-var import_jsx_runtime35 = __toESM(require_jsx_runtime());
+var import_jsx_runtime36 = __toESM(require_jsx_runtime());
 function Preview() {
   const isReourceLoaded = usePluginStore.use.isReourceLoaded();
   const isCollapsed = usePluginStore.use.isCollapsed();
@@ -118018,6 +118595,7 @@ function Preview() {
   const plugin = usePluginStore.use.plugin();
   const isAuthed = NMPSettings.getInstance().isAuthKeyVaild();
   const [announcements, setAnnouncements] = (0, import_react13.useState)([]);
+  const [activeTab, setActiveTab] = (0, import_react13.useState)("wechat");
   (0, import_react13.useEffect)(() => {
     if (isReourceLoaded) {
       requestAnnouncement().then((anns) => {
@@ -118038,6 +118616,11 @@ function Preview() {
       });
     }
   }, [isReourceLoaded, plugin]);
+  (0, import_react13.useEffect)(() => {
+    if (!isAuthed && activeTab === "twitter") {
+      setActiveTab("wechat");
+    }
+  }, [isAuthed, activeTab]);
   const handleDismiss = (id) => {
     const settings = NMPSettings.getInstance();
     if (!settings.dismissedAnnouncements.includes(id)) {
@@ -118047,10 +118630,10 @@ function Preview() {
     }
   };
   if (!isReourceLoaded) {
-    return /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(PageLoading, {});
+    return /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(PageLoading, {});
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(NotificationProvider, { children: [
-    announcements.map((ann) => /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(NotificationProvider, { children: [
+    announcements.map((ann) => /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
       Announcement,
       {
         announcement: ann,
@@ -118058,41 +118641,41 @@ function Preview() {
       },
       ann.id
     )),
-    /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(Root2, { defaultValue: "wechat", className: preview_default.Root, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(List, { className: preview_default.List, "data-collapsed": isCollapsed, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Trigger, { className: preview_default.Trigger, value: "wechat", children: "\u516C\u4F17\u53F7" }),
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Trigger, { className: preview_default.Trigger, value: "zhihu", children: "\u77E5\u4E4E" }),
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Trigger, { className: preview_default.Trigger, value: "toutiao", children: "\u5934\u6761" }),
-        isAuthed && /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Trigger, { className: preview_default.Trigger, value: "twitter", children: "\u{1D54F} \u6587\u7AE0" }),
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Trigger, { className: preview_default.Trigger, value: "redbook", children: "\u8D34\u56FE" }),
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Root2, { value: activeTab, onValueChange: setActiveTab, className: preview_default.Root, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(List, { className: preview_default.List, "data-collapsed": isCollapsed, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Trigger, { className: preview_default.Trigger, value: "wechat", children: "\u516C\u4F17\u53F7" }),
+        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Trigger, { className: preview_default.Trigger, value: "zhihu", children: "\u77E5\u4E4E" }),
+        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Trigger, { className: preview_default.Trigger, value: "toutiao", children: "\u5934\u6761" }),
+        isAuthed && /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Trigger, { className: preview_default.Trigger, value: "twitter", children: "\u{1D54F} \u6587\u7AE0" }),
+        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Trigger, { className: preview_default.Trigger, value: "redbook", children: "\u8D34\u56FE" }),
+        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
           "div",
           {
             className: preview_default.CollapseBtn,
             "data-floating": isCollapsed,
             onClick: () => setIsCollapsed(!isCollapsed),
             title: isCollapsed ? "\u5C55\u5F00" : "\u6298\u53E0",
-            children: isCollapsed ? /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(DoubleArrowDownIcon, {}) : /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(DoubleArrowUpIcon, {})
+            children: isCollapsed ? /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(DoubleArrowDownIcon, {}) : /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(DoubleArrowUpIcon, {})
           }
         )
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Content, { value: "wechat", forceMount: true, className: preview_default.Content, children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Wechat, {}) }),
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Content, { value: "zhihu", forceMount: true, className: preview_default.Content, children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(NoteRender, { platform: "zhihu" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Content, { value: "toutiao", forceMount: true, className: preview_default.Content, children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(NoteRender, { platform: "toutiao" }) }),
-      isAuthed && /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Content, { value: "twitter", forceMount: true, className: preview_default.Content, children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(NoteRender, { platform: "twitter" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Content, { value: "redbook", forceMount: true, className: preview_default.Content, children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(RedBook, {}) })
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Content, { value: "wechat", forceMount: true, className: preview_default.Content, children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Wechat, { visible: activeTab === "wechat" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Content, { value: "zhihu", forceMount: true, className: preview_default.Content, children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(NoteRender, { platform: "zhihu", visible: activeTab === "zhihu" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Content, { value: "toutiao", forceMount: true, className: preview_default.Content, children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(NoteRender, { platform: "toutiao", visible: activeTab === "toutiao" }) }),
+      isAuthed && /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Content, { value: "twitter", forceMount: true, className: preview_default.Content, children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(NoteRender, { platform: "twitter", visible: activeTab === "twitter" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Content, { value: "redbook", forceMount: true, className: preview_default.Content, children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(RedBook, { visible: activeTab === "redbook" }) })
     ] })
   ] });
 }
 function createPreview(conatainer) {
-  const root = ReactDOM6.createRoot(conatainer);
-  root.render(/* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Preview, {}));
+  const root = ReactDOM7.createRoot(conatainer);
+  root.render(/* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Preview, {}));
   return root;
 }
 
 // src/note-preview.ts
 var VIEW_TYPE_NOTE_PREVIEW = "note-preview";
-var NotePreview = class extends import_obsidian14.ItemView {
+var NotePreview = class extends import_obsidian16.ItemView {
   constructor(leaf, plugin) {
     super(leaf);
     this.preview = null;
@@ -118110,6 +118693,7 @@ var NotePreview = class extends import_obsidian14.ItemView {
   }
   async onOpen() {
     useRenderStore.getState().setNote(this.app.workspace.getActiveFile());
+    usePluginStore.getState().setPreviewVisible(true);
     this.listeners = [
       this.workspace.on("file-open", (file) => {
         useRenderStore.getState().setNote(file);
@@ -118119,7 +118703,21 @@ var NotePreview = class extends import_obsidian14.ItemView {
       })
     ];
     this.preview = createPreview(this.containerEl.children[1]);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        this.onVisibilityChange(entry.isIntersecting);
+      }
+    );
+    observer.observe(
+      this.containerEl
+    );
+    this.register(() => {
+      observer.disconnect();
+    });
     uevent("open");
+  }
+  onVisibilityChange(visible) {
+    usePluginStore.getState().setPreviewVisible(visible);
   }
   async onClose() {
     var _a5, _b2;
@@ -118132,11 +118730,11 @@ var NotePreview = class extends import_obsidian14.ItemView {
 };
 
 // src/setting-tab.ts
-var import_obsidian18 = require("obsidian");
+var import_obsidian20 = require("obsidian");
 
 // src/doc-modal.ts
-var import_obsidian15 = require("obsidian");
-var DocModal = class extends import_obsidian15.Modal {
+var import_obsidian17 = require("obsidian");
+var DocModal = class extends import_obsidian17.Modal {
   constructor(app, title = "\u63D0\u793A", content = "", url = "") {
     super(app);
     this.url = "";
@@ -118156,7 +118754,7 @@ var DocModal = class extends import_obsidian15.Modal {
     titleEl.style.marginTop = "0.5em";
     const content = contentEl.createEl("div");
     content.setAttr("style", "margin-bottom:1em;-webkit-user-select: text; user-select: text;");
-    content.appendChild((0, import_obsidian15.sanitizeHTMLToDom)(this.content));
+    content.appendChild((0, import_obsidian17.sanitizeHTMLToDom)(this.content));
     const iframe = contentEl.createEl("iframe", {
       attr: {
         src: this.url,
@@ -118173,14 +118771,14 @@ var DocModal = class extends import_obsidian15.Modal {
 };
 
 // src/ui/workflow/workflow.tsx
-var import_obsidian17 = require("obsidian");
-var ReactDOM7 = __toESM(require_client());
+var import_obsidian19 = require("obsidian");
+var ReactDOM8 = __toESM(require_client());
 var import_react15 = __toESM(require_react());
 
 // src/ui/workflow/resultviewer.tsx
 var import_react14 = __toESM(require_react());
-var import_obsidian16 = require("obsidian");
-var import_jsx_runtime36 = __toESM(require_jsx_runtime());
+var import_obsidian18 = require("obsidian");
+var import_jsx_runtime37 = __toESM(require_jsx_runtime());
 var IMAGE_KEY_RE = /^(image|img|avatar|thumbnail|photo|picture|cover|banner|icon|poster|logo|src|url)s?$/i;
 var IMAGE_URL_RE = /\.(jpg|jpeg|png|gif|webp|svg|bmp|avif)(\?.*)?$/i;
 var BASE64_RE = /^data:image\//i;
@@ -118235,7 +118833,7 @@ function ImagePreviewDialog({
         }
         data = bytes.buffer;
       } else {
-        const response = await (0, import_obsidian16.requestUrl)({ url });
+        const response = await (0, import_obsidian18.requestUrl)({ url });
         data = response.arrayBuffer;
         const mime = response.headers["content-type"] || "image/png";
         extension = mimeToImageExt(mime);
@@ -118244,16 +118842,16 @@ function ImagePreviewDialog({
       const attachmentFolderPath = app.vault.getConfig("attachmentFolderPath");
       const path = `${attachmentFolderPath}/${filename}`;
       await app.vault.createBinary(path, data);
-      new import_obsidian16.Notice(`\u56FE\u7247\u5DF2\u4FDD\u5B58\u5230: ${path}`, 5e3);
+      new import_obsidian18.Notice(`\u56FE\u7247\u5DF2\u4FDD\u5B58\u5230: ${path}`, 5e3);
     } catch (error) {
       console.error(error);
-      new import_obsidian16.Notice(`\u4FDD\u5B58\u56FE\u7247\u5931\u8D25: ${error instanceof Error ? error.message : String(error)}`);
+      new import_obsidian18.Notice(`\u4FDD\u5B58\u56FE\u7247\u5931\u8D25: ${error instanceof Error ? error.message : String(error)}`);
     } finally {
       setSaving(false);
     }
   }, [url]);
-  return /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Root7, { open, onOpenChange, children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Portal3, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Root7, { open, onOpenChange, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(Portal3, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
       Overlay,
       {
         style: {
@@ -118266,7 +118864,7 @@ function ImagePreviewDialog({
         }
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
       Content4,
       {
         style: {
@@ -118280,9 +118878,9 @@ function ImagePreviewDialog({
         },
         onPointerDownOutside: () => onOpenChange(false),
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Title2, {}),
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Description2, {}),
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Title2, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Description2, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
             "div",
             {
               style: {
@@ -118297,7 +118895,7 @@ function ImagePreviewDialog({
                 animation: "jv-scaleIn 150ms ease"
               },
               children: [
-                imgError ? /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
+                imgError ? /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
                   "div",
                   {
                     style: {
@@ -118309,9 +118907,9 @@ function ImagePreviewDialog({
                       color: "var(--text-muted)"
                     },
                     children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(ExclamationTriangleIcon, { width: 32, height: 32 }),
-                      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("span", { style: { fontSize: "13px" }, children: "\u56FE\u7247\u52A0\u8F7D\u5931\u8D25" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
+                      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ExclamationTriangleIcon, { width: 32, height: 32 }),
+                      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("span", { style: { fontSize: "13px" }, children: "\u56FE\u7247\u52A0\u8F7D\u5931\u8D25" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
                         "a",
                         {
                           href: url,
@@ -118329,13 +118927,13 @@ function ImagePreviewDialog({
                           onMouseLeave: (e2) => e2.currentTarget.style.textDecoration = "none",
                           children: [
                             "\u5728\u6D4F\u89C8\u5668\u4E2D\u6253\u5F00 ",
-                            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(ExternalLinkIcon, { width: 12, height: 12 })
+                            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ExternalLinkIcon, { width: 12, height: 12 })
                           ]
                         }
                       )
                     ]
                   }
-                ) : /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+                ) : /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
                   "img",
                   {
                     src: url,
@@ -118349,8 +118947,8 @@ function ImagePreviewDialog({
                     onError: () => setImgError(true)
                   }
                 ),
-                !imgError && /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Provider2, { delayDuration: 300, children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Root33, { children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Trigger5, { asChild: true, children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+                !imgError && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Provider2, { delayDuration: 300, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(Root33, { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Trigger5, { asChild: true, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
                     "button",
                     {
                       onClick: handleSaveImage,
@@ -118375,7 +118973,7 @@ function ImagePreviewDialog({
                       onMouseEnter: (e2) => !saving && (e2.currentTarget.style.backgroundColor = "rgba(0,0,0,0.85)"),
                       onMouseLeave: (e2) => !saving && (e2.currentTarget.style.backgroundColor = "rgba(0,0,0,0.6)"),
                       "aria-label": "\u4FDD\u5B58\u5230\u4ED3\u5E93",
-                      children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+                      children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
                         DownloadIcon,
                         {
                           width: 14,
@@ -118388,7 +118986,7 @@ function ImagePreviewDialog({
                       )
                     }
                   ) }),
-                  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Portal5, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
+                  /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Portal5, { children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
                     Content25,
                     {
                       side: "bottom",
@@ -118404,12 +119002,12 @@ function ImagePreviewDialog({
                       },
                       children: [
                         "\u4FDD\u5B58\u5230\u4ED3\u5E93",
-                        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Arrow25, { style: { fill: "var(--background-modifier-border)" } })
+                        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Arrow25, { style: { fill: "var(--background-modifier-border)" } })
                       ]
                     }
                   ) })
                 ] }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Close2, { asChild: true, children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Close2, { asChild: true, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
                   "button",
                   {
                     style: {
@@ -118431,7 +119029,7 @@ function ImagePreviewDialog({
                     onMouseEnter: (e2) => e2.currentTarget.style.backgroundColor = "rgba(0,0,0,0.85)",
                     onMouseLeave: (e2) => e2.currentTarget.style.backgroundColor = "rgba(0,0,0,0.6)",
                     "aria-label": "\u5173\u95ED\u9884\u89C8",
-                    children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Cross2Icon, { width: 14, height: 14, style: { flexShrink: 0 } })
+                    children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Cross2Icon, { width: 14, height: 14, style: { flexShrink: 0 } })
                   }
                 ) })
               ]
@@ -118446,8 +119044,8 @@ function StringValue({ nodeKey, value }) {
   const [previewOpen, setPreviewOpen] = (0, import_react14.useState)(false);
   const [thumbError, setThumbError] = (0, import_react14.useState)(false);
   if (isImageValue(nodeKey, value)) {
-    return /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(import_jsx_runtime36.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(import_jsx_runtime37.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
         "span",
         {
           style: {
@@ -118457,7 +119055,7 @@ function StringValue({ nodeKey, value }) {
             flexWrap: "wrap"
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
+            /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
               "span",
               {
                 style: {
@@ -118473,7 +119071,7 @@ function StringValue({ nodeKey, value }) {
                 ]
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
+            /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
               "button",
               {
                 onClick: () => setPreviewOpen(true),
@@ -118494,7 +119092,7 @@ function StringValue({ nodeKey, value }) {
                 onMouseEnter: (e2) => e2.currentTarget.style.backgroundColor = "color-mix(in srgb, var(--interactive-accent) 22%, transparent)",
                 onMouseLeave: (e2) => e2.currentTarget.style.backgroundColor = "color-mix(in srgb, var(--interactive-accent) 12%, transparent)",
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(ImageIcon, { width: 10, height: 10 }),
+                  /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ImageIcon, { width: 10, height: 10 }),
                   "\u9884\u89C8"
                 ]
               }
@@ -118502,7 +119100,7 @@ function StringValue({ nodeKey, value }) {
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
         ImagePreviewDialog,
         {
           url: value,
@@ -118513,7 +119111,7 @@ function StringValue({ nodeKey, value }) {
     ] });
   }
   if (isUrlValue(value)) {
-    return /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
       "a",
       {
         href: value,
@@ -118535,15 +119133,15 @@ function StringValue({ nodeKey, value }) {
           '"',
           value,
           '"',
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(ExternalLinkIcon, { width: 11, height: 11, style: { flexShrink: 0 } })
+          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ExternalLinkIcon, { width: 11, height: 11, style: { flexShrink: 0 } })
         ]
       }
     );
   }
   if (value.length > 120) {
-    return /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(LongString, { value });
+    return /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(LongString, { value });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
     "span",
     {
       style: {
@@ -118562,7 +119160,7 @@ function StringValue({ nodeKey, value }) {
 }
 function LongString({ value }) {
   const [expanded, setExpanded] = (0, import_react14.useState)(false);
-  return /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
     "span",
     {
       style: {
@@ -118574,7 +119172,7 @@ function LongString({ value }) {
       children: [
         '"',
         expanded ? value : value.slice(0, 120),
-        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
           "button",
           {
             onClick: () => setExpanded((v2) => !v2),
@@ -118602,7 +119200,7 @@ function JsonNode({ nodeKey, value, depth, defaultDepth, isLast }) {
   const type = getType(value);
   const isExpandable = type === "object" || type === "array";
   const [open, setOpen] = (0, import_react14.useState)(depth < defaultDepth);
-  const comma = !isLast && /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+  const comma = !isLast && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
     "span",
     {
       style: {
@@ -118613,20 +119211,20 @@ function JsonNode({ nodeKey, value, depth, defaultDepth, isLast }) {
       children: ","
     }
   );
-  const keyLabel = nodeKey !== "" && /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("span", { style: { fontFamily: "monospace", fontSize: "11px", flexShrink: 0 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("span", { style: { color: "var(--color-purple)" }, children: [
+  const keyLabel = nodeKey !== "" && /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("span", { style: { fontFamily: "monospace", fontSize: "11px", flexShrink: 0 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("span", { style: { color: "var(--color-purple)" }, children: [
       '"',
       nodeKey,
       '"'
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("span", { style: { color: "var(--text-muted)", margin: "0 2px" }, children: ":" })
+    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("span", { style: { color: "var(--text-muted)", margin: "0 2px" }, children: ":" })
   ] });
   if (isExpandable) {
     const isArr = type === "array";
     const entries = isArr ? value.map((v2, i) => [String(i), v2]) : Object.entries(value);
     const [openBracket, closeBracket] = isArr ? ["[", "]"] : ["{", "}"];
-    return /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Root6, { open, onOpenChange: setOpen, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Trigger3, { asChild: true, children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(Root6, { open, onOpenChange: setOpen, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Trigger3, { asChild: true, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
         "div",
         {
           role: "button",
@@ -118646,7 +119244,7 @@ function JsonNode({ nodeKey, value, depth, defaultDepth, isLast }) {
           onMouseEnter: (e2) => e2.currentTarget.style.backgroundColor = "var(--background-modifier-hover)",
           onMouseLeave: (e2) => e2.currentTarget.style.backgroundColor = "transparent",
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
               "span",
               {
                 style: {
@@ -118658,11 +119256,11 @@ function JsonNode({ nodeKey, value, depth, defaultDepth, isLast }) {
                   justifyContent: "center",
                   flexShrink: 0
                 },
-                children: open ? /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(ChevronDownIcon, { width: 12, height: 12 }) : /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(ChevronRightIcon, { width: 12, height: 12 })
+                children: open ? /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ChevronDownIcon, { width: 12, height: 12 }) : /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ChevronRightIcon, { width: 12, height: 12 })
               }
             ),
             keyLabel,
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
               "span",
               {
                 style: {
@@ -118673,8 +119271,8 @@ function JsonNode({ nodeKey, value, depth, defaultDepth, isLast }) {
                 children: openBracket
               }
             ),
-            !open && /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(import_jsx_runtime36.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+            !open && /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(import_jsx_runtime37.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
                 "span",
                 {
                   style: {
@@ -118686,7 +119284,7 @@ function JsonNode({ nodeKey, value, depth, defaultDepth, isLast }) {
                   children: getCollapsedPreview(value)
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
                 "span",
                 {
                   style: {
@@ -118703,8 +119301,8 @@ function JsonNode({ nodeKey, value, depth, defaultDepth, isLast }) {
           ]
         }
       ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Content3, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(Content3, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
           "div",
           {
             style: {
@@ -118713,7 +119311,7 @@ function JsonNode({ nodeKey, value, depth, defaultDepth, isLast }) {
               borderLeft: "1px solid var(--background-modifier-border)",
               marginTop: "2px"
             },
-            children: entries.map(([k2, v2], idx) => /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+            children: entries.map(([k2, v2], idx) => /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
               JsonNode,
               {
                 nodeKey: k2,
@@ -118726,7 +119324,7 @@ function JsonNode({ nodeKey, value, depth, defaultDepth, isLast }) {
             ))
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
           "div",
           {
             style: {
@@ -118735,7 +119333,7 @@ function JsonNode({ nodeKey, value, depth, defaultDepth, isLast }) {
               paddingLeft: "18px"
             },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
                 "span",
                 {
                   style: {
@@ -118755,7 +119353,7 @@ function JsonNode({ nodeKey, value, depth, defaultDepth, isLast }) {
   }
   let valueEl = null;
   if (type === "null" || type === "undefined") {
-    valueEl = /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+    valueEl = /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
       "span",
       {
         style: {
@@ -118768,7 +119366,7 @@ function JsonNode({ nodeKey, value, depth, defaultDepth, isLast }) {
       }
     );
   } else if (type === "boolean") {
-    valueEl = /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+    valueEl = /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
       "span",
       {
         style: {
@@ -118780,7 +119378,7 @@ function JsonNode({ nodeKey, value, depth, defaultDepth, isLast }) {
       }
     );
   } else if (type === "number") {
-    valueEl = /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+    valueEl = /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
       "span",
       {
         style: {
@@ -118792,9 +119390,9 @@ function JsonNode({ nodeKey, value, depth, defaultDepth, isLast }) {
       }
     );
   } else if (type === "string") {
-    valueEl = /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(StringValue, { nodeKey, value });
+    valueEl = /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(StringValue, { nodeKey, value });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
     "div",
     {
       style: {
@@ -118810,7 +119408,7 @@ function JsonNode({ nodeKey, value, depth, defaultDepth, isLast }) {
       onMouseEnter: (e2) => e2.currentTarget.style.backgroundColor = "var(--background-modifier-hover)",
       onMouseLeave: (e2) => e2.currentTarget.style.backgroundColor = "transparent",
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("span", { style: { width: "14px", flexShrink: 0 } }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("span", { style: { width: "14px", flexShrink: 0 } }),
         keyLabel,
         valueEl,
         comma
@@ -118826,8 +119424,8 @@ function CopyButton({ data }) {
       setTimeout(() => setCopied(false), 2e3);
     });
   }, [data]);
-  return /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Provider2, { delayDuration: 300, children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Root33, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Trigger5, { asChild: true, children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Provider2, { delayDuration: 300, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(Root33, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Trigger5, { asChild: true, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
       "button",
       {
         onClick: handleCopy,
@@ -118857,16 +119455,16 @@ function CopyButton({ data }) {
           el.style.backgroundColor = "transparent";
           el.style.borderColor = "transparent";
         },
-        children: copied ? /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(import_jsx_runtime36.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CheckIcon, { width: 13, height: 13, style: { color: "var(--color-green)" } }),
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("span", { style: { color: "var(--color-green)" }, children: "\u5DF2\u590D\u5236" })
-        ] }) : /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(import_jsx_runtime36.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CopyIcon, { width: 13, height: 13 }),
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("span", { children: "\u590D\u5236" })
+        children: copied ? /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(import_jsx_runtime37.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(CheckIcon, { width: 13, height: 13, style: { color: "var(--color-green)" } }),
+          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("span", { style: { color: "var(--color-green)" }, children: "\u5DF2\u590D\u5236" })
+        ] }) : /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(import_jsx_runtime37.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(CopyIcon, { width: 13, height: 13 }),
+          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("span", { children: "\u590D\u5236" })
         ] })
       }
     ) }),
-    /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Portal5, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Portal5, { children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
       Content25,
       {
         side: "left",
@@ -118882,7 +119480,7 @@ function CopyButton({ data }) {
         },
         children: [
           "\u590D\u5236\u4E3A JSON",
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Arrow25, { style: { fill: "var(--background-modifier-border)" } })
+          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Arrow25, { style: { fill: "var(--background-modifier-border)" } })
         ]
       }
     ) })
@@ -118897,13 +119495,13 @@ function ResultViewer({ data, defaultDepth = 2, className }) {
     return type;
   })();
   const rootEntries = isExpandable ? type === "array" ? data.map((v2, i) => [String(i), v2]) : Object.entries(data) : null;
-  return /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(import_jsx_runtime36.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("style", { children: `
+  return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(import_jsx_runtime37.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("style", { children: `
         @keyframes jv-fadeIn  { from { opacity: 0 } to { opacity: 1 } }
         @keyframes jv-scaleIn { from { opacity: 0; transform: scale(.96) } to { opacity: 1; transform: scale(1) } }
         @keyframes jv-spin    { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }
       ` }),
-    /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
       "div",
       {
         className,
@@ -118915,7 +119513,7 @@ function ResultViewer({ data, defaultDepth = 2, className }) {
           overflow: "hidden"
         },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
             "div",
             {
               style: {
@@ -118927,8 +119525,8 @@ function ResultViewer({ data, defaultDepth = 2, className }) {
                 backgroundColor: "var(--background-secondary)"
               },
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: "8px" }, children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: "8px" }, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
                     "span",
                     {
                       style: {
@@ -118941,7 +119539,7 @@ function ResultViewer({ data, defaultDepth = 2, className }) {
                       children: "Result"
                     }
                   ),
-                  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+                  /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
                     "span",
                     {
                       style: {
@@ -118956,11 +119554,11 @@ function ResultViewer({ data, defaultDepth = 2, className }) {
                     }
                   )
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CopyButton, { data })
+                /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(CopyButton, { data })
               ]
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
             "div",
             {
               style: {
@@ -118969,7 +119567,7 @@ function ResultViewer({ data, defaultDepth = 2, className }) {
                 maxHeight: "60vh",
                 lineHeight: "1.6"
               },
-              children: rootEntries ? /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { children: rootEntries.map(([k2, v2], idx) => /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+              children: rootEntries ? /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { children: rootEntries.map(([k2, v2], idx) => /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
                 JsonNode,
                 {
                   nodeKey: k2,
@@ -118979,7 +119577,7 @@ function ResultViewer({ data, defaultDepth = 2, className }) {
                   isLast: idx === rootEntries.length - 1
                 },
                 k2
-              )) }) : /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+              )) }) : /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
                 JsonNode,
                 {
                   nodeKey: "",
@@ -119056,7 +119654,7 @@ var workflow_default = {
 };
 
 // src/ui/workflow/workflow.tsx
-var import_jsx_runtime37 = __toESM(require_jsx_runtime());
+var import_jsx_runtime38 = __toESM(require_jsx_runtime());
 var PluginHost2 = "https://obplugin.dualhue.cn";
 function Workflow() {
   const settings = NMPSettings.getInstance();
@@ -119104,7 +119702,7 @@ function Workflow() {
   }, [activeTab, hasLoadedTokens]);
   const createToken = async (name, appid, appsecret, expireat) => {
     try {
-      const res = await (0, import_obsidian17.requestUrl)({
+      const res = await (0, import_obsidian19.requestUrl)({
         method: "POST",
         url: PluginHost2 + "/v1/workflow/token",
         throw: false,
@@ -119125,7 +119723,7 @@ function Workflow() {
   };
   const listToken = async () => {
     try {
-      const res = await (0, import_obsidian17.requestUrl)({
+      const res = await (0, import_obsidian19.requestUrl)({
         method: "GET",
         url: PluginHost2 + "/v1/workflow/token/list/" + authkey,
         throw: false
@@ -119189,7 +119787,7 @@ function Workflow() {
   };
   const deleteToken = async (id) => {
     var _a5;
-    const res = await (0, import_obsidian17.requestUrl)({
+    const res = await (0, import_obsidian19.requestUrl)({
       method: "DELETE",
       url: PluginHost2 + "/v1/workflow/token",
       throw: false,
@@ -119294,38 +119892,38 @@ function Workflow() {
       minute: "2-digit"
     });
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: workflow_default.Container, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: workflow_default.Header, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("span", { style: { fontSize: "18px", fontWeight: "bold" }, children: "\u5DE5\u4F5C\u6D41Token\u7BA1\u7406" }),
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("span", { children: "\xA0|\xA0" }),
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("a", { href: "https://docs.dualhue.cn", target: "_blank", children: "\u5E2E\u52A9\u6587\u6863" })
+  return /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: workflow_default.Container, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: workflow_default.Header, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("span", { style: { fontSize: "18px", fontWeight: "bold" }, children: "\u5DE5\u4F5C\u6D41Token\u7BA1\u7406" }),
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("span", { children: "\xA0|\xA0" }),
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("a", { href: "https://docs.dualhue.cn", target: "_blank", children: "\u5E2E\u52A9\u6587\u6863" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(Root2, { defaultValue: "create", value: activeTab, onValueChange: setActiveTab, className: workflow_default.Root, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(List, { className: workflow_default.List, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Trigger, { className: workflow_default.Trigger, value: "create", children: "\u521B\u5EFA" }),
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Trigger, { className: workflow_default.Trigger, value: "manage", children: "\u7BA1\u7406" })
+    /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(Root2, { defaultValue: "create", value: activeTab, onValueChange: setActiveTab, className: workflow_default.Root, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(List, { className: workflow_default.List, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(Trigger, { className: workflow_default.Trigger, value: "create", children: "\u521B\u5EFA" }),
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(Trigger, { className: workflow_default.Trigger, value: "manage", children: "\u7BA1\u7406" })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Content, { value: "create", className: workflow_default.Content, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: workflow_default.Form, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: workflow_default.FormGroup, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("label", { className: workflow_default.Label, children: "\u516C\u4F17\u53F7\u8D26\u53F7" }),
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { ref: accountSelectRef, className: workflow_default.SelectWrapper, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(Root24, { value: selectedAccount, onValueChange: setSelectedAccount, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(Trigger2, { className: workflow_default.SelectTrigger, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Value, { placeholder: "\u6682\u65E0\u8D26\u53F7\uFF0C\u8BF7\u5148\u5728\u8BBE\u7F6E\u4E2D\u6DFB\u52A0" }),
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Icon, { className: workflow_default.SelectIcon, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(CaretSortIcon, {}) })
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(Content, { value: "create", className: workflow_default.Content, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: workflow_default.Form, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: workflow_default.FormGroup, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("label", { className: workflow_default.Label, children: "\u516C\u4F17\u53F7\u8D26\u53F7" }),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { ref: accountSelectRef, className: workflow_default.SelectWrapper, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(Root24, { value: selectedAccount, onValueChange: setSelectedAccount, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(Trigger2, { className: workflow_default.SelectTrigger, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(Value, { placeholder: "\u6682\u65E0\u8D26\u53F7\uFF0C\u8BF7\u5148\u5728\u8BBE\u7F6E\u4E2D\u6DFB\u52A0" }),
+              /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(Icon, { className: workflow_default.SelectIcon, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(CaretSortIcon, {}) })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Portal2, { container: accountSelectRef.current || void 0, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(Content22, { className: workflow_default.SelectContent, position: "popper", sideOffset: 5, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ScrollUpButton, { className: workflow_default.SelectScrollButton, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ChevronUpIcon, {}) }),
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Viewport2, { className: workflow_default.SelectViewport, children: wxInfo.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Item2, { value: "none", className: workflow_default.SelectItem, disabled: true, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ItemText, { children: "\u6682\u65E0\u8D26\u53F7" }) }) : wxInfo.map((wx) => /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(Item2, { value: wx.appid, className: workflow_default.SelectItem, children: [
-                /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ItemText, { children: wx.name }),
-                /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ItemIndicator, { className: workflow_default.SelectItemIndicator, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(CheckIcon, {}) })
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(Portal2, { container: accountSelectRef.current || void 0, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(Content22, { className: workflow_default.SelectContent, position: "popper", sideOffset: 5, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(ScrollUpButton, { className: workflow_default.SelectScrollButton, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(ChevronUpIcon, {}) }),
+              /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(Viewport2, { className: workflow_default.SelectViewport, children: wxInfo.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(Item2, { value: "none", className: workflow_default.SelectItem, disabled: true, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(ItemText, { children: "\u6682\u65E0\u8D26\u53F7" }) }) : wxInfo.map((wx) => /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(Item2, { value: wx.appid, className: workflow_default.SelectItem, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(ItemText, { children: wx.name }),
+                /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(ItemIndicator, { className: workflow_default.SelectItemIndicator, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(CheckIcon, {}) })
               ] }, wx.appid)) }),
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ScrollDownButton, { className: workflow_default.SelectScrollButton, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ChevronDownIcon, {}) })
+              /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(ScrollDownButton, { className: workflow_default.SelectScrollButton, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(ChevronDownIcon, {}) })
             ] }) })
           ] }) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: workflow_default.FormGroup, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("label", { className: workflow_default.Label, children: "\u540D\u79F0" }),
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: workflow_default.FormGroup, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("label", { className: workflow_default.Label, children: "\u540D\u79F0" }),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
             "input",
             {
               type: "text",
@@ -119336,34 +119934,34 @@ function Workflow() {
               maxLength: 64
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("span", { className: workflow_default.CharCount, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("span", { className: workflow_default.CharCount, children: [
             tokenName.length,
             "/64"
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: workflow_default.FormGroup, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("label", { className: workflow_default.Label, children: "\u6709\u6548\u671F" }),
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { ref: expirySelectRef, className: workflow_default.SelectWrapper, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(Root24, { value: selectedExpiry, onValueChange: setSelectedExpiry, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(Trigger2, { className: workflow_default.SelectTrigger, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Value, {}),
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Icon, { className: workflow_default.SelectIcon, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(CaretSortIcon, {}) })
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: workflow_default.FormGroup, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("label", { className: workflow_default.Label, children: "\u6709\u6548\u671F" }),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { ref: expirySelectRef, className: workflow_default.SelectWrapper, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(Root24, { value: selectedExpiry, onValueChange: setSelectedExpiry, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(Trigger2, { className: workflow_default.SelectTrigger, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(Value, {}),
+              /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(Icon, { className: workflow_default.SelectIcon, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(CaretSortIcon, {}) })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Portal2, { container: expirySelectRef.current || void 0, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(Content22, { className: workflow_default.SelectContent, position: "popper", sideOffset: 5, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ScrollUpButton, { className: workflow_default.SelectScrollButton, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ChevronUpIcon, {}) }),
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(Viewport2, { className: workflow_default.SelectViewport, children: [
-                presetOptions.map((option) => /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(Item2, { value: option.value, className: workflow_default.SelectItem, children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ItemText, { children: option.label }),
-                  /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ItemIndicator, { className: workflow_default.SelectItemIndicator, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(CheckIcon, {}) })
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(Portal2, { container: expirySelectRef.current || void 0, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(Content22, { className: workflow_default.SelectContent, position: "popper", sideOffset: 5, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(ScrollUpButton, { className: workflow_default.SelectScrollButton, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(ChevronUpIcon, {}) }),
+              /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(Viewport2, { className: workflow_default.SelectViewport, children: [
+                presetOptions.map((option) => /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(Item2, { value: option.value, className: workflow_default.SelectItem, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(ItemText, { children: option.label }),
+                  /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(ItemIndicator, { className: workflow_default.SelectItemIndicator, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(CheckIcon, {}) })
                 ] }, option.value)),
-                /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(Item2, { value: "custom", className: workflow_default.SelectItem, children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ItemText, { children: "\u81EA\u5B9A\u4E49" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ItemIndicator, { className: workflow_default.SelectItemIndicator, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(CheckIcon, {}) })
+                /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(Item2, { value: "custom", className: workflow_default.SelectItem, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(ItemText, { children: "\u81EA\u5B9A\u4E49" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(ItemIndicator, { className: workflow_default.SelectItemIndicator, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(CheckIcon, {}) })
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ScrollDownButton, { className: workflow_default.SelectScrollButton, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ChevronDownIcon, {}) })
+              /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(ScrollDownButton, { className: workflow_default.SelectScrollButton, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(ChevronDownIcon, {}) })
             ] }) })
           ] }) }),
-          selectedExpiry === "custom" && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
+          selectedExpiry === "custom" && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
             "input",
             {
               type: "number",
@@ -119376,7 +119974,7 @@ function Workflow() {
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
           "button",
           {
             className: workflow_default.GenerateButton,
@@ -119386,10 +119984,10 @@ function Workflow() {
           }
         )
       ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Content, { value: "manage", className: workflow_default.Content, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: workflow_default.ManageContainer, children: [
-        isLoadingTokens ? /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: workflow_default.LoadingMessage, children: "\u52A0\u8F7D\u4E2D..." }) : tokens.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: workflow_default.EmptyMessage, children: "\u6682\u65E0JWT\u4EE4\u724C" }) : /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("table", { className: workflow_default.TokenTable, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("tr", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("th", { className: workflow_default.CheckboxCell, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(Content, { value: "manage", className: workflow_default.Content, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: workflow_default.ManageContainer, children: [
+        isLoadingTokens ? /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: workflow_default.LoadingMessage, children: "\u52A0\u8F7D\u4E2D..." }) : tokens.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: workflow_default.EmptyMessage, children: "\u6682\u65E0JWT\u4EE4\u724C" }) : /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("table", { className: workflow_default.TokenTable, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("tr", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("th", { className: workflow_default.CheckboxCell, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
               "input",
               {
                 type: "checkbox",
@@ -119397,15 +119995,15 @@ function Workflow() {
                 onChange: handleToggleAll
               }
             ) }),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("th", { children: "\u540D\u79F0" }),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("th", { children: "\u516C\u4F17\u53F7" }),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("th", { children: "\u521B\u5EFA\u65F6\u95F4" }),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("th", { children: "\u8FC7\u671F\u65F6\u95F4" })
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("th", { children: "\u540D\u79F0" }),
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("th", { children: "\u516C\u4F17\u53F7" }),
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("th", { children: "\u521B\u5EFA\u65F6\u95F4" }),
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("th", { children: "\u8FC7\u671F\u65F6\u95F4" })
           ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("tbody", { children: tokens.map((token) => {
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("tbody", { children: tokens.map((token) => {
             const account = wxInfo.find((wx) => wx.appid === token.appid);
-            return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("tr", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("td", { className: workflow_default.CheckboxCell, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
+            return /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("td", { className: workflow_default.CheckboxCell, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
                 "input",
                 {
                   type: "checkbox",
@@ -119413,14 +120011,14 @@ function Workflow() {
                   onChange: () => handleToggleToken(token.id)
                 }
               ) }),
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("td", { children: token.name }),
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("td", { children: (account == null ? void 0 : account.name) || token.appid }),
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("td", { children: formatDate(token.created) }),
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("td", { children: formatDate(token.expireat) })
+              /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("td", { children: token.name }),
+              /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("td", { children: (account == null ? void 0 : account.name) || token.appid }),
+              /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("td", { children: formatDate(token.created) }),
+              /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("td", { children: formatDate(token.expireat) })
             ] }, token.id);
           }) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: workflow_default.ManageFooter, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: workflow_default.ManageFooter, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(
           "button",
           {
             className: workflow_default.DeleteButton,
@@ -119434,43 +120032,43 @@ function Workflow() {
         ) })
       ] }) })
     ] }),
-    generatedToken && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: workflow_default.ResultOverlay, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: workflow_default.ResultModal, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: workflow_default.ResultHeader, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: workflow_default.ResultWarning, children: "\u26A0\uFE0F Token\u4EC5\u663E\u793A\u4E00\u6B21\uFF0C\u8BF7\u59A5\u5584\u4FDD\u7BA1" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: workflow_default.ResultContent, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: workflow_default.ResultLabel, children: "\u751F\u6210\u7684Token\uFF1A" }),
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: workflow_default.ResultToken, children: generatedToken })
+    generatedToken && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: workflow_default.ResultOverlay, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: workflow_default.ResultModal, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: workflow_default.ResultHeader, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: workflow_default.ResultWarning, children: "\u26A0\uFE0F Token\u4EC5\u663E\u793A\u4E00\u6B21\uFF0C\u8BF7\u59A5\u5584\u4FDD\u7BA1" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: workflow_default.ResultContent, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: workflow_default.ResultLabel, children: "\u751F\u6210\u7684Token\uFF1A" }),
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: workflow_default.ResultToken, children: generatedToken })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: workflow_default.ResultActions, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("button", { className: workflow_default.CopyButton, onClick: handleCopyToken, children: "\u590D\u5236Token" }),
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("button", { className: workflow_default.CloseButton, onClick: handleCloseResult, disabled: !hasCopied, children: "\u5173\u95ED" })
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: workflow_default.ResultActions, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("button", { className: workflow_default.CopyButton, onClick: handleCopyToken, children: "\u590D\u5236Token" }),
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("button", { className: workflow_default.CloseButton, onClick: handleCloseResult, disabled: !hasCopied, children: "\u5173\u95ED" })
       ] })
     ] }) }),
-    confirmDelete && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: workflow_default.ResultOverlay, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: workflow_default.ResultModal, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: workflow_default.ResultHeader, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: workflow_default.ResultWarning, children: "\u26A0\uFE0F \u786E\u8BA4\u5220\u9664" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: workflow_default.ResultContent, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: workflow_default.ResultLabel, children: [
+    confirmDelete && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: workflow_default.ResultOverlay, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: workflow_default.ResultModal, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: workflow_default.ResultHeader, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: workflow_default.ResultWarning, children: "\u26A0\uFE0F \u786E\u8BA4\u5220\u9664" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: workflow_default.ResultContent, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: workflow_default.ResultLabel, children: [
           "\u786E\u5B9A\u8981\u5220\u9664\u9009\u4E2D\u7684 ",
           selectedTokens.size,
           " \u4E2AToken\u5417\uFF1F"
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: workflow_default.ConfirmMessage, children: "\u6B64\u64CD\u4F5C\u4E0D\u53EF\u6062\u590D\uFF0C\u8BF7\u8C28\u614E\u64CD\u4F5C\u3002" })
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: workflow_default.ConfirmMessage, children: "\u6B64\u64CD\u4F5C\u4E0D\u53EF\u6062\u590D\uFF0C\u8BF7\u8C28\u614E\u64CD\u4F5C\u3002" })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: workflow_default.ResultActions, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("button", { className: workflow_default.CopyButton, onClick: confirmDeleteAction, children: "\u786E\u8BA4\u5220\u9664" }),
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("button", { className: workflow_default.CloseButton, onClick: cancelDelete, children: "\u53D6\u6D88" })
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: workflow_default.ResultActions, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("button", { className: workflow_default.CopyButton, onClick: confirmDeleteAction, children: "\u786E\u8BA4\u5220\u9664" }),
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("button", { className: workflow_default.CloseButton, onClick: cancelDelete, children: "\u53D6\u6D88" })
       ] })
     ] }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: workflow_default.NotificationContainer, children: notifications.map((notification) => /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: workflow_default.NotificationContainer, children: notifications.map((notification) => /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(
       "div",
       {
         className: workflow_default.Notification,
         "data-type": notification.type,
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: workflow_default.NotificationContent, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: workflow_default.NotificationTitle, children: notification.title }),
-            notification.description && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: workflow_default.NotificationDescription, children: notification.description })
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: workflow_default.NotificationContent, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: workflow_default.NotificationTitle, children: notification.title }),
+            notification.description && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: workflow_default.NotificationDescription, children: notification.description })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
             "button",
             {
               className: workflow_default.NotificationClose,
@@ -119484,15 +120082,15 @@ function Workflow() {
     )) })
   ] });
 }
-var WorkflowModal = class extends import_obsidian17.Modal {
+var WorkflowModal = class extends import_obsidian19.Modal {
   constructor(app) {
     super(app);
     this.view = null;
   }
   onOpen() {
     let { contentEl } = this;
-    this.view = ReactDOM7.createRoot(contentEl);
-    this.view.render(/* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Workflow, {}));
+    this.view = ReactDOM8.createRoot(contentEl);
+    this.view.render(/* @__PURE__ */ (0, import_jsx_runtime38.jsx)(Workflow, {}));
   }
   onClose() {
     var _a5;
@@ -119548,22 +120146,22 @@ function WorkflowRun({ note }) {
     });
   }, [note, contentRef]);
   if (finished) {
-    return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: workflow_default.WorkflowRun, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("h2", { children: message }),
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ResultViewer, { data: result })
+    return /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: workflow_default.WorkflowRun, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("h2", { children: message }),
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(ResultViewer, { data: result })
     ] });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: workflow_default.WorkflowRun, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("h2", { children: "\u5DE5\u4F5C\u6D41\u8C03\u7528" }),
-    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { style: { maxHeight: 1, overflow: "hidden" }, children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { ref: contentRef, style: { padding: 10 } }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, height: 44 }, children: [
-      running && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(LoadingOrb, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { children: message })
+  return /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: workflow_default.WorkflowRun, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("h2", { children: "\u5DE5\u4F5C\u6D41\u8C03\u7528" }),
+    /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { style: { maxHeight: 1, overflow: "hidden" }, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { ref: contentRef, style: { padding: 10 } }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, height: 44 }, children: [
+      running && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(LoadingOrb, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { children: message })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { style: { display: "flex", justifyContent: "flex-end", marginTop: 10, marginRight: 10 }, children: !loading && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("button", { onClick: run, disabled: running, children: "\u5F00\u59CB\u8C03\u7528" }) })
+    /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { style: { display: "flex", justifyContent: "flex-end", marginTop: 10, marginRight: 10 }, children: !loading && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("button", { onClick: run, disabled: running, children: "\u5F00\u59CB\u8C03\u7528" }) })
   ] });
 }
-var WorkflowRunModal = class extends import_obsidian17.Modal {
+var WorkflowRunModal = class extends import_obsidian19.Modal {
   constructor(app, note) {
     super(app);
     this.view = null;
@@ -119572,8 +120170,8 @@ var WorkflowRunModal = class extends import_obsidian17.Modal {
   onOpen() {
     let { contentEl, modalEl } = this;
     modalEl.style.minHeight = "200px";
-    this.view = ReactDOM7.createRoot(contentEl);
-    this.view.render(/* @__PURE__ */ (0, import_jsx_runtime37.jsx)(WorkflowRun, { note: this.note }));
+    this.view = ReactDOM8.createRoot(contentEl);
+    this.view.render(/* @__PURE__ */ (0, import_jsx_runtime38.jsx)(WorkflowRun, { note: this.note }));
   }
   onClose() {
     var _a5;
@@ -119585,7 +120183,7 @@ var WorkflowRunModal = class extends import_obsidian17.Modal {
 };
 
 // src/setting-tab.ts
-var NoteToMpSettingTab = class extends import_obsidian18.PluginSettingTab {
+var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
   constructor(app, plugin) {
     super(app, plugin);
     this.plugin = plugin;
@@ -119611,12 +120209,12 @@ var NoteToMpSettingTab = class extends import_obsidian18.PluginSettingTab {
   async testWXInfo() {
     const authKey = this.settings.authKey;
     if (authKey.length == 0) {
-      new import_obsidian18.Notice("\u8BF7\u5148\u8BBE\u7F6EauthKey");
+      new import_obsidian20.Notice("\u8BF7\u5148\u8BBE\u7F6EauthKey");
       return;
     }
     const wxInfo = this.settings.wxInfo;
     if (wxInfo.length == 0) {
-      new import_obsidian18.Notice("\u8BF7\u5148\u8BBE\u7F6E\u516C\u4F17\u53F7\u4FE1\u606F");
+      new import_obsidian20.Notice("\u8BF7\u5148\u8BBE\u7F6E\u516C\u4F17\u53F7\u4FE1\u606F");
       return;
     }
     try {
@@ -119640,22 +120238,22 @@ var NoteToMpSettingTab = class extends import_obsidian18.PluginSettingTab {
         }
         const data = res.json;
         if (data.token.length == 0) {
-          new import_obsidian18.Notice(`${wx.name}|${wx.appid} \u6D4B\u8BD5\u5931\u8D25`);
+          new import_obsidian20.Notice(`${wx.name}|${wx.appid} \u6D4B\u8BD5\u5931\u8D25`);
           break;
         }
-        new import_obsidian18.Notice(`${wx.name} \u6D4B\u8BD5\u901A\u8FC7`);
+        new import_obsidian20.Notice(`${wx.name} \u6D4B\u8BD5\u901A\u8FC7`);
       }
     } catch (error) {
-      new import_obsidian18.Notice(`\u6D4B\u8BD5\u5931\u8D25\uFF1A${error}`);
+      new import_obsidian20.Notice(`\u6D4B\u8BD5\u5931\u8D25\uFF1A${error}`);
     }
   }
   async encrypt() {
     if (this.wxInfo.length == 0) {
-      new import_obsidian18.Notice("\u8BF7\u8F93\u5165\u5185\u5BB9");
+      new import_obsidian20.Notice("\u8BF7\u8F93\u5165\u5185\u5BB9");
       return false;
     }
     if (this.settings.wxInfo.length > 0) {
-      new import_obsidian18.Notice("\u5DF2\u7ECF\u4FDD\u5B58\u8FC7\u4E86\uFF0C\u8BF7\u5148\u6E05\u9664\uFF01");
+      new import_obsidian20.Notice("\u5DF2\u7ECF\u4FDD\u5B58\u8FC7\u4E86\uFF0C\u8BF7\u5148\u6E05\u9664\uFF01");
       return false;
     }
     const wechat = [];
@@ -119667,7 +120265,7 @@ var NoteToMpSettingTab = class extends import_obsidian18.PluginSettingTab {
       }
       const items = line.split("|");
       if (items.length != 3) {
-        new import_obsidian18.Notice("\u683C\u5F0F\u9519\u8BEF\uFF0C\u8BF7\u68C0\u67E5");
+        new import_obsidian20.Notice("\u683C\u5F0F\u9519\u8BEF\uFF0C\u8BF7\u68C0\u67E5");
         return false;
       }
       const name = items[0];
@@ -119682,7 +120280,7 @@ var NoteToMpSettingTab = class extends import_obsidian18.PluginSettingTab {
       const res = await wxEncrypt(this.settings.authKey, wechat);
       if (res.status != 200) {
         const data2 = res.json;
-        new import_obsidian18.Notice(`${data2.message}`);
+        new import_obsidian20.Notice(`${data2.message}`);
         return false;
       }
       const data = res.json;
@@ -119693,10 +120291,10 @@ var NoteToMpSettingTab = class extends import_obsidian18.PluginSettingTab {
       await this.plugin.saveSettings();
       this.wxInfo = this.parseWXInfo();
       this.displayWXInfo(this.wxInfo);
-      new import_obsidian18.Notice("\u4FDD\u5B58\u6210\u529F");
+      new import_obsidian20.Notice("\u4FDD\u5B58\u6210\u529F");
       return true;
     } catch (error) {
-      new import_obsidian18.Notice(`\u4FDD\u5B58\u5931\u8D25\uFF1A${error}`);
+      new import_obsidian20.Notice(`\u4FDD\u5B58\u5931\u8D25\uFF1A${error}`);
       console.error(error);
     }
     return false;
@@ -119722,7 +120320,7 @@ var NoteToMpSettingTab = class extends import_obsidian18.PluginSettingTab {
     this.headerEl.createEl("div", { text: `\u5F53\u524D\u7248\u672C: v${version}` });
     this.headerEl.createEl("div", { text: " " }).style.cssText = "width: 10px;";
     containerEl.createEl("h2", { text: "\u63D2\u4EF6\u8BBE\u7F6E" });
-    new import_obsidian18.Setting(containerEl).setName("\u9ED8\u8BA4\u6837\u5F0F").addDropdown((dropdown) => {
+    new import_obsidian20.Setting(containerEl).setName("\u9ED8\u8BA4\u6837\u5F0F").addDropdown((dropdown) => {
       const styles = this.plugin.assetsManager.themes;
       for (let s of styles) {
         dropdown.addOption(s.className, s.name);
@@ -119733,7 +120331,7 @@ var NoteToMpSettingTab = class extends import_obsidian18.PluginSettingTab {
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian18.Setting(containerEl).setName("\u4EE3\u7801\u9AD8\u4EAE").addDropdown((dropdown) => {
+    new import_obsidian20.Setting(containerEl).setName("\u4EE3\u7801\u9AD8\u4EAE").addDropdown((dropdown) => {
       const styles = this.plugin.assetsManager.highlights;
       for (let s of styles) {
         dropdown.addOption(s.name, s.name);
@@ -119744,7 +120342,7 @@ var NoteToMpSettingTab = class extends import_obsidian18.PluginSettingTab {
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian18.Setting(containerEl).setName("\u94FE\u63A5\u5C55\u793A\u6837\u5F0F").addDropdown((dropdown) => {
+    new import_obsidian20.Setting(containerEl).setName("\u94FE\u63A5\u5C55\u793A\u6837\u5F0F").addDropdown((dropdown) => {
       dropdown.addOption("inline", "\u5185\u5D4C");
       dropdown.addOption("footnote", "\u811A\u6CE8");
       dropdown.setValue(this.settings.linkStyle);
@@ -119753,7 +120351,7 @@ var NoteToMpSettingTab = class extends import_obsidian18.PluginSettingTab {
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian18.Setting(containerEl).setName("\u6587\u4EF6\u5D4C\u5165\u5C55\u793A\u6837\u5F0F").addDropdown((dropdown) => {
+    new import_obsidian20.Setting(containerEl).setName("\u6587\u4EF6\u5D4C\u5165\u5C55\u793A\u6837\u5F0F").addDropdown((dropdown) => {
       dropdown.addOption("quote", "\u5F15\u7528");
       dropdown.addOption("content", "\u6B63\u6587");
       dropdown.setValue(this.settings.embedStyle);
@@ -119762,7 +120360,7 @@ var NoteToMpSettingTab = class extends import_obsidian18.PluginSettingTab {
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian18.Setting(containerEl).setName("\u6570\u5B66\u516C\u5F0F\u8BED\u6CD5").addDropdown((dropdown) => {
+    new import_obsidian20.Setting(containerEl).setName("\u6570\u5B66\u516C\u5F0F\u8BED\u6CD5").addDropdown((dropdown) => {
       dropdown.addOption("latex", "latex");
       dropdown.addOption("asciimath", "asciimath");
       dropdown.setValue(this.settings.math);
@@ -119772,41 +120370,41 @@ var NoteToMpSettingTab = class extends import_obsidian18.PluginSettingTab {
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian18.Setting(containerEl).setName("\u663E\u793A\u4EE3\u7801\u884C\u53F7").addToggle((toggle) => {
+    new import_obsidian20.Setting(containerEl).setName("\u663E\u793A\u4EE3\u7801\u884C\u53F7").addToggle((toggle) => {
       toggle.setValue(this.settings.lineNumber);
       toggle.onChange(async (value) => {
         this.settings.lineNumber = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian18.Setting(containerEl).setName("\u542F\u7528\u7A7A\u884C\u6E32\u67D3").addToggle((toggle) => {
+    new import_obsidian20.Setting(containerEl).setName("\u542F\u7528\u7A7A\u884C\u6E32\u67D3").addToggle((toggle) => {
       toggle.setValue(this.settings.enableEmptyLine);
       toggle.onChange(async (value) => {
         this.settings.enableEmptyLine = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian18.Setting(containerEl).setName("\u6E32\u67D3\u56FE\u7247\u6807\u9898").addToggle((toggle) => {
+    new import_obsidian20.Setting(containerEl).setName("\u6E32\u67D3\u56FE\u7247\u6807\u9898").addToggle((toggle) => {
       toggle.setValue(this.settings.useFigcaption);
       toggle.onChange(async (value) => {
         this.settings.useFigcaption = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian18.Setting(containerEl).setName("Excalidraw \u6E32\u67D3\u4E3A PNG \u56FE\u7247").addToggle((toggle) => {
+    new import_obsidian20.Setting(containerEl).setName("Excalidraw \u6E32\u67D3\u4E3A PNG \u56FE\u7247").addToggle((toggle) => {
       toggle.setValue(this.settings.excalidrawToPNG);
       toggle.onChange(async (value) => {
         this.settings.excalidrawToPNG = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian18.Setting(containerEl).setName("\u6C34\u5370\u56FE\u7247").addText((text) => {
+    new import_obsidian20.Setting(containerEl).setName("\u6C34\u5370\u56FE\u7247").addText((text) => {
       text.setPlaceholder("\u8BF7\u8F93\u5165\u56FE\u7247\u540D\u79F0").setValue(this.settings.watermark).onChange(async (value) => {
         this.settings.watermark = value.trim();
         await this.plugin.saveSettings();
       }).inputEl.setAttr("style", "width: 320px;");
     });
-    new import_obsidian18.Setting(containerEl).setName("\u83B7\u53D6\u66F4\u591A\u4E3B\u9898").addButton((button) => {
+    new import_obsidian20.Setting(containerEl).setName("\u83B7\u53D6\u66F4\u591A\u4E3B\u9898").addButton((button) => {
       button.setButtonText("\u4E0B\u8F7D");
       button.onClick(async () => {
         button.setButtonText("\u4E0B\u8F7D\u4E2D...");
@@ -119819,7 +120417,7 @@ var NoteToMpSettingTab = class extends import_obsidian18.PluginSettingTab {
         await this.plugin.assetsManager.openAssets();
       });
     });
-    new import_obsidian18.Setting(containerEl).setName("\u6E05\u7A7A\u4E3B\u9898").addButton((button) => {
+    new import_obsidian20.Setting(containerEl).setName("\u6E05\u7A7A\u4E3B\u9898").addButton((button) => {
       button.setButtonText("\u6E05\u7A7A");
       button.onClick(async () => {
         await this.plugin.assetsManager.removeThemes();
@@ -119827,7 +120425,7 @@ var NoteToMpSettingTab = class extends import_obsidian18.PluginSettingTab {
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian18.Setting(containerEl).setName("\u5168\u5C40CSS\u5C5E\u6027").setDesc("\u53EA\u80FD\u586B\u5199CSS\u5C5E\u6027\uFF0C\u4E0D\u80FD\u5199\u9009\u62E9\u5668").addTextArea((text) => {
+    new import_obsidian20.Setting(containerEl).setName("\u5168\u5C40CSS\u5C5E\u6027").setDesc("\u53EA\u80FD\u586B\u5199CSS\u5C5E\u6027\uFF0C\u4E0D\u80FD\u5199\u9009\u62E9\u5668").addTextArea((text) => {
       this.wxTextArea = text;
       text.setPlaceholder("\u8BF7\u8F93\u5165CSS\u5C5E\u6027\uFF0C\u5982\uFF1Abackground: #fff;padding: 10px;").setValue(this.settings.baseCSS).onChange(async (value) => {
         this.settings.baseCSS = value;
@@ -119835,7 +120433,7 @@ var NoteToMpSettingTab = class extends import_obsidian18.PluginSettingTab {
       }).inputEl.setAttr("style", "width: 520px; height: 60px;");
     });
     const customCSSDoc = '\u4F7F\u7528\u6307\u5357\uFF1A<a href="https://docs.dualhue.cn/customcss">https://docs.dualhue.cn/customcss</a>';
-    const customCSSSetting = new import_obsidian18.Setting(containerEl).setName("\u81EA\u5B9A\u4E49CSS\u7B14\u8BB0").setDesc((0, import_obsidian18.sanitizeHTMLToDom)(customCSSDoc)).addText((text) => {
+    const customCSSSetting = new import_obsidian20.Setting(containerEl).setName("\u81EA\u5B9A\u4E49CSS\u7B14\u8BB0").setDesc((0, import_obsidian20.sanitizeHTMLToDom)(customCSSDoc)).addText((text) => {
       text.setPlaceholder("\u8BF7\u8F93\u5165\u81EA\u5B9A\u4E49CSS\u7B14\u8BB0\u6807\u9898").setValue(this.settings.customCSSNote).onChange(async (value) => {
         const note = value.trim();
         try {
@@ -119845,7 +120443,7 @@ var NoteToMpSettingTab = class extends import_obsidian18.PluginSettingTab {
           this.settings.customCSSNote = note;
           await this.plugin.saveSettings();
           await this.plugin.assetsManager.loadCustomCSS();
-          customCSSSetting.setDesc((0, import_obsidian18.sanitizeHTMLToDom)(customCSSDoc));
+          customCSSSetting.setDesc((0, import_obsidian20.sanitizeHTMLToDom)(customCSSDoc));
           customCSSSetting.descEl.removeAttribute("style");
         } catch (error) {
           console.error(error);
@@ -119856,7 +120454,7 @@ var NoteToMpSettingTab = class extends import_obsidian18.PluginSettingTab {
       }).inputEl.setAttr("style", "width: 320px;");
     });
     const expertDoc = '\u4F7F\u7528\u6307\u5357\uFF1A<a href="https://docs.dualhue.cn/expert">https://docs.dualhue.cn/expert</a>';
-    new import_obsidian18.Setting(containerEl).setName("\u4E13\u5BB6\u8BBE\u7F6E\u7B14\u8BB0").setDesc((0, import_obsidian18.sanitizeHTMLToDom)(expertDoc)).addText((text) => {
+    new import_obsidian20.Setting(containerEl).setName("\u4E13\u5BB6\u8BBE\u7F6E\u7B14\u8BB0").setDesc((0, import_obsidian20.sanitizeHTMLToDom)(expertDoc)).addText((text) => {
       text.setPlaceholder("\u8BF7\u8F93\u5165\u4E13\u5BB6\u8BBE\u7F6E\u7B14\u8BB0\u6807\u9898").setValue(this.settings.expertSettingsNote).onChange(async (value) => {
         this.settings.expertSettingsNote = value.trim();
         await this.plugin.saveSettings();
@@ -119872,7 +120470,7 @@ var NoteToMpSettingTab = class extends import_obsidian18.PluginSettingTab {
         descHtml = `\u6709\u6548\u671F\u81F3\uFF1A${timestr} <br/>${descHtml}`;
       }
     }
-    new import_obsidian18.Setting(containerEl).setName("\u6CE8\u518C\u7801\uFF08AuthKey\uFF09").setDesc((0, import_obsidian18.sanitizeHTMLToDom)(descHtml)).addText((text) => {
+    new import_obsidian20.Setting(containerEl).setName("\u6CE8\u518C\u7801\uFF08AuthKey\uFF09").setDesc((0, import_obsidian20.sanitizeHTMLToDom)(descHtml)).addText((text) => {
       text.setPlaceholder("\u8BF7\u8F93\u5165\u6CE8\u518C\u7801").setValue(this.settings.authKey).onChange(async (value) => {
         this.settings.authKey = value.trim();
         await this.settings.updateKeyInfo();
@@ -119882,13 +120480,13 @@ var NoteToMpSettingTab = class extends import_obsidian18.PluginSettingTab {
     let isClear = this.settings.wxInfo.length > 0;
     let isRealClear = false;
     const buttonText = isClear ? "\u6E05\u7A7A\u516C\u4F17\u53F7\u4FE1\u606F" : "\u4FDD\u5B58\u516C\u4F17\u53F7\u4FE1\u606F";
-    new import_obsidian18.Setting(containerEl).setName("\u516C\u4F17\u53F7\u4FE1\u606F").addTextArea((text) => {
+    new import_obsidian20.Setting(containerEl).setName("\u516C\u4F17\u53F7\u4FE1\u606F").addTextArea((text) => {
       this.wxTextArea = text;
       text.setPlaceholder("\u8BF7\u8F93\u5165\u516C\u4F17\u53F7\u4FE1\u606F\n\u683C\u5F0F\uFF1A\u516C\u4F17\u53F7\u540D\u79F0|\u516C\u4F17\u53F7AppID|\u516C\u4F17\u53F7AppSecret\n\u591A\u4E2A\u516C\u4F17\u53F7\u8BF7\u6362\u884C\u8F93\u5165\n\u8F93\u5165\u5B8C\u6210\u540E\u70B9\u51FB\u52A0\u5BC6\u6309\u94AE").setValue(this.wxInfo).onChange((value) => {
         this.wxInfo = value;
       }).inputEl.setAttr("style", "width: 520px; height: 120px;");
     });
-    new import_obsidian18.Setting(containerEl).addButton((button) => {
+    new import_obsidian20.Setting(containerEl).addButton((button) => {
       button.setButtonText(buttonText);
       button.onClick(async () => {
         if (isClear) {
@@ -119938,8 +120536,8 @@ var NoteToMpSettingTab = class extends import_obsidian18.PluginSettingTab {
 };
 
 // src/widgets-modal.ts
-var import_obsidian19 = require("obsidian");
-var WidgetsModal = class extends import_obsidian19.Modal {
+var import_obsidian21 = require("obsidian");
+var WidgetsModal = class extends import_obsidian21.Modal {
   constructor(app) {
     super(app);
     this.listener = null;
@@ -119947,7 +120545,7 @@ var WidgetsModal = class extends import_obsidian19.Modal {
   }
   insertMarkdown(markdown) {
     var _a5;
-    const editor = (_a5 = this.app.workspace.getActiveViewOfType(import_obsidian19.MarkdownView)) == null ? void 0 : _a5.editor;
+    const editor = (_a5 = this.app.workspace.getActiveViewOfType(import_obsidian21.MarkdownView)) == null ? void 0 : _a5.editor;
     if (!editor) return;
     editor.replaceSelection(markdown);
     editor.exec("goRight");
@@ -119988,11 +120586,11 @@ var WidgetsModal = class extends import_obsidian19.Modal {
 };
 
 // src/note-pub.ts
-var import_obsidian20 = require("obsidian");
+var import_obsidian22 = require("obsidian");
 
 // src/ui/pubview.tsx
 var import_react20 = __toESM(require_react());
-var ReactDOM8 = __toESM(require_client());
+var ReactDOM9 = __toESM(require_client());
 
 // node_modules/@dnd-kit/core/dist/core.esm.js
 var import_react18 = __toESM(require_react());
@@ -123813,7 +124411,7 @@ function normalizeLocalDisabled(localDisabled, globalDisabled) {
 var directions = [KeyboardCode.Down, KeyboardCode.Right, KeyboardCode.Up, KeyboardCode.Left];
 
 // src/ui/components/NoteList.tsx
-var import_jsx_runtime38 = __toESM(require_jsx_runtime());
+var import_jsx_runtime39 = __toESM(require_jsx_runtime());
 var SortableItem = ({ item }) => {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: item.id });
   const style = {
@@ -123838,34 +124436,34 @@ var SortableItem = ({ item }) => {
     userSelect: "none",
     WebkitUserSelect: "none"
   };
-  const spacer = /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { style: { width: 10 } });
-  let content = /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_jsx_runtime38.Fragment, {});
+  const spacer = /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { style: { width: 10 } });
+  let content = /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_jsx_runtime39.Fragment, {});
   if (item.status == 0 /* Init */) {
-    content = /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(import_jsx_runtime38.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(HamburgerMenuIcon, {}),
+    content = /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(import_jsx_runtime39.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(HamburgerMenuIcon, {}),
       " ",
       spacer,
       " ",
-      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { children: item.title })
+      /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { children: item.title })
     ] });
   } else if (item.status == 1 /* Rendering */) {
-    content = /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(import_jsx_runtime38.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(LoadingOrb, { fontSize: 14, width: 15, height: 15 }),
+    content = /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(import_jsx_runtime39.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(LoadingOrb, { fontSize: 14, width: 15, height: 15 }),
       " ",
       spacer,
       " ",
-      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { children: item.title })
+      /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { children: item.title })
     ] });
   } else if (item.status == 2 /* Done */) {
-    content = /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(import_jsx_runtime38.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(CheckIcon, {}),
+    content = /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(import_jsx_runtime39.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(CheckIcon, {}),
       " ",
       spacer,
       " ",
-      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { children: item.title })
+      /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { children: item.title })
     ] });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { ref: setNodeRef, style, ...attributes, ...listeners, children: content });
+  return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { ref: setNodeRef, style, ...attributes, ...listeners, children: content });
 };
 function NoteList({ items, setItems, disable }) {
   const sensors = useSensors(
@@ -123884,11 +124482,11 @@ function NoteList({ items, setItems, disable }) {
       }
     })
   );
-  const list2 = items.map((item) => /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(SortableItem, { item }, item.id));
+  const list2 = items.map((item) => /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(SortableItem, { item }, item.id));
   if (disable) {
-    return /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_jsx_runtime38.Fragment, { children: list2 });
+    return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_jsx_runtime39.Fragment, { children: list2 });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
     DndContext,
     {
       sensors: disable ? [] : sensors,
@@ -123901,7 +124499,7 @@ function NoteList({ items, setItems, disable }) {
           setItems(arrayMove(items, oldIndex, newIndex));
         }
       },
-      children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(SortableContext, { items, strategy: verticalListSortingStrategy, children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { style: {
+      children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(SortableContext, { items, strategy: verticalListSortingStrategy, children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { style: {
         touchAction: "pan-y",
         // 允许垂直滚动但阻止水平滚动和缩放
         minHeight: "100%"
@@ -123919,7 +124517,7 @@ var pubview_default = {
 };
 
 // src/ui/pubview.tsx
-var import_jsx_runtime39 = __toESM(require_jsx_runtime());
+var import_jsx_runtime40 = __toESM(require_jsx_runtime());
 function defaultTheme() {
   return NMPSettings.getInstance().defaultStyle;
 }
@@ -124034,20 +124632,20 @@ function Pubview({ modal, notes }) {
     };
   }, [notes, isReourceLoaded, styleRef, contentRef]);
   if (!isReourceLoaded) {
-    return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(PageLoading, {});
+    return /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(PageLoading, {});
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: pubview_default.Header, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(LoadingOrb, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: pubview_default.Message, children: message })
+  return /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: pubview_default.Header, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(LoadingOrb, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { className: pubview_default.Message, children: message })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: pubview_default.Content, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("style", { ref: styleRef, children: cssContent }),
-      /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { ref: contentRef })
+    /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: pubview_default.Content, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("style", { ref: styleRef, children: cssContent }),
+      /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { ref: contentRef })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: pubview_default.Footer, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(AccountSelect_default2, { disabled: publishing }),
-      /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("button", { onClick: onCancel, children: "\u53D6\u6D88\u53D1\u5E03" })
+    /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: pubview_default.Footer, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(AccountSelect_default2, { disabled: publishing }),
+      /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("button", { onClick: onCancel, children: "\u53D6\u6D88\u53D1\u5E03" })
     ] })
   ] });
 }
@@ -124182,25 +124780,25 @@ function MergePubview({ modal, notes }) {
     }
   };
   if (!isReourceLoaded) {
-    return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(PageLoading, {});
+    return /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(PageLoading, {});
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: pubview_default.Header, children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: pubview_default.Message, children: message }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: pubview_default.List, children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(NoteList, { items: noteItems, setItems: setNoteItems, disable: publishing }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: pubview_default.Content, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("style", { ref: styleRef, children: cssContent }),
-      /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { ref: contentRef })
+  return /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { className: pubview_default.Header, children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { className: pubview_default.Message, children: message }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { className: pubview_default.List, children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(NoteList, { items: noteItems, setItems: setNoteItems, disable: publishing }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: pubview_default.Content, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("style", { ref: styleRef, children: cssContent }),
+      /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { ref: contentRef })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: pubview_default.Footer, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: pubview_default.Tips, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(BellIcon, { style: { marginRight: 5 } }),
-        /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("span", { children: "\u6700\u591A8\u7BC7\u7B14\u8BB0" })
+    /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: pubview_default.Footer, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: pubview_default.Tips, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(BellIcon, { style: { marginRight: 5 } }),
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("span", { children: "\u6700\u591A8\u7BC7\u7B14\u8BB0" })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(AccountSelect_default2, { disabled: publishing }),
-      /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { style: { display: "flex", alignItems: "center" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("button", { disabled: publishing, onClick: onPublish, style: { width: 80 }, children: "\u53D1\u5E03" }),
-        /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { style: { width: 20 } }),
-        /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("button", { onClick: onCancel, style: { width: 80 }, children: "\u53D6\u6D88" })
+      /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(AccountSelect_default2, { disabled: publishing }),
+      /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { style: { display: "flex", alignItems: "center" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("button", { disabled: publishing, onClick: onPublish, style: { width: 80 }, children: "\u53D1\u5E03" }),
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { style: { width: 20 } }),
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("button", { onClick: onCancel, style: { width: 80 }, children: "\u53D6\u6D88" })
       ] })
     ] })
   ] });
@@ -124210,28 +124808,28 @@ function PubContent({ modal, notes }) {
   if (!storeRef.current) {
     storeRef.current = createConfigStore();
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(ConfigContext.Provider, { value: storeRef.current, children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(Pubview, { modal, notes }) });
+  return /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(ConfigContext.Provider, { value: storeRef.current, children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(Pubview, { modal, notes }) });
 }
 function MergeContent({ modal, notes }) {
   const storeRef = (0, import_react20.useRef)(null);
   if (!storeRef.current) {
     storeRef.current = createConfigStore();
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(ConfigContext.Provider, { value: storeRef.current, children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(MergePubview, { modal, notes }) });
+  return /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(ConfigContext.Provider, { value: storeRef.current, children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(MergePubview, { modal, notes }) });
 }
 function createPubview(conatainer, modal, notes) {
-  const root = ReactDOM8.createRoot(conatainer);
-  root.render(/* @__PURE__ */ (0, import_jsx_runtime39.jsx)(PubContent, { modal, notes }));
+  const root = ReactDOM9.createRoot(conatainer);
+  root.render(/* @__PURE__ */ (0, import_jsx_runtime40.jsx)(PubContent, { modal, notes }));
   return root;
 }
 function createMergePubview(conatainer, modal, notes) {
-  const root = ReactDOM8.createRoot(conatainer);
-  root.render(/* @__PURE__ */ (0, import_jsx_runtime39.jsx)(MergeContent, { modal, notes }));
+  const root = ReactDOM9.createRoot(conatainer);
+  root.render(/* @__PURE__ */ (0, import_jsx_runtime40.jsx)(MergeContent, { modal, notes }));
   return root;
 }
 
 // src/note-pub.ts
-var NotePubModal = class extends import_obsidian20.Modal {
+var NotePubModal = class extends import_obsidian22.Modal {
   constructor(app, notes, merge) {
     super(app);
     this.pubview = null;
@@ -125262,18 +125860,18 @@ g([
 customElements.get("shot-render") || customElements.define("shot-render", p);
 
 // src/image-bg-modal.ts
-var import_obsidian21 = require("obsidian");
-var ImageBGModal = class extends import_obsidian21.Modal {
+var import_obsidian23 = require("obsidian");
+var ImageBGModal = class extends import_obsidian23.Modal {
   constructor(app, plugin) {
     super(app);
     this.listener = null;
-    this.url = "https://widgets.dualhue.cn/background";
+    this.url = "https://widgets.dualhue.cn/background?v=20260830";
     this.plugin = plugin;
   }
   saveConfig(config2) {
     const settings = NMPSettings.getInstance();
     if (!settings.isAuthKeyVaild()) {
-      new import_obsidian21.Notice("\u8BF7\u5148\u8BBE\u7F6E\u6CE8\u518C\u7801", 5e3);
+      new import_obsidian23.Notice("\u8BF7\u5148\u8BBE\u7F6E\u6CE8\u518C\u7801", 5e3);
       return;
     }
     if (!settings.extraSettings) {
@@ -125282,7 +125880,7 @@ var ImageBGModal = class extends import_obsidian21.Modal {
       settings.extraSettings.imageFrame = config2;
     }
     this.plugin.saveSettings();
-    new import_obsidian21.Notice("\u4FDD\u5B58\u6210\u529F!", 2e3);
+    new import_obsidian23.Notice("\u4FDD\u5B58\u6210\u529F!", 2e3);
   }
   clearConfig() {
     const settings = NMPSettings.getInstance();
@@ -125291,7 +125889,7 @@ var ImageBGModal = class extends import_obsidian21.Modal {
     }
     settings.extraSettings.imageFrame = null;
     this.plugin.saveSettings();
-    new import_obsidian21.Notice("\u6E05\u7A7A\u914D\u7F6E\u6210\u529F!", 2e3);
+    new import_obsidian23.Notice("\u6E05\u7A7A\u914D\u7F6E\u6210\u529F!", 2e3);
   }
   onOpen() {
     let { contentEl, modalEl } = this;
@@ -125329,8 +125927,466 @@ var ImageBGModal = class extends import_obsidian21.Modal {
   }
 };
 
+// src/wechat-manager.ts
+var import_obsidian25 = require("obsidian");
+
+// src/ui/wechat-manager.tsx
+var import_react21 = __toESM(require_react());
+var import_obsidian24 = require("obsidian");
+var ReactDOM10 = __toESM(require_client());
+
+// src/ui/wechat-manager.module.css
+var wechat_manager_default = {
+  Root: "wechat_manager_Root",
+  Toolbar: "wechat_manager_Toolbar",
+  Tabs: "wechat_manager_Tabs",
+  Tab: "wechat_manager_Tab",
+  TabActive: "wechat_manager_TabActive",
+  Body: "wechat_manager_Body",
+  Content: "wechat_manager_Content",
+  Empty: "wechat_manager_Empty",
+  Loading: "wechat_manager_Loading",
+  DraftList: "wechat_manager_DraftList",
+  DraftItem: "wechat_manager_DraftItem",
+  DraftCoverWrap: "wechat_manager_DraftCoverWrap",
+  DraftCover: "wechat_manager_DraftCover",
+  DraftCoverEmpty: "wechat_manager_DraftCoverEmpty",
+  DraftInfo: "wechat_manager_DraftInfo",
+  DraftTitle: "wechat_manager_DraftTitle",
+  DraftDigest: "wechat_manager_DraftDigest",
+  DeleteButton: "wechat_manager_DeleteButton",
+  MaterialWrap: "wechat_manager_MaterialWrap",
+  FloatUploadButton: "wechat_manager_FloatUploadButton",
+  "clickable-icon": "wechat_manager_clickable-icon",
+  UploadSpinner: "wechat_manager_UploadSpinner",
+  "wechat-manager-spin": "wechat_manager_wechat-manager-spin",
+  MaterialGrid: "wechat_manager_MaterialGrid",
+  MaterialItem: "wechat_manager_MaterialItem",
+  MaterialImage: "wechat_manager_MaterialImage",
+  MaterialName: "wechat_manager_MaterialName",
+  CopyButton: "wechat_manager_CopyButton",
+  Footer: "wechat_manager_Footer",
+  Pagination: "wechat_manager_Pagination",
+  PageInfo: "wechat_manager_PageInfo",
+  ConfirmButtons: "wechat_manager_ConfirmButtons",
+  "mod-warning": "wechat_manager_mod-warning"
+};
+
+// src/ui/wechat-manager.tsx
+var import_jsx_runtime41 = __toESM(require_jsx_runtime());
+var DRAFT_PAGE_SIZE = 10;
+var MATERIAL_PAGE_SIZE = 20;
+var MAX_UPLOAD_SIZE = 2 * 1024 * 1024;
+async function getToken(appid) {
+  var _a5;
+  const settings = NMPSettings.getInstance();
+  if (!settings.authKey) {
+    throw new Error("\u8BF7\u5148\u5728\u8BBE\u7F6E\u4E2D\u586B\u5199\u6CE8\u518C\u7801\uFF08AuthKey\uFF09");
+  }
+  const wx = settings.wxInfo.find((w2) => w2.appid === appid);
+  if (!wx) {
+    throw new Error("\u672A\u627E\u5230\u516C\u4F17\u53F7\u914D\u7F6E\uFF0C\u8BF7\u5728\u8BBE\u7F6E\u4E2D\u6DFB\u52A0\u516C\u4F17\u53F7");
+  }
+  const res = await wxGetToken(settings.authKey, appid, wx.secret.replace("SECRET", ""));
+  if (res.status !== 200) {
+    throw new Error("\u83B7\u53D6token\u5931\u8D25\uFF1A" + (((_a5 = res.json) == null ? void 0 : _a5.message) || res.text));
+  }
+  const token = res.json.token;
+  if (!token) {
+    throw new Error("\u83B7\u53D6token\u5931\u8D25\uFF1A" + res.json.message);
+  }
+  return token;
+}
+var ConfirmModal = class extends import_obsidian24.Modal {
+  constructor(app, title, message, onConfirm) {
+    super(app);
+    this.title = title;
+    this.message = message;
+    this.onConfirm = onConfirm;
+  }
+  onOpen() {
+    const { contentEl } = this;
+    contentEl.createEl("h3", { text: this.title });
+    contentEl.createEl("p", { text: this.message });
+    const btnGroup = contentEl.createDiv({ cls: wechat_manager_default.ConfirmButtons });
+    btnGroup.createEl("button", { text: "\u53D6\u6D88" }).addEventListener("click", () => this.close());
+    btnGroup.createEl("button", { text: "\u786E\u8BA4\u5220\u9664", cls: "mod-warning" }).addEventListener("click", () => {
+      this.close();
+      this.onConfirm();
+    });
+  }
+  onClose() {
+    const { contentEl } = this;
+    contentEl.empty();
+  }
+};
+function WechatManagerInternal({ modal }) {
+  const appid = useConfigContext((s) => s.appid);
+  const [tab, setTab] = (0, import_react21.useState)("draft");
+  const [draftPage, setDraftPage] = (0, import_react21.useState)(0);
+  const [materialPage, setMaterialPage] = (0, import_react21.useState)(0);
+  const [draftTick, setDraftTick] = (0, import_react21.useState)(0);
+  const [materialTick, setMaterialTick] = (0, import_react21.useState)(0);
+  const [drafts, setDrafts] = (0, import_react21.useState)([]);
+  const [draftTotal, setDraftTotal] = (0, import_react21.useState)(0);
+  const [materials, setMaterials] = (0, import_react21.useState)([]);
+  const [materialTotal, setMaterialTotal] = (0, import_react21.useState)(0);
+  const [loading, setLoading] = (0, import_react21.useState)(false);
+  const [uploading, setUploading] = (0, import_react21.useState)(false);
+  const [coverUrls, setCoverUrls] = (0, import_react21.useState)({});
+  const coverUrlsRef = (0, import_react21.useRef)({});
+  const fileRef = (0, import_react21.useRef)(null);
+  (0, import_react21.useEffect)(() => {
+    setDraftPage(0);
+    setMaterialPage(0);
+  }, [appid]);
+  (0, import_react21.useEffect)(() => {
+    if (!appid || tab !== "draft") return;
+    let cancelled = false;
+    setLoading(true);
+    Object.values(coverUrlsRef.current).forEach((url) => URL.revokeObjectURL(url));
+    coverUrlsRef.current = {};
+    setCoverUrls({});
+    (async () => {
+      try {
+        const token = await getToken(appid);
+        const data = await wxDraftBatchget(token, draftPage * DRAFT_PAGE_SIZE, DRAFT_PAGE_SIZE, 0);
+        if (cancelled) return;
+        if (data.errcode) {
+          throw new Error(data.errmsg || `\u9519\u8BEF\u7801 ${data.errcode}`);
+        }
+        const items = data.item || [];
+        setDrafts(items);
+        setDraftTotal(data.total_count || 0);
+        const urls = {};
+        await Promise.allSettled(items.map(async (item) => {
+          var _a5, _b2, _c;
+          const mediaId = (_c = (_b2 = (_a5 = item.content) == null ? void 0 : _a5.news_item) == null ? void 0 : _b2[0]) == null ? void 0 : _c.thumb_media_id;
+          if (!mediaId) return;
+          try {
+            const res = await wxGetMaterial(token, mediaId);
+            if (res.status === 200 && res.arrayBuffer && !(res.text || "").trimStart().startsWith("{")) {
+              urls[item.media_id] = URL.createObjectURL(
+                new Blob([res.arrayBuffer], { type: "image/jpeg" })
+              );
+            }
+          } catch (error) {
+            console.warn("\u83B7\u53D6\u8349\u7A3F\u5C01\u9762\u5931\u8D25\uFF1A" + error.message);
+          }
+        }));
+        if (cancelled) {
+          Object.values(urls).forEach((url) => URL.revokeObjectURL(url));
+          return;
+        }
+        coverUrlsRef.current = urls;
+        setCoverUrls(urls);
+      } catch (error) {
+        if (!cancelled) {
+          console.error(error);
+          new import_obsidian24.Notice("\u83B7\u53D6\u8349\u7A3F\u5931\u8D25\uFF1A" + error.message);
+        }
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [appid, tab, draftPage, draftTick]);
+  (0, import_react21.useEffect)(() => {
+    if (!appid || tab !== "material") return;
+    let cancelled = false;
+    setLoading(true);
+    (async () => {
+      try {
+        const token = await getToken(appid);
+        const data = await wxBatchGetMaterial(
+          token,
+          "image",
+          materialPage * MATERIAL_PAGE_SIZE,
+          MATERIAL_PAGE_SIZE
+        );
+        if (cancelled) return;
+        if (data.errcode) {
+          throw new Error(data.errmsg || `\u9519\u8BEF\u7801 ${data.errcode}`);
+        }
+        setMaterials(data.item || []);
+        setMaterialTotal(data.total_count || 0);
+      } catch (error) {
+        if (!cancelled) {
+          console.error(error);
+          new import_obsidian24.Notice("\u83B7\u53D6\u7D20\u6750\u5931\u8D25\uFF1A" + error.message);
+        }
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [appid, tab, materialPage, materialTick]);
+  (0, import_react21.useEffect)(() => {
+    return () => {
+      Object.values(coverUrlsRef.current).forEach((url) => URL.revokeObjectURL(url));
+      coverUrlsRef.current = {};
+    };
+  }, []);
+  const onTabChange = (next) => {
+    setTab(next);
+    setDraftPage(0);
+    setMaterialPage(0);
+  };
+  const confirmDelete = (item) => {
+    var _a5, _b2, _c;
+    const title = ((_c = (_b2 = (_a5 = item.content) == null ? void 0 : _a5.news_item) == null ? void 0 : _b2[0]) == null ? void 0 : _c.title) || "\u672A\u547D\u540D\u8349\u7A3F";
+    new ConfirmModal(
+      modal.app,
+      "\u5220\u9664\u8349\u7A3F",
+      `\u786E\u5B9A\u8981\u5220\u9664\u8349\u7A3F\u300C${title}\u300D\u5417\uFF1F\u6B64\u64CD\u4F5C\u4E0D\u53EF\u6062\u590D\u3002`,
+      async () => {
+        try {
+          if (!appid) return;
+          const token = await getToken(appid);
+          const res = await wxDraftDelete(token, item.media_id);
+          if (res.errcode && res.errcode !== 0) {
+            throw new Error(res.errmsg || `\u9519\u8BEF\u7801 ${res.errcode}`);
+          }
+          new import_obsidian24.Notice("\u8349\u7A3F\u5DF2\u5220\u9664");
+          if (drafts.length === 1 && draftPage > 0) {
+            setDraftPage((page) => page - 1);
+          } else {
+            setDraftTick((tick) => tick + 1);
+          }
+        } catch (error) {
+          console.error(error);
+          new import_obsidian24.Notice("\u5220\u9664\u8349\u7A3F\u5931\u8D25\uFF1A" + error.message);
+        }
+      }
+    ).open();
+  };
+  const onFileSelected = async (event) => {
+    var _a5;
+    const file = (_a5 = event.target.files) == null ? void 0 : _a5[0];
+    event.target.value = "";
+    if (!file) return;
+    if (!appid) {
+      new import_obsidian24.Notice("\u8BF7\u5148\u9009\u62E9\u516C\u4F17\u53F7");
+      return;
+    }
+    if (!/\.(jpg|jpeg|png|gif|bmp|webp)$/i.test(file.name)) {
+      new import_obsidian24.Notice("\u4EC5\u652F\u6301\u56FE\u7247\u6587\u4EF6");
+      return;
+    }
+    if (file.size > MAX_UPLOAD_SIZE) {
+      new import_obsidian24.Notice("\u56FE\u7247\u5927\u5C0F\u4E0D\u80FD\u8D85\u8FC7 2MB");
+      return;
+    }
+    setUploading(true);
+    try {
+      const token = await getToken(appid);
+      const data = new Blob([await file.arrayBuffer()], { type: file.type || "image/jpeg" });
+      const res = await wxUploadImage(data, file.name, token, "image");
+      if (!res.media_id) {
+        throw new Error(res.errmsg || "\u4E0A\u4F20\u5931\u8D25");
+      }
+      new import_obsidian24.Notice("\u4E0A\u4F20\u6210\u529F");
+      setMaterialTick((tick) => tick + 1);
+    } catch (error) {
+      console.error(error);
+      new import_obsidian24.Notice("\u4E0A\u4F20\u7D20\u6750\u5931\u8D25\uFF1A" + error.message);
+    } finally {
+      setUploading(false);
+    }
+  };
+  const copyMediaId = async (mediaId) => {
+    try {
+      await navigator.clipboard.writeText(mediaId);
+      new import_obsidian24.Notice("\u7D20\u6750ID\u5DF2\u590D\u5236");
+    } catch (error) {
+      console.error(error);
+      new import_obsidian24.Notice("\u590D\u5236\u5931\u8D25\uFF1A" + error.message);
+    }
+  };
+  const draftPages = Math.max(1, Math.ceil(draftTotal / DRAFT_PAGE_SIZE));
+  const materialPages = Math.max(1, Math.ceil(materialTotal / MATERIAL_PAGE_SIZE));
+  return /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: wechat_manager_default.Root, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: wechat_manager_default.Toolbar, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(AccountSelect_default2, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: wechat_manager_default.Tabs, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+          "button",
+          {
+            className: tab === "draft" ? wechat_manager_default.TabActive : wechat_manager_default.Tab,
+            onClick: () => onTabChange("draft"),
+            children: "\u8349\u7A3F\u7BA1\u7406"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+          "button",
+          {
+            className: tab === "material" ? wechat_manager_default.TabActive : wechat_manager_default.Tab,
+            onClick: () => onTabChange("material"),
+            children: "\u6C38\u4E45\u7D20\u6750\u7BA1\u7406"
+          }
+        )
+      ] })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: wechat_manager_default.Body, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: wechat_manager_default.Content, children: !appid ? /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: wechat_manager_default.Empty, children: "\u8BF7\u5148\u5728\u8BBE\u7F6E\u4E2D\u6DFB\u52A0\u516C\u4F17\u53F7\u8D26\u53F7" }) : loading ? /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: wechat_manager_default.Loading, children: "\u52A0\u8F7D\u4E2D..." }) : tab === "draft" ? drafts.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: wechat_manager_default.Empty, children: "\u6682\u65E0\u8349\u7A3F" }) : /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: wechat_manager_default.DraftList, children: drafts.map((item) => {
+        var _a5, _b2;
+        const news = (_b2 = (_a5 = item.content) == null ? void 0 : _a5.news_item) == null ? void 0 : _b2[0];
+        const title = (news == null ? void 0 : news.title) || "\u65E0\u6807\u9898";
+        const digest = (news == null ? void 0 : news.digest) || "\u65E0\u6458\u8981";
+        return /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: wechat_manager_default.DraftItem, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: wechat_manager_default.DraftCoverWrap, children: coverUrls[item.media_id] ? /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+            "img",
+            {
+              className: wechat_manager_default.DraftCover,
+              src: coverUrls[item.media_id],
+              alt: title
+            }
+          ) : /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: wechat_manager_default.DraftCoverEmpty }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: wechat_manager_default.DraftInfo, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: wechat_manager_default.DraftTitle, title, children: title }),
+            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: wechat_manager_default.DraftDigest, title: digest, children: digest })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+            "button",
+            {
+              className: wechat_manager_default.DeleteButton,
+              onClick: () => confirmDelete(item),
+              children: "\u5220\u9664"
+            }
+          )
+        ] }, item.media_id);
+      }) }) : /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: wechat_manager_default.MaterialWrap, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+          "input",
+          {
+            ref: fileRef,
+            type: "file",
+            accept: "image/*",
+            style: { display: "none" },
+            onChange: onFileSelected
+          }
+        ),
+        materials.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: wechat_manager_default.Empty, children: "\u6682\u65E0\u7D20\u6750" }) : /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: wechat_manager_default.MaterialGrid, children: materials.map((material) => /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: wechat_manager_default.MaterialItem, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+            "img",
+            {
+              className: wechat_manager_default.MaterialImage,
+              src: material.url,
+              alt: material.name,
+              loading: "lazy"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: wechat_manager_default.MaterialName, title: material.name, children: material.name }),
+          /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+            "button",
+            {
+              className: wechat_manager_default.CopyButton,
+              onClick: () => copyMediaId(material.media_id),
+              children: "\u590D\u5236\u7D20\u6750ID"
+            }
+          )
+        ] }, material.media_id)) })
+      ] }) }),
+      appid && tab === "material" && /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+        "button",
+        {
+          className: wechat_manager_default.FloatUploadButton,
+          disabled: uploading,
+          title: uploading ? "\u4E0A\u4F20\u4E2D..." : "\u4E0A\u4F20\u56FE\u7247",
+          onClick: () => {
+            var _a5;
+            return (_a5 = fileRef.current) == null ? void 0 : _a5.click();
+          },
+          children: uploading ? /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("span", { className: wechat_manager_default.UploadSpinner }) : /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(PlusIcon, { width: 24, height: 24 })
+        }
+      )
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: wechat_manager_default.Footer, children: tab === "draft" ? /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: wechat_manager_default.Pagination, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+        "button",
+        {
+          disabled: draftPage === 0 || loading,
+          onClick: () => setDraftPage((page) => page - 1),
+          children: "\u4E0A\u4E00\u9875"
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("span", { className: wechat_manager_default.PageInfo, children: [
+        draftPage + 1,
+        " / ",
+        draftPages
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+        "button",
+        {
+          disabled: (draftPage + 1) * DRAFT_PAGE_SIZE >= draftTotal || loading,
+          onClick: () => setDraftPage((page) => page + 1),
+          children: "\u4E0B\u4E00\u9875"
+        }
+      )
+    ] }) : /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: wechat_manager_default.Pagination, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+        "button",
+        {
+          disabled: materialPage === 0 || loading,
+          onClick: () => setMaterialPage((page) => page - 1),
+          children: "\u4E0A\u4E00\u9875"
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("span", { className: wechat_manager_default.PageInfo, children: [
+        materialPage + 1,
+        " / ",
+        materialPages
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+        "button",
+        {
+          disabled: (materialPage + 1) * MATERIAL_PAGE_SIZE >= materialTotal || loading,
+          onClick: () => setMaterialPage((page) => page + 1),
+          children: "\u4E0B\u4E00\u9875"
+        }
+      )
+    ] }) })
+  ] });
+}
+function WechatManagerContent({ modal }) {
+  const storeRef = (0, import_react21.useRef)(null);
+  if (!storeRef.current) {
+    storeRef.current = createConfigStore();
+  }
+  return /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(ConfigContext.Provider, { value: storeRef.current, children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(WechatManagerInternal, { modal }) });
+}
+function createWechatManager(container, modal) {
+  const root = ReactDOM10.createRoot(container);
+  root.render(/* @__PURE__ */ (0, import_jsx_runtime41.jsx)(WechatManagerContent, { modal }));
+  return root;
+}
+
+// src/wechat-manager.ts
+var WechatManagerModal = class extends import_obsidian25.Modal {
+  constructor(app) {
+    super(app);
+    this.root = null;
+  }
+  onOpen() {
+    const { contentEl, modalEl } = this;
+    modalEl.style.width = "900px";
+    this.root = createWechatManager(contentEl, this);
+  }
+  onClose() {
+    var _a5;
+    const { contentEl } = this;
+    (_a5 = this.root) == null ? void 0 : _a5.unmount();
+    this.root = null;
+    contentEl.empty();
+  }
+};
+
 // src/main.ts
-var NoteToMpPlugin = class extends import_obsidian22.Plugin {
+var NoteToMpPlugin = class extends import_obsidian26.Plugin {
   constructor(app, manifest) {
     super(app, manifest);
     AssetsManager.setup(app, manifest);
@@ -125380,16 +126436,23 @@ var NoteToMpPlugin = class extends import_obsidian22.Plugin {
       }
     });
     this.addCommand({
+      id: "note-to-mp-wechat-manager",
+      name: "\u516C\u4F17\u53F7\u5185\u5BB9\u7BA1\u7406",
+      callback: () => {
+        new WechatManagerModal(this.app).open();
+      }
+    });
+    this.addCommand({
       id: "note-to-mp-pub",
       name: "\u53D1\u5E03\u516C\u4F17\u53F7\u6587\u7AE0",
       callback: () => {
         const file = this.app.workspace.getActiveFile();
-        if (!(file instanceof import_obsidian22.TFile)) {
-          new import_obsidian22.Notice("\u8BF7\u5148\u6253\u5F00\u8981\u53D1\u5E03\u7684\u7B14\u8BB0\u518D\u6267\u884C\u53D1\u5E03");
+        if (!(file instanceof import_obsidian26.TFile)) {
+          new import_obsidian26.Notice("\u8BF7\u5148\u6253\u5F00\u8981\u53D1\u5E03\u7684\u7B14\u8BB0\u518D\u6267\u884C\u53D1\u5E03");
           return;
         }
         if (file.extension.toLocaleLowerCase() !== "md") {
-          new import_obsidian22.Notice("\u53EA\u80FD\u53D1\u5E03 Markdown \u6587\u4EF6");
+          new import_obsidian26.Notice("\u53EA\u80FD\u53D1\u5E03 Markdown \u6587\u4EF6");
           return;
         }
         new NotePubModal(this.app, [file]).open();
@@ -125407,12 +126470,12 @@ var NoteToMpPlugin = class extends import_obsidian22.Plugin {
       name: "\u8FD0\u884C\u5DE5\u4F5C\u6D41",
       callback: () => {
         const file = this.app.workspace.getActiveFile();
-        if (!(file instanceof import_obsidian22.TFile)) {
-          new import_obsidian22.Notice("\u8BF7\u5148\u6253\u5F00\u8981\u53D1\u5E03\u7684\u7B14\u8BB0\u518D\u6267\u884C\u53D1\u5E03");
+        if (!(file instanceof import_obsidian26.TFile)) {
+          new import_obsidian26.Notice("\u8BF7\u5148\u6253\u5F00\u8981\u53D1\u5E03\u7684\u7B14\u8BB0\u518D\u6267\u884C\u53D1\u5E03");
           return;
         }
         if (file.extension.toLocaleLowerCase() !== "md") {
-          new import_obsidian22.Notice("\u53EA\u80FD\u53D1\u5E03 Markdown \u6587\u4EF6");
+          new import_obsidian26.Notice("\u53EA\u80FD\u53D1\u5E03 Markdown \u6587\u4EF6");
           return;
         }
         new WorkflowRunModal(this.app, file).open();
@@ -125425,16 +126488,16 @@ var NoteToMpPlugin = class extends import_obsidian22.Plugin {
   }
   registerEvents() {
     const clickOnFile = (file, merge) => {
-      if (file instanceof import_obsidian22.TFile) {
+      if (file instanceof import_obsidian26.TFile) {
         if (file.extension.toLowerCase() !== "md") {
-          new import_obsidian22.Notice("\u53EA\u80FD\u53D1\u5E03 Markdown \u6587\u4EF6");
+          new import_obsidian26.Notice("\u53EA\u80FD\u53D1\u5E03 Markdown \u6587\u4EF6");
           return;
         }
         new NotePubModal(this.app, [file], merge).open();
-      } else if (file instanceof import_obsidian22.TFolder) {
+      } else if (file instanceof import_obsidian26.TFolder) {
         const files = [];
         file.children.forEach((child) => {
-          if (child instanceof import_obsidian22.TFile && child.extension.toLocaleLowerCase() === "md") {
+          if (child instanceof import_obsidian26.TFile && child.extension.toLocaleLowerCase() === "md") {
             files.push(child);
           }
         });
@@ -125444,7 +126507,7 @@ var NoteToMpPlugin = class extends import_obsidian22.Plugin {
     const clickOnFiles = (files, merge) => {
       const notes = [];
       files.forEach((child) => {
-        if (child instanceof import_obsidian22.TFile && child.extension.toLocaleLowerCase() === "md") {
+        if (child instanceof import_obsidian26.TFile && child.extension.toLocaleLowerCase() === "md") {
           notes.push(child);
         }
       });

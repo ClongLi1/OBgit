@@ -116,6 +116,9 @@
 }
 
 /* src/ui/components/Cover.module.css */
+.Cover_CoverContainer {
+  position: relative;
+}
 .Cover_CoverLabel {
   width: 120px;
   height: 80px;
@@ -135,6 +138,44 @@
   justify-content: space-around;
   align-items: center;
   height: 100%;
+}
+.Cover_CoverSourceOptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+}
+.Cover_CoverSourceButton {
+  display: block;
+  box-sizing: border-box;
+  width: calc(100% - 16px);
+  padding: 6px 0;
+  margin: 0;
+  appearance: none;
+  border-radius: var(--button-radius, 5px);
+  background-color: var(--interactive-normal);
+  box-shadow: var(--input-shadow);
+  color: var(--text-normal);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: inherit;
+  line-height: inherit;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+}
+.Cover_CoverSourceButton:hover {
+  background-color: var(--interactive-hover);
+  box-shadow: var(--input-shadow-hover);
+  color: var(--text-normal);
+}
+.Cover_CoverSourceButton:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: -2px;
 }
 .Cover_CoverPreview {
   width: 100%;
@@ -161,6 +202,251 @@
 }
 .Cover_CloseButton:hover {
   background: rgba(0, 0, 0, 0.2);
+}
+
+/* src/ui/components/UnsplashCoverPicker.module.css */
+.UnsplashCoverPicker_PickerBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+}
+.UnsplashCoverPicker_ContentArea {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+.UnsplashCoverPicker_LoadingToast {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 12px;
+}
+.UnsplashCoverPicker_Spinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: UnsplashCoverPicker_ntm-spin 0.8s linear infinite;
+}
+@keyframes UnsplashCoverPicker_ntm-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.UnsplashCoverPicker_Toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.UnsplashCoverPicker_CategoryBar {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.UnsplashCoverPicker_ToolbarDivider {
+  width: 1px;
+  align-self: stretch;
+  flex-shrink: 0;
+  background-color: var(--background-modifier-border);
+}
+.UnsplashCoverPicker_CategoryButton {
+  padding: 5px 12px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 16px;
+  background: transparent;
+  color: var(--text-normal);
+  font-size: 12px;
+  cursor: pointer;
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    color 150ms;
+}
+.UnsplashCoverPicker_CategoryButton:hover {
+  background-color: var(--background-modifier-hover);
+}
+.UnsplashCoverPicker_CategoryActive {
+  border-color: var(--interactive-accent);
+  background-color: color-mix(in srgb, var(--interactive-accent) 15%, transparent);
+  color: var(--interactive-accent);
+}
+.UnsplashCoverPicker_ToolButton {
+  padding: 4px 10px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  font-size: 12px;
+  cursor: pointer;
+}
+.UnsplashCoverPicker_ToolButton:hover:not(:disabled) {
+  background-color: var(--background-modifier-hover);
+}
+.UnsplashCoverPicker_ToolButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.UnsplashCoverPicker_PhotoGrid {
+  display: grid;
+  flex: 1;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  overflow-y: auto;
+  padding: 2px;
+  min-height: 0;
+}
+.UnsplashCoverPicker_PhotoCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.UnsplashCoverPicker_PhotoCard .UnsplashCoverPicker_FavoriteButton {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 150ms, transform 150ms;
+}
+.UnsplashCoverPicker_PhotoCard .UnsplashCoverPicker_FavoriteButton:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  transform: scale(1.1);
+}
+.UnsplashCoverPicker_PhotoCard .UnsplashCoverPicker_FavoriteButton.UnsplashCoverPicker_FavoriteActive {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ffcf3f;
+  box-shadow: 0 0 0 1px rgba(255, 207, 63, 0.8);
+}
+.UnsplashCoverPicker_PhotoLink {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 2;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--background-secondary);
+  text-decoration: none;
+}
+.UnsplashCoverPicker_PhotoThumbLink {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.UnsplashCoverPicker_PhotoThumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.UnsplashCoverPicker_PhotoOverlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 4px 8px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
+  color: #fff;
+  font-size: 11px;
+  opacity: 1;
+}
+.UnsplashCoverPicker_PhotoAuthor {
+  color: inherit;
+  text-decoration: none;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.UnsplashCoverPicker_PhotoAuthor:hover {
+  text-decoration: underline;
+}
+.UnsplashCoverPicker_UseButton {
+  padding: 4px 0;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+  font-size: 12px;
+  cursor: pointer;
+}
+.UnsplashCoverPicker_UseButton:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--interactive-accent) 88%, white);
+}
+.UnsplashCoverPicker_UseButton:disabled {
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.UnsplashCoverPicker_ErrorBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 0;
+  padding: 24px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  background-color: color-mix(in srgb, var(--color-red) 8%, transparent);
+  color: var(--color-red);
+  font-size: 13px;
+}
+.UnsplashCoverPicker_LoadingBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.UnsplashCoverPicker_EmptyBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 0;
+  padding: 24px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.UnsplashCoverPicker_Footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--background-modifier-border);
+  font-size: 11px;
+  color: var(--text-faint);
+  flex-shrink: 0;
 }
 
 /* src/ui/components/AccountSelect.module.css */
@@ -2271,4 +2557,291 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+/* src/ui/wechat-manager.module.css */
+.wechat_manager_Root {
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  gap: 12px;
+}
+.wechat_manager_Toolbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+.wechat_manager_Tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+.wechat_manager_Tab,
+.wechat_manager_TabActive {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 4px 4px 0 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 14px;
+  cursor: pointer;
+}
+.wechat_manager_Tab:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+}
+.wechat_manager_TabActive {
+  color: var(--text-accent);
+  border-bottom: 2px solid var(--interactive-accent);
+  background: var(--background-modifier-hover);
+  font-weight: 600;
+}
+.wechat_manager_Body {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+.wechat_manager_Content {
+  height: 100%;
+  overflow-y: auto;
+}
+.wechat_manager_Empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+.wechat_manager_Loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+.wechat_manager_DraftList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.wechat_manager_DraftItem {
+  display: flex;
+  align-items: stretch;
+  height: 90px;
+  padding: 8px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  background: var(--background-secondary);
+  gap: 12px;
+}
+.wechat_manager_DraftItem:hover {
+  border-color: var(--interactive-accent);
+}
+.wechat_manager_DraftCoverWrap {
+  width: 120px;
+  height: 100%;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--background-modifier-hover);
+}
+.wechat_manager_DraftCover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.wechat_manager_DraftCoverEmpty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-faint);
+  font-size: 12px;
+}
+.wechat_manager_DraftInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+.wechat_manager_DraftTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-normal);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wechat_manager_DraftDigest {
+  font-size: 13px;
+  color: var(--text-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.wechat_manager_DeleteButton {
+  align-self: center;
+  flex-shrink: 0;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-modifier-hover);
+  color: var(--text-error);
+  font-size: 13px;
+  cursor: pointer;
+}
+.wechat_manager_DeleteButton:hover {
+  background: var(--background-modifier-error-hover);
+  color: var(--text-on-accent);
+}
+.wechat_manager_MaterialWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+.wechat_manager_FloatUploadButton:not(.wechat_manager_clickable-icon) {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+}
+.wechat_manager_FloatUploadButton:not(.wechat_manager_clickable-icon):hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+.wechat_manager_FloatUploadButton:not(.wechat_manager_clickable-icon):disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.wechat_manager_UploadSpinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: wechat_manager_wechat-manager-spin 0.8s linear infinite;
+}
+@keyframes wechat_manager_wechat-manager-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.wechat_manager_MaterialGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.wechat_manager_MaterialItem {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--background-secondary);
+}
+.wechat_manager_MaterialItem:hover {
+  border-color: var(--interactive-accent);
+}
+.wechat_manager_MaterialImage {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+  background: var(--background-modifier-hover);
+}
+.wechat_manager_MaterialName {
+  padding: 6px 8px 2px;
+  font-size: 12px;
+  color: var(--text-normal);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wechat_manager_CopyButton {
+  margin: 4px 8px 8px;
+  padding: 4px 0;
+  border-radius: 4px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-modifier-hover);
+  color: var(--text-accent);
+  font-size: 12px;
+  cursor: pointer;
+}
+.wechat_manager_CopyButton:hover {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+.wechat_manager_Footer {
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  padding-top: 8px;
+  border-top: 1px solid var(--background-modifier-border);
+}
+.wechat_manager_Pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.wechat_manager_Pagination button {
+  padding: 5px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+  font-size: 13px;
+  cursor: pointer;
+}
+.wechat_manager_Pagination button:hover:not(:disabled) {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+.wechat_manager_Pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.wechat_manager_PageInfo {
+  font-size: 13px;
+  color: var(--text-muted);
+  min-width: 60px;
+  text-align: center;
+}
+.wechat_manager_ConfirmButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+.wechat_manager_ConfirmButtons button {
+  padding: 6px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+  cursor: pointer;
+}
+.wechat_manager_ConfirmButtons button.wechat_manager_mod-warning {
+  background: var(--text-error);
+  color: var(--text-on-accent);
+  border: none;
 }
