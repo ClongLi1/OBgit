@@ -14,7 +14,6 @@
   "calendar",
   "obsidian-rich-links",
   "mysnippets-plugin",
-  "tag-wrangler",
   "mxmind",
   "contribution-graph",
   "easy-typing-obsidian",
@@ -77,7 +76,6 @@
   "automatic-table-of-contents",
   "obsidian42-brat",
   "obsidian-timeline",
-  "zotlit",
   "obsidian-dynamic-background",
   "excalibrain",
   "obsidian-file-color",
@@ -86,8 +84,10 @@
   "note-to-red",
   "tenki",
   "timelines-revamped",
-  "zen",
   "templater-obsidian",
   "obsidian-icon-folder",
-  "obsidian-annotator"
+  "obsidian-annotator",
+  "tag-wrangler",
+  "zotlit",
+  "zen"
 ]
