@@ -66,7 +66,6 @@
   "card-board",
   "messager",
   "obsidian-sakana-widget",
-  "obsidian-admonition",
   "cubox-sync",
   "remotely-save",
   "cmdr",
@@ -89,5 +88,6 @@
   "obsidian-annotator",
   "tag-wrangler",
   "zotlit",
-  "zen"
+  "zen",
+  "obsidian-admonition"
 ]
