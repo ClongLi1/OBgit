@@ -88198,10 +88198,10 @@ __export(main_exports, {
   default: () => NoteToMpPlugin
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian26 = require("obsidian");
+var import_obsidian28 = require("obsidian");
 
 // src/note-preview.ts
-var import_obsidian16 = require("obsidian");
+var import_obsidian17 = require("obsidian");
 
 // src/utils.ts
 var import_obsidian = require("obsidian");
@@ -88326,6 +88326,43 @@ function matchesVersionRequirement(currentVersion, targetVersion) {
 function openInBrowser(url) {
   const { shell } = require("electron");
   shell.openExternal(url);
+}
+async function inlineBlobImages(root, maxWidth = 2e3) {
+  let count3 = 0;
+  const images = Array.from(root.querySelectorAll("img"));
+  for (const img of images) {
+    if (!img.src.startsWith("blob:")) {
+      continue;
+    }
+    if (!img.complete) {
+      try {
+        await img.decode();
+      } catch (e2) {
+        continue;
+      }
+    }
+    const width = img.naturalWidth || img.width;
+    const height = img.naturalHeight || img.height;
+    if (!width || !height) {
+      continue;
+    }
+    try {
+      const scale = Math.min(1, maxWidth / width);
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.max(1, Math.round(width * scale));
+      canvas.height = Math.max(1, Math.round(height * scale));
+      const ctx = canvas.getContext("2d");
+      if (!ctx) {
+        continue;
+      }
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      img.src = canvas.toDataURL("image/png");
+      count3++;
+    } catch (e2) {
+      console.warn("inline blob image failed", e2);
+    }
+  }
+  return count3;
 }
 
 // src/core/markdown/local-file.ts
@@ -98961,6 +98998,7 @@ var NMPSettings = class _NMPSettings {
     this.dismissedAnnouncements = [];
     this.extraSettings = null;
     this.favoriteCovers = [];
+    this.postPublishChoice = "";
     this.defaultStyle = "obsidian-light";
     this.defaultHighlight = "\u9ED8\u8BA4";
     this.showStyleUI = true;
@@ -98980,6 +99018,7 @@ var NMPSettings = class _NMPSettings {
     this.enableEmptyLine = false;
     this.dismissedAnnouncements = [];
     this.favoriteCovers = [];
+    this.postPublishChoice = "";
   }
   // 静态方法，用于获取实例
   static getInstance() {
@@ -99018,7 +99057,8 @@ var NMPSettings = class _NMPSettings {
       expireat,
       dismissedAnnouncements,
       extraSettings,
-      favoriteCovers
+      favoriteCovers,
+      postPublishChoice
     } = data;
     const settings = _NMPSettings.getInstance();
     if (defaultStyle) {
@@ -99087,6 +99127,9 @@ var NMPSettings = class _NMPSettings {
     if (Array.isArray(favoriteCovers)) {
       settings.favoriteCovers = favoriteCovers;
     }
+    if (postPublishChoice !== void 0) {
+      settings.postPublishChoice = postPublishChoice;
+    }
     settings.isLoaded = true;
   }
   static allSettings() {
@@ -99113,7 +99156,8 @@ var NMPSettings = class _NMPSettings {
       "expireat": settings.expireat,
       "dismissedAnnouncements": settings.dismissedAnnouncements,
       "extraSettings": settings.extraSettings,
-      "favoriteCovers": settings.favoriteCovers
+      "favoriteCovers": settings.favoriteCovers,
+      "postPublishChoice": settings.postPublishChoice
     };
   }
   async updateKeyInfo() {
@@ -102758,7 +102802,7 @@ var useNotification = () => {
 
 // src/ui/components/Wechat.tsx
 var import_react9 = __toESM(require_react());
-var import_obsidian13 = require("obsidian");
+var import_obsidian14 = require("obsidian");
 
 // src/ui/components/Cover.tsx
 var React25 = __toESM(require_react());
@@ -111177,7 +111221,7 @@ function ThemeList({ disabled = false }) {
 }
 
 // src/article-render.ts
-var import_obsidian12 = require("obsidian");
+var import_obsidian13 = require("obsidian");
 
 // src/inline-css.ts
 var inline_css_default = `
@@ -113655,7 +113699,7 @@ var CalloutRenderer = class extends Extension {
       }
     }
     if (isWechat) {
-      return `<section class="note-callout ${info == null ? void 0 : info.style}"><section class="note-callout-title-wrap"><span class="note-callout-icon">${info == null ? void 0 : info.icon}</span><span class="note-callout-title">${title}<span></section><section class="note-callout-content">${body}</section></section>`;
+      return `<section class="note-callout ${info == null ? void 0 : info.style}"><section class="note-callout-title-wrap"><span class="note-callout-icon">${info == null ? void 0 : info.icon}</span><span class="note-callout-title">${title}</span></section><section class="note-callout-content">${body}</section></section>`;
     } else {
       if (title.toLowerCase() === callout.toLowerCase()) {
         return `<blockquote>${body.replace(/[\r\n]+$/, "")}</blockquote>`;
@@ -115074,6 +115118,29 @@ var markedOptiones = {
   gfm: true,
   breaks: true
 };
+function parseImageText(text) {
+  let alt = text;
+  let width = null;
+  let height = null;
+  if (text.includes("|")) {
+    const parts = text.split("|");
+    if (parts.length == 2) {
+      const size4 = parts[1].toLowerCase().split("x");
+      const w2 = parseInt(size4[0]);
+      if (!isNaN(w2)) {
+        alt = parts[0];
+        width = w2;
+        if (size4.length == 2 && size4[1] != "") {
+          const h = parseInt(size4[1]);
+          if (!isNaN(h)) {
+            height = h;
+          }
+        }
+      }
+    }
+  }
+  return { alt, width, height };
+}
 var MarkedParser = class {
   constructor(app, callback) {
     this.extensions = [];
@@ -115125,6 +115192,8 @@ var MarkedParser = class {
           return text;
         }
         href = cleanHref;
+        const { alt, width, height } = parseImageText(text);
+        const sizeAttrs = (width ? ` width="${width}"` : "") + (height ? ` height="${height}"` : "");
         if (!href.startsWith("http")) {
           const res = AssetsManager.getInstance().getResourcePath(decodeURI(href), self2.currentNote);
           if (res) {
@@ -115134,17 +115203,17 @@ var MarkedParser = class {
         }
         let out = "";
         if (NMPSettings.getInstance().useFigcaption) {
-          out = `<figure style="display: flex; flex-direction: column; align-items: center;"><img data-source="note" src="${href}" alt="${text}"`;
+          out = `<figure style="display: flex; flex-direction: column; align-items: center;"><img data-source="note" src="${href}" alt="${alt}"${sizeAttrs}`;
           if (title) {
             out += ` title="${title}"`;
           }
-          if (text.length > 0) {
-            out += `><figcaption>${text}</figcaption></figure>`;
+          if (alt.length > 0) {
+            out += `><figcaption>${alt}</figcaption></figure>`;
           } else {
             out += "></figure>";
           }
         } else {
-          out = `<img data-source="note" src="${href}" alt="${text}"`;
+          out = `<img data-source="note" src="${href}" alt="${alt}"${sizeAttrs}`;
           if (title) {
             out += ` title="${title}"`;
           }
@@ -115996,6 +116065,69 @@ async function toPng(node, options2 = {}) {
   return canvas.toDataURL();
 }
 
+// src/post-publish.ts
+var import_obsidian12 = require("obsidian");
+function getQuickAddPlugin(app) {
+  var _a5;
+  const plugins2 = (_a5 = app == null ? void 0 : app.plugins) == null ? void 0 : _a5.plugins;
+  const plugin = plugins2 == null ? void 0 : plugins2["quickadd"];
+  return plugin != null ? plugin : null;
+}
+function isQuickAddAvailable(app) {
+  const plugin = getQuickAddPlugin(app);
+  return !!(plugin && plugin.api && typeof plugin.api.executeChoice === "function");
+}
+function getQuickAddChoices(app) {
+  var _a5;
+  const plugin = getQuickAddPlugin(app);
+  const choices = (_a5 = plugin == null ? void 0 : plugin.settings) == null ? void 0 : _a5.choices;
+  return Array.isArray(choices) ? choices : [];
+}
+function hasQuickAddChoice(app, name) {
+  if (!name) {
+    return false;
+  }
+  return getQuickAddChoices(app).some((choice) => (choice == null ? void 0 : choice.name) === name);
+}
+function getAccountName(appid) {
+  const settings = NMPSettings.getInstance();
+  const info = settings.wxInfo.find((wx) => wx.appid === appid);
+  return (info == null ? void 0 : info.name) || appid;
+}
+async function runPostPublish(app, note, accountName) {
+  var _a5;
+  const settings = NMPSettings.getInstance();
+  const choiceName = (_a5 = settings.postPublishChoice) == null ? void 0 : _a5.trim();
+  if (!choiceName) {
+    return;
+  }
+  if (!isQuickAddAvailable(app)) {
+    console.warn("[NoteToMP] QuickAdd \u4E0D\u53EF\u7528\uFF0C\u8DF3\u8FC7\u53D1\u5E03\u540E\u5904\u7406");
+    new import_obsidian12.Notice("\u53D1\u5E03\u540E\u5904\u7406\u5931\u8D25\uFF1A\u672A\u68C0\u6D4B\u5230 QuickAdd \u63D2\u4EF6\u6216\u5176 API \u4E0D\u53EF\u7528");
+    return;
+  }
+  if (!hasQuickAddChoice(app, choiceName)) {
+    console.warn(`[NoteToMP] \u672A\u627E\u5230 QuickAdd Choice\uFF1A${choiceName}`);
+    new import_obsidian12.Notice(`\u53D1\u5E03\u540E\u5904\u7406\u5931\u8D25\uFF1A\u672A\u627E\u5230 QuickAdd Choice\u300C${choiceName}\u300D`);
+    return;
+  }
+  const params = {
+    notePath: note.path,
+    publishedAt: (/* @__PURE__ */ new Date()).toISOString(),
+    status: "success",
+    platform: "wechat",
+    accountName
+  };
+  try {
+    const quickAddApi = getQuickAddPlugin(app).api;
+    await quickAddApi.executeChoice(choiceName, params);
+  } catch (error) {
+    console.error("[NoteToMP] \u53D1\u5E03\u540E\u5904\u7406\u6267\u884C\u5931\u8D25:", error);
+    const message = error instanceof Error ? error.message : String(error);
+    new import_obsidian12.Notice("\u53D1\u5E03\u540E\u5904\u7406\u6267\u884C\u5931\u8D25\uFF1A" + message);
+  }
+}
+
 // src/article-render.ts
 var ArticleRender = class {
   constructor(app) {
@@ -116015,7 +116147,7 @@ var ArticleRender = class {
     container.empty();
     let className = "note-to-mp";
     const html2 = `<section class="${className}" id="article-section" data-plugin="note-to-mp">${article}</section>`;
-    const doc = (0, import_obsidian12.sanitizeHTMLToDom)(html2);
+    const doc = (0, import_obsidian13.sanitizeHTMLToDom)(html2);
     if (doc.firstChild) {
       container.appendChild(doc.firstChild);
     }
@@ -116023,7 +116155,7 @@ var ArticleRender = class {
   showLoading(container) {
     container.empty();
     const html2 = '<div class="loading-wrapper"><div class="loading-spinner"></div></div>';
-    const doc = (0, import_obsidian12.sanitizeHTMLToDom)(html2);
+    const doc = (0, import_obsidian13.sanitizeHTMLToDom)(html2);
     if (doc.firstChild) {
       container.appendChild(doc.firstChild);
     }
@@ -116040,7 +116172,7 @@ var ArticleRender = class {
     return container.innerText.trimStart();
   }
   errorContent(error) {
-    return '<h1>\u6E32\u67D3\u5931\u8D25!</h1><br/>\u5982\u9700\u5E2E\u52A9\u8BF7\u524D\u5F80&nbsp;&nbsp;<a href="https://github.com/sunbooshi/note-to-mp/issues">https://github.com/sunbooshi/note-to-mp/issues</a>&nbsp;&nbsp;\u53CD\u9988<br/><br/>\u5982\u679C\u65B9\u4FBF\uFF0C\u8BF7\u63D0\u4F9B\u5F15\u53D1\u9519\u8BEF\u7684\u5B8C\u6574Markdown\u5185\u5BB9\u3002<br/><br/><br/>Obsidian\u7248\u672C\uFF1A' + import_obsidian12.apiVersion + `<br/>\u9519\u8BEF\u4FE1\u606F\uFF1A<br/>${error}`;
+    return '<h1>\u6E32\u67D3\u5931\u8D25!</h1><br/>\u5982\u9700\u5E2E\u52A9\u8BF7\u524D\u5F80&nbsp;&nbsp;<a href="https://github.com/sunbooshi/note-to-mp/issues">https://github.com/sunbooshi/note-to-mp/issues</a>&nbsp;&nbsp;\u53CD\u9988<br/><br/>\u5982\u679C\u65B9\u4FBF\uFF0C\u8BF7\u63D0\u4F9B\u5F15\u53D1\u9519\u8BEF\u7684\u5B8C\u6574Markdown\u5185\u5BB9\u3002<br/><br/><br/>Obsidian\u7248\u672C\uFF1A' + import_obsidian13.apiVersion + `<br/>\u9519\u8BEF\u4FE1\u606F\uFF1A<br/>${error}`;
   }
   async renderMarkdown(contianer, af) {
     try {
@@ -116093,7 +116225,7 @@ ${baseCSS}
 ${customCSS}`;
     } catch (error) {
       console.error(error);
-      new import_obsidian12.Notice(`\u83B7\u53D6\u6837\u5F0F\u5931\u8D25${themeName}|${highlightName}\uFF0C\u8BF7\u68C0\u67E5\u4E3B\u9898\u662F\u5426\u6B63\u786E\u5B89\u88C5\u3002`);
+      new import_obsidian13.Notice(`\u83B7\u53D6\u6837\u5F0F\u5931\u8D25${themeName}|${highlightName}\uFF0C\u8BF7\u68C0\u67E5\u4E3B\u9898\u662F\u5426\u6B63\u786E\u5B89\u88C5\u3002`);
     }
     return "";
   }
@@ -116227,11 +116359,11 @@ ${customCSS}`;
     metadata.title = metadata.title || this.title;
     metadata.content = this.getArticleContent(container, css2);
     metadata.thumb_media_id = mediaId;
-    return { token, metadata };
+    return { token, metadata, appid };
   }
   async postArticle(appid, localCover = null, container, css2) {
     await this.runStartWorkflow();
-    const { token, metadata } = await this.prepareArticle(appid, localCover, container, css2);
+    const { token, metadata, appid: actualAppid } = await this.prepareArticle(appid, localCover, container, css2);
     const res = await wxAddDraft(token, metadata);
     if (res.status != 200) {
       console.error(res.text);
@@ -116240,6 +116372,9 @@ ${customCSS}`;
     const draft = res.json;
     await this.runEndWorkflow();
     if (draft.media_id) {
+      if (this.note) {
+        void runPostPublish(this.app, this.note, getAccountName(actualAppid));
+      }
       return draft.media_id;
     } else {
       console.error(JSON.stringify(draft));
@@ -116331,14 +116466,14 @@ ${customCSS}`;
       console.error("\u5F53\u524D\u6CA1\u6709\u6253\u5F00\u6587\u4EF6\uFF0C\u65E0\u6CD5\u5904\u7406\u7F13\u5B58\u5143\u7D20");
       return;
     }
-    const component = new import_obsidian12.Component();
+    const component = new import_obsidian13.Component();
     component.load();
     for (const [key, value] of this.cachedElements) {
       const [category, id] = key.split(":");
       if (category === "mermaid" || category === "excalidraw") {
         const container = root.querySelector("#" + id);
         if (container) {
-          await import_obsidian12.MarkdownRenderer.render(this.app, value, container, af.path, component);
+          await import_obsidian13.MarkdownRenderer.render(this.app, value, container, af.path, component);
         }
       }
     }
@@ -116455,6 +116590,7 @@ ${customCSS}`;
   async replaceExcalidrawWithImage(container, id) {
     const innerDiv = container.querySelector("div");
     if (!innerDiv) return;
+    await inlineBlobImages(container);
     if (NMPSettings.getInstance().excalidrawToPNG) {
       const originalImg = container.querySelector("img");
       if (!originalImg) return;
@@ -116480,7 +116616,7 @@ ${customCSS}`;
       item = container.querySelector("#" + id);
     }
     if (!item) return;
-    const doc = (0, import_obsidian12.sanitizeHTMLToDom)(html2);
+    const doc = (0, import_obsidian13.sanitizeHTMLToDom)(html2);
     item.empty();
     if (doc.childElementCount > 0) {
       for (const child of doc.children) {
@@ -116685,7 +116821,7 @@ var WechatInternal = ({ visible }) => {
     uevent("pub-images");
   };
   const handleCopy = async () => {
-    if (import_obsidian13.Platform.isMobile) {
+    if (import_obsidian14.Platform.isMobile) {
       showErr("\u7531\u4E8EObsidian API\u7684\u9650\u5236\uFF0C\u79FB\u52A8\u8BBE\u5907\u4E0D\u652F\u6301\u590D\u5236\uFF01");
       return;
     }
@@ -116757,10 +116893,10 @@ function Wechat({ visible }) {
 
 // src/ui/components/NoteRender.tsx
 var import_react10 = __toESM(require_react());
-var import_obsidian15 = require("obsidian");
+var import_obsidian16 = require("obsidian");
 
 // src/base-render.ts
-var import_obsidian14 = require("obsidian");
+var import_obsidian15 = require("obsidian");
 var BaseRender = class {
   constructor(app) {
     this.note = null;
@@ -116777,7 +116913,7 @@ var BaseRender = class {
   setArticle(container, article) {
     container.empty();
     const html2 = `<section class="note-to-mp-base">${article}</section>`;
-    const doc = (0, import_obsidian14.sanitizeHTMLToDom)(html2);
+    const doc = (0, import_obsidian15.sanitizeHTMLToDom)(html2);
     if (doc.firstChild) {
       container.appendChild(doc.firstChild);
     }
@@ -116786,7 +116922,7 @@ var BaseRender = class {
     return container.innerText.trimStart();
   }
   errorContent(error) {
-    return '<h1>\u6E32\u67D3\u5931\u8D25!</h1><br/>\u5982\u9700\u5E2E\u52A9\u8BF7\u524D\u5F80&nbsp;&nbsp;<a href="https://github.com/sunbooshi/note-to-mp/issues">https://github.com/sunbooshi/note-to-mp/issues</a>&nbsp;&nbsp;\u53CD\u9988<br/><br/>\u5982\u679C\u65B9\u4FBF\uFF0C\u8BF7\u63D0\u4F9B\u5F15\u53D1\u9519\u8BEF\u7684\u5B8C\u6574Markdown\u5185\u5BB9\u3002<br/><br/><br/>Obsidian\u7248\u672C\uFF1A' + import_obsidian14.apiVersion + `<br/>\u9519\u8BEF\u4FE1\u606F\uFF1A<br/>${error}`;
+    return '<h1>\u6E32\u67D3\u5931\u8D25!</h1><br/>\u5982\u9700\u5E2E\u52A9\u8BF7\u524D\u5F80&nbsp;&nbsp;<a href="https://github.com/sunbooshi/note-to-mp/issues">https://github.com/sunbooshi/note-to-mp/issues</a>&nbsp;&nbsp;\u53CD\u9988<br/><br/>\u5982\u679C\u65B9\u4FBF\uFF0C\u8BF7\u63D0\u4F9B\u5F15\u53D1\u9519\u8BEF\u7684\u5B8C\u6574Markdown\u5185\u5BB9\u3002<br/><br/><br/>Obsidian\u7248\u672C\uFF1A' + import_obsidian15.apiVersion + `<br/>\u9519\u8BEF\u4FE1\u606F\uFF1A<br/>${error}`;
   }
   async renderMarkdown(contianer, af) {
     try {
@@ -116857,14 +116993,14 @@ var BaseRender = class {
       console.error("\u5F53\u524D\u6CA1\u6709\u6253\u5F00\u6587\u4EF6\uFF0C\u65E0\u6CD5\u5904\u7406\u7F13\u5B58\u5143\u7D20");
       return;
     }
-    const component = new import_obsidian14.Component();
+    const component = new import_obsidian15.Component();
     component.load();
     for (const [key, value] of this.cachedElements) {
       const [category, id] = key.split(":");
       if (category === "mermaid" || category === "excalidraw") {
         const container = root.querySelector("#" + id);
         if (container) {
-          await import_obsidian14.MarkdownRenderer.render(this.app, value, container, af.path, component);
+          await import_obsidian15.MarkdownRenderer.render(this.app, value, container, af.path, component);
         }
       }
     }
@@ -116981,6 +117117,7 @@ var BaseRender = class {
   async replaceExcalidrawWithImage(container, id) {
     const innerDiv = container.querySelector("div");
     if (!innerDiv) return;
+    await inlineBlobImages(container);
     if (NMPSettings.getInstance().excalidrawToPNG) {
       const originalImg = container.querySelector("img");
       if (!originalImg) return;
@@ -117003,7 +117140,7 @@ var BaseRender = class {
   updateElementByID(container, id, html2) {
     const item = container.querySelector("#" + id);
     if (!item) return;
-    const doc = (0, import_obsidian14.sanitizeHTMLToDom)(html2);
+    const doc = (0, import_obsidian15.sanitizeHTMLToDom)(html2);
     item.empty();
     if (doc.childElementCount > 0) {
       for (const child of doc.children) {
@@ -117096,7 +117233,7 @@ function NoteRender({ platform: platform2, visible }) {
     uevent("open-" + platform2);
   };
   const handleCopy = async () => {
-    if (import_obsidian15.Platform.isMobile) {
+    if (import_obsidian16.Platform.isMobile) {
       showErr("\u7531\u4E8EObsidian API\u7684\u9650\u5236\uFF0C\u79FB\u52A8\u8BBE\u5907\u4E0D\u652F\u6301\u590D\u5236\u529F\u80FD\uFF01");
       return;
     }
@@ -117218,7 +117355,6 @@ var MdToImageConverter_default = {
   previewTitle: "MdToImageConverter_previewTitle",
   pagesList: "MdToImageConverter_pagesList",
   pageBadge: "MdToImageConverter_pageBadge",
-  pageOffsetContainer: "MdToImageConverter_pageOffsetContainer",
   renderedContent: "MdToImageConverter_renderedContent",
   settingsArea: "MdToImageConverter_settingsArea",
   collapsed: "MdToImageConverter_collapsed",
@@ -117421,6 +117557,167 @@ var findNearestLineBoundary = (element, targetY, offsetCalibration) => {
   }
   return bestSplit;
 };
+var ATOMIC_TAGS = /* @__PURE__ */ new Set(["IMG", "SVG", "VIDEO", "CANVAS", "IFRAME", "HR", "INPUT", "BR", "OBJECT", "EMBED"]);
+function collectContentLeaves(container, calibration) {
+  const leaves = [];
+  const range = document.createRange();
+  const walk = (parent) => {
+    const nodes = parent.childNodes;
+    for (let i = 0; i < nodes.length; i++) {
+      const node = nodes[i];
+      if (node.nodeType === Node.TEXT_NODE) {
+        const text = node;
+        if (!text.textContent || !text.textContent.trim()) continue;
+        range.selectNodeContents(text);
+        const rect = range.getBoundingClientRect();
+        if (rect.width === 0 && rect.height === 0) continue;
+        leaves.push({ node, parent, index: i, top: rect.top + calibration, bottom: rect.bottom + calibration, isText: true });
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        const el = node;
+        const tag2 = el.tagName.toUpperCase();
+        if (ATOMIC_TAGS.has(tag2)) {
+          const rect = el.getBoundingClientRect();
+          if (tag2 !== "BR" && rect.width === 0 && rect.height === 0) continue;
+          leaves.push({ node, parent, index: i, top: rect.top + calibration, bottom: rect.bottom + calibration, isText: false });
+        } else if (el.childNodes.length === 0) {
+          const rect = el.getBoundingClientRect();
+          if (rect.height > 0) {
+            leaves.push({ node, parent, index: i, top: rect.top + calibration, bottom: rect.bottom + calibration, isText: false });
+          }
+        } else {
+          walk(node);
+        }
+      }
+    }
+  };
+  walk(container);
+  return leaves;
+}
+function leafStartPoint(leaf) {
+  return leaf.isText ? { node: leaf.node, offset: 0 } : { node: leaf.parent, offset: leaf.index };
+}
+function findTextBoundary(text, y2, calibration) {
+  const len = text.length;
+  const range = document.createRange();
+  let lo = 0;
+  let hi = len;
+  while (lo < hi) {
+    const mid = lo + hi >> 1;
+    range.setStart(text, 0);
+    range.setEnd(text, mid + 1);
+    const rect = range.getBoundingClientRect();
+    if (rect.bottom + calibration > y2) {
+      hi = mid;
+    } else {
+      lo = mid + 1;
+    }
+  }
+  if (lo > 0 && lo < len) {
+    const prev = text.data.charCodeAt(lo - 1);
+    const cur = text.data.charCodeAt(lo);
+    if (prev >= 55296 && prev <= 56319 && cur >= 56320 && cur <= 57343) {
+      lo += 1;
+    }
+  }
+  return { node: text, offset: lo };
+}
+function isFirstMeaningfulChild(parent, child) {
+  for (let i = 0; i < parent.childNodes.length; i++) {
+    const node = parent.childNodes[i];
+    if (node === child) return true;
+    if (node.nodeType === Node.TEXT_NODE && !(node.textContent || "").trim()) continue;
+    return false;
+  }
+  return false;
+}
+function indexOfChild(parent, child) {
+  for (let i = 0; i < parent.childNodes.length; i++) {
+    if (parent.childNodes[i] === child) return i;
+  }
+  return 0;
+}
+function hoistToBlockBoundary(container, leaf) {
+  let node = leaf.node;
+  while (node.parentNode) {
+    const parent = node.parentNode;
+    const point = { node: parent, offset: indexOfChild(parent, node) };
+    if (parent === container || !isFirstMeaningfulChild(parent, node)) {
+      return point;
+    }
+    node = parent;
+  }
+  return leafStartPoint(leaf);
+}
+function findContentBoundary(container, leaves, y2, calibration) {
+  for (const leaf of leaves) {
+    if (leaf.bottom <= y2) continue;
+    if (leaf.isText) {
+      const point = findTextBoundary(leaf.node, y2, calibration);
+      return point.offset === 0 ? hoistToBlockBoundary(container, leaf) : point;
+    }
+    return hoistToBlockBoundary(container, leaf);
+  }
+  return null;
+}
+function sliceContentByLeaves(container, leaves, calibration, start, end) {
+  var _a5;
+  if (end <= start || leaves.length === 0) return "";
+  const startPoint = (_a5 = findContentBoundary(container, leaves, start, calibration)) != null ? _a5 : leafStartPoint(leaves[0]);
+  const endPoint = findContentBoundary(container, leaves, end, calibration);
+  const range = document.createRange();
+  range.setStart(startPoint.node, startPoint.offset);
+  if (endPoint) {
+    range.setEnd(endPoint.node, endPoint.offset);
+  } else {
+    range.setEnd(container, container.childNodes.length);
+  }
+  if (range.collapsed) return "";
+  const fragment = range.cloneContents();
+  const wrapper = document.createElement("div");
+  wrapper.appendChild(fragment);
+  return wrapper.innerHTML;
+}
+function normalizeBoundaries(offsets, height) {
+  const boundaries = [];
+  for (const offset4 of offsets) {
+    const value = Math.max(0, Math.min(height, Math.round(offset4)));
+    if (boundaries.length === 0 || value > boundaries[boundaries.length - 1] + 1) {
+      boundaries.push(value);
+    }
+  }
+  if (boundaries.length === 0 || boundaries[0] !== 0) {
+    boundaries.unshift(0);
+  }
+  const last = boundaries[boundaries.length - 1];
+  if (height > last + 1) {
+    boundaries.push(height);
+  } else {
+    boundaries[boundaries.length - 1] = height;
+  }
+  return boundaries;
+}
+function buildPageHtmls(container, calibration, offsets, height) {
+  const leaves = collectContentLeaves(container, calibration);
+  const contentBottom = leaves.reduce((max2, leaf) => Math.max(max2, leaf.bottom), height);
+  const boundaries = normalizeBoundaries(offsets, contentBottom);
+  const pages = [];
+  for (let i = 0; i < boundaries.length - 1; i++) {
+    pages.push(sliceContentByLeaves(container, leaves, calibration, boundaries[i], boundaries[i + 1]));
+  }
+  const nonEmpty = pages.filter((page) => page.trim().length > 0);
+  return nonEmpty.length > 0 ? nonEmpty : [""];
+}
+function clampOversizedImages(container, maxHeight) {
+  const images = container.querySelectorAll("img");
+  images.forEach((img) => {
+    const height = img.getBoundingClientRect().height;
+    if (height <= maxHeight) return;
+    img.style.maxHeight = `${maxHeight}px`;
+    img.style.maxWidth = "100%";
+    img.style.width = "auto";
+    img.style.height = "auto";
+  });
+}
 var RadixSelect = ({ value, onValueChange, options: options2, placeholder, label }) => {
   const containerRef = (0, import_react11.useRef)(null);
   return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { ref: containerRef, style: { position: "relative", width: "100%" }, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(dist_exports5.Root, { value, onValueChange, children: [
@@ -117512,7 +117809,11 @@ var MdToImageConverter = ({ htmlContent }) => {
       const list2 = AssetsManager.getInstance().themes.map((t) => ({
         id: t.className || t.name,
         name: t.name,
-        css: `${highlightCSS}
+        // 与 ArticleRender.getCSS() 保持一致：InlineCSS 里包含 callout、表格、公式、
+        // 卡片等微信专属样式，缺少它会导致这些元素在贴图中没有样式。
+        css: `${inline_css_default}
+
+${highlightCSS}
 
 ${t.css}
 
@@ -117576,7 +117877,7 @@ ${customCSS}`
   const measureRef = (0, import_react11.useRef)(null);
   const exportContainerRef = (0, import_react11.useRef)(null);
   const [contentHeight, setContentHeight] = (0, import_react11.useState)(0);
-  const [pageOffsets, setPageOffsets] = (0, import_react11.useState)([0]);
+  const [pageHtmls, setPageHtmls] = (0, import_react11.useState)([]);
   const [previewScale, setPreviewScale] = (0, import_react11.useState)(1);
   const [scaleReady, setScaleReady] = (0, import_react11.useState)(false);
   const [exporting, setExporting] = (0, import_react11.useState)(false);
@@ -117585,9 +117886,13 @@ ${customCSS}`
     if (!measureRef.current) return;
     const container = measureRef.current;
     const children = Array.from(container.children);
+    const viewportHeightVal = Math.max(50, settings.height - 2 * settings.padding);
+    if (settings.pageMode !== "single") {
+      clampOversizedImages(container, viewportHeightVal);
+    }
     const height = container.scrollHeight;
     if (settings.pageMode === "single") {
-      setPageOffsets([0]);
+      setPageHtmls([htmlContent]);
       setContentHeight(height);
       return;
     }
@@ -117623,7 +117928,6 @@ ${customCSS}`
         hrOffsets.push(height);
       }
       hrOffsets.sort((a, b2) => a - b2);
-      const viewportHeightVal2 = Math.max(50, settings.height - 2 * settings.padding);
       const finalOffsets = [];
       for (let k2 = 0; k2 < hrOffsets.length - 1; k2++) {
         const segmentStart = hrOffsets[k2];
@@ -117631,7 +117935,7 @@ ${customCSS}`
         finalOffsets.push(segmentStart);
         let currentTop2 = segmentStart;
         while (currentTop2 < segmentEnd) {
-          const pageEnd = currentTop2 + viewportHeightVal2;
+          const pageEnd = currentTop2 + viewportHeightVal;
           if (pageEnd >= segmentEnd) {
             break;
           }
@@ -117649,7 +117953,7 @@ ${customCSS}`
               foundIntersecting = true;
               intersectingChild = child;
               const isHeading = /^(H[1-6])$/i.test(child.tagName);
-              const fitsInOnePage = child.offsetHeight <= viewportHeightVal2;
+              const fitsInOnePage = child.offsetHeight <= viewportHeightVal;
               if (isHeading || fitsInOnePage) {
                 if (childTop > currentTop2) {
                   splitPoint = childTop;
@@ -117677,7 +117981,7 @@ ${customCSS}`
             }
           }
           if (splitPoint <= currentTop2) {
-            splitPoint = currentTop2 + viewportHeightVal2;
+            splitPoint = currentTop2 + viewportHeightVal;
           }
           if (splitPoint >= segmentEnd) {
             break;
@@ -117686,13 +117990,12 @@ ${customCSS}`
           currentTop2 = splitPoint;
         }
       }
-      setPageOffsets(finalOffsets);
+      setPageHtmls(buildPageHtmls(container, offsetCalibration, finalOffsets, height));
       setContentHeight(height);
       return;
     }
     const offsets = [0];
     let currentTop = 0;
-    const viewportHeightVal = Math.max(50, settings.height - 2 * settings.padding);
     while (currentTop < height) {
       const pageEnd = currentTop + viewportHeightVal;
       if (pageEnd >= height) {
@@ -117742,9 +118045,9 @@ ${customCSS}`
       offsets.push(splitPoint);
       currentTop = splitPoint;
     }
-    setPageOffsets(offsets);
+    setPageHtmls(buildPageHtmls(container, offsetCalibration, offsets, height));
     setContentHeight(height);
-  }, [settings.pageMode, settings.height, settings.padding]);
+  }, [settings.pageMode, settings.height, settings.padding, htmlContent]);
   (0, import_react11.useEffect)(() => {
     if (measureRef.current) {
       const observer = new ResizeObserver(() => {
@@ -117790,8 +118093,7 @@ ${customCSS}`
     }
   }, [settings.width]);
   const viewportWidth = settings.width - 2 * settings.padding;
-  const viewportHeight = Math.max(50, settings.height - 2 * settings.padding);
-  const totalPages = settings.pageMode === "single" ? 1 : Math.max(1, pageOffsets.length);
+  const totalPages = settings.pageMode === "single" ? 1 : Math.max(1, pageHtmls.length);
   const pageHeight = settings.pageMode === "single" ? contentHeight + 2 * settings.padding : settings.height;
   const isSplitByHr = settings.pageMode === "hr";
   const applyPresetRatio = (ratio) => {
@@ -117842,16 +118144,10 @@ ${customCSS}`
       backgroundColor: settings.backgroundColor
     };
   };
-  const getPageContentHeight = (index2) => {
-    if (settings.pageMode === "single") return contentHeight;
-    const start = pageOffsets[index2] !== void 0 ? pageOffsets[index2] : index2 * viewportHeight;
-    const end = pageOffsets[index2 + 1] !== void 0 ? pageOffsets[index2 + 1] : contentHeight;
-    return Math.max(50, end - start);
-  };
   const renderPage = (pageIndex, isExportTrack = false) => {
+    var _a5;
     const bgStyle = getBackgroundStyle();
-    const offsetY = settings.pageMode === "single" ? 0 : pageOffsets[pageIndex] !== void 0 ? pageOffsets[pageIndex] : pageIndex * viewportHeight;
-    const currentPageContentHeight = getPageContentHeight(pageIndex);
+    const pageContent = settings.pageMode === "single" ? htmlContent : (_a5 = pageHtmls[pageIndex]) != null ? _a5 : "";
     return /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(
       "div",
       {
@@ -117872,31 +118168,19 @@ ${customCSS}`
             totalPages
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
-            "div",
+            "section",
             {
-              className: MdToImageConverter_default.pageOffsetContainer,
+              className: `md-to-image-page-content ${settings.pageMode === "single" ? "" : "md-to-image-page-sliced"} ${instanceId} ${isSplitByHr ? "split-by-hr" : ""}`,
               style: {
                 width: viewportWidth,
-                height: currentPageContentHeight,
-                overflow: "hidden"
+                fontFamily: formatFontFamily(settings.fontFamily),
+                fontSize: `${settings.fontSize}px`,
+                lineHeight: 1.6,
+                background: "transparent",
+                backgroundColor: "transparent",
+                backgroundImage: "none"
               },
-              children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
-                "div",
-                {
-                  className: `md-to-image-rendered-content ${instanceId} ${isSplitByHr ? "split-by-hr" : ""}`,
-                  style: {
-                    width: viewportWidth,
-                    transform: `translateY(-${offsetY}px)`,
-                    fontFamily: formatFontFamily(settings.fontFamily),
-                    fontSize: `${settings.fontSize}px`,
-                    lineHeight: 1.6,
-                    background: "transparent",
-                    backgroundColor: "transparent",
-                    backgroundImage: "none"
-                  },
-                  dangerouslySetInnerHTML: { __html: htmlContent }
-                }
-              )
+              dangerouslySetInnerHTML: { __html: pageContent }
             }
           )
         ]
@@ -118147,7 +118431,7 @@ ${customCSS}`
               zIndex: -1
             },
             children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
-              "div",
+              "section",
               {
                 ref: measureRef,
                 className: `${instanceId} ${isSplitByHr ? "split-by-hr" : ""}`,
@@ -118675,7 +118959,7 @@ function createPreview(conatainer) {
 
 // src/note-preview.ts
 var VIEW_TYPE_NOTE_PREVIEW = "note-preview";
-var NotePreview = class extends import_obsidian16.ItemView {
+var NotePreview = class extends import_obsidian17.ItemView {
   constructor(leaf, plugin) {
     super(leaf);
     this.preview = null;
@@ -118730,11 +119014,11 @@ var NotePreview = class extends import_obsidian16.ItemView {
 };
 
 // src/setting-tab.ts
-var import_obsidian20 = require("obsidian");
+var import_obsidian21 = require("obsidian");
 
 // src/doc-modal.ts
-var import_obsidian17 = require("obsidian");
-var DocModal = class extends import_obsidian17.Modal {
+var import_obsidian18 = require("obsidian");
+var DocModal = class extends import_obsidian18.Modal {
   constructor(app, title = "\u63D0\u793A", content = "", url = "") {
     super(app);
     this.url = "";
@@ -118754,7 +119038,7 @@ var DocModal = class extends import_obsidian17.Modal {
     titleEl.style.marginTop = "0.5em";
     const content = contentEl.createEl("div");
     content.setAttr("style", "margin-bottom:1em;-webkit-user-select: text; user-select: text;");
-    content.appendChild((0, import_obsidian17.sanitizeHTMLToDom)(this.content));
+    content.appendChild((0, import_obsidian18.sanitizeHTMLToDom)(this.content));
     const iframe = contentEl.createEl("iframe", {
       attr: {
         src: this.url,
@@ -118771,13 +119055,13 @@ var DocModal = class extends import_obsidian17.Modal {
 };
 
 // src/ui/workflow/workflow.tsx
-var import_obsidian19 = require("obsidian");
+var import_obsidian20 = require("obsidian");
 var ReactDOM8 = __toESM(require_client());
 var import_react15 = __toESM(require_react());
 
 // src/ui/workflow/resultviewer.tsx
 var import_react14 = __toESM(require_react());
-var import_obsidian18 = require("obsidian");
+var import_obsidian19 = require("obsidian");
 var import_jsx_runtime37 = __toESM(require_jsx_runtime());
 var IMAGE_KEY_RE = /^(image|img|avatar|thumbnail|photo|picture|cover|banner|icon|poster|logo|src|url)s?$/i;
 var IMAGE_URL_RE = /\.(jpg|jpeg|png|gif|webp|svg|bmp|avif)(\?.*)?$/i;
@@ -118833,7 +119117,7 @@ function ImagePreviewDialog({
         }
         data = bytes.buffer;
       } else {
-        const response = await (0, import_obsidian18.requestUrl)({ url });
+        const response = await (0, import_obsidian19.requestUrl)({ url });
         data = response.arrayBuffer;
         const mime = response.headers["content-type"] || "image/png";
         extension = mimeToImageExt(mime);
@@ -118842,10 +119126,10 @@ function ImagePreviewDialog({
       const attachmentFolderPath = app.vault.getConfig("attachmentFolderPath");
       const path = `${attachmentFolderPath}/${filename}`;
       await app.vault.createBinary(path, data);
-      new import_obsidian18.Notice(`\u56FE\u7247\u5DF2\u4FDD\u5B58\u5230: ${path}`, 5e3);
+      new import_obsidian19.Notice(`\u56FE\u7247\u5DF2\u4FDD\u5B58\u5230: ${path}`, 5e3);
     } catch (error) {
       console.error(error);
-      new import_obsidian18.Notice(`\u4FDD\u5B58\u56FE\u7247\u5931\u8D25: ${error instanceof Error ? error.message : String(error)}`);
+      new import_obsidian19.Notice(`\u4FDD\u5B58\u56FE\u7247\u5931\u8D25: ${error instanceof Error ? error.message : String(error)}`);
     } finally {
       setSaving(false);
     }
@@ -119702,7 +119986,7 @@ function Workflow() {
   }, [activeTab, hasLoadedTokens]);
   const createToken = async (name, appid, appsecret, expireat) => {
     try {
-      const res = await (0, import_obsidian19.requestUrl)({
+      const res = await (0, import_obsidian20.requestUrl)({
         method: "POST",
         url: PluginHost2 + "/v1/workflow/token",
         throw: false,
@@ -119723,7 +120007,7 @@ function Workflow() {
   };
   const listToken = async () => {
     try {
-      const res = await (0, import_obsidian19.requestUrl)({
+      const res = await (0, import_obsidian20.requestUrl)({
         method: "GET",
         url: PluginHost2 + "/v1/workflow/token/list/" + authkey,
         throw: false
@@ -119787,7 +120071,7 @@ function Workflow() {
   };
   const deleteToken = async (id) => {
     var _a5;
-    const res = await (0, import_obsidian19.requestUrl)({
+    const res = await (0, import_obsidian20.requestUrl)({
       method: "DELETE",
       url: PluginHost2 + "/v1/workflow/token",
       throw: false,
@@ -119896,7 +120180,7 @@ function Workflow() {
     /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: workflow_default.Header, children: [
       /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("span", { style: { fontSize: "18px", fontWeight: "bold" }, children: "\u5DE5\u4F5C\u6D41Token\u7BA1\u7406" }),
       /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("span", { children: "\xA0|\xA0" }),
-      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("a", { href: "https://docs.dualhue.cn", target: "_blank", children: "\u5E2E\u52A9\u6587\u6863" })
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("a", { href: "https://docs.dualhue.cn/workflow", target: "_blank", children: "\u5E2E\u52A9\u6587\u6863" })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(Root2, { defaultValue: "create", value: activeTab, onValueChange: setActiveTab, className: workflow_default.Root, children: [
       /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(List, { className: workflow_default.List, children: [
@@ -120082,7 +120366,7 @@ function Workflow() {
     )) })
   ] });
 }
-var WorkflowModal = class extends import_obsidian19.Modal {
+var WorkflowModal = class extends import_obsidian20.Modal {
   constructor(app) {
     super(app);
     this.view = null;
@@ -120161,7 +120445,7 @@ function WorkflowRun({ note }) {
     /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { style: { display: "flex", justifyContent: "flex-end", marginTop: 10, marginRight: 10 }, children: !loading && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("button", { onClick: run, disabled: running, children: "\u5F00\u59CB\u8C03\u7528" }) })
   ] });
 }
-var WorkflowRunModal = class extends import_obsidian19.Modal {
+var WorkflowRunModal = class extends import_obsidian20.Modal {
   constructor(app, note) {
     super(app);
     this.view = null;
@@ -120183,7 +120467,7 @@ var WorkflowRunModal = class extends import_obsidian19.Modal {
 };
 
 // src/setting-tab.ts
-var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
+var NoteToMpSettingTab = class extends import_obsidian21.PluginSettingTab {
   constructor(app, plugin) {
     super(app, plugin);
     this.plugin = plugin;
@@ -120209,12 +120493,12 @@ var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
   async testWXInfo() {
     const authKey = this.settings.authKey;
     if (authKey.length == 0) {
-      new import_obsidian20.Notice("\u8BF7\u5148\u8BBE\u7F6EauthKey");
+      new import_obsidian21.Notice("\u8BF7\u5148\u8BBE\u7F6EauthKey");
       return;
     }
     const wxInfo = this.settings.wxInfo;
     if (wxInfo.length == 0) {
-      new import_obsidian20.Notice("\u8BF7\u5148\u8BBE\u7F6E\u516C\u4F17\u53F7\u4FE1\u606F");
+      new import_obsidian21.Notice("\u8BF7\u5148\u8BBE\u7F6E\u516C\u4F17\u53F7\u4FE1\u606F");
       return;
     }
     try {
@@ -120238,22 +120522,22 @@ var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
         }
         const data = res.json;
         if (data.token.length == 0) {
-          new import_obsidian20.Notice(`${wx.name}|${wx.appid} \u6D4B\u8BD5\u5931\u8D25`);
+          new import_obsidian21.Notice(`${wx.name}|${wx.appid} \u6D4B\u8BD5\u5931\u8D25`);
           break;
         }
-        new import_obsidian20.Notice(`${wx.name} \u6D4B\u8BD5\u901A\u8FC7`);
+        new import_obsidian21.Notice(`${wx.name} \u6D4B\u8BD5\u901A\u8FC7`);
       }
     } catch (error) {
-      new import_obsidian20.Notice(`\u6D4B\u8BD5\u5931\u8D25\uFF1A${error}`);
+      new import_obsidian21.Notice(`\u6D4B\u8BD5\u5931\u8D25\uFF1A${error}`);
     }
   }
   async encrypt() {
     if (this.wxInfo.length == 0) {
-      new import_obsidian20.Notice("\u8BF7\u8F93\u5165\u5185\u5BB9");
+      new import_obsidian21.Notice("\u8BF7\u8F93\u5165\u5185\u5BB9");
       return false;
     }
     if (this.settings.wxInfo.length > 0) {
-      new import_obsidian20.Notice("\u5DF2\u7ECF\u4FDD\u5B58\u8FC7\u4E86\uFF0C\u8BF7\u5148\u6E05\u9664\uFF01");
+      new import_obsidian21.Notice("\u5DF2\u7ECF\u4FDD\u5B58\u8FC7\u4E86\uFF0C\u8BF7\u5148\u6E05\u9664\uFF01");
       return false;
     }
     const wechat = [];
@@ -120265,7 +120549,7 @@ var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
       }
       const items = line.split("|");
       if (items.length != 3) {
-        new import_obsidian20.Notice("\u683C\u5F0F\u9519\u8BEF\uFF0C\u8BF7\u68C0\u67E5");
+        new import_obsidian21.Notice("\u683C\u5F0F\u9519\u8BEF\uFF0C\u8BF7\u68C0\u67E5");
         return false;
       }
       const name = items[0];
@@ -120280,7 +120564,7 @@ var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
       const res = await wxEncrypt(this.settings.authKey, wechat);
       if (res.status != 200) {
         const data2 = res.json;
-        new import_obsidian20.Notice(`${data2.message}`);
+        new import_obsidian21.Notice(`${data2.message}`);
         return false;
       }
       const data = res.json;
@@ -120291,10 +120575,10 @@ var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
       await this.plugin.saveSettings();
       this.wxInfo = this.parseWXInfo();
       this.displayWXInfo(this.wxInfo);
-      new import_obsidian20.Notice("\u4FDD\u5B58\u6210\u529F");
+      new import_obsidian21.Notice("\u4FDD\u5B58\u6210\u529F");
       return true;
     } catch (error) {
-      new import_obsidian20.Notice(`\u4FDD\u5B58\u5931\u8D25\uFF1A${error}`);
+      new import_obsidian21.Notice(`\u4FDD\u5B58\u5931\u8D25\uFF1A${error}`);
       console.error(error);
     }
     return false;
@@ -120320,7 +120604,7 @@ var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
     this.headerEl.createEl("div", { text: `\u5F53\u524D\u7248\u672C: v${version}` });
     this.headerEl.createEl("div", { text: " " }).style.cssText = "width: 10px;";
     containerEl.createEl("h2", { text: "\u63D2\u4EF6\u8BBE\u7F6E" });
-    new import_obsidian20.Setting(containerEl).setName("\u9ED8\u8BA4\u6837\u5F0F").addDropdown((dropdown) => {
+    new import_obsidian21.Setting(containerEl).setName("\u9ED8\u8BA4\u6837\u5F0F").addDropdown((dropdown) => {
       const styles = this.plugin.assetsManager.themes;
       for (let s of styles) {
         dropdown.addOption(s.className, s.name);
@@ -120331,7 +120615,7 @@ var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian20.Setting(containerEl).setName("\u4EE3\u7801\u9AD8\u4EAE").addDropdown((dropdown) => {
+    new import_obsidian21.Setting(containerEl).setName("\u4EE3\u7801\u9AD8\u4EAE").addDropdown((dropdown) => {
       const styles = this.plugin.assetsManager.highlights;
       for (let s of styles) {
         dropdown.addOption(s.name, s.name);
@@ -120342,7 +120626,7 @@ var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian20.Setting(containerEl).setName("\u94FE\u63A5\u5C55\u793A\u6837\u5F0F").addDropdown((dropdown) => {
+    new import_obsidian21.Setting(containerEl).setName("\u94FE\u63A5\u5C55\u793A\u6837\u5F0F").addDropdown((dropdown) => {
       dropdown.addOption("inline", "\u5185\u5D4C");
       dropdown.addOption("footnote", "\u811A\u6CE8");
       dropdown.setValue(this.settings.linkStyle);
@@ -120351,7 +120635,7 @@ var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian20.Setting(containerEl).setName("\u6587\u4EF6\u5D4C\u5165\u5C55\u793A\u6837\u5F0F").addDropdown((dropdown) => {
+    new import_obsidian21.Setting(containerEl).setName("\u6587\u4EF6\u5D4C\u5165\u5C55\u793A\u6837\u5F0F").addDropdown((dropdown) => {
       dropdown.addOption("quote", "\u5F15\u7528");
       dropdown.addOption("content", "\u6B63\u6587");
       dropdown.setValue(this.settings.embedStyle);
@@ -120360,7 +120644,7 @@ var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian20.Setting(containerEl).setName("\u6570\u5B66\u516C\u5F0F\u8BED\u6CD5").addDropdown((dropdown) => {
+    new import_obsidian21.Setting(containerEl).setName("\u6570\u5B66\u516C\u5F0F\u8BED\u6CD5").addDropdown((dropdown) => {
       dropdown.addOption("latex", "latex");
       dropdown.addOption("asciimath", "asciimath");
       dropdown.setValue(this.settings.math);
@@ -120370,41 +120654,41 @@ var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian20.Setting(containerEl).setName("\u663E\u793A\u4EE3\u7801\u884C\u53F7").addToggle((toggle) => {
+    new import_obsidian21.Setting(containerEl).setName("\u663E\u793A\u4EE3\u7801\u884C\u53F7").addToggle((toggle) => {
       toggle.setValue(this.settings.lineNumber);
       toggle.onChange(async (value) => {
         this.settings.lineNumber = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian20.Setting(containerEl).setName("\u542F\u7528\u7A7A\u884C\u6E32\u67D3").addToggle((toggle) => {
+    new import_obsidian21.Setting(containerEl).setName("\u542F\u7528\u7A7A\u884C\u6E32\u67D3").addToggle((toggle) => {
       toggle.setValue(this.settings.enableEmptyLine);
       toggle.onChange(async (value) => {
         this.settings.enableEmptyLine = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian20.Setting(containerEl).setName("\u6E32\u67D3\u56FE\u7247\u6807\u9898").addToggle((toggle) => {
+    new import_obsidian21.Setting(containerEl).setName("\u6E32\u67D3\u56FE\u7247\u6807\u9898").addToggle((toggle) => {
       toggle.setValue(this.settings.useFigcaption);
       toggle.onChange(async (value) => {
         this.settings.useFigcaption = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian20.Setting(containerEl).setName("Excalidraw \u6E32\u67D3\u4E3A PNG \u56FE\u7247").addToggle((toggle) => {
+    new import_obsidian21.Setting(containerEl).setName("Excalidraw \u6E32\u67D3\u4E3A PNG \u56FE\u7247").addToggle((toggle) => {
       toggle.setValue(this.settings.excalidrawToPNG);
       toggle.onChange(async (value) => {
         this.settings.excalidrawToPNG = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian20.Setting(containerEl).setName("\u6C34\u5370\u56FE\u7247").addText((text) => {
+    new import_obsidian21.Setting(containerEl).setName("\u6C34\u5370\u56FE\u7247").addText((text) => {
       text.setPlaceholder("\u8BF7\u8F93\u5165\u56FE\u7247\u540D\u79F0").setValue(this.settings.watermark).onChange(async (value) => {
         this.settings.watermark = value.trim();
         await this.plugin.saveSettings();
       }).inputEl.setAttr("style", "width: 320px;");
     });
-    new import_obsidian20.Setting(containerEl).setName("\u83B7\u53D6\u66F4\u591A\u4E3B\u9898").addButton((button) => {
+    new import_obsidian21.Setting(containerEl).setName("\u83B7\u53D6\u66F4\u591A\u4E3B\u9898").addButton((button) => {
       button.setButtonText("\u4E0B\u8F7D");
       button.onClick(async () => {
         button.setButtonText("\u4E0B\u8F7D\u4E2D...");
@@ -120417,7 +120701,7 @@ var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
         await this.plugin.assetsManager.openAssets();
       });
     });
-    new import_obsidian20.Setting(containerEl).setName("\u6E05\u7A7A\u4E3B\u9898").addButton((button) => {
+    new import_obsidian21.Setting(containerEl).setName("\u6E05\u7A7A\u4E3B\u9898").addButton((button) => {
       button.setButtonText("\u6E05\u7A7A");
       button.onClick(async () => {
         await this.plugin.assetsManager.removeThemes();
@@ -120425,7 +120709,7 @@ var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian20.Setting(containerEl).setName("\u5168\u5C40CSS\u5C5E\u6027").setDesc("\u53EA\u80FD\u586B\u5199CSS\u5C5E\u6027\uFF0C\u4E0D\u80FD\u5199\u9009\u62E9\u5668").addTextArea((text) => {
+    new import_obsidian21.Setting(containerEl).setName("\u5168\u5C40CSS\u5C5E\u6027").setDesc("\u53EA\u80FD\u586B\u5199CSS\u5C5E\u6027\uFF0C\u4E0D\u80FD\u5199\u9009\u62E9\u5668").addTextArea((text) => {
       this.wxTextArea = text;
       text.setPlaceholder("\u8BF7\u8F93\u5165CSS\u5C5E\u6027\uFF0C\u5982\uFF1Abackground: #fff;padding: 10px;").setValue(this.settings.baseCSS).onChange(async (value) => {
         this.settings.baseCSS = value;
@@ -120433,7 +120717,7 @@ var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
       }).inputEl.setAttr("style", "width: 520px; height: 60px;");
     });
     const customCSSDoc = '\u4F7F\u7528\u6307\u5357\uFF1A<a href="https://docs.dualhue.cn/customcss">https://docs.dualhue.cn/customcss</a>';
-    const customCSSSetting = new import_obsidian20.Setting(containerEl).setName("\u81EA\u5B9A\u4E49CSS\u7B14\u8BB0").setDesc((0, import_obsidian20.sanitizeHTMLToDom)(customCSSDoc)).addText((text) => {
+    const customCSSSetting = new import_obsidian21.Setting(containerEl).setName("\u81EA\u5B9A\u4E49CSS\u7B14\u8BB0").setDesc((0, import_obsidian21.sanitizeHTMLToDom)(customCSSDoc)).addText((text) => {
       text.setPlaceholder("\u8BF7\u8F93\u5165\u81EA\u5B9A\u4E49CSS\u7B14\u8BB0\u6807\u9898").setValue(this.settings.customCSSNote).onChange(async (value) => {
         const note = value.trim();
         try {
@@ -120443,7 +120727,7 @@ var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
           this.settings.customCSSNote = note;
           await this.plugin.saveSettings();
           await this.plugin.assetsManager.loadCustomCSS();
-          customCSSSetting.setDesc((0, import_obsidian20.sanitizeHTMLToDom)(customCSSDoc));
+          customCSSSetting.setDesc((0, import_obsidian21.sanitizeHTMLToDom)(customCSSDoc));
           customCSSSetting.descEl.removeAttribute("style");
         } catch (error) {
           console.error(error);
@@ -120454,13 +120738,23 @@ var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
       }).inputEl.setAttr("style", "width: 320px;");
     });
     const expertDoc = '\u4F7F\u7528\u6307\u5357\uFF1A<a href="https://docs.dualhue.cn/expert">https://docs.dualhue.cn/expert</a>';
-    new import_obsidian20.Setting(containerEl).setName("\u4E13\u5BB6\u8BBE\u7F6E\u7B14\u8BB0").setDesc((0, import_obsidian20.sanitizeHTMLToDom)(expertDoc)).addText((text) => {
+    new import_obsidian21.Setting(containerEl).setName("\u4E13\u5BB6\u8BBE\u7F6E\u7B14\u8BB0").setDesc((0, import_obsidian21.sanitizeHTMLToDom)(expertDoc)).addText((text) => {
       text.setPlaceholder("\u8BF7\u8F93\u5165\u4E13\u5BB6\u8BBE\u7F6E\u7B14\u8BB0\u6807\u9898").setValue(this.settings.expertSettingsNote).onChange(async (value) => {
         this.settings.expertSettingsNote = value.trim();
         await this.plugin.saveSettings();
         await this.plugin.assetsManager.loadExpertSettings();
       }).inputEl.setAttr("style", "width: 320px;");
     });
+    const postPublishDoc = "\u6587\u7AE0\u53D1\u5E03\u6210\u529F\u540E\u81EA\u52A8\u8C03\u7528 QuickAdd Choice\uFF0C\u7559\u7A7A\u5219\u4E0D\u542F\u7528\u3002\u9700\u8981\u5148\u5B89\u88C5\u5E76\u542F\u7528 QuickAdd \u63D2\u4EF6\u3002";
+    const postPublishSetting = new import_obsidian21.Setting(containerEl).setName("\u53D1\u5E03\u540E\u5904\u7406").setDesc(postPublishDoc).addText((text) => {
+      text.setPlaceholder("\u8BF7\u8F93\u5165 QuickAdd Choice \u540D\u79F0").setValue(this.settings.postPublishChoice).onChange(async (value) => {
+        const name = value.trim();
+        this.settings.postPublishChoice = name;
+        await this.plugin.saveSettings();
+        this.checkPostPublishChoice(postPublishSetting, postPublishDoc, name);
+      }).inputEl.setAttr("style", "width: 320px;");
+    });
+    this.checkPostPublishChoice(postPublishSetting, postPublishDoc, this.settings.postPublishChoice);
     let descHtml = '\u8BE6\u60C5\u8BF4\u660E\uFF1A<a href="https://docs.dualhue.cn/subscribe">https://docs.dualhue.cn/subscribe</a>';
     if (this.settings.isAuthKeyVaild()) {
       if (this.settings.isVip) {
@@ -120470,7 +120764,7 @@ var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
         descHtml = `\u6709\u6548\u671F\u81F3\uFF1A${timestr} <br/>${descHtml}`;
       }
     }
-    new import_obsidian20.Setting(containerEl).setName("\u6CE8\u518C\u7801\uFF08AuthKey\uFF09").setDesc((0, import_obsidian20.sanitizeHTMLToDom)(descHtml)).addText((text) => {
+    new import_obsidian21.Setting(containerEl).setName("\u6CE8\u518C\u7801\uFF08AuthKey\uFF09").setDesc((0, import_obsidian21.sanitizeHTMLToDom)(descHtml)).addText((text) => {
       text.setPlaceholder("\u8BF7\u8F93\u5165\u6CE8\u518C\u7801").setValue(this.settings.authKey).onChange(async (value) => {
         this.settings.authKey = value.trim();
         await this.settings.updateKeyInfo();
@@ -120480,13 +120774,13 @@ var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
     let isClear = this.settings.wxInfo.length > 0;
     let isRealClear = false;
     const buttonText = isClear ? "\u6E05\u7A7A\u516C\u4F17\u53F7\u4FE1\u606F" : "\u4FDD\u5B58\u516C\u4F17\u53F7\u4FE1\u606F";
-    new import_obsidian20.Setting(containerEl).setName("\u516C\u4F17\u53F7\u4FE1\u606F").addTextArea((text) => {
+    new import_obsidian21.Setting(containerEl).setName("\u516C\u4F17\u53F7\u4FE1\u606F").addTextArea((text) => {
       this.wxTextArea = text;
       text.setPlaceholder("\u8BF7\u8F93\u5165\u516C\u4F17\u53F7\u4FE1\u606F\n\u683C\u5F0F\uFF1A\u516C\u4F17\u53F7\u540D\u79F0|\u516C\u4F17\u53F7AppID|\u516C\u4F17\u53F7AppSecret\n\u591A\u4E2A\u516C\u4F17\u53F7\u8BF7\u6362\u884C\u8F93\u5165\n\u8F93\u5165\u5B8C\u6210\u540E\u70B9\u51FB\u52A0\u5BC6\u6309\u94AE").setValue(this.wxInfo).onChange((value) => {
         this.wxInfo = value;
       }).inputEl.setAttr("style", "width: 520px; height: 120px;");
     });
-    new import_obsidian20.Setting(containerEl).addButton((button) => {
+    new import_obsidian21.Setting(containerEl).addButton((button) => {
       button.setButtonText(buttonText);
       button.onClick(async () => {
         if (isClear) {
@@ -120524,6 +120818,27 @@ var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
     });
     this.checkUpdate();
   }
+  checkPostPublishChoice(setting, defaultDesc, name) {
+    const reset = () => {
+      setting.setDesc(defaultDesc);
+      setting.descEl.removeAttribute("style");
+    };
+    if (!name) {
+      reset();
+      return;
+    }
+    if (!isQuickAddAvailable(this.app)) {
+      setting.setDesc("\u672A\u68C0\u6D4B\u5230 QuickAdd \u63D2\u4EF6\uFF0C\u8BF7\u5148\u5B89\u88C5\u5E76\u542F\u7528 QuickAdd");
+      setting.descEl.setAttr("style", "color: var(--text-error); white-space: pre-wrap;");
+      return;
+    }
+    if (!hasQuickAddChoice(this.app, name)) {
+      setting.setDesc(`\u672A\u627E\u5230\u540D\u4E3A\u300C${name}\u300D\u7684 QuickAdd Choice`);
+      setting.descEl.setAttr("style", "color: var(--text-error); white-space: pre-wrap;");
+      return;
+    }
+    reset();
+  }
   checkUpdate() {
     requestLatestVersion().then((versionInfo) => {
       if (!versionInfo) return;
@@ -120536,8 +120851,8 @@ var NoteToMpSettingTab = class extends import_obsidian20.PluginSettingTab {
 };
 
 // src/widgets-modal.ts
-var import_obsidian21 = require("obsidian");
-var WidgetsModal = class extends import_obsidian21.Modal {
+var import_obsidian22 = require("obsidian");
+var WidgetsModal = class extends import_obsidian22.Modal {
   constructor(app) {
     super(app);
     this.listener = null;
@@ -120545,7 +120860,7 @@ var WidgetsModal = class extends import_obsidian21.Modal {
   }
   insertMarkdown(markdown) {
     var _a5;
-    const editor = (_a5 = this.app.workspace.getActiveViewOfType(import_obsidian21.MarkdownView)) == null ? void 0 : _a5.editor;
+    const editor = (_a5 = this.app.workspace.getActiveViewOfType(import_obsidian22.MarkdownView)) == null ? void 0 : _a5.editor;
     if (!editor) return;
     editor.replaceSelection(markdown);
     editor.exec("goRight");
@@ -120586,7 +120901,7 @@ var WidgetsModal = class extends import_obsidian21.Modal {
 };
 
 // src/note-pub.ts
-var import_obsidian22 = require("obsidian");
+var import_obsidian23 = require("obsidian");
 
 // src/ui/pubview.tsx
 var import_react20 = __toESM(require_react());
@@ -124658,6 +124973,7 @@ function MergePubview({ modal, notes }) {
   const contentRef = (0, import_react20.useRef)(null);
   const renderRef = (0, import_react20.useRef)(new ArticleRender(app));
   const articlesRef = (0, import_react20.useRef)([]);
+  const publishedRef = (0, import_react20.useRef)([]);
   const [message, setMessage] = (0, import_react20.useState)("\u62D6\u52A8\u7B14\u8BB0\u53EF\u4EE5\u8C03\u6574\u987A\u5E8F");
   const [cssContent, setCSSContent] = (0, import_react20.useState)("");
   const [canceled, setCanceled] = (0, import_react20.useState)(false);
@@ -124694,6 +125010,7 @@ function MergePubview({ modal, notes }) {
     }
     setPublishing(true);
     articlesRef.current = [];
+    publishedRef.current = [];
     prepare(0);
   };
   const updateItemStatus = (index2, status) => {
@@ -124725,8 +125042,9 @@ function MergePubview({ modal, notes }) {
         setMessage("\u8BF7\u5148\u8BBE\u7F6E\u516C\u4F17\u53F7");
         return;
       }
-      const { token, metadata } = await renderRef.current.prepareArticle(currentAppid, void 0, contentRef.current, css2);
+      const { token, metadata, appid: actualAppid } = await renderRef.current.prepareArticle(currentAppid, void 0, contentRef.current, css2);
       articlesRef.current.push(metadata);
+      publishedRef.current.push({ note: noteItems[index2].note, appid: actualAppid });
       if (index2 + 1 == notes.length) {
         await publish(token);
         updateItemStatus(index2, 2 /* Done */);
@@ -124744,6 +125062,10 @@ function MergePubview({ modal, notes }) {
     if (res.status != 200) {
       console.error(res.text);
       setMessage(`\u521B\u5EFA\u8349\u7A3F\u5931\u8D25, https\u72B6\u6001\u7801: ${res.status} \u53EF\u80FD\u662F\u6587\u7AE0\u5305\u542B\u5F02\u5E38\u5185\u5BB9\uFF0C\u8BF7\u5C1D\u8BD5\u624B\u52A8\u590D\u5236\u5230\u516C\u4F17\u53F7\u7F16\u8F91\u5668\uFF01`);
+    } else {
+      for (const item of publishedRef.current) {
+        void runPostPublish(app, item.note, getAccountName(item.appid));
+      }
     }
     setPublishing(false);
     setMessage("\u53D1\u5E03\u6210\u529F\uFF01");
@@ -124803,48 +125125,74 @@ function MergePubview({ modal, notes }) {
     ] })
   ] });
 }
-function PubContent({ modal, notes }) {
+function PubContent({ modal, notes, appid }) {
   const storeRef = (0, import_react20.useRef)(null);
   if (!storeRef.current) {
-    storeRef.current = createConfigStore();
+    storeRef.current = createConfigStore(appid ? { appid } : {});
   }
   return /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(ConfigContext.Provider, { value: storeRef.current, children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(Pubview, { modal, notes }) });
 }
-function MergeContent({ modal, notes }) {
+function MergeContent({ modal, notes, appid }) {
   const storeRef = (0, import_react20.useRef)(null);
   if (!storeRef.current) {
-    storeRef.current = createConfigStore();
+    storeRef.current = createConfigStore(appid ? { appid } : {});
   }
   return /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(ConfigContext.Provider, { value: storeRef.current, children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(MergePubview, { modal, notes }) });
 }
-function createPubview(conatainer, modal, notes) {
+function createPubview(conatainer, modal, notes, appid) {
   const root = ReactDOM9.createRoot(conatainer);
-  root.render(/* @__PURE__ */ (0, import_jsx_runtime40.jsx)(PubContent, { modal, notes }));
+  root.render(/* @__PURE__ */ (0, import_jsx_runtime40.jsx)(PubContent, { modal, notes, appid }));
   return root;
 }
-function createMergePubview(conatainer, modal, notes) {
+function createMergePubview(conatainer, modal, notes, appid) {
   const root = ReactDOM9.createRoot(conatainer);
-  root.render(/* @__PURE__ */ (0, import_jsx_runtime40.jsx)(MergeContent, { modal, notes }));
+  root.render(/* @__PURE__ */ (0, import_jsx_runtime40.jsx)(MergeContent, { modal, notes, appid }));
   return root;
 }
 
 // src/note-pub.ts
-var NotePubModal = class extends import_obsidian22.Modal {
-  constructor(app, notes, merge) {
+function resolveAccountAppid(account) {
+  var _a5;
+  const value = (account != null ? account : "").trim();
+  if (!value) {
+    return void 0;
+  }
+  if (value.startsWith("wx")) {
+    return value;
+  }
+  const wx = (_a5 = NMPSettings.getInstance().wxInfo) == null ? void 0 : _a5.find((item) => item.name === value);
+  return wx ? wx.appid : null;
+}
+var NotePubModal = class extends import_obsidian23.Modal {
+  /**
+   * @param account 要发布到的公众号，可以是公众号名称或 appid，留空则使用设置中的第一个公众号
+   */
+  constructor(app, notes, merge, account) {
     super(app);
     this.pubview = null;
     this.merge = false;
+    /** 「公众号」属性的原始值，为空表示使用默认公众号 */
+    this.account = "";
     this.notes = notes;
     if (merge !== void 0) {
       this.merge = merge;
     }
+    this.account = (account != null ? account : "").trim();
+    this.appid = resolveAccountAppid(this.account) || void 0;
+  }
+  open() {
+    if (this.account && !this.appid) {
+      new import_obsidian23.Notice(`\u672A\u627E\u5230\u516C\u4F17\u53F7\u300C${this.account}\u300D\uFF0C\u8BF7\u68C0\u67E5\u516C\u4F17\u53F7\u540D\u79F0\u662F\u5426\u6B63\u786E`);
+      return;
+    }
+    super.open();
   }
   onOpen() {
     let { contentEl } = this;
     if (this.merge) {
-      this.pubview = createMergePubview(contentEl, this, this.notes);
+      this.pubview = createMergePubview(contentEl, this, this.notes, this.appid);
     } else {
-      this.pubview = createPubview(contentEl, this, this.notes);
+      this.pubview = createPubview(contentEl, this, this.notes, this.appid);
     }
   }
   onClose() {
@@ -124855,6 +125203,116 @@ var NotePubModal = class extends import_obsidian22.Modal {
     contentEl.empty();
   }
 };
+
+// src/batch-pub.ts
+var import_obsidian24 = require("obsidian");
+var PUBLISH_LIST_FIELD = "\u53D1\u5E03\u5217\u8868";
+var MERGE_PUBLISH_FIELD = "\u5408\u5E76\u53D1\u5E03";
+var ACCOUNT_FIELD = "\u516C\u4F17\u53F7";
+var MAX_BATCH_NOTES = 8;
+function resolveFile(app, sourcePath, raw) {
+  if (typeof raw !== "string") {
+    return null;
+  }
+  let link2 = raw.trim().replace(/^!?\[\[/, "").replace(/\]\]$/, "");
+  link2 = link2.split("|")[0].split("#")[0].trim();
+  if (!link2) {
+    return null;
+  }
+  const direct = app.vault.getAbstractFileByPath((0, import_obsidian24.normalizePath)(link2));
+  if (direct instanceof import_obsidian24.TFile) {
+    return direct;
+  }
+  const dest = app.metadataCache.getFirstLinkpathDest(link2, sourcePath);
+  if (dest instanceof import_obsidian24.TFile) {
+    return dest;
+  }
+  return null;
+}
+function resolvePublishList(app, file) {
+  var _a5;
+  const frontmatter = (_a5 = app.metadataCache.getFileCache(file)) == null ? void 0 : _a5.frontmatter;
+  if (!frontmatter) {
+    return [];
+  }
+  const rawList = frontmatter[PUBLISH_LIST_FIELD];
+  if (rawList === void 0 || rawList === null) {
+    return [];
+  }
+  const entries = [];
+  for (const item of Array.isArray(rawList) ? rawList : [rawList]) {
+    if (Array.isArray(item)) {
+      entries.push(...item);
+    } else {
+      entries.push(item);
+    }
+  }
+  const notes = [];
+  const seen = /* @__PURE__ */ new Set();
+  for (const entry of entries) {
+    if (notes.length >= MAX_BATCH_NOTES) {
+      break;
+    }
+    const note = resolveFile(app, file.path, entry);
+    if (!note) {
+      continue;
+    }
+    if (note.extension.toLowerCase() !== "md") {
+      continue;
+    }
+    if (seen.has(note.path)) {
+      continue;
+    }
+    seen.add(note.path);
+    notes.push(note);
+  }
+  return notes;
+}
+function resolveMerge(app, file) {
+  var _a5;
+  const frontmatter = (_a5 = app.metadataCache.getFileCache(file)) == null ? void 0 : _a5.frontmatter;
+  const raw = frontmatter == null ? void 0 : frontmatter[MERGE_PUBLISH_FIELD];
+  if (raw === void 0 || raw === null) {
+    return true;
+  }
+  if (typeof raw === "boolean") {
+    return raw;
+  }
+  if (typeof raw === "string") {
+    return raw.trim().toLowerCase() !== "false";
+  }
+  return Boolean(raw);
+}
+function resolveAccount(app, file) {
+  var _a5;
+  const frontmatter = (_a5 = app.metadataCache.getFileCache(file)) == null ? void 0 : _a5.frontmatter;
+  const raw = frontmatter == null ? void 0 : frontmatter[ACCOUNT_FIELD];
+  const value = Array.isArray(raw) ? raw[0] : raw;
+  if (typeof value !== "string") {
+    return void 0;
+  }
+  const account = value.trim();
+  return account || void 0;
+}
+function runBatchPublish(app) {
+  const file = app.workspace.getActiveFile();
+  if (!(file instanceof import_obsidian24.TFile)) {
+    new import_obsidian24.Notice("\u8BF7\u5148\u6253\u5F00\u4F5C\u4E3A\u53D1\u5E03\u53C2\u6570\u7684\u7B14\u8BB0\u518D\u6267\u884C\u6279\u91CF\u53D1\u5E03");
+    return;
+  }
+  if (file.extension.toLowerCase() !== "md") {
+    new import_obsidian24.Notice("\u53C2\u6570\u7B14\u8BB0\u5FC5\u987B\u662F Markdown \u6587\u4EF6");
+    return;
+  }
+  const notes = resolvePublishList(app, file);
+  if (notes.length === 0) {
+    new import_obsidian24.Notice(`\u672A\u627E\u5230\u53EF\u53D1\u5E03\u7684\u7B14\u8BB0\uFF0C\u8BF7\u5728\u7B14\u8BB0\u5C5E\u6027\u4E2D\u914D\u7F6E\u300C${PUBLISH_LIST_FIELD}\u300D`);
+    return;
+  }
+  const merge = resolveMerge(app, file);
+  const account = resolveAccount(app, file);
+  new NotePubModal(app, notes, merge, account).open();
+}
 
 // src/lib/shot-render.es.js
 var B = globalThis;
@@ -125860,8 +126318,8 @@ g([
 customElements.get("shot-render") || customElements.define("shot-render", p);
 
 // src/image-bg-modal.ts
-var import_obsidian23 = require("obsidian");
-var ImageBGModal = class extends import_obsidian23.Modal {
+var import_obsidian25 = require("obsidian");
+var ImageBGModal = class extends import_obsidian25.Modal {
   constructor(app, plugin) {
     super(app);
     this.listener = null;
@@ -125871,7 +126329,7 @@ var ImageBGModal = class extends import_obsidian23.Modal {
   saveConfig(config2) {
     const settings = NMPSettings.getInstance();
     if (!settings.isAuthKeyVaild()) {
-      new import_obsidian23.Notice("\u8BF7\u5148\u8BBE\u7F6E\u6CE8\u518C\u7801", 5e3);
+      new import_obsidian25.Notice("\u8BF7\u5148\u8BBE\u7F6E\u6CE8\u518C\u7801", 5e3);
       return;
     }
     if (!settings.extraSettings) {
@@ -125880,7 +126338,7 @@ var ImageBGModal = class extends import_obsidian23.Modal {
       settings.extraSettings.imageFrame = config2;
     }
     this.plugin.saveSettings();
-    new import_obsidian23.Notice("\u4FDD\u5B58\u6210\u529F!", 2e3);
+    new import_obsidian25.Notice("\u4FDD\u5B58\u6210\u529F!", 2e3);
   }
   clearConfig() {
     const settings = NMPSettings.getInstance();
@@ -125889,7 +126347,7 @@ var ImageBGModal = class extends import_obsidian23.Modal {
     }
     settings.extraSettings.imageFrame = null;
     this.plugin.saveSettings();
-    new import_obsidian23.Notice("\u6E05\u7A7A\u914D\u7F6E\u6210\u529F!", 2e3);
+    new import_obsidian25.Notice("\u6E05\u7A7A\u914D\u7F6E\u6210\u529F!", 2e3);
   }
   onOpen() {
     let { contentEl, modalEl } = this;
@@ -125928,11 +126386,11 @@ var ImageBGModal = class extends import_obsidian23.Modal {
 };
 
 // src/wechat-manager.ts
-var import_obsidian25 = require("obsidian");
+var import_obsidian27 = require("obsidian");
 
 // src/ui/wechat-manager.tsx
 var import_react21 = __toESM(require_react());
-var import_obsidian24 = require("obsidian");
+var import_obsidian26 = require("obsidian");
 var ReactDOM10 = __toESM(require_client());
 
 // src/ui/wechat-manager.module.css
@@ -125997,7 +126455,7 @@ async function getToken(appid) {
   }
   return token;
 }
-var ConfirmModal = class extends import_obsidian24.Modal {
+var ConfirmModal = class extends import_obsidian26.Modal {
   constructor(app, title, message, onConfirm) {
     super(app);
     this.title = title;
@@ -126083,7 +126541,7 @@ function WechatManagerInternal({ modal }) {
       } catch (error) {
         if (!cancelled) {
           console.error(error);
-          new import_obsidian24.Notice("\u83B7\u53D6\u8349\u7A3F\u5931\u8D25\uFF1A" + error.message);
+          new import_obsidian26.Notice("\u83B7\u53D6\u8349\u7A3F\u5931\u8D25\uFF1A" + error.message);
         }
       } finally {
         if (!cancelled) setLoading(false);
@@ -126115,7 +126573,7 @@ function WechatManagerInternal({ modal }) {
       } catch (error) {
         if (!cancelled) {
           console.error(error);
-          new import_obsidian24.Notice("\u83B7\u53D6\u7D20\u6750\u5931\u8D25\uFF1A" + error.message);
+          new import_obsidian26.Notice("\u83B7\u53D6\u7D20\u6750\u5931\u8D25\uFF1A" + error.message);
         }
       } finally {
         if (!cancelled) setLoading(false);
@@ -126151,7 +126609,7 @@ function WechatManagerInternal({ modal }) {
           if (res.errcode && res.errcode !== 0) {
             throw new Error(res.errmsg || `\u9519\u8BEF\u7801 ${res.errcode}`);
           }
-          new import_obsidian24.Notice("\u8349\u7A3F\u5DF2\u5220\u9664");
+          new import_obsidian26.Notice("\u8349\u7A3F\u5DF2\u5220\u9664");
           if (drafts.length === 1 && draftPage > 0) {
             setDraftPage((page) => page - 1);
           } else {
@@ -126159,7 +126617,7 @@ function WechatManagerInternal({ modal }) {
           }
         } catch (error) {
           console.error(error);
-          new import_obsidian24.Notice("\u5220\u9664\u8349\u7A3F\u5931\u8D25\uFF1A" + error.message);
+          new import_obsidian26.Notice("\u5220\u9664\u8349\u7A3F\u5931\u8D25\uFF1A" + error.message);
         }
       }
     ).open();
@@ -126170,15 +126628,15 @@ function WechatManagerInternal({ modal }) {
     event.target.value = "";
     if (!file) return;
     if (!appid) {
-      new import_obsidian24.Notice("\u8BF7\u5148\u9009\u62E9\u516C\u4F17\u53F7");
+      new import_obsidian26.Notice("\u8BF7\u5148\u9009\u62E9\u516C\u4F17\u53F7");
       return;
     }
     if (!/\.(jpg|jpeg|png|gif|bmp|webp)$/i.test(file.name)) {
-      new import_obsidian24.Notice("\u4EC5\u652F\u6301\u56FE\u7247\u6587\u4EF6");
+      new import_obsidian26.Notice("\u4EC5\u652F\u6301\u56FE\u7247\u6587\u4EF6");
       return;
     }
     if (file.size > MAX_UPLOAD_SIZE) {
-      new import_obsidian24.Notice("\u56FE\u7247\u5927\u5C0F\u4E0D\u80FD\u8D85\u8FC7 2MB");
+      new import_obsidian26.Notice("\u56FE\u7247\u5927\u5C0F\u4E0D\u80FD\u8D85\u8FC7 2MB");
       return;
     }
     setUploading(true);
@@ -126189,11 +126647,11 @@ function WechatManagerInternal({ modal }) {
       if (!res.media_id) {
         throw new Error(res.errmsg || "\u4E0A\u4F20\u5931\u8D25");
       }
-      new import_obsidian24.Notice("\u4E0A\u4F20\u6210\u529F");
+      new import_obsidian26.Notice("\u4E0A\u4F20\u6210\u529F");
       setMaterialTick((tick) => tick + 1);
     } catch (error) {
       console.error(error);
-      new import_obsidian24.Notice("\u4E0A\u4F20\u7D20\u6750\u5931\u8D25\uFF1A" + error.message);
+      new import_obsidian26.Notice("\u4E0A\u4F20\u7D20\u6750\u5931\u8D25\uFF1A" + error.message);
     } finally {
       setUploading(false);
     }
@@ -126201,10 +126659,10 @@ function WechatManagerInternal({ modal }) {
   const copyMediaId = async (mediaId) => {
     try {
       await navigator.clipboard.writeText(mediaId);
-      new import_obsidian24.Notice("\u7D20\u6750ID\u5DF2\u590D\u5236");
+      new import_obsidian26.Notice("\u7D20\u6750ID\u5DF2\u590D\u5236");
     } catch (error) {
       console.error(error);
-      new import_obsidian24.Notice("\u590D\u5236\u5931\u8D25\uFF1A" + error.message);
+      new import_obsidian26.Notice("\u590D\u5236\u5931\u8D25\uFF1A" + error.message);
     }
   };
   const draftPages = Math.max(1, Math.ceil(draftTotal / DRAFT_PAGE_SIZE));
@@ -126366,7 +126824,7 @@ function createWechatManager(container, modal) {
 }
 
 // src/wechat-manager.ts
-var WechatManagerModal = class extends import_obsidian25.Modal {
+var WechatManagerModal = class extends import_obsidian27.Modal {
   constructor(app) {
     super(app);
     this.root = null;
@@ -126386,7 +126844,7 @@ var WechatManagerModal = class extends import_obsidian25.Modal {
 };
 
 // src/main.ts
-var NoteToMpPlugin = class extends import_obsidian26.Plugin {
+var NoteToMpPlugin = class extends import_obsidian28.Plugin {
   constructor(app, manifest) {
     super(app, manifest);
     AssetsManager.setup(app, manifest);
@@ -126443,19 +126901,26 @@ var NoteToMpPlugin = class extends import_obsidian26.Plugin {
       }
     });
     this.addCommand({
-      id: "note-to-mp-pub",
+      id: "pub",
       name: "\u53D1\u5E03\u516C\u4F17\u53F7\u6587\u7AE0",
       callback: () => {
         const file = this.app.workspace.getActiveFile();
-        if (!(file instanceof import_obsidian26.TFile)) {
-          new import_obsidian26.Notice("\u8BF7\u5148\u6253\u5F00\u8981\u53D1\u5E03\u7684\u7B14\u8BB0\u518D\u6267\u884C\u53D1\u5E03");
+        if (!(file instanceof import_obsidian28.TFile)) {
+          new import_obsidian28.Notice("\u8BF7\u5148\u6253\u5F00\u8981\u53D1\u5E03\u7684\u7B14\u8BB0\u518D\u6267\u884C\u53D1\u5E03");
           return;
         }
         if (file.extension.toLocaleLowerCase() !== "md") {
-          new import_obsidian26.Notice("\u53EA\u80FD\u53D1\u5E03 Markdown \u6587\u4EF6");
+          new import_obsidian28.Notice("\u53EA\u80FD\u53D1\u5E03 Markdown \u6587\u4EF6");
           return;
         }
         new NotePubModal(this.app, [file]).open();
+      }
+    });
+    this.addCommand({
+      id: "batch-pub",
+      name: "\u6279\u91CF\u53D1\u5E03\u516C\u4F17\u53F7\u6587\u7AE0",
+      callback: () => {
+        runBatchPublish(this.app);
       }
     });
     this.addCommand({
@@ -126470,12 +126935,12 @@ var NoteToMpPlugin = class extends import_obsidian26.Plugin {
       name: "\u8FD0\u884C\u5DE5\u4F5C\u6D41",
       callback: () => {
         const file = this.app.workspace.getActiveFile();
-        if (!(file instanceof import_obsidian26.TFile)) {
-          new import_obsidian26.Notice("\u8BF7\u5148\u6253\u5F00\u8981\u53D1\u5E03\u7684\u7B14\u8BB0\u518D\u6267\u884C\u53D1\u5E03");
+        if (!(file instanceof import_obsidian28.TFile)) {
+          new import_obsidian28.Notice("\u8BF7\u5148\u6253\u5F00\u8981\u53D1\u5E03\u7684\u7B14\u8BB0\u518D\u6267\u884C\u53D1\u5E03");
           return;
         }
         if (file.extension.toLocaleLowerCase() !== "md") {
-          new import_obsidian26.Notice("\u53EA\u80FD\u53D1\u5E03 Markdown \u6587\u4EF6");
+          new import_obsidian28.Notice("\u53EA\u80FD\u53D1\u5E03 Markdown \u6587\u4EF6");
           return;
         }
         new WorkflowRunModal(this.app, file).open();
@@ -126488,16 +126953,16 @@ var NoteToMpPlugin = class extends import_obsidian26.Plugin {
   }
   registerEvents() {
     const clickOnFile = (file, merge) => {
-      if (file instanceof import_obsidian26.TFile) {
+      if (file instanceof import_obsidian28.TFile) {
         if (file.extension.toLowerCase() !== "md") {
-          new import_obsidian26.Notice("\u53EA\u80FD\u53D1\u5E03 Markdown \u6587\u4EF6");
+          new import_obsidian28.Notice("\u53EA\u80FD\u53D1\u5E03 Markdown \u6587\u4EF6");
           return;
         }
         new NotePubModal(this.app, [file], merge).open();
-      } else if (file instanceof import_obsidian26.TFolder) {
+      } else if (file instanceof import_obsidian28.TFolder) {
         const files = [];
         file.children.forEach((child) => {
-          if (child instanceof import_obsidian26.TFile && child.extension.toLocaleLowerCase() === "md") {
+          if (child instanceof import_obsidian28.TFile && child.extension.toLocaleLowerCase() === "md") {
             files.push(child);
           }
         });
@@ -126507,7 +126972,7 @@ var NoteToMpPlugin = class extends import_obsidian26.Plugin {
     const clickOnFiles = (files, merge) => {
       const notes = [];
       files.forEach((child) => {
-        if (child instanceof import_obsidian26.TFile && child.extension.toLocaleLowerCase() === "md") {
+        if (child instanceof import_obsidian28.TFile && child.extension.toLocaleLowerCase() === "md") {
           notes.push(child);
         }
       });

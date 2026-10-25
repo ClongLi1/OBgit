@@ -1015,10 +1015,15 @@
   z-index: 10;
   pointer-events: none;
 }
-.MdToImageConverter_pageOffsetContainer {
+.md-to-image-page-content {
   width: 100%;
-  height: 100%;
-  position: relative;
+  box-sizing: border-box;
+}
+.md-to-image-page-sliced > :first-child {
+  margin-top: 0 !important;
+}
+.md-to-image-page-sliced > :last-child {
+  margin-bottom: 0 !important;
 }
 .MdToImageConverter_renderedContent {
   width: 100%;
