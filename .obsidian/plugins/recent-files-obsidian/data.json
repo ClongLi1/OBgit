@@ -1,16 +1,28 @@
 {
   "recentFiles": [
     {
+      "basename": "excalibrain",
+      "path": "excalibrain.md"
+    },
+    {
+      "basename": "02材料专业",
+      "path": "02专业知识/02材料专业.md"
+    },
+    {
+      "basename": "XRD(物相分析)",
+      "path": "02专业知识/XRD(物相分析).md"
+    },
+    {
+      "basename": "化学元素分析",
+      "path": "02专业知识/化学元素分析.md"
+    },
+    {
       "basename": "99必备技能",
       "path": "99-必备技能/99必备技能.md"
     },
     {
       "basename": "学术PPT制作技巧",
       "path": "00科研相关/学术PPT制作技巧.md"
-    },
-    {
-      "basename": "excalibrain",
-      "path": "excalibrain.md"
     },
     {
       "basename": "🎉Welcome to ClongLi's HomePage🫧",
@@ -101,10 +113,6 @@
       "path": "03软件网络/03软件电脑.md"
     },
     {
-      "basename": "购房知识",
-      "path": "01生活方面/购房知识.md"
-    },
-    {
       "basename": "01生活方面",
       "path": "01生活方面/01生活方面.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "⏮️随机音乐⏸️轻松愉悦⏭️",
       "path": "00草稿收集/⏮️随机音乐⏸️轻松愉悦⏭️.md"
-    },
-    {
-      "basename": "📚码力喵📚",
-      "path": "00草稿收集/🧰收纳箱/📚码力喵📚.md"
-    },
-    {
-      "basename": "认知体系",
-      "path": "999知识管理/认知体系.md"
     }
   ],
   "omittedPaths": [],
